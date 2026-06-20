@@ -1,9 +1,8 @@
 name: Chifbay Journal — generate post
 
-# Runs Tue & Fri at 09:00 UTC. Also runnable manually from the Actions tab.
+# Scheduled runs disabled — the blog now runs locally on the Mac (no API key needed).
+# Kept for optional manual runs only (would require an ANTHROPIC_API_KEY secret).
 on:
-  schedule:
-    - cron: "0 9 * * 2,5"
   workflow_dispatch: {}
 
 permissions:
