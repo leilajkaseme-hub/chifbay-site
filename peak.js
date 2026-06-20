@@ -17,3 +17,28 @@
 
   var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
 })();
+
+(function(){
+  var LL=["fr","de","pt","es","it"];
+  function langOf(href){var s=(href||"").split("/").filter(Boolean);return LL.indexOf(s[0])>=0?s[0]:"en";}
+  function pageFile(){var f=location.pathname.split("/").pop();return f||"index.html";}
+  var p=location.pathname.split("/").filter(Boolean);
+  var lang=(LL.indexOf(p[0])>=0)?p[0]:"en";
+  var cb=document.querySelector(".langcode"); if(cb) cb.textContent=lang.toUpperCase();
+  var menu=document.querySelectorAll(".langmenu a");
+  menu.forEach(function(a){
+    if(langOf(a.getAttribute("href"))===lang) a.classList.add("on");
+    a.addEventListener("click",function(){ try{localStorage.setItem("chifbay_lang", langOf(a.getAttribute("href")));}catch(e){} });
+  });
+  var ls=document.querySelector(".langsel"), btn=ls&&ls.querySelector(".langbtn");
+  if(btn){ btn.addEventListener("click",function(e){e.stopPropagation();ls.classList.toggle("open");});
+    document.addEventListener("click",function(){ls.classList.remove("open");}); }
+  fetch("/i18n-langs.json").then(function(r){return r.json();}).then(function(av){
+    menu.forEach(function(a){ var l=langOf(a.getAttribute("href")); if(av.indexOf(l)<0){ a.style.opacity=".35"; a.style.pointerEvents="none"; } });
+    var chosen=null; try{chosen=localStorage.getItem("chifbay_lang");}catch(e){}
+    if(lang==="en" && !chosen){
+      var nl=((navigator.languages&&navigator.languages[0])||navigator.language||"en").slice(0,2).toLowerCase();
+      if(nl!=="en" && av.indexOf(nl)>=0){ try{localStorage.setItem("chifbay_lang",nl);}catch(e){} location.replace("/"+nl+"/"+pageFile()); }
+    }
+  }).catch(function(){});
+})();

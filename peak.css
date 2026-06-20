@@ -305,3 +305,14 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
 .artcta{max-width:760px;margin:48px auto 0;padding:34px;border:1px solid rgba(224,190,122,.25);border-radius:var(--radius-lg);background:linear-gradient(145deg,rgba(224,190,122,.07),rgba(13,32,53,.5));text-align:center}
 .artcta h3{font-family:"Playfair Display",serif;font-size:1.6rem;font-weight:500;margin-bottom:10px}
 .artcta p{color:var(--paper-dim);margin-bottom:20px}
+
+/* ---------- LANGUAGE SWITCHER ---------- */
+.langsel{position:relative}
+.langbtn{background:none;border:1px solid var(--hair-strong);color:var(--paper);border-radius:100px;padding:7px 12px;font-size:.72rem;font-family:"Space Mono",monospace;letter-spacing:.08em;cursor:pointer;display:flex;align-items:center;gap:5px}
+.langbtn:hover{border-color:var(--teal);color:var(--teal)}
+.langmenu{position:absolute;top:130%;right:0;background:rgba(5,15,24,.98);backdrop-filter:blur(14px);border:1px solid var(--hair);border-radius:12px;padding:8px;display:none;flex-direction:column;min-width:150px;z-index:130}
+.langsel.open .langmenu{display:flex}
+.langmenu a{color:var(--paper-dim);text-decoration:none;font-size:.84rem;padding:9px 12px;border-radius:8px;transition:background .2s,color .2s}
+.langmenu a:hover{background:rgba(224,190,122,.12);color:var(--teal)}
+.langmenu a.on{color:var(--teal);font-weight:600}
+@media(max-width:860px){.langsel{margin-right:8px}.langmenu{right:auto;left:0}}
