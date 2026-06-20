@@ -1,0 +1,9 @@
+{
+  "name": "chifbay-blog-generator",
+  "private": true,
+  "type": "module",
+  "description": "Generates Chifbay Journal posts with Claude (Opus 4.8) + web search.",
+  "dependencies": {
+    "@anthropic-ai/sdk": "latest"
+  }
+}
