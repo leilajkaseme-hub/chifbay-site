@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://experiences.chifbay.com/</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://experiences.chifbay.com/experiences.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://experiences.chifbay.com/dolphin-whale-watching.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://experiences.chifbay.com/sunset-cruise.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://experiences.chifbay.com/hidden-coves-half-day.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://experiences.chifbay.com/coastal-discovery-full-day.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://experiences.chifbay.com/about.html</loc><changefreq>weekly</changefreq></url>
-  <url><loc>https://experiences.chifbay.com/contact.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/experiences.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/dolphin-whale-watching.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/sunset-cruise.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/hidden-coves-half-day.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/coastal-discovery-full-day.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/about.html</loc><changefreq>weekly</changefreq></url>
+  <url><loc>https://chifbay.com/contact.html</loc><changefreq>weekly</changefreq></url>
 </urlset>
