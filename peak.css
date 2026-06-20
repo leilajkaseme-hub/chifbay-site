@@ -316,3 +316,10 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
 .langmenu a:hover{background:rgba(224,190,122,.12);color:var(--teal)}
 .langmenu a.on{color:var(--teal);font-weight:600}
 @media(max-width:860px){.langsel{margin-right:8px}.langmenu{right:auto;left:0}}
+
+/* ---------- INDEXABLE GALLERY ---------- */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.gal{grid-template-columns:1fr 1fr}}
+.gal a{overflow:hidden;border-radius:var(--radius);display:block}
+.gal img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.15,.7,.15,1)}
+.gal a:hover img{transform:scale(1.07)}
