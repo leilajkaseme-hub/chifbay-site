@@ -27,7 +27,7 @@ const LANGS = {
 };
 const PAGES = [
   "index.html","experiences.html","about.html","contact.html",
-  "dolphin-whale-watching.html","sunset-cruise.html","hidden-coves-half-day.html",
+  "sunset-cruise.html","hidden-coves-half-day.html",
   "coastal-discovery-full-day.html","blog.html",
 ];
 
