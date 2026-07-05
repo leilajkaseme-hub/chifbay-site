@@ -36,3 +36,13 @@ jobs:
           done
           echo "::error::Pages deployment still stale after 3 heal attempts — check GitHub Pages status"
           exit 1
+
+      # Push notification to the ntfy app if the heal could not fix the site.
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY site is STALE (heal failed)" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "chifbay.com is serving an old deploy and auto-heal could not fix it. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

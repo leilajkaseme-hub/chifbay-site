@@ -66,3 +66,13 @@ jobs:
           done
           echo "::error::Post is still not live after 4 heal attempts — check GitHub Pages status"
           exit 1
+
+      # Push notification to the ntfy app if anything above failed.
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY blog post FAILED" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "Today's Chifbay Journal auto-post failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true
