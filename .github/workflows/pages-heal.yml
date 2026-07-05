@@ -1,0 +1,38 @@
+name: Pages heal — keep chifbay.com in sync
+
+# Safety net: every 6 hours, checks that the LIVE GitHub Pages deployment is
+# built from the latest commit on main. If a deploy failed (transient GitHub
+# errors happen) or the site is stale for any reason, it requests fresh Pages
+# builds until live matches main. Catches failures from ANY push (blog posts,
+# translations, manual edits), not just the daily Journal post.
+on:
+  schedule:
+    - cron: "23 */6 * * *"   # 00:23, 06:23, 12:23, 18:23 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+
+jobs:
+  heal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compare live Pages build with main and heal if stale
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          HEAD_SHA=$(gh api "repos/${GITHUB_REPOSITORY}/commits/main" --jq .sha)
+          for attempt in 1 2 3; do
+            STATUS=$(gh api "repos/${GITHUB_REPOSITORY}/pages/builds/latest" --jq .status || echo unknown)
+            BUILT=$(gh api "repos/${GITHUB_REPOSITORY}/pages/builds/latest" --jq .commit || echo none)
+            if [ "$STATUS" = "built" ] && [ "$BUILT" = "$HEAD_SHA" ]; then
+              echo "OK: live site is current (commit $BUILT)"
+              exit 0
+            fi
+            echo "Stale or failed deploy (status=$STATUS, live=$BUILT, main=$HEAD_SHA) — requesting a fresh build (attempt $attempt)"
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || true
+            sleep 90
+          done
+          echo "::error::Pages deployment still stale after 3 heal attempts — check GitHub Pages status"
+          exit 1

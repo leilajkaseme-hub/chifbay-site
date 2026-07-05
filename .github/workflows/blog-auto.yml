@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  pages: write      # lets the self-heal step request a fresh Pages build
 
 jobs:
   post:
@@ -40,3 +41,28 @@ jobs:
             --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "WebSearch" "WebFetch" \
                            "Bash(date:*)" "Bash(git add:*)" "Bash(git commit:*)" \
                            "Bash(git push:*)" "Bash(git pull:*)" "Bash(git status:*)" "Bash(git log:*)"
+
+      # GitHub Pages deploys can fail transiently ("Deployment failed, try again
+      # later") — when that happens the post is committed but never goes live.
+      # This step waits for the new post to appear on chifbay.com and, if it
+      # doesn't, requests fresh Pages builds until it does.
+      - name: Verify post is live (self-heal Pages deploy)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git pull --rebase origin main || true
+          SLUG=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['slug'])")
+          echo "Waiting for slug '$SLUG' to appear on the live site…"
+          live_ok() {
+            curl -sf --max-time 20 "https://chifbay.com/posts/posts.json?nocache=$(date +%s)" | grep -q "\"$SLUG\""
+          }
+          for attempt in 1 2 3 4; do
+            for i in $(seq 1 12); do
+              if live_ok; then echo "OK: post is live (attempt $attempt)"; exit 0; fi
+              sleep 20
+            done
+            echo "Still not live — requesting a fresh Pages build (attempt $attempt)"
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || true
+          done
+          echo "::error::Post is still not live after 4 heal attempts — check GitHub Pages status"
+          exit 1
