@@ -1,5 +1,16 @@
 [
   {
+    "slug": "madeira-wine-guide",
+    "title": "Madeira Wine: The Complete Guide to the Island's Legendary Fortified Wine",
+    "category": "Food & Drink",
+    "date": "2026-07-08",
+    "description": "Sercial, Verdelho, Bual, Malmsey — a practical guide to Madeira wine: how it's made, why it survives centuries, which style to order, and where to taste it in Funchal.",
+    "heroImage": "assets/exp-sunset.jpg",
+    "heroAlt": "Glasses of wine raised against a Madeira sunset aboard a private boat",
+    "readingMinutes": 7,
+    "keywords": ["Madeira wine guide","what is Madeira wine","Sercial Verdelho Bual Malmsey","Madeira fortified wine","estufagem Madeira wine","Old Blandy Wine Lodge","Madeira wine tasting Funchal","Madeira wine vs port","best Madeira wine","Tinta Negra grape"]
+  },
+  {
     "slug": "getting-around-madeira-guide",
     "title": "Getting Around Madeira: Buses, Taxis, Car Hire & Cable Cars (2026 Guide)",
     "category": "Guide",
