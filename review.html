@@ -7,7 +7,7 @@
 <link rel="icon" href="assets/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
-<meta name="description" content="Sailed with Chifbay? Share your experience — leave us a review on Tripadvisor or Google. It takes a minute and means the world to our small family crew.">
+<meta name="description" content="Sailed with Chifbay? Rate your trip right here — happy guests get a one-tap link to Tripadvisor or Google, and the skipper personally reads everything else.">
 <link rel="canonical" href="https://chifbay.com/review.html"/>
 <meta property="og:title" content="Leave a Review | Chifbay"/>
 <meta property="og:image" content="https://chifbay.com/assets/g-silhouette.jpg"/>
@@ -17,13 +17,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="peak.css"/>
 <style>
-.rvw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;max-width:860px;margin:0 auto}
-@media(max-width:760px){.rvw-grid{grid-template-columns:1fr}}
-.rvw-grid .ccard{text-align:center;display:flex;flex-direction:column;align-items:center}
-.rvw-grid .ccard p{flex:1}
-.rvw-grid .btn{margin-top:18px;width:100%;justify-content:center;text-align:center}
-.rvw-alt{display:block;margin-top:12px;font-size:.82rem;opacity:.65}
-.rvw-stars{letter-spacing:6px;font-size:1.05rem;margin-bottom:10px}
+.rvw-wrap{max-width:640px;margin:0 auto}
+.rvw-wrap .ccard{text-align:center}
+.rvw-stars{display:flex;justify-content:center;gap:10px;margin:18px 0 6px}
+.rvw-stars button{background:none;border:none;cursor:pointer;font-size:2.6rem;line-height:1;padding:4px;color:rgba(255,255,255,.25);transition:transform .12s ease,color .12s ease}
+.rvw-stars button.on{color:#e3b264;text-shadow:0 0 22px rgba(227,178,100,.45)}
+.rvw-stars button:hover{transform:scale(1.18)}
+.rvw-hintline{font-size:.85rem;opacity:.6;margin-top:4px}
+.rvw-panel{display:none;margin-top:8px}
+.rvw-panel.show{display:block;animation:rvwin .45s ease}
+@keyframes rvwin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.rvw-btns{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.rvw-btns .btn{width:100%;justify-content:center;text-align:center}
+.rvw-alt{display:block;margin-top:10px;font-size:.82rem;opacity:.65}
+.rvw-note{font-size:.8rem;opacity:.55;margin-top:14px}
+.rvw-webview{display:none;margin-top:16px;padding:12px 14px;border:1px solid rgba(227,178,100,.4);border-radius:10px;font-size:.85rem;line-height:1.5;background:rgba(227,178,100,.07)}
+.rvw-webview.show{display:block}
+.rvw-form{display:flex;flex-direction:column;gap:12px;margin-top:20px;text-align:left}
+.rvw-form input,.rvw-form textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:13px 15px;color:#fff;font-family:'Inter',sans-serif;font-size:.95rem}
+.rvw-form textarea{min-height:120px;resize:vertical}
+.rvw-form input::placeholder,.rvw-form textarea::placeholder{color:rgba(255,255,255,.4)}
+.rvw-form input:focus,.rvw-form textarea:focus{outline:none;border-color:#e3b264}
+.rvw-reset{background:none;border:none;color:rgba(255,255,255,.5);font-size:.82rem;cursor:pointer;margin-top:18px;text-decoration:underline}
+.rvw-ok{font-size:1rem;line-height:1.6;padding:10px 0}
+.rvw-hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
 </style>
 </head>
 <body>
@@ -48,28 +65,63 @@
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Thank you for sailing with us</div>
-    <h1 class="rv in">Loved your time on the <em>water</em>?</h1>
-    <p class="hsub rv in d1">A review takes one minute — and for a small family crew like ours, it makes all the difference. Choose whichever you use most:</p>
+    <h1 class="rv in">How was your time on the <em>water</em>?</h1>
+    <p class="hsub rv in d1">Tap a star below — it takes less than a minute, and it means the world to a small family crew.</p>
   </div>
 </header>
 
 <section class="pad">
   <div class="wrap">
-    <div class="rvw-grid">
-      <div class="ccard rv">
-        <div class="rvw-stars">🟢🟢🟢🟢🟢</div>
-        <div class="ico2">🦉</div>
-        <h3>Tripadvisor</h3>
-        <p>Help fellow travellers find us — share what your trip was like, in your own language.</p>
-        <a class="btn btn-p btn-lg" href="https://www.tripadvisor.com/UserReviewEdit-g189167-d34387047-ChifBay_Luxury_Yacht_Experiences_Madeira-Funchal_Madeira_Madeira_Islands.html" target="_blank" rel="noopener">Write a Tripadvisor review →</a>
-      </div>
-      <div class="ccard rv d1">
-        <div class="rvw-stars">⭐⭐⭐⭐⭐</div>
-        <div class="ico2">📍</div>
-        <h3>Google</h3>
-        <p>One tap if you're signed in to Google — rate us and drop a line (photos welcome!).</p>
-        <a class="btn btn-p btn-lg" href="https://search.google.com/local/writereview?placeid=ChIJLUOnXLFhYAwRzK7dtdeu8Js" target="_blank" rel="noopener">Write a Google review →</a>
-        <a class="rvw-alt" href="https://maps.google.com/?cid=11236673311781793484" target="_blank" rel="noopener">or open our Google listing</a>
+    <div class="rvw-wrap">
+      <div class="ccard rv in">
+
+        <!-- Step 1 — rate on OUR page -->
+        <div id="rvwStep1">
+          <h3 id="rvwTitle">Rate your trip</h3>
+          <div class="rvw-stars" id="rvwStars" role="radiogroup" aria-label="Rate your trip from 1 to 5 stars">
+            <button type="button" data-v="1" aria-label="1 star">★</button>
+            <button type="button" data-v="2" aria-label="2 stars">★</button>
+            <button type="button" data-v="3" aria-label="3 stars">★</button>
+            <button type="button" data-v="4" aria-label="4 stars">★</button>
+            <button type="button" data-v="5" aria-label="5 stars">★</button>
+          </div>
+          <div class="rvw-hintline" id="rvwHint">Tap to rate</div>
+        </div>
+
+        <!-- Step 2A — happy: send them where it counts -->
+        <div class="rvw-panel" id="rvwHappy">
+          <p style="margin-top:14px">Wonderful! Would you share it publicly? Your stars are pre-selected — just paste your thoughts.</p>
+          <div class="rvw-btns">
+            <a class="btn btn-p btn-lg" id="rvwBtnG" href="#" target="_blank" rel="noopener">Post it on Google →</a>
+            <a class="btn btn-g btn-lg" id="rvwBtnT" href="#" target="_blank" rel="noopener">Post it on Tripadvisor →</a>
+          </div>
+          <a class="rvw-alt" id="rvwMaps" href="#" style="display:none" target="_blank" rel="noopener">or open our listing in the Google Maps app</a>
+          <div class="rvw-webview" id="rvwWebview">
+            💡 You're inside an in-app browser, so Google may ask you to sign in.
+            <span id="rvwWvIos">Tap <strong>···</strong> (or the share icon) and choose <strong>“Open in Safari”</strong> — you'll already be signed in there.</span>
+            <span id="rvwWvAnd" style="display:none">We'll open your main browser automatically — you're already signed in there.</span>
+          </div>
+          <div class="rvw-note">Tripadvisor asks for a free account · Google works with any Google login</div>
+        </div>
+
+        <!-- Step 2B — not happy: private line to the skipper, never public -->
+        <div class="rvw-panel" id="rvwSad">
+          <p style="margin-top:14px">We're sorry it wasn't perfect — and we'd like to make it right. This goes <strong>directly and privately to the skipper's phone</strong>, not to the internet.</p>
+          <form class="rvw-form" id="rvwForm">
+            <input type="text" name="website" class="rvw-hp" tabindex="-1" autocomplete="off"/>
+            <textarea name="message" placeholder="What happened? What could we have done better?" required></textarea>
+            <input type="text" name="name" placeholder="Your name (optional)"/>
+            <input type="email" name="email" placeholder="Email — only if you'd like a reply (optional)"/>
+            <button class="btn btn-p btn-lg" type="submit" id="rvwSend">Send to the skipper</button>
+          </form>
+        </div>
+
+        <!-- Step 3 — private feedback sent -->
+        <div class="rvw-panel" id="rvwDone">
+          <div class="rvw-ok">🤍 <strong>Thank you.</strong> Your message just reached the skipper's phone — if you left an email, you'll hear back personally, usually the same day.</div>
+        </div>
+
+        <button class="rvw-reset" id="rvwReset" style="display:none" type="button">← change my rating</button>
       </div>
     </div>
   </div>
@@ -83,11 +135,11 @@
       <div class="ctain">
         <div class="eyebrow gold" style="justify-content:center;margin-bottom:18px">Obrigado · Thank you · Merci · Danke</div>
         <h2>See you back on the Atlantic</h2>
-        <p>Your photos and words help other travellers trust a small independent crew over the big operators. If anything wasn't perfect, tell the skipper first — we make things right.</p>
+        <p>Your photos and words help other travellers trust a small independent crew over the big operators. Every single review is read aboard.</p>
         <div class="cact">
           <a class="btn btn-g btn-lg" href="https://wa.me/351937200320" target="_blank" rel="noopener">Message the skipper on WhatsApp</a>
         </div>
-        <div class="cph">Booked friends or family next? · <a href="experiences.html">Check live availability</a></div>
+        <div class="cph">Booking friends or family next? · <a href="experiences.html">Check live availability</a></div>
       </div>
     </div>
   </div>
@@ -123,5 +175,110 @@
 <a class="wa" href="https://wa.me/351937200320" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
 
 <script src="peak.js"></script>
+<script>
+(function(){
+  var GURL = 'https://search.google.com/local/writereview?placeid=ChIJLUOnXLFhYAwRzK7dtdeu8Js';
+  var TURL = 'https://www.tripadvisor.com/UserReviewEdit-g189167-d34387047-ChifBay_Luxury_Yacht_Experiences_Madeira-Funchal_Madeira_Madeira_Islands.html';
+  var GW   = 'https://store-gateway.vercel.app/';
+
+  var ua = navigator.userAgent || '';
+  var inApp   = /(Instagram|FBAN|FBAV|FB_IAB|WhatsApp|Messenger|TikTok|Snapchat|musical_ly|Line\/)/i.test(ua);
+  var iOS     = /iPhone|iPad|iPod/i.test(ua);
+  var android = /Android/i.test(ua);
+
+  // Android in-app browsers honour intent:// and hand off to the DEFAULT
+  // browser (where the visitor is signed in to Google). iOS has no reliable
+  // programmatic escape, so we try the x-safari- scheme and show a hint.
+  function smart(url){
+    if (android && inApp) return 'intent://' + url.replace(/^https?:\/\//,'') + '#Intent;scheme=https;end';
+    return url;
+  }
+
+  var $ = function(id){ return document.getElementById(id); };
+  var rating = 0;
+
+  $('rvwBtnG').href = smart(GURL);
+  $('rvwBtnT').href = smart(TURL);
+
+  if (inApp) {
+    $('rvwWebview').className = 'rvw-webview show';
+    if (android) { $('rvwWvIos').style.display = 'none'; $('rvwWvAnd').style.display = 'inline'; }
+  }
+
+  // iOS in-app: attempt to break out to Safari (signed-in Google session);
+  // if the scheme is ignored we fall back to the normal link.
+  function iosEscape(el, url){
+    el.addEventListener('click', function(ev){
+      if (!(iOS && inApp)) return;
+      ev.preventDefault();
+      var t = Date.now();
+      location.href = 'x-safari-' + url;
+      setTimeout(function(){ if (!document.hidden && Date.now() - t < 2400) location.href = url; }, 1500);
+    });
+  }
+  iosEscape($('rvwBtnG'), GURL);
+  iosEscape($('rvwBtnT'), TURL);
+
+  // "Open in the Google Maps app" — mobile only. Inside Maps the visitor is
+  // always signed in: open our listing, tap the stars, done.
+  if (iOS || android) {
+    var m = $('rvwMaps');
+    m.style.display = 'block';
+    m.href = iOS ? 'comgooglemaps://?q=Chifbay+Marina+do+Funchal&center=32.6460244,-16.9104595'
+                 : 'geo:32.6460244,-16.9104595?q=Chifbay+Marina+do+Funchal';
+    m.addEventListener('click', function(){
+      var t = Date.now();
+      setTimeout(function(){ if (!document.hidden && Date.now() - t < 2600) location.href = 'https://maps.google.com/?cid=11236673311781793484'; }, 1700);
+    });
+  }
+
+  // ---- star widget -------------------------------------------------------
+  var stars = Array.prototype.slice.call($('rvwStars').querySelectorAll('button'));
+  function paint(n){ stars.forEach(function(b){ b.className = (+b.getAttribute('data-v') <= n) ? 'on' : ''; }); }
+  function show(n){
+    rating = n; paint(n);
+    $('rvwHappy').className = 'rvw-panel' + (n >= 4 ? ' show' : '');
+    $('rvwSad').className   = 'rvw-panel' + (n >= 1 && n <= 3 ? ' show' : '');
+    $('rvwDone').className  = 'rvw-panel';
+    $('rvwHint').textContent = n >= 4 ? 'Thank you! One more tap below…' : 'Thanks for your honesty — talk to us below.';
+    $('rvwReset').style.display = 'inline';
+  }
+  stars.forEach(function(b){
+    b.addEventListener('mouseenter', function(){ if (!rating) paint(+b.getAttribute('data-v')); });
+    b.addEventListener('mouseleave', function(){ if (!rating) paint(0); });
+    b.addEventListener('click', function(){ show(+b.getAttribute('data-v')); });
+  });
+  $('rvwReset').addEventListener('click', function(){
+    rating = 0; paint(0);
+    ['rvwHappy','rvwSad','rvwDone'].forEach(function(id){ $(id).className = 'rvw-panel'; });
+    $('rvwHint').textContent = 'Tap to rate';
+    this.style.display = 'none';
+  });
+
+  // ---- private feedback → skipper's phone (store-gateway contact push) ---
+  $('rvwForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var f = ev.target;
+    if (f.elements.website.value) return;                       // honeypot
+    var msgEl = f.elements.message;
+    if (!msgEl.value.trim()) { msgEl.focus(); return; }
+    $('rvwSend').disabled = true; $('rvwSend').textContent = 'Sending…';
+    var payload = JSON.stringify({
+      type: 'contact', store: 'chifbay',
+      name: f.elements.name.value.trim(),
+      email: f.elements.email.value.trim(),
+      message: 'PRIVATE FEEDBACK ' + rating + '★ (review page)\n\n' + msgEl.value.trim()
+    });
+    // text/plain keeps the request preflight-free; the gateway parses raw JSON.
+    fetch(GW, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: payload })
+      .then(function(r){ return r.json(); })
+      .then(function(){ $('rvwSad').className = 'rvw-panel'; $('rvwDone').className = 'rvw-panel show'; })
+      .catch(function(){
+        // Never dead-end an unhappy guest: fall back to WhatsApp with the text.
+        location.href = 'https://wa.me/351937200320?text=' + encodeURIComponent('Private feedback (' + rating + '*): ' + msgEl.value.trim());
+      });
+  });
+})();
+</script>
 </body>
 </html>
