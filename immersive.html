@@ -40,6 +40,22 @@
   .num{font-family:'Playfair Display',serif;font-style:italic;color:var(--dimmer);font-size:15px}
   .body{font-size:clamp(15px,1.1vw,17px);color:var(--dim);font-weight:300;line-height:1.8;max-width:52ch}
 
+  /* ===== FOND CINÉMA : une couche par chapitre, vidéo si elle existe, sinon photo ===== */
+  #bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--ink)}
+  .lay{position:absolute;inset:0;opacity:0;will-change:opacity}
+  .lay.on{opacity:1}
+  .lay video,.lay img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transform:scale(1.08);will-change:transform}
+  /* dérive lente type Ken Burns — le plan ne doit jamais paraître figé */
+  .lay img{animation:drift 26s ease-in-out infinite alternate}
+  @keyframes drift{from{transform:scale(1.06) translate(0,0)}to{transform:scale(1.16) translate(-1.5%,-1%)}}
+  /* étalonnage : c'est lui qui fait "coucher le soleil" au fil du scroll */
+  #grade{position:fixed;inset:0;z-index:1;pointer-events:none;transition:background 1.6s ease}
+  .grain{position:fixed;inset:-100%;z-index:2;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 8s steps(10) infinite}
+  @keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-8%)}30%{transform:translate(3%,-5%)}50%{transform:translate(-8%,3%)}70%{transform:translate(6%,8%)}90%{transform:translate(-3%,5%)}}
+
   /* CHROME */
   #loader{position:fixed;inset:0;z-index:500;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
   #loader .mark{font-family:'Playfair Display',serif;font-size:32px;letter-spacing:.04em}
@@ -47,12 +63,6 @@
   #loader .bar{width:min(180px,50vw);height:1px;background:var(--hair)}
   #loader .bar i{display:block;height:100%;width:0%;background:var(--gold)}
   #loader .pct{font-size:10px;letter-spacing:.36em;color:var(--dimmer);font-variant-numeric:tabular-nums}
-
-  #gl{position:fixed;inset:0;z-index:0;display:block}
-  .grain{position:fixed;inset:-100%;z-index:1;pointer-events:none;opacity:.03;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-    animation:grain 8s steps(10) infinite}
-  @keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-8%)}30%{transform:translate(3%,-5%)}50%{transform:translate(-8%,3%)}70%{transform:translate(6%,8%)}90%{transform:translate(-3%,5%)}}
 
   #cur,#ring{position:fixed;top:0;left:0;z-index:600;pointer-events:none;border-radius:50%;opacity:0;will-change:transform}
   #cur{width:5px;height:5px;background:var(--gold);margin:-2.5px 0 0 -2.5px}
@@ -83,15 +93,15 @@
   .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
 
   /* SECTIONS */
-  main{position:relative;z-index:2}
+  main{position:relative;z-index:3}
   .pad{padding:clamp(90px,13vh,168px) clamp(20px,5vw,64px);position:relative}
   .pad::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-    background:linear-gradient(180deg,rgba(5,15,24,0) 0%,rgba(5,15,24,.62) 14%,rgba(5,15,24,.80) 50%,rgba(5,15,24,.62) 86%,rgba(5,15,24,0) 100%)}
+    background:linear-gradient(180deg,rgba(5,15,24,0) 0%,rgba(5,15,24,.66) 14%,rgba(5,15,24,.84) 50%,rgba(5,15,24,.66) 86%,rgba(5,15,24,0) 100%)}
   .wrap{max-width:1400px;margin:0 auto;width:100%}
 
   #hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,8vh,88px);position:relative}
   #hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-    background:linear-gradient(180deg,rgba(5,15,24,.34) 0%,rgba(5,15,24,0) 26%,rgba(5,15,24,.30) 52%,rgba(5,15,24,.78) 100%)}
+    background:linear-gradient(180deg,rgba(5,15,24,.34) 0%,rgba(5,15,24,.04) 28%,rgba(5,15,24,.36) 56%,rgba(5,15,24,.82) 100%)}
   .coords{position:absolute;top:104px;right:clamp(20px,5vw,64px);font-size:10px;letter-spacing:.28em;color:var(--dimmer);text-align:right;line-height:2.1}
   @media(max-width:800px){.coords{display:none}}
   .hero-in{max-width:1400px;margin:0 auto;width:100%;padding:0 clamp(20px,5vw,64px)}
@@ -105,7 +115,7 @@
 
   .statement{max-width:20ch}
   .pillars{margin-top:clamp(56px,9vh,104px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair-soft);border:1px solid var(--hair-soft)}
-  .pillar{background:rgba(5,15,24,.72);backdrop-filter:blur(10px);padding:clamp(30px,3vw,46px) clamp(24px,2.4vw,38px)}
+  .pillar{background:rgba(5,15,24,.66);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:clamp(30px,3vw,46px) clamp(24px,2.4vw,38px)}
   .pillar .num{display:block;margin-bottom:20px}
   .pillar h3{font-family:'Playfair Display',serif;font-size:clamp(21px,1.9vw,27px);font-weight:400;margin-bottom:14px}
   .pillar p{font-size:14.5px;color:var(--dim);line-height:1.85;font-weight:300}
@@ -152,7 +162,7 @@
   .quote-wrap h2{max-width:16ch;margin-left:auto;margin-right:auto}
   .attrib{margin-top:30px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dimmer);text-align:center}
   .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair-soft);border:1px solid var(--hair-soft);margin-top:clamp(50px,7vh,88px)}
-  .rev{background:rgba(5,15,24,.72);backdrop-filter:blur(10px);padding:clamp(28px,2.6vw,42px)}
+  .rev{background:rgba(5,15,24,.66);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:clamp(28px,2.6vw,42px)}
   .rev .st{color:var(--gold);letter-spacing:.3em;font-size:10px;margin-bottom:18px}
   .rev p{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;line-height:1.7;color:var(--paper);margin-bottom:20px}
   .rev span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer)}
@@ -171,9 +181,9 @@
   .fact{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:16px 0;border-bottom:1px solid var(--hair-soft);font-size:14px;color:var(--dim)}
   .fact span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer)}
 
-  footer{position:relative;z-index:2;border-top:1px solid var(--hair-soft);padding:42px clamp(20px,5vw,64px);
+  footer{position:relative;z-index:3;border-top:1px solid var(--hair-soft);padding:42px clamp(20px,5vw,64px);
     display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--dimmer);
-    background:rgba(5,15,24,.88);backdrop-filter:blur(10px)}
+    background:rgba(5,15,24,.9);backdrop-filter:blur(10px)}
   footer a:hover{color:var(--gold)}
   footer .fl{display:flex;gap:22px;flex-wrap:wrap}
 
@@ -181,7 +191,7 @@
   .ch{display:inline-block;will-change:transform,opacity}
   .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
   .wd{display:inline-block;white-space:nowrap}
-  @media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none} .grain,.scrollcue i{animation:none} }
+  @media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none} .grain,.scrollcue i,.lay img{animation:none} }
 </style>
 </head>
 <body>
@@ -192,8 +202,18 @@
   <div class="pct" id="loadpct">0%</div>
 </div>
 
-<canvas id="gl"></canvas>
+<!-- une couche par chapitre : la vidéo si assets/v/<id>.mp4 existe, sinon la photo -->
+<div id="bg">
+  <div class="lay" data-ch="hero"   data-video="assets/hero.mp4"    data-poster="assets/x/hero-still.jpg"></div>
+  <div class="lay" data-ch="story"  data-video="assets/v/story.mp4"  data-poster="assets/x/exp-coves.jpg"></div>
+  <div class="lay" data-ch="vessel" data-video="assets/v/vessel.mp4" data-poster="assets/x/deck.jpg"></div>
+  <div class="lay" data-ch="tours"  data-video="assets/v/tours.mp4"  data-poster="assets/x/dolphins.jpg"></div>
+  <div class="lay" data-ch="golden" data-video="assets/v/golden.mp4" data-poster="assets/x/funchal-goldenhour.jpg"></div>
+  <div class="lay" data-ch="book"   data-video="assets/v/book.mp4"   data-poster="assets/x/closing.jpg"></div>
+</div>
+<div id="grade"></div>
 <div class="grain"></div>
+
 <div id="cur"></div><div id="ring"></div>
 <div id="prog"></div>
 <div id="index"><b id="ixnum">I</b><span id="ixname">Arrival</span></div>
@@ -405,424 +425,218 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
+<script>
+(function(){
+  const q=new URLSearchParams(location.search);
+  const SHOT=q.has('once');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const MOBILE=innerWidth<900 || !fine;
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ignoreMobileResize:true});
 
-<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
-<script type="module">
-import * as THREE from 'three';
-import {EffectComposer} from './vendor/jsm/postprocessing/EffectComposer.js';
-import {RenderPass} from './vendor/jsm/postprocessing/RenderPass.js';
-import {UnrealBloomPass} from './vendor/jsm/postprocessing/UnrealBloomPass.js';
-import {OutputPass} from './vendor/jsm/postprocessing/OutputPass.js';
+  /* ---------- FOND ---------- */
+  // Étalonnage par chapitre : le jour tombe au fil du scroll, sans 3D.
+  const GRADE={
+    hero:  'linear-gradient(180deg,rgba(8,30,52,.16),rgba(5,15,24,.12))',
+    story: 'linear-gradient(180deg,rgba(10,38,60,.34),rgba(5,15,24,.30))',
+    cin1:  'linear-gradient(180deg,rgba(10,38,60,.30),rgba(5,15,24,.30))',
+    vessel:'linear-gradient(180deg,rgba(28,52,66,.32),rgba(5,15,24,.34))',
+    tours: 'linear-gradient(180deg,rgba(70,58,52,.34),rgba(5,15,24,.38))',
+    cin2:  'linear-gradient(180deg,rgba(40,54,60,.30),rgba(5,15,24,.36))',
+    golden:'linear-gradient(180deg,rgba(120,62,30,.36),rgba(14,20,40,.46))',
+    book:  'linear-gradient(180deg,rgba(20,26,64,.44),rgba(5,10,20,.60))'
+  };
+  const grade=document.getElementById('grade');
+  const layers=[...document.querySelectorAll('.lay')];
+  const byCh={};
+  layers.forEach(l=>{ byCh[l.dataset.ch]=l; });
 
-const q=new URLSearchParams(location.search);
-const SHOT=q.has('once');
-const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
-const MOBILE=innerWidth<900 || !fine;
-const PERF={post:!MOBILE, dpr:MOBILE?1.4:1.8, seg:MOBILE?110:220};
-gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.config({ignoreMobileResize:true});
+  // Chaque couche : on tente la vidéo, on retombe sur la photo si elle n'existe pas.
+  layers.forEach(l=>{
+    const img=document.createElement('img');
+    img.src=l.dataset.poster; img.alt=''; img.decoding='async';
+    l.appendChild(img);
 
-/* LOADER */
-const loader=document.getElementById('loader'), pctEl=document.getElementById('loadpct'), barEl=document.getElementById('loadbar');
-let fake=0, loaded=false;
-const ft=setInterval(()=>{ fake=Math.min(fake+Math.random()*12,92); pctEl.textContent=Math.round(fake)+'%'; barEl.style.width=fake+'%'; },80);
-function finishLoad(){
-  if(loaded) return; loaded=true;
-  clearInterval(ft);
-  pctEl.textContent='100%'; barEl.style.width='100%';
-  if(SHOT){ loader.style.display='none'; return; }
-  gsap.timeline({delay:.25})
-    .to(loader,{clipPath:'inset(0 0 100% 0)',duration:1.1,ease:'power4.inOut'})
-    .set(loader,{display:'none'})
-    .add(heroIn,'-=.6');
-}
-setTimeout(finishLoad, 4500);
+    if(SHOT || !l.dataset.video) return;
+    const v=document.createElement('video');
+    v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('playsinline','');
+    v.preload='none'; v.poster=l.dataset.poster; v.style.opacity='0';
+    v.style.transition='opacity 1.2s ease';
+    v.addEventListener('loadeddata',()=>{ v.style.opacity='1'; v.playbackRate=.6; },{once:true});
+    v.addEventListener('error',()=>v.remove());   // pas de clip → la photo reste
+    v.src=l.dataset.video;
+    l.appendChild(v);
+    l._v=v;
+  });
 
-/* SPLIT */
-function split(el){
-  const lines=el.textContent.split('|');
-  const it=(el.dataset.it||'').trim();
-  el.textContent='';
-  const chars=[];
-  lines.forEach(line=>{
-    const ln=document.createElement('span'); ln.className='ln';
-    const isIt = it && line.trim()===it;
-    line.split(' ').forEach((w,wi)=>{
-      if(wi) ln.appendChild(document.createTextNode(' '));
-      const wd=document.createElement('span'); wd.className='wd';
-      [...w].forEach(c=>{
-        const s=document.createElement('span');
-        s.className='ch'+(isIt?' it':'');
-        s.textContent=c; wd.appendChild(s); chars.push(s);
+  function show(ch){
+    layers.forEach(l=>{
+      const on=(l.dataset.ch===ch);
+      l.classList.toggle('on',on);
+      const v=l._v; if(!v) return;
+      if(on){ if(v.preload==='none'){ v.preload='auto'; v.load(); } v.play().catch(()=>{}); }
+      else v.pause();
+    });
+  }
+  layers.forEach(l=>l.style.transition='opacity 1.6s ease');   // pas de gsap.set ici : l'inline écraserait .lay.on
+  byCh.hero.classList.add('on');
+  grade.style.background=GRADE.hero;
+
+  /* ---------- CHAPITRES ---------- */
+  // cin1/cin2 sont des plans plein cadre : le fond garde le chapitre précédent.
+  const CH=[['hero','—','Arrival','hero'],['story','I','The idea','story'],['cin1','—','Cabo Girão','story'],
+            ['vessel','II','The boat','vessel'],['tours','III','The days','tours'],['cin2','—','The water','tours'],
+            ['golden','IV','Golden hour','golden'],['book','V','Reserve','book']];
+  const ixNum=document.getElementById('ixnum'), ixName=document.getElementById('ixname');
+  const navEl=document.getElementById('nav'), progEl=document.getElementById('prog');
+
+  /* ---------- LOADER ---------- */
+  const loader=document.getElementById('loader'), pctEl=document.getElementById('loadpct'), barEl=document.getElementById('loadbar');
+  let fake=0, done=false;
+  const ft=setInterval(()=>{ fake=Math.min(fake+Math.random()*14,94); pctEl.textContent=Math.round(fake)+'%'; barEl.style.width=fake+'%'; },80);
+  function finish(){
+    if(done) return; done=true; clearInterval(ft);
+    pctEl.textContent='100%'; barEl.style.width='100%';
+    if(SHOT){ loader.style.display='none'; return; }
+    gsap.timeline({delay:.2})
+      .to(loader,{clipPath:'inset(0 0 100% 0)',duration:1.1,ease:'power4.inOut'})
+      .set(loader,{display:'none'})
+      .add(heroIn,'-=.6');
+  }
+  const first=byCh.hero.querySelector('img');
+  if(first.complete) setTimeout(finish,300); else first.addEventListener('load',()=>setTimeout(finish,300));
+  setTimeout(finish,4000);
+
+  /* ---------- SPLIT ---------- */
+  function split(el){
+    const lines=el.textContent.split('|');
+    const it=(el.dataset.it||'').trim();
+    el.textContent=''; const chars=[];
+    lines.forEach(line=>{
+      const ln=document.createElement('span'); ln.className='ln';
+      const isIt = it && line.trim()===it;
+      line.split(' ').forEach((w,wi)=>{
+        if(wi) ln.appendChild(document.createTextNode(' '));
+        const wd=document.createElement('span'); wd.className='wd';
+        [...w].forEach(c=>{
+          const s=document.createElement('span');
+          s.className='ch'+(isIt?' it':'');
+          s.textContent=c; wd.appendChild(s); chars.push(s);
+        });
+        ln.appendChild(wd);
       });
-      ln.appendChild(wd);
+      el.appendChild(ln);
     });
-    el.appendChild(ln);
-  });
-  el._chars=chars; return chars;
-}
-document.querySelectorAll('.split').forEach(el=>{
-  const c=split(el);
-  if(!SHOT) gsap.set(c,{yPercent:110, opacity:0});
-});
-function heroIn(){
-  const h=document.querySelector('#hero .split');
-  gsap.timeline()
-    .to(h._chars,{yPercent:0,opacity:1,duration:1.3,ease:'power4.out',stagger:{each:.016}})
-    .fromTo('#hero .rv',{y:22,opacity:0},{y:0,opacity:1,duration:1,ease:'power3.out',stagger:.12},.3)
-    .fromTo('.coords',{opacity:0},{opacity:1,duration:1.2},.5);
-}
-if(SHOT){ gsap.set('.rv',{opacity:1,y:0}); gsap.set('.coords',{opacity:1}); }
-
-/* LENIS */
-let lenis=null;
-if(!SHOT && !reduced){
-  lenis=new Lenis({duration:1.25, easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)), smoothWheel:true, syncTouch:false});
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add(t=>lenis.raf(t*1000));
-  gsap.ticker.lagSmoothing(0);
-}
-
-/* REVEALS */
-if(!SHOT){
-  document.querySelectorAll('section:not(#hero)').forEach(sec=>{
-    const items=sec.querySelectorAll('.rv');
-    if(items.length) gsap.to(items,{opacity:1,y:0,duration:1.05,ease:'power3.out',stagger:.07,
-      scrollTrigger:{trigger:sec,start:'top 74%'}});
-  });
+    el._chars=chars;
+  }
   document.querySelectorAll('.split').forEach(el=>{
-    if(el.closest('#hero')) return;
-    gsap.to(el._chars,{yPercent:0,opacity:1,duration:1.15,ease:'power4.out',stagger:{each:.012},
-      scrollTrigger:{trigger:el,start:'top 88%'}});
+    split(el);
+    if(!SHOT) gsap.set(el._chars,{yPercent:110,opacity:0});
   });
-  document.querySelectorAll('.clipline').forEach(c=>{
-    gsap.fromTo(c,{clipPath:'inset(0 0 100% 0)',y:14},{clipPath:'inset(0 0 -3% 0)',y:0,duration:1.2,ease:'power3.out',
-      scrollTrigger:{trigger:c,start:'top 90%'}});
-  });
-  document.querySelectorAll('.cinema').forEach(c=>{
-    const shot=c.querySelector('.shot');
-    shot.style.backgroundImage=`url('${shot.dataset.shot}')`;
-    gsap.fromTo(shot,{y:'-6%',scale:1.18},{y:'6%',scale:1.04,ease:'none',
-      scrollTrigger:{trigger:c,start:'top bottom',end:'bottom top',scrub:true}});
-  });
-  document.querySelectorAll('[data-par]').forEach(img=>{
-    gsap.fromTo(img,{scale:1.16,y:'-3%'},{scale:1.02,y:'3%',ease:'none',
-      scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
-    gsap.fromTo(img.parentElement,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.5,ease:'power3.out',
-      scrollTrigger:{trigger:img.parentElement,start:'top 86%'}});
-  });
-}else{
+  function heroIn(){
+    const h=document.querySelector('#hero .split');
+    gsap.timeline()
+      .to(h._chars,{yPercent:0,opacity:1,duration:1.3,ease:'power4.out',stagger:{each:.016}})
+      .fromTo('#hero .rv',{y:22,opacity:0},{y:0,opacity:1,duration:1,ease:'power3.out',stagger:.12},.3)
+      .fromTo('.coords',{opacity:0},{opacity:1,duration:1.2},.5);
+  }
+  if(SHOT){ gsap.set('.rv',{opacity:1,y:0}); gsap.set('.coords',{opacity:1}); }
+
+  /* ---------- SCROLL ---------- */
+  let lenis=null;
+  if(!SHOT && !reduced){
+    lenis=new Lenis({duration:1.25, easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)), smoothWheel:true, syncTouch:false});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(t=>lenis.raf(t*1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
   document.querySelectorAll('.shot').forEach(s=>s.style.backgroundImage=`url('${s.dataset.shot}')`);
-}
 
-/* NAV + INDEX */
-const navEl=document.getElementById('nav'), progEl=document.getElementById('prog');
-const ixNum=document.getElementById('ixnum'), ixName=document.getElementById('ixname');
-const CH=[['hero','—','Arrival'],['story','I','The idea'],['cin1','—','Cabo Girão'],['vessel','II','The boat'],
-          ['tours','III','The days'],['cin2','—','The water'],['golden','IV','Golden hour'],['book','V','Reserve']];
-if(!SHOT){
-  ScrollTrigger.create({start:'top -80', onToggle:s=>navEl.classList.toggle('solid', s.isActive)});
-  CH.forEach(([id,n,name])=>{
-    const el=document.getElementById(id); if(!el) return;
-    ScrollTrigger.create({trigger:el,start:'top 55%',end:'bottom 45%',onToggle:s=>{
-      if(s.isActive){ ixNum.textContent=n; ixName.textContent=name; }
-    }});
-  });
-}
-document.querySelectorAll('nav a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault();
-  const t=document.querySelector(a.getAttribute('href'));
-  if(t) lenis ? lenis.scrollTo(t) : t.scrollIntoView({behavior:'smooth'});
-}));
-
-/* POINTER */
-const cur=document.getElementById('cur'), ring=document.getElementById('ring');
-let mx=.5,my=.5,cx=innerWidth/2,cy=innerHeight/2,rx=cx,ry=cy;
-addEventListener('pointermove',e=>{
-  cx=e.clientX; cy=e.clientY; mx=e.clientX/innerWidth; my=e.clientY/innerHeight;
-  if(fine) document.body.classList.add('cur-vis');
-},{passive:true});
-if(fine && !reduced && !SHOT){
-  document.body.classList.add('cursor-on');
-  document.addEventListener('mouseleave',()=>document.body.classList.remove('cur-vis'));
-  document.querySelectorAll('a,button,.tour,.rev,.pillar').forEach(el=>{
-    el.addEventListener('pointerenter',()=>ring.classList.add('wide'));
-    el.addEventListener('pointerleave',()=>ring.classList.remove('wide'));
-  });
-  document.querySelectorAll('.magnet').forEach(b=>{
-    const qx=gsap.quickTo(b,'x',{duration:.6,ease:'power3'});
-    const qy=gsap.quickTo(b,'y',{duration:.6,ease:'power3'});
-    b.addEventListener('pointermove',e=>{
-      const r=b.getBoundingClientRect();
-      qx((e.clientX-r.left-r.width/2)*.26); qy((e.clientY-r.top-r.height/2)*.38);
+  if(!SHOT){
+    document.querySelectorAll('section:not(#hero)').forEach(sec=>{
+      const items=sec.querySelectorAll('.rv');
+      if(items.length) gsap.to(items,{opacity:1,y:0,duration:1.05,ease:'power3.out',stagger:.07,
+        scrollTrigger:{trigger:sec,start:'top 74%'}});
     });
-    b.addEventListener('pointerleave',()=>{ qx(0); qy(0); });
-  });
-}
-
-/* GYRO */
-let gx=0,gy=0,gyroOn=false;
-function onOrient(e){
-  if(e.gamma==null||e.beta==null) return;
-  gyroOn=true;
-  gx=Math.max(-1,Math.min(1,e.gamma/38));
-  gy=Math.max(-1,Math.min(1,(e.beta-45)/38));
-}
-if(MOBILE && !SHOT && !reduced && window.DeviceOrientationEvent){
-  if(typeof DeviceOrientationEvent.requestPermission!=='function') addEventListener('deviceorientation',onOrient,{passive:true});
-  else{
-    const ask=()=>{ DeviceOrientationEvent.requestPermission().then(r=>{ if(r==='granted') addEventListener('deviceorientation',onOrient,{passive:true}); }).catch(()=>{}); removeEventListener('touchend',ask); };
-    addEventListener('touchend',ask,{passive:true});
-  }
-}
-
-/* ============== OCÉAN ============== */
-let renderer=null;
-try{ renderer=new THREE.WebGLRenderer({canvas:document.getElementById('gl'),antialias:!MOBILE,powerPreference:'high-performance',preserveDrawingBuffer:SHOT}); }
-catch(e){ renderer=null; }
-
-if(!renderer){
-  document.getElementById('gl').style.cssText="position:fixed;inset:0;z-index:0;background:url('assets/hero-poster.jpg') center/cover";
-  finishLoad();
-}else{
-  renderer.setPixelRatio(Math.min(devicePixelRatio, PERF.dpr));
-  renderer.setSize(innerWidth, innerHeight);
-  renderer.toneMapping=THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure=MOBILE?1.08:0.95;
-
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(50, innerWidth/innerHeight, .1, 900);
-
-  const skyU={
-    uTime:{value:0}, uSunY:{value:.6}, uSunX:{value:.64}, uStars:{value:0},
-    uTop:{value:new THREE.Color(0x1f6ea8)}, uBot:{value:new THREE.Color(0xa9d8e8)},
-    uSun:{value:new THREE.Color(0xfff3d0)}, uRes:{value:new THREE.Vector2(innerWidth,innerHeight)}
-  };
-  const skyMesh=new THREE.Mesh(new THREE.PlaneGeometry(2,2), new THREE.ShaderMaterial({
-    uniforms:skyU, depthWrite:false, depthTest:false,
-    vertexShader:`varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.9999,1.0); }`,
-    fragmentShader:`
-      precision mediump float; varying vec2 vUv;
-      uniform float uTime,uSunY,uSunX,uStars; uniform vec3 uTop,uBot,uSun; uniform vec2 uRes;
-      float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
-      void main(){
-        float g=pow(clamp(vUv.y,0.0,1.0),0.85);
-        vec3 col=mix(uBot,uTop,g);
-        vec2 d=(vUv-vec2(uSunX,uSunY))*vec2(uRes.x/uRes.y,1.0);
-        float r=length(d);
-        col += uSun*exp(-r*r*90.0)*0.55;
-        col += uSun*exp(-r*r*5.0)*0.10;
-        col += uSun*smoothstep(0.028,0.022,r)*1.2;
-        if(uStars>0.01){
-          vec2 gp=floor(vUv*vec2(230.0*uRes.x/uRes.y,230.0));
-          float h=hash(gp);
-          col += vec3(step(0.9976,h)*uStars*(0.6+0.4*sin(uTime*2.0+h*40.0)))*smoothstep(0.22,0.9,vUv.y);
-        }
-        gl_FragColor=vec4(col,1.0);
-      }`
-  }));
-  skyMesh.frustumCulled=false; skyMesh.renderOrder=-2; scene.add(skyMesh);
-
-  const seaU={
-    uTime:{value:0}, uAmp:{value:1}, uChop:{value:1}, uFoam:{value:.4},
-    uSunDir:{value:new THREE.Vector3(.5,.4,-1).normalize()}, uSunCol:{value:new THREE.Color(0xfff0cc)},
-    uDeep:{value:new THREE.Color(0x04263f)}, uShallow:{value:new THREE.Color(0x1d7fa3)}, uSky:{value:new THREE.Color(0x8fc7e0)}
-  };
-  const sea=new THREE.Mesh(new THREE.PlaneGeometry(340,340,PERF.seg,PERF.seg), new THREE.ShaderMaterial({
-    uniforms:seaU,
-    vertexShader:`
-      uniform float uTime,uAmp,uChop;
-      varying vec3 vPos; varying vec3 vNrm; varying float vCrest;
-      vec3 gerst(vec2 q, vec2 dir, float amp, float len, float spd){
-        float k=6.28318/len, a=amp*uAmp;
-        float f=k*(dot(dir,q)-spd*uTime);
-        float steep=clamp(uChop*0.7/max(k*a,0.0001),0.0,1.0);
-        return vec3(steep*a*dir.x*cos(f), a*sin(f), steep*a*dir.y*cos(f));
-      }
-      vec3 waves(vec2 q){
-        vec3 o=vec3(0.0);
-        o+=gerst(q,normalize(vec2( 1.0, 0.35)),0.30,17.0,1.30);
-        o+=gerst(q,normalize(vec2(-0.7, 0.75)),0.15, 9.0,1.05);
-        o+=gerst(q,normalize(vec2( 0.3,-0.95)),0.07, 4.6,0.90);
-        o+=gerst(q,normalize(vec2( 0.9,-0.25)),0.035,2.3,0.75);
-        return o;
-      }
-      vec3 worldAt(vec2 q){ vec3 o=waves(q); return vec3(q.x+o.x,o.y,q.y+o.z); }
-      void main(){
-        vec2 qq=vec2(position.x,-position.y);
-        vec3 W=worldAt(qq); float e=0.5;
-        vec3 n=normalize(cross(worldAt(qq+vec2(0.0,e))-W, worldAt(qq+vec2(e,0.0))-W));
-        if(n.y<0.0) n=-n;
-        vNrm=n; vPos=W; vCrest=clamp(W.y/(0.6*max(uAmp,0.2)),-1.0,1.0);
-        gl_Position=projectionMatrix*modelViewMatrix*vec4(vec3(W.x,-W.z,W.y),1.0);
-      }`,
-    fragmentShader:`
-      precision mediump float;
-      uniform vec3 uSunDir,uSunCol,uDeep,uShallow,uSky; uniform float uFoam;
-      varying vec3 vPos; varying vec3 vNrm; varying float vCrest;
-      void main(){
-        vec3 N=normalize(vNrm), V=normalize(cameraPosition-vPos), L=normalize(uSunDir);
-        float fres=pow(1.0-max(dot(N,V),0.0),4.0);
-        vec3 water=mix(uDeep,uShallow,clamp(max(dot(N,V),0.0)*1.15+vCrest*0.20,0.0,1.0));
-        vec3 H=normalize(L+V);
-        float spec=pow(max(dot(N,H),0.0),320.0)*1.5;
-        float sheen=pow(max(dot(N,H),0.0),90.0)*0.13;        // le chemin du soleil sur l'eau
-        float foam=smoothstep(0.88,1.0,vCrest)*uFoam;
-        float amb=0.10+0.10*pow(max(N.y,0.0),2.0);            // ciel diffus : l'eau n'est jamais noire
-        vec3 col=mix(water,uSky,fres*0.20+amb);
-        col+=uSunCol*(spec+sheen);
-        col=mix(col,vec3(0.90,0.95,0.96),foam*0.22);
-        float dist=length(vPos.xz-cameraPosition.xz);
-        col=mix(col,uSky,smoothstep(150.0,400.0,dist)*0.65);
-        gl_FragColor=vec4(col,1.0);
-      }`
-  }));
-  sea.rotation.x=-Math.PI/2;
-  scene.add(sea);
-
-  // plan lointain : même formule de couleur, normale plate → l'horizon devient droit et se fond dans le ciel
-  const far=new THREE.Mesh(new THREE.PlaneGeometry(6000,6000,1,1), new THREE.ShaderMaterial({
-    uniforms:seaU,
-    vertexShader:`varying vec3 vPos; void main(){ vec4 w=modelMatrix*vec4(position,1.0); vPos=w.xyz; gl_Position=projectionMatrix*viewMatrix*w; }`,
-    fragmentShader:`
-      precision mediump float;
-      uniform vec3 uSunDir,uSunCol,uDeep,uShallow,uSky;
-      varying vec3 vPos;
-      void main(){
-        vec3 N=vec3(0.0,1.0,0.0), V=normalize(cameraPosition-vPos), L=normalize(uSunDir);
-        float fres=pow(1.0-max(dot(N,V),0.0),4.0);
-        vec3 water=mix(uDeep,uShallow,clamp(max(dot(N,V),0.0)*1.15,0.0,1.0));
-        vec3 H=normalize(L+V);
-        float sheen=pow(max(dot(N,H),0.0),90.0)*0.13;        // le chemin du soleil sur l'eau
-        vec3 col=mix(water,uSky,fres*0.20+0.20)+uSunCol*sheen;
-        float dist=length(vPos.xz-cameraPosition.xz);
-        col=mix(col,uSky,smoothstep(150.0,400.0,dist)*0.65);
-        gl_FragColor=vec4(col,1.0);
-      }`
-  }));
-  far.rotation.x=-Math.PI/2; far.position.y=-0.04; far.renderOrder=-1;
-  scene.add(far);
-
-  let composer=null, bloom=null;
-  if(PERF.post){
-    composer=new EffectComposer(renderer);
-    composer.addPass(new RenderPass(scene,camera));
-    bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight), .40, .7, .88);
-    composer.addPass(bloom);
-    composer.addPass(new OutputPass());
-    composer.setSize(innerWidth,innerHeight);
-  }
-
-  const S={sunX:.64,sunY:.78,camY:4.2,camZ:13,fov:50,amp:1,chop:1,foam:.4,stars:0,bloom:.34,
-    skyTop:new THREE.Color(0x14639f), skyBot:new THREE.Color(0x9fd0e4), sunCol:new THREE.Color(0xfff3d0),
-    deep:new THREE.Color(0x02182d), shallow:new THREE.Color(0x12688f), skyRefl:new THREE.Color(0x7ebcda)};
-  const L=[
-    {id:'hero',   sunX:.64,sunY:.78,camY:4.2,camZ:13, fov:50,amp:1,  chop:1,  foam:.40,stars:0,  bloom:.34, skyTop:0x14639f,skyBot:0x9fd0e4,sunCol:0xfff3d0,deep:0x02182d,shallow:0x12688f,skyRefl:0x7ebcda},
-    {id:'story',  sunX:.70,sunY:.715,camY:3.4,camZ:11, fov:50,amp:.85,chop:1,  foam:.36,stars:0,  bloom:.34, skyTop:0x1c72ae,skyBot:0xb8dde8,sunCol:0xfff0c8,deep:0x032138,shallow:0x1877a0,skyRefl:0x8fc8e0},
-    {id:'vessel', sunX:.76,sunY:.665,camY:2.8,camZ:10, fov:52,amp:.7, chop:.9, foam:.32,stars:0,  bloom:.38, skyTop:0x2d7fac,skyBot:0xdcd9c2,sunCol:0xffe4a8,deep:0x04263e,shallow:0x1e87a4,skyRefl:0xaed0d8},
-    {id:'tours',  sunX:.81,sunY:.625,camY:2.4,camZ:9.2,fov:52,amp:.6, chop:.85,foam:.28,stars:0,  bloom:.44, skyTop:0x3d78a4,skyBot:0xeec489,sunCol:0xffd489,deep:0x05243b,shallow:0x22839c,skyRefl:0xd0b99c},
-    {id:'golden', sunX:.87,sunY:.578,camY:1.9,camZ:8,  fov:54,amp:.5, chop:.8, foam:.22,stars:.05,bloom:.66, skyTop:0x4f5490,skyBot:0xf3a35e,sunCol:0xffb765,deep:0x081b31,shallow:0x2d6b8c,skyRefl:0xdc9a6c},
-    {id:'book',   sunX:.91,sunY:.495,camY:2.1,camZ:8.6,fov:52,amp:.42,chop:.75,foam:.18,stars:.9, bloom:.80, skyTop:0x0d1a3e,skyBot:0xbb6849,sunCol:0xff9a55,deep:0x030f21,shallow:0x143f5c,skyRefl:0x5c6183},
-  ];
-  const applyLight=(i,dur=2)=>{
-    const k=L[i];
-    gsap.to(S,{sunX:k.sunX,sunY:k.sunY,camY:k.camY,camZ:k.camZ,fov:k.fov,amp:k.amp,chop:k.chop,foam:k.foam,stars:k.stars,bloom:k.bloom,duration:dur,ease:'power2.inOut'});
-    ['skyTop','skyBot','sunCol','deep','shallow','skyRefl'].forEach(key=>{
-      const c=new THREE.Color(k[key]);
-      gsap.to(S[key],{r:c.r,g:c.g,b:c.b,duration:dur,ease:'power2.inOut'});
+    document.querySelectorAll('.split').forEach(el=>{
+      if(el.closest('#hero')) return;
+      gsap.to(el._chars,{yPercent:0,opacity:1,duration:1.15,ease:'power4.out',stagger:{each:.012},
+        scrollTrigger:{trigger:el,start:'top 88%'}});
     });
-  };
-  if(!SHOT) L.forEach((k,i)=>{
-    const el=document.getElementById(k.id); if(!el) return;
-    ScrollTrigger.create({trigger:el,start:'top 65%',end:'bottom 35%',onEnter:()=>applyLight(i),onEnterBack:()=>applyLight(i)});
-  });
+    document.querySelectorAll('.clipline').forEach(c=>{
+      gsap.fromTo(c,{clipPath:'inset(0 0 100% 0)',y:14},{clipPath:'inset(0 0 -3% 0)',y:0,duration:1.2,ease:'power3.out',
+        scrollTrigger:{trigger:c,start:'top 90%'}});
+    });
+    document.querySelectorAll('.cinema').forEach(c=>{
+      gsap.fromTo(c.querySelector('.shot'),{y:'-6%',scale:1.18},{y:'6%',scale:1.04,ease:'none',
+        scrollTrigger:{trigger:c,start:'top bottom',end:'bottom top',scrub:true}});
+    });
+    document.querySelectorAll('[data-par]').forEach(img=>{
+      gsap.fromTo(img,{scale:1.16,y:'-3%'},{scale:1.02,y:'3%',ease:'none',
+        scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}});
+      gsap.fromTo(img.parentElement,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.5,ease:'power3.out',
+        scrollTrigger:{trigger:img.parentElement,start:'top 86%'}});
+    });
 
-  let rt=null;
-  addEventListener('resize',()=>{
-    clearTimeout(rt);
-    rt=setTimeout(()=>{
-      camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
-      renderer.setSize(innerWidth,innerHeight);
-      if(composer) composer.setSize(innerWidth,innerHeight);
-      skyU.uRes.value.set(innerWidth,innerHeight);
-      ScrollTrigger.refresh();
-    },180);
-  });
-
-  let smx=0,smy=0,lastMs=performance.now(),started=false,fpsA=0,fpsN=0,deg=false;
-  const clock=new THREE.Clock();
-  const maxScroll=()=>Math.max(1, document.documentElement.scrollHeight - innerHeight);
-  const sunDir=new THREE.Vector3();
-
-  function frame(){
-    const t=clock.getElapsedTime();
-    const now=performance.now(), dt=Math.min((now-lastMs)/1000,.05); lastMs=now;
-    if(!SHOT && !deg){
-      fpsA+=dt; fpsN++;
-      if(fpsN===90){ if(fpsA/90>1/40){ deg=true; renderer.setPixelRatio(1); if(composer) composer.setSize(innerWidth,innerHeight);} fpsA=0; fpsN=0; }
+    ScrollTrigger.create({start:'top -80',onToggle:s=>navEl.classList.toggle('solid',s.isActive)});
+    CH.forEach(([id,n,name,bg])=>{
+      const el=document.getElementById(id); if(!el) return;
+      ScrollTrigger.create({trigger:el,start:'top 55%',end:'bottom 45%',onToggle:s=>{
+        if(!s.isActive) return;
+        ixNum.textContent=n; ixName.textContent=name;
+        grade.style.background=GRADE[id]||GRADE[bg];
+        show(bg);
+      }});
+    });
+    ScrollTrigger.create({trigger:document.body,start:'top top',end:'bottom bottom',
+      onUpdate:s=>{ progEl.style.width=(s.progress*100).toFixed(2)+'%'; }});
+  }else{
+    const k=q.get('kf');
+    if(k){ const c=CH[Math.min(+k,CH.length-1)]; show(c[3]); grade.style.background=GRADE[c[0]]||GRADE[c[3]]; }
+    if(q.has('sec')){
+      const el=document.getElementById(q.get('sec'));
+      if(el) document.querySelector('main').style.marginTop=`-${el.offsetTop - parseFloat(q.get('off')||0)}px`;
     }
-    const y=lenis?lenis.scroll:scrollY;
-    const p=Math.min(Math.max(y/maxScroll(),0),1);
-    const tgx=gyroOn?gx*.5:(mx-.5), tgy=gyroOn?gy*.5:(my-.5);
-    smx+=(tgx-smx)*.045; smy+=(tgy-smy)*.045;
+    document.title='RENDERED';
+  }
 
-    skyU.uTime.value=t; skyU.uSunX.value=S.sunX+smx*.015; skyU.uSunY.value=S.sunY; skyU.uStars.value=S.stars;
-    skyU.uTop.value.copy(S.skyTop); skyU.uBot.value.copy(S.skyBot); skyU.uSun.value.copy(S.sunCol);
+  document.querySelectorAll('nav a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t) lenis ? lenis.scrollTo(t) : t.scrollIntoView({behavior:'smooth'});
+  }));
 
-    seaU.uTime.value=t; seaU.uAmp.value=S.amp; seaU.uChop.value=S.chop; seaU.uFoam.value=S.foam;
-    seaU.uSunCol.value.copy(S.sunCol); seaU.uDeep.value.copy(S.deep); seaU.uShallow.value.copy(S.shallow); seaU.uSky.value.copy(S.skyRefl);
-    // le ciel est dessiné en espace écran : on en déduit la vraie direction du soleil,
-    // sinon le reflet ne tombe pas sous le disque solaire (horizon ≈ uv .58 avec ce pitch)
-    const fovY=S.fov*Math.PI/180, fovX=2*Math.atan(Math.tan(fovY/2)*camera.aspect);
-    const elev=(S.sunY-.58)*fovY, azim=(S.sunX-.5)*fovX;
-    sunDir.set(Math.sin(azim)*Math.cos(elev), Math.sin(elev), -Math.cos(azim)*Math.cos(elev));
-    seaU.uSunDir.value.copy(sunDir);
-
-    const swell=Math.sin(t*.55)*.09*S.amp + Math.sin(t*1.25)*.045*S.amp;
-    camera.position.set(smx*.8, S.camY+swell-smy*.25, S.camZ);
-    camera.rotation.z=Math.sin(t*.42)*.007*S.amp;
-    camera.fov=S.fov; camera.updateProjectionMatrix();
-    camera.lookAt(smx*.4, S.camY-1.0+smy*.35+swell*.5, -14);
-
-    if(bloom) bloom.strength=S.bloom;
-    progEl.style.width=(p*100).toFixed(2)+'%';
-
-    if(!MOBILE && !reduced && !SHOT){
+  /* ---------- CURSEUR ---------- */
+  const cur=document.getElementById('cur'), ring=document.getElementById('ring');
+  let cx=innerWidth/2, cy=innerHeight/2, rx=cx, ry=cy;
+  if(fine && !reduced && !SHOT){
+    document.body.classList.add('cursor-on');
+    addEventListener('pointermove',e=>{ cx=e.clientX; cy=e.clientY; document.body.classList.add('cur-vis'); },{passive:true});
+    document.addEventListener('mouseleave',()=>document.body.classList.remove('cur-vis'));
+    document.querySelectorAll('a,button,.tour,.rev,.pillar').forEach(el=>{
+      el.addEventListener('pointerenter',()=>ring.classList.add('wide'));
+      el.addEventListener('pointerleave',()=>ring.classList.remove('wide'));
+    });
+    document.querySelectorAll('.magnet').forEach(b=>{
+      const qx=gsap.quickTo(b,'x',{duration:.6,ease:'power3'});
+      const qy=gsap.quickTo(b,'y',{duration:.6,ease:'power3'});
+      b.addEventListener('pointermove',e=>{
+        const r=b.getBoundingClientRect();
+        qx((e.clientX-r.left-r.width/2)*.26); qy((e.clientY-r.top-r.height/2)*.38);
+      });
+      b.addEventListener('pointerleave',()=>{ qx(0); qy(0); });
+    });
+    gsap.ticker.add(()=>{
       rx+=(cx-rx)*.15; ry+=(cy-ry)*.15;
       cur.style.transform=`translate(${cx}px,${cy}px)`;
       ring.style.transform=`translate(${rx}px,${ry}px)`;
-    }
-    composer ? composer.render() : renderer.render(scene,camera);
-    if(!started){ started=true; setTimeout(finishLoad,250); }
+    });
   }
 
-  if(SHOT){
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{
-      if(q.has('sec')){
-        const el=document.getElementById(q.get('sec'));
-        if(el) document.querySelector('main').style.marginTop=`-${el.offsetTop - parseFloat(q.get('off')||0)}px`;
-      }
-      const k=L[Math.min(+(q.get('kf')||0), L.length-1)];
-      Object.assign(S,{sunX:k.sunX,sunY:k.sunY,camY:k.camY,camZ:k.camZ,fov:k.fov,amp:k.amp,chop:k.chop,foam:k.foam,stars:k.stars,bloom:k.bloom});
-      S.skyTop.setHex(k.skyTop); S.skyBot.setHex(k.skyBot); S.sunCol.setHex(k.sunCol);
-      S.deep.setHex(k.deep); S.shallow.setHex(k.shallow); S.skyRefl.setHex(k.skyRefl);
-      if(bloom) bloom.strength=k.bloom;
-      clock.start();
-      for(let i=0;i<3;i++) frame();
-      const img=new Image();
-      img.src=renderer.domElement.toDataURL('image/png');
-      img.style.cssText='position:fixed;inset:0;z-index:0;width:100vw;height:100vh;object-fit:cover';
-      renderer.domElement.replaceWith(img);
-      finishLoad();
-      document.title='RENDERED';
-    }));
-  }else{
-    gsap.ticker.add(frame);
-    addEventListener('load',()=>ScrollTrigger.refresh());
-    setTimeout(()=>ScrollTrigger.refresh(),700);
-  }
-}
+  addEventListener('load',()=>ScrollTrigger.refresh());
+})();
 </script>
 </body>
 </html>
