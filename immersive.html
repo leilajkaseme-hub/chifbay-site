@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Chifbay — Sail into it. Private boat tours in Madeira.</title>
+<meta name="description" content="An immersive journey aboard Chifbay: your own boat, the whole south coast of Madeira, and a golden-hour sunset with no strangers on board.">
+<link rel="icon" href="assets/favicon.ico">
+<meta name="theme-color" content="#050f18">
+<meta property="og:title" content="Chifbay — Private boat tours in Madeira">
+<meta property="og:description" content="Your own boat, your own pace, the entire south coast to yourselves.">
+<meta property="og:image" content="assets/hero-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#050f18; --mid:#0d2035; --paper:#f0f5f4; --paper-dim:rgba(240,245,244,.72);
+    --muted:#7a9aaa; --gold:#d4a843; --gold-light:#f0c96a;
+    --hair:rgba(255,255,255,.10); --hair-strong:rgba(255,255,255,.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{overflow-x:clip}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    background:var(--ink);color:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.5;
+    overflow-x:clip;overscroll-behavior-y:none;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--gold);color:var(--ink)}
+  @media(hover:hover) and (pointer:fine){ body.has-cursor *{cursor:none !important} }
+
+  /* LOADER */
+  #loader{position:fixed;inset:0;z-index:400;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
+  #loader .mark{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;letter-spacing:.02em;color:var(--paper)}
+  #loader .mark em{font-style:italic;color:var(--gold)}
+  #loader .bar{width:min(200px,54vw);height:1px;background:rgba(255,255,255,.14);overflow:hidden}
+  #loader .bar i{display:block;height:100%;width:0%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+  #loader .pct{font-size:11px;letter-spacing:.34em;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  /* CANVAS + FX */
+  #gl{position:fixed;inset:0;z-index:0;display:block}
+  .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 45%,transparent 45%,rgba(0,0,0,.5) 100%)}
+  .grain{position:fixed;inset:-100%;z-index:1;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 8s steps(10) infinite}
+  @keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-8%)}30%{transform:translate(3%,-5%)}50%{transform:translate(-8%,3%)}70%{transform:translate(6%,8%)}90%{transform:translate(-3%,5%)}}
+  #flash{position:fixed;inset:0;z-index:3;pointer-events:none;background:var(--gold-light);opacity:0;mix-blend-mode:screen}
+
+  /* CURSOR */
+  #cur,#curring{position:fixed;top:0;left:0;z-index:500;pointer-events:none;border-radius:50%;opacity:0;will-change:transform}
+  #cur{width:6px;height:6px;background:var(--gold);box-shadow:0 0 14px var(--gold);margin:-3px 0 0 -3px}
+  #curring{width:36px;height:36px;border:1px solid rgba(212,168,67,.55);margin:-18px 0 0 -18px;transition:width .3s,height .3s,margin .3s,background .3s}
+  body.cur-on #cur,body.cur-on #curring{opacity:1}
+  #curring.big{width:74px;height:74px;margin:-37px 0 0 -37px;background:rgba(212,168,67,.08)}
+
+  /* HUD */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0%;z-index:150;background:linear-gradient(90deg,var(--gold),var(--gold-light));box-shadow:0 0 14px rgba(212,168,67,.7)}
+  #dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:120;display:flex;flex-direction:column;gap:18px}
+  #dots a{display:flex;align-items:center;gap:10px;flex-direction:row-reverse}
+  #dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.24);transition:.35s;display:block}
+  #dots span{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateX(8px);transition:.35s;white-space:nowrap}
+  #dots a.on i{background:var(--gold);box-shadow:0 0 12px var(--gold);transform:scale(1.6)}
+  #dots a.on span,#dots a:hover span{opacity:1;transform:none}
+  @media(max-width:1080px){#dots{display:none}}
+  #clock{position:fixed;left:24px;bottom:20px;z-index:120;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;gap:14px}
+  #clock b{color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums}
+  @media(max-width:1080px){#clock{display:none}}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(5,15,24,.42);border-bottom:1px solid var(--hair)}
+  .nav-inner{max-width:1280px;margin:0 auto;padding:0 18px;height:58px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:.01em;flex-shrink:0}
+  .brand em{font-style:italic;color:var(--gold)}
+  .nav-links{display:flex;gap:24px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim)}
+  .nav-links a{position:relative;padding:4px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+  @media(max-width:960px){.nav-links{display:none}}
+  .nav-cta{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:9px 18px;border-radius:99px;
+    border:1px solid var(--gold);color:var(--gold);transition:background .35s,color .35s,box-shadow .35s;will-change:transform;white-space:nowrap}
+  .nav-cta:hover{background:var(--gold);color:var(--ink);box-shadow:0 0 30px rgba(212,168,67,.4)}
+
+  /* LAYOUT */
+  main{position:relative;z-index:2}
+  .chapter{min-height:100svh;display:flex;align-items:center;padding:120px 22px;position:relative}
+  .wrap{max-width:1180px;margin:0 auto;width:100%;position:relative}
+
+  .kicker{font-size:10.5px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.32em;margin-bottom:22px;display:flex;align-items:center;gap:12px}
+  .kicker::before{content:"";width:34px;height:1px;background:var(--gold);flex-shrink:0}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(38px,7.4vw,104px);line-height:1.04;letter-spacing:-.015em;font-weight:700}
+  h2{font-family:'Playfair Display',serif;font-size:clamp(30px,5vw,62px);line-height:1.1;letter-spacing:-.01em;font-weight:700;max-width:880px}
+  .it{font-style:italic;color:var(--gold)}
+  .sub{font-size:clamp(15px,1.8vw,19px);color:var(--paper-dim);max-width:min(560px,100%);margin-top:22px;line-height:1.65}
+
+  .ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+  .wd{display:inline-block;white-space:nowrap}
+  .ch{display:inline-block;will-change:transform,opacity}
+
+  /* HERO */
+  #hero{align-items:flex-end;padding-bottom:13vh}
+  .badge{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim);
+    border:1px solid var(--hair-strong);background:rgba(5,15,24,.4);padding:9px 16px;border-radius:99px;margin-bottom:26px;backdrop-filter:blur(8px)}
+  .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);flex-shrink:0}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:9px}
+  .scroll-hint::after{content:"";width:1px;height:42px;background:linear-gradient(to bottom,var(--gold),transparent);animation:drop 2s ease-in-out infinite}
+  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* STATS */
+  .stats{margin-top:54px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair)}
+  .stat{background:rgba(5,15,24,.5);backdrop-filter:blur(10px);padding:30px 20px;position:relative;overflow:hidden}
+  .stat i.u{position:absolute;bottom:0;left:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;box-shadow:0 0 10px var(--gold)}
+  .stat b{display:block;font-family:'Playfair Display',serif;font-size:clamp(30px,4.4vw,54px);font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .stat b em{font-style:italic;color:var(--gold)}
+  .stat span{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+  @media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* RAIL */
+  #rail{position:relative;height:100svh;overflow:hidden}
+  .rail-head{position:absolute;top:13vh;left:0;right:0;padding:0 22px;z-index:3;pointer-events:none}
+  .rail-head .inner{max-width:1180px;margin:0 auto}
+  .rail-track{position:absolute;top:22vh;left:0;height:70%;display:flex;align-items:center;gap:22px;padding:0 7vw;will-change:transform}
+  .tcard{flex:0 0 340px;height:430px;border-radius:16px;position:relative;overflow:hidden;border:1px solid var(--hair);
+    background:var(--mid);will-change:transform;display:flex;flex-direction:column;justify-content:flex-end}
+  .tcard .ph{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.12);will-change:transform;
+    transition:transform .8s cubic-bezier(.2,.8,.2,1);filter:saturate(.95)}
+  .tcard:hover .ph{transform:scale(1.2)}
+  .tcard::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,24,.94) 8%,rgba(5,15,24,.35) 48%,rgba(5,15,24,.08) 100%)}
+  .tcard .body{position:relative;z-index:2;padding:26px 24px}
+  .tcard .meta{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;gap:10px}
+  .tcard h3{font-family:'Playfair Display',serif;font-size:27px;font-weight:700;margin-bottom:8px}
+  .tcard p{font-size:13.5px;color:var(--paper-dim);line-height:1.6;margin-bottom:14px}
+  .tcard .price{font-size:13px;letter-spacing:.06em;color:var(--paper);border-top:1px solid var(--hair);padding-top:12px;display:flex;justify-content:space-between;align-items:center}
+  .tcard .price b{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold)}
+  @media(max-width:700px){
+    .tcard{flex:0 0 min(78vw,300px);height:min(60svh,400px)}
+    .rail-track{top:22vh;height:66%;gap:14px;padding:0 11vw}
+    .rail-head{top:11vh}
+  }
+  .rail-hint{position:absolute;bottom:6vh;left:50%;transform:translateX(-50%);z-index:3;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--muted)}
+  .rail-bar{position:absolute;bottom:4vh;left:50%;transform:translateX(-50%);z-index:3;width:min(220px,55vw);height:1px;background:rgba(255,255,255,.16)}
+  .rail-bar i{display:block;height:100%;width:0%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+
+  /* ABOARD */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:52px}
+  .card{border:1px solid var(--hair);border-radius:16px;padding:28px 26px;background:rgba(255,255,255,.035);backdrop-filter:blur(10px);
+    position:relative;overflow:hidden;will-change:transform;transition:border-color .4s}
+  .card::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(300px circle at var(--gx,50%) var(--gy,50%),rgba(212,168,67,.12),transparent 62%);opacity:0;transition:opacity .35s}
+  .card:hover{border-color:rgba(212,168,67,.45)}
+  .card:hover::after{opacity:1}
+  .card .g{font-size:26px;display:block;margin-bottom:14px}
+  .card h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:7px}
+  .card p{font-size:13.5px;color:var(--paper-dim);line-height:1.65}
+  @media(max-width:860px){.grid3{grid-template-columns:1fr}}
+
+  /* QUOTE (golden hour) */
+  #golden .wrap{text-align:center}
+  #golden .kicker{justify-content:center}
+  #golden .kicker::after{content:"";width:34px;height:1px;background:var(--gold);flex-shrink:0}
+  .quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(28px,4.6vw,58px);line-height:1.25;max-width:15ch;margin:0 auto;
+    text-shadow:0 8px 60px rgba(0,0,0,.5)}
+  .quote b{font-style:normal;font-weight:700;color:var(--gold)}
+  .attrib{margin-top:26px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+
+  /* REVIEWS strip */
+  .revs{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:left}
+  .rev{border:1px solid var(--hair);border-radius:14px;padding:22px;background:rgba(5,15,24,.45);backdrop-filter:blur(8px)}
+  .rev .st{color:var(--gold);letter-spacing:.18em;font-size:12px;margin-bottom:9px}
+  .rev p{font-size:13.5px;color:var(--paper-dim);line-height:1.6;margin-bottom:10px}
+  .rev span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  @media(max-width:860px){.revs{grid-template-columns:1fr}}
+
+  /* BOOK */
+  #book{text-align:center}
+  #book .wrap{display:flex;flex-direction:column;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:99px;font-size:13px;font-weight:600;
+    letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--hair-strong);transition:box-shadow .35s,background .35s,color .35s,border-color .35s;will-change:transform}
+  .btn-gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+  .btn-gold:hover{box-shadow:0 0 70px rgba(212,168,67,.55)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .cta-row{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+  .fineprint{margin-top:26px;font-size:12px;color:var(--muted)}
+
+  footer{position:relative;z-index:2;border-top:1px solid var(--hair);padding:34px 22px;text-align:center;font-size:12.5px;color:var(--muted);background:rgba(5,15,24,.7);backdrop-filter:blur(10px)}
+  footer a{color:var(--paper);font-weight:500;margin:0 8px}
+  footer a:hover{color:var(--gold)}
+  footer p+p{margin-top:10px}
+
+  .fade{opacity:0;transform:translateY(32px);filter:blur(6px)}
+  @media (prefers-reduced-motion: reduce){ .fade{opacity:1;transform:none;filter:none} .grain,.scroll-hint::after{animation:none} }
+</style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="mark">Chif<em>bay</em></div>
+  <div class="bar"><i id="loadbar"></i></div>
+  <div class="pct" id="loadpct">0%</div>
+</div>
+
+<canvas id="gl"></canvas>
+<div class="grain"></div>
+<div class="vignette"></div>
+<div id="flash"></div>
+<div id="cur"></div><div id="curring"></div>
+<div id="progress"></div>
+
+<div id="dots">
+  <a href="#hero"><i></i><span>The boat</span></a>
+  <a href="#numbers"><i></i><span>Aboard</span></a>
+  <a href="#rail"><i></i><span>Tours</span></a>
+  <a href="#included"><i></i><span>Included</span></a>
+  <a href="#golden"><i></i><span>Golden hour</span></a>
+  <a href="#book"><i></i><span>Book</span></a>
+</div>
+
+<div id="clock"><span>Funchal · Madeira</span><span id="timelabel">Midday</span><span>SUN <b id="sunpct">090</b>°</span></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#hero">Chif<em>bay</em></a>
+    <div class="nav-links">
+      <a href="#rail">Tours</a>
+      <a href="#included">On board</a>
+      <a href="#golden">Golden hour</a>
+      <a href="index.html">Full site</a>
+    </div>
+    <a class="nav-cta magnet" href="https://wa.me/351937200320" target="_blank" rel="noopener">Book your boat</a>
+  </div>
+</nav>
+
+<main>
+
+  <section class="chapter" id="hero">
+    <div class="wrap" id="herowrap">
+      <div class="badge" id="herobadge"><span class="dot"></span>Funchal · Madeira · Licensed operator</div>
+      <h1 class="split" data-it="to yourselves.">The whole south coast|to yourselves.</h1>
+      <p class="sub" id="herosub">Your own boat, your own pace. Secret coves, sea caves, Cabo Girão and a golden-hour sunset — without a single stranger on board.</p>
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <section class="chapter" id="numbers">
+    <div class="wrap">
+      <p class="kicker fade">The vessel</p>
+      <h2 class="split" data-it="entirely yours.">A 2026 Karnic R8S,|entirely yours.</h2>
+      <p class="sub fade">No queues, no strangers, no fixed script. Just your group, a local skipper who knows every cove, and a route built around what you want.</p>
+      <div class="stats">
+        <div class="stat fade"><b><em data-count="7">0</em></b><span>guests max</span><i class="u"></i></div>
+        <div class="stat fade"><b data-count="580">0</b><span>m · Cabo Girão</span><i class="u"></i></div>
+        <div class="stat fade"><b><em>5.0</em></b><span>★ rated</span><i class="u"></i></div>
+        <div class="stat fade"><b data-count="100">0</b><span>% private</span><i class="u"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rail">
+    <div class="rail-head"><div class="inner">
+      <p class="kicker fade">The tours</p>
+      <h2 class="split" data-it="one coast.">Three ways,|one coast.</h2>
+    </div></div>
+    <div class="rail-track" id="railtrack"></div>
+    <div class="rail-hint">Drift →</div>
+    <div class="rail-bar"><i id="railbar"></i></div>
+  </section>
+
+  <section class="chapter" id="included">
+    <div class="wrap">
+      <p class="kicker fade">On board</p>
+      <h2 class="split" data-it="and a swimsuit.">Bring sunscreen|and a swimsuit.</h2>
+      <div class="grid3">
+        <div class="card tilt fade"><span class="g">🍷</span><h3>Local drinks &amp; snacks</h3><p>Madeira wine, poncha, beer and soft drinks, served as you cruise.</p></div>
+        <div class="card tilt fade"><span class="g">⚓</span><h3>2026 Karnic R8S</h3><p>Cushioned seating, swim platform, onboard music — built for easy water access.</p></div>
+        <div class="card tilt fade"><span class="g">🧭</span><h3>A skipper, not a guide</h3><p>A local who knows every cove and cave, and reads the sea each morning.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="golden">
+    <div class="wrap">
+      <p class="kicker fade">Golden hour</p>
+      <p class="quote split" data-it="on board.">Not a single stranger|on board.</p>
+      <p class="attrib fade">Cabo Girão · 580 m · Europe's highest sea cliff</p>
+      <div class="revs">
+        <div class="rev fade"><div class="st">★★★★★</div><p>“An unforgettable afternoon. The skipper found coves we would never have seen from land.”</p><span>Conny 🇳🇱 · GetYourGuide</span></div>
+        <div class="rev fade"><div class="st">★★★★★</div><p>“The sunset from the water is something else. Drinks, music, and the coast all to ourselves.”</p><span>Thomas 🇬🇧 · GetYourGuide</span></div>
+        <div class="rev fade"><div class="st">★★★★★</div><p>“Ein perfekter Tag auf dem Wasser — sehr persönlich und entspannt.”</p><span>Elena 🇩🇪 · GetYourGuide</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="book">
+    <div class="wrap">
+      <p class="kicker fade" style="justify-content:center">Chifbay</p>
+      <h2 class="split" data-it="Sail into it.">The coast is waiting.|Sail into it.</h2>
+      <div class="cta-row fade">
+        <a class="btn btn-gold magnet" href="https://wa.me/351937200320" target="_blank" rel="noopener">Reserve on WhatsApp</a>
+        <a class="btn btn-ghost magnet" href="experiences.html">See all experiences</a>
+      </div>
+      <p class="fineprint fade">Departs Funchal Marina · 7 guests max · Licensed operator</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Chifbay · Private boat tours, Funchal, Madeira</p>
+  <p><a href="index.html">Home</a> · <a href="experiences.html">Experiences</a> · <a href="reviews.html">Reviews</a> · <a href="contact.html">Contact</a></p>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {EffectComposer} from './vendor/jsm/postprocessing/EffectComposer.js';
+import {RenderPass} from './vendor/jsm/postprocessing/RenderPass.js';
+import {UnrealBloomPass} from './vendor/jsm/postprocessing/UnrealBloomPass.js';
+import {OutputPass} from './vendor/jsm/postprocessing/OutputPass.js';
+
+/* ---------- ENV ---------- */
+const q=new URLSearchParams(location.search);
+const SHOT=q.has('once');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const MOBILE=innerWidth<900 || !fine;
+const PERF={post:!MOBILE, dpr:MOBILE?1.35:1.75, seg:MOBILE?110:220, oct:MOBILE?3:5};
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ignoreMobileResize:true});
+
+/* ---------- TOURS ---------- */
+const TOURS=[
+  {img:'assets/x/exp-sunset.jpg',  meta:['2 h','Sunset'],     h:'Sunset Cruise',            p:'Cast off as the light turns. Cabo Girão in gold, a glass in hand, and the coast to yourselves.', price:'€350', link:'sunset-cruise.html'},
+  {img:'assets/x/exp-coves.jpg',   meta:['4 h','Half-day'],   h:'Hidden Coves',             p:'Sea caves, turquoise pools and swim stops only a local skipper can find.', price:'€620', link:'hidden-coves-half-day.html'},
+  {img:'assets/x/exp-coastal.jpg', meta:['7 h','Full-day'],   h:'Coastal Discovery',        p:'The whole south coast, end to end — dolphins, cliffs, lunch on the water.', price:'€1,180', link:'coastal-discovery-full-day.html'},
+  {img:'assets/x/g-cliffs.jpg',    meta:['Bespoke','Charter'],h:'Private Charter',          p:'Your route, your hours. Proposals, birthdays, shoots — tell us and we build it.', price:'On request', link:'contact.html'},
+];
+document.getElementById('railtrack').innerHTML = TOURS.map(t=>`
+  <a class="tcard tilt" href="${t.link}">
+    <div class="ph" style="background-image:url('${t.img}')"></div>
+    <div class="body">
+      <div class="meta">${t.meta.map(m=>`<span>${m}</span>`).join('<span>·</span>')}</div>
+      <h3>${t.h}</h3><p>${t.p}</p>
+      <div class="price"><span>from</span><b>${t.price}</b></div>
+    </div>
+  </a>`).join('');
+
+/* ---------- LOADER ---------- */
+const loader=document.getElementById('loader'), pctEl=document.getElementById('loadpct'), barEl=document.getElementById('loadbar');
+let fake=0, loaded=false;
+const ft=setInterval(()=>{ fake=Math.min(fake+Math.random()*12,92); pctEl.textContent=Math.round(fake)+'%'; barEl.style.width=fake+'%'; },85);
+function finishLoad(){
+  if(loaded) return; loaded=true;
+  clearInterval(ft);
+  pctEl.textContent='100%'; barEl.style.width='100%';
+  if(SHOT){ loader.style.display='none'; return; }
+  gsap.timeline({delay:.2})
+    .to(loader,{clipPath:'inset(0 0 100% 0)',duration:1,ease:'power4.inOut'})
+    .set(loader,{display:'none'})
+    .add(heroIntro,'-=.5');
+}
+setTimeout(finishLoad, 4500);
+
+/* ---------- SPLIT ---------- */
+function split(el){
+  const lines=el.textContent.split('|');
+  const it=(el.dataset.it||'').trim();
+  el.textContent='';
+  const chars=[];
+  lines.forEach(line=>{
+    const ln=document.createElement('span'); ln.className='ln';
+    const isIt = it && line.trim()===it;
+    line.split(' ').forEach((word,wi)=>{
+      if(wi) ln.appendChild(document.createTextNode(' '));
+      const wd=document.createElement('span'); wd.className='wd';
+      [...word].forEach(c=>{
+        const s=document.createElement('span');
+        s.className='ch'+(isIt?' it':'');
+        s.textContent=c; wd.appendChild(s); chars.push(s);
+      });
+      ln.appendChild(wd);
+    });
+    el.appendChild(ln);
+  });
+  el._chars=chars; return chars;
+}
+document.querySelectorAll('.split').forEach(el=>{
+  const c=split(el);
+  if(!SHOT) gsap.set(c,{yPercent:112, rotate:4, opacity:0});
+});
+function heroIntro(){
+  const h=document.querySelector('#hero .split');
+  gsap.timeline()
+    .to(h._chars,{yPercent:0,rotate:0,opacity:1,duration:1.15,ease:'power4.out',stagger:{each:.018}})
+    .fromTo('#herobadge',{y:18,opacity:0},{y:0,opacity:1,duration:.8,ease:'power3.out'},.1)
+    .fromTo('#herosub',{y:22,opacity:0,filter:'blur(8px)'},{y:0,opacity:1,filter:'blur(0px)',duration:.9,ease:'power3.out'},.35)
+    .fromTo('.scroll-hint',{opacity:0},{opacity:1,duration:.6},.8);
+}
+if(SHOT) gsap.set('.fade',{opacity:1,y:0,filter:'none'});
+
+/* ---------- LENIS ---------- */
+let lenis=null;
+if(!SHOT && !reduced){
+  lenis=new Lenis({duration:1.15, easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)), smoothWheel:true, syncTouch:false});
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+}
+
+/* ---------- DOM SCROLL ---------- */
+if(!SHOT){
+  gsap.utils.toArray('.fade').forEach(el=>gsap.to(el,{opacity:1,y:0,filter:'blur(0px)',duration:.95,ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 92%'}}));
+  gsap.utils.toArray('.split').forEach(el=>{
+    if(el.closest('#hero')) return;
+    gsap.to(el._chars,{yPercent:0,rotate:0,opacity:1,duration:1,ease:'power4.out',stagger:{each:.014},
+      scrollTrigger:{trigger:el,start:'top 90%'}});
+  });
+  gsap.utils.toArray('[data-count]').forEach(el=>{
+    const v={n:0}, t=+el.dataset.count;
+    gsap.to(v,{n:t,duration:1.6,ease:'power3.out',snap:{n:1},onUpdate:()=>el.textContent=v.n,
+      scrollTrigger:{trigger:el,start:'top 90%'}});
+  });
+  gsap.utils.toArray('.stat .u').forEach((el,i)=>gsap.to(el,{scaleX:1,duration:1,ease:'power3.out',delay:i*.07,
+    scrollTrigger:{trigger:el,start:'top 96%'}}));
+  gsap.to('#herowrap',{y:-70,opacity:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:true}});
+}else{
+  gsap.utils.toArray('[data-count]').forEach(el=>el.textContent=el.dataset.count);
+  gsap.set('.stat .u',{scaleX:1});
+}
+
+/* ---------- RAIL ---------- */
+const railTrack=document.getElementById('railtrack'), railBar=document.getElementById('railbar');
+if(!SHOT){
+  const dist=()=>Math.max(0, railTrack.scrollWidth - innerWidth + innerWidth*0.05);
+  const railST=gsap.to(railTrack,{x:()=>-dist(),ease:'none',
+    scrollTrigger:{trigger:'#rail',pin:true,scrub:.7,invalidateOnRefresh:true,anticipatePin:1,
+      start:'top top',end:()=>'+='+dist()*1.15,
+      onUpdate:s=>{ railBar.style.width=(s.progress*100).toFixed(1)+'%'; }}});
+  gsap.utils.toArray('.tcard').forEach(card=>{
+    gsap.fromTo(card,{scale:.93,rotateY:10,opacity:.65},{scale:1,rotateY:0,opacity:1,ease:'none',
+      scrollTrigger:{trigger:card,containerAnimation:railST,start:'left 95%',end:'center 55%',scrub:true}});
+    gsap.to(card,{scale:.93,rotateY:-10,opacity:.65,ease:'none',
+      scrollTrigger:{trigger:card,containerAnimation:railST,start:'center 45%',end:'right 5%',scrub:true}});
+  });
+}
+
+/* ---------- HUD ---------- */
+const progressEl=document.getElementById('progress'), sunPct=document.getElementById('sunpct'),
+      timeLabel=document.getElementById('timelabel'), flashEl=document.getElementById('flash');
+const dots=[...document.querySelectorAll('#dots a')];
+const SECS=['hero','numbers','rail','included','golden','book'];
+const TIMES=['Midday','Afternoon','Late afternoon','Golden hour','Sunset','Blue hour'];
+let pulse=0;
+function chapterPulse(){
+  pulse=1;
+  if(reduced||SHOT) return;
+  gsap.fromTo(flashEl,{opacity:.07},{opacity:0,duration:.8,ease:'power2.out'});
+}
+if(!SHOT) SECS.forEach((id,i)=>{
+  ScrollTrigger.create({trigger:'#'+id,start:'top 55%',end:'bottom 45%',onToggle:s=>{
+    if(!s.isActive) return;
+    dots.forEach((d,di)=>d.classList.toggle('on',di===i));
+    timeLabel.textContent=TIMES[i];
+    chapterPulse();
+  }});
+});
+document.querySelectorAll('#dots a, nav a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault();
+  const t=document.querySelector(a.getAttribute('href'));
+  if(!t) return;
+  lenis ? lenis.scrollTo(t) : t.scrollIntoView({behavior:'smooth'});
+}));
+
+/* ---------- POINTER ---------- */
+const cur=document.getElementById('cur'), ring=document.getElementById('curring');
+let mx=.5,my=.5,cx=innerWidth/2,cy=innerHeight/2,rx=cx,ry=cy;
+addEventListener('pointermove',e=>{
+  cx=e.clientX; cy=e.clientY; mx=e.clientX/innerWidth; my=e.clientY/innerHeight;
+  if(fine) document.body.classList.add('cur-on');
+},{passive:true});
+addEventListener('pointerdown',()=>{ pulse=1; },{passive:true});
+if(fine && !reduced && !SHOT){
+  document.body.classList.add('has-cursor');
+  document.addEventListener('mouseleave',()=>document.body.classList.remove('cur-on'));
+  document.querySelectorAll('a,button,.card,.tcard,.rev').forEach(el=>{
+    el.addEventListener('pointerenter',()=>ring.classList.add('big'));
+    el.addEventListener('pointerleave',()=>ring.classList.remove('big'));
+  });
+  document.querySelectorAll('.tilt').forEach(card=>{
+    const qx=gsap.quickTo(card,'rotationY',{duration:.5,ease:'power3'});
+    const qy=gsap.quickTo(card,'rotationX',{duration:.5,ease:'power3'});
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+      card.style.setProperty('--gx',(px*100)+'%'); card.style.setProperty('--gy',(py*100)+'%');
+      qx((px-.5)*8); qy((.5-py)*8);
+    });
+    card.addEventListener('pointerleave',()=>{ qx(0); qy(0); });
+  });
+  document.querySelectorAll('.magnet').forEach(b=>{
+    const qx=gsap.quickTo(b,'x',{duration:.5,ease:'power3'});
+    const qy=gsap.quickTo(b,'y',{duration:.5,ease:'power3'});
+    b.addEventListener('pointermove',e=>{
+      const r=b.getBoundingClientRect();
+      qx((e.clientX-r.left-r.width/2)*.3); qy((e.clientY-r.top-r.height/2)*.45);
+    });
+    b.addEventListener('pointerleave',()=>{ qx(0); qy(0); });
+  });
+}
+
+/* ---------- GYRO (mobile) ---------- */
+let gyroX=0,gyroY=0,gyroOn=false;
+function onOrient(e){
+  if(e.gamma==null||e.beta==null) return;
+  gyroOn=true;
+  gyroX=Math.max(-1,Math.min(1,e.gamma/38));
+  gyroY=Math.max(-1,Math.min(1,(e.beta-45)/38));
+}
+if(MOBILE && !SHOT && !reduced && window.DeviceOrientationEvent){
+  if(typeof DeviceOrientationEvent.requestPermission!=='function'){
+    addEventListener('deviceorientation',onOrient,{passive:true});
+  }else{
+    const ask=()=>{ DeviceOrientationEvent.requestPermission().then(r=>{ if(r==='granted') addEventListener('deviceorientation',onOrient,{passive:true}); }).catch(()=>{}); removeEventListener('touchend',ask); };
+    addEventListener('touchend',ask,{passive:true});
+  }
+}
+
+/* ================= WEBGL : OCÉAN ================= */
+let renderer=null;
+try{ renderer=new THREE.WebGLRenderer({canvas:document.getElementById('gl'),antialias:!MOBILE,powerPreference:'high-performance',preserveDrawingBuffer:SHOT}); }
+catch(e){ renderer=null; }
+
+if(!renderer){
+  document.getElementById('gl').style.display='none';
+  document.body.style.background = "#050f18 url('assets/hero-poster.jpg') center/cover fixed";
+  finishLoad();
+}else{
+  renderer.setPixelRatio(Math.min(devicePixelRatio, PERF.dpr));
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.toneMapping=THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure=MOBILE?1.14:0.95;
+
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(50, innerWidth/innerHeight, .1, 900);
+  camera.position.set(0, 3.2, 12);
+
+  /* ----- CIEL : dégradé + soleil + étoiles ----- */
+  const skyUni={
+    uTime:{value:0}, uSunY:{value:.42}, uSunX:{value:.62},
+    uTop:{value:new THREE.Color(0x1f6ea8)}, uBot:{value:new THREE.Color(0xa9d8e8)},
+    uSun:{value:new THREE.Color(0xfff3d0)}, uStars:{value:0}, uRes:{value:new THREE.Vector2(innerWidth,innerHeight)}
+  };
+  const sky=new THREE.Mesh(new THREE.PlaneGeometry(2,2), new THREE.ShaderMaterial({
+    uniforms:skyUni, depthWrite:false, depthTest:false,
+    vertexShader:`varying vec2 vUv; void main(){ vUv=uv; gl_Position=vec4(position.xy,0.9999,1.0); }`,
+    fragmentShader:`
+      precision mediump float;
+      varying vec2 vUv;
+      uniform float uTime,uSunY,uSunX,uStars;
+      uniform vec3 uTop,uBot,uSun;
+      uniform vec2 uRes;
+      float hash(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
+      void main(){
+        vec2 uv=vUv;
+        float g=pow(clamp(uv.y,0.0,1.0),0.85);
+        vec3 col=mix(uBot,uTop,g);
+        /* soleil */
+        vec2 s=vec2(uSunX,uSunY);
+        vec2 d=(uv-s)*vec2(uRes.x/uRes.y,1.0);
+        float r=length(d);
+        col += uSun * exp(-r*r*26.0) * 0.95;               // halo serré
+        col += uSun * exp(-r*r*3.2) * 0.16;                // grande lueur
+        col += uSun * smoothstep(0.035,0.028,r) * 1.6;     // disque
+        /* étoiles (nuit) */
+        if(uStars>0.01){
+          vec2 gp=floor(uv*vec2(220.0*uRes.x/uRes.y,220.0));
+          float h=hash(gp);
+          float star=step(0.9975,h)*uStars*(0.6+0.4*sin(uTime*2.0+h*40.0));
+          col += vec3(star)*smoothstep(0.25,0.9,uv.y);
+        }
+        gl_FragColor=vec4(col,1.0);
+      }`
+  }));
+  sky.frustumCulled=false; sky.renderOrder=-2; scene.add(sky);
+
+  /* ----- OCÉAN : vagues de Gerstner ----- */
+  const seaUni={
+    uTime:{value:0}, uAmp:{value:1}, uChop:{value:1},
+    uSunDir:{value:new THREE.Vector3(.5,.35,-1).normalize()},
+    uSunCol:{value:new THREE.Color(0xfff0cc)},
+    uDeep:{value:new THREE.Color(0x04263f)}, uShallow:{value:new THREE.Color(0x1d7fa3)},
+    uSky:{value:new THREE.Color(0x8fc7e0)}, uFoam:{value:.5}, uPulse:{value:0}
+  };
+  const seaMat=new THREE.ShaderMaterial({
+    uniforms:seaUni, side:THREE.DoubleSide,
+    vertexShader:`
+      uniform float uTime,uAmp,uChop,uPulse;
+      varying vec3 vPos; varying vec3 vNrm; varying float vCrest;
+
+      /* Le plan est en XY puis tourné de -90° autour de X :
+         objet (x,y,z) -> monde (x, z, -y).  On travaille donc en coords MONDE
+         q = (x, -y) et on renvoie l'objet à la fin. */
+      vec3 gerst(vec2 q, vec2 dir, float amp, float len, float spd){
+        float k = 6.28318 / len;
+        float a = amp * uAmp;
+        float f = k * (dot(dir, q) - spd * uTime);
+        float steep = clamp(uChop * 0.7 / max(k * a, 0.0001), 0.0, 1.0);
+        return vec3(steep * a * dir.x * cos(f), a * sin(f), steep * a * dir.y * cos(f));
+      }
+      vec3 waves(vec2 q){
+        vec3 o = vec3(0.0);
+        o += gerst(q, normalize(vec2( 1.0, 0.35)), 0.55, 13.0, 1.25);
+        o += gerst(q, normalize(vec2(-0.7, 0.75)), 0.34,  7.5, 1.05);
+        o += gerst(q, normalize(vec2( 0.3,-0.95)), 0.20,  4.2, 0.90);
+        o += gerst(q, normalize(vec2( 0.9,-0.25)), 0.11,  2.2, 0.75);
+        o.y += uPulse * 0.25 * sin(length(q) * 0.6 - uTime * 3.0) * exp(-length(q) * 0.05);
+        return o;
+      }
+      /* position monde déplacée pour une coord de grille monde q */
+      vec3 worldAt(vec2 q){
+        vec3 o = waves(q);
+        return vec3(q.x + o.x, o.y, q.y + o.z);
+      }
+      void main(){
+        vec2 q = vec2(position.x, -position.y);      // grille en coords monde (x, z)
+        vec3 W  = worldAt(q);
+        float e = 0.5;
+        vec3 Wx = worldAt(q + vec2(e, 0.0));
+        vec3 Wz = worldAt(q + vec2(0.0, e));
+        vec3 n = normalize(cross(Wz - W, Wx - W));
+        if(n.y < 0.0) n = -n;
+
+        vNrm  = n;                                   // déjà en monde
+        vPos  = W;
+        vCrest = clamp(W.y / (0.62 * max(uAmp, 0.2)), -1.0, 1.0);
+
+        /* retour en espace objet : monde (X,Y,Z) -> objet (X, -Z, Y) */
+        vec3 objPos = vec3(W.x, -W.z, W.y);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(objPos, 1.0);
+      }`,
+    fragmentShader:`
+      precision mediump float;
+      uniform vec3 uSunDir,uSunCol,uDeep,uShallow,uSky;
+      uniform float uFoam,uTime;
+      varying vec3 vPos; varying vec3 vNrm; varying float vCrest;
+      void main(){
+        vec3 N = normalize(vNrm);
+        vec3 V = normalize(cameraPosition - vPos);
+        vec3 L = normalize(uSunDir);
+        float fres = pow(1.0 - max(dot(N,V),0.0), 3.0);
+        float facing = max(dot(N, V), 0.0);
+        vec3 water = mix(uDeep, uShallow, clamp(facing*0.9 + vCrest*0.25, 0.0, 1.0));
+        /* spéculaire : chemin de lumière du soleil */
+        vec3 H = normalize(L + V);
+        float spec = pow(max(dot(N,H),0.0), 220.0) * 2.4;
+        float sheen = pow(max(dot(N,H),0.0), 26.0) * 0.22;
+        /* écume sur les crêtes */
+        float foam = smoothstep(0.80, 1.0, vCrest) * uFoam;
+        vec3 col = mix(water, uSky, fres*0.30);
+        col += uSunCol * (spec + sheen);
+        col = mix(col, vec3(0.90,0.95,0.96), foam*0.30);
+        /* fondu vers l'horizon */
+        float dist = length(vPos.xz - cameraPosition.xz);
+        col = mix(col, uSky, smoothstep(120.0, 330.0, dist) * 0.85);
+        gl_FragColor = vec4(col, 1.0);
+      }`
+  });
+  const sea=new THREE.Mesh(new THREE.PlaneGeometry(320, 320, PERF.seg, PERF.seg), seaMat);
+  sea.rotation.x=-Math.PI/2;
+  sea.position.y=0;
+  scene.add(sea);
+
+  /* ----- PHOTOS FLOTTANTES + REFLET ----- */
+  const texMgr=new THREE.LoadingManager();
+  const loaderTex=new THREE.TextureLoader(texMgr);
+  const PHOTOS=(MOBILE?[
+    {src:'assets/x/boat-action.jpg', pos:[0.9,3.1,1.0],  rot:-.18, w:3.1},
+    {src:'assets/x/exp-coves.jpg',   pos:[-1.5,2.9,-1.5],rot:.22,  w:2.8},
+    {src:'assets/x/exp-sunset.jpg',  pos:[1.4,2.8,-3.0], rot:-.24, w:2.9},
+  ]:[
+    {src:'assets/x/boat-action.jpg', pos:[2.9,2.5,2.5],  rot:-.22, w:4.6},
+    {src:'assets/x/exp-coves.jpg',   pos:[-3.6,2.3,-1.0],rot:.26,  w:4.0},
+    {src:'assets/x/exp-sunset.jpg',  pos:[3.4,2.2,-3.0], rot:-.3,  w:4.2},
+  ]);
+  const cards=[];
+  let texLoaded=0;
+  PHOTOS.forEach((P,i)=>{
+    const tex=loaderTex.load(P.src, ()=>{ texLoaded++; if(texLoaded===PHOTOS.length && !SHOT) finishLoad(); });
+    tex.colorSpace=THREE.SRGBColorSpace;
+    const h=P.w*0.66;
+    const makeMat=(dw)=>new THREE.ShaderMaterial({
+      transparent:true, depthWrite:!dw,
+      uniforms:{ map:{value:tex}, opacity:{value:0}, radius:{value:.07}, aspect:{value:P.w/h}, flip:{value:dw?1:0} },
+      vertexShader:`varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+      fragmentShader:`
+        precision mediump float;
+        uniform sampler2D map; uniform float opacity,radius,aspect,flip;
+        varying vec2 vUv;
+        float roundedBox(vec2 uv,float r,float a){
+          vec2 p = (uv - 0.5) * vec2(a,1.0);
+          vec2 b = vec2(0.5*a,0.5) - vec2(r);
+          vec2 d = abs(p) - b;
+          return length(max(d,0.0)) - r;
+        }
+        void main(){
+          vec2 uv = vUv;
+          float d = roundedBox(uv, radius, aspect);
+          float a = 1.0 - smoothstep(-0.004, 0.004, d);
+          vec4 c = texture2D(map, uv);
+          /* léger fondu bas pour le reflet */
+          float fade = mix(1.0, smoothstep(0.0, 0.85, vUv.y), flip);
+          gl_FragColor = vec4(c.rgb, c.a * a * opacity * fade);
+          if(gl_FragColor.a < 0.01) discard;
+        }`
+    });
+    const mat=makeMat(false);
+    const mesh=new THREE.Mesh(new THREE.PlaneGeometry(P.w,h), mat);
+    mesh.position.set(...P.pos); mesh.rotation.y=P.rot;
+    scene.add(mesh);
+    /* reflet : copie miroir, atténuée */
+    const rmat=makeMat(true);
+    const refl=new THREE.Mesh(new THREE.PlaneGeometry(P.w,h), rmat);
+    refl.scale.y=-1;
+    scene.add(refl);
+    cards.push({mesh, refl, mat, rmat, base:P.pos.slice(), h, i});
+  });
+
+  /* ----- POST ----- */
+  let composer=null, bloom=null;
+  if(PERF.post){
+    composer=new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene,camera));
+    bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight), .42, .7, .86);
+    composer.addPass(bloom);
+    composer.addPass(new OutputPass());
+    composer.setSize(innerWidth,innerHeight);
+  }
+
+  /* ----- ÉTATS DE LUMIÈRE (le soleil se couche au scroll) ----- */
+  const S={
+    sunX:.62, sunY:.42, camY:3.2, camZ:12, fov:50, amp:1, chop:1, foam:.5, stars:0, bloom:.42,
+    skyTop:new THREE.Color(0x1f6ea8), skyBot:new THREE.Color(0xa9d8e8), sunCol:new THREE.Color(0xfff3d0),
+    deep:new THREE.Color(0x04263f), shallow:new THREE.Color(0x1d7fa3), skyRefl:new THREE.Color(0x8fc7e0),
+    card:[1,0,0]
+  };
+  const LIGHT=[
+    /* 0 midi          */ {sunX:.62,sunY:.62,camY:3.2,camZ:12,fov:50,amp:1,chop:1,foam:.5,stars:0,bloom:.42,
+                           skyTop:0x1f6ea8,skyBot:0xa9d8e8,sunCol:0xfff3d0,deep:0x04263f,shallow:0x1d7fa3,skyRefl:0x8fc7e0,card:[1,0,0]},
+    /* 1 après-midi    */ {sunX:.68,sunY:.52,camY:2.3,camZ:10,fov:50,amp:.85,chop:1,foam:.45,stars:0,bloom:.42,
+                           skyTop:0x2a7cae,skyBot:0xc3e2ea,sunCol:0xfff0c8,deep:0x05314c,shallow:0x2492b4,skyRefl:0x9fd2e6,card:[.35,.9,0]},
+    /* 2 tours (rail)  */ {sunX:.74,sunY:.4,camY:1.7,camZ:9,fov:52,amp:.7,chop:.9,foam:.4,stars:0,bloom:.45,
+                           skyTop:0x3a86ad,skyBot:0xe0dcc4,sunCol:0xffe4a8,deep:0x063a52,shallow:0x2ba3b6,skyRefl:0xbcd8dd,card:[0,0,0]},
+    /* 3 fin d'aprem   */ {sunX:.8,sunY:.3,camY:1.4,camZ:8.2,fov:52,amp:.6,chop:.85,foam:.35,stars:0,bloom:.5,
+                           skyTop:0x4a7fa8,skyBot:0xf0c98a,sunCol:0xffd489,deep:0x08304a,shallow:0x2f9fae,skyRefl:0xdcc3a4,card:[0,0,.85]},
+    /* 4 golden hour   */ {sunX:.86,sunY:.2,camY:.95,camZ:7,fov:54,amp:.5,chop:.8,foam:.28,stars:.05,bloom:.72,
+                           skyTop:0x5c5b96,skyBot:0xf3a35e,sunCol:0xffb765,deep:0x0b2540,shallow:0x3f7f9c,skyRefl:0xe9a877,card:[0,0,1]},
+    /* 5 blue hour     */ {sunX:.9,sunY:.09,camY:1.2,camZ:8,fov:52,amp:.42,chop:.75,foam:.22,stars:.85,bloom:.85,
+                           skyTop:0x111f47,skyBot:0xc2704f,sunCol:0xff9a55,deep:0x04162c,shallow:0x1c4f70,skyRefl:0x6b6f90,card:[0,0,.35]},
+  ];
+  const setLight=(i,dur=1.6)=>{
+    const L=LIGHT[i];
+    gsap.to(S,{sunX:L.sunX,sunY:L.sunY,camY:L.camY,camZ:L.camZ,fov:L.fov,amp:L.amp,chop:L.chop,foam:L.foam,
+      stars:L.stars,bloom:L.bloom,duration:dur,ease:'power2.inOut'});
+    [['skyTop','skyTop'],['skyBot','skyBot'],['sunCol','sunCol'],['deep','deep'],['shallow','shallow'],['skyRefl','skyRefl']]
+      .forEach(([k,h])=>{ const c=new THREE.Color(L[h]); gsap.to(S[k],{r:c.r,g:c.g,b:c.b,duration:dur,ease:'power2.inOut'}); });
+    L.card.forEach((v,ci)=>{ if(cards[ci]) gsap.to(S.card,{[ci]:v,duration:dur,ease:'power2.inOut'}); });
+    S.card = S.card.map((v,ci)=>v);
+    cards.forEach((c,ci)=>gsap.to(c.mat.uniforms.opacity,{value:L.card[ci],duration:dur,ease:'power2.inOut'}));
+    cards.forEach((c,ci)=>gsap.to(c.rmat.uniforms.opacity,{value:L.card[ci]*.20,duration:dur,ease:'power2.inOut'}));
+  };
+  if(!SHOT) SECS.forEach((id,i)=>{
+    ScrollTrigger.create({trigger:'#'+id, start:'top 62%', end:'bottom 38%',
+      onEnter:()=>setLight(i), onEnterBack:()=>setLight(i)});
+  });
+
+  /* ----- RESIZE ----- */
+  let rw=innerWidth, rt=null;
+  addEventListener('resize',()=>{
+    clearTimeout(rt);
+    rt=setTimeout(()=>{
+      const wc=Math.abs(innerWidth-rw)>2; rw=innerWidth;
+      camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth,innerHeight);
+      if(composer) composer.setSize(innerWidth,innerHeight);
+      skyUni.uRes.value.set(innerWidth,innerHeight);
+      if(wc) ScrollTrigger.refresh();
+    },180);
+  });
+
+  /* ----- BOUCLE ----- */
+  let smx=0,smy=0,vel=0,lastY=0,lastMs=performance.now(),started=false,fpsAcc=0,fpsN=0,degraded=false;
+  const clock=new THREE.Clock();
+  const maxScroll=()=>Math.max(1, document.documentElement.scrollHeight - innerHeight);
+  const sunDir=new THREE.Vector3();
+
+  function frame(){
+    const t=clock.getElapsedTime();
+    const now=performance.now(), dt=Math.min((now-lastMs)/1000,.05); lastMs=now;
+
+    if(!SHOT && !degraded){
+      fpsAcc+=dt; fpsN++;
+      if(fpsN===90){
+        if(fpsAcc/90 > 1/40){ degraded=true; renderer.setPixelRatio(1); if(composer) composer.setSize(innerWidth,innerHeight); }
+        fpsAcc=0; fpsN=0;
+      }
+    }
+
+    const y=lenis?lenis.scroll:scrollY;
+    const raw=(y-lastY)/innerHeight; lastY=y;
+    vel += (raw-vel)*.12;
+    const p=Math.min(Math.max(y/maxScroll(),0),1);
+    pulse *= .94;
+
+    const tgx = gyroOn ? gyroX*.5 : (mx-.5), tgy = gyroOn ? gyroY*.5 : (my-.5);
+    smx += (tgx-smx)*.05; smy += (tgy-smy)*.05;
+
+    /* ciel */
+    skyUni.uTime.value=t;
+    skyUni.uSunX.value=S.sunX + smx*.02;
+    skyUni.uSunY.value=S.sunY;
+    skyUni.uTop.value.copy(S.skyTop);
+    skyUni.uBot.value.copy(S.skyBot);
+    skyUni.uSun.value.copy(S.sunCol);
+    skyUni.uStars.value=S.stars;
+
+    /* mer */
+    seaUni.uTime.value=t;
+    seaUni.uAmp.value=S.amp;
+    seaUni.uChop.value=S.chop;
+    seaUni.uFoam.value=S.foam;
+    seaUni.uPulse.value=pulse;
+    seaUni.uSunCol.value.copy(S.sunCol);
+    seaUni.uDeep.value.copy(S.deep);
+    seaUni.uShallow.value.copy(S.shallow);
+    seaUni.uSky.value.copy(S.skyRefl);
+    /* direction du soleil cohérente avec sa position à l'écran */
+    sunDir.set((S.sunX-.5)*2.2, Math.max(S.sunY,.02)*1.6, -1).normalize();
+    seaUni.uSunDir.value.copy(sunDir);
+
+    /* photos : elles flottent et tanguent */
+    cards.forEach((c,i)=>{
+      const bob=Math.sin(t*.7 + i*1.9)*.16;
+      const sway=Math.cos(t*.5 + i*1.2)*.05;
+      c.mesh.position.set(c.base[0] + smx*.5, c.base[1] + bob, c.base[2]);
+      c.mesh.rotation.set(sway*.35 + smy*.12, c.mesh.rotation.y, sway*.5);
+      c.mesh.scale.setScalar(1 + pulse*.03);
+      /* reflet sous la ligne d'eau */
+      c.refl.position.set(c.mesh.position.x, -c.mesh.position.y + .15 + Math.sin(t*1.6+i)*.05, c.mesh.position.z + .06);
+      c.refl.rotation.copy(c.mesh.rotation);
+      c.refl.rotation.z *= -1;
+      c.refl.scale.set(1 + Math.sin(t*2.0+i)*.02, -1, 1);
+    });
+
+    /* caméra : elle tangue avec la houle */
+    const swell=Math.sin(t*.6)*.10*S.amp + Math.sin(t*1.3)*.05*S.amp;
+    camera.position.set(smx*.9, S.camY + swell - smy*.3, S.camZ);
+    camera.rotation.z = Math.sin(t*.45)*.008*S.amp;
+    camera.fov = S.fov + Math.min(Math.abs(vel)*90, 4);
+    camera.updateProjectionMatrix();
+    camera.lookAt(smx*.5, 1.6 + smy*.4 + swell*.5, -12);
+
+    if(bloom) bloom.strength = S.bloom + pulse*.25;
+
+    progressEl.style.width=(p*100).toFixed(2)+'%';
+    sunPct.textContent=String(Math.round(S.sunY*140)).padStart(3,'0');
+
+    if(!MOBILE && !reduced && !SHOT){
+      rx+=(cx-rx)*.16; ry+=(cy-ry)*.16;
+      cur.style.transform=`translate(${cx}px,${cy}px)`;
+      ring.style.transform=`translate(${rx}px,${ry}px) scale(${1+Math.min(Math.abs(vel)*3,.5)})`;
+    }
+
+    composer ? composer.render() : renderer.render(scene,camera);
+    if(!started){ started=true; setTimeout(finishLoad, 300); }
+  }
+
+  if(SHOT){
+    const doShot=()=>{
+      if(q.has('sec')){
+        const el=document.getElementById(q.get('sec'));
+        if(el) document.querySelector('main').style.marginTop=`-${el.offsetTop - parseFloat(q.get('off')||0)}px`;
+      }
+      const i=Math.min(+(q.get('kf')||0),5), L=LIGHT[i];
+      Object.assign(S,{sunX:L.sunX,sunY:L.sunY,camY:L.camY,camZ:L.camZ,fov:L.fov,amp:L.amp,chop:L.chop,foam:L.foam,stars:L.stars,bloom:L.bloom});
+      S.skyTop.setHex(L.skyTop); S.skyBot.setHex(L.skyBot); S.sunCol.setHex(L.sunCol);
+      S.deep.setHex(L.deep); S.shallow.setHex(L.shallow); S.skyRefl.setHex(L.skyRefl);
+      cards.forEach((c,ci)=>{ c.mat.uniforms.opacity.value=L.card[ci]; c.rmat.uniforms.opacity.value=L.card[ci]*.20; });
+      if(bloom) bloom.strength=L.bloom;
+      clock.start();
+      for(let k=0;k<3;k++) frame();
+      const img=new Image();
+      img.src=renderer.domElement.toDataURL('image/png');
+      img.style.cssText='position:fixed;inset:0;z-index:0;width:100vw;height:100vh;object-fit:cover';
+      renderer.domElement.replaceWith(img);
+      finishLoad();
+      document.title='RENDERED';
+    };
+    texMgr.onLoad = ()=>requestAnimationFrame(()=>requestAnimationFrame(doShot));
+    setTimeout(()=>{ if(document.title!=='RENDERED') doShot(); }, 6000);
+  }else{
+    gsap.ticker.add(frame);
+    addEventListener('load',()=>ScrollTrigger.refresh());
+    setTimeout(()=>ScrollTrigger.refresh(),600);
+  }
+}
+</script>
+</body>
+</html>
