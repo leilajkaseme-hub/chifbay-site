@@ -1,0 +1,64 @@
+name: Chifbay Instagram — auto post (cloud, free, no ban risk)
+
+# Posts ONE photo from your social/ pool to Instagram, on a schedule, from GitHub's
+# cloud — your computer can be OFF. Uses:
+#   • Instagram Graph API (Meta's official, FREE, ToS-compliant method — no password,
+#     no ban risk). Needs two repo secrets: IG_USER_ID and IG_ACCESS_TOKEN.
+#   • Claude Code with your subscription token (secret CLAUDE_CODE_OAUTH_TOKEN) to write
+#     a fresh, human-sounding caption each time — NOT an Anthropic API key, so $0 per run.
+# See scripts/instagram/SETUP.md for the one-time free setup.
+
+on:
+  # A few natural slots per week (UTC). Instagram engagement in Europe peaks late
+  # afternoon / early evening. We add a random delay below so it never fires on the dot.
+  schedule:
+    - cron: "17 16 * * 1"   # Monday   ~afternoon
+    - cron: "42 17 * * 3"   # Wednesday
+    - cron: "8 16 * * 5"    # Friday
+    - cron: "33 10 * * 6"   # Saturday morning
+  workflow_dispatch: {}      # lets you post on demand from the Actions tab
+
+concurrency:
+  group: instagram-auto
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Human-like delay
+        # Wait a random 0–110 minutes so posting time varies naturally each run.
+        # (Skipped on manual runs so you get an instant post when you click "Run".)
+        if: github.event_name == 'schedule'
+        run: sleep $(( RANDOM % 6600 ))
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Write caption & publish one Instagram post
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          claude -p "$(cat scripts/instagram/INSTAGRAM-INSTRUCTIONS.md)" \
+            --permission-mode acceptEdits \
+            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" \
+                           "Bash(node:*)" "Bash(git add:*)" "Bash(git commit:*)" \
+                           "Bash(git push:*)" "Bash(git pull:*)" "Bash(git status:*)" "Bash(git log:*)"
