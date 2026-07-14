@@ -1,0 +1,49 @@
+/* Chifbay — couche d'animation (par-dessus peak.css, ne remplace rien) */
+
+/* peak.css révèle .rv en CSS ; quand le moteur est actif c'est GSAP qui pilote. */
+html.mo .rv{transition:none}
+
+/* --- mots masqués (titres) --- */
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.wi{display:inline-block;will-change:transform}
+
+/* --- loader --- */
+#mload{position:fixed;inset:0;z-index:9000;background:#050f18;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:24px}
+#mload .mk{height:44px;width:auto;opacity:.92}
+#mload .bar{width:min(170px,46vw);height:1px;background:rgba(255,255,255,.14)}
+#mload .bar i{display:block;height:100%;width:0;background:#d4a843;transition:width .3s ease}
+#mload .pc2{font:400 10px/1 'Space Mono',monospace;letter-spacing:.34em;color:rgba(255,255,255,.4)}
+html.mo-done #mload{display:none}
+
+/* --- barre de progression --- */
+#mprog{position:fixed;top:0;left:0;height:2px;width:0;z-index:8000;background:#d4a843;pointer-events:none}
+
+/* --- curseur (pointeur fin uniquement) --- */
+#mcur,#mring{position:fixed;top:0;left:0;z-index:8500;pointer-events:none;border-radius:50%;opacity:0;
+  transition:opacity .3s;will-change:transform}
+#mcur{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:#d4a843}
+#mring{width:32px;height:32px;margin:-16px 0 0 -16px;border:1px solid rgba(212,168,67,.5);
+  transition:opacity .3s,width .35s,height .35s,margin .35s,background .35s}
+html.mo-cur.mo-cv #mcur,html.mo-cur.mo-cv #mring{opacity:1}
+#mring.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(212,168,67,.07)}
+@media(hover:hover) and (pointer:fine){ html.mo-cur, html.mo-cur *{cursor:none !important} }
+
+/* --- grain --- */
+#mgrain{position:fixed;inset:-100%;z-index:7000;pointer-events:none;opacity:.028;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:mgr 8s steps(10) infinite}
+@keyframes mgr{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-8%)}30%{transform:translate(3%,-5%)}
+  50%{transform:translate(-8%,3%)}70%{transform:translate(6%,8%)}90%{transform:translate(-3%,5%)}}
+
+/* --- éléments pilotés par GSAP : on neutralise l'anim CSS d'origine --- */
+html.mo .hbg{animation:none}
+html.mo .exc,html.mo .pc,html.mo .gal a,html.mo .te,html.mo .ii{will-change:transform}
+html.mo .exc{transform-style:preserve-3d}
+
+@media(prefers-reduced-motion:reduce){
+  #mload,#mgrain,#mcur,#mring,#mprog{display:none}
+  html.mo .rv{opacity:1;transform:none}
+  .w{overflow:visible}
+  .wi{transform:none !important}
+}
