@@ -6,65 +6,49 @@
 <title>Chifbay — review card (print)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-  :root{ --ink:#050f18; --gold:#d4a843; --gold-l:#e8c476; --teal:#3aa8b8; --cream:#f4f2ec; }
+  :root{ --ink:#08131f; --gold:#d4a843; --gold-l:#e8c476; --cream:#f4f2ec; }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{background:#20262c}
-  /* A5 portrait — imprimer à 100%, sans mise à l'échelle */
-  .card{
-    width:148mm;height:210mm;margin:10mm auto;position:relative;overflow:hidden;
+  /* A5 portrait — imprimer a 100%, sans mise a l'echelle */
+  .card{width:148mm;height:210mm;margin:10mm auto;position:relative;overflow:hidden;
     background:var(--ink);color:#fff;font-family:'Inter',sans-serif;
-    display:flex;flex-direction:column;
-  }
-  .shot{position:relative;height:58mm;flex:none}
-  .shot .photo{width:100%;height:100%;object-fit:cover;display:block}
+    display:flex;flex-direction:column}
+  /* l'image porte deja le logo et la baseline : on ne surcharge rien par-dessus */
+  .shot{position:relative;height:120mm;flex:none}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:center 62%;display:block}
   .shot::after{content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(5,15,24,.30) 0%,rgba(5,15,24,.05) 40%,rgba(5,15,24,.85) 82%,var(--ink) 100%)}
-  .logo{position:absolute;top:7mm;left:11mm;z-index:2;height:12mm;width:auto;display:block}
-    .body{flex:0 1 auto;display:flex;flex-direction:column;align-items:center;text-align:center;
-    padding:0 11mm 6mm;margin-top:-6mm;position:relative;z-index:2}
-  .eyebrow{font-family:'Space Mono',monospace;font-size:7.4pt;letter-spacing:.30em;
-    text-transform:uppercase;color:var(--gold);margin-bottom:5mm;
-    display:flex;align-items:center;gap:3mm}
-  .eyebrow i{display:block;width:9mm;height:1px;background:var(--gold);opacity:.6}
-  h1{font-family:'Playfair Display',serif;font-weight:400;font-size:25pt;line-height:1.14;letter-spacing:-.01em}
-  h1 em{font-style:italic;color:var(--gold-l)}   /* aplat : un dégradé background-clip:text s'imprime en bloc plein */
-  .sub{font-size:9.4pt;line-height:1.65;font-weight:300;color:rgba(255,255,255,.66);
-    max-width:78mm;margin:5mm 0 7mm}
-  /* panneau clair : indispensable, un QR clair sur fond sombre se scanne mal */
-  .panel{background:var(--cream);border-radius:4mm;padding:6mm 6mm 4.5mm;
-    border:1px solid rgba(255,255,255,.10)}
-  .qr{width:42mm;height:42mm;display:block}
-  .scan{font-family:'Space Mono',monospace;font-size:6.8pt;letter-spacing:.26em;text-transform:uppercase;
-    color:#7d8894;margin-top:3.5mm}
-  .url{font-family:'Space Mono',monospace;font-size:8pt;letter-spacing:.08em;color:var(--gold);margin-top:6mm}
-  .langs{font-size:7.2pt;letter-spacing:.11em;color:rgba(255,255,255,.42);margin-top:3.5mm;line-height:1.9}
-  .foot{flex:none;border-top:1px solid rgba(255,255,255,.12);margin:auto 11mm 0;padding:4mm 0 6mm;
-    display:flex;justify-content:space-between;
-    font-family:'Space Mono',monospace;font-size:6.4pt;letter-spacing:.16em;
-    text-transform:uppercase;color:rgba(255,255,255,.34)}
-  @page{size:A5 portrait;margin:0}
+    background:linear-gradient(180deg,rgba(8,19,31,0) 58%,rgba(8,19,31,.75) 85%,var(--ink) 100%)}
+  .body{flex:0 1 auto;display:flex;flex-direction:column;align-items:center;text-align:center;
+    padding:0 12mm;margin-top:-7mm;position:relative;z-index:2}
+  h1{font-family:'Playfair Display',serif;font-weight:400;font-size:17pt;line-height:1.22;
+    letter-spacing:-.01em;margin-bottom:5mm}
+  h1 em{font-style:italic;color:var(--gold-l)}   /* aplat : un degrade background-clip:text s'imprime en bloc plein */
+  /* panneau clair obligatoire : un QR clair sur fond sombre se scanne mal */
+  .panel{background:var(--cream);border-radius:3mm;padding:5mm;border:1px solid rgba(255,255,255,.10)}
+  .qr{width:40mm;height:40mm;display:block}
+  .url{font-family:'Space Mono',monospace;font-size:8pt;letter-spacing:.08em;color:var(--gold);margin-top:5mm}
+  .scan{font-family:'Space Mono',monospace;font-size:6.6pt;letter-spacing:.26em;text-transform:uppercase;
+    color:rgba(255,255,255,.45);margin-top:2.5mm}
+  .langs{font-size:7pt;letter-spacing:.10em;color:rgba(255,255,255,.40);margin-top:4mm;line-height:1.85}
+  .foot{flex:none;border-top:1px solid rgba(255,255,255,.12);margin:auto 12mm 0;padding:3.5mm 0 5mm;
+    display:flex;justify-content:space-between;font-family:'Space Mono',monospace;font-size:6.2pt;
+    letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.34)}
+  @page{size:148mm 210mm;margin:0}   /* dimensions explicites : Chrome ignore parfois le nom du format */
   @media print{ html,body{background:#fff} .card{margin:0} }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="shot">
-    <img class="photo" src="../assets/hero.jpg" alt="">
-    <img class="logo" src="../assets/logo-white.png" alt="Chifbay">
-  </div>
+  <div class="shot"><img src="img/chifbay-bluehour.jpg" alt=""></div>
   <div class="body">
-    <div class="eyebrow"><i></i>Thank you for sailing<i></i></div>
-    <h1>How was your day<br><em>on the water</em>?</h1>
-    <p class="sub">We are a small local crew. One honest review helps more people find us — and takes less than a minute.</p>
-    <div class="panel">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" class="qr"><path  class="qrline" stroke="#050f18" d="M2 2.5h7m4 0h1m2 0h3m1 0h2m2 0h1m1 0h1m1 0h7m-33 1h1m5 0h1m4 0h2m1 0h2m3 0h2m3 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h3m2 0h1m1 0h2m3 0h5m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m2 0h1m2 0h4m1 0h1m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m4 0h1m3 0h1m2 0h2m2 0h3m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-24 1h2m1 0h1m2 0h2m2 0h2m1 0h1m1 0h1m-22 1h2m1 0h2m2 0h1m1 0h2m1 0h1m1 0h1m2 0h1m3 0h1m4 0h2m-31 1h1m1 0h4m2 0h1m1 0h3m2 0h1m1 0h7m1 0h1m1 0h3m-29 1h1m2 0h1m1 0h1m1 0h4m1 0h1m1 0h1m3 0h2m1 0h6m3 0h2m-32 1h5m1 0h2m1 0h1m4 0h4m2 0h2m3 0h3m1 0h3m-32 1h2m1 0h4m2 0h1m1 0h1m2 0h1m4 0h2m1 0h1m2 0h2m1 0h1m1 0h2m-31 1h4m2 0h1m2 0h1m2 0h2m3 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m-30 1h2m1 0h3m2 0h1m3 0h3m1 0h2m5 0h1m1 0h2m-25 1h1m6 0h3m1 0h3m6 0h1m2 0h5m-31 1h1m1 0h2m1 0h2m4 0h1m1 0h1m2 0h1m2 0h1m2 0h1m1 0h2m1 0h2m1 0h1m-32 1h1m9 0h3m1 0h2m3 0h4m1 0h1m1 0h4m2 0h1m-32 1h2m3 0h1m5 0h1m1 0h2m2 0h2m3 0h1m5 0h4m-32 1h1m2 0h1m2 0h1m2 0h4m3 0h2m4 0h2m1 0h5m-31 1h4m1 0h5m5 0h2m3 0h1m3 0h1m2 0h1m1 0h1m-30 1h1m1 0h3m3 0h3m1 0h3m1 0h5m1 0h1m1 0h1m2 0h2m-29 1h1m5 0h2m8 0h1m1 0h1m2 0h4m1 0h1m2 0h4m-33 1h1m1 0h1m6 0h3m2 0h1m1 0h2m1 0h1m3 0h1m6 0h3m-33 1h3m1 0h8m1 0h3m8 0h6m1 0h2m-25 1h2m3 0h2m5 0h1m1 0h3m3 0h2m1 0h1m-32 1h7m1 0h1m5 0h2m3 0h6m1 0h1m1 0h3m-31 1h1m5 0h1m3 0h3m1 0h2m2 0h2m3 0h2m3 0h1m1 0h2m-32 1h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h3m3 0h1m1 0h7m1 0h1m-32 1h1m1 0h3m1 0h1m1 0h4m1 0h1m3 0h3m1 0h1m2 0h2m1 0h1m1 0h1m1 0h1m-32 1h1m1 0h3m1 0h1m4 0h1m1 0h1m4 0h2m1 0h2m1 0h1m3 0h5m-33 1h1m5 0h1m4 0h2m3 0h3m2 0h2m2 0h2m2 0h4m-33 1h7m5 0h6m2 0h1m1 0h5m1 0h2"/></svg>
-
-      <div class="scan">Scan to leave a review</div>
-    </div>
+    <h1>How was your day <em>on the water</em>?</h1>
+    <div class="panel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" class="qr"><path  class="qrline" stroke="#050f18" d="M2 2.5h7m4 0h1m2 0h3m1 0h2m2 0h1m1 0h1m1 0h7m-33 1h1m5 0h1m4 0h2m1 0h2m3 0h2m3 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h3m2 0h1m1 0h2m3 0h5m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m2 0h1m2 0h4m1 0h1m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m4 0h1m3 0h1m2 0h2m2 0h3m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-24 1h2m1 0h1m2 0h2m2 0h2m1 0h1m1 0h1m-22 1h2m1 0h2m2 0h1m1 0h2m1 0h1m1 0h1m2 0h1m3 0h1m4 0h2m-31 1h1m1 0h4m2 0h1m1 0h3m2 0h1m1 0h7m1 0h1m1 0h3m-29 1h1m2 0h1m1 0h1m1 0h4m1 0h1m1 0h1m3 0h2m1 0h6m3 0h2m-32 1h5m1 0h2m1 0h1m4 0h4m2 0h2m3 0h3m1 0h3m-32 1h2m1 0h4m2 0h1m1 0h1m2 0h1m4 0h2m1 0h1m2 0h2m1 0h1m1 0h2m-31 1h4m2 0h1m2 0h1m2 0h2m3 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m-30 1h2m1 0h3m2 0h1m3 0h3m1 0h2m5 0h1m1 0h2m-25 1h1m6 0h3m1 0h3m6 0h1m2 0h5m-31 1h1m1 0h2m1 0h2m4 0h1m1 0h1m2 0h1m2 0h1m2 0h1m1 0h2m1 0h2m1 0h1m-32 1h1m9 0h3m1 0h2m3 0h4m1 0h1m1 0h4m2 0h1m-32 1h2m3 0h1m5 0h1m1 0h2m2 0h2m3 0h1m5 0h4m-32 1h1m2 0h1m2 0h1m2 0h4m3 0h2m4 0h2m1 0h5m-31 1h4m1 0h5m5 0h2m3 0h1m3 0h1m2 0h1m1 0h1m-30 1h1m1 0h3m3 0h3m1 0h3m1 0h5m1 0h1m1 0h1m2 0h2m-29 1h1m5 0h2m8 0h1m1 0h1m2 0h4m1 0h1m2 0h4m-33 1h1m1 0h1m6 0h3m2 0h1m1 0h2m1 0h1m3 0h1m6 0h3m-33 1h3m1 0h8m1 0h3m8 0h6m1 0h2m-25 1h2m3 0h2m5 0h1m1 0h3m3 0h2m1 0h1m-32 1h7m1 0h1m5 0h2m3 0h6m1 0h1m1 0h3m-31 1h1m5 0h1m3 0h3m1 0h2m2 0h2m3 0h2m3 0h1m1 0h2m-32 1h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h3m3 0h1m1 0h7m1 0h1m-32 1h1m1 0h3m1 0h1m1 0h4m1 0h1m3 0h3m1 0h1m2 0h2m1 0h1m1 0h1m1 0h1m-32 1h1m1 0h3m1 0h1m4 0h1m1 0h1m4 0h2m1 0h2m1 0h1m3 0h5m-33 1h1m5 0h1m4 0h2m3 0h3m2 0h2m2 0h2m2 0h4m-33 1h7m5 0h6m2 0h1m1 0h5m1 0h2"/></svg>
+</div>
     <div class="url">chifbay.com/review.html</div>
-    <div class="langs">Laissez un avis · Bewerten Sie uns<br>Deixe a sua avaliação · Deja una reseña</div>
+    <div class="scan">Scan to leave a review</div>
+    <div class="langs">Laissez un avis · Bewerten Sie uns · Deixe a sua avaliação</div>
   </div>
   <div class="foot">
     <span>32.6442° N · 16.9165° W</span>

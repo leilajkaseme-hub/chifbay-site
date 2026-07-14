@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Chifbay — QR card (print)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#050f18; --gold:#d4a843; --cream:#f4f2ec; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#20262c}
+  /* A6 portrait (105 x 148 mm) — imprimer a 100% */
+  .card{width:105mm;height:148mm;margin:10mm auto;background:var(--ink);color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:10mm;position:relative}
+  .edge{position:absolute;inset:5mm;border:1px solid rgba(212,168,67,.30)}
+  .logo{height:11mm;width:auto;display:block;margin-bottom:8mm}
+  .ttl{font-family:'Playfair Display',serif;font-size:15pt;line-height:1.25;margin-bottom:7mm}
+  .ttl em{font-style:italic;color:var(--gold)}
+  /* panneau clair obligatoire : un QR clair sur fond sombre se scanne mal */
+  .panel{background:var(--cream);border-radius:3mm;padding:5mm}
+  .qr{width:46mm;height:46mm;display:block}
+  .url{font-family:'Space Mono',monospace;font-size:7.6pt;letter-spacing:.08em;
+    color:var(--gold);margin-top:7mm}
+  .scan{font-family:'Space Mono',monospace;font-size:6.6pt;letter-spacing:.28em;
+    text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:3mm}
+  @page{size:105mm 148mm;margin:0}   /* Chrome ignore le nom "A6" : dimensions explicites */
+  @media print{ html,body{background:#fff} .card{margin:0} }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="edge"></div>
+  <img class="logo" src="../assets/logo-white.png" alt="Chifbay">
+  <div class="ttl">Leave us <em>a review</em></div>
+  <div class="panel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" class="qr"><path  class="qrline" stroke="#050f18" d="M2 2.5h7m4 0h1m2 0h3m1 0h2m2 0h1m1 0h1m1 0h7m-33 1h1m5 0h1m4 0h2m1 0h2m3 0h2m3 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m3 0h2m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h3m2 0h1m1 0h2m3 0h5m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m2 0h1m2 0h4m1 0h1m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m4 0h1m3 0h1m2 0h2m2 0h3m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-24 1h2m1 0h1m2 0h2m2 0h2m1 0h1m1 0h1m-22 1h2m1 0h2m2 0h1m1 0h2m1 0h1m1 0h1m2 0h1m3 0h1m4 0h2m-31 1h1m1 0h4m2 0h1m1 0h3m2 0h1m1 0h7m1 0h1m1 0h3m-29 1h1m2 0h1m1 0h1m1 0h4m1 0h1m1 0h1m3 0h2m1 0h6m3 0h2m-32 1h5m1 0h2m1 0h1m4 0h4m2 0h2m3 0h3m1 0h3m-32 1h2m1 0h4m2 0h1m1 0h1m2 0h1m4 0h2m1 0h1m2 0h2m1 0h1m1 0h2m-31 1h4m2 0h1m2 0h1m2 0h2m3 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m-30 1h2m1 0h3m2 0h1m3 0h3m1 0h2m5 0h1m1 0h2m-25 1h1m6 0h3m1 0h3m6 0h1m2 0h5m-31 1h1m1 0h2m1 0h2m4 0h1m1 0h1m2 0h1m2 0h1m2 0h1m1 0h2m1 0h2m1 0h1m-32 1h1m9 0h3m1 0h2m3 0h4m1 0h1m1 0h4m2 0h1m-32 1h2m3 0h1m5 0h1m1 0h2m2 0h2m3 0h1m5 0h4m-32 1h1m2 0h1m2 0h1m2 0h4m3 0h2m4 0h2m1 0h5m-31 1h4m1 0h5m5 0h2m3 0h1m3 0h1m2 0h1m1 0h1m-30 1h1m1 0h3m3 0h3m1 0h3m1 0h5m1 0h1m1 0h1m2 0h2m-29 1h1m5 0h2m8 0h1m1 0h1m2 0h4m1 0h1m2 0h4m-33 1h1m1 0h1m6 0h3m2 0h1m1 0h2m1 0h1m3 0h1m6 0h3m-33 1h3m1 0h8m1 0h3m8 0h6m1 0h2m-25 1h2m3 0h2m5 0h1m1 0h3m3 0h2m1 0h1m-32 1h7m1 0h1m5 0h2m3 0h6m1 0h1m1 0h3m-31 1h1m5 0h1m3 0h3m1 0h2m2 0h2m3 0h2m3 0h1m1 0h2m-32 1h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h3m3 0h1m1 0h7m1 0h1m-32 1h1m1 0h3m1 0h1m1 0h4m1 0h1m3 0h3m1 0h1m2 0h2m1 0h1m1 0h1m1 0h1m-32 1h1m1 0h3m1 0h1m4 0h1m1 0h1m4 0h2m1 0h2m1 0h1m3 0h5m-33 1h1m5 0h1m4 0h2m3 0h3m2 0h2m2 0h2m2 0h4m-33 1h7m5 0h6m2 0h1m1 0h5m1 0h2"/></svg>
+</div>
+  <div class="url">chifbay.com/review.html</div>
+  <div class="scan">Scan with your camera</div>
+</div>
+</body>
+</html>
