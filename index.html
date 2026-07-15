@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="atlas">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -18,9 +18,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="peak.css"/>
-<link rel="stylesheet" href="motion.css"/>
+<link rel="stylesheet" href="atlas.css"/>
+<link rel="preload" as="image" href="assets/hero-poster.jpg"/>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":["LocalBusiness","TouristAttraction"],"@id":"https://chifbay.com/#business","name":"Chifbay","description":"Private boat tours from Funchal, Madeira — hidden coves, snorkeling, Cabo Girão and luxury sunset cruises aboard a private boat for up to 7 guests.","url":"https://chifbay.com","email":"hello@chifbay.com","telephone":"+351937200320","image":"https://chifbay.com/assets/hero.jpg","priceRange":"€€€","currenciesAccepted":"EUR","knowsLanguage":["en","fr","de","pt","es","it"],"address":{"@type":"PostalAddress","streetAddress":"Marina do Funchal","addressLocality":"Funchal","addressRegion":"Madeira","postalCode":"9000-055","addressCountry":"PT"},"geo":{"@type":"GeoCoordinates","latitude":32.6442,"longitude":-16.9165},"areaServed":[{"@type":"Place","name":"Funchal"},{"@type":"Place","name":"Madeira"},{"@type":"Place","name":"Câmara de Lobos"},{"@type":"Place","name":"Cabo Girão"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"20:00"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Private boat tours in Madeira","itemListElement":[{"@type":"Offer","name":"Private Sunset Cruise","price":"350","priceCurrency":"EUR","url":"https://chifbay.com/sunset-cruise.html"},{"@type":"Offer","name":"Hidden Coves Half-Day","price":"620","priceCurrency":"EUR","url":"https://chifbay.com/hidden-coves-half-day.html"},{"@type":"Offer","name":"Coastal Discovery Full-Day","price":"1180","priceCurrency":"EUR","url":"https://chifbay.com/coastal-discovery-full-day.html"}]},"sameAs":["https://www.instagram.com/chifbay"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"3"}}
+{"@context":"https://schema.org","@type":["LocalBusiness","TouristAttraction"],"@id":"https://chifbay.com/#business","name":"Chifbay","description":"Private boat tours from Funchal, Madeira — hidden coves, snorkeling, Cabo Girão and luxury sunset cruises aboard a private boat for up to 7 guests.","url":"https://chifbay.com","email":"hello@chifbay.com","telephone":"+351937200320","image":"https://chifbay.com/assets/hero.jpg","priceRange":"€€€","currenciesAccepted":"EUR","knowsLanguage":["en","fr","de","pt","es","it"],"address":{"@type":"PostalAddress","streetAddress":"Marina do Funchal","addressLocality":"Funchal","addressRegion":"Madeira","postalCode":"9000-055","addressCountry":"PT"},"geo":{"@type":"GeoCoordinates","latitude":32.6442,"longitude":-16.9165},"areaServed":[{"@type":"Place","name":"Funchal"},{"@type":"Place","name":"Madeira"},{"@type":"Place","name":"Câmara de Lobos"},{"@type":"Place","name":"Cabo Girão"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"20:00"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Private boat tours in Madeira","itemListElement":[{"@type":"Offer","name":"Private Sunset Cruise","price":"300","priceCurrency":"EUR","url":"https://chifbay.com/sunset-cruise.html"},{"@type":"Offer","name":"Hidden Coves Half-Day","price":"570","priceCurrency":"EUR","url":"https://chifbay.com/hidden-coves-half-day.html"},{"@type":"Offer","name":"Coastal Discovery Full-Day","price":"1130","priceCurrency":"EUR","url":"https://chifbay.com/coastal-discovery-full-day.html"}]},"sameAs":["https://www.instagram.com/chifbay"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"6"}}
 </script>
 <link rel="alternate" hreflang="en" href="https://chifbay.com/index.html"/>
 <link rel="alternate" hreflang="fr" href="https://chifbay.com/fr/index.html"/>
@@ -49,149 +50,240 @@
   </div>
 </div></nav>
 
+<div class="annc"><span>Best price, direct — <b>save 10%</b> when you book on chifbay.com</span></div>
+
 <header class="hero">
-  <div class="hbg" role="img" aria-label="A private Chifbay boat off the south coast of Madeira at golden hour"></div>
-  <video class="hvid" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
-    <source src="assets/hero.webm" type="video/webm">
-    <source src="assets/hero.mp4" type="video/mp4">
-  </video>
+  <div class="hero-media">
+    <div class="hbg" role="img" aria-label="A private Chifbay boat off the south coast of Madeira at golden hour"></div>
+    <video class="hvid" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
+      <source src="assets/hero.webm" type="video/webm">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hov"></div>
-  <div class="wrap hc">
-    <div class="hbadge rv in">Funchal · Madeira · Licensed Operator</div>
-    <h1 class="rv in">The finest <em>private boat</em> on Madeira</h1>
-    <p class="hsub rv in d1">Your own boat, your own pace, and the entire south coast to yourselves. Secret coves, sea caves, Cabo Girão, and a golden-hour sunset — without a single stranger on board.</p>
-    <div class="hact rv in d2">
-      <a class="btn btn-p btn-lg" href="experiences.html">Reserve your trip →</a>
+  <div class="wrap-w hc">
+    <div class="hbadge">Funchal · Madeira · Licensed operator</div>
+    <h1 data-mask>The finest <em>private boat</em><br>on Madeira</h1>
+    <p class="hsub">Your own boat, your own pace, and the entire south coast to yourselves — secret coves, sea caves, Cabo Girão, and a golden hour without a single stranger on board.</p>
+    <div class="hact">
+      <a class="btn btn-p btn-lg" href="experiences.html">Reserve your trip
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-g btn-lg" href="experiences.html">Explore experiences</a>
     </div>
   </div>
+  <div class="hcue"><i></i>Scroll</div>
   <div class="hfoot">
     <span class="hcoord">32.6442° N · 16.9165° W</span>
     <span class="hcoord">2026 Karnic R8S · Up to 7 guests</span>
   </div>
 </header>
 
-<section class="pad-sm">
-  <div class="wrap">
-    <div class="sr rv">
-      <div class="st"><span class="sn">7</span><span class="sl">Guests max — the boat is 100% yours</span></div>
-      <div class="st"><span class="sn">580m</span><span class="sl">Cabo Girão — highest sea cliff in Europe</span></div>
-      <div class="st"><span class="sn">★ 5.0</span><span class="sl">Rated on Airbnb &amp; Google</span></div>
+<!-- IMMEDIATE PROOF — editorial facts, not dashboard cards -->
+<section class="proof-wrap">
+  <div class="wrap-w">
+    <div class="proof">
+      <div class="pf reveal"><div class="pk">The boat</div><div class="pv">Private &amp; <b>yours alone</b> — up to seven guests</div></div>
+      <div class="pf reveal d1"><div class="pk">The skipper</div><div class="pv">A <b>local licensed</b> captain who reads the coast</div></div>
+      <div class="pf reveal d2"><div class="pk">Rated</div><div class="pv"><b>5.0</b> across every verified GetYourGuide trip</div></div>
+      <div class="pf reveal d3"><div class="pk">Book</div><div class="pv">Direct from Funchal — <b>10% under</b> the platforms</div></div>
     </div>
   </div>
 </section>
 
-<section class="pad">
-  <div class="wrap">
-    <div class="ed">
-      <div class="txt rv">
-        <div class="ch"><span class="chn">01</span><span class="eyebrow">The starting point</span></div>
-        <h2>Funchal, where Madeira meets the open Atlantic</h2>
-        <p>Madeira rises from the ocean like a green amphitheatre, and its capital <strong>Funchal</strong> sits right at the water's edge — the natural place to begin any exploration by sea.</p>
-        <p>A <strong>private boat trip with Chifbay</strong> starts from the marina aboard our 2026 Karnic R8S. No queues, no strangers, no fixed script. Just your group, a local skipper who knows every cove, and a route built entirely around what you want.</p>
-        <a class="btn btn-g" href="about.html" style="margin-top:10px">Read our story →</a>
+<!-- CHAPTER 01 — Madeira introduction -->
+<section class="chapter">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cn">01</span><span class="cl">The starting point</span></div>
+    <div class="ed2">
+      <div class="col-t">
+        <h2 class="reveal" data-mask>Funchal, where Madeira<br>meets the open Atlantic</h2>
+        <p class="reveal d1">Madeira rises from the ocean like a green amphitheatre, and its capital <strong>Funchal</strong> sits right at the water's edge — the natural place to begin any exploration by sea.</p>
+        <p class="reveal d2">A <strong>private trip with Chifbay</strong> casts off from the marina aboard our 2026 Karnic R8S. No queues, no strangers, no fixed script — just your group, a skipper who knows every cove, and a route built entirely around you.</p>
+        <a class="btn btn-g reveal d3" href="about.html">Read our story
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="vis rv d1">
-        <div class="pc wide" style="margin-bottom:14px">
-          <div class="pb" style="background-image:var(--intro)"></div>
-          <div class="pov"></div><div class="pl">Funchal Marina departure</div><div class="pbr"></div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-          <div class="pc sq"><div class="pb" style="background-image:var(--sunset)"></div><div class="pov"></div><div class="pbr"></div></div>
-          <div class="pc sq"><div class="pb" style="background-image:var(--cove)"></div><div class="pov"></div><div class="pbr"></div></div>
+      <div class="col-v stack">
+        <div class="fig lead-fig clip"><div class="im" data-parallax="4" style="background-image:url('assets/g-cliffs.jpg')"></div>
+          <span class="fig-cap">Funchal Marina · departure</span></div>
+        <div class="stack-2">
+          <div class="fig clip"><div class="im" style="background-image:url('assets/exp-sunset.jpg')"></div></div>
+          <div class="fig clip"><div class="im" style="background-image:url('assets/exp-coves.jpg')"></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FEATURES — minimal nautical SVG icons, no emoji -->
 <section>
-  <div class="inc">
-    <div class="ii rv"><div class="iico">🍷</div><h3>Local drinks &amp; snacks</h3><p>Madeira wine, poncha, beer and soft drinks served as you cruise. Bring only sunscreen and a swimsuit.</p></div>
-    <div class="ii rv d1"><div class="iico">⚓</div><h3>2026 Karnic R8S</h3><p>Cushioned seating, swim platform, onboard music — fast, comfortable, built for easy water access.</p></div>
-    <div class="ii rv d2"><div class="iico">🧭</div><h3>Expert local skipper</h3><p>A licensed captain who reads the sea, finds the calmest coves, and adapts every trip to your group.</p></div>
-  </div>
-</section>
-
-<!-- EXPERIENCES OVERVIEW -->
-<section class="pad" id="exp">
-  <div class="wrap">
-    <div class="center rv" style="margin-bottom:50px">
-      <div class="eyebrow">Three ways to sail</div>
-      <h2>Choose your experience</h2>
-    </div>
-    <div class="exg">
-      <a class="exc rv" href="sunset-cruise.html">
-        <div class="pb" style="background-image:var(--sunset)"></div>
-        <div class="excb">
-          <span class="exck">2 hours · from €350</span>
-          <h3>Sunset Cruise</h3>
-          <p>Golden hour timed mid-trip, complimentary Portuguese wine on deck, the south coast glowing amber.</p>
-          <span class="exmore">Learn more →</span>
-        </div>
-      </a>
-      <a class="exc rv" href="hidden-coves-half-day.html">
-        <div class="pb" style="background-image:var(--cove)"></div>
-        <div class="excb">
-          <span class="exck">4 hours · from €620</span>
-          <h3>Hidden Coves Half-Day</h3>
-          <p>Anchor in crystal-clear volcanic coves unreachable by road. Swim, snorkel and jump in — all to yourself.</p>
-          <span class="exmore">Learn more →</span>
-        </div>
-      </a>
-      <a class="exc rv d1" href="coastal-discovery-full-day.html">
-        <div class="pb" style="background-image:url('assets/exp-coastal.jpg')"></div>
-        <div class="excb">
-          <span class="exck">7 hours · from €1,180</span>
-          <h3>Coastal Discovery Full-Day</h3>
-          <p>The full west coast — Câmara de Lobos, Cabo Girão and Ponta do Sol — with lunch served on board.</p>
-          <span class="exmore">Learn more →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CABO GIRÃO CINEMATIC -->
-<section class="cine">
-  <div class="cbg" style="background-image:var(--cabo)"></div>
-  <div class="cov"></div>
-  <div class="wrap cc rv">
-    <div class="ch"><span class="chn">★</span><span class="eyebrow gold">The landmark</span></div>
-    <h2>Cabo Girão, seen from the water</h2>
-    <p class="lead">From the water the scale is completely different — a sheer wall of volcanic basalt rising <strong style="color:#fff">580 metres</strong> straight from the Atlantic, one of the highest sea cliffs in Europe. The route also passes Câmara de Lobos, the fishing village that inspired Winston Churchill to paint.</p>
-    <a class="btn btn-g btn-lg" href="coastal-discovery-full-day.html" style="margin-top:26px">See the full-day route →</a>
-  </div>
-</section>
-
-<!-- WHY PRIVATE -->
-<section class="pad">
-  <div class="wrap">
-    <div class="center rv">
-      <div class="eyebrow">The difference</div>
-      <h2>Why go private</h2>
-    </div>
-    <div class="cmp rv" style="grid-template-columns:1fr;max-width:620px;margin:44px auto 0">
-      <div class="cc2 win">
-        <h3>🛥️ Private with Chifbay</h3>
-        <ul>
-          <li><span class="ico">✓</span>The whole boat is yours — up to 7 guests, no strangers ever</li>
-          <li><span class="ico">✓</span>One flat price for the boat, not per person</li>
-          <li><span class="ico">✓</span>Route, stops and timing shaped around your group</li>
-          <li><span class="ico">✓</span>Quiet enough to actually hear and see dolphins</li>
-          <li><span class="ico">✓</span>Stay as long as you want at every stop</li>
-          <li><span class="ico">✓</span>Drinks, snacks and snorkel gear included</li>
-        </ul>
+  <div class="wrap-w">
+    <div class="feat">
+      <div class="ft reveal">
+        <svg class="ic" viewBox="0 0 32 32"><path d="M8 5h16l-2 9a6 6 0 0 1-12 0zM16 20v6M11 27h10"/></svg>
+        <h3>Local drinks &amp; snacks</h3>
+        <p>Madeira wine, poncha, beer and soft drinks served as you cruise. Bring only sunscreen and a swimsuit.</p>
+      </div>
+      <div class="ft reveal d1">
+        <svg class="ic" viewBox="0 0 32 32"><path d="M4 19h24l-3 6H7zM16 5v14M16 5l7 7M9 12h14"/></svg>
+        <h3>2026 Karnic R8S</h3>
+        <p>Cushioned seating, a swim platform and onboard music — fast, comfortable, built for easy water access.</p>
+      </div>
+      <div class="ft reveal d2">
+        <svg class="ic" viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M16 3v3M16 26v3M3 16h3M26 16h3M20 12l-3 5-5 3 3-5z"/></svg>
+        <h3>Expert local skipper</h3>
+        <p>A licensed captain who reads the sea, finds the calmest coves, and shapes every trip around your group.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY (indexable images) -->
-<section class="pad" style="padding-top:0">
-  <div class="wrap">
-    <div class="center rv" style="margin-bottom:36px"><div class="eyebrow">In pictures</div><h2>Madeira from the water</h2></div>
-    <div class="gal rv">
+<!-- CHAPTER 02 — three experiences, full-width alternating -->
+<section class="chapter" id="exp" style="padding-bottom:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cn">02</span><span class="cl">Three ways to sail</span></div>
+    <h2 class="display reveal" data-mask style="font-size:clamp(2rem,4vw,3.5rem);max-width:16ch">Choose the day<br>that's yours</h2>
+  </div>
+</section>
+<div class="xps">
+  <article class="xp">
+    <a class="xp-media" href="sunset-cruise.html" aria-label="Sunset Cruise">
+      <div class="im" data-parallax="5" style="background-image:url('assets/exp-sunset.jpg')"></div>
+      <span class="tag">2 hours · Golden hour</span>
+    </a>
+    <div class="xp-body">
+      <div class="cn reveal">i — Sunset</div>
+      <h3 class="reveal">Sunset Cruise</h3>
+      <p class="desc reveal d1">Golden hour timed mid-trip, complimentary Portuguese wine on deck, the south coast glowing amber as the sea goes silk-flat.</p>
+      <div class="xp-facts reveal d1">
+        <div class="xf"><div class="k">From</div><div class="v"><span class="now">€300</span> <s>€350</s></div></div>
+        <div class="xf"><div class="k">Duration</div><div class="v">2 hours</div></div>
+        <div class="xf"><div class="k">Guests</div><div class="v">Up to 7</div></div>
+      </div>
+      <ul class="xp-inc reveal d2">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Moët &amp; Madeira wine</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Private, your group only</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Timed to the sun</li>
+      </ul>
+      <div class="xp-cta reveal d3">
+        <a class="btn btn-p" href="sunset-cruise.html">View &amp; book
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/351937200320" target="_blank" rel="noopener">Ask the skipper</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="xp flip">
+    <a class="xp-media" href="hidden-coves-half-day.html" aria-label="Hidden Coves Half-Day">
+      <div class="im" data-parallax="5" style="background-image:url('assets/exp-coves.jpg')"></div>
+      <span class="tag">4 hours · Half-day</span>
+    </a>
+    <div class="xp-body">
+      <div class="cn reveal">ii — Coves</div>
+      <h3 class="reveal">Hidden Coves Half-Day</h3>
+      <p class="desc reveal d1">Anchor in crystal-clear volcanic coves unreachable by road. Swim, snorkel and jump in — the water entirely to yourselves.</p>
+      <div class="xp-facts reveal d1">
+        <div class="xf"><div class="k">From</div><div class="v"><span class="now">€570</span> <s>€620</s></div></div>
+        <div class="xf"><div class="k">Duration</div><div class="v">4 hours</div></div>
+        <div class="xf"><div class="k">Guests</div><div class="v">Up to 7</div></div>
+      </div>
+      <ul class="xp-inc reveal d2">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Snorkel gear included</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sea caves &amp; volcanic pools</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Drinks &amp; snacks aboard</li>
+      </ul>
+      <div class="xp-cta reveal d3">
+        <a class="btn btn-p" href="hidden-coves-half-day.html">View &amp; book
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/351937200320" target="_blank" rel="noopener">Ask the skipper</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="xp">
+    <a class="xp-media" href="coastal-discovery-full-day.html" aria-label="Coastal Discovery Full-Day">
+      <div class="im" data-parallax="5" style="background-image:url('assets/exp-coastal.jpg')"></div>
+      <span class="tag">7 hours · Full day</span>
+    </a>
+    <div class="xp-body">
+      <div class="cn reveal">iii — Coast</div>
+      <h3 class="reveal">Coastal Discovery Full-Day</h3>
+      <p class="desc reveal d1">The full west coast — Câmara de Lobos, Cabo Girão and Ponta do Sol — dolphins in the morning and lunch served at anchor.</p>
+      <div class="xp-facts reveal d1">
+        <div class="xf"><div class="k">From</div><div class="v"><span class="now">€1,130</span> <s>€1,180</s></div></div>
+        <div class="xf"><div class="k">Duration</div><div class="v">7 hours</div></div>
+        <div class="xf"><div class="k">Guests</div><div class="v">Up to 7</div></div>
+      </div>
+      <ul class="xp-inc reveal d2">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Lunch served on board</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Dolphins &amp; the west coast</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>The whole day, unhurried</li>
+      </ul>
+      <div class="xp-cta reveal d3">
+        <a class="btn btn-p" href="coastal-discovery-full-day.html">View &amp; book
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g" href="https://wa.me/351937200320" target="_blank" rel="noopener">Ask the skipper</a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- SIGNATURE MOMENT — Cabo Girão full-bleed + route -->
+<section class="bleed">
+  <div class="im" data-parallax="6" style="background-image:url('assets/g-cliff-portrait.jpg')"></div>
+  <div class="ov"></div>
+  <div class="wrap-w bc">
+    <div class="chead reveal"><span class="cn">★</span><span class="cl">The landmark</span></div>
+    <h2 class="reveal" data-mask>Cabo Girão,<br>seen from the water</h2>
+    <p class="lead reveal d1">From the sea the scale is a different thing entirely — a sheer wall of volcanic basalt rising <strong style="color:#fff">580 metres</strong> straight from the Atlantic, one of the highest sea cliffs in Europe. The route also passes Câmara de Lobos, the fishing village that drew Winston Churchill to paint.</p>
+    <div class="route-fig reveal d1">
+      <svg class="route-svg" viewBox="0 0 900 120" preserveAspectRatio="none" style="--len:960" aria-hidden="true">
+        <path class="path-bg" d="M20 96 C 180 96, 250 40, 430 52 S 720 30, 880 24"/>
+        <path class="path-fg" d="M20 96 C 180 96, 250 40, 430 52 S 720 30, 880 24"/>
+        <circle class="pt p1" cx="20" cy="96" r="4"/>
+        <circle class="pt p2" cx="430" cy="52" r="4"/>
+        <circle class="pt p3" cx="880" cy="24" r="4"/>
+      </svg>
+      <div style="display:flex;justify-content:space-between;margin-top:12px">
+        <span class="coord">Funchal · 32.64° N</span>
+        <span class="coord">Câmara de Lobos</span>
+        <span class="coord">Cabo Girão · 16.98° W</span>
+      </div>
+    </div>
+    <a class="btn btn-g btn-lg reveal d2" href="coastal-discovery-full-day.html" style="margin-top:30px">See the full-day route
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- CHAPTER 03 — the boat & skipper -->
+<section class="chapter">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cn">03</span><span class="cl">The difference</span></div>
+    <div class="ed2 flip">
+      <div class="col-t">
+        <h2 class="reveal" data-mask>The whole boat,<br>and a skipper who<br>knows the coast</h2>
+        <p class="reveal d1">Chifbay is one private boat and a local crew — not a fleet, not a marketplace. That's the point. The boat is yours alone, up to seven guests, for one flat price rather than per person.</p>
+        <p class="reveal d2">Quiet enough to hear the dolphins. Flexible enough to stay as long as you like at every stop. And run by a skipper who grew up on this coast and reads the sea each morning before you sail.</p>
+        <a class="btn btn-g reveal d3" href="about.html">Meet the crew
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="col-v stack">
+        <div class="fig lead-fig clip"><div class="im" data-parallax="4" style="background-image:url('assets/skippers.jpg')"></div>
+          <span class="fig-cap">Your skipper · Funchal</span></div>
+        <div class="stack-2">
+          <div class="fig clip"><div class="im" style="background-image:url('assets/deck.jpg')"></div></div>
+          <div class="fig clip"><div class="im" style="background-image:url('assets/dolphins.jpg')"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY — indexable images (SEO / alt preserved) -->
+<section class="chapter" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cn">04</span><span class="cl">In pictures</span></div>
+    <h2 class="display reveal" data-mask style="font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:40px">Madeira from the water</h2>
+    <div class="gal reveal">
       <a href="experiences.html"><img loading="lazy" decoding="async" src="assets/hero.jpg" alt="A private Chifbay boat cruising off Funchal, Madeira at golden hour"></a>
       <a href="hidden-coves-half-day.html"><img loading="lazy" decoding="async" src="assets/exp-coves.jpg" alt="Snorkelling in a turquoise hidden cove on the Madeira coast"></a>
       <a href="coastal-discovery-full-day.html"><img loading="lazy" decoding="async" src="assets/g-cliff-portrait.jpg" alt="Cabo Girão sea cliff towering 580 metres above the Atlantic, Madeira"></a>
@@ -204,35 +296,47 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="pad" style="padding-top:0">
-  <div class="wrap">
-    <div class="center rv"><div class="eyebrow">Guest reviews</div><h2>What guests say</h2></div>
-    <div class="tg">
-      <div class="te rv d1"><div class="ts">★★★★★</div><p class="tt">"Absolutely incredible. We saw two pods of dolphins within the first hour — the skipper knew exactly where to find them. The whole experience felt bespoke and luxurious."</p><span class="ta">— Sophie M., London</span></div>
-      <div class="te rv d2"><div class="ts">★★★★★</div><p class="tt">"Cabo Girão from the water is something else entirely. We had wine at sunset, just the four of us. Worth every euro — one of the best experiences of our lives."</p><span class="ta">— Marc &amp; Julie, Paris</span></div>
-      <div class="te rv d3"><div class="ts">★★★★★</div><p class="tt">"We were a family of six and having the whole boat to ourselves made such a difference. Kids could swim when they wanted, adults could relax. Skipper was fantastic."</p><span class="ta">— The Harrison family, Toronto</span></div>
+<!-- REVIEWS — real verified GetYourGuide guests -->
+<section class="chapter" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cn">05</span><span class="cl">Guest voices</span></div>
+    <h2 class="display reveal" data-mask style="font-size:clamp(1.9rem,3.6vw,3rem)">Five stars, every trip</h2>
+    <div class="revs">
+      <figure class="rev reveal">
+        <div class="st">★★★★★</div>
+        <q>We had an absolutely amazing day on the boat. The friendly, professional crew, the delicious snacks and drinks, the relaxing swim — everything was perfect.</q>
+        <figcaption><div class="who">Conny</div><div class="src">Verified · GetYourGuide</div></figcaption>
+      </figure>
+      <figure class="rev reveal d1">
+        <div class="st">★★★★★</div>
+        <q>Hugo and Paco were a great pair — highly recommend to anyone visiting the island. A great trip from start to finish.</q>
+        <figcaption><div class="who">Thomas</div><div class="src">Verified · GetYourGuide</div></figcaption>
+      </figure>
+      <figure class="rev reveal d2">
+        <div class="st">★★★★★</div>
+        <q>Sehr empfehlenswert! Father and son, incredibly helpful and dedicated to a beautiful day at sea. Many languages, and the tour shaped to us.</q>
+        <figcaption><div class="who">Franziska</div><div class="src">Verified · GetYourGuide</div></figcaption>
+      </figure>
     </div>
+    <a class="btn btn-g reveal" href="reviews.html" style="margin-top:34px">Read all verified reviews
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="pad" style="padding-top:0">
-  <div class="wrap">
-    <div class="ctas rv">
-      <div class="ctabg"></div>
-      <div class="ctaov"></div>
-      <div class="ctain">
-        <div class="eyebrow gold" style="justify-content:center;margin-bottom:18px">Book direct — best price guaranteed</div>
-        <h2>Make the Atlantic yours<br><em>for a few hours</em></h2>
-        <p>Tell us your dates, group size and what you'd love to see. Chifbay sets up a private trip from Funchal Marina — your group only, from first light to last gold.</p>
-        <div class="cact">
-          <a class="btn btn-p btn-lg" href="experiences.html">Plan your trip →</a>
-          <a class="btn btn-g btn-lg" href="contact.html">Contact us</a>
-        </div>
-        <div class="cph">Or call the skipper directly · <a href="tel:+351937200320">+351 937 200 320</a></div>
-      </div>
+<!-- FINAL RESERVATION -->
+<section class="reserve">
+  <div class="im" style="background-image:url('assets/closing.jpg')"></div>
+  <div class="ov"></div>
+  <div class="wrap-w rc">
+    <div class="lbl reveal">Marina do Funchal</div>
+    <h2 class="reveal" data-mask>Make the Atlantic yours<br><em>for a few hours</em></h2>
+    <p class="reveal d1">Tell us your dates, your group size and what you'd love to see. We set up a private trip from Funchal Marina — your group only, from first light to last gold.</p>
+    <div class="cact reveal d1">
+      <a class="btn btn-p btn-lg" href="experiences.html">Plan your trip
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-g btn-lg" href="https://wa.me/351937200320" target="_blank" rel="noopener">Message on WhatsApp</a>
     </div>
+    <div class="alt reveal d2">Or call the skipper directly · <a href="tel:+351937200320">+351 937 200 320</a></div>
   </div>
 </section>
 
@@ -269,9 +373,6 @@
 <a class="wa" href="https://wa.me/351937200320" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
 
 <script src="peak.js"></script>
-<script src="vendor/gsap.min.js"></script>
-<script src="vendor/ScrollTrigger.min.js"></script>
-<script src="vendor/lenis.min.js"></script>
-<script src="motion.js"></script>
+<script src="atlas.js"></script>
 </body>
 </html>

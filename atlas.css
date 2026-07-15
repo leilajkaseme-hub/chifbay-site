@@ -1,0 +1,334 @@
+/* ============================================================
+   Chifbay — ATLAS refinement layer  (loads AFTER peak.css)
+   A quieter, more editorial luxury system. Additive: it refines
+   peak.css on redesigned pages and leaves other pages untouched.
+   ============================================================ */
+:root{
+  --ink:#061320;            /* deep Atlantic navy — the site's silence */
+  --ink-2:#0a1c2e;          /* raised navy for quiet fills */
+  --sail:#f2ede2;           /* sailcloth cream — light editorial sections */
+  --sail-ink:#1a2634;       /* ink used on cream */
+  --mist:#8ea6b4;           /* misty blue-grey — secondary text, dividers */
+  --mist-soft:rgba(240,245,244,.60);
+  --line:rgba(240,245,244,.12);
+  --line-2:rgba(240,245,244,.20);
+  --gold:#c9a45c;           /* champagne — reserved for the act of booking */
+  --gold-soft:#e2c688;
+  --ease:cubic-bezier(.22,.65,.24,1);   /* long, boat-on-water easing */
+  --wrapc:1240px;
+}
+
+/* ---- base overrides ---- */
+html.atlas{scroll-behavior:auto}
+/* visible keyboard focus everywhere (accessibility) */
+.atlas a:focus-visible,.atlas button:focus-visible,.atlas summary:focus-visible,
+.atlas .xp-media:focus-visible,.atlas details:focus-visible{
+  outline:2px solid var(--gold-soft);outline-offset:3px;border-radius:2px}
+.atlas :focus:not(:focus-visible){outline:none}
+html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spacing:.005em}
+.atlas ::selection{background:var(--gold);color:var(--ink)}
+.atlas .wrap{max-width:var(--wrapc)}
+.atlas .wrap-w{max-width:1500px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.atlas .wrap-w{padding:0 20px}}
+
+/* mono label + coordinate style, reused everywhere */
+.atlas .lbl{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--gold);font-weight:400}
+.atlas .coord{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;
+  color:var(--mist);opacity:.66}
+.atlas .num{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--mist);opacity:.7}
+
+/* serif display scale — editorial, high contrast */
+.atlas h1,.atlas h2,.atlas h3{font-weight:400;letter-spacing:-.02em}
+.atlas .display{font-family:'Playfair Display',Georgia,serif;line-height:1.04}
+
+/* ============================================================
+   NAV — lighter, no pill, hairline underline for the CTA
+   ============================================================ */
+.atlas #nav{border-bottom:1px solid transparent;transition:background .5s var(--ease),border-color .5s}
+.atlas #nav.sc{background:rgba(6,19,32,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.atlas .ni{height:78px}
+.atlas .nl a{color:rgba(234,241,244,.72);font-weight:400;letter-spacing:.01em}
+.atlas .nl a:hover,.atlas .nl a.active{color:#fff}
+/* CTA in nav becomes a quiet underlined word, not a gold pill */
+.atlas .nc{background:transparent;color:#eaf1f4;border:1px solid var(--line-2);border-radius:2px;
+  padding:11px 20px;font-weight:400;font-family:'Space Mono',monospace;font-size:.66rem;
+  letter-spacing:.16em;text-transform:uppercase;transition:border-color .4s,color .4s,background .4s}
+.atlas .nc:hover{border-color:var(--gold);color:var(--gold);background:transparent;transform:none;box-shadow:none}
+.atlas .langbtn{border-radius:2px;border-color:var(--line-2)}
+.atlas .langmenu{border-radius:4px}
+
+/* ============================================================
+   ANNOUNCEMENT — discreet premium notice (overrides peak's gold bar,
+   preserving the owner's wording & meaning)
+   ============================================================ */
+.atlas .annc{position:fixed;background:rgba(6,19,32,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);color:var(--mist-soft);
+  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:400;padding:8px 16px;line-height:1.4}
+.atlas .annc span{max-width:none;white-space:normal}
+.atlas .annc b{color:var(--gold-soft);font-weight:400}
+.atlas body:has(.annc) #nav,.atlas.has-annc #nav{top:var(--annc-h,33px)}
+@media(max-width:560px){
+  .atlas .annc{letter-spacing:.08em;font-size:.56rem;padding:7px 14px;line-height:1.55}
+  .atlas .annc span{max-width:34ch}   /* wrap to two centred lines instead of clipping at the edge */
+  .atlas .nc{display:none}            /* CTA redundant with hero buttons + menu; avoids clipping at 390px */
+  .atlas .langsel{margin-right:6px !important}
+  .atlas .langbtn{padding:6px 9px;font-size:.66rem}
+}
+
+/* ============================================================
+   BUTTONS — squared, restrained; gold reserved for primary booking
+   ============================================================ */
+.atlas .btn{border-radius:2px;font-family:'Space Mono',monospace;font-weight:400;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:16px 30px;
+  transition:transform .5s var(--ease),background .4s,border-color .4s,color .4s}
+.atlas .btn-lg{padding:18px 38px;font-size:.74rem}
+.atlas .btn-p{background:var(--gold);color:var(--ink)}
+.atlas .btn-p:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:none}
+.atlas .btn-g{border:1px solid var(--line-2);color:#eaf1f4;background:transparent}
+.atlas .btn-g:hover{border-color:rgba(234,241,244,.55);transform:translateY(-2px)}
+.atlas .btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+/* ============================================================
+   HERO — full-bleed video, scroll-linked drift, arrival→exploration
+   ============================================================ */
+.atlas .hero{height:100svh;min-height:640px;place-items:stretch}
+.atlas .hero .hbg,.atlas .hero .hvid{animation:none}
+.atlas .hero-media{position:absolute;inset:0;overflow:hidden;z-index:0}
+.atlas .hero-media .hbg,.atlas .hero-media .hvid{position:absolute;inset:-4% 0;width:100%;height:108%;
+  will-change:transform;transform:translateZ(0)}
+.atlas .hov{background:linear-gradient(to bottom,rgba(6,19,32,.42) 0%,rgba(6,19,32,.06) 30%,rgba(6,19,32,.55) 66%,var(--ink) 100%)}
+.atlas .hc{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;
+  height:100%;padding-bottom:min(11vh,120px)}
+.atlas .hbadge{background:transparent;border:0;padding:0;margin-bottom:30px;
+  font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.3em;color:var(--gold);
+  display:flex;align-items:center;gap:12px}
+.atlas .hbadge::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.7;animation:none}
+.atlas .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.9rem,7.4vw,6.6rem);
+  line-height:1.02;max-width:15ch;margin:0 0 30px;text-shadow:0 6px 50px rgba(6,19,32,.5);font-weight:400}
+.atlas .hero h1 em{font-style:italic;color:var(--gold-soft);-webkit-text-fill-color:currentColor;background:none}
+.atlas .hsub{max-width:46ch;color:rgba(234,241,244,.82);font-weight:300;
+  font-size:clamp(.98rem,1.4vw,1.14rem);line-height:1.7;margin-bottom:36px}
+.atlas .hact{gap:14px}
+.atlas .hfoot{bottom:30px;right:32px}
+.atlas .hcoord{color:rgba(234,241,244,.4)}
+/* scroll cue */
+.atlas .hcue{position:absolute;left:32px;bottom:30px;z-index:2;display:flex;align-items:center;gap:12px;
+  font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(234,241,244,.5)}
+.atlas .hcue i{display:block;width:40px;height:1px;background:var(--gold);transform-origin:left;animation:cue 3s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleX(0)}45%{transform:scaleX(1);transform-origin:left}55%{transform:scaleX(1);transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
+@media(max-width:600px){.atlas .hcue{display:none}}
+
+/* tour hero meta row (price / duration / guests / departs) */
+.atlas .hero.sub{height:82svh;min-height:560px}
+.atlas .hero.sub h1{font-size:clamp(2.6rem,6vw,5rem)}
+.atlas .tour-meta{display:flex;gap:0;margin-top:34px;border-top:1px solid var(--line-2);flex-wrap:wrap}
+.atlas .tour-meta .tm{padding:20px 34px 0 0;margin-right:34px}
+.atlas .tour-meta .k{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mist)}
+.atlas .tour-meta .v{font-family:'Playfair Display',serif;font-size:1.5rem;color:#eaf1f4;margin-top:4px}
+.atlas .tour-meta .v .now{color:var(--gold-soft)}
+.atlas .tour-meta .v s{color:var(--mist);opacity:.55;font-size:.62em;margin-left:6px;font-family:'Space Mono',monospace}
+@media(max-width:560px){.atlas .tour-meta .tm{padding-right:20px;margin-right:18px}.atlas .tour-meta .v{font-size:1.2rem}}
+
+/* ============================================================
+   PROOF ROW — refined editorial facts, not dashboard cards
+   ============================================================ */
+.atlas .proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(4,1fr)}
+.atlas .proof .pf{padding:38px 30px;border-right:1px solid var(--line)}
+.atlas .proof .pf:last-child{border-right:0}
+.atlas .proof .pk{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.atlas .proof .pv{font-family:'Playfair Display',serif;font-size:clamp(1.15rem,1.8vw,1.5rem);
+  line-height:1.25;color:#eaf1f4}
+.atlas .proof .pv b{font-weight:400;color:var(--gold-soft)}
+@media(max-width:820px){.atlas .proof{grid-template-columns:1fr 1fr}
+  .atlas .proof .pf:nth-child(2){border-right:0}
+  .atlas .proof .pf:nth-child(1),.atlas .proof .pf:nth-child(2){border-bottom:1px solid var(--line)}}
+@media(max-width:480px){.atlas .proof{grid-template-columns:1fr}
+  .atlas .proof .pf{border-right:0;border-bottom:1px solid var(--line);padding:26px 22px}
+  .atlas .proof .pf:last-child{border-bottom:0}}
+
+/* ============================================================
+   EDITORIAL CHAPTER — text + layered imagery, generous whitespace
+   ============================================================ */
+.atlas .chapter{padding:clamp(84px,13vh,168px) 0}
+.atlas .chead{display:flex;align-items:baseline;gap:18px;margin-bottom:26px}
+.atlas .chead .cn{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.24em;color:var(--gold);opacity:.85}
+.atlas .chead .cl{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--mist)}
+.atlas .ed2{display:grid;grid-template-columns:1fr 1.06fr;gap:clamp(36px,6vw,104px);align-items:center}
+.atlas .ed2.flip .col-t{order:2}
+@media(max-width:900px){.atlas .ed2{grid-template-columns:1fr;gap:40px}.atlas .ed2.flip .col-t{order:0}}
+.atlas .ed2 h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;margin:0 0 24px}
+.atlas .ed2 p{color:var(--mist);font-weight:300;font-size:1.02rem;line-height:1.85;margin-bottom:16px;max-width:52ch}
+.atlas .ed2 p strong{color:#eaf1f4;font-weight:400}
+.atlas .ed2 .col-t .btn{margin-top:14px}
+
+/* layered image stack (no rounded card, no border frame) */
+.atlas .stack{position:relative}
+.atlas .fig{position:relative;overflow:hidden;background:var(--ink-2)}
+.atlas .fig img,.atlas .fig .im{width:100%;height:100%;object-fit:cover;display:block}
+.atlas .fig .im{position:absolute;inset:0;background-size:cover;background-position:center;
+  transform:scale(1.05);transition:transform 1.4s var(--ease)}
+.atlas .stack:hover .fig .im{transform:scale(1.09)}
+.atlas .fig-cap{position:absolute;left:0;bottom:0;z-index:2;padding:16px 18px;
+  font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(234,241,244,.82);background:linear-gradient(to top,rgba(6,19,32,.7),transparent)}
+.atlas .stack-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.atlas .stack .lead-fig{aspect-ratio:16/10}
+.atlas .stack-2 .fig{aspect-ratio:1}
+
+/* ============================================================
+   FULL-BLEED CINEMATIC — image fills the frame, restrained caption
+   ============================================================ */
+.atlas .bleed{position:relative;height:100svh;min-height:560px;overflow:hidden;display:flex;align-items:flex-end}
+.atlas .bleed .im{position:absolute;inset:-4% 0;height:108%;background-size:cover;background-position:center;
+  will-change:transform;z-index:0}
+.atlas .bleed .ov{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(6,19,32,.36) 0%,transparent 34%,rgba(6,19,32,.86) 100%)}
+.atlas .bleed .bc{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,8vh,96px)}
+.atlas .bleed h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.4vw,4.8rem);
+  line-height:1.05;max-width:16ch}
+.atlas .bleed .lead{color:rgba(234,241,244,.82);max-width:54ch;font-weight:300;
+  font-size:1.05rem;line-height:1.8;margin-top:20px}
+.atlas .bleed .coord{margin-top:20px}
+
+/* ============================================================
+   EXPERIENCE CHAPTERS — full-width alternating, price+facts inline
+   ============================================================ */
+.atlas .xps{display:flex;flex-direction:column}
+.atlas .xp{display:grid;grid-template-columns:1fr 1fr;min-height:78vh;align-items:stretch}
+.atlas .xp.flip .xp-media{order:2}
+@media(max-width:900px){.atlas .xp{grid-template-columns:1fr;min-height:0}.atlas .xp.flip .xp-media{order:0}}
+.atlas .xp-media{position:relative;overflow:hidden;min-height:52vh}
+.atlas .xp-media .im{position:absolute;inset:-4% 0;height:108%;background-size:cover;background-position:center;
+  will-change:transform;transition:transform 1.6s var(--ease)}
+.atlas .xp:hover .xp-media .im{transform:scale(1.05)}
+.atlas .xp-media .tag{position:absolute;top:26px;left:26px;z-index:2;font-family:'Space Mono',monospace;
+  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#eaf1f4;
+  padding:7px 13px;border:1px solid var(--line-2);background:rgba(6,19,32,.4);backdrop-filter:blur(6px)}
+.atlas .xp-body{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,6vw,88px)}
+.atlas .xp-body .cn{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.24em;color:var(--gold);margin-bottom:20px}
+.atlas .xp-body h3{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.4vw,3rem);
+  line-height:1.06;margin:0 0 18px;font-weight:400}
+.atlas .xp-body .desc{color:var(--mist);font-weight:300;line-height:1.8;max-width:44ch;margin-bottom:28px}
+.atlas .xp-facts{display:flex;gap:34px;flex-wrap:wrap;padding:22px 0;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);margin-bottom:28px}
+.atlas .xp-facts .xf .k{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--mist);margin-bottom:6px}
+.atlas .xp-facts .xf .v{font-family:'Playfair Display',serif;font-size:1.28rem;color:#eaf1f4}
+.atlas .xp-facts .xf .v s{color:var(--mist);opacity:.6;font-size:.72em;margin-left:7px;font-family:'Space Mono',monospace}
+.atlas .xp-facts .xf .v .now{color:var(--gold-soft)}
+.atlas .xp-inc{list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:30px;padding:0}
+.atlas .xp-inc li{display:flex;align-items:center;gap:9px;font-size:.86rem;color:var(--mist)}
+.atlas .xp-inc li svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:1.4;flex-shrink:0}
+.atlas .xp-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* ============================================================
+   ROUTE / signature moment — animated SVG stroke, coordinates
+   ============================================================ */
+.atlas .route-fig{position:relative;margin-top:48px}
+.atlas .route-svg{width:100%;height:auto;display:block;overflow:visible}
+.atlas .route-svg .path-bg{fill:none;stroke:var(--line-2);stroke-width:1}
+.atlas .route-svg .path-fg{fill:none;stroke:var(--gold);stroke-width:1.5;
+  stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.8s var(--ease)}
+.atlas .route-fig.in .path-fg{stroke-dashoffset:0}
+.atlas .route-svg .pt{fill:var(--gold);opacity:0;transition:opacity .5s var(--ease)}
+.atlas .route-fig.in .pt{opacity:1}
+.atlas .route-svg .pt.p2{transition-delay:.7s}
+.atlas .route-svg .pt.p3{transition-delay:1.3s}
+.atlas .route-lbl{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.14em;
+  text-transform:uppercase;fill:var(--mist)}
+
+/* ============================================================
+   REVIEWS — quiet editorial quotes, real verified sources
+   ============================================================ */
+.atlas .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:52px}
+@media(max-width:820px){.atlas .revs{grid-template-columns:1fr}}
+.atlas .rev{background:var(--ink);padding:clamp(30px,3vw,44px)}
+.atlas .rev .st{color:var(--gold);letter-spacing:3px;font-size:.82rem;margin-bottom:20px}
+.atlas .rev q{quotes:none;display:block;font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1.12rem;line-height:1.66;color:#eaf1f4;margin-bottom:22px}
+.atlas .rev .who{font-size:.86rem;color:#eaf1f4}
+.atlas .rev .src{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);margin-top:6px}
+
+/* ============================================================
+   FINAL RESERVATION — calm full-bleed, options without competition
+   ============================================================ */
+.atlas .reserve{position:relative;overflow:hidden;min-height:88svh;display:flex;align-items:center}
+.atlas .reserve .im{position:absolute;inset:-4% 0;height:108%;background-size:cover;background-position:center;z-index:0}
+.atlas .reserve .ov{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom,rgba(6,19,32,.62),rgba(6,19,32,.82))}
+.atlas .reserve .rc{position:relative;z-index:2;width:100%;text-align:center;padding:80px 0}
+.atlas .reserve h2{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4.2rem);
+  line-height:1.06;margin:16px 0 20px}
+.atlas .reserve h2 em{font-style:italic;color:var(--gold-soft)}
+.atlas .reserve p{color:rgba(234,241,244,.82);max-width:50ch;margin:0 auto 34px;font-weight:300;line-height:1.75}
+.atlas .reserve .cact{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.atlas .reserve .alt{margin-top:26px;font-family:'Space Mono',monospace;font-size:.64rem;
+  letter-spacing:.12em;color:rgba(234,241,244,.55)}
+.atlas .reserve .alt a{color:var(--gold-soft);text-decoration:none}
+.atlas .reserve .alt a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ============================================================
+   MINIMAL NAUTICAL ICON SET (inline svg) — replaces emoji
+   ============================================================ */
+.atlas .feat{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:760px){.atlas .feat{grid-template-columns:1fr}}
+.atlas .ft{padding:clamp(38px,4vw,56px) clamp(28px,3vw,40px);border-right:1px solid var(--line)}
+.atlas .ft:last-child{border-right:0}
+@media(max-width:760px){.atlas .ft{border-right:0;border-bottom:1px solid var(--line)}.atlas .ft:last-child{border-bottom:0}}
+.atlas .ft .ic{width:30px;height:30px;margin-bottom:22px;stroke:var(--gold);fill:none;stroke-width:1.3;
+  stroke-linecap:round;stroke-linejoin:round}
+.atlas .ft h3{font-family:'Playfair Display',serif;font-size:1.24rem;font-weight:400;margin-bottom:10px}
+.atlas .ft p{color:var(--mist);font-weight:300;font-size:.92rem;line-height:1.75}
+
+/* ============================================================
+   WHATSAPP — quieter floating control
+   ============================================================ */
+.atlas .wa{width:50px;height:50px;background:rgba(6,19,32,.72);backdrop-filter:blur(8px);
+  border:1px solid var(--line-2);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.atlas .wa svg{fill:var(--gold-soft);width:23px;height:23px}
+.atlas .wa:hover{transform:scale(1.06);border-color:var(--gold)}
+
+/* ============================================================
+   FOOTER — refined
+   ============================================================ */
+.atlas footer{border-top:1px solid var(--line);padding:88px 0 44px}
+.atlas .fc h4{color:var(--gold)}
+.atlas .fc a:hover{color:#fff}
+
+/* ============================================================
+   MOTION PRIMITIVES (paired with atlas.js; safe without JS)
+   ============================================================ */
+.atlas .reveal{opacity:0;transform:translateY(22px);
+  transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.atlas .reveal.in{opacity:1;transform:none}
+.atlas .reveal.d1{transition-delay:.09s}.atlas .reveal.d2{transition-delay:.18s}
+.atlas .reveal.d3{transition-delay:.27s}.atlas .reveal.d4{transition-delay:.36s}
+/* word-mask headline */
+.atlas .mask-line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.atlas .mask-w{display:inline-block;white-space:nowrap}
+.atlas .mask-c{display:inline-block;transform:translateY(112%);
+  transition:transform 1.05s var(--ease)}
+.atlas .in .mask-c,.atlas .mask-run .mask-c{transform:translateY(0)}
+/* clip reveal on figures */
+.atlas .clip{clip-path:inset(0 0 100% 0);transition:clip-path 1.25s var(--ease)}
+.atlas .clip.in{clip-path:inset(0 0 0 0)}
+
+@media(prefers-reduced-motion:reduce){
+  .atlas .reveal,.atlas .clip{opacity:1 !important;transform:none !important;clip-path:none !important;transition:none !important}
+  .atlas .mask-c{transform:none !important;transition:none !important}
+  .atlas .hcue i{animation:none}
+  .atlas .hero-media .hbg,.atlas .hero-media .hvid{position:absolute;inset:0;height:100%}
+}
+
+/* disable heavy sticky/parallax feel on small screens (handled in JS too) */
+@media(max-width:900px){
+  .atlas .bleed,.atlas .reserve{min-height:72svh}
+}
