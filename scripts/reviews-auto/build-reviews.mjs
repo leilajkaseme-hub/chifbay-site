@@ -155,7 +155,14 @@ async function main() {
   const ratingSum = all.reduce((s, r) => s + (r.rating || 0), 0);
   const aggregate = { rating: all.length ? Math.round((ratingSum / all.length) * 10) / 10 : 0, count: all.length };
 
-  writeFileSync(PUBLIC_JSON, JSON.stringify({ updatedAt: new Date().toISOString(), aggregate, reviews: all }, null, 2));
+  // Reuse the previous updatedAt when the review content is byte-identical —
+  // otherwise this timestamp alone would make reviews.json diff on every
+  // run even when nothing changed, forcing a meaningless commit every run
+  // forever from the local sync job.
+  const contentUnchanged = JSON.stringify(all) === JSON.stringify(prev.reviews || []);
+  const updatedAt = contentUnchanged && prev.updatedAt ? prev.updatedAt : new Date().toISOString();
+
+  writeFileSync(PUBLIC_JSON, JSON.stringify({ updatedAt, aggregate, reviews: all }, null, 2));
 
   const cardsHtml = all.map(renderCard).join("\n\n");
   const sourceNames = { getyourguide: "GetYourGuide", google: "Google", tripadvisor: "Tripadvisor" };
