@@ -11,9 +11,12 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const POSTS_JSON = join(ROOT, "posts", "posts.json");
 
-const STYLE = "cinematic golden-hour travel photography, luxury private boat " +
-  "charter, Atlantic Ocean off Madeira Portugal, professional photography, " +
-  "sharp focus, no text, no watermark, no logos";
+// Kept deliberately generic — Journal topics span far beyond boat trips
+// (rallies, hiking, food, festivals), so the style must not force boat/
+// charter imagery onto unrelated subjects. The post's own title/description
+// already carries the specific subject matter into the prompt.
+const STYLE = "professional travel photography, Madeira Portugal, natural " +
+  "lighting, sharp focus, editorial quality, no text, no watermark, no logos";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
