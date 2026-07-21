@@ -15,6 +15,7 @@ import { fileURLToPath } from "node:url";
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = join(HERE, "..", "..");
 const REVIEWS_HTML = join(SITE_ROOT, "reviews.html");
+const INDEX_HTML = join(SITE_ROOT, "index.html");
 const PUBLIC_JSON = join(SITE_ROOT, "reviews.json");
 
 function readJsonIfExists(path, fallback = []) {
@@ -164,6 +165,18 @@ async function main() {
   html = replaceBetween(html, "<!-- REVIEWS:BADGES -->", "<!-- /REVIEWS:BADGES -->", badgesHtml);
   html = replaceBetween(html, "<!-- REVIEWS:LIST -->", "<!-- /REVIEWS:LIST -->", cardsHtml);
   writeFileSync(REVIEWS_HTML, html);
+
+  // Keep the homepage's JSON-LD aggregateRating (used for search-result
+  // star snippets) from silently drifting away from the real count — it
+  // was hardcoded at "6" and would otherwise never update again.
+  if (existsSync(INDEX_HTML)) {
+    let indexHtml = readFileSync(INDEX_HTML, "utf-8");
+    const updated = indexHtml.replace(
+      /"aggregateRating":\{"@type":"AggregateRating","ratingValue":"[^"]*","reviewCount":"[^"]*"\}/,
+      `"aggregateRating":{"@type":"AggregateRating","ratingValue":"${aggregate.rating.toFixed(1)}","reviewCount":"${aggregate.count}"}`
+    );
+    if (updated !== indexHtml) writeFileSync(INDEX_HTML, updated);
+  }
 
   console.log(`[build] merged ${all.length} reviews (${gyg.length} GYG, ${google.length} Google, ${ta.length} Tripadvisor) — aggregate ${aggregate.rating}/5`);
   console.log(`NEW_REVIEW_COUNT=${newOnes.length}`);
