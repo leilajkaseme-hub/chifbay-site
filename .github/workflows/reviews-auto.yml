@@ -1,27 +1,24 @@
 name: Chifbay Reviews — auto sync (GetYourGuide + Google)
 
-# Keeps reviews.html, reviews.json (homepage teaser feeds off this) and
-# assets/reviews/ in sync with what's actually posted on GetYourGuide and
-# Google — both scraped headless (no paid API, no billing account).
+# MANUAL-TRIGGER-ONLY FALLBACK. The real, scheduled automation is a
+# launchd job on futurx's Mac (com.chifbay.reviews-sync,
+# scripts/reviews-auto/run-local-reviews-sync.sh), NOT this workflow.
 #
-# scrape-google.mjs does NOT run here — Google serves GitHub's shared
-# runner IPs a "limited view" of Maps with the Reviews tab stripped out
-# (confirmed via debug logging: works from a residential-ish IP, always
-# fails here), so running it in this job would just waste CI minutes on a
-# guaranteed failure. The real Google sync runs from a separate launchd
-# job on futurx's Mac (com.chifbay.google-reviews,
-# scripts/reviews-auto/run-local-google-sync.sh) which commits
-# data/google-reviews.json from a home IP; this workflow's merge step
-# just picks up whatever's already committed there. Google Maps' DOM also
-# leans on obfuscated class names that can shift with any frontend
-# deploy — more fragile than the GYG half.
+# Why: both GetYourGuide and Google actively block GitHub Actions' shared
+# runner IPs. Confirmed via debug logging on real CI runs — GetYourGuide
+# returns a Cloudflare "An error occurred" error page (Ray ID and all) on
+# every one of the 4 tour pages; Google serves a "limited view" of Maps
+# with the Reviews tab stripped out. Both work fine from a home IP. A
+# scheduled cron here would just fail every single run and spam failure
+# alerts, so there is no `schedule:` trigger — this exists only so the
+# same merge/build code can be run by hand (e.g. to test a data file
+# edited manually) via the Actions tab.
 #
-# Tripadvisor is NOT scraped here — their site blanks out every headless
-# scraper attempt (confirmed repeatedly) — data/tripadvisor-manual.json is
+# Tripadvisor is NOT scraped anywhere, local or cloud — DataDome (their
+# bot-mitigation vendor) 403s every attempt, including from the home IP
+# that GetYourGuide/Google are fine with — data/tripadvisor-manual.json is
 # maintained by hand instead and just gets folded into the same merge.
 on:
-  schedule:
-    - cron: "0 */6 * * *"   # every 6 hours
   workflow_dispatch: {}
 
 permissions:
@@ -45,18 +42,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install headless Chromium
-        run: npx playwright install --with-deps chromium
-
       - name: Configure git
         working-directory: .
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Scrape GetYourGuide reviews
-        run: node scrape-gyg.mjs
-
+      # No scraping steps here on purpose (see top-of-file comment) — this
+      # only re-runs the merge/translate/publish step against whatever
+      # data/gyg-reviews.json + data/google-reviews.json are already
+      # committed (normally written by the local Mac job).
       - name: Merge sources, translate, regenerate reviews.html
         id: build
         env:
