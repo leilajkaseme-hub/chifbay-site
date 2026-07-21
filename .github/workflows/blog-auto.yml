@@ -32,15 +32,28 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Generate & publish one Journal post
+      - name: Generate one Journal post (text only)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           claude -p "$(cat scripts/blog-local/BLOG-INSTRUCTIONS.md)" \
             --permission-mode acceptEdits \
-            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "WebSearch" "WebFetch" \
-                           "Bash(date:*)" "Bash(git add:*)" "Bash(git commit:*)" \
-                           "Bash(git push:*)" "Bash(git pull:*)" "Bash(git status:*)" "Bash(git log:*)"
+            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "WebSearch" "WebFetch" "Bash(date:*)"
+
+      # Generates a hero + 2 inline AI images matched to this post's specific
+      # subject via Pollinations (free, no API key) and wires them into the
+      # post HTML + posts.json. Best-effort — never fails the run; on any
+      # error it leaves the static manifest-picked image already in place.
+      - name: Generate AI images for the new post
+        run: node scripts/blog-local/gen-post-images.mjs
+
+      - name: Commit & push
+        run: |
+          TITLE=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['title'])")
+          git add -A
+          git commit -m "New Journal post: $TITLE"
+          git pull --rebase origin main || true
+          git push
 
       # GitHub Pages deploys can fail transiently ("Deployment failed, try again
       # later") — when that happens the post is committed but never goes live.

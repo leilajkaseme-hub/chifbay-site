@@ -46,8 +46,9 @@ are written in English.
    `  <url><loc>https://chifbay.com/posts/<slug>.html</loc><changefreq>monthly</changefreq></url>`
 
 ## Publish
-10. `git add -A && git commit -m "New Journal post: <title>" && git push`
-11. Confirm the push succeeded (`git status`), then print one line: `PUBLISHED: <title> (<slug>)`.
+10. Do **NOT** commit or push. Leave the new files as they are — a later pipeline
+    step generates AI images for this post, then commits and pushes everything together.
+11. Print one line: `WRITTEN: <title> (<slug>)`.
 
 ## Rules
 - Exactly ONE new post. Do not modify unrelated files or other languages.
