@@ -69,7 +69,18 @@ async function main() {
       return false;
     });
     if (!openedReviews) {
-      console.error("[google] could not find the Reviews tab — Google Maps layout may have changed.");
+      // Dump enough context to diagnose remotely — this step has already
+      // failed once in GitHub's CI with zero detail (worked fine locally),
+      // most likely a consent page in a different language, or Google
+      // showing a bot-check to the runner's datacenter IP instead of the
+      // plain cookie interstitial seen from a residential IP.
+      const debug = await page.evaluate(() => ({
+        title: document.title,
+        url: location.href,
+        bodySnippet: document.body.innerText.slice(0, 600),
+        buttonTexts: [...document.querySelectorAll("button")].map((b) => (b.innerText || "").trim()).filter(Boolean).slice(0, 20),
+      }));
+      console.error("[google] could not find the Reviews tab. Debug info:", JSON.stringify(debug, null, 2));
       process.exit(1);
     }
     await page.waitForTimeout(2500);
