@@ -19,6 +19,14 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+/* Defensive: a single long/unbreakable word (common in German compounds)
+   can force a CSS Grid track wider than the viewport via min-width:auto,
+   which body's overflow-x:hidden clips visually but position:fixed
+   elements (like the mobile nav panel) escape that clip and render
+   mispositioned as a result. overflow-wrap:anywhere also affects
+   min-content sizing itself, so the grid track never grows in the first
+   place. */
+h1,h2,h3,h4,p,li,a,span,div{overflow-wrap:anywhere}
 ::selection{background:var(--teal);color:var(--ink)}
 img{max-width:100%;display:block}
 h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.08;letter-spacing:-.02em;font-weight:400;}
@@ -27,7 +35,11 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.08;letter-sp
 .eyebrow{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:12px;}
 .eyebrow::before{content:"";width:28px;height:1px;background:var(--teal);opacity:.7;flex-shrink:0}
 .eyebrow.gold{color:var(--gold)}.eyebrow.gold::before{background:var(--gold)}
-.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:.88rem;border-radius:100px;padding:14px 30px;transition:transform .2s,box-shadow .2s;white-space:nowrap;cursor:pointer;border:0;}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:.88rem;border-radius:100px;padding:14px 30px;transition:transform .2s,box-shadow .2s;white-space:nowrap;cursor:pointer;border:0;max-width:100%}
+.btn svg{flex-shrink:0}
+/* nowrap CTAs can force horizontal overflow on mobile when the label is
+   long in some languages (e.g. Italian) — wrap instead of clipping/scrolling. */
+@media(max-width:560px){.btn{white-space:normal;text-align:center}}
 .btn-p{background:var(--teal);color:var(--ink)}.btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(224,190,122,.38)}
 .btn-g{border:1.5px solid var(--hair-strong);color:var(--paper);background:transparent}.btn-g:hover{border-color:rgba(255,255,255,.5);transform:translateY(-2px)}
 .btn-lg{padding:16px 36px;font-size:.95rem}
@@ -43,10 +55,10 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.08;letter-sp
 .nl a{color:rgba(240,245,244,.72);text-decoration:none;transition:color .2s}.nl a:hover,.nl a.active{color:var(--teal)}
 .nc{font-size:.8rem;font-weight:600;text-decoration:none;padding:10px 22px;border-radius:100px;color:var(--ink);background:var(--teal);transition:transform .2s,box-shadow .2s;white-space:nowrap}
 .nc:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(224,190,122,.35)}
-.navtoggle{display:none;background:none;border:0;cursor:pointer;width:30px;height:24px;z-index:120;margin-left:16px}
+.navtoggle{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;z-index:120;margin-left:6px}
 .navtoggle span{display:block;width:26px;height:2px;background:var(--paper);margin:6px 0;transition:.3s;border-radius:2px}
 @media(max-width:860px){
-  .navtoggle{display:block}
+  .navtoggle{display:flex;flex-direction:column;justify-content:center;align-items:center}
   .nl{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:rgba(5,15,24,.98);flex-direction:column;justify-content:center;align-items:flex-start;gap:30px;padding:54px;transform:translateX(100%);transition:transform .4s cubic-bezier(.15,.8,.15,1);font-size:1.15rem;border-left:1px solid var(--hair);will-change:transform}
   .nl.open{transform:none}
   .nl a{color:var(--paper)}
@@ -309,7 +321,7 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
 
 /* ---------- LANGUAGE SWITCHER ---------- */
 .langsel{position:relative}
-.langbtn{background:none;border:1px solid var(--hair-strong);color:var(--paper);border-radius:100px;padding:7px 12px;font-size:.72rem;font-family:"Space Mono",monospace;letter-spacing:.08em;cursor:pointer;display:flex;align-items:center;gap:5px}
+.langbtn{background:none;border:1px solid var(--hair-strong);color:var(--paper);border-radius:100px;padding:7px 12px;min-height:40px;font-size:.72rem;font-family:"Space Mono",monospace;letter-spacing:.08em;cursor:pointer;display:flex;align-items:center;gap:5px}
 .langbtn:hover{border-color:var(--teal);color:var(--teal)}
 .langmenu{position:absolute;top:130%;right:0;background:rgba(5,15,24,.98);backdrop-filter:blur(14px);border:1px solid var(--hair);border-radius:12px;padding:8px;display:none;flex-direction:column;min-width:150px;z-index:130}
 .langsel.open .langmenu{display:flex}
