@@ -2,10 +2,20 @@ name: Chifbay Reviews — auto sync (GetYourGuide + Google)
 
 # Keeps reviews.html, reviews.json (homepage teaser feeds off this) and
 # assets/reviews/ in sync with what's actually posted on GetYourGuide and
-# Google — both scraped headless (no paid API, no billing account). Google
-# Maps' DOM leans on obfuscated class names that can shift with any Google
-# frontend deploy, so this is more fragile than the GYG half; if it ever
-# starts silently returning 0 reviews, that's the likely cause.
+# Google — both scraped headless (no paid API, no billing account).
+#
+# scrape-google.mjs does NOT run here — Google serves GitHub's shared
+# runner IPs a "limited view" of Maps with the Reviews tab stripped out
+# (confirmed via debug logging: works from a residential-ish IP, always
+# fails here), so running it in this job would just waste CI minutes on a
+# guaranteed failure. The real Google sync runs from a separate launchd
+# job on futurx's Mac (com.chifbay.google-reviews,
+# scripts/reviews-auto/run-local-google-sync.sh) which commits
+# data/google-reviews.json from a home IP; this workflow's merge step
+# just picks up whatever's already committed there. Google Maps' DOM also
+# leans on obfuscated class names that can shift with any frontend
+# deploy — more fragile than the GYG half.
+#
 # Tripadvisor is NOT scraped here — their site blanks out every headless
 # scraper attempt (confirmed repeatedly) — data/tripadvisor-manual.json is
 # maintained by hand instead and just gets folded into the same merge.
@@ -46,9 +56,6 @@ jobs:
 
       - name: Scrape GetYourGuide reviews
         run: node scrape-gyg.mjs
-
-      - name: Scrape Google reviews
-        run: node scrape-google.mjs
 
       - name: Merge sources, translate, regenerate reviews.html
         id: build
