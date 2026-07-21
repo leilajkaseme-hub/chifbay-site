@@ -93,26 +93,23 @@
     html.classList.add('mo-done');
   },3000);
 
-  /* ---------------- Lenis ----------------
-     Skippable per-page via <body data-no-lenis> — short, form-heavy pages
-     (review.html) feel "hard to scroll" under Lenis's eased inertia because
-     there's so little scroll distance that each wheel/touch gesture is
-     dominated by the spring lag. ScrollTrigger falls back to native scroll
-     automatically when Lenis isn't created, so reveals still work. */
-  var lenis=null;
-  if(window.Lenis && !document.body.hasAttribute('data-no-lenis')){
-    lenis=new Lenis({duration:1.15, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},
-      smoothWheel:true, syncTouch:false});
-    lenis.on('scroll',ScrollTrigger.update);
-    gsap.ticker.add(function(t){ lenis.raf(t*1000); });
-    gsap.ticker.lagSmoothing(0);
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click',function(e){
-        var t=document.querySelector(a.getAttribute('href'));
-        if(t){ e.preventDefault(); lenis.scrollTo(t,{offset:-70}); }
-      });
+  /* ---------------- scrolling ----------------
+     Removed Lenis (eased/inertia smooth-scroll) entirely, site-wide — its
+     spring-lag made scrolling feel heavy and unresponsive, worst on short
+     pages where a single wheel/touch gesture was dominated by the easing
+     curve instead of moving the page. Native scroll only, everywhere.
+     ScrollTrigger works fine off native scroll with no proxy needed.
+     In-page anchor links (nav "#exp" etc.) still get a smooth jump via
+     the browser's own scrollIntoView, just without Lenis in the loop. */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.querySelector(a.getAttribute('href'));
+      if(!t) return;
+      e.preventDefault();
+      var y=t.getBoundingClientRect().top+window.scrollY-70;
+      window.scrollTo({top:y,behavior:'smooth'});
     });
-  }
+  });
 
   /* ---------------- loader ---------------- */
   var p=0, done=false;
