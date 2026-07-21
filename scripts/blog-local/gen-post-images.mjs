@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const POSTS_JSON = join(ROOT, "posts", "posts.json");
@@ -72,14 +73,15 @@ async function main() {
   // Pollinations' free anonymous tier serializes to 1 request at a time per
   // IP (extra concurrent requests get rejected with 429 "Queue full") — so
   // these must run sequentially, not via Promise.all.
-  const heroBuf = await genImage(heroPrompt, 1600, 900);
-  writeFileSync(join(ROOT, heroRel), heroBuf);
+  let flagged = 0;
+  const heroOk = await genAndVerify(heroPrompt, 1600, 900, join(ROOT, heroRel));
+  if (!heroOk) flagged++;
   await sleep(2000);
-  const inline1Buf = await genImage(inline1Prompt, 1200, 800);
-  writeFileSync(join(ROOT, inline1Rel), inline1Buf);
+  const inline1Ok = await genAndVerify(inline1Prompt, 1200, 800, join(ROOT, inline1Rel));
+  if (!inline1Ok) flagged++;
   await sleep(2000);
-  const inline2Buf = await genImage(inline2Prompt, 1200, 800);
-  writeFileSync(join(ROOT, inline2Rel), inline2Buf);
+  const inline2Ok = await genAndVerify(inline2Prompt, 1200, 800, join(ROOT, inline2Rel));
+  if (!inline2Ok) flagged++;
 
   // --- update posts.json ----------------------------------------------------
   post.heroImage = heroRel;
@@ -109,6 +111,60 @@ async function main() {
 
   writeFileSync(postPath, html);
   console.log(`OK: AI hero + ${inlineHtml.length} inline image(s) generated for "${title}" (${post.slug})`);
+  if (flagged > 0) {
+    console.log(`WARNING: ${flagged} image(s) still failed QA after all retries — flagging for manual review`);
+    notifyQaFlag(title, flagged);
+  }
+}
+
+// Generate an image, then have Claude (vision-capable, already available via
+// this machine's subscription/CLAUDE_CODE_OAUTH_TOKEN — no extra API cost)
+// judge whether it actually shows what it's supposed to. Regenerate with the
+// failure reason fed back as a negative constraint on FAIL, up to 3 attempts.
+// Closes a real, observed failure mode: Pollinations/flux can silently
+// render an unrelated or contradictory image with no error (e.g. a boat
+// literally driving on a road for a car-rally article) — nothing else in
+// this pipeline would ever catch that before it goes live. Never blocks the
+// run: on repeated failure, keeps the last attempt and flags it for review.
+async function genAndVerify(prompt, width, height, outPath, maxAttempts = 3) {
+  let extra = "";
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const buf = await genImage(`${prompt}${extra}`, width, height);
+    writeFileSync(outPath, buf);
+    const { pass, reason } = verifyImage(outPath, prompt);
+    console.log(`  ${outPath.split("/").pop()} attempt ${attempt}: ${pass ? "PASS" : "FAIL"} — ${reason}`);
+    if (pass) return true;
+    extra = `. IMPORTANT — a previous attempt was rejected because: "${reason}" — the image must fix this specific problem.`;
+  }
+  console.log(`  ${outPath.split("/").pop()}: still failing QA after ${maxAttempts} attempts, keeping last image anyway`);
+  return false;
+}
+
+function verifyImage(imagePath, expectation) {
+  const prompt = `Read the image at ${imagePath}. Does it clearly show: ${expectation}? ` +
+    `Answer with exactly one word first (PASS or FAIL), then a one-sentence reason.`;
+  try {
+    const out = execFileSync(
+      "claude",
+      ["-p", prompt, "--permission-mode", "acceptEdits", "--allowedTools", "Read"],
+      { cwd: ROOT, encoding: "utf-8", timeout: 90_000 },
+    ).trim();
+    return { pass: /^PASS/i.test(out), reason: out.replace(/^(PASS|FAIL)\W*/i, "") || out };
+  } catch (e) {
+    return { pass: true, reason: `QA check errored, skipping verification: ${e.message}` };
+  }
+}
+
+function notifyQaFlag(title, count) {
+  try {
+    execFileSync("curl", [
+      "-s", "--max-time", "20",
+      "-H", "Title: CHIFBAY blog image needs review",
+      "-H", "Priority: default", "-H", "Tags: warning",
+      "-d", `${count} image(s) on today's post "${title}" failed AI QA after 3 tries and were published anyway — check assets/journal/`,
+      "https://ntfy.sh/futurx-blog-alerts-544024878e",
+    ], { timeout: 20_000 });
+  } catch { /* best-effort */ }
 }
 
 main().catch((e) => {

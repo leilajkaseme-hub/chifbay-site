@@ -45,6 +45,8 @@ jobs:
       # post HTML + posts.json. Best-effort — never fails the run; on any
       # error it leaves the static manifest-picked image already in place.
       - name: Generate AI images for the new post
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: node scripts/blog-local/gen-post-images.mjs
 
       - name: Commit & push
