@@ -136,6 +136,17 @@ async function main() {
     process.exit(1);
   }
 
+  // Last line of defense before anything goes live: a real incident showed
+  // an upstream scraper can silently return a near-empty result without
+  // erroring (bot-block, not a thrown exception). Individual scrapers now
+  // guard against that themselves, but this catches it here too in case a
+  // bad data file ever reaches this step some other way.
+  const prevCount = (prev.reviews || []).length;
+  if (prevCount >= 4 && all.length < prevCount * 0.5) {
+    console.error(`[build] SUSPICIOUS DROP: ${prevCount} -> ${all.length} merged reviews (more than half missing) — aborting without touching reviews.html`);
+    process.exit(1);
+  }
+
   for (const r of all) await translateIfNeeded(r, prevById);
 
   all.sort((a, b) => (a.date < b.date ? 1 : -1));

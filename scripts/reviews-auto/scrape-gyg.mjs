@@ -91,6 +91,7 @@ async function main() {
   const browser = await chromium.launch({ headless: true });
   const reviews = [];
   const errors = [];
+  let zeroCardTours = 0;
 
   for (const tour of TOURS) {
     const page = await browser.newPage({ userAgent: UA });
@@ -99,6 +100,18 @@ async function main() {
       await page.waitForTimeout(1500);
       await loadAllReviews(page);
       const cards = await extractCards(page);
+
+      if (cards.length === 0) {
+        zeroCardTours++;
+        // A known listing that normally has reviews suddenly showing none
+        // is far more likely a bot-block/consent-wall than a real change —
+        // dump context so a CI failure is actually diagnosable.
+        const debug = await page.evaluate(() => ({
+          title: document.title,
+          bodySnippet: document.body.innerText.slice(0, 400),
+        }));
+        console.error(`[gyg] ${tour.id}: 0 review cards found — debug: ${JSON.stringify(debug)}`);
+      }
 
       for (const c of cards) {
         if (!c.nameLine) continue;
@@ -152,11 +165,25 @@ async function main() {
 
   await browser.close();
 
-  if (errors.length === TOURS.length) {
-    // Every listing failed — almost certainly a bot-block or network issue,
-    // not "zero reviews". Leave the previous gyg-reviews.json on disk rather
-    // than overwrite good data with an empty scrape.
-    console.error(`[gyg] ALL ${TOURS.length} tours failed — leaving existing gyg-reviews.json untouched.`);
+  // A real production incident caught this: every tour "succeeded" (no
+  // thrown error) but returned 0 review cards — silently overwrote 7 real
+  // reviews (with photos) with an empty array, which then got committed
+  // and pushed live. Treat "every tour errored OR came back empty" as one
+  // failure category — a page loading fine but showing no reviews for
+  // listings that are known to have them is a bot-block, not real data.
+  if (errors.length + zeroCardTours === TOURS.length) {
+    console.error(`[gyg] ALL ${TOURS.length} tours failed or returned 0 reviews — leaving existing gyg-reviews.json untouched.`);
+    process.exit(1);
+  }
+
+  // Same incident, softer version: a PARTIAL block (say 3 of 4 tours
+  // return 0) wouldn't trip the guard above but would still silently
+  // publish a big regression. Real reviews essentially never disappear in
+  // bulk, so losing more than half of what was there last run is treated
+  // as a scraper problem, not real content change.
+  const prev = existsSync(OUT_JSON) ? JSON.parse(readFileSync(OUT_JSON, "utf-8")) : [];
+  if (prev.length >= 4 && reviews.length < prev.length * 0.5) {
+    console.error(`[gyg] SUSPICIOUS DROP: ${prev.length} -> ${reviews.length} reviews (more than half missing) — leaving existing gyg-reviews.json untouched.`);
     process.exit(1);
   }
 
