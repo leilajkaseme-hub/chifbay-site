@@ -1,0 +1,105 @@
+name: Chifbay Reviews — auto sync (GetYourGuide + Google)
+
+# Keeps reviews.html, reviews.json (homepage teaser feeds off this) and
+# assets/reviews/ in sync with what's actually posted on GetYourGuide and
+# Google — both scraped headless (no paid API, no billing account). Google
+# Maps' DOM leans on obfuscated class names that can shift with any Google
+# frontend deploy, so this is more fragile than the GYG half; if it ever
+# starts silently returning 0 reviews, that's the likely cause.
+# Tripadvisor is NOT scraped here — their site blanks out every headless
+# scraper attempt (confirmed repeatedly) — data/tripadvisor-manual.json is
+# maintained by hand instead and just gets folded into the same merge.
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: scripts/reviews-auto
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install headless Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Configure git
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Scrape GetYourGuide reviews
+        run: node scrape-gyg.mjs
+
+      - name: Scrape Google reviews
+        run: node scrape-google.mjs
+
+      - name: Merge sources, translate, regenerate reviews.html
+        id: build
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          node build-reviews.mjs | tee /tmp/build-reviews.log
+          {
+            echo "new_count=$(grep -o 'NEW_REVIEW_COUNT=.*' /tmp/build-reviews.log | cut -d= -f2)"
+            echo "new_summary=$(grep -o 'NEW_REVIEW_SUMMARY=.*' /tmp/build-reviews.log | cut -d= -f2-)"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Commit & push if anything changed
+        id: commit
+        working-directory: .
+        env:
+          NEW_COUNT: ${{ steps.build.outputs.new_count }}
+        run: |
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git add -A
+          git commit -m "Reviews sync: ${NEW_COUNT} new review(s)"
+          git pull --rebase origin main || true
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Informational ping — a new review is good news, not a failure, so it
+      # goes to the inbox topic, not the alerts one. Review author names are
+      # guest-controlled text, so they're passed through env: (safe shell
+      # variable expansion) rather than interpolated straight into the
+      # script — GH Actions substitutes ${{ }} into the script text itself,
+      # which would let a troll reviewer's display name execute as shell.
+      - name: Notify new reviews (ntfy)
+        if: steps.commit.outputs.changed == 'true' && steps.build.outputs.new_count != '0' && steps.build.outputs.new_count != ''
+        env:
+          NEW_COUNT: ${{ steps.build.outputs.new_count }}
+          NEW_SUMMARY: ${{ steps.build.outputs.new_summary }}
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: New Chifbay review(s)" \
+            -H "Priority: default" -H "Tags: star,boat" \
+            -d "${NEW_COUNT} new review(s): ${NEW_SUMMARY}" \
+            https://ntfy.sh/futurx-inbox-544024878e || true
+
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY reviews sync FAILED" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "Reviews auto-sync failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

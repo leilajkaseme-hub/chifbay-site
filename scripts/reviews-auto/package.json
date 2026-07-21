@@ -1,0 +1,10 @@
+{
+  "name": "chifbay-reviews-auto",
+  "private": true,
+  "type": "module",
+  "description": "Automated GetYourGuide + Google review sync for chifbay.com/reviews.html",
+  "dependencies": {
+    "playwright": "^1.48.0",
+    "@anthropic-ai/sdk": "latest"
+  }
+}

@@ -93,9 +93,14 @@
     html.classList.add('mo-done');
   },3000);
 
-  /* ---------------- Lenis ---------------- */
+  /* ---------------- Lenis ----------------
+     Skippable per-page via <body data-no-lenis> — short, form-heavy pages
+     (review.html) feel "hard to scroll" under Lenis's eased inertia because
+     there's so little scroll distance that each wheel/touch gesture is
+     dominated by the spring lag. ScrollTrigger falls back to native scroll
+     automatically when Lenis isn't created, so reveals still work. */
   var lenis=null;
-  if(window.Lenis){
+  if(window.Lenis && !document.body.hasAttribute('data-no-lenis')){
     lenis=new Lenis({duration:1.15, easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));},
       smoothWheel:true, syncTouch:false});
     lenis.on('scroll',ScrollTrigger.update);
