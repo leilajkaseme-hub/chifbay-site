@@ -1,10 +1,28 @@
 {
-  "updatedAt": "2026-07-22T00:02:24.428Z",
+  "updatedAt": "2026-07-22T12:52:36.192Z",
   "aggregate": {
     "rating": 5,
     "count": 14
   },
   "reviews": [
+    {
+      "id": "google-63010fc81a95b6d9",
+      "source": "google",
+      "rating": 5,
+      "author": "Patricia Nobrega",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-22",
+      "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
+      "photos": [
+        "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
     {
       "id": "google-a9d225d691bb7a88",
       "source": "google",
@@ -32,24 +50,6 @@
       "text": "An experience to repeat, it was fantastic, without a doubt I recommend it for a pleasant, relaxed moment in the best company.",
       "photos": [
         "assets/reviews/google/google-3f7086e1be276765-1.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-63010fc81a95b6d9",
-      "source": "google",
-      "rating": 5,
-      "author": "Patricia Nobrega",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-21",
-      "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
-      "photos": [
-        "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
       ],
       "tourId": null,
       "tourName": null,
