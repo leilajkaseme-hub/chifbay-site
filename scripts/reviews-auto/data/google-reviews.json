@@ -36,13 +36,62 @@
     "reply": null
   },
   {
+    "id": "google-63010fc81a95b6d9",
+    "source": "google",
+    "rating": 5,
+    "author": "Patricia Nobrega",
+    "country": "",
+    "countryFlag": "",
+    "date": "2026-07-21",
+    "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
+    "photos": [
+      "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
+    ],
+    "tourId": null,
+    "tourName": null,
+    "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+    "reply": null
+  },
+  {
+    "id": "google-3f7086e1be276765",
+    "source": "google",
+    "rating": 5,
+    "author": "Dalila Nunes",
+    "country": "",
+    "countryFlag": "",
+    "date": "2026-07-21",
+    "text": "An experience to repeat, it was fantastic, without a doubt I recommend it for a pleasant, relaxed moment in the best company.",
+    "photos": [
+      "assets/reviews/google/google-3f7086e1be276765-1.jpg"
+    ],
+    "tourId": null,
+    "tourName": null,
+    "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+    "reply": null
+  },
+  {
+    "id": "google-a9d225d691bb7a88",
+    "source": "google",
+    "rating": 5,
+    "author": "Avelino Paulo Nóbrega",
+    "country": "",
+    "countryFlag": "",
+    "date": "2026-07-21",
+    "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
+    "photos": [],
+    "tourId": null,
+    "tourName": null,
+    "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+    "reply": null
+  },
+  {
     "id": "google-adb5b24ad0b9a47c",
     "source": "google",
     "rating": 5,
     "author": "Victor Filliaudeau",
     "country": "",
     "countryFlag": "",
-    "date": "2026-07-14",
+    "date": "2026-07-15",
     "text": "We had a fantastic time with Hugo and Paco. They were incredibly helpful and attentive, going above and beyond to ensure we had the best possible experience, from swimming and sunset to drone video and a delicious aperitif. Thanks again, we highly recommend them!",
     "photos": [],
     "tourId": null,

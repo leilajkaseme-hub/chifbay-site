@@ -1,10 +1,62 @@
 {
-  "updatedAt": "2026-07-21T17:44:52.304Z",
+  "updatedAt": "2026-07-22T00:02:24.428Z",
   "aggregate": {
     "rating": 5,
-    "count": 10
+    "count": 14
   },
   "reviews": [
+    {
+      "id": "google-a9d225d691bb7a88",
+      "source": "google",
+      "rating": 5,
+      "author": "Avelino Paulo Nóbrega",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-21",
+      "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-3f7086e1be276765",
+      "source": "google",
+      "rating": 5,
+      "author": "Dalila Nunes",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-21",
+      "text": "An experience to repeat, it was fantastic, without a doubt I recommend it for a pleasant, relaxed moment in the best company.",
+      "photos": [
+        "assets/reviews/google/google-3f7086e1be276765-1.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-63010fc81a95b6d9",
+      "source": "google",
+      "rating": 5,
+      "author": "Patricia Nobrega",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-21",
+      "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
+      "photos": [
+        "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
     {
       "id": "google-71087ff8fcca09b4",
       "source": "google",
@@ -20,6 +72,28 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "gyg-7b56db446864",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "Jessy",
+      "country": "France",
+      "countryFlag": "🇫🇷",
+      "date": "2026-07-21",
+      "text": "Une expérience absolument magique, que je recommande les yeux fermés ! Tout était parfait du début à la fin. Les guides français, un père et son fils, étaient extrêmement sympathiques, professionnels et passionnés. Ils nous ont partagé de nombreuses explications tout au long de la sortie dans une ambiance très conviviale, ce qui a rendu l’expérience encore plus agréable. Le coucher de soleil était tout simplement magnifique. Nous avons également pu nous arrêter pour nous baigner, faire du paddle et profiter d’un délicieux apéritif avec boissons incluses. Le plus beau souvenir reste la magnifique vidéo réalisée avec un drone, offerte à la fin de l’excursion. Les images sont superbes et nous permettront de revivre ce moment encore longtemps. Une expérience unique, idéale en famille, entre amis ou en couple. Un immense merci pour cette soirée inoubliable ! 😊",
+      "photos": [
+        "assets/reviews/gyg/gyg-7b56db446864-1.jpg",
+        "assets/reviews/gyg/gyg-7b56db446864-2.jpg",
+        "assets/reviews/gyg/gyg-7b56db446864-3.jpg",
+        "assets/reviews/gyg/gyg-7b56db446864-4.jpg",
+        "assets/reviews/gyg/gyg-7b56db446864-5.jpg"
+      ],
+      "tourId": "t1314963",
+      "tourName": "Luxury Sunset Yacht Experience",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
       "reply": null,
       "translation": null
     },
@@ -44,6 +118,22 @@
       "translation": null
     },
     {
+      "id": "google-adb5b24ad0b9a47c",
+      "source": "google",
+      "rating": 5,
+      "author": "Victor Filliaudeau",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-15",
+      "text": "We had a fantastic time with Hugo and Paco. They were incredibly helpful and attentive, going above and beyond to ensure we had the best possible experience, from swimming and sunset to drone video and a delicious aperitif. Thanks again, we highly recommend them!",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "gyg-96e35c1fc3e7",
       "source": "getyourguide",
       "rating": 5,
@@ -56,22 +146,6 @@
       "tourId": "t1340940",
       "tourName": "Yacht Cruise with Drinks",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-adb5b24ad0b9a47c",
-      "source": "google",
-      "rating": 5,
-      "author": "Victor Filliaudeau",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-14",
-      "text": "We had a fantastic time with Hugo and Paco. They were incredibly helpful and attentive, going above and beyond to ensure we had the best possible experience, from swimming and sunset to drone video and a delicious aperitif. Thanks again, we highly recommend them!",
-      "photos": [],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
       "reply": null,
       "translation": null
     },
