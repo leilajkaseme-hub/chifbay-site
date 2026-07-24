@@ -6,8 +6,15 @@
 
   var tog=document.querySelector('.navtoggle'), nl=document.querySelector('.nl');
   if(tog&&nl){
-    tog.addEventListener('click',function(){ nl.classList.toggle('open'); });
-    nl.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ nl.classList.remove('open'); }); });
+    var setNav=function(open){
+      nl.classList.toggle('open',open);
+      document.documentElement.classList.toggle('nav-open',open);   // locks background scroll + morphs the icon
+      tog.setAttribute('aria-expanded',String(open));
+    };
+    tog.setAttribute('aria-expanded','false');
+    tog.addEventListener('click',function(){ setNav(!nl.classList.contains('open')); });
+    nl.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ setNav(false); }); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') setNav(false); });
   }
 
   var io=new IntersectionObserver(function(es){
