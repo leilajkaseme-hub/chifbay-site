@@ -222,10 +222,10 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
 .fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;}
 @media(max-width:720px){.fg{grid-template-columns:1fr}}
 .fb2 p{color:var(--muted);font-size:.88rem;max-width:38ch;margin-top:14px;line-height:1.8}
-.fc h4{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}
+.fc h3{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}
 .fc a{display:block;color:var(--muted);text-decoration:none;font-size:.88rem;margin-bottom:9px;transition:color .2s;}.fc a:hover{color:var(--paper)}
 .fbot{margin-top:50px;padding-top:22px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.fcr{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--muted);opacity:.42;}
+.fcr{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--muted);opacity:.9;}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .88s cubic-bezier(.15,.8,.15,1),transform .88s cubic-bezier(.15,.8,.15,1)}.rv.in{opacity:1;transform:none}

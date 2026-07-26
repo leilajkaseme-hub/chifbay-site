@@ -300,7 +300,7 @@ html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spaci
    FOOTER — refined
    ============================================================ */
 .atlas footer{border-top:1px solid var(--line);padding:88px 0 44px}
-.atlas .fc h4{color:var(--gold)}
+.atlas .fc h3{color:var(--gold)}
 .atlas .fc a:hover{color:#fff}
 
 /* ============================================================
