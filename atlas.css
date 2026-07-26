@@ -332,3 +332,32 @@ html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spaci
 @media(max-width:900px){
   .atlas .bleed,.atlas .reserve{min-height:72svh}
 }
+
+/* ============================================================
+   Hero mobile — empêche le contenu de passer sous la nav fixe.
+
+   `.atlas .hc` est un flex column en `justify-content:flex-end` avec
+   `height:100%`. Tant que le contenu est plus court que le hero, il se cale
+   en bas. Sur téléphone il ne l'était pas : la pile mesurait exactement la
+   hauteur du hero (660/660), donc le débordement partait vers le HAUT et le
+   badge « Funchal · Madeira · Licensed operator » se retrouvait à y=81px,
+   derrière le logo et le sélecteur de langue (nav jusqu'à 122px). C'est ce
+   qui donnait l'impression d'un menu cassé — le menu lui-même fonctionne.
+
+   Un premier correctif placé dans peak.css n'a rien fait : atlas.css est
+   chargé après et utilise `.atlas .hero h1` (spécificité 0,0,2,1) contre
+   `.hero h1` (0,0,1,1). Il doit donc vivre ici, au même niveau de sélecteur.
+
+   Deux leviers combinés : réserver la hauteur de nav en padding-top, et
+   réduire la typographie pour que la pile tienne réellement dans l'espace
+   restant (~404px de contenu pour 538px disponibles, marge conservée).
+   ============================================================ */
+@media(max-width:600px){
+  .atlas .hero{min-height:0}
+  .atlas .hc{justify-content:center;padding-top:104px;padding-bottom:7vh}
+  .atlas .hbadge{margin-bottom:18px;font-size:.55rem;letter-spacing:.2em}
+  .atlas .hbadge::before{width:22px}
+  .atlas .hero h1{font-size:clamp(2.1rem,9.2vw,2.9rem);margin-bottom:18px;max-width:none;line-height:1.06}
+  .atlas .hsub{margin-bottom:26px;font-size:.95rem;line-height:1.6;max-width:none}
+  .atlas .hact{gap:10px}
+}

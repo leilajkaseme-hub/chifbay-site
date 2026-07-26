@@ -91,25 +91,6 @@ html.nav-open,html.nav-open body{overflow:hidden}
 .hfoot{position:absolute;bottom:26px;right:30px;z-index:2;text-align:right;}
 .hcoord{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:rgba(240,245,244,.36);display:block;line-height:1.9;}
 
-/* Phone hero.
-   The hero is `display:grid; place-items:end`, which only pushes content to the
-   bottom while the content is SHORTER than the hero. On a phone it was not: at
-   393x660 the content stack measured 660px — exactly the hero height — so there
-   was nothing left to push and it rendered from y=0, i.e. underneath the fixed
-   nav. The result was the "Funchal · Madeira · Licensed operator" badge running
-   straight through the Chifbay logo and the language switcher, which read as a
-   broken menu.
-   Fix is to make the content genuinely shorter than the hero and reserve room
-   for the nav, rather than to reposition the badge. */
-@media(max-width:600px){
-  .hero{min-height:0}
-  .hc{padding-top:108px;padding-bottom:5vh}
-  .hbadge{margin-bottom:16px;font-size:.56rem;letter-spacing:.16em;padding:6px 13px}
-  .hero h1{font-size:clamp(2.3rem,10.2vw,3rem);margin-bottom:16px;max-width:none;line-height:1.06}
-  .hsub{margin-bottom:24px;line-height:1.62;font-size:.94rem}
-  .hact{gap:10px}
-  .hcue{display:none}
-}
 @media(max-width:560px){.hfoot{display:none}}
 .hmeta{display:flex;gap:0;margin-top:30px;border-top:1px solid var(--hair-strong);flex-wrap:wrap}
 .hmeta div{padding:20px 34px 0 0;margin-right:34px}
