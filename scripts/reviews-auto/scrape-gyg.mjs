@@ -97,7 +97,17 @@ async function main() {
     const page = await browser.newPage({ userAgent: UA });
     try {
       await page.goto(tour.url, { waitUntil: "networkidle", timeout: 45000 });
-      await page.waitForTimeout(1500);
+      // Wait for a review card to actually exist rather than trusting
+      // networkidle plus a fixed sleep. Reviews are client-rendered, so on a
+      // slower run they were not in the DOM yet and the tour silently yielded
+      // fewer cards (observed: this scraper returning 6 reviews under launchd
+      // where it normally returns 8, with no error). Non-fatal — a tour that
+      // genuinely has no reviews still falls through to the zero-card debug
+      // path below.
+      await page
+        .waitForSelector('[data-test-id="activity-review-card"]', { timeout: 20000 })
+        .catch(() => {});
+      await page.waitForTimeout(1200);
       await loadAllReviews(page);
       const cards = await extractCards(page);
 
