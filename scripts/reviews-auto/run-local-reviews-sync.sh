@@ -97,6 +97,11 @@ REVIEW_PATHS=(
   reviews.json
   reviews.html
   index.html
+  fr/index.html
+  de/index.html
+  pt/index.html
+  es/index.html
+  it/index.html
   assets/reviews
   scripts/reviews-auto/data
 )
