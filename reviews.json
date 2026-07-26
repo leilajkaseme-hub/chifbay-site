@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T06:10:44.150Z",
+  "updatedAt": "2026-07-26T06:14:26.094Z",
   "aggregate": {
     "rating": 5,
     "count": 15
@@ -43,6 +43,22 @@
       "translation": null
     },
     {
+      "id": "google-a9d225d691bb7a88",
+      "source": "google",
+      "rating": 5,
+      "author": "Avelino Paulo Nóbrega",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-22",
+      "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "google-3f7086e1be276765",
       "source": "google",
       "rating": 5,
@@ -54,22 +70,6 @@
       "photos": [
         "assets/reviews/google/google-3f7086e1be276765-1.jpg"
       ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-a9d225d691bb7a88",
-      "source": "google",
-      "rating": 5,
-      "author": "Avelino Paulo Nóbrega",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-22",
-      "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
-      "photos": [],
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
