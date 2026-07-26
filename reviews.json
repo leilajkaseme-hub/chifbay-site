@@ -1,10 +1,29 @@
 {
-  "updatedAt": "2026-07-26T13:47:26.322Z",
+  "updatedAt": "2026-07-26T16:15:52.999Z",
   "aggregate": {
     "rating": 5,
-    "count": 19
+    "count": 20
   },
   "reviews": [
+    {
+      "id": "google-7b7011515c484df0",
+      "source": "google",
+      "rating": 5,
+      "author": "Manon Nguyen",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-26",
+      "text": "Amazing boat trip! We had such a great time together and the whole experience was perfect. A special shoutout to our skipper, Paco, who was incredibly friendly, professional, and made the trip even more enjoyable. Highly recommend! ",
+      "photos": [
+        "assets/reviews/google/google-7b7011515c484df0-1.jpg",
+        "assets/reviews/google/google-7b7011515c484df0-2.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
     {
       "id": "google-e1707c388194f625",
       "source": "google",
