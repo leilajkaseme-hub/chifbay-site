@@ -140,7 +140,30 @@ async function main() {
   const prev = readJsonIfExists(PUBLIC_JSON, { reviews: [] });
   const prevById = new Map((prev.reviews || []).map((r) => [r.id, r]));
 
-  const all = [...gyg, ...google, ...ta];
+  // UNION with what we already published — never a straight replace.
+  //
+  // These scrapers are inherently flaky: Google Maps lazy-loads its review
+  // list, so a run that scrolls a little less returns fewer reviews WITHOUT
+  // erroring. Observed live on 2026-07-26 — one run returned 7 Google reviews
+  // and the next returned 3, and because this line used to be a plain replace
+  // it deleted four genuine reviews from the site and pushed the result.
+  //
+  // A freshly scraped copy wins for a given id (so edited text or a changed
+  // rating propagates), but any review we have seen before and did not
+  // re-scrape this run is carried forward rather than dropped. Reviews being
+  // removed upstream is rare; losing them to a partial scrape was routine.
+  const scraped = [...gyg, ...google, ...ta];
+  const scrapedById = new Map(scraped.map((r) => [r.id, r]));
+  const carried = (prev.reviews || []).filter((r) => !scrapedById.has(r.id));
+  const all = [...scraped, ...carried];
+
+  if (carried.length) {
+    console.log(
+      `[build] carried forward ${carried.length} previously published review(s) ` +
+      `not returned by this run's scrape`
+    );
+  }
+
   if (!all.length) {
     console.error("[build] no reviews from any source — aborting without touching reviews.html");
     process.exit(1);
