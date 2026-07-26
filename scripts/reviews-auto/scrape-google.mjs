@@ -117,12 +117,54 @@ async function main() {
       await page.waitForTimeout(2000);
     } catch { /* keep default ordering */ }
 
-    // The reviews list is a virtualized, independently-scrollable pane —
-    // scroll it (not the window) so any reviews beyond the first batch load.
-    // Loop until the pane genuinely stops growing (or we hit the cap), rather
-    // than trusting a single truthy return value as the old code did.
+    // The reviews pane is VIRTUALIZED: Google drops cards out of the DOM once
+    // they scroll off screen. The original code scrolled to the bottom and then
+    // read [data-review-id] once, so it only ever saw whatever happened to be
+    // rendered at that moment — which is why a run could return a
+    // non-contiguous subset (newest, then #5 and #6, skipping #2-#4) with no
+    // error. Observed live: 7 reviews from an interactive shell, 3 under
+    // launchd, from identical code.
+    //
+    // So harvest incrementally instead: after every scroll step, expand any
+    // truncated text and copy whatever is currently rendered into a page-level
+    // Map keyed by review id. Cards that later get virtualized away are already
+    // banked. The Map is read once at the end.
+    await page.evaluate(() => {
+      window.__harvest = () => {
+        window.__collected = window.__collected || new Map();
+        document.querySelectorAll("[data-review-id]").forEach((el) => {
+          const id = el.getAttribute("data-review-id");
+          if (!id) return;
+          const ratingEl = el.querySelector('[aria-label*="star"]');
+          const ratingM = ratingEl ? ratingEl.getAttribute("aria-label").match(/(\d+)\s*star/) : null;
+          const rating = ratingM ? parseInt(ratingM[1], 10) : 5;
+          const photos = [...el.querySelectorAll("[data-photo-index]")]
+            .map((p) => (p.getAttribute("style") || "").match(/url\("([^"]+)"\)/))
+            .filter(Boolean)
+            .map((m) => m[1]);
+          const rec = { id, rating, photos, text: el.innerText };
+          // Prefer the longest text seen for an id — a later pass may catch it
+          // after its "More" button was expanded.
+          const old = window.__collected.get(id);
+          if (!old || (rec.text || "").length > (old.text || "").length) {
+            window.__collected.set(id, rec);
+          }
+        });
+        return window.__collected.size;
+      };
+    });
+
     let stagnant = 0;
-    for (let i = 0; i < 25 && stagnant < 3; i++) {
+    for (let i = 0; i < 25 && stagnant < 4; i++) {
+      // Expand truncated reviews in the current window, then bank them.
+      await page.evaluate(() => {
+        [...document.querySelectorAll("button")]
+          .filter((b) => /^more$/i.test((b.innerText || "").trim()))
+          .forEach((b) => b.click());
+      });
+      await page.waitForTimeout(400);
+      await page.evaluate(() => window.__harvest());
+
       const delta = await page.evaluate(async () => {
         const card = document.querySelector("[data-review-id]");
         if (!card) return -1;
@@ -136,35 +178,19 @@ async function main() {
       });
       if (delta < 0) break;
       stagnant = delta === 0 ? stagnant + 1 : 0;
-      await page.waitForTimeout(700);
+      await page.waitForTimeout(600);
     }
 
-    // Expand every truncated review ("... More") before reading text.
+    // Final sweep for anything rendered by the last scroll.
     await page.evaluate(() => {
-      [...document.querySelectorAll("button")].filter((b) => /^more$/i.test((b.innerText || "").trim())).forEach((b) => b.click());
+      [...document.querySelectorAll("button")]
+        .filter((b) => /^more$/i.test((b.innerText || "").trim()))
+        .forEach((b) => b.click());
     });
-    await page.waitForTimeout(500);
-
+    await page.waitForTimeout(600);
     const cards = await page.evaluate(() => {
-      const seen = new Set();
-      const roots = [];
-      document.querySelectorAll("[data-review-id]").forEach((el) => {
-        const id = el.getAttribute("data-review-id");
-        if (seen.has(id)) return;
-        seen.add(id);
-        roots.push(el);
-      });
-      return roots.map((el) => {
-        const id = el.getAttribute("data-review-id");
-        const ratingEl = el.querySelector('[aria-label*="star"]');
-        const ratingM = ratingEl ? ratingEl.getAttribute("aria-label").match(/(\d+)\s*star/) : null;
-        const rating = ratingM ? parseInt(ratingM[1], 10) : 5;
-        const photos = [...el.querySelectorAll("[data-photo-index]")]
-          .map((p) => (p.getAttribute("style") || "").match(/url\("([^"]+)"\)/))
-          .filter(Boolean)
-          .map((m) => m[1]);
-        return { id, rating, photos, text: el.innerText };
-      });
+      window.__harvest();
+      return [...window.__collected.values()];
     });
 
     const reviews = [];
