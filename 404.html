@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="atlas">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chifbay — Private Boat Tours in Madeira</title>
+<meta name="robots" content="noindex,follow"/>
+<link rel="icon" href="/assets/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+<link rel="stylesheet" href="/peak.css"/>
+<link rel="stylesheet" href="/atlas.css"/>
+<!--
+  Smart 404 for a static host.
+
+  GitHub Pages is case-sensitive, does not tolerate a trailing slash on a file
+  path, and offers no server-side rewrites. So a link that is completely valid
+  to a human 404s the moment it passes through a phone keyboard or a messaging
+  app:
+
+      /About.html   (iOS autocapitalisation)      -> 404
+      /about/       (app appends a trailing slash) -> 404
+      /blog/                                       -> 404
+      /posts/some-guide/                           -> 404
+      /index.htm                                   -> 404
+
+  A real customer was sent a link and got GitHub's grey "Page not found".
+
+  This page recovers from that. It normalises whatever was requested and
+  matches it against sitemap.xml — which the blog bot regenerates, so new posts
+  are covered automatically with no change here — then redirects with
+  location.replace so the broken URL does not pollute the back button.
+
+  Only if nothing matches does it render the branded page below, which is still
+  far better than the default: it explains what happened and routes the visitor
+  onward instead of dead-ending them.
+-->
+<style>
+  .nf-wrap{min-height:100svh;display:grid;place-items:center;text-align:center;padding:40px 20px}
+  .nf-inner{max-width:640px}
+  .nf-code{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal,#7fd4c1);margin-bottom:20px}
+  .nf-h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,3.6rem);font-weight:400;margin:0 0 18px;line-height:1.1}
+  .nf-p{color:var(--paper-dim,#b9c4c2);font-size:1rem;font-weight:300;line-height:1.7;margin:0 0 32px}
+  .nf-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .nf-links a{display:inline-block;padding:12px 22px;border:1px solid rgba(255,255,255,.18);border-radius:100px;text-decoration:none;color:inherit;font-size:.9rem;transition:border-color .2s,background .2s}
+  .nf-links a:hover{border-color:var(--teal,#7fd4c1);background:rgba(127,212,193,.08)}
+  .nf-links a.primary{background:var(--teal,#7fd4c1);color:#05121a;border-color:transparent;font-weight:500}
+  .nf-checking{opacity:.65;font-size:.85rem;font-family:'Space Mono',monospace}
+  #nf-body{display:none}
+</style>
+</head>
+<body>
+
+<div class="nf-wrap">
+  <div class="nf-inner">
+    <p class="nf-checking" id="nf-checking">Finding that page…</p>
+
+    <div id="nf-body">
+      <div class="nf-code">Error 404</div>
+      <h1 class="nf-h1">That page has drifted off course</h1>
+      <p class="nf-p" id="nf-msg">
+        The link you followed doesn’t match a page on Chifbay. It may have been
+        mistyped, or altered by the app it was sent through.
+      </p>
+      <div class="nf-links">
+        <a class="primary" href="/">Home</a>
+        <a href="/experiences.html">Experiences</a>
+        <a href="/reviews.html">Reviews</a>
+        <a href="/blog.html">Journal</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reveal = function (msg) {
+    var c = document.getElementById('nf-checking');
+    if (c) c.style.display = 'none';
+    if (msg) {
+      var m = document.getElementById('nf-msg');
+      if (m) m.textContent = msg;
+    }
+    var b = document.getElementById('nf-body');
+    if (b) b.style.display = 'block';
+  };
+
+  // Give up quickly rather than leaving the visitor on a spinner.
+  var settled = false;
+  var giveUp = setTimeout(function () { if (!settled) { settled = true; reveal(); } }, 4000);
+  var done = function (msg) { if (!settled) { settled = true; clearTimeout(giveUp); reveal(msg); } };
+
+  var raw = decodeURIComponent(location.pathname || '/');
+  var search = location.search || '';
+  var hash = location.hash || '';
+
+  // Normalise: lowercase, collapse duplicate slashes, drop trailing slashes,
+  // drop a .html/.htm extension. This is the key that both the requested path
+  // and every sitemap entry get reduced to before comparing.
+  function key(p) {
+    p = (p || '').toLowerCase().replace(/\/{2,}/g, '/').replace(/[?#].*$/, '');
+    p = p.replace(/\/+$/, '');
+    p = p.replace(/\.html?$/, '');
+    p = p.replace(/\/index$/, '');
+    return p === '' ? '/' : p;
+  }
+
+  var want = key(raw);
+
+  // Aliases people and other sites guess at.
+  var ALIASES = {
+    '/home': '/', '/en': '/', '/index': '/', '/accueil': '/', '/inicio': '/',
+    '/tours': '/experiences.html', '/tour': '/experiences.html',
+    '/booking': '/experiences.html', '/book': '/experiences.html',
+    '/prices': '/experiences.html', '/pricing': '/experiences.html',
+    '/avis': '/reviews.html', '/testimonials': '/reviews.html',
+    '/about-us': '/about.html', '/story': '/about.html',
+    '/journal': '/blog.html', '/news': '/blog.html', '/posts': '/blog.html',
+    '/contact-us': '/contact.html'
+  };
+  if (ALIASES[want]) { location.replace(ALIASES[want] + search + hash); return; }
+
+  // Root itself should never land here, but be safe.
+  if (want === '/') { location.replace('/' + search + hash); return; }
+
+  fetch('/sitemap.xml', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
+    .then(function (xml) {
+      var locs = [];
+      var re = /<loc>([^<]+)<\/loc>/g, m;
+      while ((m = re.exec(xml))) locs.push(m[1].trim());
+
+      var byKey = {};
+      locs.forEach(function (u) {
+        var path;
+        try { path = new URL(u).pathname; } catch (e) { return; }
+        var k = key(path);
+        // Prefer the first sitemap entry for a key — they are canonical order.
+        if (!(k in byKey)) byKey[k] = path;
+      });
+
+      // 1) exact normalised match — covers case, trailing slash, .htm, /index
+      if (byKey[want]) { location.replace(byKey[want] + search + hash); return; }
+
+      // 2) same basename somewhere else in the tree. Catches a locale page
+      //    shared without its locale, or a post URL missing /posts/.
+      var base = want.split('/').filter(Boolean).pop();
+      if (base) {
+        var hit = null;
+        for (var k in byKey) {
+          if (k.split('/').filter(Boolean).pop() === base) {
+            // Prefer a root-level match over a locale one.
+            if (!hit || k.split('/').length < hit.split('/').length) hit = k;
+          }
+        }
+        if (hit) { location.replace(byKey[hit] + search + hash); return; }
+      }
+
+      // 3) nothing sensible to redirect to — show the branded page.
+      done();
+    })
+    .catch(function () { done(); });
+})();
+</script>
+
+</body>
+</html>
