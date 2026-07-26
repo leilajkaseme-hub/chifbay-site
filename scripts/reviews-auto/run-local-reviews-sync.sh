@@ -88,12 +88,24 @@ cd "$REPO_DIR"
 # not it produced a diff, so stamp the heartbeat before the early exit.
 date +%s > "$HEARTBEAT"
 
-CHANGES="$(git status --porcelain)"
+# Stage ONLY what this pipeline produces. This used to be `git add -A`, which
+# meant any unrelated work-in-progress sitting in the repo got swept into the
+# sync commit and pushed to production unattended — it happened for real while
+# this script was being repaired. Scoping the add keeps an editor session open
+# in this repo from being published by a background job.
+REVIEW_PATHS=(
+  reviews.json
+  reviews.html
+  index.html
+  assets/reviews
+  scripts/reviews-auto/data
+)
+git add -- "${REVIEW_PATHS[@]}" 2>/dev/null || true
+
+CHANGES="$(git diff --cached --name-only)"
 if [ -z "$CHANGES" ]; then
   exit 0
 fi
-
-git add -A || fail "git add failed"
 git commit -m "Reviews sync (local): ${NEW_COUNT:-0} new review(s)" --quiet || fail "git commit failed"
 git pull --rebase --autostash origin main --quiet || fail "git pull (pre-push) failed"
 git push origin main --quiet || fail "git push failed"
