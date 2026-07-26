@@ -1,0 +1,65 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+
+  "//": [
+    "Config for hosting chifbay.com on Vercel instead of GitHub Pages.",
+    "",
+    "This file is INERT until the domain is actually pointed at Vercel — it is",
+    "safe to have in the repo while still on GitHub Pages, which ignores it.",
+    "",
+    "What moving here actually buys, and what it does not:",
+    "  DOES  turn /about/ and /experiences/ into real 308 redirects instead of",
+    "        a 404 that JavaScript repairs. Google follows a 308 and passes",
+    "        link equity; it does not pass equity through a client-side",
+    "        recovery from a 404 status.",
+    "  DOES  serve /about natively via cleanUrls.",
+    "  DOES  give a faster edge CDN, which helps Core Web Vitals slightly.",
+    "  NOT   improve rankings by virtue of being Vercel. The host is not a",
+    "        ranking signal. Position for 'chifbay' is an authority problem",
+    "        (Tripadvisor and Instagram outrank the site), not a hosting one.",
+    "  NOT   remove the need for 404.html. Vercel is case-sensitive too, so",
+    "        /About.html still falls through to the client-side recovery.",
+    "",
+    "The GitHub push-to-deploy flow is unaffected: the blog bot and the reviews",
+    "sync keep pushing to main, and Vercel builds from the same repo."
+  ],
+
+  "cleanUrls": true,
+  "trailingSlash": false,
+
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+
+  "redirects": [
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/en", "destination": "/", "permanent": true },
+    { "source": "/index.htm", "destination": "/", "permanent": true },
+    { "source": "/tours", "destination": "/experiences", "permanent": true },
+    { "source": "/tour", "destination": "/experiences", "permanent": true },
+    { "source": "/book", "destination": "/experiences", "permanent": true },
+    { "source": "/booking", "destination": "/experiences", "permanent": true },
+    { "source": "/prices", "destination": "/experiences", "permanent": true },
+    { "source": "/pricing", "destination": "/experiences", "permanent": true },
+    { "source": "/avis", "destination": "/reviews", "permanent": true },
+    { "source": "/testimonials", "destination": "/reviews", "permanent": true },
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/story", "destination": "/about", "permanent": true },
+    { "source": "/journal", "destination": "/blog", "permanent": true },
+    { "source": "/news", "destination": "/blog", "permanent": true },
+    { "source": "/posts", "destination": "/blog", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true }
+  ]
+}
