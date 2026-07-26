@@ -65,6 +65,26 @@
       el.querySelectorAll('.mask-line').forEach(function(line){ splitMask(line); });
       el.__cs=el.querySelectorAll('.mask-c');
     });
+
+    /* Reveal above-the-fold headlines immediately, without waiting for the
+       IntersectionObserver below.
+
+       Why: splitting hides the words (.mask-c is translateY(112%) inside an
+       overflow:hidden line), so the hero h1 paints as plain text, then
+       disappears when this runs, then comes back only once the observer
+       fires and the 42ms-per-word stagger plays out. LCP records the LAST
+       qualifying paint, so the hero headline was measured at a 3237ms render
+       delay on mobile — with 0ms load delay and 0ms load time, i.e. nothing
+       was downloading, the animation alone was holding it.
+
+       Anything already in view is revealed in this same tick with a tighter
+       stagger. Off-screen headlines keep the original observer behaviour, so
+       the effect down the page is unchanged. */
+    document.querySelectorAll('[data-mask]').forEach(function(el){
+      if(el.getBoundingClientRect().top >= innerHeight*0.9) return;
+      el.classList.add('in');
+      if(el.__cs){ var d=0; el.__cs.forEach(function(c){ c.style.transitionDelay=d+'ms'; d+=24; }); }
+    });
   }
 
   /* ---------- IntersectionObserver reveals ---------- */
