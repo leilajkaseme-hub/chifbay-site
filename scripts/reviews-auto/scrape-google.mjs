@@ -85,21 +85,58 @@ async function main() {
     }
     await page.waitForTimeout(2500);
 
+    // Wait for the first review card to actually render before scrolling.
+    // Without this the loop below hit a race: if no [data-review-id] existed
+    // yet it broke on iteration 1 and we scraped only the handful already
+    // painted. That is how a run returned 3 reviews when the previous run
+    // returned 7, with no error.
+    try {
+      await page.waitForSelector("[data-review-id]", { timeout: 20000 });
+    } catch {
+      console.error("[google] no review cards rendered after opening the Reviews tab");
+      process.exit(1);
+    }
+
+    // Best-effort: sort by newest so freshly posted reviews are guaranteed to
+    // be in the first batch. Google defaults to "Most relevant", which can bury
+    // a brand-new review below the fold — the exact thing this job exists to
+    // catch. Non-fatal: if the control moves or is renamed we carry on with
+    // the default ordering rather than failing the whole sync.
+    try {
+      await page.evaluate(() => {
+        const b = [...document.querySelectorAll("button")]
+          .find((x) => /^(sort|most relevant)$/i.test((x.innerText || "").trim()));
+        if (b) b.click();
+      });
+      await page.waitForTimeout(1200);
+      await page.evaluate(() => {
+        const opt = [...document.querySelectorAll('[role="menuitemradio"], [role="menuitem"], button')]
+          .find((x) => /^newest$/i.test((x.innerText || "").trim()));
+        if (opt) opt.click();
+      });
+      await page.waitForTimeout(2000);
+    } catch { /* keep default ordering */ }
+
     // The reviews list is a virtualized, independently-scrollable pane —
     // scroll it (not the window) so any reviews beyond the first batch load.
-    for (let i = 0; i < 15; i++) {
-      const grew = await page.evaluate(() => {
+    // Loop until the pane genuinely stops growing (or we hit the cap), rather
+    // than trusting a single truthy return value as the old code did.
+    let stagnant = 0;
+    for (let i = 0; i < 25 && stagnant < 3; i++) {
+      const delta = await page.evaluate(async () => {
         const card = document.querySelector("[data-review-id]");
-        if (!card) return false;
+        if (!card) return -1;
         let n = card.parentElement;
         while (n && !(getComputedStyle(n).overflowY === "auto" && n.scrollHeight > n.clientHeight)) n = n.parentElement;
-        if (!n) return false;
+        if (!n) return -1;
         const before = n.scrollHeight;
         n.scrollTop = n.scrollHeight;
-        return before;
+        await new Promise((r) => setTimeout(r, 600));
+        return n.scrollHeight - before;
       });
-      if (!grew) break;
-      await page.waitForTimeout(900);
+      if (delta < 0) break;
+      stagnant = delta === 0 ? stagnant + 1 : 0;
+      await page.waitForTimeout(700);
     }
 
     // Expand every truncated review ("... More") before reading text.
