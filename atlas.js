@@ -59,6 +59,27 @@
 
   if(!reduce){
     document.querySelectorAll('[data-mask]').forEach(function(el){
+      /* Ne JAMAIS masquer un titre déjà visible au chargement.
+
+         Mesuré sur 5 runs Lighthouse mobile : LCP médian 4387ms dont 3755ms
+         de "render delay", avec load delay et load time à 0 — rien ne
+         téléchargeait. L'élément LCP rapporté était <span class="mask-line">,
+         c'est-à-dire les spans que ce découpage fabrique.
+
+         La séquence coupable : le h1 peint normalement pendant le parse, puis
+         ce code remplace son innerHTML par des .mask-c translatés de 112% hors
+         d'une ligne overflow:hidden — le texte disparaît — et il ne revient
+         qu'une fois l'IntersectionObserver déclenché, avec 42ms de décalage par
+         mot. Comme le remplacement crée de NOUVEAUX noeuds, le navigateur
+         enregistre un nouveau candidat LCP à la fin de cette chaîne.
+
+         Le hero est visible par définition : son animation joue avant même que
+         le visiteur ait fixé la page, pour un coût de plusieurs secondes de
+         LCP. On le laisse donc en texte simple, peint une seule fois. Tout ce
+         qui est sous la ligne de flottaison garde l'effet intact — c'est là
+         qu'il se voit réellement, au scroll, et il n'y coûte rien. */
+      if(el.getBoundingClientRect().top < innerHeight) return;
+
       // wrap each existing line (split on <br>) in an overflow-clip line
       var html=el.innerHTML.split(/<br\s*\/?>/i);
       el.innerHTML=html.map(function(seg){ return '<span class="mask-line">'+seg+'</span>'; }).join('');
