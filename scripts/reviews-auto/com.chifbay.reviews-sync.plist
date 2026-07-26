@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.chifbay.reviews-sync</string>
+
+    <!-- caffeinate -i keeps the Mac awake for the duration of the run so a
+         scrape that starts just before idle-sleep is not killed mid-flight. -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/caffeinate</string>
+        <string>-i</string>
+        <string>/bin/bash</string>
+        <string>/Users/Shared/Claude/stores/chifbay/site/scripts/reviews-auto/run-local-reviews-sync.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/Shared/Claude/stores/chifbay/site/scripts/reviews-auto</string>
+
+    <!-- Four times a day. Reviews trickle in, so this catches a new one within
+         a few hours without hammering GetYourGuide or Google. If the Mac is
+         asleep at the trigger time, launchd runs the job on next wake. -->
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Hour</key><integer>22</integer><key>Minute</key><integer>15</integer></dict>
+    </array>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <!-- node/npm/git live in /opt/homebrew/bin or /usr/local/bin; launchd's
+         default PATH does not include them, which would break `npm install`
+         and `git` inside the runner. -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/Shared/Claude/stores/chifbay/site/scripts/reviews-auto/launchd-out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/Shared/Claude/stores/chifbay/site/scripts/reviews-auto/launchd-err.log</string>
+</dict>
+</plist>

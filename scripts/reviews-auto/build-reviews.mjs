@@ -125,12 +125,22 @@ function replaceBetween(html, startMarker, endMarker, inner) {
 async function main() {
   const gyg = readJsonIfExists(join(HERE, "data", "gyg-reviews.json"));
   const google = readJsonIfExists(join(HERE, "data", "google-reviews.json"));
-  const ta = readJsonIfExists(join(HERE, "data", "tripadvisor-manual.json"));
+  // Tripadvisor arrives from two places: the Content API (automatic, populated
+  // by scrape-tripadvisor.mjs once data/.tripadvisor-key exists) and the
+  // hand-maintained file. Merge both, with API entries winning on id collision
+  // so a manually added review is superseded once the API returns the real one.
+  const taApi = readJsonIfExists(join(HERE, "data", "tripadvisor-reviews.json"));
+  const taManual = readJsonIfExists(join(HERE, "data", "tripadvisor-manual.json"));
+  const apiIds = new Set(taApi.map((r) => r.id));
+  const ta = [
+    ...taApi,
+    ...taManual.filter((r) => !apiIds.has(r.id)).map((r) => ({ ...r, manual: true })),
+  ];
 
   const prev = readJsonIfExists(PUBLIC_JSON, { reviews: [] });
   const prevById = new Map((prev.reviews || []).map((r) => [r.id, r]));
 
-  const all = [...gyg, ...google, ...ta.map((r) => ({ ...r, manual: true }))];
+  const all = [...gyg, ...google, ...ta];
   if (!all.length) {
     console.error("[build] no reviews from any source — aborting without touching reviews.html");
     process.exit(1);
