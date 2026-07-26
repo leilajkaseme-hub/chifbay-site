@@ -3,3 +3,4 @@ package-lock.json
 blog-local/*.log
 reviews-auto/launchd-*.log
 reviews-auto/data/.tripadvisor-key
+reviews-auto/data/.ta-chrome-profile/

@@ -63,16 +63,34 @@ cd "$SCRIPT_DIR" || fail "reviews-auto dir missing"
 node scrape-gyg.mjs || fail "scrape-gyg.mjs failed — see launchd-err.log"
 node scrape-google.mjs || fail "scrape-google.mjs failed — see launchd-err.log"
 
-# Tripadvisor is deliberately NON-fatal. With no API key it exits 0 and does
-# nothing. With a key it can still fail for a reason that has nothing to do
-# with the other two sources (e.g. the key's IP allowlist went stale after an
-# ISP address change). That must never block the GetYourGuide/Google import,
-# so we warn and carry on rather than aborting the run.
-if ! node scrape-tripadvisor.mjs; then
+# Tripadvisor. Two routes, tried best-first:
+#
+#   1. scrape-tripadvisor.mjs         — official Content API. Only runs if a key
+#                                       exists at data/.tripadvisor-key. Most
+#                                       reliable, but needs a free signup.
+#   2. scrape-tripadvisor-browser.mjs — real Chrome, HEADED, dedicated profile.
+#                                       Needs nothing. This is what actually
+#                                       runs today.
+#
+# Route 2 works because Tripadvisor's DataDome protection fingerprints the
+# browser build and the headless flag: bundled Chromium fails headless AND
+# headed, real Chrome fails headless, real Chrome HEADED passes. It requires a
+# logged-in GUI session, which a launchd Agent has.
+#
+# The whole block is NON-fatal. Tripadvisor is the most brittle of the three
+# sources and must never be able to block the GetYourGuide/Google import.
+TA_OK=0
+if [ -f "$SCRIPT_DIR/data/.tripadvisor-key" ] || [ -n "${TRIPADVISOR_API_KEY:-}" ]; then
+  if node scrape-tripadvisor.mjs; then TA_OK=1; fi
+fi
+if [ "$TA_OK" -eq 0 ]; then
+  if node scrape-tripadvisor-browser.mjs; then TA_OK=1; fi
+fi
+if [ "$TA_OK" -eq 0 ]; then
   curl -s --max-time 20 \
     -H "Title: Chifbay Tripadvisor import failed (other sources OK)" \
     -H "Priority: low" -H "Tags: warning,boat" \
-    -d "scrape-tripadvisor.mjs failed; GetYourGuide + Google still synced. Check the key's IP allowlist at tripadvisor.com/developers." \
+    -d "Both Tripadvisor routes failed this run; GetYourGuide + Google still synced. Previously imported Tripadvisor reviews are retained." \
     "$NTFY_ALERTS" >/dev/null 2>&1 || true
 fi
 
