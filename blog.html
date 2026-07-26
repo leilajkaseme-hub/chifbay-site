@@ -104,17 +104,25 @@
 <script src="motion.js"></script>
 <script>
 (async function(){
+  /* Chrome de la liste localisé — voir scripts/blog-i18n.mjs.
+     Les titres/descriptions restent en anglais car les articles le sont ;
+     le marqueur de langue le signale avant le clic. */
+  var CAT={};
+  var LOC="en-GB", READ="min read", BADGE=null;
   var list=document.getElementById('bloglist'), empty=document.getElementById('blogempty');
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
   try{
     var posts=await (await fetch('/posts/posts.json?v='+Date.now())).json();
     if(!posts.length){ empty.style.display='block'; return; }
     list.innerHTML=posts.map(function(p){
-      var d=new Date(p.date+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-      return '<a class="bcard" href="/posts/'+p.slug+'.html">'
-        +'<div class="bimg" style="background-image:url(\'/'+p.heroImage+'\')"></div>'
-        +'<div class="bbody"><span class="bcat">'+p.category+'</span>'
-        +'<h3>'+p.title+'</h3><p>'+p.description+'</p>'
-        +'<span class="bmeta">'+d+' · '+(p.readingMinutes||5)+' min read</span></div></a>';
+      var d=new Date(p.date+'T00:00:00').toLocaleDateString(LOC,{day:'numeric',month:'short',year:'numeric'});
+      var cat=CAT[p.category]||p.category;
+      var badge=BADGE?' <span class="blang">'+esc(BADGE)+'</span>':'';
+      return '<a class="bcard" href="/posts/'+encodeURIComponent(p.slug)+'.html"'+(BADGE?' hreflang="en"':'')+'>'
+        +'<div class="bimg" style="background-image:url(\''+'/'+p.heroImage+'\')"></div>'
+        +'<div class="bbody"><span class="bcat">'+esc(cat)+'</span>'
+        +'<h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'
+        +'<span class="bmeta">'+d+' · '+(p.readingMinutes||5)+' '+esc(READ)+badge+'</span></div></a>';
     }).join('');
   }catch(e){ empty.style.display='block'; }
 })();
