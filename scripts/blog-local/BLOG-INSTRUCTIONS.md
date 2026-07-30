@@ -6,9 +6,16 @@ Do NOT ask questions. Create exactly ONE post.
 
 ## Context
 Chifbay = premium PRIVATE BOAT CHARTERS from Marina do Funchal, Madeira (Portugal):
-the whole boat is yours (up to 7 guests). Three trips: Sunset Cruise, Hidden Coves
-Half-Day, Coastal Discovery Full-Day. The blog ("Journal") posts are in `/posts/` and
-are written in English.
+the whole boat is yours (up to 5 guests). TWO packs only — there is no full-day trip:
+- **Day Trip** (`hidden-coves-half-day.html`), slots 10:00–13:00 and 14:00–17:00:
+  Câmara de Lobos → Cabo Girão + drone → Fajã dos Padres (swim, jump in, paddle) →
+  Ribeira Brava (swim) → fast run back to Funchal. 2h30 €500, or 3h €600 continuing to
+  Ponta do Sol with a filmed video. Drinks and food aboard.
+- **Sunset Trip** (`sunset-cruise.html`), departs 18:00: same coast, no swimming (the
+  water is too cold that late). 2h €400 turning at Cabo Girão, or 2h30 €500 turning at
+  Ribeira Brava. Drone, drinks and food aboard.
+Never invent trips, durations or prices outside this list. The blog ("Journal") posts
+are in `/posts/` and are written in English.
 
 ## Steps
 1. Run `date +%F` to get today's date (YYYY-MM-DD).

@@ -17,7 +17,7 @@ if (!lang) { console.error("usage: node apply-locale.mjs <lang>"); process.exit(
 const dict = JSON.parse(fs.readFileSync(path.join(ROOT, "scripts", "locales", `${lang}.json`), "utf8"));
 const entries = Object.entries(dict).sort((a, b) => b[0].length - a[0].length);
 const PAGES = ["index.html","experiences.html","about.html","contact.html",
-  "sunset-cruise.html","hidden-coves-half-day.html","coastal-discovery-full-day.html","blog.html"];
+  "sunset-cruise.html","hidden-coves-half-day.html","blog.html"];
 
 function fixPaths(h){
   return h.replace(/href="peak\.css"/g,'href="../peak.css"')
