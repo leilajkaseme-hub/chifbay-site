@@ -20,11 +20,27 @@ const PAGES = ["index.html","experiences.html","about.html","contact.html",
   "sunset-cruise.html","hidden-coves-half-day.html","blog.html"];
 
 function fixPaths(h){
-  return h.replace(/href="peak\.css"/g,'href="../peak.css"')
-          .replace(/src="peak\.js"/g,'src="../peak.js"')
+  return h.replace(/href="(peak|atlas|motion)\.css"/g,'href="../$1.css"')
+          .replace(/src="(peak|atlas|motion)\.js"/g,'src="../$1.js"')
+          .replace(/src="vendor\//g,'src="../vendor/')
           .replace(/href="assets\//g,'href="../assets/')
           .replace(/src="assets\//g,'src="../assets/')
           .replace(/url\('assets\//g,"url('../assets/");
+}
+// Root-only pages (reviews.html, review.html) are never localized, so any
+// relative link to them would resolve inside /<lang>/ and 404. Force absolute.
+function fixRootOnlyLinks(h){
+  return h.replace(/href="(reviews|review)\.html"/g,'href="/$1.html"');
+}
+// The language switcher must point at this page in each locale, not at the
+// English copy it was cloned from.
+function fixLangMenu(h, page){
+  return h.replace(/<div class="langmenu">[\s\S]*?<\/div>/,
+    '<div class="langmenu">'
+    + `<a href="/${page === "index.html" ? "" : page}">English</a>`
+    + ["fr","de","pt","es","it"].map((c,i) =>
+        `<a href="/${c}/${page}">${["Français","Deutsch","Português","Español","Italiano"][i]}</a>`).join("")
+    + "</div>");
 }
 function setMeta(h, page){
   const url = `${BASE}/${lang}/${page}`;
@@ -39,9 +55,20 @@ fs.mkdirSync(path.join(ROOT, lang), { recursive: true });
 for (const page of PAGES) {
   let h = fs.readFileSync(path.join(ROOT, page), "utf8");
   for (const [en, tr] of entries) h = h.split(en).join(tr);
-  h = fixPaths(setMeta(h, page));
+  h = fixLangMenu(fixRootOnlyLinks(fixPaths(setMeta(h, page))), page);
   fs.writeFileSync(path.join(ROOT, lang, page), h);
   console.log("  wrote", `${lang}/${page}`);
+}
+
+// Untranslated English left behind is worse than an obvious gap — report it.
+{
+  const miss = [];
+  for (const page of PAGES) {
+    const h = fs.readFileSync(path.join(ROOT, lang, page), "utf8");
+    for (const probe of ["Up to 5", "the whole boat", "Book 2h", "Day Trip", "Sunset Trip"])
+      if (h.includes(probe)) miss.push(`${page}: "${probe}"`);
+  }
+  if (miss.length) console.warn(`  ! untranslated in ${lang}:\n    ` + miss.join("\n    "));
 }
 
 // availability
