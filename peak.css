@@ -435,6 +435,9 @@ body:has(.annc) #nav{top:36px}
    ============================================================ */
 .tl::before{left:92px}
 .tli{grid-template-columns:92px 1fr}
+/* le disque commence à 75px : on arrête le texte de l'heure avant,
+   sinon « 18:00 » se fait tronquer en « 18: » par le disque. */
+.tli[data-ic] .tlt{padding-right:26px}
 .tli[data-ic]::after{
   width:34px;height:34px;left:75px;top:1px;
   background-color:var(--ink);
@@ -446,6 +449,7 @@ body:has(.annc) #nav{top:36px}
 @media(max-width:560px){
   .tl::before{left:64px}
   .tli{grid-template-columns:64px 1fr;gap:14px}
+  .tli[data-ic] .tlt{padding-right:20px}
   .tli[data-ic]::after{width:28px;height:28px;left:50px;background-size:14px 14px}
 }
 
