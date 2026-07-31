@@ -389,3 +389,40 @@ html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spaci
 .atlas .opt ul li svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:1.4;
   flex-shrink:0;margin-top:4px}
 .atlas .opt .btn{margin-top:auto;align-self:flex-start}
+
+/* ============================================================
+   Avis — identité de la source
+
+   Chaque carte porte la couleur de la plateforme d'où l'avis vient, pour que
+   la provenance se lise d'un coup d'œil sans avoir à déchiffrer le libellé :
+     GetYourGuide  liseré orange   #FF5533
+     Google        liseré quadricolore bleu/rouge/jaune/vert
+     Tripadvisor   liseré vert     #34E0A1
+   Le liseré est posé en ::before plutôt qu'en border-left pour pouvoir servir
+   un dégradé sur Google sans toucher au reste de la bordure.
+   ============================================================ */
+.atlas .rq{position:relative;overflow:hidden}
+.atlas .rq::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.atlas .rq.src-getyourguide::before{background:#FF5533}
+.atlas .rq.src-tripadvisor::before{background:#34E0A1}
+.atlas .rq.src-google::before{background:linear-gradient(180deg,#4285F4 0%,#EA4335 33%,#FBBC05 66%,#34A853 100%)}
+
+/* le libellé de source reprend la même couleur */
+.atlas .rq.src-getyourguide .src{color:#FF5533}
+.atlas .rq.src-tripadvisor .src{color:#34E0A1}
+.atlas .rq.src-google .src{background:linear-gradient(90deg,#4285F4,#EA4335 34%,#FBBC05 67%,#34A853);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* boutons vers les fiches publiques, mêmes couleurs */
+.atlas .rq-src-link{text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.atlas .rq-src-link:hover{transform:translateY(-2px)}
+.atlas .rq-src-link.src-getyourguide{border-color:rgba(255,85,51,.55)}
+.atlas .rq-src-link.src-getyourguide:hover{border-color:#FF5533}
+.atlas .rq-src-link.src-getyourguide .n{color:#FF5533}
+.atlas .rq-src-link.src-tripadvisor{border-color:rgba(52,224,161,.5)}
+.atlas .rq-src-link.src-tripadvisor:hover{border-color:#34E0A1}
+.atlas .rq-src-link.src-tripadvisor .n{color:#34E0A1}
+.atlas .rq-src-link.src-google{border-color:rgba(66,133,244,.5)}
+.atlas .rq-src-link.src-google:hover{border-color:#4285F4}
+.atlas .rq-src-link.src-google .n{background:linear-gradient(90deg,#4285F4,#EA4335 34%,#FBBC05 67%,#34A853);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}

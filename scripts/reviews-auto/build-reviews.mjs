@@ -106,7 +106,10 @@ function renderCard(r) {
     ? `\n          <a href="${r.tourUrl}" target="_blank" rel="noopener">${escapeHtml(r.tourName)}</a>`
     : "";
 
-  return `      <article class="rq rv">
+  // La classe src-* porte l'identité visuelle de la plateforme d'origine
+  // (liseré orange GetYourGuide, quadricolore Google, vert Tripadvisor).
+  // Voir le bloc "avis — identité de la source" dans atlas.css.
+  return `      <article class="rq rv src-${escapeHtml(r.source)}">
         <div class="rq-stars" aria-label="${r.rating} out of 5 stars">${stars(r.rating)}</div>
         <p class="rq-text">“${escapeHtml(r.text)}”</p>${gloss}${photos}
         <div class="rq-meta">
@@ -203,14 +206,33 @@ async function main() {
   const sourcesLabel = presentSources.length > 1
     ? presentSources.slice(0, -1).join(", ") + " & " + presentSources.slice(-1)
     : presentSources[0] || "";
-  const badgesHtml = `      <div class="rq-badge">
+  // Liens vers les pages d'avis PUBLIQUES de chaque plateforme, pour que le
+  // visiteur puisse vérifier lui-même plutôt que de nous croire sur parole.
+  // À ne pas confondre avec les URL "écrire un avis" de review.html, qui
+  // ouvrent un formulaire au lieu de la fiche.
+  const SOURCE_LINKS = {
+    google: { label: "Google", url: "https://maps.google.com/?cid=11236673311781793484", note: "Voir la fiche Google" },
+    getyourguide: { label: "GetYourGuide", url: "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/", note: "Réservations vérifiées" },
+    tripadvisor: { label: "Tripadvisor", url: "https://www.tripadvisor.com/Attraction_Review-g189167-d34387047.html", note: "Voir la fiche Tripadvisor" },
+  };
+  const EN_NOTE = { google: "See our Google listing", getyourguide: "Verified bookings", tripadvisor: "See our Tripadvisor listing" };
+  const perSource = all.reduce((a, r) => ((a[r.source] = (a[r.source] || 0) + 1), a), {});
+
+  const badgesHtml = [
+    `      <div class="rq-badge rq-badge-agg">
         <span class="n">${aggregate.rating.toFixed(1)}<span style="font-size:.9rem;opacity:.6">/5</span></span>
-        <span class="d">${aggregate.count} verified review${aggregate.count === 1 ? "" : "s"} across ${sourcesLabel}<br><a href="https://www.getyourguide.com/funchal-l1026/private-dolphin-and-whale-watching-madeira-t1342812/" target="_blank" rel="noopener">GetYourGuide · verified bookings →</a></span>
-      </div>
-      <div class="rq-badge">
-        <span class="n">🦉</span>
-        <span class="d">Find us on Tripadvisor<br><a href="https://www.tripadvisor.com/Attraction_Review-g189167-d34387047.html" target="_blank" rel="noopener">ChifBay Luxury Yacht Experiences →</a></span>
-      </div>`;
+        <span class="d">${aggregate.count} verified review${aggregate.count === 1 ? "" : "s"} across ${sourcesLabel}</span>
+      </div>`,
+    ...Object.keys(SOURCE_LINKS)
+      .filter((k) => perSource[k])
+      .map((k) => {
+        const s = SOURCE_LINKS[k];
+        return `      <a class="rq-badge rq-src-link src-${k}" href="${s.url}" target="_blank" rel="noopener">
+        <span class="n">${perSource[k]}</span>
+        <span class="d"><b>${s.label}</b><br>${EN_NOTE[k]} →</span>
+      </a>`;
+      }),
+  ].join("\n");
 
   let html = readFileSync(REVIEWS_HTML, "utf-8");
   html = replaceBetween(html, "<!-- REVIEWS:BADGES -->", "<!-- /REVIEWS:BADGES -->", badgesHtml);
