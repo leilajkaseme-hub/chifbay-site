@@ -84,6 +84,48 @@
   document.querySelectorAll('.reveal, .clip, .route-fig, [data-mask], .mask-run-t')
     .forEach(function(el){ io.observe(el); });
 
+  /* ---------- .clip : révélation au scroll, pas par IntersectionObserver ----
+     Les éléments .clip partent en `clip-path:inset(0 0 100% 0)`, donc découpés
+     à zéro pixel visible. Chrome en déduit une aire d'intersection nulle et
+     l'IntersectionObserver ne se déclenche JAMAIS : l'élément reste découpé,
+     donc invisible, indéfiniment. L'effet censé révéler l'image l'efface.
+
+     Mesuré en production : `.reveal` (qui joue sur l'opacité, sans découpe)
+     était à 32/32 révélés, `.clip` à 0/2 sur les pages produit et 0/6 sur
+     l'accueil — soit toutes les photos en colonne restées invisibles, y
+     compris après défilement complet. Un observateur de test aux réglages
+     identiques ne se déclenchait pas non plus sur un élément centré à l'écran.
+
+     On teste donc la position géométrique (getBoundingClientRect), qui ignore
+     la découpe, au lieu de l'aire peinte. L'animation d'origine est conservée
+     à l'identique — seul le déclencheur change. */
+  var clips = [].slice.call(document.querySelectorAll('.clip'));
+  if (clips.length) {
+    var revealClips = function () {
+      for (var i = clips.length - 1; i >= 0; i--) {
+        var r = clips[i].getBoundingClientRect();
+        if (r.top < innerHeight * 0.92 && r.bottom > 0) {
+          clips[i].classList.add('in');
+          clips.splice(i, 1);
+        }
+      }
+      if (!clips.length) removeEventListener('scroll', onClipScroll);
+    };
+    var clipTicking = false;
+    var onClipScroll = function () {
+      if (clipTicking) return;
+      clipTicking = true;
+      requestAnimationFrame(function () { clipTicking = false; revealClips(); });
+    };
+    addEventListener('scroll', onClipScroll, { passive: true });
+    addEventListener('resize', onClipScroll, { passive: true });
+    revealClips();
+    /* Filet de sécurité : si quoi que ce soit empêche le scroll d'arriver
+       (ancre, restauration de position, page plus courte que prévu), on ne
+       laisse pas des photos invisibles à l'écran. */
+    setTimeout(revealClips, 1200);
+  }
+
   /* headlines with data-mask also need the run trigger */
   if(!reduce){
     document.querySelectorAll('[data-mask]').forEach(function(el){
