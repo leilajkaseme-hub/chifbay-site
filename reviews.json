@@ -1,30 +1,10 @@
 {
-  "updatedAt": "2026-07-31T06:51:42.216Z",
+  "updatedAt": "2026-07-31T11:42:31.567Z",
   "aggregate": {
     "rating": 5,
     "count": 26
   },
   "reviews": [
-    {
-      "id": "google-ff0b71a926e1e229",
-      "source": "google",
-      "rating": 5,
-      "author": "Timoteo Gomes",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-29",
-      "text": "Sometimes we forget how lucky we are. This tour was a great way to disconnect, appreciate the Madeira coast and enjoy a spectacular sunset. It's worth it. The crew was very friendly and contributed to making the whole experience even more enjoyable. I recommend it.",
-      "photos": [
-        "assets/reviews/google/google-ff0b71a926e1e229-1.jpg",
-        "assets/reviews/google/google-ff0b71a926e1e229-2.jpg",
-        "assets/reviews/google/google-ff0b71a926e1e229-3.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
     {
       "id": "google-4655e13aecd4d356",
       "source": "google",
@@ -53,6 +33,26 @@
       "date": "2026-07-29",
       "text": "We had an unforgettable and absolutely amazing time! The crew were incredibly kind and attentive, and we even got to take the helm for a while. An absolute must when visiting Madeira! ",
       "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-ff0b71a926e1e229",
+      "source": "google",
+      "rating": 5,
+      "author": "Timoteo Gomes",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-28",
+      "text": "Sometimes we forget how lucky we are. This tour was a great way to disconnect, appreciate the Madeira coast and enjoy a spectacular sunset. It's worth it. The crew was very friendly and contributed to making the whole experience even more enjoyable. I recommend it.",
+      "photos": [
+        "assets/reviews/google/google-ff0b71a926e1e229-1.jpg",
+        "assets/reviews/google/google-ff0b71a926e1e229-2.jpg",
+        "assets/reviews/google/google-ff0b71a926e1e229-3.jpg"
+      ],
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
@@ -123,7 +123,7 @@
       "author": "Lane End Chandlery",
       "country": "",
       "countryFlag": "",
-      "date": "2026-07-26",
+      "date": "2026-07-25",
       "text": "What a wonderful day! We opted for the three hour trip which was very reasonably priced. Luigi and family (including Dad who made the best Guacamole ever - secret ingredient honey!) were so friendly and welcoming and couldn’t do enough for us. We saw some sights, swam in the sea with the SUP board and snorkels, had a lovely lunch and as many drinks as we wanted. The boat itself was pristine - the best boat for this price I have been on. We ended the day at the front of the boat whilst the driver drove us very fast - the kids loved it! Thanks ever so much I would highly recommend but book directly if you can as if you book via a site, they take an exorbitant amount of money. Thanks again! Rebecca and family!",
       "photos": [
         "assets/reviews/google/google-e1707c388194f625-1.jpg",
@@ -251,6 +251,22 @@
       "translation": null
     },
     {
+      "id": "gyg-96e35c1fc3e7",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "GetYourGuide traveler",
+      "country": "Germany",
+      "countryFlag": "🇩🇪",
+      "date": "2026-07-15",
+      "text": "",
+      "photos": [],
+      "tourId": "t1340940",
+      "tourName": "Yacht Cruise with Drinks",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "tripadvisor-9e5d9d0f77aa",
       "source": "tripadvisor",
       "rating": 5,
@@ -281,22 +297,6 @@
       "countryFlag": "",
       "date": "2026-07-15",
       "text": "This is a must when in Madeira!. Amazing sunset trip along beautiful Madeira coastline. Family run business, so the little touches made this even more special. Champagne, snacks, a beautiful yacht and crew were friendly and knowledgeable. Everything from booking to meeting to receiving a personalised video memoir afterwards was first rate. Worth every penny. Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
-      "translation": null
-    },
-    {
-      "id": "gyg-96e35c1fc3e7",
-      "source": "getyourguide",
-      "rating": 5,
-      "author": "GetYourGuide traveler",
-      "country": "Germany",
-      "countryFlag": "🇩🇪",
-      "date": "2026-07-15",
-      "text": "",
-      "photos": [],
-      "tourId": "t1340940",
-      "tourName": "Yacht Cruise with Drinks",
-      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
-      "reply": null,
       "translation": null
     },
     {
