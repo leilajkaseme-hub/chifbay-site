@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-31T16:16:20.090Z",
+  "updatedAt": "2026-07-31T20:25:44.765Z",
   "aggregate": {
     "rating": 5,
     "count": 27
@@ -15,24 +15,6 @@
       "date": "2026-07-31",
       "text": "We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them worked together seamlessly, warmly, and professionally. You could immediately tell that their passion and experience combined. The excellent drinks, delicious food, and fresh, perfectly ripe pineapple were particularly noteworthy – simply fantastic. The boat trip was sporty and fast, but always considerate and safe. It struck the perfect balance between action and relaxation. There were two or three opportunities to swim – anyone who wanted to could go in the water; it was all very straightforward. The onboard toilet was also a real plus. We had a blast the whole time and felt completely at ease. We're certain of one thing: if we're ever back in Madeira, we'll definitely be back!",
       "photos": [],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-4655e13aecd4d356",
-      "source": "google",
-      "rating": 5,
-      "author": "sara silva",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-29",
-      "text": "Excellent boat trip! The crew was very friendly and professional, the boat was comfortable, and the experience was very enjoyable. I recommend it to anyone who wants to enjoy a good time at sea.",
-      "photos": [
-        "assets/reviews/google/google-4655e13aecd4d356-1.jpg"
-      ],
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
@@ -56,6 +38,25 @@
       "translation": null
     },
     {
+      "id": "gyg-2ca56b8e8ef6",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "Rebecca",
+      "country": "United Kingdom",
+      "countryFlag": "🇬🇧",
+      "date": "2026-07-28",
+      "text": "Luigi and his brother and father were wonderful hosts. We had a delightful time, great food and drinks. 100% recommend.",
+      "photos": [],
+      "tourId": "t1342812",
+      "tourName": "Madeira Coast Cruise",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/private-dolphin-and-whale-watching-madeira-t1342812/",
+      "reply": {
+        "text": "Thank you so much, Rebecca, for your kind words! It was a real pleasure to welcome you and share this experience with you. We’re delighted that you enjoyed the food, drinks, and the time spent with our family. Your recommendation truly means a lot to us. We hope to see you again for another unforgettable sunset on the water! 😊",
+        "date": "2026-07-28"
+      },
+      "translation": null
+    },
+    {
       "id": "google-ff0b71a926e1e229",
       "source": "google",
       "rating": 5,
@@ -76,22 +77,21 @@
       "translation": null
     },
     {
-      "id": "gyg-2ca56b8e8ef6",
-      "source": "getyourguide",
+      "id": "google-4655e13aecd4d356",
+      "source": "google",
       "rating": 5,
-      "author": "Rebecca",
-      "country": "United Kingdom",
-      "countryFlag": "🇬🇧",
+      "author": "sara silva",
+      "country": "",
+      "countryFlag": "",
       "date": "2026-07-28",
-      "text": "Luigi and his brother and father were wonderful hosts. We had a delightful time, great food and drinks. 100% recommend.",
-      "photos": [],
-      "tourId": "t1342812",
-      "tourName": "Madeira Coast Cruise",
-      "tourUrl": "https://www.getyourguide.com/funchal-l1026/private-dolphin-and-whale-watching-madeira-t1342812/",
-      "reply": {
-        "text": "Thank you so much, Rebecca, for your kind words! It was a real pleasure to welcome you and share this experience with you. We’re delighted that you enjoyed the food, drinks, and the time spent with our family. Your recommendation truly means a lot to us. We hope to see you again for another unforgettable sunset on the water! 😊",
-        "date": "2026-07-28"
-      },
+      "text": "Excellent boat trip! The crew was very friendly and professional, the boat was comfortable, and the experience was very enjoyable. I recommend it to anyone who wants to enjoy a good time at sea.",
+      "photos": [
+        "assets/reviews/google/google-4655e13aecd4d356-1.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
       "translation": null
     },
     {
