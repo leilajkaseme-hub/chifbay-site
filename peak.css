@@ -405,3 +405,10 @@ body:has(.annc) #nav{top:36px}
 .rq-src-link.src-google:hover{border-color:#4285F4}
 .rq-src-link.src-google .n{background:linear-gradient(90deg,#4285F4,#EA4335 34%,#FBBC05 67%,#34A853);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Indication sous les CTA de réservation.
+   Le widget Wix pré-coche toujours la première variante et ignore ?variantId=
+   (vérifié : l'URL portait l'id Ribeira Brava, Cabo Girão restait coché). On
+   ne peut donc pas présélectionner — on prévient, au moment du clic. */
+.bk-hint{margin:10px 0 0;font-size:.78rem;line-height:1.5;color:var(--muted);opacity:.85;max-width:34ch}
+.bk-hint b{color:var(--teal);font-weight:600}
