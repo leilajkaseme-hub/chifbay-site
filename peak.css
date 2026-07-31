@@ -365,3 +365,43 @@ body:has(.annc) #nav{top:36px}
   letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);margin-top:7px}
 /* struck reference price on experience cards */
 .exwas{color:rgba(240,245,244,.5);text-decoration:line-through;margin-left:7px;font-size:.92em}
+
+/* ============================================================
+   Avis — identité visuelle de la plateforme d'origine
+
+   Le site fait cohabiter deux systèmes de design : `atlas` (accueil, pages
+   produit) et `motion` (expériences, avis, contact...). Ces règles vivent donc
+   dans peak.css, la seule feuille chargée par les deux, et sans préfixe — une
+   version posée dans atlas.css n'aurait jamais atteint reviews.html.
+
+   Deux markups à couvrir : .rq (page avis) et .rev (aperçu d'accueil).
+     GetYourGuide  orange  #FF5533
+     Google        dégradé quadricolore
+     Tripadvisor   vert    #34E0A1
+   Liseré en ::before plutôt qu'en border-left, pour que Google puisse porter
+   un dégradé sans toucher au reste de la bordure.
+   ============================================================ */
+.rq,.rev{position:relative}
+.rq::before,.rev::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px;pointer-events:none}
+.rq.src-getyourguide::before,.rev.src-getyourguide::before{background:#FF5533}
+.rq.src-tripadvisor::before,.rev.src-tripadvisor::before{background:#34E0A1}
+.rq.src-google::before,.rev.src-google::before{background:linear-gradient(180deg,#4285F4 0%,#EA4335 33%,#FBBC05 66%,#34A853 100%)}
+
+.rq.src-getyourguide .src,.rev.src-getyourguide .src{color:#FF5533;opacity:1}
+.rq.src-tripadvisor .src,.rev.src-tripadvisor .src{color:#34E0A1;opacity:1}
+.rq.src-google .src,.rev.src-google .src{opacity:1;background:linear-gradient(90deg,#4285F4,#EA4335 34%,#FBBC05 67%,#34A853);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* boutons vers les fiches publiques */
+.rq-src-link{text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.rq-src-link:hover{transform:translateY(-2px)}
+.rq-src-link.src-getyourguide{border-color:rgba(255,85,51,.55)}
+.rq-src-link.src-getyourguide:hover{border-color:#FF5533}
+.rq-src-link.src-getyourguide .n{color:#FF5533}
+.rq-src-link.src-tripadvisor{border-color:rgba(52,224,161,.5)}
+.rq-src-link.src-tripadvisor:hover{border-color:#34E0A1}
+.rq-src-link.src-tripadvisor .n{color:#34E0A1}
+.rq-src-link.src-google{border-color:rgba(66,133,244,.5)}
+.rq-src-link.src-google:hover{border-color:#4285F4}
+.rq-src-link.src-google .n{background:linear-gradient(90deg,#4285F4,#EA4335 34%,#FBBC05 67%,#34A853);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}

@@ -33,7 +33,7 @@
       // which would otherwise leave these permanently at opacity:0.
       wrap.innerHTML = top.map(function (r, i) {
         var d = i === 0 ? "" : i === 1 ? " d1" : " d2";
-        return '<figure class="rev reveal in' + d + '">' +
+        return '<figure class="rev reveal in' + d + ' src-' + (r.source||'') + '">' +
           '<div class="st">' + stars(r.rating) + "</div>" +
           "<q>" + esc(r.text.length > 220 ? r.text.slice(0, 217) + "…" : r.text) + "</q>" +
           '<figcaption><div class="who">' + esc(r.author) + '</div><div class="src">' + sourceLabel(r.source) + "</div></figcaption>" +
