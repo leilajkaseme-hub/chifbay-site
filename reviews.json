@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-01T16:15:54.916Z",
+  "updatedAt": "2026-08-01T20:15:54.287Z",
   "aggregate": {
     "rating": 5,
     "count": 28
@@ -38,24 +38,6 @@
       "translation": null
     },
     {
-      "id": "google-4655e13aecd4d356",
-      "source": "google",
-      "rating": 5,
-      "author": "sara silva",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-29",
-      "text": "Excellent boat trip! The crew was very friendly and professional, the boat was comfortable, and the experience was very enjoyable. I recommend it to anyone who wants to enjoy a good time at sea.",
-      "photos": [
-        "assets/reviews/google/google-4655e13aecd4d356-1.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
       "id": "google-c92c193c67126a5d",
       "source": "google",
       "rating": 5,
@@ -84,6 +66,24 @@
         "assets/reviews/google/google-ff0b71a926e1e229-1.jpg",
         "assets/reviews/google/google-ff0b71a926e1e229-2.jpg",
         "assets/reviews/google/google-ff0b71a926e1e229-3.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-4655e13aecd4d356",
+      "source": "google",
+      "rating": 5,
+      "author": "sara silva",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-28",
+      "text": "Excellent boat trip! The crew was very friendly and professional, the boat was comfortable, and the experience was very enjoyable. I recommend it to anyone who wants to enjoy a good time at sea.",
+      "photos": [
+        "assets/reviews/google/google-4655e13aecd4d356-1.jpg"
       ],
       "tourId": null,
       "tourName": null,
@@ -446,7 +446,7 @@
       "tourName": "Luxury Sunset Yacht Experience",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
       "reply": {
-        "text": "Thank you so much, Elena. That means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
+        "text": "Thank you so much Elena, that means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
         "date": "2026-06-02"
       },
       "translation": null
@@ -469,7 +469,7 @@
       "tourName": "Yacht Cruise with Drinks",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
       "reply": {
-        "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+        "text": "Wow, thank you for this amazing review Franziska! It was truly a pleasure having you on board. We’re so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
         "date": "2026-06-02"
       },
       "translation": null
