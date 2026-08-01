@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-08-01T11:15:49.685Z",
+  "updatedAt": "2026-08-01T16:15:54.916Z",
   "aggregate": {
     "rating": 5,
-    "count": 27
+    "count": 28
   },
   "reviews": [
     {
@@ -18,6 +18,22 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "gyg-ecff5024b927",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "GetYourGuide traveler",
+      "country": "Switzerland",
+      "countryFlag": "🇨🇭",
+      "date": "2026-07-31",
+      "text": "Wir haben eine private Bootstour auf Madeira gemacht, begleitet von einem Guide-Team bestehend aus einem Vater mit seinen zwei Söhnen – und es war ein absolutes Highlight unseres Urlaubs. Die drei waren super eingespielt, herzlich und professionell zugleich. Man merkt sofort, dass hier Leidenschaft und Erfahrung zusammenkommen. Besonders hervorzuheben sind die hervorragenden Drinks, das leckere Essen und die frische, perfekt gereifte Ananas – einfach genial. Die Bootsfahrt war sportlich und schnell, aber immer rücksichtsvoll und sicher. Genau die richtige Balance zwischen Action und Entspannung. Es gab 2–3 Möglichkeiten zum Schwimmen – wer wollte, konnte ins Wasser, alles ganz unkompliziert. Auch die Toilette an Bord ist ein echter Pluspunkt. Wir hatten durchgehend Mega-Spaß und haben uns bestens aufgehoben gefühlt. Für uns ist klar: Wenn wir wieder in Madeira sind, kommen wir definitiv wieder!",
+      "photos": [],
+      "tourId": "t1340940",
+      "tourName": "Yacht Cruise with Drinks",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
       "reply": null,
       "translation": null
     },
@@ -120,7 +136,7 @@
       "author": "Manon Nguyen",
       "country": "",
       "countryFlag": "",
-      "date": "2026-07-27",
+      "date": "2026-07-26",
       "text": "Amazing boat trip! We had such a great time together and the whole experience was perfect. A special shoutout to our skipper, Paco, who was incredibly friendly, professional, and made the trip even more enjoyable. Highly recommend! ",
       "photos": [
         "assets/reviews/google/google-7b7011515c484df0-1.jpg",
