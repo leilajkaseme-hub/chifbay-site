@@ -1,0 +1,8 @@
+{
+  "name": "chifbay-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check:nav": "node scripts/check-nav.mjs"
+  }
+}

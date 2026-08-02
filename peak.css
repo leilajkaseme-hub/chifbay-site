@@ -71,6 +71,27 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.08;letter-sp
    this is what removes the "jumpy/glitched" feel on the animated pages */
 html.nav-open,html.nav-open body{overflow:hidden}
 
+/* ------------------------------------------------------------------
+   THE MOBILE DRAWER BUG — read this before touching #nav.
+
+   .nl is a child of #nav. An ancestor carrying backdrop-filter, filter,
+   transform or perspective becomes the CONTAINING BLOCK for its
+   position:fixed descendants. #nav gains backdrop-filter:blur() via .sc
+   as soon as you scroll past 60px, so from that moment the drawer stopped
+   being viewport-fixed and anchored to the 79px-tall bar instead:
+   `inset:0 0 0 auto` collapsed it from 844px to ~108px. Page content then
+   hit-tested above it, so it looked half-drawn and swallowed every tap —
+   and only ever after a scroll, which is why it seemed intermittent.
+
+   Neutralising the whole family (not just backdrop-filter) while the
+   drawer is open means adding a transform or filter to #nav later cannot
+   bring this back. scripts/check-nav.mjs asserts the drawer is full height
+   while scrolled, on every page.
+   ------------------------------------------------------------------ */
+html.nav-open #nav{
+  backdrop-filter:none !important;-webkit-backdrop-filter:none !important;
+  filter:none !important;transform:none !important;perspective:none !important}
+
 /* HERO */
 .hero{position:relative;height:100svh;min-height:680px;display:grid;place-items:end;overflow:hidden;}
 .hero.sub{height:76svh;min-height:540px}
