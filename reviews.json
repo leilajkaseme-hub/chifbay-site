@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-02T16:15:57.942Z",
+  "updatedAt": "2026-08-02T20:15:55.747Z",
   "aggregate": {
     "rating": 5,
     "count": 28
@@ -130,15 +130,17 @@
       "translation": null
     },
     {
-      "id": "google-a9d225d691bb7a88",
+      "id": "google-63010fc81a95b6d9",
       "source": "google",
       "rating": 5,
-      "author": "Avelino Paulo Nóbrega",
+      "author": "Patricia Nobrega",
       "country": "",
       "countryFlag": "",
       "date": "2026-07-26",
-      "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
-      "photos": [],
+      "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
+      "photos": [
+        "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
+      ],
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
@@ -164,37 +166,15 @@
       "translation": null
     },
     {
-      "id": "google-63010fc81a95b6d9",
+      "id": "google-a9d225d691bb7a88",
       "source": "google",
       "rating": 5,
-      "author": "Patricia Nobrega",
+      "author": "Avelino Paulo Nóbrega",
       "country": "",
       "countryFlag": "",
       "date": "2026-07-26",
-      "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
-      "photos": [
-        "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-7b024a0503fbc242",
-      "source": "google",
-      "rating": 5,
-      "author": "Sabrina Di Girolamo",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-26",
-      "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
-      "photos": [
-        "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
-        "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
-        "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
-      ],
+      "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
+      "photos": [],
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
@@ -280,6 +260,26 @@
         "text": "Thank you very much, Jessy, for this wonderful commentary! We are delighted that you enjoyed the excursion, the atmosphere, the sunset, the swimming, the paddleboarding, and the aperitif. It was a real pleasure to share this moment with you. We hope the video will allow you to keep beautiful souvenirs of this evening for a long time. Looking forward to welcoming you again! 😊",
         "date": "2026-07-28"
       },
+      "translation": null
+    },
+    {
+      "id": "google-7b024a0503fbc242",
+      "source": "google",
+      "rating": 5,
+      "author": "Sabrina Di Girolamo",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-19",
+      "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
+      "photos": [
+        "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
+        "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
+        "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
       "translation": null
     },
     {
