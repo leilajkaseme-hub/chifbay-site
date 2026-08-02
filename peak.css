@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap');
 /* ============================================================
    Chifbay — shared design system (peak)
    Playfair Display + Space Mono + Inter · navy #050f18 + gold
@@ -405,13 +404,10 @@ body:has(.annc) #nav{top:36px}
 .rq.src-getyourguide,.rev.src-getyourguide{border-color:var(--gyg-orange)}
 .rq.src-tripadvisor,.rev.src-tripadvisor{border-color:var(--ta-green)}
 
-/* Typographie propre à chaque plateforme. */
-.rq.src-google,.rev.src-google,
-.rq.src-google .rq-text,.rev.src-google q{font-family:'Roboto',Arial,sans-serif}
-.rq.src-getyourguide,.rev.src-getyourguide,
-.rq.src-getyourguide .rq-text,.rev.src-getyourguide q{font-family:'Poppins','Inter',sans-serif}
-.rq.src-tripadvisor,.rev.src-tripadvisor,
-.rq.src-tripadvisor .rq-text,.rev.src-tripadvisor q{font-family:'Inter',Arial,sans-serif}
+/* Une seule police pour tous les avis, quelle que soit la plateforme : mélanger
+   Roboto / Poppins / Inter d'une carte à l'autre rendait la grille bancale.
+   Seules les couleurs distinguent désormais les plateformes. */
+.rq,.rev,.rq .rq-text,.rev q{font-family:'Inter',system-ui,Arial,sans-serif}
 
 /* Le texte de l'avis : plus de Playfair italique, on garde l'aspect natif. */
 .rq .rq-text,.rev q{font-style:normal;color:var(--g-ink);font-size:1rem;line-height:1.62}
