@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap');
 /* ============================================================
    Chifbay — shared design system (peak)
    Playfair Display + Space Mono + Inter · navy #050f18 + gold
@@ -381,16 +382,52 @@ body:has(.annc) #nav{top:36px}
    Liseré en ::before plutôt qu'en border-left, pour que Google puisse porter
    un dégradé sans toucher au reste de la bordure.
    ============================================================ */
-.rq,.rev{position:relative}
-.rq::before,.rev::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px;pointer-events:none}
-.rq.src-getyourguide::before,.rev.src-getyourguide::before{background:#FF5533}
-.rq.src-tripadvisor::before,.rev.src-tripadvisor::before{background:#34E0A1}
-.rq.src-google::before,.rev.src-google::before{background:linear-gradient(180deg,#4285F4 0%,#EA4335 33%,#FBBC05 66%,#34A853 100%)}
+/* Cartes blanches, encre sombre : chaque avis ressemble à la plateforme d'où
+   il vient, pas au reste du site. Aucun dégradé — Google porte ses quatre
+   couleurs en segments nets (hard stops), pas en fondu. */
+:root{
+  --g-blue:#4285F4;--g-red:#EA4335;--g-yellow:#FBBC04;--g-green:#34A853;
+  --g-ink:#202124;--g-grey:#5f6368;--g-line:#dadce0;
+  --gyg-orange:#FF5533;--ta-green:#00AA6C;
+}
+.rq,.rev{position:relative;background:#fff;border:1px solid var(--g-line);border-radius:12px;
+  color:var(--g-ink);overflow:hidden}
+.rq::before,.rev::before{content:none}
 
-.rq.src-getyourguide .src,.rev.src-getyourguide .src{color:#FF5533;opacity:1}
-.rq.src-tripadvisor .src,.rev.src-tripadvisor .src{color:#34E0A1;opacity:1}
-.rq.src-google .src,.rev.src-google .src{opacity:1;background:linear-gradient(90deg,#4285F4,#EA4335 34%,#FBBC05 67%,#34A853);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* Bandeau supérieur : 2px, aux couleurs de la plateforme. */
+.rq::after,.rev::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;pointer-events:none}
+.rq.src-getyourguide::after,.rev.src-getyourguide::after{background:var(--gyg-orange)}
+.rq.src-tripadvisor::after,.rev.src-tripadvisor::after{background:var(--ta-green)}
+/* Quatre blocs pleins : les butées doublées empêchent tout dégradé. */
+.rq.src-google::after,.rev.src-google::after{background:linear-gradient(90deg,
+  var(--g-blue) 0 25%,var(--g-red) 25% 50%,var(--g-yellow) 50% 75%,var(--g-green) 75% 100%)}
+
+.rq.src-getyourguide,.rev.src-getyourguide{border-color:var(--gyg-orange)}
+.rq.src-tripadvisor,.rev.src-tripadvisor{border-color:var(--ta-green)}
+
+/* Typographie propre à chaque plateforme. */
+.rq.src-google,.rev.src-google,
+.rq.src-google .rq-text,.rev.src-google q{font-family:'Roboto',Arial,sans-serif}
+.rq.src-getyourguide,.rev.src-getyourguide,
+.rq.src-getyourguide .rq-text,.rev.src-getyourguide q{font-family:'Poppins','Inter',sans-serif}
+.rq.src-tripadvisor,.rev.src-tripadvisor,
+.rq.src-tripadvisor .rq-text,.rev.src-tripadvisor q{font-family:'Inter',Arial,sans-serif}
+
+/* Le texte de l'avis : plus de Playfair italique, on garde l'aspect natif. */
+.rq .rq-text,.rev q{font-style:normal;color:var(--g-ink);font-size:1rem;line-height:1.62}
+.rq .rq-meta,.rev .who{color:var(--g-grey)}
+.rq .who,.rev .who{color:var(--g-ink);font-weight:500}
+
+/* Étoiles aux couleurs de la plateforme, à plat. */
+.rq-stars,.rev .st{letter-spacing:2px}
+.rq.src-google .rq-stars,.rev.src-google .st{color:var(--g-yellow)}
+.rq.src-getyourguide .rq-stars,.rev.src-getyourguide .st{color:var(--gyg-orange)}
+.rq.src-tripadvisor .rq-stars,.rev.src-tripadvisor .st{color:var(--ta-green)}
+
+.rq .src,.rev .src{opacity:1;font-family:inherit;letter-spacing:0;text-transform:none;font-weight:500}
+.rq.src-getyourguide .src,.rev.src-getyourguide .src{color:var(--gyg-orange)}
+.rq.src-tripadvisor .src,.rev.src-tripadvisor .src{color:var(--ta-green)}
+.rq.src-google .src,.rev.src-google .src{color:var(--g-blue)}
 
 /* boutons vers les fiches publiques */
 .rq-src-link{text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
@@ -403,8 +440,7 @@ body:has(.annc) #nav{top:36px}
 .rq-src-link.src-tripadvisor .n{color:#34E0A1}
 .rq-src-link.src-google{border-color:rgba(66,133,244,.5)}
 .rq-src-link.src-google:hover{border-color:#4285F4}
-.rq-src-link.src-google .n{background:linear-gradient(90deg,#4285F4,#EA4335 34%,#FBBC05 67%,#34A853);
-  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.rq-src-link.src-google .n{color:var(--g-blue)}
 
 /* Indication sous les CTA de réservation.
    Le widget Wix pré-coche toujours la première variante et ignore ?variantId=
