@@ -78,7 +78,9 @@
     var u = src.getAttribute('src') || '';
     if (u.indexOf('/hero.') !== -1) { src.setAttribute('src', u.replace('/hero.', '/hero-mobile.')); swapped = true; }
   });
-  if (swapped) v.load();
+  // The mobile clip is genuinely vertical, so the landscape poster would flash
+  // a mis-cropped frame before it paints — swap the poster with the sources.
+  if (swapped) { v.setAttribute('poster', '/assets/hero-mobile-poster.jpg'); v.load(); }
 })();
 </script>
   </div>
