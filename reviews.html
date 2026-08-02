@@ -18,9 +18,33 @@
 <link rel="stylesheet" href="peak.css"/>
 <link rel="stylesheet" href="motion.css"/>
 <style>
-.rq-badges{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;max-width:760px;margin:0 auto 54px}
+/* Trois colonnes égales pour Google / GetYourGuide / Tripadvisor.
+   En flex-wrap elles s'empilaient sur mobile, chacune d'une largeur
+   différente : la rangée paraissait bancale. L'agrégat 5.0 occupe la
+   largeur entière au-dessus. */
+.rq-badges{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:760px;margin:0 auto 54px}
+.rq-badge-agg{grid-column:1 / -1}
 .rq-badge{display:flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:16px 22px;background:rgba(255,255,255,.03)}
-.rq-badge .n{font-family:'Playfair Display',serif;font-size:1.7rem;color:#e3b264;line-height:1}
+/* Les trois cartes plateforme : contenu empilé et centré, pour tenir à
+   trois de front jusque sur un téléphone. */
+.rq-src-link{flex-direction:column;align-items:center;text-align:center;gap:7px;padding:18px 12px;justify-content:center}
+.rq-src-link .n{font-size:1.9rem}
+.rq-src-link .d{font-size:.78rem;opacity:.8}
+.rq-src-link .d b{display:block;font-size:.92rem;opacity:1;margin-bottom:2px}
+.rq-src-link .lbl{display:block}
+.rq-src-link .lbl-s{display:none}
+@media(max-width:560px){
+  .rq-badges{gap:8px}
+  .rq-src-link{padding:14px 6px;gap:4px}
+  .rq-src-link .n{font-size:1.45rem}
+  .rq-src-link .d{font-size:.68rem;line-height:1.35}
+  .rq-src-link .d b{font-size:.78rem}
+  /* la phrase complète casse la grille à 113px de large : on garde la flèche */
+  .rq-src-link .lbl{display:none}
+  .rq-src-link .lbl-s{display:block;font-size:.9rem;margin-top:2px}
+  .rq-badge-agg{padding:14px 16px}
+}
+.rq-badge .n{font-family:'Playfair Display',serif;font-size:1.7rem;color:#e3b264;line-height:1;white-space:nowrap;flex-shrink:0}
 .rq-badge .d{font-size:.82rem;opacity:.75;line-height:1.45}
 .rq-badge .d a{color:#e3b264;text-decoration:none}
 .rq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
@@ -84,15 +108,15 @@
       </div>
       <a class="rq-badge rq-src-link src-google" href="https://maps.google.com/?cid=11236673311781793484" target="_blank" rel="noopener">
         <span class="n">12</span>
-        <span class="d"><b>Google</b><br>See our Google listing →</span>
+        <span class="d"><b>Google</b><span class="lbl">See our Google listing →</span><span class="lbl-s">→</span></span>
       </a>
       <a class="rq-badge rq-src-link src-getyourguide" href="https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/" target="_blank" rel="noopener">
         <span class="n">11</span>
-        <span class="d"><b>GetYourGuide</b><br>Verified bookings →</span>
+        <span class="d"><b>GetYourGuide</b><span class="lbl">Verified bookings →</span><span class="lbl-s">→</span></span>
       </a>
       <a class="rq-badge rq-src-link src-tripadvisor" href="https://www.tripadvisor.com/Attraction_Review-g189167-d34387047.html" target="_blank" rel="noopener">
         <span class="n">5</span>
-        <span class="d"><b>Tripadvisor</b><br>See our Tripadvisor listing →</span>
+        <span class="d"><b>Tripadvisor</b><span class="lbl">See our Tripadvisor listing →</span><span class="lbl-s">→</span></span>
       </a>
     <!-- /REVIEWS:BADGES -->
     </div>
