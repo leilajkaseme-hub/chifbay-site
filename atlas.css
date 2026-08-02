@@ -251,7 +251,7 @@ html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spaci
 .atlas .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;background:none;
   border:0;margin-top:52px}
 @media(max-width:820px){.atlas .revs{grid-template-columns:1fr}}
-.atlas .rev{background:#fff;padding:clamp(26px,2.4vw,34px)}
+.atlas .rev{background:var(--rev-bg);padding:clamp(26px,2.4vw,34px)}
 /* .st est aussi le nom d'une tuile de stats dans peak.css (fond navy + padding).
    Invisible sur l'ancienne carte sombre, mais sur blanc elle formait un bloc gris
    derrière les étoiles — on neutralise ici. */

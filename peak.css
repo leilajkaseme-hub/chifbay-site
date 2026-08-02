@@ -385,15 +385,16 @@ body:has(.annc) #nav{top:36px}
    Liseré en ::before plutôt qu'en border-left, pour que Google puisse porter
    un dégradé sans toucher au reste de la bordure.
    ============================================================ */
-/* Cartes blanches, encre sombre : chaque avis ressemble à la plateforme d'où
-   il vient, pas au reste du site. Aucun dégradé — Google porte ses quatre
-   couleurs en segments nets (hard stops), pas en fondu. */
+/* Cartes en bleu nuit plus clair que le fond du site (#050f18 / #061320) :
+   la carte se détache par contraste, sans passer au blanc. Texte clair.
+   Aucun dégradé — Google porte ses quatre couleurs en segments nets. */
 :root{
-  --g-blue:#4285F4;--g-red:#EA4335;--g-yellow:#FBBC04;--g-green:#34A853;
-  --g-ink:#202124;--g-grey:#5f6368;--g-line:#dadce0;
-  --gyg-orange:#FF5533;--ta-green:#00AA6C;
+  --g-blue:#8AB4F8;--g-red:#EA4335;--g-yellow:#FBBC04;--g-green:#34A853;
+  --g-ink:#f0f5f4;--g-grey:rgba(240,245,244,.62);--g-line:rgba(255,255,255,.16);
+  --gyg-orange:#FF7A5C;--ta-green:#34E0A1;
+  --rev-bg:#0d2035;
 }
-.rq,.rev{position:relative;background:#fff;border:1px solid var(--g-line);border-radius:12px;
+.rq,.rev{position:relative;background:var(--rev-bg);border:1px solid var(--g-line);border-radius:12px;
   color:var(--g-ink);overflow:hidden}
 .rq::before,.rev::before{content:none}
 
