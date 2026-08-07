@@ -15,6 +15,24 @@
     "reply": null
   },
   {
+    "id": "gyg-10332e09658c",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "Jo",
+    "country": "United Kingdom",
+    "countryFlag": "🇬🇧",
+    "date": "2026-07-28",
+    "text": "Fantastic sunset cruise and crew were lovely. Great snacks and champagne and lots of shared knowledge about the Island. Beautiful music and a spotlessly clean yacht- very luxurious and allowed us to create really special Memories. The chance to swim in the ocean and to see the sunset on Madeira…priceless. All finished off with a souvenir video recorded by drone and edited to music of your choice. Worth every penny! A real must if you are visiting Madeira.",
+    "photos": [],
+    "tourId": "t1314963",
+    "tourName": "Luxury Sunset Yacht Experience",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
+    "reply": {
+      "text": "Dear Jo, Thank you so much for your beautiful review. Having you on board was just as special for us. We will remember not only the sunset, but also the lovely moments we shared with you. Knowing you left with such wonderful memories means a lot to us. We hope to welcome you aboard again one day. The Chifbay Team ⚓",
+      "date": "2026-07-28"
+    }
+  },
+  {
     "id": "gyg-2ca56b8e8ef6",
     "source": "getyourguide",
     "rating": 5,
@@ -29,6 +47,30 @@
     "tourUrl": "https://www.getyourguide.com/funchal-l1026/private-dolphin-and-whale-watching-madeira-t1342812/",
     "reply": {
       "text": "Thank you so much, Rebecca, for your kind words! It was a real pleasure to welcome you and share this experience with you. We’re delighted that you enjoyed the food, drinks, and the time spent with our family. Your recommendation truly means a lot to us. We hope to see you again for another unforgettable sunset on the water! 😊",
+      "date": "2026-07-28"
+    }
+  },
+  {
+    "id": "gyg-7b56db446864",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "Jessy",
+    "country": "France",
+    "countryFlag": "🇫🇷",
+    "date": "2026-07-21",
+    "text": "Une expérience absolument magique, que je recommande les yeux fermés ! Tout était parfait du début à la fin. Les guides français, un père et son fils, étaient extrêmement sympathiques, professionnels et passionnés. Ils nous ont partagé de nombreuses explications tout au long de la sortie dans une ambiance très conviviale, ce qui a rendu l’expérience encore plus agréable. Le coucher de soleil était tout simplement magnifique. Nous avons également pu nous arrêter pour nous baigner, faire du paddle et profiter d’un délicieux apéritif avec boissons incluses. Le plus beau souvenir reste la magnifique vidéo réalisée avec un drone, offerte à la fin de l’excursion. Les images sont superbes et nous permettront de revivre ce moment encore longtemps. Une expérience unique, idéale en famille, entre amis ou en couple. Un immense merci pour cette soirée inoubliable ! 😊",
+    "photos": [
+      "assets/reviews/gyg/gyg-7b56db446864-1.jpg",
+      "assets/reviews/gyg/gyg-7b56db446864-2.jpg",
+      "assets/reviews/gyg/gyg-7b56db446864-3.jpg",
+      "assets/reviews/gyg/gyg-7b56db446864-4.jpg",
+      "assets/reviews/gyg/gyg-7b56db446864-5.jpg"
+    ],
+    "tourId": "t1314963",
+    "tourName": "Luxury Sunset Yacht Experience",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
+    "reply": {
+      "text": "Thank you very much, Jessy, for this wonderful commentary! We are delighted that you enjoyed the excursion, the atmosphere, the sunset, the swimming, the paddleboarding, and the aperitif. It was a real pleasure to share this moment with you. We hope the video will allow you to keep beautiful souvenirs of this evening for a long time. Looking forward to welcoming you again! 😊",
       "date": "2026-07-28"
     }
   },
@@ -88,6 +130,44 @@
     }
   },
   {
+    "id": "gyg-8d0a995cc3b5",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "Thomas",
+    "country": "United Kingdom",
+    "countryFlag": "🇬🇧",
+    "date": "2026-06-08",
+    "text": "Great Trip - Hugo and Paco were a great pair, highly recommend to anyone visiting the island.",
+    "photos": [],
+    "tourId": "t1342794",
+    "tourName": "Sunset Yacht Tour",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/romantic-sunset-cruise-madeira-private-yacht-t1342794/",
+    "reply": {
+      "text": "Thank you, Thomas. Your words really mean a lot to us. Some days at sea stay with us too, and this was one of them. We’re grateful for the trust, the smiles and the beautiful moments shared together. From all of us at Chifbay, thank you again. We hope to see you back in Madeira.",
+      "date": "2026-06-21"
+    }
+  },
+  {
+    "id": "gyg-1dd1b9ef93fc",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "Elena",
+    "country": "Germany",
+    "countryFlag": "🇩🇪",
+    "date": "2026-06-02",
+    "text": "Unsere Ausflug war einfach traumhaft!Sehr zu empfehlen!",
+    "photos": [
+      "assets/reviews/gyg/gyg-1dd1b9ef93fc-1.jpg"
+    ],
+    "tourId": "t1314963",
+    "tourName": "Luxury Sunset Yacht Experience",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
+    "reply": {
+      "text": "Thank you so much, Elena. That means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
+      "date": "2026-06-02"
+    }
+  },
+  {
     "id": "gyg-f4b7da8b9abc",
     "source": "getyourguide",
     "rating": 5,
@@ -105,8 +185,23 @@
     "tourName": "Yacht Cruise with Drinks",
     "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
     "reply": {
-      "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+      "text": "Wow, thank you for this amazing review Franziska! It was truly a pleasure having you on board. We’re so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
       "date": "2026-06-02"
     }
+  },
+  {
+    "id": "gyg-8c9132750708",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "Giedrius",
+    "country": "Lithuania",
+    "countryFlag": "🇱🇹",
+    "date": "2026-05-30",
+    "text": "",
+    "photos": [],
+    "tourId": "t1314963",
+    "tourName": "Luxury Sunset Yacht Experience",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
+    "reply": null
   }
 ]
