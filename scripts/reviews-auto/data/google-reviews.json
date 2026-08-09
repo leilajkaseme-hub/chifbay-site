@@ -1,5 +1,24 @@
 [
   {
+    "id": "google-7b024a0503fbc242",
+    "source": "google",
+    "rating": 5,
+    "author": "Sabrina Di Girolamo",
+    "country": "",
+    "countryFlag": "",
+    "date": "2026-07-26",
+    "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
+    "photos": [
+      "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
+      "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
+      "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
+    ],
+    "tourId": null,
+    "tourName": null,
+    "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+    "reply": null
+  },
+  {
     "id": "google-7b7011515c484df0",
     "source": "google",
     "rating": 5,
@@ -68,32 +87,13 @@
     "reply": null
   },
   {
-    "id": "google-7b024a0503fbc242",
-    "source": "google",
-    "rating": 5,
-    "author": "Sabrina Di Girolamo",
-    "country": "",
-    "countryFlag": "",
-    "date": "2026-07-26",
-    "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
-    "photos": [
-      "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
-      "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
-      "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
-    ],
-    "tourId": null,
-    "tourName": null,
-    "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-    "reply": null
-  },
-  {
     "id": "google-adb5b24ad0b9a47c",
     "source": "google",
     "rating": 5,
     "author": "Victor Filliaudeau",
     "country": "",
     "countryFlag": "",
-    "date": "2026-07-12",
+    "date": "2026-07-10",
     "text": "We had a fantastic time with Hugo and Paco. They were incredibly helpful and attentive, going above and beyond to ensure we had the best possible experience, from swimming and sunset to drone video and a delicious aperitif. Thanks again, we highly recommend them!",
     "photos": [],
     "tourId": null,
