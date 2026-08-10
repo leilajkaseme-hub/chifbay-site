@@ -519,3 +519,20 @@ body:has(.annc) #nav{top:36px}
 .tli[data-ic="boat"]::after{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0be7a' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><path d='M3 17h18l-2 4H5Z'/><path d='M12 14V4l6 6-6 4'/><path d='M12 14 6 11'/></svg>")}
 .tli[data-ic="swim"]::after{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0be7a' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><circle cx='16' cy='6' r='2'/><path d='M5 12l4-2 3 2 3-3'/><path d='M2 19c2 0 2-1.4 4-1.4S8 19 10 19s2-1.4 4-1.4S16 19 18 19s2-1.4 4-1.4'/></svg>")}
 .tli[data-ic="snorkel"]::after{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0be7a' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='7' width='12' height='7' rx='3'/><path d='M10 14v2a2 2 0 0 0 2 2h1'/><path d='M16 8h2a2 2 0 0 1 2 2v9'/></svg>")}
+
+/* PLATFORMS — monochrome trust strip under the hero proof line.
+   Colour marks would fight the ink/gold palette, and each brand polices its own
+   colour usage, so everything renders in currentColor and simply brightens on hover. */
+.plat-wrap{padding:2px 0 clamp(16px,3vh,30px)}
+.plat{list-style:none;display:flex;flex-wrap:wrap;align-items:center;
+  gap:clamp(18px,3.6vw,48px);margin-top:14px;padding-top:16px;border-top:1px solid var(--hair)}
+.plat li{display:inline-flex;align-items:center;gap:9px;color:var(--muted);
+  opacity:.7;transition:opacity .28s,color .28s}
+.plat li:hover{opacity:1;color:var(--paper)}
+.plat svg{width:19px;height:19px;fill:currentColor;flex-shrink:0}
+.plat .pn{font-size:.92rem;font-weight:500;white-space:nowrap}
+@media(max-width:640px){
+  .plat{gap:15px 24px}
+  .plat .pn{font-size:.82rem}
+  .plat svg{width:16px;height:16px}
+}
