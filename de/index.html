@@ -303,7 +303,7 @@
     <div class="chead reveal"><span class="cn">05</span><span class="cl">Stimmen unserer Gäste</span></div>
     <h2 class="display reveal" data-mask style="font-size:clamp(1.9rem,3.6vw,3rem)">Fünf Sterne, jede Fahrt</h2>
     <p class="reveal" id="revsCount" style="opacity:.7;font-size:.9rem;margin-top:-8px">5.0★ Durchschnitt aus verifizierten Bewertungen</p>
-    <div class="revs" id="revsLive">
+    <div class="revs" id="revsLive" data-verified="Verifiziert" data-reviews-word="Bewertungen" data-average="★ Durchschnitt aus {n} verifizierten Bewertungen" data-rail-label="Gästebewertungen, scrollbar" data-prev="Vorherige Bewertungen" data-next="Weitere Bewertungen">
       <figure class="rev reveal">
         <div class="st">★★★★★</div>
         <q>We had an absolutely amazing day on the boat. The friendly, professional crew, the delicious snacks and drinks, the relaxing swim — everything was perfect.</q>
@@ -322,6 +322,72 @@
     </div>
     <a class="btn btn-g reveal" href="/reviews.html" style="margin-top:34px">Alle verifizierten Bewertungen lesen
       <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- WHERE WE ARE — Marina do Funchal, map loaded on demand (see map-home.js) -->
+<section class="chapter" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cn">06</span><span class="cl">So finden Sie uns</span></div>
+    <div class="mapsec">
+      <div class="reveal">
+        <h2 class="display" data-mask>Marina do Funchal, direkt am Steg</h2>
+        <p>Jede Chifbay-Tour startet in der Marina do Funchal, mitten an der Uferpromenade und nur wenige Gehminuten von der Altstadt entfernt. Ihr Skipper empfängt Sie am Steg — kein Büro, keine Schlange, kein Shuttle.</p>
+        <ul class="mfacts">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            <div><span>Die Adresse</span>Marina do Funchal, 9000-055 Funchal, Madeira, Portugal</div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.4l3.4 2"/></svg>
+            <div><span>Bitte da sein</span>15 Minuten vor der Abfahrt — 10:00 und 14:00 Uhr für die Tagestouren, 18:00 Uhr für den Sonnenuntergang</div>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 2.6 15.4 0 18-2.6-2.6-2.6-15.4 0-18z"/></svg>
+            <div><span>Koordinaten</span>32.6442° N · 16.9165° W</div>
+          </li>
+        </ul>
+        <a class="btn btn-g" href="https://www.google.com/maps/search/?api=1&amp;query=Marina+do+Funchal%2C+Funchal%2C+Madeira" target="_blank" rel="noopener">In Google Maps öffnen
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="mapbox reveal d1" id="mapBox" data-map-title="Karte der Marina do Funchal, Startpunkt aller Chifbay-Bootstouren">
+        <div class="mapstub" id="mapStub">
+          <svg class="pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div class="mtitle">Marina do Funchal</div>
+          <div class="mnote">Die Karte kommt von Google und setzt eigene Cookies. Deshalb laden wir sie erst, wenn Sie es möchten.</div>
+          <button type="button" class="btn btn-p" id="mapLoad">Karte anzeigen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM — our own photographs, linking to @chifbay -->
+<section class="chapter" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cn">07</span><span class="cl">Folgen Sie dem Boot</span></div>
+    <div class="igsec">
+      <div class="ighead reveal">
+        <div class="igh-l">
+          <h2 class="display" data-mask>Madeira, fast jeden Tag</h2>
+          <a class="ighandle" href="https://www.instagram.com/chifbay" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+            @chifbay</a>
+        </div>
+        <a class="btn btn-p" href="https://www.instagram.com/chifbay" target="_blank" rel="noopener">Auf Instagram folgen
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="iggrid reveal d1">
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-01.jpg" alt="Das private Chifbay-Boot ankert über klarem türkisem Wasser vor Madeira, Gäste schwimmen daneben"></a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-02.jpg" alt="Ein Gast beim Schnorcheln in einer klaren Bucht unter den Klippen Madeiras, halb über und halb unter Wasser"></a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-03.jpg" alt="Ein wilder Delfin springt vor Funchal neben dem Boot aus dem Atlantik"></a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-04.jpg" alt="Ein Paar steht am Bug des Bootes vor einem tiefroten Sonnenuntergang auf Madeira"></a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-05.jpg" alt="Gäste stoßen an Deck mit gekühlten Getränken an, während einer privaten Chifbay-Tour"></a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-06.jpg" alt="Die bunten Häuser von Câmara de Lobos, vom Wasser aus zur goldenen Stunde gesehen"></a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-07.jpg" alt="Essen und Getränke auf dem Decktisch, während der Skipper sich um seine Gäste kümmert"></a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener"><img loading="lazy" decoding="async" width="560" height="560" src="../assets/ig/ig-08.jpg" alt="Die Marina do Funchal bei Dämmerung von oben — der Startpunkt jeder Chifbay-Tour"></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -377,5 +443,6 @@
 <script src="../peak.js"></script>
 <script src="../atlas.js"></script>
 <script src="../reviews-home.js" defer></script>
+<script src="../map-home.js" defer></script>
 </body>
 </html>
