@@ -415,8 +415,19 @@ html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spaci
 @media(max-width:1280px){.atlas .revs.marquee{--rvn:3}}
 @media(max-width:1000px){.atlas .revs.marquee{--rvn:2}}
 /* Two across is genuinely too tight on a phone, so it drops to one with a
-   sliver of the next card showing — that sliver is what tells you it moves. */
-@media(max-width:680px){.atlas .revs.marquee{--rvn:1.12;--rvgap:14px}}
+   sliver of the next card showing — that sliver is what tells you it moves.
+   The rail also breaks out of .wrap-w's 20px padding and runs edge to edge:
+   inset, a single card plus its sliver had barely any room left. The heading
+   above it stays inset. */
+@media(max-width:680px){
+  .atlas .revs.marquee{--rvn:1.12;--rvgap:14px}
+  .atlas .revs.marquee .rv-mq{
+    margin-left:-20px;margin-right:-20px;width:calc(100% + 40px);
+    /* a wider fade than desktop: a card is cut by the screen edge at every
+       moment here, and 12px of fade left it looking sliced rather than passing */
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+}
 
 .atlas .rv-mq{
   display:flex;overflow:hidden;
