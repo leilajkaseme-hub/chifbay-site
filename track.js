@@ -216,6 +216,14 @@
 
   var known = storedConsent();
   if (known) pushConsent(known);
+  // On the booking site Wix loads its own tag and pushes its own consent
+  // "default" after ours. A default is not supposed to override an update
+  // that already happened, but the order is Wix's to change, not ours, so
+  // say it again once their tag is certainly up.
+  if (known && ON_BOOKING) {
+    setTimeout(function () { pushConsent(known); }, 1500);
+    setTimeout(function () { pushConsent(known); }, 4000);
+  }
   else if (!CFG.CONSENT_BANNER) pushConsent("granted");
   if (known === "granted" || !CFG.CONSENT_BANNER) persistAttr();
 
