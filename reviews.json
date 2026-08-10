@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-08-10T06:15:53.735Z",
+  "updatedAt": "2026-08-10T16:15:55.199Z",
   "aggregate": {
     "rating": 5,
-    "count": 30
+    "count": 33
   },
   "reviews": [
     {
@@ -284,6 +284,31 @@
       "translation": null
     },
     {
+      "id": "gyg-32fb9743d15e",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "Jessy",
+      "country": "France",
+      "countryFlag": "🇫🇷",
+      "date": "2026-07-21",
+      "text": "An absolutely magical experience that I would recommend without hesitation! Everything was perfect from start to finish. The French live guides, a father and son, were extremely friendly, professional, and passionate. They shared lots of information with us throughout the trip in a very friendly atmosphere, which made the experience even more enjoyable. The sunset was simply stunning. We were also able to stop to swim, paddle board, and enjoy a delicious aperitif with drinks included. The best souvenir is the magnificent video made with a drone, which was given to us at the end of the day trip. The images are superb and will allow us to relive this moment for a long time to come. A unique experience, ideal for families, friends or couples. A huge thank you for this unforgettable evening! 😊",
+      "photos": [
+        "assets/reviews/gyg/gyg-32fb9743d15e-1.jpg",
+        "assets/reviews/gyg/gyg-32fb9743d15e-2.jpg",
+        "assets/reviews/gyg/gyg-32fb9743d15e-3.jpg",
+        "assets/reviews/gyg/gyg-32fb9743d15e-4.jpg",
+        "assets/reviews/gyg/gyg-32fb9743d15e-5.jpg"
+      ],
+      "tourId": "t1314963",
+      "tourName": "Luxury Sunset Yacht Experience",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
+      "reply": {
+        "text": "Thank you very much, Jessy, for this wonderful commentary! We are delighted that you enjoyed the excursion, the atmosphere, the sunset, the swimming, the paddleboarding, and the aperitif. It was a real pleasure to share this moment with you. We hope the video will allow you to keep beautiful souvenirs of this evening for a long time. Looking forward to welcoming you again! 😊",
+        "date": "2026-07-28"
+      },
+      "translation": null
+    },
+    {
       "id": "google-7b024a0503fbc242",
       "source": "google",
       "rating": 5,
@@ -484,6 +509,27 @@
       "translation": null
     },
     {
+      "id": "gyg-5d54a0ef2ad0",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "Elena",
+      "country": "Germany",
+      "countryFlag": "🇩🇪",
+      "date": "2026-06-02",
+      "text": "Our excursion was simply fantastic! Highly recommended!",
+      "photos": [
+        "assets/reviews/gyg/gyg-5d54a0ef2ad0-1.jpg"
+      ],
+      "tourId": "t1314963",
+      "tourName": "Luxury Sunset Yacht Experience",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
+      "reply": {
+        "text": "Thank you so much, Elena. That means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
+        "date": "2026-06-02"
+      },
+      "translation": null
+    },
+    {
       "id": "gyg-f4b7da8b9abc",
       "source": "getyourguide",
       "rating": 5,
@@ -496,6 +542,29 @@
         "assets/reviews/gyg/gyg-f4b7da8b9abc-1.jpg",
         "assets/reviews/gyg/gyg-f4b7da8b9abc-2.jpg",
         "assets/reviews/gyg/gyg-f4b7da8b9abc-3.jpg"
+      ],
+      "tourId": "t1340940",
+      "tourName": "Yacht Cruise with Drinks",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+      "reply": {
+        "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+        "date": "2026-06-02"
+      },
+      "translation": null
+    },
+    {
+      "id": "gyg-e142c3e6773e",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "Franziska",
+      "country": "Germany",
+      "countryFlag": "🇩🇪",
+      "date": "2026-06-01",
+      "text": "Highly recommended! Father and son, super helpful and keen to ensure a pleasant stay at sea. Many languages are available. You can customise the tour, and you get a lot of information if you want. The freshly prepared drinks and snacks on site were great, very tasty. All in all, a great tour. Thank you very much.",
+      "photos": [
+        "assets/reviews/gyg/gyg-e142c3e6773e-1.jpg",
+        "assets/reviews/gyg/gyg-e142c3e6773e-2.jpg",
+        "assets/reviews/gyg/gyg-e142c3e6773e-3.jpg"
       ],
       "tourId": "t1340940",
       "tourName": "Yacht Cruise with Drinks",
