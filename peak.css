@@ -527,51 +527,46 @@ body:has(.annc) #nav{top:36px}
 .plat-head{text-align:center;margin:0 0 clamp(14px,2vh,20px);
   font-size:clamp(.98rem,1.6vw,1.22rem);font-weight:500;color:var(--paper)}
 
-/* Two identical tracks scroll as one. Each track repeats the set three times so it is
+/* Two identical tracks scroll as one. Each track repeats the set five times so it is
    always wider than the viewport — the loop shifts by 100% of the TRACK, so a track
    narrower than the screen leaves a dead gap before it wraps. */
 .plat-mq{display:flex;overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .plat-track{display:flex;flex-shrink:0;align-items:center;list-style:none;
-  gap:clamp(12px,2.2vw,26px);padding:0 clamp(6px,1.1vw,13px);margin:0;
+  gap:clamp(10px,1.5vw,18px);padding:0 clamp(5px,.75vw,9px);margin:0;
   animation:plat-scroll 60s linear infinite;will-change:transform}
 .plat-band:hover .plat-track{animation-play-state:paused}
 @keyframes plat-scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 
-.plat-item{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;
-  padding:11px 21px;border-radius:100px;border:1px solid var(--hair-strong);
-  background:rgba(255,255,255,.035);transition:border-color .25s,background .25s,transform .25s}
-.plat-item:hover{border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.07);transform:translateY(-2px)}
-.plat-item .pn{font-size:.95rem;font-weight:500;color:var(--paper);letter-spacing:.01em}
+/* The white chip is what lets every brand keep its real colours. Tripadvisor's pine,
+   Google's grey and Klook's near-black wordmarks are all unreadable on the navy band;
+   on white they are simply themselves. */
+.plat-item{display:inline-flex;align-items:center;justify-content:center;
+  height:clamp(42px,5.4vh,52px);padding:0 clamp(16px,1.5vw,24px);
+  border-radius:12px;background:#fff;flex-shrink:0;
+  transition:transform .25s,box-shadow .25s}
+.plat-item:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.plog{display:block;width:auto;flex-shrink:0}
 
-/* .pg — square Simple Icons glyph, tinted by the brand hex below. */
-.plat-item .pg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
-/* .pa — the brand's own artwork, which already carries its colours. Sized by height so
-   the wide Viator wordmark and the squarer GetYourGuide mark sit on the same baseline. */
-.plat-item .pa{width:auto;flex-shrink:0;display:block}
-/* Viator's single-line wordmark, reversed to paper so it reads on the ink band. */
-.plat-item .pa-rev{height:16px;color:var(--paper);fill:currentColor}
-/* GetYourGuide's horizontal wordmark, rebuilt 2026-08-10 from the brand's own
-   letterforms: the artwork we hold is the stacked three-line lockup, so each line
-   is clipped out of it and re-laid on one baseline (see the #pl-getyourguide symbol).
-   Reversed to paper like Viator — it is pure lettering with no separable icon, so
-   the whole mark is the "text part" and goes white on this dark band. */
-.plat-item .pa-word{height:14px;color:var(--paper);fill:currentColor}
-.plat-item.pi-viator,.plat-item.pi-getyourguide{padding-left:24px;padding-right:24px}
-
-/* Official brand hex per glyph (Simple Icons). */
-.plat-item[data-b="airbnb"]{color:#FF5A5F}
-.plat-item[data-b="tripadvisor"]{color:#34E0A1}
-.plat-item[data-b="googlemaps"]{color:#4285F4}
-.plat-item[data-b="klook"]{color:#FF5722}
+/* Per-brand heights, not one shared height: a 12-letter wordmark and a square Belo
+   need very different heights to read with the same weight. Tuned by eye against the
+   others, not calculated. */
+.plog[data-p="googlemaps"]{height:29px}
+.plog[data-p="getyourguide"]{height:15px}
+.plog[data-p="tripadvisor"]{height:21px}
+.plog[data-p="klook"]{height:30px}
+.plog[data-p="viator"]{height:27px}
+.plog[data-p="airbnb"]{height:25px}
 
 @media(max-width:640px){
-  .plat-item{padding:9px 16px;gap:8px}
-  .plat-item .pn{font-size:.85rem}
-  .plat-item .pg{width:17px;height:17px}
-  .plat-item .pa-rev{height:14px}
-  .plat-item .pa-word{height:12px}
+  .plat-item{height:38px;padding:0 13px;border-radius:10px}
+  .plog[data-p="googlemaps"]{height:23px}
+  .plog[data-p="getyourguide"]{height:12px}
+  .plog[data-p="tripadvisor"]{height:17px}
+  .plog[data-p="klook"]{height:24px}
+  .plog[data-p="viator"]{height:21px}
+  .plog[data-p="airbnb"]{height:20px}
   .plat-track{animation-duration:42s}
 }
 /* A moving strip is exactly what this setting is for: stop it and let it wrap. */
