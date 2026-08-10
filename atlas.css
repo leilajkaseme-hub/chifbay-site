@@ -521,11 +521,12 @@ html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spaci
 .atlas .ighandle svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4}
 
 .atlas .iggrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+/* 9 tiles, but desktop runs 4 across — the 9th would sit alone on a third row.
+   It exists for the phone, where the grid is 3x3. */
+.atlas .iggrid a:nth-child(9){display:none}
 @media(max-width:900px){.atlas .iggrid{grid-template-columns:repeat(3,1fr)}
-  /* 8 tiles into 3 columns leaves a hole on the last row — hide the tail */
-  .atlas .iggrid a:nth-child(n+7){display:none}}
-@media(max-width:560px){.atlas .iggrid{grid-template-columns:repeat(2,1fr);gap:8px}
-  .atlas .iggrid a:nth-child(n+7){display:block}}
+  .atlas .iggrid a:nth-child(9){display:block}}
+
 .atlas .iggrid a{position:relative;display:block;overflow:hidden;border-radius:2px;
   background:var(--ink-2)}
 /* height:auto is required — the width/height attributes on the <img> (kept so
@@ -541,4 +542,17 @@ html.atlas body{background:var(--ink);color:#eaf1f4;font-weight:300;letter-spaci
 .atlas .iggrid a:hover::after{opacity:1}
 @media(hover:none){.atlas .iggrid a:hover img{transform:none;filter:none}
   .atlas .iggrid a::after{display:none}}
+/* ---- phones: the real Instagram profile grid --------------------------------
+   Measured off instagram.com rather than guessed: the cell is 3:4 (309x412 on
+   their layout, not the 4:5 the feed uses), the gutter is a single pixel, the
+   tiles are square-cornered and the grid runs edge to edge with no page margin.
+   Desktop is deliberately untouched — it keeps the 4-up rounded squares. */
+@media(max-width:680px){
+  .atlas .iggrid{
+    grid-template-columns:repeat(3,1fr);gap:1px;
+    /* break out of .wrap-w's 20px padding so it bleeds to both edges */
+    margin-left:-20px;margin-right:-20px;width:calc(100% + 40px)}
+  .atlas .iggrid a{border-radius:0}
+  .atlas .iggrid img{aspect-ratio:3/4}
+}
 .atlas .igcta{margin-top:30px}
