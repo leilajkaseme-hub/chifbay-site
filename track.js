@@ -20,7 +20,7 @@
   "use strict";
 
   var CFG = {
-    GA4_ID: "",              // "G-XXXXXXXXXX"  — Google Analytics 4, not created yet
+    GA4_ID: "G-RG8NSKRJ80",  // GA4 property "Chifbay", stream 15408899827
     META_PIXEL_ID: "",       // "1234567890123" — Meta (Facebook/Instagram) pixel
     GOOGLE_ADS_ID: "AW-18236394775",  // Google Ads 101-842-4407, tag GT-T9BH5NKD
 
