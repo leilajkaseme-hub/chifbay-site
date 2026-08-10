@@ -552,8 +552,12 @@ body:has(.annc) #nav{top:36px}
 .plat-item .pa{width:auto;flex-shrink:0;display:block}
 /* Viator's single-line wordmark, reversed to paper so it reads on the ink band. */
 .plat-item .pa-rev{height:16px;color:var(--paper);fill:currentColor}
-/* GetYourGuide stack three lines of type, so it needs the height to stay legible. */
-.plat-item .pa-stack{height:27px}
+/* GetYourGuide's horizontal wordmark, rebuilt 2026-08-10 from the brand's own
+   letterforms: the artwork we hold is the stacked three-line lockup, so each line
+   is clipped out of it and re-laid on one baseline (see the #pl-getyourguide symbol).
+   Reversed to paper like Viator — it is pure lettering with no separable icon, so
+   the whole mark is the "text part" and goes white on this dark band. */
+.plat-item .pa-word{height:14px;color:var(--paper);fill:currentColor}
 .plat-item.pi-viator,.plat-item.pi-getyourguide{padding-left:24px;padding-right:24px}
 
 /* Official brand hex per glyph (Simple Icons). */
@@ -567,7 +571,7 @@ body:has(.annc) #nav{top:36px}
   .plat-item .pn{font-size:.85rem}
   .plat-item .pg{width:17px;height:17px}
   .plat-item .pa-rev{height:14px}
-  .plat-item .pa-stack{height:23px}
+  .plat-item .pa-word{height:12px}
   .plat-track{animation-duration:42s}
 }
 /* A moving strip is exactly what this setting is for: stop it and let it wrap. */
