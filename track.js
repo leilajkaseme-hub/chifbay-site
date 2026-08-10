@@ -154,13 +154,22 @@
     document.head.appendChild(s);
   }
 
+  // On the Wix booking site the tags belong to Wix (Settings -> Marketing
+  // Integrations), because only Wix's own integration fires the automatic
+  // booking and purchase events, with the real amount paid. We must not load
+  // or configure the same ids a second time there — that would count every
+  // page view and every booking twice. Here we only speak consent.
+  var ON_BOOKING = location.hostname === CFG.BOOKING_HOST;
+
   function bootGoogle() {
     if (!CFG.GA4_ID && !CFG.GOOGLE_ADS_ID) return;
 
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
+    if (!window.gtag) window.gtag = function () { window.dataLayer.push(arguments); };
 
     // Denied by default, before anything loads. Required in the EEA.
+    // Queued on the dataLayer, so this reaches Wix's tag too, whichever
+    // of the two scripts the browser runs first.
     gtag("consent", "default", {
       ad_storage: "denied",
       ad_user_data: "denied",
@@ -168,6 +177,8 @@
       analytics_storage: "denied",
       wait_for_update: 500
     });
+
+    if (ON_BOOKING) return;
 
     gtag("js", new Date());
     // cookie_domain pins the cookie to the root so the Wix booking subdomain
@@ -181,7 +192,7 @@
   }
 
   function bootMeta() {
-    if (!CFG.META_PIXEL_ID) return;
+    if (!CFG.META_PIXEL_ID || ON_BOOKING) return;
 
     /* eslint-disable */
     !function (f, b, e, v, n, t, s) {
@@ -270,7 +281,9 @@
     btns.appendChild(button(t[1], true, function () {
       setConsent("granted");
       bar.remove();
-      if (window.fbq) fbq("track", "PageView"); // the first one ran without consent
+      // The first PageView ran before consent, so send it now. Not on the
+      // booking site — the pixel there is Wix's and it sends its own.
+      if (window.fbq && !ON_BOOKING) fbq("track", "PageView");
     }));
 
     bar.appendChild(text);

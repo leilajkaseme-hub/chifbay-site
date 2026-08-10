@@ -132,6 +132,32 @@ await p3.goto(`${BASE}/posts/top-10-beaches-in-madeira.html`);
 await p3.waitForTimeout(400);
 ok("/posts/ page loads track.js from the site root", served);
 
+// 7. On the Wix booking site the tags are Wix's, so we must speak consent but
+//    never configure the ids again. Faked by telling track.js that this host
+//    IS the booking host.
+const BOOKING_SRC = SRC.replace('BOOKING_HOST: "book.chifbay.com"', 'BOOKING_HOST: "127.0.0.1"');
+const bctx = await browser.newContext();
+await bctx.route("**/track.js", r =>
+  r.fulfill({ contentType: "application/javascript", body: BOOKING_SRC }));
+let loadedGtagJs = false;
+const bp = await bctx.newPage();
+bp.on("request", r => { if (r.url().includes("googletagmanager.com/gtag/js")) loadedGtagJs = true; });
+for (const host of ["**googletagmanager.com**", "**google-analytics.com**", "**googleadservices.com**",
+                    "**connect.facebook.net**", "**facebook.com**"]) {
+  await bctx.route(host, r => r.abort());
+}
+
+await bp.goto(`${BASE}/index.html`);
+await bp.waitForTimeout(600);
+
+const dl = await bp.evaluate(() => (window.dataLayer || []).map(a => Array.from(a)));
+ok("booking site still sets consent defaults",
+  dl.some(a => a[0] === "consent" && a[1] === "default" && a[2].ad_storage === "denied"), JSON.stringify(dl));
+ok("booking site does NOT config the ids again",
+  !dl.some(a => a[0] === "config"), JSON.stringify(dl));
+ok("booking site does not load gtag.js", !loadedGtagJs);
+ok("booking site still asks for consent", await bp.isVisible("#cb-consent"));
+
 await browser.close();
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
