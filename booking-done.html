@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Booking confirmed | Chifbay</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="peak.css"/>
+<script defer src="/track.js"></script>
+<style>
+.dnwrap{max-width:640px;margin:0 auto;padding:90px 20px 110px;text-align:center}
+.dnmark{width:74px;height:74px;border-radius:50%;margin:0 auto 26px;display:flex;align-items:center;
+  justify-content:center;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.45);font-size:32px}
+.dnh{font-family:'Playfair Display',serif;font-size:clamp(28px,4.4vw,40px);margin:0 0 12px}
+.dnsub{opacity:.66;font-size:16px;line-height:1.65;margin:0 0 34px}
+.dncard{text-align:left;padding:24px;border-radius:13px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.11);display:grid;gap:11px}
+.dnrow{display:flex;justify-content:space-between;gap:16px;font-size:15px}
+.dnrow span:first-child{opacity:.55;font-family:'Space Mono',monospace;font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+.dnrow span:last-child{text-align:right;font-weight:500}
+.dnnext{margin-top:32px;font-size:14.5px;opacity:.62;line-height:1.7}
+.dnbtn{display:inline-block;margin-top:28px;padding:14px 32px;border-radius:10px;
+  background:var(--gold,#c9a227);color:#0b0f14;font-weight:600;text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap ni">
+  <a class="logo" href="/"><img decoding="async" src="assets/logo-white.png" alt="Chifbay"></a>
+</div></nav>
+
+<main class="dnwrap">
+  <div id="dnbody">
+    <p class="dnsub">Checking your payment…</p>
+  </div>
+</main>
+
+<script src="/booking-config.js"></script>
+<script>
+(function () {
+  var id = new URLSearchParams(location.search).get("session_id");
+  var body = document.getElementById("dnbody");
+  if (!id) { location.replace("/book.html"); return; }
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  fetch(window.CHIFBAY_API + "/v1/session?id=" + encodeURIComponent(id))
+    .then(function (r) { return r.json(); })
+    .then(function (res) {
+      if (!res.paid) {
+        body.innerHTML =
+          '<h1 class="dnh">Payment not completed</h1>' +
+          '<p class="dnsub">Nothing has been charged and your slot has been released. ' +
+          'You can <a href="/book.html">try again</a> or message us on WhatsApp.</p>';
+        return;
+      }
+      var b = res.booking || {};
+      var d = b.date ? new Date(b.date + "T00:00:00Z")
+        .toLocaleDateString("en", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
+        : "";
+      body.innerHTML =
+        '<div class="dnmark">⚓</div>' +
+        '<h1 class="dnh">You are booked</h1>' +
+        '<p class="dnsub">We have sent a confirmation to ' + esc(res.email || "your email") +
+        '. See you at Marina do Funchal.</p>' +
+        '<div class="dncard">' +
+          '<div class="dnrow"><span>Trip</span><span>' + esc(b.variant || "") + '</span></div>' +
+          '<div class="dnrow"><span>Date</span><span>' + esc(d) + '</span></div>' +
+          '<div class="dnrow"><span>Departure</span><span>' + esc(b.time || "") + ' — Funchal time</span></div>' +
+          '<div class="dnrow"><span>Guests</span><span>' + esc(b.guests || "") + '</span></div>' +
+          '<div class="dnrow"><span>Paid</span><span>€' + ((res.amount || 0) / 100).toFixed(0) + '</span></div>' +
+        '</div>' +
+        '<p class="dnnext">Please be at the pontoon 15 minutes early. Bring a towel, ' +
+        'sunscreen and a light layer for the run back. Free cancellation up to 24 hours before.</p>' +
+        '<a class="dnbtn" href="/">Back to the site</a>';
+    })
+    .catch(function () {
+      body.innerHTML =
+        '<h1 class="dnh">We could not load your booking</h1>' +
+        '<p class="dnsub">If your card was charged you are booked — ' +
+        'message us on WhatsApp and we will confirm straight away.</p>';
+    });
+})();
+</script>
+</body>
+</html>

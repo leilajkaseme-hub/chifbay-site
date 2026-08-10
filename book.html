@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Book your boat | Chifbay — Funchal, Madeira</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
+<meta name="description" content="Book a private boat trip from Funchal, Madeira. Pick your date and departure, pay by card, done — no third-party site.">
+<!-- Kept out of Google until the payment is live. Delete this line to launch. -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="peak.css"/>
+<link rel="stylesheet" href="motion.css"/>
+<script defer src="/track.js"></script>
+<style>
+/* Booking flow — kept in this page so the shared stylesheets stay untouched. */
+.bkwrap{max-width:900px;margin:0 auto;padding:150px 20px 90px}
+.bksteps{display:flex;gap:8px;justify-content:center;margin-bottom:34px}
+.bkdot{width:34px;height:4px;border-radius:2px;background:rgba(255,255,255,.16);transition:background .3s}
+.bkdot.now{background:var(--gold,#c9a227)}
+.bkdot.done{background:rgba(201,162,39,.45)}
+.bkstep{display:none}
+.bkstep.on{display:block;animation:bkin .35s ease both}
+@keyframes bkin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.bkh{font-family:'Playfair Display',serif;font-size:clamp(24px,3.4vw,34px);margin:0 0 6px}
+.bksub{opacity:.62;margin:0 0 26px;font-size:15px}
+
+.bkcards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.bkcard{position:relative;text-align:left;padding:22px;border-radius:14px;cursor:pointer;
+  background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.1);color:inherit;
+  font:inherit;transition:border-color .25s,background .25s,transform .25s}
+.bkcard:hover{border-color:rgba(201,162,39,.5);background:rgba(255,255,255,.06);transform:translateY(-2px)}
+.bkcard.sel{border-color:var(--gold,#c9a227);background:rgba(201,162,39,.09)}
+.bkck{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.bkcard h3{font-family:'Playfair Display',serif;font-size:21px;margin:8px 0 8px}
+.bkcard p{font-size:14px;line-height:1.55;opacity:.72;margin:0 0 14px}
+.bkmeta{display:block;font-size:12.5px;opacity:.55;margin-bottom:14px}
+.bkprice{font-family:'Playfair Display',serif;font-size:26px;display:flex;align-items:baseline;gap:8px}
+.bkprice em{font-style:normal;font-size:11.5px;opacity:.5;letter-spacing:.06em}
+
+.bkcalhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.bkcalhead strong{font-family:'Playfair Display',serif;font-size:19px;font-weight:500}
+.bknav{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);color:inherit;font-size:18px;cursor:pointer}
+.bknav:hover{border-color:var(--gold,#c9a227)}
+#bkcal{max-width:560px}
+.bkgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.bkdow{text-align:center;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;opacity:.42;padding-bottom:6px}
+.bkday{position:relative;min-height:44px;padding:11px 0 15px;display:flex;align-items:center;
+  justify-content:center;border-radius:9px;font-size:14.5px;background:rgba(255,255,255,.05);
+  border:1px solid transparent;color:inherit;font-family:inherit;cursor:pointer;transition:.2s}
+.bkday i{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;background:var(--gold,#c9a227)}
+.bkday:hover{border-color:rgba(201,162,39,.6)}
+.bkday.sel{background:var(--gold,#c9a227);color:#0b0f14;font-weight:600}
+.bkday.sel i{background:#0b0f14}
+.bkday.off{opacity:.2;background:transparent;cursor:default}
+.bkhint{font-size:14px;opacity:.65;margin:20px 0 10px}
+.bktimerow{display:flex;flex-wrap:wrap;gap:10px}
+.bktime{padding:13px 26px;border-radius:10px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);color:inherit;font:inherit;font-size:16px;cursor:pointer;transition:.2s}
+.bktime:hover{border-color:var(--gold,#c9a227)}
+.bktime.sel{background:var(--gold,#c9a227);color:#0b0f14;border-color:var(--gold,#c9a227);font-weight:600}
+.bkload{opacity:.55;font-size:14px;padding:26px 0}
+
+.bksumbox{padding:20px;border-radius:12px;background:rgba(201,162,39,.07);
+  border:1px solid rgba(201,162,39,.28);display:grid;gap:5px;margin-bottom:26px}
+.bksumbox strong{font-family:'Playfair Display',serif;font-size:19px;font-weight:500}
+.bksumbox span{font-size:14px;opacity:.75}
+.bksumprice{font-family:'Playfair Display',serif;font-size:25px!important;opacity:1!important;margin-top:6px}
+
+.bkfields{display:grid;gap:15px;grid-template-columns:1fr 1fr}
+.bkfield{display:flex;flex-direction:column;gap:6px}
+.bkfield.wide{grid-column:1/-1}
+.bkfield label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;opacity:.55}
+.bkfield input,.bkfield select{padding:13px 14px;border-radius:9px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);color:inherit;font:inherit;font-size:15px}
+.bkfield input:focus,.bkfield select:focus{outline:none;border-color:var(--gold,#c9a227)}
+.bkfield select option{background:#101720;color:#fff}
+
+.bkactions{display:flex;gap:12px;align-items:center;margin-top:28px;flex-wrap:wrap}
+.bkbtn{padding:15px 34px;border-radius:10px;background:var(--gold,#c9a227);color:#0b0f14;
+  border:none;font:inherit;font-weight:600;font-size:15.5px;cursor:pointer;transition:.2s}
+.bkbtn:hover:not(:disabled){filter:brightness(1.08)}
+.bkbtn:disabled{opacity:.35;cursor:not-allowed}
+.bkback{background:none;border:none;color:inherit;opacity:.6;font:inherit;font-size:14px;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px}
+.bkback:hover{opacity:1}
+.bkmsg{display:none;margin-top:16px;padding:13px 16px;border-radius:9px;font-size:14.5px}
+.bkmsg.on{display:block}
+.bkmsg.err{background:rgba(220,70,70,.12);border:1px solid rgba(220,70,70,.4)}
+.bksafe{font-size:12.5px;opacity:.45;margin-top:18px;line-height:1.6}
+#bkstripe{min-height:520px;border-radius:12px;overflow:hidden}
+@media(max-width:640px){.bkfields{grid-template-columns:1fr}.bkwrap{padding:36px 16px 70px}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap ni">
+  <a class="logo" href="/"><img decoding="async" src="assets/logo-white.png" alt="Chifbay — private boat tours in Madeira, Funchal"></a>
+  <nav class="nl">
+    <a href="/">Home</a>
+    <a href="experiences.html">Experiences</a>
+    <a href="about.html">The Story</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Contact</a>
+    <a href="/reviews.html">Reviews</a>
+  </nav>
+  <div style="display:flex;align-items:center">
+    <a class="nc" href="#bkbox">Book your boat</a>
+    <button class="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="annc"><span>Best price, direct — you are booking on chifbay.com</span></div>
+
+<main class="bkwrap" id="bkbox">
+
+  <div class="bksteps">
+    <span class="bkdot now" data-step="1"></span>
+    <span class="bkdot" data-step="2"></span>
+    <span class="bkdot" data-step="3"></span>
+    <span class="bkdot" data-step="4"></span>
+  </div>
+
+  <div id="bkloading"><p class="bkload">Loading the boat calendar…</p></div>
+
+  <div id="bkflow" hidden>
+
+    <!-- 1. which trip -->
+    <section class="bkstep on" data-step="1">
+      <h1 class="bkh">Choose your trip</h1>
+      <p class="bksub">The whole boat is yours — never shared with another group.</p>
+      <div class="bkcards" id="bktrips"></div>
+    </section>
+
+    <!-- 2. when -->
+    <section class="bkstep" data-step="2">
+      <h2 class="bkh">Pick your day</h2>
+      <p class="bksub">Days with a dot are open. Everything is Funchal time.</p>
+      <div id="bkcal"></div>
+      <div id="bktimes"></div>
+      <div class="bkactions">
+        <button type="button" class="bkbtn" id="bkto3" disabled>Continue</button>
+        <button type="button" class="bkback" data-back="1">Back</button>
+      </div>
+    </section>
+
+    <!-- 3. who -->
+    <section class="bkstep" data-step="3">
+      <h2 class="bkh">Who is coming?</h2>
+      <p class="bksub">We only need this to meet you at the marina.</p>
+      <div class="bksumbox" id="bksum"></div>
+      <form id="bkform">
+        <div class="bkfields">
+          <div class="bkfield wide">
+            <label for="bkname">Lead guest name</label>
+            <input id="bkname" name="name" type="text" required autocomplete="name" maxlength="120">
+          </div>
+          <div class="bkfield">
+            <label for="bkemail">Email</label>
+            <input id="bkemail" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="bkfield">
+            <label for="bkphone">Phone (WhatsApp)</label>
+            <input id="bkphone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+          </div>
+          <div class="bkfield">
+            <label for="bkguests">Guests</label>
+            <select id="bkguests" name="guests" required></select>
+          </div>
+        </div>
+        <div class="bkactions">
+          <button type="submit" class="bkbtn" id="bkpay">Pay and confirm</button>
+          <button type="button" class="bkback" data-back="2">Back</button>
+        </div>
+        <div class="bkmsg" id="bkmsg"></div>
+        <p class="bksafe">
+          Free cancellation up to 24 hours before departure. Your card details go
+          straight to Stripe and are never seen by us or stored on this site.
+        </p>
+      </form>
+    </section>
+
+    <!-- 4. pay -->
+    <section class="bkstep" data-step="4">
+      <h2 class="bkh">Payment</h2>
+      <p class="bksub">Your slot is held for 30 minutes while you finish.</p>
+      <div id="bkstripe"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbot">
+      <span class="fcr">32.6442° N · 16.9165° W — © <span id="yr">2026</span> Chifbay · Madeira, Portugal</span>
+      <span class="fcr">Funchal Marina · Built for the Atlantic</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/351937200320" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/booking-config.js"></script>
+<script src="/booking.js"></script>
+<script src="peak.js"></script>
+</body>
+</html>
