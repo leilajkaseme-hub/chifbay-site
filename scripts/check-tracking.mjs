@@ -21,9 +21,12 @@ const { chromium } = await import("playwright").catch(() =>
   import(path.join(ROOT, "scripts/reviews-auto/node_modules/playwright/index.mjs"))
 );
 
+// Fake ids everywhere, including the real Google Ads one — a test run must
+// never be able to put junk data into the live account.
 const SRC = fs.readFileSync(path.join(ROOT, "track.js"), "utf8")
-  .replace('GA4_ID: ""', 'GA4_ID: "G-TEST12345"')
-  .replace('META_PIXEL_ID: ""', 'META_PIXEL_ID: "111222333"')
+  .replace(/GA4_ID: "[^"]*"/, 'GA4_ID: "G-TEST12345"')
+  .replace(/META_PIXEL_ID: "[^"]*"/, 'META_PIXEL_ID: "111222333"')
+  .replace(/GOOGLE_ADS_ID: "[^"]*"/, 'GOOGLE_ADS_ID: "AW-000000000"')
   .replace("DEBUG: false", "DEBUG: true");
 
 const PORT = 8791;
@@ -44,10 +47,12 @@ const browser = await chromium.launch();
 const ctx = await browser.newContext();
 const page = await ctx.newPage();
 
-// Serve the patched file, and swallow the real tag requests.
-await page.route("**/track.js", r => r.fulfill({ contentType: "application/javascript", body: SRC }));
-for (const host of ["**googletagmanager.com**", "**connect.facebook.net**", "**facebook.com**"]) {
-  await page.route(host, r => r.abort());
+// Serve the patched file, and swallow the real tag requests. Routed on the
+// context, not the page, so every tab this test opens is covered.
+await ctx.route("**/track.js", r => r.fulfill({ contentType: "application/javascript", body: SRC }));
+for (const host of ["**googletagmanager.com**", "**google-analytics.com**", "**googleadservices.com**",
+                    "**connect.facebook.net**", "**facebook.com**"]) {
+  await ctx.route(host, r => r.abort());
 }
 
 const logs = [];
@@ -110,7 +115,7 @@ ok("whatsapp click fired", ev.includes("contact_whatsapp"), JSON.stringify(ev));
 
 // 5. a later plain visit must not wipe the attribution
 const p2 = await ctx.newPage();
-await p2.route("**/track.js", r => r.fulfill({ contentType: "application/javascript", body: SRC }));
+
 await p2.goto(`${BASE}/about.html`);
 await p2.waitForTimeout(400);
 c = await cookies();
@@ -121,10 +126,11 @@ ok("no second banner after choosing", !(await p2.isVisible("#cb-consent")));
 // 6. a page deep in /posts/ loads the same absolute file
 const p3 = await ctx.newPage();
 let served = false;
-await p3.route("**/track.js", r => { served = true; r.fulfill({ contentType: "application/javascript", body: SRC }); });
+p3.on("request", r => { if (r.url().endsWith("/track.js")) served = true; });
+
 await p3.goto(`${BASE}/posts/top-10-beaches-in-madeira.html`);
 await p3.waitForTimeout(400);
-ok("/posts/ page loads track.js", served);
+ok("/posts/ page loads track.js from the site root", served);
 
 await browser.close();
 console.log(`\n${pass} passed, ${fail} failed`);

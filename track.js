@@ -20,9 +20,14 @@
   "use strict";
 
   var CFG = {
-    GA4_ID: "",              // "G-XXXXXXXXXX"  — Google Analytics 4
+    GA4_ID: "",              // "G-XXXXXXXXXX"  — Google Analytics 4, not created yet
     META_PIXEL_ID: "",       // "1234567890123" — Meta (Facebook/Instagram) pixel
-    GOOGLE_ADS_ID: "",       // "AW-123456789"  — optional, only for Google Ads
+    GOOGLE_ADS_ID: "AW-18236394775",  // Google Ads 101-842-4407, tag GT-T9BH5NKD
+
+    // The "Achat" conversion action. The booking finishes on the Wix site, so
+    // this is fired there — see wix-custom-code.html, which reads it from here
+    // so the id and the label only ever live in one file.
+    ADS_PURCHASE_LABEL: "-K9yCPXlqr4cEJea5fdD",
 
     COOKIE_DOMAIN: ".chifbay.com",
     BOOKING_HOST: "book.chifbay.com",
@@ -302,6 +307,15 @@
     log("event", gaName, params);
   }
   window.cbTrack = fire;
+
+  // Read-only, for the Wix snippet: it needs the Google Ads id and the
+  // conversion label, and must not carry its own copy of them.
+  window.cbCfg = {
+    googleAdsId: CFG.GOOGLE_ADS_ID,
+    adsPurchaseLabel: CFG.ADS_PURCHASE_LABEL,
+    ga4Id: CFG.GA4_ID,
+    metaPixelId: CFG.META_PIXEL_ID
+  };
 
   /* ---------------------------------------------- carry the id to the Wix */
 
