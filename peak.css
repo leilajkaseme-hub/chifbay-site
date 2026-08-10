@@ -521,23 +521,21 @@ body:has(.annc) #nav{top:36px}
 .tli[data-ic="snorkel"]::after{background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0be7a' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='7' width='12' height='7' rx='3'/><path d='M10 14v2a2 2 0 0 0 2 2h1'/><path d='M16 8h2a2 2 0 0 1 2 2v9'/></svg>")}
 
 /* PLATFORMS — marquee band under the hero proof line.
-   Its own full-bleed band with hairlines so it reads as a distinct section rather
-   than more body copy. Glyphs carry each brand's official colour; the wordmarks stay
-   paper white so Viator and GetYourGuide, which publish no open mark, sit level with
-   the rest instead of looking second class. */
+   Its own full-bleed band with hairlines so it reads as a section, not body copy. */
 .plat-band{position:relative;padding:clamp(20px,3.2vh,34px) 0;overflow:hidden;
   background:rgba(255,255,255,.028);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
 .plat-head{text-align:center;margin:0 0 clamp(14px,2vh,20px);
   font-size:clamp(.98rem,1.6vw,1.22rem);font-weight:500;color:var(--paper)}
 
-/* Two identical tracks scroll as one; the edges fade so items enter and leave
-   without a hard cut at the viewport border. */
+/* Two identical tracks scroll as one. Each track repeats the set three times so it is
+   always wider than the viewport — the loop shifts by 100% of the TRACK, so a track
+   narrower than the screen leaves a dead gap before it wraps. */
 .plat-mq{display:flex;overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 .plat-track{display:flex;flex-shrink:0;align-items:center;list-style:none;
   gap:clamp(12px,2.2vw,26px);padding:0 clamp(6px,1.1vw,13px);margin:0;
-  animation:plat-scroll 32s linear infinite}
+  animation:plat-scroll 60s linear infinite;will-change:transform}
 .plat-band:hover .plat-track{animation-play-state:paused}
 @keyframes plat-scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 
@@ -545,10 +543,20 @@ body:has(.annc) #nav{top:36px}
   padding:11px 21px;border-radius:100px;border:1px solid var(--hair-strong);
   background:rgba(255,255,255,.035);transition:border-color .25s,background .25s,transform .25s}
 .plat-item:hover{border-color:rgba(255,255,255,.34);background:rgba(255,255,255,.07);transform:translateY(-2px)}
-.plat-item svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
 .plat-item .pn{font-size:.95rem;font-weight:500;color:var(--paper);letter-spacing:.01em}
 
-/* Official brand hex per mark (Simple Icons). */
+/* .pg — square Simple Icons glyph, tinted by the brand hex below. */
+.plat-item .pg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+/* .pa — the brand's own artwork, which already carries its colours. Sized by height so
+   the wide Viator wordmark and the squarer GetYourGuide mark sit on the same baseline. */
+.plat-item .pa{width:auto;flex-shrink:0;display:block}
+/* Viator's single-line wordmark, reversed to paper so it reads on the ink band. */
+.plat-item .pa-rev{height:16px;color:var(--paper);fill:currentColor}
+/* GetYourGuide stack three lines of type, so it needs the height to stay legible. */
+.plat-item .pa-stack{height:27px}
+.plat-item.pi-viator,.plat-item.pi-getyourguide{padding-left:24px;padding-right:24px}
+
+/* Official brand hex per glyph (Simple Icons). */
 .plat-item[data-b="airbnb"]{color:#FF5A5F}
 .plat-item[data-b="tripadvisor"]{color:#34E0A1}
 .plat-item[data-b="googlemaps"]{color:#4285F4}
@@ -557,13 +565,14 @@ body:has(.annc) #nav{top:36px}
 @media(max-width:640px){
   .plat-item{padding:9px 16px;gap:8px}
   .plat-item .pn{font-size:.85rem}
-  .plat-item svg{width:17px;height:17px}
-  .plat-track{animation-duration:24s}
+  .plat-item .pg{width:17px;height:17px}
+  .plat-item .pa-rev{height:14px}
+  .plat-item .pa-stack{height:23px}
+  .plat-track{animation-duration:42s}
 }
 /* A moving strip is exactly what this setting is for: stop it and let it wrap. */
 @media(prefers-reduced-motion:reduce){
-  .plat-track{animation:none}
   .plat-mq{flex-wrap:wrap;justify-content:center;-webkit-mask-image:none;mask-image:none}
+  .plat-track{animation:none;flex-wrap:wrap;justify-content:center;row-gap:10px}
   .plat-track:nth-child(2){display:none}
-  .plat-track{flex-wrap:wrap;justify-content:center;row-gap:10px}
 }
