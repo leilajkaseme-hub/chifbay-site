@@ -26,6 +26,8 @@
 .dnbtn{display:inline-block;margin-top:28px;padding:14px 32px;border-radius:100px;
   background:var(--teal,#e0be7a);color:var(--ink,#050f18);font-weight:600;text-decoration:none}
 .dnsub a{color:var(--teal,#e0be7a)}
+.dntest{margin:0 0 18px;padding:10px 14px;border-radius:10px;font-size:13px;letter-spacing:.04em;
+  background:rgba(212,84,84,.12);border:1px solid rgba(212,84,84,.45);color:#ffc9c9}
 </style>
 </head>
 <body>
@@ -69,7 +71,9 @@
       // The money event. Wix used to fire this; now it happens here.
       // Guarded by sessionStorage so a page refresh cannot count twice.
       try {
-        if (!sessionStorage.getItem("cb_purchase_" + id)) {
+        // A test payment is a real charge but not a real sale. Keeping it out
+        // of the reports matters more than counting it.
+        if (!res.test && !sessionStorage.getItem("cb_purchase_" + id)) {
           sessionStorage.setItem("cb_purchase_" + id, "1");
           var value = (res.amount || 0) / 100;
           if (window.cbTrack) {
@@ -97,6 +101,8 @@
         : "";
       body.innerHTML =
         '<div class="dnmark">⚓</div>' +
+        (res.test ? '<p class="dntest">TEST BOOKING — discounted, not a real sale. ' +
+          'Refund it in Stripe and free the slot when you are done.</p>' : '') +
         '<h1 class="dnh">You are booked</h1>' +
         '<p class="dnsub">Your booking is confirmed. We will be in touch on ' +
         esc(res.email || "your email") + '. See you at Marina do Funchal.</p>' +

@@ -23,6 +23,11 @@
   text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:12px}
 .bkkick::before{content:"";width:28px;height:1px;background:var(--teal);opacity:.7}
 
+/* Only ever shown when the URL carries ?test=<token>. Loud on purpose. */
+.bktest{margin:0 0 26px;padding:13px 18px;border-radius:var(--radius);font-size:.86rem;
+  line-height:1.6;background:rgba(212,84,84,.12);border:1px solid rgba(212,84,84,.45);
+  color:#ffc9c9;font-family:'Space Mono',monospace;letter-spacing:.03em}
+
 /* ------------------------------------------------------------------ layout */
 .bkwrap{max-width:1120px;margin:0 auto;padding:44px 32px 90px}
 .bksteps{display:flex;gap:8px;justify-content:center;margin-bottom:34px}

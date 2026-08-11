@@ -83,6 +83,14 @@
 
   function locale() { return (C && C.lang) || document.documentElement.lang || "en"; }
 
+  /* ?test=<token> lets the owner put a real card through the real live flow at
+     a tenth of the price, to prove 3D Secure works. The Worker decides whether
+     the token is real; the browser only carries it. */
+  function testToken() {
+    var m = /[?&]test=([A-Za-z0-9_-]{8,120})/.exec(location.search);
+    return m ? m[1] : "";
+  }
+
   function longDate(s) {
     var d = parseYmd(s);
     return d.toLocaleDateString(locale(), {
@@ -446,6 +454,10 @@
         name: $("#bkname").value,
         email: $("#bkemail").value,
         phone: $("#bkphone").value,
+        // Only ever set when the URL carries ?test=<token>. The Worker checks
+        // it against a secret; an invalid or missing one simply charges the
+        // normal price, so this is harmless to leave in.
+        testToken: testToken(),
       }),
     })
       .then(function (res) {
@@ -493,6 +505,16 @@
 
     state.only = root.dataset.trip || null;
     fillWords();
+
+    // Make a discounted run impossible to mistake for the real thing.
+    if (testToken()) {
+      var warn = document.createElement("p");
+      warn.className = "bktest";
+      warn.textContent =
+        "TEST MODE — this link charges 90% less than the price shown. " +
+        "A real card, a real charge, a real booking. Refund it afterwards.";
+      root.insertBefore(warn, root.firstChild);
+    }
 
     // The map needs no network, so draw it straight away — the page is never
     // empty while the calendar loads.
