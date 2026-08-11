@@ -64,6 +64,33 @@
         return;
       }
       var b = res.booking || {};
+
+      // The money event. Wix used to fire this; now it happens here.
+      // Guarded by sessionStorage so a page refresh cannot count twice.
+      try {
+        if (!sessionStorage.getItem("cb_purchase_" + id)) {
+          sessionStorage.setItem("cb_purchase_" + id, "1");
+          var value = (res.amount || 0) / 100;
+          if (window.cbTrack) {
+            window.cbTrack("purchase", "Purchase", {
+              currency: (res.currency || "eur").toUpperCase(),
+              value: value,
+              transaction_id: id,
+              item_name: b.label || b.variant || "",
+            });
+          }
+          var cfg = window.cbCfg || {};
+          if (window.gtag && cfg.googleAdsId && cfg.adsPurchaseLabel) {
+            gtag("event", "conversion", {
+              send_to: cfg.googleAdsId + "/" + cfg.adsPurchaseLabel,
+              value: value,
+              currency: (res.currency || "eur").toUpperCase(),
+              transaction_id: id,
+            });
+          }
+        }
+      } catch (e) { /* tracking must never break the confirmation */ }
+
       var d = b.date ? new Date(b.date + "T00:00:00Z")
         .toLocaleDateString("en", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
         : "";

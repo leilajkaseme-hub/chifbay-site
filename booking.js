@@ -263,6 +263,15 @@
     })
       .then(function (res) {
         if (!CFG.PK) throw new Error("Payments are not switched on yet.");
+        // Same event the old Wix link used to fire, so the ads keep learning.
+        if (window.cbTrack) {
+          var v = state.catalogue.trips[state.trip].variants[state.variant];
+          window.cbTrack("begin_checkout", "InitiateCheckout", {
+            currency: "EUR",
+            value: res.amount / 100,
+            item_name: state.catalogue.trips[state.trip].name + " — " + v.name,
+          });
+        }
         step(4);
         return Stripe(CFG.PK).initEmbeddedCheckout({ clientSecret: res.clientSecret });
       })
