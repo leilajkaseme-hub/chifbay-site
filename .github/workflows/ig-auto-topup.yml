@@ -65,11 +65,15 @@ jobs:
 
       # Only ever the automation's own folders. The website itself is never
       # touched by this job.
+      #
+      # Directories, not individual files: state.json and ledger.jsonl do not
+      # exist until the first post, and `git add` on a missing path is a hard
+      # error (exit 128), not a skip.
       - name: Commit & push
         env:
           BUILT: ${{ steps.build.outputs.built }}
         run: |
-          git add ig-auto/queue ig-auto/state.json ig
+          git add ig-auto ig
           if git diff --staged --quiet; then
             echo "nothing new to commit"
             exit 0

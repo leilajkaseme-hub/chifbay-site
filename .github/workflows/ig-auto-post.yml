@@ -54,10 +54,12 @@ jobs:
 
       # Runs even if publishing failed, so a failure is recorded in the ledger
       # rather than lost with the runner.
+      # Same reason as the top-up job: ledger.jsonl and state.json do not exist
+      # until the first post, and `git add` on a missing path is a hard error.
       - name: Commit & push the record
         if: always()
         run: |
-          git add ig-auto/queue ig-auto/posted ig-auto/ledger.jsonl ig-auto/state.json
+          git add ig-auto
           if git diff --staged --quiet; then
             echo "nothing to record"
             exit 0
