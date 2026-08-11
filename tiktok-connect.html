@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Connect TikTok | Chifbay</title>
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<!--
+  OAuth landing page for the Chifbay TikTok app.
+
+  TikTok requires a redirect URI it can send the browser back to after the
+  account owner approves the app. This is that page. It is deliberately plain:
+  no tracking, no fonts, no scripts from anywhere else, and noindex.
+
+  The authorization code lands in the URL as ?code=... It is single-use and
+  expires in minutes, so showing it here is safe and saves digging it out of the
+  address bar. It is exchanged for an access token server-side, away from this
+  page, and is never stored here.
+-->
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    background: #0b1015; color: #e8eef4; padding: 24px;
+    font: 400 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .card {
+    width: 100%; max-width: 560px; background: #121a22; border: 1px solid #1f2b36;
+    border-radius: 14px; padding: 32px;
+  }
+  h1 { margin: 0 0 6px; font-size: 1.4rem; font-weight: 600; letter-spacing: -.01em; }
+  p { margin: 0 0 18px; color: #9fb0c0; font-size: .95rem; }
+  code {
+    display: block; word-break: break-all; background: #0b1015; border: 1px solid #22303d;
+    border-radius: 8px; padding: 14px; font: 400 .85rem/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: #7fe0c0; margin-bottom: 14px;
+  }
+  button {
+    background: #2d7ff9; color: #fff; border: 0; border-radius: 8px;
+    padding: 11px 18px; font: 500 .95rem ui-sans-serif, system-ui, sans-serif; cursor: pointer;
+  }
+  button:hover { background: #1b6ae8; }
+  .err { color: #ff9d9d; }
+  .muted { font-size: .82rem; color: #6b7f92; margin: 18px 0 0; }
+  a { color: #7ab8ff; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="title">Connecting TikTok…</h1>
+    <p id="msg">Reading the response from TikTok.</p>
+    <div id="out"></div>
+    <p class="muted">This page is only used once, to connect the Chifbay TikTok account to our posting tool. Nothing is stored here. <a href="/">Back to chifbay.com</a></p>
+  </div>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var code = q.get("code");
+  var err = q.get("error") || q.get("error_description");
+  var title = document.getElementById("title");
+  var msg = document.getElementById("msg");
+  var out = document.getElementById("out");
+
+  if (err) {
+    title.textContent = "TikTok refused the connection";
+    title.className = "err";
+    msg.textContent = "TikTok sent back this error. Nothing was connected.";
+    var e = document.createElement("code");
+    e.textContent = err;
+    out.appendChild(e);
+    return;
+  }
+
+  if (!code) {
+    title.textContent = "Nothing to connect";
+    msg.textContent = "Open this page from the TikTok authorization link, not directly.";
+    return;
+  }
+
+  title.textContent = "TikTok approved";
+  msg.textContent = "Copy this authorization code and paste it where you were asked for it. It expires in a few minutes and only works once.";
+
+  var c = document.createElement("code");
+  c.textContent = code;
+  out.appendChild(c);
+
+  var btn = document.createElement("button");
+  btn.textContent = "Copy code";
+  btn.onclick = function () {
+    navigator.clipboard.writeText(code).then(
+      function () { btn.textContent = "Copied"; },
+      function () { btn.textContent = "Copy failed — select it by hand"; }
+    );
+  };
+  out.appendChild(btn);
+})();
+</script>
+</body>
+</html>
