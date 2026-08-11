@@ -17,6 +17,19 @@
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') setNav(false); });
   }
 
+  /* The gold CTA also belongs inside the open drawer — the pill in the bar is
+     deliberately tiny, and a menu you have just opened is exactly where a big
+     obvious "book" belongs. Cloned before the pill's label is shortened, so
+     this copy keeps the full wording. Self-links (#exp on the experiences
+     page, #bkbox on the booking pages) are skipped: you are already there. */
+  var cta=document.querySelector('#nav .nc');
+  if(cta&&nl&&!nl.querySelector('.nc-drawer')&&(cta.getAttribute('href')||'').charAt(0)!=='#'){
+    var c=cta.cloneNode(true);
+    c.className='nc-drawer';
+    nl.appendChild(c);
+    c.addEventListener('click',function(){ if(tog) tog.click(); });
+  }
+
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   },{threshold:.1,rootMargin:'0px 0px -36px 0px'});
@@ -81,6 +94,7 @@
     host.insertBefore(box, host.firstChild);
   }
   buildLangsel();
+
   function langOf(href){var s=(href||"").split("/").filter(Boolean);return LL.indexOf(s[0])>=0?s[0]:"en";}
   function pageFile(){var f=location.pathname.split("/").pop();return f||"index.html";}
   var p=location.pathname.split("/").filter(Boolean);

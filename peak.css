@@ -731,8 +731,16 @@ body:has(.annc) #nav{top:36px}
      measured from the screen edge, not from the 18px gutter. 8px puts the 24px
      bars themselves on the gutter line, level with the rest of the page. */
   .navtoggle{position:absolute;left:8px;top:50%;transform:translateY(-50%);margin:0}
-  .nc{display:inline-flex;align-items:center;padding:9px 18px;font-size:.72rem;
-    letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+  /* Deliberately tiny — it has to sit opposite a 24px burger without
+     outweighing it. The ::after restores a 44px tap target that the visible
+     pill no longer covers on its own. */
+  .nc{display:inline-flex;align-items:center;position:relative;
+    padding:5px 12px;font-size:.56rem;letter-spacing:.09em;
+    text-transform:uppercase;font-weight:700;line-height:1.45}
+  .nc::after{content:"";position:absolute;left:0;right:0;top:50%;
+    transform:translateY(-50%);height:44px}
+  /* No "book" button on the page you are already booking from. */
+  #nav .nc[href^="#"]{display:none}
 
   .langsel{position:fixed;left:22px;bottom:22px;z-index:90;margin:0}
   .langbtn{width:54px;height:54px;min-height:0;padding:0;border-radius:50%;
@@ -746,6 +754,14 @@ body:has(.annc) #nav{top:36px}
   .langmenu{top:auto;bottom:calc(100% + 12px);left:0;right:auto;min-width:160px}
 }
 
+
+.nl .nc-drawer{display:none}
+@media(max-width:860px){
+  .nl .nc-drawer{display:inline-flex;align-items:center;justify-content:center;
+    background:var(--teal);color:var(--on-accent);border-radius:var(--radius-pill);
+    padding:14px 28px;font-weight:700;font-size:.95rem;text-decoration:none;
+    margin-top:10px;letter-spacing:.02em;text-transform:none;font-family:'Inter',sans-serif}
+}
 
 /* ============================================================
    ROUNDER — 2026-08-11. Softer corners across the board, and

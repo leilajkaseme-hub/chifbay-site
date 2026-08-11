@@ -651,7 +651,10 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 @media(max-width:860px){
   .atlas .nc{display:inline-flex;background:var(--gold);color:var(--on-accent);
     border-color:var(--gold);border-radius:var(--radius-pill);
-    padding:9px 18px;font-size:.66rem;letter-spacing:.12em;font-weight:700}
+    padding:5px 12px;font-size:.55rem;letter-spacing:.09em;font-weight:700;line-height:1.45}
+  .atlas #nav .nc[href^="#"]{display:none}
+  /* the drawer copy keeps atlas's gold, not peak's teal */
+  .atlas .nl .nc-drawer{background:var(--gold);color:var(--on-accent)}
   .atlas .nc:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--on-accent)}
   .atlas #nav.sc .nc{color:var(--on-accent)}
 }
