@@ -109,16 +109,19 @@
   var $ = function (id) { return document.getElementById(id); };
   var out = $("out");
 
-  // The admin key is asked for once per browser session and kept in memory
-  // only. It never goes in the URL and never touches localStorage.
+  // An inline field rather than a prompt(): a native modal blocks the page,
+  // and it looks like a broken tool rather than a product. Kept in
+  // sessionStorage so it survives the round trip to TikTok and back, and is
+  // gone when the tab closes. It never goes in the URL.
   function key() {
-    var k = sessionStorage.getItem("cb-tt-key");
-    if (!k) {
-      k = prompt("Admin key");
-      if (k) sessionStorage.setItem("cb-tt-key", k);
-    }
-    return k || "";
+    return sessionStorage.getItem("cb-tt-key") || "";
   }
+  var keyBox = $("adminkey");
+  keyBox.value = key();
+  keyBox.addEventListener("input", function () {
+    sessionStorage.setItem("cb-tt-key", keyBox.value.trim());
+  });
+  keyBox.addEventListener("change", status);
 
   function show(msg, bad) {
     out.hidden = false;
@@ -154,6 +157,11 @@
 
   // --- account --------------------------------------------------------------
   function status() {
+    if (!key()) {
+      $("dot").className = "dot";
+      $("who").textContent = "Enter the admin key";
+      return;
+    }
     $("who").textContent = "Checking…";
     call("/status").then(function (s) {
       if (s.connected) {
