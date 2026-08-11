@@ -1,0 +1,45 @@
+name: Chifbay Instagram — heartbeat
+
+# The backstop. Every other check verifies one step; this one ignores the steps
+# and asks the only question that matters: did a post actually go out recently?
+#
+# It exists for the failures that produce no error anywhere — GitHub silently
+# disabling the schedule, the Make organisation running out of monthly
+# operations, the scenario being switched off, a queue that ran dry while nobody
+# was looking. In every one of those cases nothing "fails", posts just stop.
+#
+# Twice a week. Silence means the feed is genuinely alive.
+on:
+  schedule:
+    - cron: "0 12 * * 1,4"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Is it still posting?
+        working-directory: ig-auto
+        run: node bin/heartbeat.mjs
+
+      # heartbeat.mjs sends its own detailed alert describing what is wrong;
+      # this only covers the case where the script itself could not run.
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY Instagram heartbeat" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "The Instagram heartbeat check reported a problem. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

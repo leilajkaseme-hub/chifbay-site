@@ -1,0 +1,88 @@
+name: Chifbay Instagram — top up the queue
+
+# Builds tomorrow's posts days before they are needed, so the poster always has
+# something ready. This is the job that is ALLOWED to fail: if it breaks for a
+# week, ig-auto-post.yml keeps posting from the buffer and only warns when the
+# queue gets low.
+#
+# Runs at 05:00 UTC, five hours before the poster, so a cold start (empty
+# queue) still has time to build and for GitHub Pages to publish the images.
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "How many posts to build this run"
+        required: false
+        default: "6"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-auto
+  cancel-in-progress: false
+
+jobs:
+  topup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Captions are written by Claude Code on the subscription OAuth token, the
+      # same way blog-auto.yml does it — no Anthropic API key, no per-post cost.
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Install dependencies
+        working-directory: ig-auto
+        run: npm install --no-audit --no-fund
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build queue items
+        id: build
+        working-directory: ig-auto
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          IG_MAX_PER_RUN: ${{ github.event.inputs.count || '6' }}
+        run: |
+          node bin/topup.mjs | tee /tmp/topup.log
+          {
+            echo "built=$(grep -o 'BUILT=.*' /tmp/topup.log | cut -d= -f2)"
+            echo "queue=$(grep -o 'QUEUE=.*' /tmp/topup.log | cut -d= -f2)"
+          } >> "$GITHUB_OUTPUT"
+
+      # Only ever the automation's own folders. The website itself is never
+      # touched by this job.
+      - name: Commit & push
+        env:
+          BUILT: ${{ steps.build.outputs.built }}
+        run: |
+          git add ig-auto/queue ig-auto/state.json ig
+          if git diff --staged --quiet; then
+            echo "nothing new to commit"
+            exit 0
+          fi
+          git commit -m "Instagram queue: +${BUILT} post(s)"
+          git pull --rebase origin main || true
+          git push
+
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY Instagram top-up FAILED" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "The queue top-up failed. Posting continues from the buffer until it runs dry. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

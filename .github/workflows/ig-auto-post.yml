@@ -1,0 +1,76 @@
+name: Chifbay Instagram — daily post
+
+# The job that must not fail. It takes the oldest item off the queue and hands
+# it to the Make scenario, which owns the Instagram connection.
+#
+# Deliberately minimal: no npm install, no AI provider, no third-party package
+# of any kind. bin/post.mjs uses nothing but Node's own standard library, so
+# the only things that can break a post are GitHub being down or Instagram
+# refusing it — and both of those alert.
+#
+# 10:00 UTC, then the script waits a random 0-90 minutes before publishing, so
+# the account is not posting at the same second every day.
+on:
+  schedule:
+    - cron: "0 10 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-auto
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150   # covers the jitter wait plus retries
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Post to Instagram
+        id: post
+        working-directory: ig-auto
+        env:
+          MAKE_IG_WEBHOOK: ${{ secrets.MAKE_IG_WEBHOOK }}
+          # Only used if config.json is ever switched to the "graph" transport.
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          node bin/post.mjs | tee /tmp/post.log
+          echo "posted=$(grep -o 'POSTED=.*' /tmp/post.log | cut -d= -f2)" >> "$GITHUB_OUTPUT"
+
+      # Runs even if publishing failed, so a failure is recorded in the ledger
+      # rather than lost with the runner.
+      - name: Commit & push the record
+        if: always()
+        run: |
+          git add ig-auto/queue ig-auto/posted ig-auto/ledger.jsonl ig-auto/state.json
+          if git diff --staged --quiet; then
+            echo "nothing to record"
+            exit 0
+          fi
+          git commit -m "Instagram: posted $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main || true
+          git push
+
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY Instagram post FAILED" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "Today's Instagram post did not go out. The item is still in the queue and tomorrow's run will retry it. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true
