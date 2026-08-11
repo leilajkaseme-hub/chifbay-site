@@ -99,4 +99,9 @@
   <url><loc>https://chifbay.com/posts/rabacal-25-fontes-madeira-guide.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://chifbay.com/posts/madeira-bananas-guide.html</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://chifbay.com/posts/madeira-with-kids-family-guide.html</loc><changefreq>monthly</changefreq></url>
+  <url>
+    <loc>https://chifbay.com/book.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>

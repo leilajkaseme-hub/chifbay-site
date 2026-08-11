@@ -9,4 +9,4 @@
  * matching sk_live_… in Cloudflare. Nothing else moves.
  */
 window.CHIFBAY_API = "https://chifbay-booking-api.chifandcopt.workers.dev";
-window.CHIFBAY_STRIPE_PK = "pk_test_51U2w9pJxD5EYSiY2gXkLwjJp5wZmXkdZABuHktDre0KkePB4PMQnDyUAzG5Psr5HLWc1q05FhgUev7RMUQ3nvyGv00kMHk6p82";
+window.CHIFBAY_STRIPE_PK = "pk_live_51U2w9pJxD5EYSiY2dfmzIX2AUaly4adM9TXYnLZPcbXTWe2HL5SjtpMC0SfpfUpPVEuwUox5HpuvnwCtOxjG7jfn00XBM3uQi2";

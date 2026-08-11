@@ -71,11 +71,14 @@ ok("no attribution cookie before consent", !c.cb_attr, c.cb_attr);
 const internal = await page.getAttribute('a[href$="about.html"], a[href*="about.html"]', "href");
 ok("internal link carries gclid before consent", internal.includes("gclid=TESTGCLID"), internal);
 
-// 2. booking links carry it to the Wix site
-const href = await page.getAttribute('a[href*="book.chifbay.com"]', "href");
+// 2. the booking link is now our own page, and still carries the click id
+const href = await page.getAttribute('a[href*="book.html"]', "href");
+ok("booking link points at our own page", href.includes("/book.html"), href);
 ok("booking link carries gclid", href.includes("gclid=TESTGCLID"), href);
-ok("booking link carries utm_campaign", href.includes("utm_campaign=summer2026"), href);
-ok("booking link keeps its own params", href.includes("timezone="), href);
+// utm_* deliberately does not ride on internal links. Booking is same-site
+// now, so the cb_attr cookie carries the campaign the whole way.
+ok("no Wix booking link left on the page",
+   (await page.locator('a[href*="book.chifbay.com"]').count()) === 0);
 
 // 3. consent banner
 ok("banner shown", await page.isVisible("#cb-consent"));
@@ -101,13 +104,10 @@ await page.evaluate(() => document.addEventListener("click", e => {
   const a = e.target.closest("a[href]"); if (a) e.preventDefault();
 }));
 
-await page.click('a[href*="private-sunset-cruise"]');
-await page.waitForTimeout(150);
-let ev = await page.evaluate(() => window.dataLayer.filter(a => a[0] === "event").map(a => [a[1], a[2]]));
-const checkout = ev.find(e => e[0] === "begin_checkout");
-ok("begin_checkout fired", !!checkout, JSON.stringify(ev));
-ok("begin_checkout has the sunset price", checkout && checkout[1].value === 400, JSON.stringify(checkout));
-
+// begin_checkout deliberately no longer fires on the link click. Booking now
+// happens on our own page, so booking.js fires it when the payment step opens,
+// which is the real start of a checkout. Firing here too would double-count.
+let ev;
 await page.click('a[href*="wa.me/"]');
 await page.waitForTimeout(150);
 ev = await page.evaluate(() => window.dataLayer.filter(a => a[0] === "event").map(a => a[1]));
