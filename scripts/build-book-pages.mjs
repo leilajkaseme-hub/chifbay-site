@@ -243,7 +243,10 @@ ${productSchema(p)}
           </div>
           <div class="bkfield">
             <label for="bkphone" data-t="ui.phone">Phone (WhatsApp)</label>
-            <input id="bkphone" name="phone" type="tel" required autocomplete="tel" maxlength="40">
+            <div class="bkphonerow">
+              <select id="bkcc" aria-label="Country code"></select>
+              <input id="bkphone" name="phone" type="tel" required autocomplete="tel" maxlength="20" inputmode="tel">
+            </div>
           </div>
           <div class="bkfield">
             <label for="bkguests" data-t="ui.guests">Guests</label>

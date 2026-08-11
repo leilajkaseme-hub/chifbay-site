@@ -114,6 +114,23 @@
     box.className = "bkmsg" + (msg ? " on " + (kind || "err") : "");
   }
 
+  /* Scrolls so `el` lands just under the fixed nav, rather than merely
+     "into view" — a smooth scroll that only guarantees the target is
+     somewhere on screen still lets it end up half-hidden behind the bar,
+     or (with scrollIntoView on an ancestor) jump to a completely different
+     element than the one you actually wanted to see. */
+  function scrollUnderNav(el) {
+    if (!el) return;
+    var nav = $("#nav");
+    // measured live, not a hardcoded pixel count: the nav's height changes
+    // between mobile and desktop, and the announcement bar above it is only
+    // sometimes there — nav.getBoundingClientRect().bottom already reflects
+    // both, on every page, without hand-tuning a number per layout.
+    var navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - navBottom - 16;
+    window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+  }
+
   function step(n) {
     $$(".bkstep").forEach(function (el) {
       el.classList.toggle("on", Number(el.dataset.step) === n);
@@ -123,8 +140,12 @@
       el.classList.toggle("done", s < n);
       el.classList.toggle("now", s === n);
     });
-    var top = $("#bkbox");
-    if (top) top.scrollIntoView({ behavior: "smooth", block: "start" });
+    // The dots sit right above whichever step is showing, so this is one
+    // stable anchor for the whole funnel — #bkbox itself starts with the
+    // route map, and scrolling to THAT on every "Continue" click is the bug
+    // being fixed here: it always jumped back up past the map instead of to
+    // the step you had just moved to.
+    scrollUnderNav($(".bksteps"));
   }
 
   /* Every trip/variant pair this page is allowed to sell, in catalogue order. */
@@ -160,6 +181,53 @@
     return ids.reduce(function (m, id) { return Math.max(m, kmOf(id)); }, 0) || 1;
   }
 
+  // A stylised elevation profile of the real coast, in [km, farY, landY] —
+  // smaller Y is TALLER. Straight segments read as jagged volcanic cliffs,
+  // closer to Madeira's real coast than a smooth curve. Cabo Girão is the
+  // one dramatic peak (the second-highest sea cliff on Earth); Ribeira Brava
+  // is a river-mouth valley, the lowest point on the whole stretch. Every
+  // page uses the full table — points past this page's own turning point
+  // land at a negative x from mapX() and are simply clipped by the SVG.
+  var TERRAIN = [
+    [0, 44, 58], [3, 50, 64], [6, 48, 62], [7.5, 30, 42], [9, 8, 20],
+    [10.5, 26, 38], [11.5, 36, 50], [12.75, 46, 60], [14, 70, 88],
+    [15.5, 48, 62], [17.5, 42, 56], [19.5, 46, 60],
+  ];
+
+  /** West is drawn on the LEFT on purpose — Funchal sits east on this coast,
+   *  so on any ordinary north-up map the route runs left, exactly like a real
+   *  chart of the south coast would show it. col: 1 = far layer, 2 = land. */
+  function terrainPath(mapX, baseY, col) {
+    var d = "M900,0 H900 V" + baseY;
+    TERRAIN.forEach(function (row) { d += " L" + mapX(row[0]).toFixed(1) + "," + row[col]; });
+    var lastX = mapX(TERRAIN[TERRAIN.length - 1][0]);
+    d += " L" + Math.min(0, lastX).toFixed(1) + "," + TERRAIN[TERRAIN.length - 1][col] + " Z";
+    return d;
+  }
+
+  // The same gold line-icon set used on the tour pages' itinerary timeline
+  // (peak.css, [data-ic]) — anchor/cliff/boat/sun are the identical paths, so
+  // a visitor sees the same glyph for the same place in both spots. fisher
+  // and cove are new, drawn in the same 24x24 / 1.4-stroke / round-cap style.
+  var ICON_PATHS = {
+    anchor: '<circle cx="12" cy="5" r="2"/><path d="M12 7v13"/><path d="M8 11h8"/><path d="M5 15a7 7 0 0 0 14 0"/>',
+    fisher: '<path d="M3 12c3.5-4 9-6 13-3.2-1 1.8-1 5.6 0 7.4-4 2.8-9.5.8-13-3.2Z"/>' +
+      '<path d="M17 9.6 21 12l-4 2.4"/><circle class="eye" cx="7.4" cy="11.3" r=".9" stroke="none"/>',
+    cliff: '<path d="M3 18 9 5l5 9 3-4 4 8Z"/>' +
+      '<path d="M2 21c2 0 2-1.4 4-1.4S8 21 10 21s2-1.4 4-1.4S16 21 18 21s2-1.4 4-1.4"/>',
+    cove: '<path d="M4 4v9a8 8 0 0 0 16 0V4"/><path d="M4 4h4M16 4h4"/>',
+    boat: '<path d="M3 17h18l-2 4H5Z"/><path d="M12 14V4l6 6-6 4"/><path d="M12 14 6 11"/>',
+    sun: '<circle cx="12" cy="12" r="4"/>' +
+      '<path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>',
+  };
+  function iconMarkup(id) {
+    var d = ICON_PATHS[id];
+    if (!d) return "";
+    var s = 14 / 24; // rendered size 14px, drawn in a 24x24 box
+    return '<g class="bkmicon" transform="translate(' + (-7).toFixed(1) + "," + (-31).toFixed(1) +
+      ") scale(" + s.toFixed(4) + ')">' + d + "</g>";
+  }
+
   /**
    * routeIds — the stops this option visits, or null before anything is picked.
    * With null the page's whole reachable coast is drawn and nothing is marked
@@ -193,6 +261,7 @@
           '" transform="translate(' + mapX(s.km).toFixed(1) + "," + MAP_Y + ')">' +
           (low ? '<line class="bkmtick" x1="0" y1="10" x2="0" y2="46"/>' : "") +
           (isTurn ? '<circle class="bkmring" r="12"/>' : "") +
+          iconMarkup(s.icon) +
           '<circle class="bkmdot" r="5.5"/>' +
           '<text class="bkmn" y="' + ny + '">' + esc(s.name) + "</text>" +
           '<text class="bkmc" y="' + cy + '">' +
@@ -209,20 +278,23 @@
         "</linearGradient>" +
       "</defs>" +
       '<rect x="0" y="86" width="900" height="158" fill="url(#bkmsea)"/>' +
-      // the mountains behind, then the coastline itself
-      '<path class="bkmfar" d="M0,0 H900 V84 L828,74 L760,66 L690,52 L620,60 L560,44 L500,26 L444,10 ' +
-        'L400,34 L340,48 L280,26 L220,58 L160,34 L100,50 L40,44 L0,54 Z"/>' +
-      '<path class="bkmland" d="M0,0 H900 V96 L828,90 L780,88 L720,80 L660,68 L610,76 L579,82 ' +
-        'L530,58 L478,28 L444,18 L414,40 L370,58 L331,66 L292,50 L250,72 L218,82 ' +
-        'L172,56 L120,66 L60,78 L0,70 Z"/>' +
+      // The mountains behind, then the coastline itself — both traced through
+      // TERRAIN via the SAME mapX() as the stop markers, so the one peak in
+      // the skyline always lands exactly over the Cabo Girão dot, whatever
+      // this page's own distance scale is.
+      '<path class="bkmfar" d="' + terrainPath(mapX, 84, 1) + '"/>' +
+      '<path class="bkmland" d="' + terrainPath(mapX, 96, 2) + '"/>' +
       // open water
       '<path class="bkmwave" d="M60,116 q46,-7 92,0 t92,0 t92,0 t92,0 t92,0 t92,0 t92,0 t92,0"/>' +
       // the run west, and how far this option goes
       '<path class="bkmtrack dim" d="M' + mapX(0) + "," + MAP_Y + " H" + mapX(span).toFixed(1) + '"/>' +
       '<path class="bkmtrack" d="M' + mapX(0) + "," + MAP_Y + " H" + mapX(turnKm).toFixed(1) + '"/>' +
-      '<text class="bkmedge" text-anchor="start" x="18" y="' + (MAP_Y - 16) + '">← ' +
+      // Fixed near the top, clear of the sky above the terrain — MAP_Y-16 put
+      // these right where the sun/anchor icons now sit, right over Ponta do
+      // Sol and Funchal.
+      '<text class="bkmedge" text-anchor="start" x="18" y="22">← ' +
         esc(t("map.west")) + "</text>" +
-      '<text class="bkmedge" text-anchor="end" x="882" y="' + (MAP_Y - 16) + '">' +
+      '<text class="bkmedge" text-anchor="end" x="882" y="22">' +
         esc(t("map.home")) + "</text>" +
       marks +
       "</svg>";
@@ -447,6 +519,32 @@
 
   /* ---------------------------------------------------------- step 3 detail */
 
+  function renderCountryCodes() {
+    var sel = $("#bkcc");
+    if (!sel || !C || !C.dialCodes) return;
+    var list = C.dialCodes();
+    sel.innerHTML = list.map(function (c) {
+      return '<option value="' + esc(c.dial) + '" data-iso="' + esc(c.iso2) + '">' +
+        esc(c.flag) + " +" + esc(c.dial) + " " + esc(c.name) + "</option>";
+    }).join("");
+
+    // Several countries share one calling code (+1 covers the US, Canada and
+    // half the Caribbean), so <select>.value alone can land on the wrong one
+    // of them — match the option by its iso2, not by the dial code alone.
+    var guess = C.guessCountry ? C.guessCountry() : "PT";
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].dataset.iso === guess) { sel.selectedIndex = i; break; }
+    }
+  }
+
+  /** "+351 912345678" — what actually gets sent as the phone number. */
+  function fullPhone() {
+    var cc = $("#bkcc"), num = $("#bkphone");
+    var dial = cc ? cc.value : "";
+    var local = (num ? num.value : "").trim();
+    return dial ? "+" + dial + " " + local : local;
+  }
+
   function renderSummary() {
     var trip = state.catalogue.trips[state.trip];
     var v = trip.variants[state.variant];
@@ -475,7 +573,7 @@
         guests: Number($("#bkguests").value),
         name: $("#bkname").value,
         email: $("#bkemail").value,
-        phone: $("#bkphone").value,
+        phone: fullPhone(),
         // Only ever set when the URL carries ?test=<token>. The Worker checks
         // it against a secret; an invalid or missing one simply charges the
         // normal price, so this is harmless to leave in.
@@ -560,6 +658,8 @@
           g.appendChild(o);
         }
         g.value = String(Math.min(2, cat.maxGuests));
+
+        renderCountryCodes();
 
         $("#bkloading").hidden = true;
         $("#bkflow").hidden = false;

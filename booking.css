@@ -68,6 +68,13 @@
   text-anchor:middle;letter-spacing:.04em}
 .bkms.on .bkmdot{fill:var(--photo-accent);stroke:rgba(224,190,122,.3);stroke-width:5}
 .bkms.on .bkmn{fill:#f0f5f4}
+/* Same dim/gold split as the dot and label above — a place icon per stop
+   (fisherman at Câmara de Lobos, the cliff at Cabo Girão…), same style as
+   the itinerary timeline's data-ic set. */
+.bkmicon path{fill:none;stroke:#7a9aaa;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
+.bkmicon .eye{fill:#7a9aaa;opacity:.55}
+.bkms.on .bkmicon path{stroke:#e0be7a;opacity:1}
+.bkms.on .bkmicon .eye{fill:#e0be7a;opacity:1}
 .bkms.on .bkmc{fill:#7a9aaa}
 .bkms.on .bkmtick{stroke:rgba(224,190,122,.32)}
 .bkms.turn .bkmring{fill:none;stroke:var(--photo-accent);stroke-width:1.4;opacity:.5}
@@ -200,6 +207,17 @@
   border:1px solid var(--hair-strong);color:var(--paper);font:inherit;font-size:.98rem}
 .bkfield input:focus,.bkfield select:focus{outline:none;border-color:var(--teal)}
 .bkfield select option{background:var(--mid);color:var(--paper)}
+
+/* the country-code select and the number input read as one control */
+.bkphonerow{display:flex;gap:8px}
+.bkphonerow #bkcc{flex:0 0 auto;width:112px;padding-right:8px;
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.bkphonerow #bkphone{flex:1 1 auto;min-width:0}
+/* Long option text ("🇵🇹 +351 Portugal") is what makes the list searchable
+   and accessible; the CLOSED box stays a compact chip by clipping to an
+   ellipsis. Flag and code come first in the string precisely so the country
+   name is what gets clipped, not the part that actually identifies it. */
+@media(max-width:640px){.bkphonerow #bkcc{width:96px}}
 .bkmsg{display:none;margin-top:16px;padding:13px 16px;border-radius:10px;font-size:.9rem;max-width:720px}
 .bkmsg.on{display:block}
 .bkmsg.err{background:rgba(212,84,84,.12);border:1px solid rgba(212,84,84,.4);color:#ffc9c9}

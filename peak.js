@@ -147,7 +147,17 @@
     var chosen=null; try{chosen=localStorage.getItem("chifbay_lang");}catch(e){}
     if(lang==="en" && !chosen){
       var nl=((navigator.languages&&navigator.languages[0])||navigator.language||"en").slice(0,2).toLowerCase();
-      if(nl!=="en" && av.indexOf(nl)>=0){ try{localStorage.setItem("chifbay_lang",nl);}catch(e){} location.replace("/"+nl+"/"+pageFile()); }
+      if(nl!=="en" && av.indexOf(nl)>=0){
+        try{localStorage.setItem("chifbay_lang",nl);}catch(e){}
+        // i18n-langs.json only says the LANGUAGE exists somewhere on the site,
+        // not that THIS page has a translated copy — the three booking pages
+        // are deliberately English-only. A blind redirect 404s for anyone
+        // whose first visit ever lands there with a non-English browser
+        // (a French ad click straight onto book-sunset.html, for instance).
+        // One HEAD check, only on this first-ever visit, before committing.
+        var target="/"+nl+"/"+pageFile();
+        fetch(target,{method:"HEAD"}).then(function(r){ if(r.ok) location.replace(target); }).catch(function(){});
+      }
     }
   }).catch(function(){});
 })();

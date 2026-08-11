@@ -18,13 +18,20 @@ window.CHIFBAY_CONTENT = (function () {
   /* Every place the boat passes, west of Funchal, in order.
      `km` is the real distance from Marina do Funchal by sea. The map is drawn
      from these numbers, so the spacing on screen matches the real coast. */
+  // `icon` keys into ICON_PATHS in booking.js — the same gold line-icon set
+  // already used on the tour pages' itinerary timeline (peak.css, data-ic).
+  // Câmara de Lobos is a working fishing harbour (fisher), Cabo Girão is the
+  // sheer 580 m cliff face (cliff — the drone is what FLIES there, the cliff
+  // is what makes the place; the itinerary timeline uses "drone" for the
+  // same spot, so this map reads as the cliff you see on the way TO the
+  // drone shot rather than repeating the same glyph).
   var STOPS = [
-    { id: "funchal",  name: "Funchal",           km: 0 },
-    { id: "camara",   name: "Câmara de Lobos",   km: 6 },
-    { id: "girao",    name: "Cabo Girão",        km: 9 },
-    { id: "faja",     name: "Fajã dos Padres",   km: 11.5 },
-    { id: "brava",    name: "Ribeira Brava",     km: 14 },
-    { id: "sol",      name: "Ponta do Sol",      km: 17.5 },
+    { id: "funchal",  name: "Funchal",           km: 0,    icon: "anchor" },
+    { id: "camara",   name: "Câmara de Lobos",   km: 6,    icon: "fisher" },
+    { id: "girao",    name: "Cabo Girão",        km: 9,    icon: "cliff" },
+    { id: "faja",     name: "Fajã dos Padres",   km: 11.5, icon: "cove" },
+    { id: "brava",    name: "Ribeira Brava",     km: 14,   icon: "boat" },
+    { id: "sol",      name: "Ponta do Sol",      km: 17.5, icon: "sun" },
   ];
 
   var VARIANTS = {
@@ -263,6 +270,104 @@ window.CHIFBAY_CONTENT = (function () {
     return s;
   }
 
+  /* [iso2, dial code]. Flags are generated FROM the iso2 at render time
+     (two regional-indicator codepoints = iso2 letters + 0x1F1E6-'A') rather
+     than typed by hand — 190 hand-typed emoji is how one gets it wrong.
+     Sorted by dial code within each block only for readability here; the UI
+     sorts the actual list by country name. */
+  var DIAL_CODES = [
+    ["PT","351"],["GB","44"],["FR","33"],["DE","49"],["ES","34"],["IT","39"],
+    ["US","1"],["CA","1"],["IE","353"],["NL","31"],["BE","32"],["CH","41"],
+    ["AT","43"],["LU","352"],["MC","377"],["AD","376"],["SE","46"],["NO","47"],
+    ["DK","45"],["FI","358"],["IS","354"],["PL","48"],["CZ","420"],["SK","421"],
+    ["HU","36"],["RO","40"],["BG","359"],["GR","30"],["CY","357"],["MT","356"],
+    ["HR","385"],["SI","386"],["RS","381"],["BA","387"],["ME","382"],["MK","389"],
+    ["AL","355"],["XK","383"],["EE","372"],["LV","371"],["LT","370"],["UA","380"],
+    ["BY","375"],["MD","373"],["RU","7"],["TR","90"],["IL","972"],["AE","971"],
+    ["SA","966"],["QA","974"],["KW","965"],["BH","973"],["OM","968"],["JO","962"],
+    ["LB","961"],["EG","20"],["MA","212"],["DZ","213"],["TN","216"],["LY","218"],
+    ["ZA","27"],["NG","234"],["KE","254"],["GH","233"],["ET","251"],["TZ","255"],
+    ["UG","256"],["CI","225"],["SN","221"],["CM","237"],["ZW","263"],["ZM","260"],
+    ["MZ","258"],["AO","244"],["CV","238"],["NA","264"],["BW","267"],["RW","250"],
+    ["IN","91"],["PK","92"],["BD","880"],["LK","94"],["NP","977"],["CN","86"],
+    ["JP","81"],["KR","82"],["HK","852"],["MO","853"],["TW","886"],["SG","65"],
+    ["MY","60"],["TH","66"],["VN","84"],["PH","63"],["ID","62"],["KH","855"],
+    ["LA","856"],["MM","95"],["MN","976"],["KZ","7"],["UZ","998"],["AU","61"],
+    ["NZ","64"],["FJ","679"],["PG","675"],["BR","55"],["AR","54"],["CL","56"],
+    ["CO","57"],["PE","51"],["VE","58"],["EC","593"],["BO","591"],["PY","595"],
+    ["UY","598"],["GY","592"],["SR","597"],["MX","52"],["GT","502"],["BZ","501"],
+    ["SV","503"],["HN","504"],["NI","505"],["CR","506"],["PA","507"],["CU","53"],
+    ["DO","1"],["HT","509"],["JM","1"],["TT","1"],["BB","1"],["BS","1"],
+    ["IS","354"],["IQ","964"],["IR","98"],["AF","93"],["SY","963"],["YE","967"],
+    ["GE","995"],["AM","374"],["AZ","994"],["KG","996"],["TJ","992"],["TM","993"],
+  ];
+
+  var seenIso = {};
+  var DIAL_UNIQUE = DIAL_CODES.filter(function (r) {
+    if (seenIso[r[0]]) return false;
+    seenIso[r[0]] = 1;
+    return true;
+  });
+
+  function flagOf(iso2) {
+    if (!iso2 || iso2.length !== 2) return "";
+    var A = 0x1f1e6, base = "A".charCodeAt(0);
+    return String.fromCodePoint(A + (iso2.charCodeAt(0) - base)) +
+           String.fromCodePoint(A + (iso2.charCodeAt(1) - base));
+  }
+
+  // English names, used for sort order and for the visible+searchable option
+  // text — a phone country picker is understood everywhere by its flag and
+  // its code, so this is the one part of the booking flow deliberately not
+  // translated into the other five languages.
+  var COUNTRY_NAME = {
+    PT:"Portugal",GB:"United Kingdom",FR:"France",DE:"Germany",ES:"Spain",IT:"Italy",
+    US:"United States",CA:"Canada",IE:"Ireland",NL:"Netherlands",BE:"Belgium",CH:"Switzerland",
+    AT:"Austria",LU:"Luxembourg",MC:"Monaco",AD:"Andorra",SE:"Sweden",NO:"Norway",
+    DK:"Denmark",FI:"Finland",IS:"Iceland",PL:"Poland",CZ:"Czechia",SK:"Slovakia",
+    HU:"Hungary",RO:"Romania",BG:"Bulgaria",GR:"Greece",CY:"Cyprus",MT:"Malta",
+    HR:"Croatia",SI:"Slovenia",RS:"Serbia",BA:"Bosnia and Herzegovina",ME:"Montenegro",MK:"North Macedonia",
+    AL:"Albania",XK:"Kosovo",EE:"Estonia",LV:"Latvia",LT:"Lithuania",UA:"Ukraine",
+    BY:"Belarus",MD:"Moldova",RU:"Russia",TR:"Türkiye",IL:"Israel",AE:"United Arab Emirates",
+    SA:"Saudi Arabia",QA:"Qatar",KW:"Kuwait",BH:"Bahrain",OM:"Oman",JO:"Jordan",
+    LB:"Lebanon",EG:"Egypt",MA:"Morocco",DZ:"Algeria",TN:"Tunisia",LY:"Libya",
+    ZA:"South Africa",NG:"Nigeria",KE:"Kenya",GH:"Ghana",ET:"Ethiopia",TZ:"Tanzania",
+    UG:"Uganda",CI:"Côte d'Ivoire",SN:"Senegal",CM:"Cameroon",ZW:"Zimbabwe",ZM:"Zambia",
+    MZ:"Mozambique",AO:"Angola",CV:"Cabo Verde",NA:"Namibia",BW:"Botswana",RW:"Rwanda",
+    IN:"India",PK:"Pakistan",BD:"Bangladesh",LK:"Sri Lanka",NP:"Nepal",CN:"China",
+    JP:"Japan",KR:"South Korea",HK:"Hong Kong",MO:"Macao",TW:"Taiwan",SG:"Singapore",
+    MY:"Malaysia",TH:"Thailand",VN:"Vietnam",PH:"Philippines",ID:"Indonesia",KH:"Cambodia",
+    LA:"Laos",MM:"Myanmar",MN:"Mongolia",KZ:"Kazakhstan",UZ:"Uzbekistan",AU:"Australia",
+    NZ:"New Zealand",FJ:"Fiji",PG:"Papua New Guinea",BR:"Brazil",AR:"Argentina",CL:"Chile",
+    CO:"Colombia",PE:"Peru",VE:"Venezuela",EC:"Ecuador",BO:"Bolivia",PY:"Paraguay",
+    UY:"Uruguay",GY:"Guyana",SR:"Suriname",MX:"Mexico",GT:"Guatemala",BZ:"Belize",
+    SV:"El Salvador",HN:"Honduras",NI:"Nicaragua",CR:"Costa Rica",PA:"Panama",CU:"Cuba",
+    DO:"Dominican Republic",HT:"Haiti",JM:"Jamaica",TT:"Trinidad and Tobago",BB:"Barbados",BS:"Bahamas",
+    IQ:"Iraq",IR:"Iran",AF:"Afghanistan",SY:"Syria",YE:"Yemen",
+    GE:"Georgia",AM:"Armenia",AZ:"Azerbaijan",KG:"Kyrgyzstan",TJ:"Tajikistan",TM:"Turkmenistan",
+  };
+
+  function dialList() {
+    return DIAL_UNIQUE.map(function (r) {
+      return { iso2: r[0], dial: r[1], flag: flagOf(r[0]), name: COUNTRY_NAME[r[0]] || r[0] };
+    }).sort(function (a, b) { return a.name.localeCompare(b.name); });
+  }
+
+  /* Best guess at the visitor's own country, so their phone field opens on
+     their real dial code instead of always defaulting to Portugal.
+     navigator.language carries a region ("en-US" -> "US") on real browsers;
+     Portugal is the fallback because that is where the boat actually is. */
+  function guessCountry() {
+    try {
+      var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ""];
+      for (var i = 0; i < langs.length; i++) {
+        var m = /-([A-Za-z]{2})$/.exec(langs[i] || "");
+        if (m && COUNTRY_NAME[m[1].toUpperCase()]) return m[1].toUpperCase();
+      }
+    } catch (e) { /* navigator.languages can be unavailable in odd embeds */ }
+    return "PT";
+  }
+
   return {
     lang: lang,
     t: t,
@@ -286,5 +391,7 @@ window.CHIFBAY_CONTENT = (function () {
     },
     highlights: function (tripId, varId) { return t("hl." + tripId + "/" + varId) || []; },
     page: function (which) { return PAGES[which] || PAGES.all; },
+    dialCodes: dialList,
+    guessCountry: guessCountry,
   };
 })();
