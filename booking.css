@@ -7,21 +7,21 @@
 /* ------------------------------------------------------------- the header
    Deliberately short. The visitor came here to book, so the picker has to be
    on screen without scrolling — the photo sells, it does not fill the page. */
-.bkhero{position:relative;min-height:330px;display:flex;align-items:flex-end;overflow:hidden;
+.bkhero{position:relative;color:var(--on-photo);min-height:330px;display:flex;align-items:flex-end;overflow:hidden;
   margin-top:0;padding-top:120px}
 .bkhero .bkhbg{position:absolute;inset:0;background-size:cover;background-position:center;
   transform:scale(1.04)}
 .bkhero .bkhov{position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(5,15,24,.72) 0%,rgba(5,15,24,.42) 38%,rgba(5,15,24,.86) 78%,var(--ink) 100%)}
+  background:linear-gradient(to bottom,rgba(var(--scrim-rgb),.72) 0%,rgba(var(--scrim-rgb),.42) 38%,rgba(var(--scrim-rgb),.86) 78%,var(--ink) 100%)}
 .bkhc{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 32px 42px}
 .bkhc h1{font-size:clamp(2.3rem,5.4vw,4rem);margin:14px 0 16px}
-.bkhc h1 em{font-style:italic;background:linear-gradient(130deg,var(--teal),var(--gold-light));
+.bkhc h1 em{font-style:italic;background:linear-gradient(130deg,#e0be7a,#f0c96a);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.bkhc p{max-width:56ch;color:var(--paper-dim);font-weight:300;font-size:clamp(.92rem,1.4vw,1.05rem);
+.bkhc p{max-width:56ch;color:var(--on-photo-dim);font-weight:300;font-size:clamp(.92rem,1.4vw,1.05rem);
   line-height:1.75;margin:0}
 .bkkick{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:12px}
-.bkkick::before{content:"";width:28px;height:1px;background:var(--teal);opacity:.7}
+  text-transform:uppercase;color:var(--photo-accent);display:inline-flex;align-items:center;gap:12px}
+.bkkick::before{content:"";width:28px;height:1px;background:var(--photo-accent);opacity:.7}
 
 /* Only ever shown when the URL carries ?test=<token>. Loud on purpose. */
 .bktest{margin:0 0 26px;padding:13px 18px;border-radius:var(--radius);font-size:.86rem;
@@ -31,9 +31,9 @@
 /* ------------------------------------------------------------------ layout */
 .bkwrap{max-width:1120px;margin:0 auto;padding:44px 32px 90px}
 .bksteps{display:flex;gap:8px;justify-content:center;margin-bottom:34px}
-.bkdot{width:38px;height:3px;border-radius:2px;background:rgba(255,255,255,.14);transition:background .3s}
+.bkdot{width:38px;height:3px;border-radius:2px;background:rgba(var(--edge-rgb),.14);transition:background .3s}
 .bkdot.now{background:var(--teal)}
-.bkdot.done{background:rgba(224,190,122,.42)}
+.bkdot.done{background:rgba(var(--teal-rgb),.42)}
 .bkstep{display:none}
 .bkstep.on{display:block;animation:bkin .35s ease both}
 @keyframes bkin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -47,7 +47,7 @@
    A drawing, not a real map: the stops sit at their true sailing distance
    from Funchal, so the spacing on screen matches the spacing on the water. */
 .bkmapbox{margin:0 0 40px;padding:22px 24px 18px;border-radius:var(--radius-lg);
-  background:linear-gradient(180deg,rgba(13,32,53,.55),rgba(5,15,24,.35));
+  background:linear-gradient(180deg,#0d2035,#081625);
   border:1px solid var(--hair)}
 .bkmaph{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.22em;
   text-transform:uppercase;color:var(--teal);margin-bottom:6px}
@@ -56,29 +56,29 @@
 .bkmland{fill:#14304a;stroke:rgba(224,190,122,.4);stroke-width:1.2}
 .bkmfar{fill:#0e2438}
 .bkmwave{fill:none;stroke:rgba(224,190,122,.09);stroke-width:1.4}
-.bkmtrack{fill:none;stroke:var(--teal);stroke-width:2.4;stroke-dasharray:9 7;stroke-linecap:round}
+.bkmtrack{fill:none;stroke:var(--photo-accent);stroke-width:2.4;stroke-dasharray:9 7;stroke-linecap:round}
 .bkmtrack.dim{stroke:rgba(255,255,255,.13);stroke-dasharray:3 8}
 .bkmtick{stroke:rgba(255,255,255,.16);stroke-width:1}
-.bkmedge{fill:var(--muted);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;
+.bkmedge{fill:#7a9aaa;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;
   text-transform:uppercase;opacity:.55}
 .bkms .bkmdot{fill:#0b1c2e;stroke:rgba(255,255,255,.24);stroke-width:2}
 .bkms .bkmn{fill:rgba(240,245,244,.32);font-family:'Inter',sans-serif;font-size:13.5px;
   text-anchor:middle;font-weight:500}
 .bkms .bkmc{fill:rgba(122,154,170,.42);font-family:'Space Mono',monospace;font-size:10px;
   text-anchor:middle;letter-spacing:.04em}
-.bkms.on .bkmdot{fill:var(--teal);stroke:rgba(224,190,122,.3);stroke-width:5}
-.bkms.on .bkmn{fill:var(--paper)}
-.bkms.on .bkmc{fill:var(--muted)}
+.bkms.on .bkmdot{fill:var(--photo-accent);stroke:rgba(224,190,122,.3);stroke-width:5}
+.bkms.on .bkmn{fill:#f0f5f4}
+.bkms.on .bkmc{fill:#7a9aaa}
 .bkms.on .bkmtick{stroke:rgba(224,190,122,.32)}
-.bkms.turn .bkmring{fill:none;stroke:var(--teal);stroke-width:1.4;opacity:.5}
-.bkms.turn .bkmc{fill:var(--teal)}
+.bkms.turn .bkmring{fill:none;stroke:var(--photo-accent);stroke-width:1.4;opacity:.5}
+.bkms.turn .bkmc{fill:var(--photo-accent)}
 /* Under 760px the SVG labels would render at about 6px. Show the list instead. */
 .bkrl{list-style:none;margin:6px 0 0;padding:0;display:none}
 .bkrl li{position:relative;padding:0 0 16px 26px;color:var(--paper)}
 .bkrl li::before{content:"";position:absolute;left:3px;top:7px;width:9px;height:9px;border-radius:50%;
   background:var(--teal)}
 .bkrl li::after{content:"";position:absolute;left:7px;top:20px;bottom:0;width:1px;
-  background:rgba(224,190,122,.28)}
+  background:rgba(var(--teal-rgb),.28)}
 .bkrl li:last-child{padding-bottom:0}
 .bkrl li:last-child::after{display:none}
 .bkrl li b{display:block;font-weight:500;font-size:.95rem}
@@ -92,17 +92,17 @@
 .bkcards{display:grid;gap:22px;grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:800px){.bkcards{grid-template-columns:1fr}}
 .bkcard{display:flex;flex-direction:column;border-radius:var(--radius-lg);overflow:hidden;
-  background:rgba(255,255,255,.03);border:1px solid var(--hair);
+  background:rgba(var(--edge-rgb),.03);border:1px solid var(--hair);
   transition:border-color .3s,transform .3s,box-shadow .3s}
-.bkcard:hover{border-color:rgba(224,190,122,.45);transform:translateY(-3px);
-  box-shadow:0 22px 50px rgba(0,0,0,.35)}
-.bkcard.sel{border-color:var(--teal);background:rgba(224,190,122,.06)}
+.bkcard:hover{border-color:rgba(var(--teal-rgb),.45);transform:translateY(-3px);
+  box-shadow:0 22px 50px rgba(var(--shadow-rgb),.35)}
+.bkcard.sel{border-color:var(--teal);background:rgba(var(--teal-rgb),.06)}
 .bkcpic{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;background:var(--mid)}
 .bkcpic img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .bkcard:hover .bkcpic img{transform:scale(1.05)}
 .bkcdur{position:absolute;left:14px;bottom:14px;padding:6px 13px;border-radius:100px;
-  background:rgba(5,15,24,.74);backdrop-filter:blur(6px);border:1px solid var(--hair-strong);
-  font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;color:var(--paper)}
+  background:rgba(var(--scrim-rgb),.74);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14);
+  font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;color:var(--on-photo)}
 .bkcbody{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .bkck{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--teal)}
@@ -114,7 +114,7 @@
   border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin-bottom:16px}
 .bkrtp{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.05em;color:var(--muted)}
 .bkrtp.turn{color:var(--teal)}
-.bkrta{color:rgba(224,190,122,.4);font-size:.8rem}
+.bkrta{color:rgba(var(--teal-rgb),.4);font-size:.8rem}
 
 .bkcl{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:9px}
 .bkcl li{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;line-height:1.55;
@@ -133,9 +133,9 @@
 /* --------------------------------------------------------------- buttons */
 .bkbtn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;cursor:pointer;
   font-family:'Inter',sans-serif;font-weight:600;font-size:.87rem;border-radius:100px;
-  padding:13px 26px;background:var(--teal);color:var(--ink);
+  padding:13px 26px;background:var(--teal);color:var(--on-accent);
   transition:transform .2s,box-shadow .2s,opacity .2s}
-.bkbtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 14px 32px rgba(224,190,122,.34)}
+.bkbtn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 14px 32px rgba(var(--teal-rgb),.34)}
 .bkbtn:disabled{opacity:.32;cursor:not-allowed;transform:none;box-shadow:none}
 .bkbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
@@ -147,7 +147,7 @@
 
 /* ---------------------------------------------------- what they picked */
 .bkpicked{display:flex;align-items:center;gap:18px;padding:14px 18px;border-radius:var(--radius);
-  background:rgba(224,190,122,.06);border:1px solid rgba(224,190,122,.24);margin-bottom:26px}
+  background:rgba(var(--teal-rgb),.06);border:1px solid rgba(var(--teal-rgb),.24);margin-bottom:26px}
 .bkpicked img{width:74px;height:56px;object-fit:cover;border-radius:9px;flex-shrink:0}
 .bkpicked strong{display:block;font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;
   font-weight:400;margin-top:3px}
@@ -159,7 +159,7 @@
 .bkcalhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .bkcalhead strong{font-family:'Playfair Display',Georgia,serif;font-size:1.18rem;font-weight:400;
   text-transform:capitalize}
-.bknav{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.05);
+.bknav{width:38px;height:38px;border-radius:50%;background:rgba(var(--edge-rgb),.05);
   border:1px solid var(--hair-strong);color:var(--paper);font-size:1.1rem;cursor:pointer;
   line-height:1;transition:border-color .2s}
 .bknav:hover{border-color:var(--teal)}
@@ -168,25 +168,25 @@
 .bkdow{text-align:center;font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);padding-bottom:6px}
 .bkday{position:relative;min-height:46px;padding:12px 0 16px;display:flex;align-items:center;
-  justify-content:center;border-radius:10px;font-size:.92rem;background:rgba(255,255,255,.045);
+  justify-content:center;border-radius:10px;font-size:.92rem;background:rgba(var(--edge-rgb),.045);
   border:1px solid transparent;color:var(--paper);font-family:inherit;cursor:pointer;transition:.2s}
 .bkday i{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
   width:4px;height:4px;border-radius:50%;background:var(--teal)}
-.bkday:hover{border-color:rgba(224,190,122,.55)}
-.bkday.sel{background:var(--teal);color:var(--ink);font-weight:600}
+.bkday:hover{border-color:rgba(var(--teal-rgb),.55)}
+.bkday.sel{background:var(--teal);color:var(--on-accent);font-weight:600}
 .bkday.sel i{background:var(--ink)}
 .bkday.off{opacity:.18;background:transparent;cursor:default;border-color:transparent}
 .bkhint{color:var(--muted);font-size:.9rem;margin:22px 0 10px}
 .bktimerow{display:flex;flex-wrap:wrap;gap:10px}
-.bktime{padding:13px 28px;border-radius:10px;background:rgba(255,255,255,.05);
+.bktime{padding:13px 28px;border-radius:10px;background:rgba(var(--edge-rgb),.05);
   border:1px solid var(--hair-strong);color:var(--paper);font:inherit;font-size:1rem;cursor:pointer;
   transition:.2s}
 .bktime:hover{border-color:var(--teal)}
-.bktime.sel{background:var(--teal);color:var(--ink);border-color:var(--teal);font-weight:600}
+.bktime.sel{background:var(--teal);color:var(--on-accent);border-color:var(--teal);font-weight:600}
 
 /* ------------------------------------------------------------- the form */
-.bksumbox{padding:20px 22px;border-radius:var(--radius);background:rgba(224,190,122,.07);
-  border:1px solid rgba(224,190,122,.28);display:grid;gap:5px;margin-bottom:26px}
+.bksumbox{padding:20px 22px;border-radius:var(--radius);background:rgba(var(--teal-rgb),.07);
+  border:1px solid rgba(var(--teal-rgb),.28);display:grid;gap:5px;margin-bottom:26px}
 .bksumbox strong{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:400}
 .bksumbox span{font-size:.88rem;color:var(--paper-dim)}
 .bksumprice{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem!important;
@@ -196,10 +196,10 @@
 .bkfield.wide{grid-column:1/-1}
 .bkfield label{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted)}
-.bkfield input,.bkfield select{padding:13px 15px;border-radius:10px;background:rgba(255,255,255,.05);
+.bkfield input,.bkfield select{padding:13px 15px;border-radius:10px;background:rgba(var(--edge-rgb),.05);
   border:1px solid var(--hair-strong);color:var(--paper);font:inherit;font-size:.98rem}
 .bkfield input:focus,.bkfield select:focus{outline:none;border-color:var(--teal)}
-.bkfield select option{background:#0d2035;color:var(--paper)}
+.bkfield select option{background:var(--mid);color:var(--paper)}
 .bkmsg{display:none;margin-top:16px;padding:13px 16px;border-radius:10px;font-size:.9rem;max-width:720px}
 .bkmsg.on{display:block}
 .bkmsg.err{background:rgba(212,84,84,.12);border:1px solid rgba(212,84,84,.4);color:#ffc9c9}
@@ -234,3 +234,7 @@
   .bkcard,.bkcpic img,.bkbtn{transition:none}
   .bkcard:hover{transform:none}
 }
+
+/* Light mode: pale red on pale pink is unreadable, so the warnings darken. */
+:root[data-theme="light"] .bktest,
+:root[data-theme="light"] .bkmsg.err{color:#8c1d1d;background:rgba(212,84,84,.1)}

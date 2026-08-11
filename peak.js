@@ -22,7 +22,57 @@
   },{threshold:.1,rootMargin:'0px 0px -36px 0px'});
   document.querySelectorAll('.rv:not(.in)').forEach(function(el){ io.observe(el); });
 
+  // Below 620px the "Book your boat" pill is hidden so it cannot collide with
+  // the centred logo. Copy it into the drawer so the CTA is not simply lost.
+  var cta=document.querySelector('#nav .nc');
+  if(cta&&nl&&!nl.querySelector('.nc-drawer')){
+    var c=cta.cloneNode(true);
+    c.className='nc-drawer';
+    nl.appendChild(c);
+    c.addEventListener('click',function(){ if(tog) tog.click(); });
+  }
+
   var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+})();
+
+/* The language picker becomes a floating button on phones, mirroring the
+   WhatsApp one. It cannot stay inside #nav to do that: #nav carries
+   backdrop-filter once scrolled, which makes it the containing block for its
+   position:fixed descendants — the same trap documented for the mobile drawer
+   in peak.css. The button would then sit 22px from the bottom of the NAV BAR
+   instead of the screen. So it moves out to <body> while it floats, and goes
+   back to its place in the bar on desktop. */
+(function(){
+  var ls=document.querySelector('.langsel');
+  if(!ls||!window.matchMedia) return;
+  var home=ls.parentNode, next=ls.nextSibling;
+  var mq=window.matchMedia('(max-width:860px)');
+  function place(){
+    if(mq.matches){ if(ls.parentNode!==document.body) document.body.appendChild(ls); }
+    else if(ls.parentNode===document.body && home){ home.insertBefore(ls,next); }
+  }
+  place();
+  if(mq.addEventListener) mq.addEventListener('change',place);
+  else if(mq.addListener) mq.addListener(place);
+})();
+
+/* THEME — light / dark.
+   The <head> snippet has already put the right value on <html> before the
+   first paint. This only wires the footer control and remembers the choice. */
+(function(){
+  var KEY='cb-theme';
+  function current(){ return document.documentElement.getAttribute('data-theme')==='light'?'light':'dark'; }
+  function apply(t){
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem(KEY,t); }catch(e){}
+    document.querySelectorAll('.themetog button').forEach(function(b){
+      b.setAttribute('aria-pressed',String(b.dataset.theme===t));
+    });
+  }
+  document.querySelectorAll('.themetog button').forEach(function(b){
+    b.addEventListener('click',function(){ apply(b.dataset.theme); });
+  });
+  apply(current());
 })();
 
 (function(){

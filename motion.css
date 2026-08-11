@@ -8,25 +8,25 @@ html.mo .rv{transition:none}
 .wi{display:inline-block;will-change:transform}
 
 /* --- loader --- */
-#mload{position:fixed;inset:0;z-index:9000;background:#050f18;display:flex;flex-direction:column;
+#mload{position:fixed;inset:0;z-index:9000;background:var(--ink);display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:24px}
 #mload .mk{height:44px;width:auto;opacity:.92}
-#mload .bar{width:min(170px,46vw);height:1px;background:rgba(255,255,255,.14)}
-#mload .bar i{display:block;height:100%;width:0;background:#d4a843;transition:width .3s ease}
-#mload .pc2{font:400 10px/1 'Space Mono',monospace;letter-spacing:.34em;color:rgba(255,255,255,.4)}
+#mload .bar{width:min(170px,46vw);height:1px;background:rgba(var(--edge-rgb),.14)}
+#mload .bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s ease}
+#mload .pc2{font:400 10px/1 'Space Mono',monospace;letter-spacing:.34em;color:rgba(var(--edge-rgb),.62)}
 html.mo-done #mload{display:none}
 
 /* --- barre de progression --- */
-#mprog{position:fixed;top:0;left:0;height:2px;width:0;z-index:8000;background:#d4a843;pointer-events:none}
+#mprog{position:fixed;top:0;left:0;height:2px;width:0;z-index:8000;background:var(--gold);pointer-events:none}
 
 /* --- curseur (pointeur fin uniquement) --- */
 #mcur,#mring{position:fixed;top:0;left:0;z-index:8500;pointer-events:none;border-radius:50%;opacity:0;
   transition:opacity .3s;will-change:transform}
-#mcur{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:#d4a843}
-#mring{width:32px;height:32px;margin:-16px 0 0 -16px;border:1px solid rgba(212,168,67,.5);
+#mcur{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:var(--gold)}
+#mring{width:32px;height:32px;margin:-16px 0 0 -16px;border:1px solid rgba(var(--teal-rgb),.5);
   transition:opacity .3s,width .35s,height .35s,margin .35s,background .35s}
 html.mo-cur.mo-cv #mcur,html.mo-cur.mo-cv #mring{opacity:1}
-#mring.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(212,168,67,.07)}
+#mring.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(var(--teal-rgb),.07)}
 @media(hover:hover) and (pointer:fine){ html.mo-cur, html.mo-cur *{cursor:none !important} }
 
 /* --- grain --- */
