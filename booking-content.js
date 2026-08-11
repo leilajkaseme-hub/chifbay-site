@@ -105,7 +105,7 @@ window.CHIFBAY_CONTENT = (function () {
 
     // the map
     "map.title":   "Where you actually go",
-    "map.caption": "Everything is within 18 km west of Funchal — a stretch of coast with 580-metre cliffs, a cove with no road into it, and villages you can only really see from the water.",
+    "map.caption": "Everything is within {km} km west of Funchal — a stretch of coast with 580-metre cliffs, a cove with no road into it, and villages you can only really see from the water.",
     "map.west":    "West",
     "map.home":    "Home port",
 
@@ -163,7 +163,7 @@ window.CHIFBAY_CONTENT = (function () {
       "stop.sol":     "Village le plus ensoleillé",
       "stop.turn":    "On fait demi-tour ici",
       "map.title":    "Où vous allez vraiment",
-      "map.caption":  "Tout se trouve à moins de 18 km à l'ouest de Funchal — des falaises de 580 mètres, une crique sans route, et des villages qu'on ne voit bien que depuis l'eau.",
+      "map.caption":  "Tout se trouve à moins de {km} km à l'ouest de Funchal — des falaises de 580 mètres, une crique sans route, et des villages qu'on ne voit bien que depuis l'eau.",
       "map.west":     "Ouest",
       "map.home":     "Port d'attache",
       "ui.loading":   "Chargement du calendrier…",
@@ -180,7 +180,7 @@ window.CHIFBAY_CONTENT = (function () {
       "stop.sol":     "Sonnendorf",
       "stop.turn":    "Hier drehen wir um",
       "map.title":    "Wohin es wirklich geht",
-      "map.caption":  "Alles liegt keine 18 km westlich von Funchal — 580 Meter hohe Klippen, eine Bucht ohne Straße und Orte, die man nur vom Wasser aus richtig sieht.",
+      "map.caption":  "Alles liegt keine {km} km westlich von Funchal — 580 Meter hohe Klippen, eine Bucht ohne Straße und Orte, die man nur vom Wasser aus richtig sieht.",
       "map.west":     "Westen",
       "map.home":     "Heimathafen",
       "ui.loading":   "Bootskalender wird geladen…",
@@ -197,7 +197,7 @@ window.CHIFBAY_CONTENT = (function () {
       "stop.sol":     "Vila mais soalheira",
       "stop.turn":    "Viramos aqui",
       "map.title":    "Para onde vai mesmo",
-      "map.caption":  "Está tudo a menos de 18 km a oeste do Funchal — falésias de 580 metros, uma enseada sem estrada e vilas que só se veem bem do mar.",
+      "map.caption":  "Está tudo a menos de {km} km a oeste do Funchal — falésias de 580 metros, uma enseada sem estrada e vilas que só se veem bem do mar.",
       "map.west":     "Oeste",
       "map.home":     "Porto de origem",
       "ui.loading":   "A carregar o calendário…",
@@ -214,7 +214,7 @@ window.CHIFBAY_CONTENT = (function () {
       "stop.sol":     "El pueblo más soleado",
       "stop.turn":    "Damos la vuelta aquí",
       "map.title":    "Adónde vas de verdad",
-      "map.caption":  "Todo está a menos de 18 km al oeste de Funchal — acantilados de 580 metros, una cala sin carretera y pueblos que solo se ven bien desde el agua.",
+      "map.caption":  "Todo está a menos de {km} km al oeste de Funchal — acantilados de 580 metros, una cala sin carretera y pueblos que solo se ven bien desde el agua.",
       "map.west":     "Oeste",
       "map.home":     "Puerto base",
       "ui.loading":   "Cargando el calendario…",
@@ -231,7 +231,7 @@ window.CHIFBAY_CONTENT = (function () {
       "stop.sol":     "Il paese più soleggiato",
       "stop.turn":    "Qui si torna indietro",
       "map.title":    "Dove si va davvero",
-      "map.caption":  "È tutto entro 18 km a ovest di Funchal — falesie di 580 metri, una cala senza strada e paesi che si vedono bene solo dall'acqua.",
+      "map.caption":  "È tutto entro {km} km a ovest di Funchal — falesie di 580 metri, una cala senza strada e paesi che si vedono bene solo dall'acqua.",
       "map.west":     "Ovest",
       "map.home":     "Porto di partenza",
       "ui.loading":   "Caricamento del calendario…",
@@ -272,6 +272,18 @@ window.CHIFBAY_CONTENT = (function () {
       return null;
     },
     variant: function (tripId, varId) { return VARIANTS[tripId + "/" + varId] || null; },
+    /* Every stop the trips on THIS page actually reach, in coast order.
+       The sunset packs both turn at Ribeira Brava, so a sunset page that drew
+       the full stop list was promising Ponta do Sol, which no sunset trip goes
+       anywhere near. Pass null on the page that sells everything. */
+    stopsFor: function (tripId) {
+      var seen = {};
+      Object.keys(VARIANTS).forEach(function (key) {
+        if (tripId && key.indexOf(tripId + "/") !== 0) return;
+        VARIANTS[key].route.forEach(function (id) { seen[id] = 1; });
+      });
+      return STOPS.filter(function (s) { return seen[s.id]; }).map(function (s) { return s.id; });
+    },
     highlights: function (tripId, varId) { return t("hl." + tripId + "/" + varId) || []; },
     page: function (which) { return PAGES[which] || PAGES.all; },
   };

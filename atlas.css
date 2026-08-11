@@ -91,7 +91,6 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 @media(max-width:560px){
   .atlas .annc{letter-spacing:.08em;font-size:.56rem;padding:7px 14px;line-height:1.55}
   .atlas .annc span{max-width:34ch}   /* wrap to two centred lines instead of clipping at the edge */
-  .atlas .nc{display:none}            /* CTA redundant with hero buttons + menu; avoids clipping at 390px */
   .atlas .langsel{margin-right:6px !important}
   .atlas .langbtn{padding:6px 9px;font-size:.66rem}
 }
@@ -645,4 +644,14 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
   .atlas .hbadge{margin-bottom:12px}
   .atlas .hsub{margin-bottom:18px;font-size:.9rem}
   .atlas .hc{padding-top:96px}
+}
+
+/* Mobile bar (2026-08-11): the quiet outlined CTA becomes a small gold pill,
+   sitting opposite the burger with the logo centred between them. */
+@media(max-width:860px){
+  .atlas .nc{display:inline-flex;background:var(--gold);color:var(--on-accent);
+    border-color:var(--gold);border-radius:var(--radius-pill);
+    padding:9px 18px;font-size:.66rem;letter-spacing:.12em;font-weight:700}
+  .atlas .nc:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--on-accent)}
+  .atlas #nav.sc .nc{color:var(--on-accent)}
 }

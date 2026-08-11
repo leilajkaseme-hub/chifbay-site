@@ -144,32 +144,48 @@
   /* ------------------------------------------------------------- the map */
 
   // Real sailing distance from Marina do Funchal, turned into an x position.
-  // 17.5 km of coast across 760 units, so the spacing on screen is the real
-  // spacing on the water. Funchal sits on the right because the boat runs west.
-  var MAP_X0 = 828, MAP_SPAN = 760, MAP_KM = 17.5;
+  // The scale is set by the FURTHEST stop this page can reach, so a sunset
+  // page (which turns at Ribeira Brava, 14 km) fills the same width as the
+  // day-trip page (Ponta do Sol, 17.5 km) instead of trailing off into
+  // empty water.
+  var MAP_X0 = 828, MAP_SPAN = 760;
   var MAP_Y = 140;                 // the sea lane the boat runs along
-  function mapX(km) { return MAP_X0 - (km / MAP_KM) * MAP_SPAN; }
+
+  /** The stops this page is allowed to draw at all, in coast order. */
+  function pageStops() {
+    return (C && C.stopsFor ? C.stopsFor(state.only) : C.stops.map(function (s) { return s.id; }));
+  }
+  function kmOf(id) { var s = C.stop(id); return s ? s.km : 0; }
+  function maxKm(ids) {
+    return ids.reduce(function (m, id) { return Math.max(m, kmOf(id)); }, 0) || 1;
+  }
 
   /**
    * routeIds — the stops this option visits, or null before anything is picked.
-   * With null, the whole coast is drawn and nothing is marked as the turn:
-   * "we turn here" would be a lie before the visitor has chosen a length.
+   * With null the page's whole reachable coast is drawn and nothing is marked
+   * as the turn: "we turn here" would be a lie before a length is chosen.
    */
   function drawMap(routeIds) {
     var host = $("#bkmap");
     if (!host || !C) return;
 
+    var universe = pageStops();
+    var span = maxKm(universe);
+    var mapX = function (km) { return MAP_X0 - (km / span) * MAP_SPAN; };
+
     var picked = !!(routeIds && routeIds.length);
-    var ids = picked ? routeIds : C.stops.map(function (s) { return s.id; });
+    var ids = picked ? routeIds : universe;
     var turn = picked ? ids[ids.length - 1] : null;
-    var turnKm = turn && C.stop(turn) ? C.stop(turn).km : MAP_KM;
+    var turnKm = turn ? kmOf(turn) : span;
 
     // Labels alternate between two rows. Six place names on one row would
     // collide — Fajã dos Padres and Ribeira Brava are only 2.5 km apart.
     var marks = "";
-    C.stops.forEach(function (s, i) {
-      var on = ids.indexOf(s.id) !== -1;
-      var isTurn = s.id === turn;
+    universe.forEach(function (id, i) {
+      var s = C.stop(id);
+      if (!s) return;
+      var on = ids.indexOf(id) !== -1;
+      var isTurn = id === turn;
       var low = i % 2 === 1;                       // second row
       var ny = low ? 62 : 28, cy = low ? 80 : 46;
       marks +=
@@ -180,7 +196,7 @@
           '<circle class="bkmdot" r="5.5"/>' +
           '<text class="bkmn" y="' + ny + '">' + esc(s.name) + "</text>" +
           '<text class="bkmc" y="' + cy + '">' +
-            esc(isTurn ? t("stop.turn") : t("stop." + s.id)) + "</text>" +
+            esc(isTurn ? t("stop.turn") : t("stop." + id)) + "</text>" +
         "</g>";
     });
 
@@ -202,7 +218,7 @@
       // open water
       '<path class="bkmwave" d="M60,116 q46,-7 92,0 t92,0 t92,0 t92,0 t92,0 t92,0 t92,0 t92,0"/>' +
       // the run west, and how far this option goes
-      '<path class="bkmtrack dim" d="M' + mapX(0) + "," + MAP_Y + " H" + mapX(MAP_KM) + '"/>' +
+      '<path class="bkmtrack dim" d="M' + mapX(0) + "," + MAP_Y + " H" + mapX(span).toFixed(1) + '"/>' +
       '<path class="bkmtrack" d="M' + mapX(0) + "," + MAP_Y + " H" + mapX(turnKm).toFixed(1) + '"/>' +
       '<text class="bkmedge" text-anchor="start" x="18" y="' + (MAP_Y - 16) + '">← ' +
         esc(t("map.west")) + "</text>" +
@@ -214,15 +230,21 @@
     // Below 760px the SVG labels would render at about 6px. The same route is
     // repeated as a plain vertical list and CSS shows one or the other.
     var list = '<ol class="bkrl">';
-    C.stops.forEach(function (s) {
-      if (ids.indexOf(s.id) === -1) return;
-      var isTurn = s.id === turn;
+    universe.forEach(function (id) {
+      if (ids.indexOf(id) === -1) return;
+      var s = C.stop(id);
+      if (!s) return;
+      var isTurn = id === turn;
       list += '<li' + (isTurn ? ' class="turn"' : "") + "><b>" + esc(s.name) + "</b><span>" +
-        esc(isTurn ? t("stop.turn") : t("stop." + s.id)) + "</span></li>";
+        esc(isTurn ? t("stop.turn") : t("stop." + id)) + "</span></li>";
     });
     list += "</ol>";
 
     host.innerHTML = svg + list;
+
+    // the caption quotes the distance, so it has to match the map above it
+    var cap = $(".bkmapc");
+    if (cap) cap.textContent = t("map.caption", { km: String(Math.round(span)) });
   }
 
   /* --------------------------------------------------------- step 1 choose */

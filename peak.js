@@ -22,38 +22,7 @@
   },{threshold:.1,rootMargin:'0px 0px -36px 0px'});
   document.querySelectorAll('.rv:not(.in)').forEach(function(el){ io.observe(el); });
 
-  // Below 620px the "Book your boat" pill is hidden so it cannot collide with
-  // the centred logo. Copy it into the drawer so the CTA is not simply lost.
-  var cta=document.querySelector('#nav .nc');
-  if(cta&&nl&&!nl.querySelector('.nc-drawer')){
-    var c=cta.cloneNode(true);
-    c.className='nc-drawer';
-    nl.appendChild(c);
-    c.addEventListener('click',function(){ if(tog) tog.click(); });
-  }
-
   var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
-})();
-
-/* The language picker becomes a floating button on phones, mirroring the
-   WhatsApp one. It cannot stay inside #nav to do that: #nav carries
-   backdrop-filter once scrolled, which makes it the containing block for its
-   position:fixed descendants — the same trap documented for the mobile drawer
-   in peak.css. The button would then sit 22px from the bottom of the NAV BAR
-   instead of the screen. So it moves out to <body> while it floats, and goes
-   back to its place in the bar on desktop. */
-(function(){
-  var ls=document.querySelector('.langsel');
-  if(!ls||!window.matchMedia) return;
-  var home=ls.parentNode, next=ls.nextSibling;
-  var mq=window.matchMedia('(max-width:860px)');
-  function place(){
-    if(mq.matches){ if(ls.parentNode!==document.body) document.body.appendChild(ls); }
-    else if(ls.parentNode===document.body && home){ home.insertBefore(ls,next); }
-  }
-  place();
-  if(mq.addEventListener) mq.addEventListener('change',place);
-  else if(mq.addListener) mq.addListener(place);
 })();
 
 /* THEME — light / dark.
@@ -77,16 +46,85 @@
 
 (function(){
   var LL=["fr","de","pt","es","it"];
+  var NAMES={en:"English",fr:"Français",de:"Deutsch",pt:"Português",es:"Español",it:"Italiano"};
+  // Regional-indicator pairs. Windows has no flag glyphs and falls back to the
+  // two letters (GB, FR…), which still reads correctly.
+  var FLAGS={en:"\uD83C\uDDEC\uD83C\uDDE7",fr:"\uD83C\uDDEB\uD83C\uDDF7",
+             de:"\uD83C\uDDE9\uD83C\uDDEA",pt:"\uD83C\uDDF5\uD83C\uDDF9",
+             es:"\uD83C\uDDEA\uD83C\uDDF8",it:"\uD83C\uDDEE\uD83C\uDDF9"};
+
+  /* Most pages carry the switcher in their markup, but the blog posts, the
+     booking pages, 404 and a few locale pages never did — 85 of 133. Rather
+     than paste the same block into each file, build it here when it is
+     missing. Links come from the page's own hreflang alternates when it has
+     them, and otherwise from each language's home page. */
+  function buildLangsel(){
+    if(document.querySelector(".langsel")) return;
+    var nav=document.getElementById("nav"); if(!nav) return;
+    var alts={};
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(function(l){
+      var h=l.getAttribute("hreflang");
+      if(h && h!=="x-default") alts[h]=l.getAttribute("href");
+    });
+    var items="";
+    ["en"].concat(LL).forEach(function(l){
+      var href=alts[l] || (l==="en" ? "/" : "/"+l+"/index.html");
+      items+='<a href="'+href+'">'+NAMES[l]+"</a>";
+    });
+    var box=document.createElement("div");
+    box.className="langsel";
+    box.innerHTML='<button class="langbtn" title="Language" aria-label="Language">'+
+      '<span class="langglobe" aria-hidden="true">\uD83C\uDF10</span> <span class="langcode">EN</span> '+
+      '<span class="langcaret" aria-hidden="true">\u25BE</span></button>'+
+      '<div class="langmenu">'+items+"</div>";
+    var host=nav.querySelector(".ni > div:last-child") || nav.querySelector(".ni") || nav;
+    host.insertBefore(box, host.firstChild);
+  }
+  buildLangsel();
   function langOf(href){var s=(href||"").split("/").filter(Boolean);return LL.indexOf(s[0])>=0?s[0]:"en";}
   function pageFile(){var f=location.pathname.split("/").pop();return f||"index.html";}
   var p=location.pathname.split("/").filter(Boolean);
   var lang=(LL.indexOf(p[0])>=0)?p[0]:"en";
   var cb=document.querySelector(".langcode"); if(cb) cb.textContent=lang.toUpperCase();
+  // The floating circle on phones shows the flag, not the letters (owner's call).
+  var btn0=document.querySelector(".langbtn");
+  if(btn0){
+    // the hand-written markup has bare <span>s: the globe first, the caret last
+    var bare=[].filter.call(btn0.querySelectorAll("span"),function(x){return !x.className;});
+    if(bare[0]) bare[0].className="langglobe";
+    if(bare[bare.length-1]) bare[bare.length-1].className="langcaret";
+  }
+  if(btn0 && !btn0.querySelector(".langflag")){
+    var fl=document.createElement("span");
+    fl.className="langflag"; fl.setAttribute("aria-hidden","true");
+    fl.textContent=FLAGS[lang]||FLAGS.en;
+    btn0.insertBefore(fl, btn0.firstChild);
+  }
   var menu=document.querySelectorAll(".langmenu a");
   menu.forEach(function(a){
-    if(langOf(a.getAttribute("href"))===lang) a.classList.add("on");
+    var al=langOf(a.getAttribute("href"));
+    if(!a.querySelector(".langflag")){
+      var f=document.createElement("span");
+      f.className="langflag"; f.setAttribute("aria-hidden","true");
+      f.textContent=FLAGS[al]||"";
+      a.insertBefore(f, a.firstChild);
+    }
+    if(al===lang) a.classList.add("on");
     a.addEventListener("click",function(){ try{localStorage.setItem("chifbay_lang", langOf(a.getAttribute("href")));}catch(e){} });
   });
+  /* "Book your boat" is far too wide for a pill sitting next to a centred
+     logo, so on phones it shortens to one word. The copy in the drawer, and
+     the desktop bar, keep the full wording. */
+  var SHORT={en:"Book",fr:"Réserver",de:"Buchen",pt:"Reservar",es:"Reservar",it:"Prenota"};
+  var nc=document.querySelector("#nav .nc");
+  if(nc&&window.matchMedia){
+    var full=nc.textContent.trim(), mqs=window.matchMedia("(max-width:860px)");
+    var label=function(){ nc.textContent = mqs.matches ? (SHORT[lang]||SHORT.en) : full; };
+    label();
+    if(mqs.addEventListener) mqs.addEventListener("change",label);
+    else if(mqs.addListener) mqs.addListener(label);
+  }
+
   var ls=document.querySelector(".langsel"), btn=ls&&ls.querySelector(".langbtn");
   if(btn){ btn.addEventListener("click",function(e){e.stopPropagation();ls.classList.toggle("open");});
     document.addEventListener("click",function(){ls.classList.remove("open");}); }
@@ -98,4 +136,25 @@
       if(nl!=="en" && av.indexOf(nl)>=0){ try{localStorage.setItem("chifbay_lang",nl);}catch(e){} location.replace("/"+nl+"/"+pageFile()); }
     }
   }).catch(function(){});
+})();
+
+/* The language picker becomes a floating button on phones, mirroring the
+   WhatsApp one. It cannot stay inside #nav to do that: #nav carries
+   backdrop-filter once scrolled, which makes it the containing block for its
+   position:fixed descendants — the same trap documented for the mobile drawer
+   in peak.css. The button would then sit 22px from the bottom of the NAV BAR
+   instead of the screen. So it moves out to <body> while it floats, and goes
+   back to its place in the bar on desktop. */
+(function(){
+  var ls=document.querySelector('.langsel');
+  if(!ls||!window.matchMedia) return;
+  var home=ls.parentNode, next=ls.nextSibling;
+  var mq=window.matchMedia('(max-width:860px)');
+  function place(){
+    if(mq.matches){ if(ls.parentNode!==document.body) document.body.appendChild(ls); }
+    else if(ls.parentNode===document.body && home){ home.insertBefore(ls,next); }
+  }
+  place();
+  if(mq.addEventListener) mq.addEventListener('change',place);
+  else if(mq.addListener) mq.addListener(place);
 })();

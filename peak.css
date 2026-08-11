@@ -135,16 +135,20 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.08;letter-sp
 .nc{font-size:.8rem;font-weight:600;text-decoration:none;padding:10px 22px;border-radius:var(--radius-pill);color:var(--on-accent);background:var(--teal);transition:transform .2s,box-shadow .2s;white-space:nowrap}
 .nc:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(var(--teal-rgb),.35)}
 .navtoggle{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;z-index:120;margin-left:6px}
-.navtoggle span{display:block;width:26px;height:2px;background:var(--paper);margin:6px 0;transition:.3s;border-radius:2px}
+/* 5px gap, not 6px margins top AND bottom: 12px of air between bars did not
+   read as a burger at all, and the X it folded into was twice the size it
+   should be. Pitch is now 2+5=7px, which is what the X transform below uses. */
+.navtoggle span{display:block;width:24px;height:2px;background:var(--paper);margin:0;
+  transition:transform .3s,opacity .2s;border-radius:2px}
 @media(max-width:860px){
-  .navtoggle{display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;z-index:210}
+  .navtoggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;position:relative;z-index:210}
   .nl{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:rgba(var(--ink-rgb),.98);flex-direction:column;justify-content:center;align-items:flex-start;gap:30px;padding:54px;transform:translateX(100%);transition:transform .4s cubic-bezier(.15,.8,.15,1);font-size:1.15rem;border-left:1px solid var(--hair);will-change:transform;z-index:200;overflow-y:auto;overscroll-behavior:contain}
   .nl.open{transform:none}
   .nl a{color:var(--paper)}
   /* hamburger morphs to a close (X) while the drawer is open */
-  html.nav-open .navtoggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  html.nav-open .navtoggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   html.nav-open .navtoggle span:nth-child(2){opacity:0}
-  html.nav-open .navtoggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  html.nav-open .navtoggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
 /* FOOTER SOCIAL ICONS — Instagram, Facebook, TikTok, under the logo.
    Instagram is drawn as an outline to match the site's icon language; the
@@ -452,7 +456,14 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
 .artcta h3{font-family:"Playfair Display",serif;font-size:1.6rem;font-weight:500;margin-bottom:10px}
 .artcta p{color:var(--paper-dim);margin-bottom:20px}
 
-/* ---------- LANGUAGE SWITCHER ---------- */
+/* ---------- LANGUAGE SWITCHER ----------
+   peak.js injects a .langflag into the button and into every menu row, and
+   tags the globe/caret so the flag can take the globe's place. On pages that
+   never had a switcher in their markup (blog posts, booking pages, 404) the
+   whole control is built by peak.js too. */
+.langflag{font-size:.95rem;line-height:1;margin-right:2px}
+.langmenu a{display:flex;align-items:center;gap:9px}
+.langbtn .langglobe{display:none}
 .langsel{position:relative}
 .langbtn{background:none;border:1px solid var(--hair-strong);color:var(--paper);border-radius:100px;padding:7px 12px;min-height:40px;font-size:.72rem;font-family:"Space Mono",monospace;letter-spacing:.08em;cursor:pointer;display:flex;align-items:center;gap:5px}
 .langbtn:hover{border-color:var(--teal);color:var(--teal)}
@@ -709,13 +720,19 @@ body:has(.annc) #nav{top:36px}
    floating control that mirrors the WhatsApp button on the right.
    ============================================================ */
 @media(max-width:860px){
-  /* The logo goes out of flow so the hamburger cannot push it off centre —
-     which leaves the actions as the only in-flow child, and space-between
-     would then park them on the LEFT. They have to be pushed right. */
+  /* burger left · logo centred · a small gold Book pill right.
+     Both the burger and the logo come out of flow so the pill's width — which
+     changes with the language — can never shove the logo off centre. */
   .ni{position:relative;justify-content:flex-end}
   /* #nav-scoped! Unscoped, this also caught the FOOTER logo, which has no
      positioned ancestor — it tore loose and landed in the middle of the hero. */
   #nav .logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0}
+  /* .ni IS the .wrap element, so its padding box starts at x=0 — `left` here is
+     measured from the screen edge, not from the 18px gutter. 8px puts the 24px
+     bars themselves on the gutter line, level with the rest of the page. */
+  .navtoggle{position:absolute;left:8px;top:50%;transform:translateY(-50%);margin:0}
+  .nc{display:inline-flex;align-items:center;padding:9px 18px;font-size:.72rem;
+    letter-spacing:.1em;text-transform:uppercase;font-weight:700}
 
   .langsel{position:fixed;left:22px;bottom:22px;z-index:90;margin:0}
   .langbtn{width:54px;height:54px;min-height:0;padding:0;border-radius:50%;
@@ -723,19 +740,12 @@ body:has(.annc) #nav{top:36px}
     color:var(--on-accent);font-weight:700;font-size:.74rem;letter-spacing:.04em;
     box-shadow:0 10px 28px rgba(var(--shadow-rgb),.4);transition:transform .2s}
   .langbtn:hover{transform:scale(1.07);background:var(--teal);color:var(--on-accent)}
-  /* the globe and the caret have no room in a circle — the code says it all */
-  .langbtn span:not(.langcode){display:none}
+  /* a circle has room for one thing: the flag of the language you are in */
+  .langbtn .langcode,.langbtn .langcaret,.langbtn .langglobe{display:none}
+  .langbtn .langflag{font-size:1.45rem;line-height:1}
   .langmenu{top:auto;bottom:calc(100% + 12px);left:0;right:auto;min-width:160px}
 }
-/* Below this the "Book your boat" pill would collide with the centred logo.
-   peak.js copies it into the drawer instead, so the CTA is not lost. */
-@media(max-width:620px){.nc{display:none}}
-.nl .nc-drawer{display:none}
-@media(max-width:860px){
-  .nl .nc-drawer{display:inline-flex;align-items:center;justify-content:center;
-    background:var(--teal);color:var(--on-accent);border-radius:var(--radius-pill);
-    padding:13px 26px;font-weight:600;font-size:.92rem;text-decoration:none;margin-top:6px}
-}
+
 
 /* ============================================================
    ROUNDER — 2026-08-11. Softer corners across the board, and
