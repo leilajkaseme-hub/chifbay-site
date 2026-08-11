@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-11T06:16:01.203Z",
+  "updatedAt": "2026-08-11T11:15:54.154Z",
   "aggregate": {
     "rating": 5,
     "count": 34
@@ -43,26 +43,6 @@
         "text": "Thank you so much for your kind review! We’re really happy you enjoyed your time with us and discovering Madeira from the sea. It was a pleasure having you on board and giving you the space to enjoy this special moment together. We hope to welcome you back one day The Chifbay Team⚓️",
         "date": "2026-08-10"
       },
-      "translation": null
-    },
-    {
-      "id": "google-ff0b71a926e1e229",
-      "source": "google",
-      "rating": 5,
-      "author": "Timoteo Gomes",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-04",
-      "text": "Sometimes we forget how lucky we are. This tour was a great way to disconnect, appreciate the Madeira coast and enjoy a spectacular sunset. It's worth it. The crew was very friendly and contributed to making the whole experience even more enjoyable. I recommend it.",
-      "photos": [
-        "assets/reviews/google/google-ff0b71a926e1e229-1.jpg",
-        "assets/reviews/google/google-ff0b71a926e1e229-2.jpg",
-        "assets/reviews/google/google-ff0b71a926e1e229-3.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
       "translation": null
     },
     {
@@ -176,6 +156,26 @@
       "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
       "photos": [
         "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-ff0b71a926e1e229",
+      "source": "google",
+      "rating": 5,
+      "author": "Timoteo Gomes",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-28",
+      "text": "Sometimes we forget how lucky we are. This tour was a great way to disconnect, appreciate the Madeira coast and enjoy a spectacular sunset. It's worth it. The crew was very friendly and contributed to making the whole experience even more enjoyable. I recommend it.",
+      "photos": [
+        "assets/reviews/google/google-ff0b71a926e1e229-1.jpg",
+        "assets/reviews/google/google-ff0b71a926e1e229-2.jpg",
+        "assets/reviews/google/google-ff0b71a926e1e229-3.jpg"
       ],
       "tourId": null,
       "tourName": null,
@@ -543,7 +543,7 @@
       "tourName": "Luxury Sunset Yacht Experience",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
       "reply": {
-        "text": "Thank you so much Elena, that means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
+        "text": "Thank you so much, Elena. That means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
         "date": "2026-06-02"
       },
       "translation": null
