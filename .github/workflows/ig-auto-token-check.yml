@@ -1,13 +1,47 @@
-name: tc
-on: {workflow_dispatch: {}}
-permissions: {contents: read}
+name: Chifbay Instagram — token health
+
+# The whole system rests on one credential. This is the only thing that can
+# silently kill it months from now, so it gets its own watchdog.
+#
+# The token is a Business Manager System User token issued with expiry "Never",
+# so it needs nothing — which is exactly why nobody would notice if the wrong
+# kind ever got pasted in. This notices within a week, while there is still over
+# a month to fix it, instead of the first sign being a missing post.
+#
+# Silence from this job means the credential is genuinely fine.
+on:
+  schedule:
+    - cron: "30 8 * * 1"   # Mondays, well before the daily post
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
 jobs:
-  c:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: {node-version: "22"}
-      - working-directory: ig-auto
-        env: {IG_ACCESS_TOKEN: "${{ secrets.IG_ACCESS_TOKEN }}"}
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check the Instagram token
+        working-directory: ig-auto
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: node bin/token-check.mjs
+
+      # token-check.mjs already sends a detailed ntfy alert describing the exact
+      # problem; this only covers the case where the script itself could not run.
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY Instagram token check FAILED" \
+            -H "Priority: high" -H "Tags: rotating_light,key" \
+            -d "The weekly Instagram token check failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

@@ -45,6 +45,9 @@ jobs:
         id: post
         working-directory: ig-auto
         env:
+          # A manual run is a human watching a log, so it posts straight away.
+          # Scheduled runs keep the random 0-90 minute drift.
+          IG_NO_JITTER: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
           IG_KIND: story
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
