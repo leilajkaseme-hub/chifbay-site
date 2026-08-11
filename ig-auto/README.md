@@ -1,76 +1,74 @@
-# ig-auto — one Instagram post a day for @chifbay
+# ig-auto — a daily post and a daily story for @chifbay
 
 Runs in GitHub's cloud on a schedule. **Your computer can be off.**
 
-**Free to run. No Meta developer app, no API keys of your own.**
+**Free to run, with no monthly limit and nothing that expires.**
 
 ---
 
 ## How it works
 
 ```
-05:00 UTC   top up      build posts days ahead  ->  queue/ + ig/  ->  git push
-10:00 UTC   post        oldest item in queue    ->  Make          ->  Instagram
-            (+ 0-90 min random wait)
-Mon + Thu   heartbeat   "did a post go out?"    ->  alert if it quietly stopped
+05:00 UTC   top up      build both queues ahead  ->  queue/ + ig/  ->  git push
+10:00 UTC   post        oldest feed item         ->  Meta API      ->  Instagram
+17:00 UTC   story       oldest story item        ->  Meta API      ->  Instagram
+            (each + 0-90 min random wait)
+Mon + Thu   heartbeat   "did anything go out?"   ->  alert if it quietly stopped
 ```
 
-Two jobs, on purpose:
+Feed and story have separate queues and separate daily guards, so one of each
+goes out per day and a story failing never costs you the feed post.
 
-- **Top-up** is allowed to fail. It fills the queue to 12 posts. If it breaks
-  for a week, nothing bad happens.
-- **Post** must not fail. It takes the oldest item and publishes it. It uses
-  **no npm packages at all** — only Node's standard library — so there is
-  almost nothing in it that can break.
+Split by how much each may fail:
+
+- **Top-up** is allowed to fail. It fills the queues to 12 feed posts and 10
+  stories. If it breaks for a week, nothing bad happens.
+- **Post** and **story** must not fail. They take the oldest item and publish it,
+  using **no npm packages at all** — only Node's standard library — so there is
+  almost nothing in them that can break.
 
 That is the whole reliability idea: the part that must work is tiny, and it has
 a 12-day buffer in front of it.
 
 ---
 
-## Why there is no Meta developer app
+## Why it costs nothing, and why nothing expires
 
-Make holds the Instagram connection. Make owns the Meta app, so on your side
-there is nothing to register, no app review, no `instagram_content_publish`
-permission to request, and **no access token that expires every 60 days**.
+Posts go **straight to Meta's own API**. No third party in the middle, so there
+is no monthly operation budget, no plan to outgrow, and no company that can
+change its pricing. Publishing to your own Instagram from your own app needs no
+app review and no approval.
 
-GitHub Actions sends `{image_url, caption}` to a Make webhook. Make posts it and
-answers with the new post's id, which goes into the ledger.
+The usual reason people avoid going direct is the 60-day access token. That is
+solved once, at setup, instead of in code: the token is a Business Manager
+**System User token, issued with no expiry**. There is nothing to refresh, so
+there is no refresh job that can fail silently. `bin/token-check.mjs` warns if
+that token is ever invalid, short-lived, or missing a permission.
 
-Cost: **free**. One post a day is about **93 of Make's 1,000 monthly
-operations** (3 modules × 31 days). Free also allows 2 active scenarios; this
-needs 1.
+### Why not Make
 
-### The one thing that can bite — read this
+Make was the first build, and `lib/publish.mjs` still has the `make-webhook`
+transport plus an importable blueprint. Two reasons it lost:
 
-Those 1,000 operations are **shared across every scenario in the Make account**,
-and when they run out the whole organisation stops.
-
-Right now the **"SafePay Studio Waitlist"** scenario has used **986 operations on
-its own** — that is why the Make org currently shows as paused. If it keeps
-running, it will eat each month's allowance and Instagram posting will stop.
-
-**Turn that scenario off** (or delete it) unless SafePay Studio is live. The
-allowance resets at the start of each month.
-
-Two things defend against this anyway:
-
-- The Make scenario answers with the real post id. If the organisation is out of
-  operations the webhook still replies a cheerful `Accepted` and posts nothing —
-  so `lib/publish.mjs` **treats a missing id as a failure**, which retries and
-  alerts instead of silently doing nothing.
-- `bin/heartbeat.mjs` runs twice a week and shouts if no post has gone out for
-  more than 2 days, whatever the cause.
+- **Make cannot post stories at all.** Its Instagram app has no create-story
+  module — checked the full list, deprecated ones included. Only `ListUserStories`,
+  which is read-only.
+- Make's free plan shares **one pool of 1,000 operations a month across every
+  scenario in the account**. Posting needs about 93; the problem is the sharing.
+  The "SafePay Studio Waitlist" scenario has already used 986 on its own, which
+  is why that organisation is paused. An unrelated busy webhook can starve the
+  posting job, and the first sign would be a missing post.
 
 > One thing no method avoids: Instagram requires the account to be a **Business
 > or Creator account linked to a Facebook Page**. That is an Instagram rule, not
 > an API-key rule. @chifbay is already a Business account.
 
-If you ever change your mind about a Meta app, `lib/publish.mjs` has a `graph`
-transport ready — direct to Meta, no middleman, no operation budget at all. Use
-a System User token with expiry "Never" and `bin/token-check.mjs` watches it.
+### What a story can and cannot be
 
----
+A story published through the API is **the picture and nothing else**. Meta does
+not let an app add text overlays, stickers, polls, music or link stickers —
+those exist only in the phone app. So stories here are chosen for images that
+stand on their own, cropped to 9:16.
 
 ## Where the pictures come from
 
@@ -88,9 +86,14 @@ the subject outright. A wrong boat on a real business account is worse than no
 post. Angles that show the boat, the crew or guests are marked
 `"ai_prompt": null` in `brand.json` and can only come from real photos.
 
-Every image leaves as a **1080x1350 JPEG** — Instagram's 4:5 portrait, the ratio
-that takes the most space in the feed, and safely inside Meta's accepted range
-so a tall or panoramic original can never be rejected.
+Images are cropped to where they are going: **1080x1350** (4:5) for the feed,
+the ratio that takes the most space there and sits safely inside Meta's accepted
+4:5-1.91:1 range, and **1080x1920** (9:16) for stories, the full phone screen.
+A tall or panoramic original can never be rejected.
+
+The same source photo is never used for both. The 9:16 crop has a different
+hash from the 4:5 one, so the cooldown matches on the source file, and it covers
+what is queued as well as what has been posted.
 
 ---
 
@@ -121,9 +124,9 @@ through Meta's sanctioned publishing path.
 
 On top of that:
 
-- **Random posting time.** Fires at 10:00 UTC, then waits 0-90 minutes. Posting
-  at exactly the same second every day is the most obviously automated thing an
-  account can do.
+- **Random posting time.** The feed job fires at 10:00 UTC and the story job at
+  17:00 UTC, and each then waits 0-90 minutes. Posting at exactly the same
+  second every day is the most obviously automated thing an account can do.
 - **Hashtags rotate.** 5-8 per post, chosen least-recently-used across four
   pools plus tags specific to what is in the photo. The set is never identical
   to any of the last 10 posts. Big blocks of the same 30 tags are the classic
@@ -133,7 +136,8 @@ On top of that:
 - **Subjects cycle.** All 12 angles run before any of them comes back.
 - **No photo twice, ever.** Every posted image's sha256 is checked before
   publishing. Source files also get a 120-day cooldown.
-- **One post a day, never a burst.** Enforced by the daily guard, not by luck.
+- **One feed post and one story a day, never a burst.** Enforced by separate
+  daily guards, not by luck.
 
 It does **not** randomly skip days. Instagram does not punish consistency — it
 punishes bursts and repetition. You asked for every day, so it posts every day.
@@ -161,57 +165,72 @@ A failed post leaves the item in the queue. Tomorrow picks it up.
 
 ## Setup
 
-One-time, about 10 minutes. Nothing here costs money.
+One-time, about 15 minutes. Nothing here costs money.
 
-### 1. Free the Make allowance first
+### 1. Create the app
+[developers.facebook.com](https://developers.facebook.com/apps) → **Create App**
+→ type **Business** → name it `chifbay-posting`.
 
-[make.com](https://make.com) → Scenarios → **SafePay Studio Waitlist** → switch
-it **off**, or delete it if SafePay Studio is not live. It has already used 986
-of the 1,000 monthly operations on its own.
+Then **Add product → Instagram → Set up**. You do not submit anything for
+review: an app publishing to its own Instagram account needs no approval.
 
-Then check the organisation is not paused. If it is, it should clear at the
-start of the month once nothing is burning operations.
+### 2. Create a System User token that never expires
 
-### 2. Import the scenario
+This is the step that removes the 60-day problem. Do not skip it, and do not use
+the token from the Graph API Explorer — that one is short-lived.
 
-Make → Scenarios → **Create new** → the `...` menu → **Import Blueprint** →
-upload `make-scenario.blueprint.json`.
+[business.facebook.com/settings](https://business.facebook.com/settings) →
+**Users → System users → Add**
 
-1. Click the **Instagram** module → **Add connection** → log in with the
-   Facebook account that manages the Chifbay Page
-2. Under **Page**, pick @chifbay
-3. Click the **webhook** module → **Copy address to clipboard**
-4. **Turn the scenario ON**
+1. Name it `chifbay-automation`, role **Admin**
+2. **Add assets** → **Apps** → pick `chifbay-posting` → Full control
+3. **Add assets** → **Pages** → pick the Chifbay Page → Full control
+4. **Generate new token** → app `chifbay-posting`
+5. **Token expiration: Never** ← the whole point
+6. Tick these permissions:
+   - `instagram_basic`
+   - `instagram_content_publish`
+   - `pages_show_list`
+   - `pages_read_engagement`
+7. Copy the token. **It is shown once.**
 
-Leave the scheduling as **immediately** — it is triggered by the webhook, not by
-a clock.
+### 3. Find the account id
 
-> Do not remove the last module. That "Webhook response" step is what returns
-> the real post id, and the poster treats a missing id as a failure. Without it
-> a dead scenario would look like a successful post.
+```bash
+cd ig-auto
+IG_ACCESS_TOKEN=paste_the_token node bin/whoami.mjs
+```
 
-### 3. GitHub secrets
+It prints the Page, the linked Instagram handle and the `IG_USER_ID`. That id is
+not the number in your profile URL — it is the Instagram Business Account id
+hanging off the Page, which Meta's own screens bury.
+
+### 4. GitHub secrets
 Repo → Settings → Secrets and variables → Actions:
 
 | Secret | What it is |
 | --- | --- |
-| `MAKE_IG_WEBHOOK` | the webhook URL from step 2.3 |
+| `IG_ACCESS_TOKEN` | the System User token from step 2 |
+| `IG_USER_ID` | the id from step 3 |
 | `CLAUDE_CODE_OAUTH_TOKEN` | already set — used by the blog job |
 | `OPENAI_API_KEY` | optional, only for better AI scenery |
 
-### 4. Prove it works, in this order
+### 5. Prove it works, in this order
 
-1. Actions → **Chifbay Instagram — top up the queue** → Run workflow.
-   Wait for the push, then read `ig-auto/queue/` and check you like the posts.
-2. Actions → **Chifbay Instagram — daily post** → Run workflow.
-   One real post goes out, and the log should print a `MEDIA_ID`. If it prints
-   an error about `Accepted`, the Make scenario is off or out of operations.
-3. Actions → **Chifbay Instagram — heartbeat** → Run workflow. Should say
-   `all good`.
+```bash
+cd ig-auto && IG_ACCESS_TOKEN=… IG_USER_ID=… node bin/token-check.mjs
+```
+Should print `expires never` and `all good`.
+
+Then in the Actions tab, one at a time:
+
+1. **top up the queue** — wait for the push, read `ig-auto/queue/`, check you
+   like the posts
+2. **daily post** — one real feed post goes out, log prints a `MEDIA_ID`
+3. **daily story** — one real story goes out
+4. **heartbeat** — should say `all good`
 
 After that the schedule takes over on its own.
-
----
 
 ## Day to day
 
@@ -238,31 +257,32 @@ priority when a post fails or the queue runs dry, normal when a post goes out.
 | `config.json` | cadence, queue depth, image mix, transport |
 | `brand.json` | voice, facts, the 12 angles, hashtag pools, ban list |
 | `lib/queue.mjs` | queue, ledger, lock, daily guard, dedupe |
-| `lib/image.mjs` | picks a real photo or generates scenery, crops to 4:5 |
+| `lib/image.mjs` | picks a real photo, crops to 4:5 (feed) or 9:16 (story) |
 | `lib/caption.mjs` | reads the photo, writes the words, blocks repeats |
-| `lib/publish.mjs` | transports: `make-webhook`, `graph`, `dry-run` |
+| `lib/publish.mjs` | transports: `graph`, `make-webhook`, `dry-run` |
 | `lib/notify.mjs` | ntfy push |
-| `make-scenario.blueprint.json` | the Make scenario, ready to import |
-| `bin/topup.mjs` | fill the queue |
-| `bin/post.mjs` | publish the oldest item |
+| `make-scenario.blueprint.json` | only for the Make fallback (feed only) |
+| `bin/topup.mjs` | fill both queues |
+| `bin/post.mjs` | publish the oldest item (`IG_KIND=story` for a story) |
 | `bin/status.mjs` | health at a glance |
 | `bin/heartbeat.mjs` | "has it quietly stopped?" — runs twice a week |
-| `bin/whoami.mjs` | only for the `graph` transport — finds `IG_USER_ID` |
-| `bin/token-check.mjs` | only for the `graph` transport — watches the token |
+| `bin/whoami.mjs` | setup helper — finds `IG_USER_ID` |
+| `bin/token-check.mjs` | checks the token is valid and never-expiring |
 
 Test anything without touching Instagram:
 
 ```bash
 IG_MAX_PER_RUN=1 node bin/topup.mjs
 IG_TRANSPORT=dry-run IG_NO_JITTER=1 node bin/post.mjs
+IG_TRANSPORT=dry-run IG_NO_JITTER=1 IG_KIND=story node bin/post.mjs
 ```
 
 ---
 
 ## Not done yet
 
-- **Reels.** Make has `CreateAReelPost` and the queue format would carry a video
-  fine, but nothing generates video yet. Images daily, video later.
-- **Location tag.** `CreatePostPhoto` accepts a `location_id`. Tagging Funchal
-  on every post helps local discovery. Needs the Page ID for the location.
-- **Alt text.** Not exposed by the Make module.
+- **Reels.** The queue format would carry a video fine, but nothing generates
+  video yet. Images daily, video later.
+- **Location tag.** The API accepts a `location_id` on feed posts. Tagging
+  Funchal helps local discovery. Needs the Page ID for the location.
+- **Alt text.** Supported by the API, not wired up yet.

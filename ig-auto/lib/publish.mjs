@@ -19,6 +19,11 @@ import { config } from "./queue.mjs";
 async function makeWebhook(item) {
   const hook = process.env.MAKE_IG_WEBHOOK;
   if (!hook) throw new Error("MAKE_IG_WEBHOOK is not set");
+  // Make's Instagram app has no create-story module — checked the full list,
+  // deprecated ones included. Only "graph" can post a story.
+  if (item.kind === "story") {
+    throw new Error('the "make-webhook" transport cannot post stories — use the "graph" transport');
+  }
 
   const res = await fetch(hook, {
     method: "POST",
@@ -78,10 +83,14 @@ async function graph(item) {
   const token = process.env.IG_ACCESS_TOKEN;
   if (!user || !token) throw new Error("IG_USER_ID / IG_ACCESS_TOKEN are not set");
 
+  // A story takes no caption. The API cannot add text overlays, stickers, polls
+  // or link stickers either — those exist only in the phone app. An API story is
+  // the picture and nothing else.
+  const isStory = item.kind === "story";
   const container = await graphCall(`/${user}/media`, {
     image_url: item.url,
-    caption: item.rendered_caption,
     access_token: token,
+    ...(isStory ? { media_type: "STORIES" } : { caption: item.rendered_caption }),
   });
   if (!container.id) throw new Error(`no container id: ${JSON.stringify(container).slice(0, 200)}`);
 

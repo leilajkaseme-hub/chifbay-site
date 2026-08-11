@@ -63,13 +63,20 @@ const readJson = (p, fallback = null) => {
   try { return JSON.parse(readFileSync(p, "utf-8")); } catch { return fallback; }
 };
 
-/** Queue items, oldest first — that is the order they get posted in. */
-export function listQueue() {
+/** Items written before stories existed are feed posts. */
+export const kindOf = (item) => item?.kind ?? "feed";
+
+/**
+ * Queue items, oldest first — that is the order they get posted in.
+ * Pass "feed" or "story" to get just that kind; omit for everything.
+ */
+export function listQueue(kind = null) {
   if (!existsSync(QUEUE_DIR)) return [];
   return readdirSync(QUEUE_DIR)
     .filter((f) => f.endsWith(".json"))
     .map((f) => readJson(join(QUEUE_DIR, f)))
     .filter(Boolean)
+    .filter((i) => !kind || kindOf(i) === kind)
     .sort((a, b) => String(a.created).localeCompare(String(b.created)));
 }
 
@@ -148,8 +155,12 @@ export function saveState(patch) {
   writeFileSync(STATE, JSON.stringify({ ...state(), ...patch }, null, 2) + "\n");
 }
 
-export function alreadyPostedToday() {
-  return state().last_post_date === today();
+/** Feed and story are guarded separately — one of each a day, not one in total. */
+export const lastPostKey = (kind = "feed") =>
+  kind === "feed" ? "last_post_date" : `last_${kind}_date`;
+
+export function alreadyPostedToday(kind = "feed") {
+  return state()[lastPostKey(kind)] === today();
 }
 
 /**

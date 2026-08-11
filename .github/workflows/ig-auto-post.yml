@@ -1,7 +1,9 @@
 name: Chifbay Instagram — daily post
 
-# The job that must not fail. It takes the oldest item off the queue and hands
-# it to the Make scenario, which owns the Instagram connection.
+# The job that must not fail. It takes the oldest item off the feed queue and
+# posts it straight to Meta's API — no third party, no monthly operation budget.
+#
+# The story counterpart is ig-auto-story.yml, with its own queue and guard.
 #
 # Deliberately minimal: no npm install, no AI provider, no third-party package
 # of any kind. bin/post.mjs uses nothing but Node's own standard library, so
@@ -44,10 +46,10 @@ jobs:
         id: post
         working-directory: ig-auto
         env:
-          MAKE_IG_WEBHOOK: ${{ secrets.MAKE_IG_WEBHOOK }}
-          # Only used if config.json is ever switched to the "graph" transport.
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          # Only used if config.json is switched back to the "make-webhook" transport.
+          MAKE_IG_WEBHOOK: ${{ secrets.MAKE_IG_WEBHOOK }}
         run: |
           node bin/post.mjs | tee /tmp/post.log
           echo "posted=$(grep -o 'POSTED=.*' /tmp/post.log | cut -d= -f2)" >> "$GITHUB_OUTPUT"

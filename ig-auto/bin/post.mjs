@@ -6,18 +6,24 @@
 // generation, no network calls to AI providers, nothing that can be slow or
 // refuse. If this runs and the queue has anything in it, a post goes out.
 //
+// Posts a feed photo by default, or a story with IG_KIND=story. The two are
+// guarded and queued separately, so one of each goes out per day rather than
+// one in total, and a story failing never costs you the feed post.
+//
 // Timing note: the workflow fires at a fixed hour, then this waits a random
 // number of minutes before publishing. Posting at exactly 09:00:00 every single
 // day is the most obviously automated thing an account can do; a drifting time
 // inside a sensible window costs nothing and looks like a person.
 import {
-  alreadyPostedToday, appendLedger, config, ensureDirs, listQueue,
-  markPosted, recentPosts, saveState, today, withLock,
+  alreadyPostedToday, appendLedger, config, ensureDirs, kindOf, lastPostKey,
+  listQueue, markPosted, recentPosts, saveState, today, withLock,
 } from "../lib/queue.mjs";
 import { assertImageIsLive, publish } from "../lib/publish.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+const KIND = process.env.IG_KIND === "story" ? "story" : "feed";
 
 async function jitter() {
   if (process.env.IG_NO_JITTER === "1") return;
@@ -28,17 +34,17 @@ async function jitter() {
 
 /**
  * "Not connected yet" is a normal state between deploying this and finishing
- * the Make setup, not a fault. Returns a reason to skip, or null to go ahead.
+ * the Meta setup, not a fault. Returns a reason to skip, or null to go ahead.
  * Without this the job would fail and alert every single morning until setup
  * was done, which trains you to ignore the alerts that matter.
  */
 function notConfigured() {
   const transport = process.env.IG_TRANSPORT || config.transport;
-  if (transport === "make-webhook" && !process.env.MAKE_IG_WEBHOOK) {
-    return "MAKE_IG_WEBHOOK is not set — finish the Make setup in ig-auto/README.md";
-  }
   if (transport === "graph" && !(process.env.IG_USER_ID && process.env.IG_ACCESS_TOKEN)) {
-    return "IG_USER_ID / IG_ACCESS_TOKEN are not set";
+    return "IG_USER_ID / IG_ACCESS_TOKEN are not set — finish the Meta setup in ig-auto/README.md";
+  }
+  if (transport === "make-webhook" && !process.env.MAKE_IG_WEBHOOK) {
+    return "MAKE_IG_WEBHOOK is not set";
   }
   return null;
 }
@@ -53,7 +59,10 @@ function notConfigured() {
  * throwing away pictures and captions that are individually fine.
  */
 function chooseNext(queue) {
-  const lastAngles = recentPosts(2).map((p) => p.angle);
+  const lastAngles = recentPosts(40)
+    .filter((p) => kindOf(p) === KIND)
+    .slice(0, 2)
+    .map((p) => p.angle);
   return queue.find((i) => !lastAngles.includes(i.angle)) ?? queue[0];
 }
 
@@ -69,23 +78,23 @@ async function main() {
 
   // The daily guard, not a nicety: GitHub can re-run a workflow, and a manual
   // trigger on a day that already posted must be a no-op, never a second post.
-  if (alreadyPostedToday()) {
-    console.log(`already posted today (${today()}) — nothing to do`);
+  if (alreadyPostedToday(KIND)) {
+    console.log(`${KIND} already posted today (${today()}) — nothing to do`);
     console.log("POSTED=false");
     return;
   }
 
-  const queue = listQueue();
+  const queue = listQueue(KIND);
   if (!queue.length) {
     await alert(
-      "CHIFBAY Instagram queue is EMPTY",
-      "Nothing was posted today because the queue ran dry. Run the top-up workflow.",
+      `CHIFBAY Instagram ${KIND} queue is EMPTY`,
+      `Nothing was posted today because the ${KIND} queue ran dry. Run the top-up workflow.`,
     );
-    throw new Error("queue is empty — nothing to post");
+    throw new Error(`${KIND} queue is empty — nothing to post`);
   }
 
   const item = chooseNext(queue);
-  console.log(`posting ${item.id} [${item.angle}] from ${item.origin}`);
+  console.log(`posting ${KIND} ${item.id} [${item.angle}] from ${item.origin}`);
 
   // Everything that can go wrong from here is handled the same way, because
   // from the outside there is no difference between "Instagram refused it" and
@@ -117,10 +126,10 @@ async function main() {
   } catch (err) {
     // The item stays in the queue on purpose — tomorrow's run picks it up again.
     const why = String(err?.message ?? err);
-    appendLedger({ ok: false, id: item.id, error: why });
+    appendLedger({ ok: false, kind: KIND, id: item.id, error: why });
     await alert(
-      "CHIFBAY Instagram post FAILED",
-      `${item.id}: ${why}\n\nThe post is still in the queue and tomorrow's run will retry it.`,
+      `CHIFBAY Instagram ${KIND} FAILED`,
+      `${item.id}: ${why}\n\nIt is still in the queue and tomorrow's run will retry it.`,
     );
     throw err;
   }
@@ -128,6 +137,7 @@ async function main() {
   markPosted(item, result);
   appendLedger({
     ok: true,
+    kind: KIND,
     id: item.id,
     sha256: item.sha256,
     origin: item.origin,
@@ -138,7 +148,7 @@ async function main() {
     url: item.url,
     ...result,
   });
-  saveState({ last_post_date: today() });
+  saveState({ [lastPostKey(KIND)]: today() });
 
   console.log(`POSTED=true`);
   console.log(`MEDIA_ID=${result.media_id ?? ""}`);
@@ -146,8 +156,9 @@ async function main() {
     console.warn("transport did not confirm a media id — check the account by hand");
   }
   await inbox(
-    "Chifbay posted to Instagram",
-    `${item.angle} · ${listQueue().length} left in the queue\n\n${item.caption.slice(0, 220)}`,
+    `Chifbay posted a ${KIND === "story" ? "story" : "photo"} to Instagram`,
+    `${item.angle} · ${listQueue(KIND).length} left in the ${KIND} queue` +
+      (KIND === "feed" ? `\n\n${item.caption.slice(0, 220)}` : ""),
   );
 }
 

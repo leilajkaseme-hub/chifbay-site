@@ -1,0 +1,76 @@
+name: Chifbay Instagram — daily story
+
+# Same engine as the feed post, with IG_KIND=story. Separate workflow, separate
+# queue and separate daily guard, so one of each goes out per day and a story
+# failing never costs you the feed post.
+#
+# 17:00 UTC, seven hours after the feed post, then a random 0-90 minute wait.
+# Stories live 24 hours, so spreading them away from the feed post keeps the
+# account visible twice a day instead of once.
+#
+# A story published through the API is the picture and nothing else — Meta does
+# not let an app attach text, stickers, polls or link stickers. Those exist only
+# in the phone app.
+on:
+  schedule:
+    - cron: "0 17 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-auto
+  cancel-in-progress: false
+
+jobs:
+  story:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150   # covers the jitter wait plus retries
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Post the story
+        id: post
+        working-directory: ig-auto
+        env:
+          IG_KIND: story
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          node bin/post.mjs | tee /tmp/story.log
+          echo "posted=$(grep -o 'POSTED=.*' /tmp/story.log | cut -d= -f2)" >> "$GITHUB_OUTPUT"
+
+      # Runs even if publishing failed, so a failure is recorded in the ledger
+      # rather than lost with the runner.
+      - name: Commit & push the record
+        if: always()
+        run: |
+          git add ig-auto
+          if git diff --staged --quiet; then
+            echo "nothing to record"
+            exit 0
+          fi
+          git commit -m "Instagram story: $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main || true
+          git push
+
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY Instagram story FAILED" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "Today's story did not go out. It is still queued and tomorrow's run will retry. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

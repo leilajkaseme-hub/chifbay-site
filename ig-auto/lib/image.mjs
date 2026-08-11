@@ -124,11 +124,17 @@ export async function generateAI(angle) {
 
 // --- output shape ----------------------------------------------------------
 
-/** Cover-crop to Instagram 4:5 portrait, strip metadata, keep it under ~1 MB. */
-export async function normalise(buf) {
+// Feed: 4:5 portrait, the ratio that takes the most vertical space in the feed
+// and sits safely inside Meta's accepted 4:5 - 1.91:1 range.
+// Story: 9:16, the full phone screen.
+const SIZES = { feed: [1080, 1350], story: [1080, 1920] };
+
+/** Cover-crop to the right shape for where it is going, and strip metadata. */
+export async function normalise(buf, kind = "feed") {
+  const [w, h] = SIZES[kind] ?? SIZES.feed;
   return sharp(buf)
     .rotate()                                        // honour EXIF orientation before cropping
-    .resize(1080, 1350, { fit: "cover", position: "attention" })
+    .resize(w, h, { fit: "cover", position: "attention" })
     .jpeg({ quality: 84, mozjpeg: true })
     .toBuffer();
 }

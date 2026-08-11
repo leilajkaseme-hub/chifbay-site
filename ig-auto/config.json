@@ -5,6 +5,9 @@
   "queue_target": 12,
   "queue_low_alert": 5,
 
+  "story_queue_target": 10,
+  "story_queue_low_alert": 4,
+
   "post_jitter_minutes": 90,
 
   "_comment_mix": "AI is OFF by default. 87 real photos is months of feed, and a generated picture invites a caption that claims a moment which never happened. Raise ai above 0 only if you accept that trade.",
@@ -21,7 +24,7 @@
   "caption_similarity_window": 30,
   "caption_similarity_max": 0.45,
 
-  "transport": "make-webhook",
+  "transport": "graph",
 
   "heartbeat_max_days_since_post": 2,
 
