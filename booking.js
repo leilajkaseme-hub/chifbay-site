@@ -56,7 +56,13 @@
   }
 
   function money(cents) {
-    return "€" + (cents / 100).toFixed(cents % 100 === 0 ? 0 : 2);
+    var eur = "€" + (cents / 100).toFixed(cents % 100 === 0 ? 0 : 2);
+    // fx.js is what decides whether there is anything to add here — see its
+    // header comment for why this is a clearly-marked ESTIMATE, never the
+    // number Stripe actually charges.
+    var fx = window.CHIFBAY_FX;
+    var est = fx && fx.estimate(cents);
+    return est ? eur + ' <span class="bkfxest">≈ ' + est + '</span>' : eur;
   }
 
   function dur(minutes) {
@@ -523,9 +529,15 @@
     var sel = $("#bkcc");
     if (!sel || !C || !C.dialCodes) return;
     var list = C.dialCodes();
+    // Flag + the FULL dial code, nothing else. A native <select> shows the
+    // same text closed and open, so once the country name rode along the
+    // code itself is what got clipped in a narrow box — "+351" turning
+    // into "+35" or worse. Dropping the name removes the reason to ever
+    // truncate. The name still exists as a hover title, for anyone who
+    // wants to confirm which country they landed on.
     sel.innerHTML = list.map(function (c) {
-      return '<option value="' + esc(c.dial) + '" data-iso="' + esc(c.iso2) + '">' +
-        esc(c.flag) + " +" + esc(c.dial) + " " + esc(c.name) + "</option>";
+      return '<option value="' + esc(c.dial) + '" data-iso="' + esc(c.iso2) +
+        '" title="' + esc(c.name) + '">' + esc(c.flag) + " +" + esc(c.dial) + "</option>";
     }).join("");
 
     // Several countries share one calling code (+1 covers the US, Canada and
@@ -619,6 +631,32 @@
     });
   }
 
+  /* Every place a price is currently drawn — safe to call any time, each
+     guarded by whether that section has anything to redraw. Used both when
+     the visitor switches currency and once fx.js's rates actually arrive
+     (money() renders EUR-only until then, then this upgrades it in place). */
+  function refreshPrices() {
+    if (state.catalogue) renderTrips();
+    if (state.trip && state.variant) renderPicked();
+    if (state.trip && state.variant && state.date && state.time) renderSummary();
+  }
+
+  function renderCurrencyPicker() {
+    var sel = $("#bkcur");
+    var fx = window.CHIFBAY_FX;
+    if (!sel || !fx) return;
+    var codes = fx.list();
+    sel.innerHTML = codes.map(function (c) {
+      return '<option value="' + esc(c) + '">' + esc(c) +
+        (c === "EUR" ? "" : " (" + esc(fx.symbol(c)) + ")") + "</option>";
+    }).join("");
+    sel.value = fx.get().code;
+    sel.addEventListener("change", function () {
+      fx.set(sel.value);
+      refreshPrices();
+    });
+  }
+
   function init() {
     var root = $("#bkbox");
     if (!root) return;
@@ -660,6 +698,17 @@
         g.value = String(Math.min(2, cat.maxGuests));
 
         renderCountryCodes();
+
+        // The picker can render with just EUR immediately; refreshPrices()
+        // upgrades every price on screen in place once the real rates land,
+        // whether that is instant (cached) or a moment behind (first fetch).
+        renderCurrencyPicker();
+        if (window.CHIFBAY_FX) {
+          window.CHIFBAY_FX.ready.then(function () {
+            renderCurrencyPicker();
+            refreshPrices();
+          });
+        }
 
         $("#bkloading").hidden = true;
         $("#bkflow").hidden = false;

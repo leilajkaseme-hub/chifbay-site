@@ -207,7 +207,13 @@ ${productSchema(p)}
 
     <!-- 1. which trip -->
     <section class="bkstep on" data-step="1">
-      <h2 class="bkh" data-t="${stepOne}">${stepOneText}</h2>
+      <div class="bkcurrow">
+        <h2 class="bkh" data-t="${stepOne}">${stepOneText}</h2>
+        <label class="bkcurpick">
+          <span data-t="ui.currency">Show prices in</span>
+          <select id="bkcur" aria-label="Display currency"></select>
+        </label>
+      </div>
       <p class="bksub" data-t="step.1.sub">The whole boat is yours — never shared with another group.</p>
       <div class="bkcards" id="bktrips"></div>
     </section>
@@ -310,6 +316,7 @@ ${productSchema(p)}
 <script src="https://js.stripe.com/v3/"></script>
 <script src="/booking-config.js"></script>
 <script src="/booking-content.js"></script>
+<script src="/fx.js"></script>
 <script src="/booking.js"></script>
 <script src="peak.js"></script>
 </body>

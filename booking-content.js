@@ -158,6 +158,7 @@ window.CHIFBAY_CONTENT = (function () {
     "ui.whatsapp":    "message us on WhatsApp",
     "ui.hoursShort":  "h",
     "ui.minsShort":   "min",
+    "ui.currency":    "Show prices in",
   };
 
   var LANGS = {
@@ -177,6 +178,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continuer",
       "ui.back":      "Retour",
       "ui.pay":       "Payer et confirmer",
+      "ui.currency":  "Afficher les prix en",
     },
     de: {
       "stop.funchal": "Ablegen",
@@ -194,6 +196,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Weiter",
       "ui.back":      "Zurück",
       "ui.pay":       "Bezahlen und buchen",
+      "ui.currency":  "Preise anzeigen in",
     },
     pt: {
       "stop.funchal": "Partida",
@@ -211,6 +214,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continuar",
       "ui.back":      "Voltar",
       "ui.pay":       "Pagar e confirmar",
+      "ui.currency":  "Mostrar preços em",
     },
     es: {
       "stop.funchal": "Salida",
@@ -228,6 +232,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continuar",
       "ui.back":      "Volver",
       "ui.pay":       "Pagar y confirmar",
+      "ui.currency":  "Mostrar precios en",
     },
     it: {
       "stop.funchal": "Partenza",
@@ -245,6 +250,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continua",
       "ui.back":      "Indietro",
       "ui.pay":       "Paga e conferma",
+      "ui.currency":  "Mostra i prezzi in",
     },
   };
 

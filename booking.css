@@ -40,6 +40,24 @@
 .bkh{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.3rem);
   margin:0 0 6px;font-weight:400;letter-spacing:-.02em}
 .bksub{color:var(--muted);margin:0 0 26px;font-size:.94rem}
+
+/* the display-currency picker, sitting beside the step-1 heading */
+.bkcurrow{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bkcurrow .bkh{margin-bottom:0}
+.bkcurpick{display:flex;align-items:center;gap:8px;flex-shrink:0;padding-top:6px}
+.bkcurpick span{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.bkcurpick select{padding:8px 11px;border-radius:var(--radius-sm,8px);background:rgba(var(--edge-rgb),.05);
+  border:1px solid var(--hair-strong);color:var(--paper);font:inherit;font-size:.82rem}
+.bkcurpick select:focus{outline:none;border-color:var(--teal)}
+.bkcurpick select option{background:var(--mid);color:var(--paper)}
+@media(max-width:560px){.bkcurrow{flex-direction:column;align-items:stretch}}
+
+/* the converted estimate next to a real EUR price — never the same size or
+   weight as the real number, and always carries its own "≈" so it can never
+   be mistaken for a second real price. */
+.bkfxest{font-family:'Space Mono',monospace;font-size:.6em;font-weight:400;
+  color:var(--muted);letter-spacing:.01em;white-space:nowrap}
 .bkload{color:var(--muted);font-size:.92rem;padding:26px 0}
 .bkload a{color:var(--teal)}
 
@@ -210,14 +228,16 @@
 
 /* the country-code select and the number input read as one control */
 .bkphonerow{display:flex;gap:8px}
-.bkphonerow #bkcc{flex:0 0 auto;width:112px;padding-right:8px;
+/* Flag + full dial code only now — nothing left long enough to need
+   truncating, but the overflow rules stay as a safety net regardless. */
+.bkphonerow #bkcc{flex:0 0 auto;width:92px;padding-right:6px;
   overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .bkphonerow #bkphone{flex:1 1 auto;min-width:0}
 /* Long option text ("🇵🇹 +351 Portugal") is what makes the list searchable
    and accessible; the CLOSED box stays a compact chip by clipping to an
    ellipsis. Flag and code come first in the string precisely so the country
    name is what gets clipped, not the part that actually identifies it. */
-@media(max-width:640px){.bkphonerow #bkcc{width:96px}}
+@media(max-width:640px){.bkphonerow #bkcc{width:86px}}
 .bkmsg{display:none;margin-top:16px;padding:13px 16px;border-radius:10px;font-size:.9rem;max-width:720px}
 .bkmsg.on{display:block}
 .bkmsg.err{background:rgba(212,84,84,.12);border:1px solid rgba(212,84,84,.4);color:#ffc9c9}
