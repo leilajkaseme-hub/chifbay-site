@@ -1,0 +1,57 @@
+{
+  "name": "Chifbay — Instagram daily post",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": { "hook": null, "maxResults": 1 },
+      "mapper": {},
+      "metadata": {
+        "designer": { "x": 0, "y": 0, "name": "Post request from GitHub Actions" }
+      }
+    },
+    {
+      "id": 2,
+      "module": "instagram-business:CreatePostPhoto",
+      "version": 1,
+      "parameters": { "__IMTCONN__": null },
+      "mapper": {
+        "accountId": "",
+        "image_url": "{{1.image_url}}",
+        "caption": "{{1.caption}}"
+      },
+      "metadata": {
+        "designer": { "x": 300, "y": 0, "name": "Publish photo to @chifbay" }
+      }
+    },
+    {
+      "id": 3,
+      "module": "gateway:WebhookRespond",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "status": "200",
+        "body": "{\"ok\": true, \"id\": \"{{2.id}}\"}",
+        "headers": []
+      },
+      "metadata": {
+        "designer": { "x": 600, "y": 0, "name": "Report the media id back" }
+      }
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": true,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false
+    },
+    "designer": { "orphans": [] }
+  }
+}

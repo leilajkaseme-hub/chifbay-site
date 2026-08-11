@@ -1,0 +1,60 @@
+{
+  "voice": [
+    "Warm, plain, first person plural (\"we\", \"our boat\"). A small local crew talking, not a marketing team.",
+    "Short sentences. No exclamation stacking, no emoji walls (0-2 emoji max).",
+    "Never invent facts: no prices, no guest numbers over 5, no promises about seeing wildlife.",
+    "Never write \"link in bio\" more than once a week — rotate the call to action.",
+    "English first. A short Portuguese line is welcome now and then, never a full translation."
+  ],
+
+  "facts": {
+    "boat": "Karnic R8S, private boat, skipper included",
+    "max_guests": 5,
+    "departs": "Funchal marina, Madeira",
+    "trips": ["Hidden Coves half day", "Coastal Discovery full day"],
+    "never_say": [
+      "guaranteed dolphins",
+      "cheapest",
+      "unlimited drinks",
+      "any price or discount figure",
+      "6, 7 or 8 guests"
+    ]
+  },
+
+  "angles": [
+    { "key": "dolphins",   "brief": "Wild dolphins alongside the boat. Respectful distance, never chasing.", "tags": ["#dolphinwatching", "#marinelife", "#wildlifewatching"], "ai_prompt": "wild atlantic dolphins breaking the surface in deep blue ocean off Madeira, morning light" },
+    { "key": "sunset",     "brief": "The sunset trip: the light going gold and pink over the Atlantic.",     "tags": ["#sunsetcruise", "#goldenhour", "#sunsetlovers"], "ai_prompt": "golden hour over the Atlantic ocean off Madeira, calm water, warm pink and orange sky" },
+    { "key": "cliffs",     "brief": "Madeira's coastline seen from the water — cliffs, Cabo Girao, sea caves.", "tags": ["#cabogirao", "#seacliffs", "#coastline"], "ai_prompt": "towering green sea cliffs of Madeira seen from the water, dramatic scale, blue ocean" },
+    { "key": "swimstop",   "brief": "The swim stop in a quiet cove. Clear water, nobody else around.",       "tags": ["#snorkelling", "#swimming", "#clearwater"], "ai_prompt": "clear turquoise water in a quiet volcanic cove in Madeira, snorkelling water surface" },
+    { "key": "onboard",    "brief": "What it feels like on deck: shade, cushions, space for five.",          "tags": ["#boatlife", "#dayonaboat", "#islandlife"], "ai_prompt": null },
+    { "key": "marina",     "brief": "Leaving Funchal marina, the town falling away behind.",                 "tags": ["#funchalmarina", "#islandlife", "#harbourlife"], "ai_prompt": "Funchal marina Madeira from the water at morning, colourful town rising up the hillside" },
+    { "key": "guests",     "brief": "A small group enjoying the day. Real, unposed.",                        "tags": ["#happyguests", "#familytrip", "#dayonaboat"], "ai_prompt": null },
+    { "key": "openocean",  "brief": "Open Atlantic — the colour of the water, the quiet once the engine drops.", "tags": ["#atlantic", "#oceanview", "#bluewater"], "ai_prompt": "deep blue open Atlantic ocean surface texture, sunlight, no land in sight" },
+    { "key": "skipper",    "brief": "Behind the scenes: the skipper, the route, reading the sea that morning.", "tags": ["#skipper", "#boatlife", "#localbusiness"], "ai_prompt": null },
+    { "key": "practical",  "brief": "Plain useful info: how long, what to bring, where we meet.",            "tags": ["#traveltips", "#madeiratips", "#thingstodoinmadeira"], "ai_prompt": null },
+    { "key": "wildlife",   "brief": "Other life out there — turtles, seabirds, flying fish.",                "tags": ["#marinelife", "#seaturtle", "#wildlifewatching"], "ai_prompt": "loggerhead sea turtle swimming near the surface of clear atlantic water" },
+    { "key": "review",     "brief": "Something a guest said, in their words, kept short.",                   "tags": ["#guestreview", "#happyguests", "#traveldiary"], "ai_prompt": null }
+  ],
+
+  "ctas": [
+    "Book direct on chifbay.com",
+    "WhatsApp us to check a date",
+    "Details and dates on chifbay.com",
+    "Send us a message for availability",
+    "Link in bio if you want the quiet version of Madeira",
+    "We keep it to five guests. Ask us about your dates."
+  ],
+
+  "hashtag_pools": {
+    "place":    ["#madeira", "#madeiraisland", "#funchal", "#visitmadeira", "#madeiraportugal", "#portugal"],
+    "activity": ["#boattour", "#privateboattour", "#boattrip", "#boatlife", "#atlanticocean", "#seaday"],
+    "theme":    ["#dolphinwatching", "#sunsetcruise", "#snorkelling", "#islandlife", "#goldenhour", "#marinelife"],
+    "travel":   ["#travelportugal", "#visitportugal", "#traveleurope", "#islandhopping", "#slowtravel", "#madeiratravel"]
+  },
+
+  "hashtag_banned": [
+    "#like4like", "#follow4follow", "#followforfollow", "#l4l", "#f4f",
+    "#tagsforlikes", "#likeforlike", "#instagood", "#photooftheday",
+    "#followme", "#spam4spam", "#bikinibody", "#sunbathing", "#beautyblogger"
+  ]
+}

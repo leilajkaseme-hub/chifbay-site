@@ -1,0 +1,17 @@
+{
+  "name": "chifbay-ig-auto",
+  "private": true,
+  "type": "module",
+  "description": "Daily Instagram posting for @chifbay — runs in GitHub Actions, publishes through Make. Free, and no Meta developer app.",
+  "scripts": {
+    "topup": "node bin/topup.mjs",
+    "post": "node bin/post.mjs",
+    "status": "node bin/status.mjs",
+    "heartbeat": "node bin/heartbeat.mjs",
+    "whoami": "node bin/whoami.mjs",
+    "token-check": "node bin/token-check.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

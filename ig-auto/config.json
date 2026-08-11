@@ -1,0 +1,32 @@
+{
+  "handle": "chifbay",
+  "timezone": "Atlantic/Madeira",
+
+  "queue_target": 12,
+  "queue_low_alert": 5,
+
+  "post_jitter_minutes": 90,
+
+  "image_source_mix": { "library": 0.75, "ai": 0.25 },
+  "ai_provider": "pollinations",
+
+  "library_dirs": ["social", "../klook-photos", "../clickandboat-sunset-photos"],
+  "library_reuse_days": 120,
+
+  "public_dir": "ig",
+  "public_base": "https://www.chifbay.com/ig",
+
+  "hashtags": { "min": 5, "max": 8 },
+  "caption_similarity_window": 30,
+  "caption_similarity_max": 0.45,
+
+  "transport": "make-webhook",
+
+  "heartbeat_max_days_since_post": 2,
+
+
+  "ntfy": {
+    "alerts": "https://ntfy.sh/futurx-blog-alerts-544024878e",
+    "inbox": "https://ntfy.sh/futurx-inbox-544024878e"
+  }
+}
