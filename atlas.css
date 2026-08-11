@@ -422,10 +422,22 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 .atlas .opt .btn{margin-top:auto;align-self:flex-start}
 
 /* ============================================================
-   REVIEWS MARQUEE — every verified review, drifting past
-   Changed 2026-08-10 from an arrow/dot slider to a continuous
-   marquee. The reviews-auto pipeline adds a card whenever a new
-   review lands, so the rail simply gets longer on its own.
+   REVIEWS CAROUSEL — every verified review, one step at a time
+
+   History: an arrow/dot slider (pre 2026-08-10), then a continuous
+   marquee, now a STEPPED carousel (2026-08-11). It holds still for
+   5 seconds so a quote can actually be read, then slides one card
+   to the left. The neighbours peek in on BOTH sides so it reads as
+   a rail you are part-way along, not a card sitting alone.
+
+   The geometry, so the peeks stay symmetric:
+
+     container = peek + gap + [n cards, gap between] + gap + peek
+
+   which gives a card width of
+     (100cqw - 2*peek - (n+1)*gap) / n
+   and a track padding-inline of (peek + gap), so the active card
+   always lands exactly `peek` in from the left edge.
 
    The 3 static cards in the HTML stay as the no-JS fallback:
    .revs is the grid, .revs.marquee is the rail, and the class is
@@ -434,68 +446,63 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 .atlas .revs.marquee{
   display:block;margin-top:52px;
   --rvgap:20px;   /* space between cards */
-  --rvn:4;        /* cards across — the only number to change */
+  --rvn:4;        /* cards fully visible — the only number to change */
+  --rvpeek:40px;  /* how much of the neighbours shows on each side */
 }
 @media(max-width:1280px){.atlas .revs.marquee{--rvn:3}}
 @media(max-width:1000px){.atlas .revs.marquee{--rvn:2}}
-/* Two across is genuinely too tight on a phone, so it drops to one with a
-   sliver of the next card showing — that sliver is what tells you it moves.
-   The rail also breaks out of .wrap-w's 20px padding and runs edge to edge:
-   inset, a single card plus its sliver had barely any room left. The heading
-   above it stays inset. */
+/* Two across is genuinely too tight on a phone, so it drops to one. The rail
+   also breaks out of .wrap-w's 20px padding and runs edge to edge, so the two
+   peeks reach the screen edges instead of floating inside a margin. */
 @media(max-width:680px){
-  .atlas .revs.marquee{--rvn:1.12;--rvgap:14px}
+  .atlas .revs.marquee{--rvn:1;--rvgap:14px;--rvpeek:26px}
   .atlas .revs.marquee .rv-mq{
-    margin-left:-20px;margin-right:-20px;width:calc(100% + 40px);
-    /* a wider fade than desktop: a card is cut by the screen edge at every
-       moment here, and 12px of fade left it looking sliced rather than passing */
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+    margin-left:-20px;margin-right:-20px;width:calc(100% + 40px)}
 }
 
 .atlas .rv-mq{
-  display:flex;overflow:hidden;
+  overflow:hidden;
   /* the card width is a share of THIS box, not of the track (the track is
      content-width, so a percentage there would be circular) */
-  container-type:inline-size;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+  container-type:inline-size}
 
-/* Two identical tracks, both sliding by 100% of their own width. The
-   padding-right is one gap wide so the seam between them matches the gap
-   between cards and the loop is invisible. */
 .atlas .rv-mq .rv-track{
-  display:flex;flex-shrink:0;align-items:stretch;gap:var(--rvgap);
-  padding-right:var(--rvgap);margin:0;list-style:none;
-  animation:rv-drift 240s linear infinite;will-change:transform}
-@keyframes rv-drift{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-/* Stop it so a quote can actually be read. */
-.atlas .revs.marquee:hover .rv-track,
-.atlas .revs.marquee:focus-within .rv-track{animation-play-state:paused}
+  display:flex;align-items:stretch;gap:var(--rvgap);margin:0;list-style:none;
+  padding-inline:calc(var(--rvpeek) + var(--rvgap));
+  transition:transform .8s cubic-bezier(.22,.65,.24,1);will-change:transform}
+/* reviews-home.js sets this while it snaps back to the start of the loop */
+.atlas .rv-mq .rv-track.rv-jump{transition:none}
 
 .atlas .rv-mq .rev{
   /* plain fallback first: a browser without container query units drops the
      second declaration and still gets a sane fixed-width card rather than
      shrink-to-content, which would wreck the rail. */
   flex:0 0 340px;
-  flex:0 0 calc((100cqw - (var(--rvn) - 1) * var(--rvgap)) / var(--rvn));
-  margin:0;display:flex;flex-direction:column}
+  flex:0 0 calc((100cqw - 2 * var(--rvpeek) - (var(--rvn) + 1) * var(--rvgap)) / var(--rvn));
+  margin:0;display:flex;flex-direction:column;
+  transition:opacity .8s ease}
+/* the neighbours are dimmed, so the card you are meant to read is obvious */
+.atlas .rv-mq .rev[data-rv-side]{opacity:.45}
 /* Cards stretch to the tallest in the rail, so the quote is clamped to keep
    that height sane — 30 reviews of wildly different length otherwise set the
    height from the single longest one. */
 .atlas .rv-mq .rev q{flex:1 0 auto;display:-webkit-box;-webkit-line-clamp:7;
   -webkit-box-orient:vertical;overflow:hidden}
 
-/* A drifting rail is exactly what this setting is for: stop it and lay the
+/* Dragging the rail must not select the quote text under the finger. */
+.atlas .rv-mq .rv-track{touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.atlas .rv-mq .rv-track:active{cursor:grabbing}
+
+/* A moving rail is exactly what this setting is for: stop it and lay the
    cards out as a plain grid instead. */
 @media(prefers-reduced-motion:reduce){
-  .atlas .rv-mq{-webkit-mask-image:none;mask-image:none;overflow:visible}
-  /* flex-shrink:0 on the track kept it at its full 11180px content width, so
-     flex-wrap never engaged. With overflow released just above, that made the
-     whole page scroll sideways for anyone with "reduce motion" on. */
-  .atlas .rv-mq .rv-track{animation:none;flex-wrap:wrap;padding-right:0;
-    flex-shrink:1;max-width:100%}
-  .atlas .rv-mq .rv-track[aria-hidden="true"]{display:none}
+  .atlas .rv-mq{overflow:visible}
+  /* flex-shrink:0 used to keep the track at its full content width, so
+     flex-wrap never engaged and the whole page scrolled sideways. */
+  .atlas .rv-mq .rv-track{transform:none!important;flex-wrap:wrap;
+    padding-inline:0;flex-shrink:1;max-width:100%;transition:none}
+  .atlas .rv-mq .rev{opacity:1!important;transition:none}
+  .atlas .rv-mq .rev[aria-hidden="true"]{display:none}
   .atlas .rv-mq .rev q{-webkit-line-clamp:none;display:block}
 }
 
