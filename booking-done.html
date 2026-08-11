@@ -70,10 +70,10 @@
       body.innerHTML =
         '<div class="dnmark">⚓</div>' +
         '<h1 class="dnh">You are booked</h1>' +
-        '<p class="dnsub">We have sent a confirmation to ' + esc(res.email || "your email") +
-        '. See you at Marina do Funchal.</p>' +
+        '<p class="dnsub">Your booking is confirmed. We will be in touch on ' +
+        esc(res.email || "your email") + '. See you at Marina do Funchal.</p>' +
         '<div class="dncard">' +
-          '<div class="dnrow"><span>Trip</span><span>' + esc(b.variant || "") + '</span></div>' +
+          '<div class="dnrow"><span>Trip</span><span>' + esc(b.label || b.variant || "") + '</span></div>' +
           '<div class="dnrow"><span>Date</span><span>' + esc(d) + '</span></div>' +
           '<div class="dnrow"><span>Departure</span><span>' + esc(b.time || "") + ' — Funchal time</span></div>' +
           '<div class="dnrow"><span>Guests</span><span>' + esc(b.guests || "") + '</span></div>' +
