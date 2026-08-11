@@ -24,6 +24,9 @@
   "caption_similarity_window": 30,
   "caption_similarity_max": 0.45,
 
+  "_comment_ig_user_id": "Not a secret, just the Instagram Business Account id. Filled in by the whoami workflow. The IG_USER_ID env var overrides it.",
+  "ig_user_id": "",
+
   "transport": "graph",
 
   "heartbeat_max_days_since_post": 2,

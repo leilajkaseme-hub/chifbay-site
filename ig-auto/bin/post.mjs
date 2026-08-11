@@ -40,8 +40,11 @@ async function jitter() {
  */
 function notConfigured() {
   const transport = process.env.IG_TRANSPORT || config.transport;
-  if (transport === "graph" && !(process.env.IG_USER_ID && process.env.IG_ACCESS_TOKEN)) {
-    return "IG_USER_ID / IG_ACCESS_TOKEN are not set — finish the Meta setup in ig-auto/README.md";
+  if (transport === "graph" && !process.env.IG_ACCESS_TOKEN) {
+    return "IG_ACCESS_TOKEN is not set — finish the Meta setup in ig-auto/README.md";
+  }
+  if (transport === "graph" && !(process.env.IG_USER_ID || config.ig_user_id)) {
+    return "no Instagram account id yet — run the whoami workflow";
   }
   if (transport === "make-webhook" && !process.env.MAKE_IG_WEBHOOK) {
     return "MAKE_IG_WEBHOOK is not set";

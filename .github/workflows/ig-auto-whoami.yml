@@ -1,0 +1,33 @@
+name: Chifbay Instagram — find my account id (setup)
+
+# Run this ONCE, after adding the IG_ACCESS_TOKEN secret.
+#
+# It prints the Facebook Pages the token can see and, for each, the Instagram
+# Business Account id. That id is what goes into ig_user_id in config.json — it
+# is NOT the number in your profile URL, and Meta's own screens bury it.
+#
+# Runs here rather than on your machine so the token only ever exists as a
+# GitHub secret. It is never printed: only the account id is.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  whoami:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Which account can this token post to?
+        working-directory: ig-auto
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node bin/whoami.mjs

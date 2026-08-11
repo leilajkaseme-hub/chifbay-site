@@ -1,19 +1,19 @@
 // publish.mjs — the only part that talks to Instagram.
 //
-// Default transport is "make-webhook". Make holds the Instagram connection,
-// which is the point: Make owns the Meta developer app, so there is no app to
-// register, no app review, and no 60-day access token to refresh. Free plan,
-// and one post a day costs about 93 of the 1,000 monthly operations.
+// Default transport is "graph": straight to Meta, nobody in the middle. Free,
+// with no monthly operation budget and no company that can change its pricing.
+// Publishing to your own account from your own app needs no app review.
 //
-// The catch to know about: those 1,000 operations are shared across EVERY
-// scenario in the Make account, and the organisation stops running when they
-// are gone. The strict response check below exists exactly for that case —
-// see the comment in makeWebhook().
+// The usual objection to going direct is the 60-day token. That is solved at
+// setup rather than in code — a Business Manager System User token issued with
+// expiry "Never" — so there is nothing to refresh and no refresh job that can
+// fail silently. bin/token-check.mjs watches it.
 //
-// "graph" talks to Meta directly with no middleman and no operation budget at
-// all, but it needs your own Meta app, so it is not the default here. If it is
-// ever wanted, issue a Business Manager System User token with expiry "Never"
-// and bin/token-check.mjs will keep an eye on it.
+// "make-webhook" is the fallback that needs no Meta app, because Make owns one.
+// It cannot post stories (Make's Instagram app has no create-story module), and
+// Make's free plan shares one 1,000-operation monthly pool across every scenario
+// in the account, so an unrelated busy webhook can starve it. The strict
+// response check in makeWebhook() exists for exactly that case.
 import { config } from "./queue.mjs";
 
 async function makeWebhook(item) {
@@ -79,9 +79,10 @@ async function graphCall(path, body) {
  * media container pointing at the public URL, then publish that container.
  */
 async function graph(item) {
-  const user = process.env.IG_USER_ID;
+  const user = process.env.IG_USER_ID || config.ig_user_id;
   const token = process.env.IG_ACCESS_TOKEN;
-  if (!user || !token) throw new Error("IG_USER_ID / IG_ACCESS_TOKEN are not set");
+  if (!user) throw new Error("no Instagram account id — set ig_user_id in config.json");
+  if (!token) throw new Error("IG_ACCESS_TOKEN is not set");
 
   // A story takes no caption. The API cannot add text overlays, stickers, polls
   // or link stickers either — those exist only in the phone app. An API story is

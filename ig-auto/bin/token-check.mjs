@@ -13,15 +13,16 @@
 //
 // Silence from this job means the credential is genuinely fine.
 import { GRAPH } from "../lib/publish.mjs";
+import { config } from "../lib/queue.mjs";
 import { alert } from "../lib/notify.mjs";
 
 const REQUIRED = ["instagram_basic", "instagram_content_publish"];
 const DAY = 86_400_000;
 
 const token = process.env.IG_ACCESS_TOKEN;
-const user = process.env.IG_USER_ID;
+const user = process.env.IG_USER_ID || config.ig_user_id;
 if (!token || !user) {
-  console.error("IG_ACCESS_TOKEN / IG_USER_ID are not set");
+  console.error("IG_ACCESS_TOKEN secret / ig_user_id in config.json are not both set");
   process.exit(1);
 }
 
