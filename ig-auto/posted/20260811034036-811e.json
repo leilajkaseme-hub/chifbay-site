@@ -7,5 +7,11 @@
   "angle": "dolphins",
   "image": "ig/20260811034036-811e.jpg",
   "url": "https://www.chifbay.com/ig/20260811034036-811e.jpg",
-  "sha256": "0fb0e611224fcfd5cfe7f6711a01d603a539017352d3042b5cd8711e0228c994"
+  "sha256": "0fb0e611224fcfd5cfe7f6711a01d603a539017352d3042b5cd8711e0228c994",
+  "posted_at": "2026-08-11T04:55:57.907Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "18017735879925671",
+    "confirmed": true
+  }
 }
