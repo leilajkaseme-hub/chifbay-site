@@ -67,6 +67,20 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.08;letter-sp
   html.nav-open .navtoggle span:nth-child(2){opacity:0}
   html.nav-open .navtoggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 }
+/* FOOTER SOCIAL ICONS — Instagram, Facebook, TikTok, under the logo.
+   Instagram is drawn as an outline to match the site's icon language; the
+   other two are brand glyphs and only read correctly filled. */
+.fsoc{display:flex;gap:12px;margin-top:22px}
+.fsoc a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;
+  border-radius:50%;border:1px solid var(--hair-strong);color:var(--muted);
+  transition:color .25s,background .25s,border-color .25s,transform .25s}
+.fsoc a:hover,.fsoc a:focus-visible{color:var(--ink);background:var(--teal);
+  border-color:var(--teal);transform:translateY(-2px)}
+.fsoc svg{width:18px;height:18px;display:block;fill:currentColor}
+.fsoc svg.fsline{fill:none;stroke:currentColor;stroke-width:1.7}
+.fsoc svg .fdot{fill:currentColor;stroke:none}
+@media(prefers-reduced-motion:reduce){.fsoc a{transition:none}.fsoc a:hover{transform:none}}
+
 /* lock the page behind the open drawer so the background can't scroll —
    this is what removes the "jumpy/glitched" feel on the animated pages */
 html.nav-open,html.nav-open body{overflow:hidden}
