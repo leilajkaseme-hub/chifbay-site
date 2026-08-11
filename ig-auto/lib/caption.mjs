@@ -46,14 +46,21 @@ export function pickHashtags(recent, angle) {
   const { min, max } = config.hashtags;
   // Vary the length post to post instead of always sitting on the minimum.
   const target = min + (recent.length % (max - min + 1));
-  const themePool = [...(angle?.tags ?? []), ...brand.hashtag_pools.theme];
+
+  // The angle's own tags come first and the generic pool only tops up. Mixing
+  // both into one rotation put #dolphinwatching on a sunset photo, because
+  // least-recently-used does not know what is in the picture.
+  const theme = (n) => [
+    ...rotate(angle?.tags ?? [], recentTags, n),
+    ...rotate(brand.hashtag_pools.theme, recentTags, n),
+  ].filter((t, i, a) => a.indexOf(t) === i).slice(0, n);
 
   for (let spread = 0; spread < 6; spread++) {
     const p = brand.hashtag_pools;
     const tags = [
       ...rotate(p.place, recentTags, 2),
       ...rotate(p.activity, recentTags, 2),
-      ...rotate(themePool, recentTags, 2),
+      ...theme(2),
       ...rotate(p.travel, recentTags, 2),
     ]
       .filter((t, i, a) => !banned.has(t) && a.indexOf(t) === i)
@@ -131,17 +138,36 @@ function template(angle, cta) {
  * always produces something publishable, because a missing caption must never
  * be the reason a day gets skipped.
  */
-export function writeCaption({ imagePath, angleHint, recent }) {
+export function writeCaption({ imagePath, angleHint, recent, source = "library" }) {
   const cta = brand.ctas[recent.length % brand.ctas.length];
   const recentTexts = recent.map((p) => p.caption ?? "").filter(Boolean);
   const keys = brand.angles.map((a) => a.key);
 
+  // A generated picture must never be written about as a thing that happened.
+  // Left unguarded the model produced "one came clear out of the water, right
+  // off our side" for an AI dolphin — a fabricated moment sold as a real trip,
+  // to customers who book hoping to see exactly that.
+  const sourceRules = source === "ai"
+    ? [
+        "IMPORTANT: this picture is ILLUSTRATIVE, not a photo of a real trip.",
+        "Do NOT describe it as something that happened. No 'today', no 'this",
+        "morning', no 'right off our side', no guests, no first-person story.",
+        "Write about the place or the feeling in general terms instead.",
+      ]
+    : [
+        "This is a real photo from one of our trips.",
+      ];
+
   const prompt = [
     `Read the image at ${imagePath}, then write ONE Instagram caption for it.`,
-    "It is a real photo from a small private boat tour business in Madeira.",
+    "It is for a small private boat tour business in Madeira.",
     "",
-    "Describe what is genuinely in THIS photo. Never invent something that is",
+    ...sourceRules,
+    "",
+    "Describe what is genuinely in THIS picture. Never invent something that is",
     "not visible — no dolphins if there are no dolphins, no sunset in daylight.",
+    "Never invent HOW or WHEN it was taken. Do not say it was shot from a drone,",
+    "or that it was yesterday or this morning, unless the picture truly shows it.",
     "",
     "Voice rules:",
     ...brand.voice.map((v) => `- ${v}`),

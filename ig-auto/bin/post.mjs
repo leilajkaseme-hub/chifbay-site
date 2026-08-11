@@ -12,7 +12,7 @@
 // inside a sensible window costs nothing and looks like a person.
 import {
   alreadyPostedToday, appendLedger, config, ensureDirs, listQueue,
-  markPosted, saveState, today, withLock,
+  markPosted, recentPosts, saveState, today, withLock,
 } from "../lib/queue.mjs";
 import { assertImageIsLive, publish } from "../lib/publish.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
@@ -43,6 +43,20 @@ function notConfigured() {
   return null;
 }
 
+/**
+ * Oldest first, but skip past an angle the last two posts already used.
+ *
+ * The library is heavily weighted towards sunsets — that is the product — and
+ * the caption model names what it honestly sees, so the queue naturally ends up
+ * with runs of the same subject. Three sunsets in three days is the most
+ * repetitive the feed can look. Reordering here fixes it for free, instead of
+ * throwing away pictures and captions that are individually fine.
+ */
+function chooseNext(queue) {
+  const lastAngles = recentPosts(2).map((p) => p.angle);
+  return queue.find((i) => !lastAngles.includes(i.angle)) ?? queue[0];
+}
+
 async function main() {
   ensureDirs();
 
@@ -70,7 +84,7 @@ async function main() {
     throw new Error("queue is empty — nothing to post");
   }
 
-  const item = queue[0];
+  const item = chooseNext(queue);
   console.log(`posting ${item.id} [${item.angle}] from ${item.origin}`);
 
   // Everything that can go wrong from here is handled the same way, because

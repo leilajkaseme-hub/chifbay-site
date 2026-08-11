@@ -68,7 +68,9 @@ async function buildOne({ hashes, cooldown, context }) {
     writeFileSync(path, buf);
 
     // The picture exists before the words do, so the words can describe it.
-    const caption = writeCaption({ imagePath: path, angleHint: angle, recent: context });
+    const caption = writeCaption({
+      imagePath: path, angleHint: angle, recent: context, source: picked.source,
+    });
     const item = {
       id,
       created: new Date().toISOString(),

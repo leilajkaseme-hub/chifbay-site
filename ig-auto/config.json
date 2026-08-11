@@ -7,7 +7,8 @@
 
   "post_jitter_minutes": 90,
 
-  "image_source_mix": { "library": 0.75, "ai": 0.25 },
+  "_comment_mix": "AI is OFF by default. 87 real photos is months of feed, and a generated picture invites a caption that claims a moment which never happened. Raise ai above 0 only if you accept that trade.",
+  "image_source_mix": { "library": 1.0, "ai": 0.0 },
   "ai_provider": "pollinations",
 
   "library_dirs": ["social", "../klook-photos", "../clickandboat-sunset-photos"],
