@@ -71,10 +71,13 @@ ok("no attribution cookie before consent", !c.cb_attr, c.cb_attr);
 const internal = await page.getAttribute('a[href$="about.html"], a[href*="about.html"]', "href");
 ok("internal link carries gclid before consent", internal.includes("gclid=TESTGCLID"), internal);
 
-// 2. the booking link is now our own page, and still carries the click id
-const href = await page.getAttribute('a[href*="book.html"]', "href");
-ok("booking link points at our own page", href.includes("/book.html"), href);
-ok("booking link carries gclid", href.includes("gclid=TESTGCLID"), href);
+// 2. the booking links are now our own pages, one per experience, and they
+//    still carry the click id
+const dayHref = await page.getAttribute('a[href*="book-day.html"]', "href");
+const sunHref = await page.getAttribute('a[href*="book-sunset.html"]', "href");
+ok("day trip card books on our day page", !!dayHref && dayHref.includes("/book-day.html"), dayHref);
+ok("sunset card books on our sunset page", !!sunHref && sunHref.includes("/book-sunset.html"), sunHref);
+ok("booking link carries gclid", !!dayHref && dayHref.includes("gclid=TESTGCLID"), dayHref);
 // utm_* deliberately does not ride on internal links. Booking is same-site
 // now, so the cb_attr cookie carries the campaign the whole way.
 ok("no Wix booking link left on the page",

@@ -1,0 +1,323 @@
+/**
+ * Builds the three booking pages from one template.
+ *
+ *   node scripts/build-book-pages.mjs
+ *
+ *   book-sunset.html   the two sunset options only   (€400 / €500)
+ *   book-day.html      the two day-trip options only (€500 / €600)
+ *   book.html          all four
+ *
+ * Why a script and not three hand-written files: they are the same page three
+ * times. Editing one by hand and forgetting the others is how a booking flow
+ * quietly breaks. Change the template here, run it, all three stay identical.
+ *
+ * Prices and departure times are NOT in this file. They come from the Worker
+ * (booking-api/catalog.js) at run time. The numbers written below are only for
+ * the SEO tags Google reads before any JavaScript runs — keep them in step with
+ * catalog.js, they are never used to charge anyone.
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const BASE = "https://chifbay.com";
+const WA = "https://wa.me/351937200320";
+
+const PAGES = [
+  {
+    file: "book.html",
+    trip: null,                 // sells everything
+    photo: "assets/exp-coastal.jpg",
+    photoAlt: "The south coast of Madeira from a private Chifbay boat",
+    kicker: "Private charter · Funchal, Madeira",
+    h1: "Book your <em>boat</em>",
+    lede: "Four ways to spend it, one flat price for the whole boat. Pick yours, pick a day, pay by card — it takes about two minutes.",
+    title: "Book your boat | Private Boat Trips from Funchal, Madeira — Chifbay",
+    desc: "Book a private boat trip from Funchal, Madeira. Day trips from €500, sunset trips from €400. Live calendar, pay by card, no third-party site.",
+    schema: {
+      name: "Private Boat Trip - Funchal, Madeira",
+      description: "Private boat charter from Funchal, Madeira. Day trip with swimming and paddle from EUR 500, sunset trip from EUR 400. The whole boat for up to 5 guests.",
+      image: "assets/exp-coastal.jpg",
+      low: "400", high: "600", count: "4",
+      offers: [
+        ["Sunset 2h - Cabo Girao", "400"],
+        ["Sunset 2h30 - Ribeira Brava", "500"],
+        ["Day trip 2h30 - Ribeira Brava", "500"],
+        ["Day trip 3h - Ponta do Sol with video", "600"],
+      ],
+    },
+  },
+  {
+    file: "book-day.html",
+    trip: "day-trip",
+    photo: "assets/exp-coves.jpg",
+    photoAlt: "Turquoise water and cliffs on a private Chifbay day trip, Madeira",
+    kicker: "The Day Trip · Funchal, Madeira",
+    h1: "Book the <em>day</em> trip",
+    lede: "Câmara de Lobos, the drone up at Cabo Girão, then swimming and paddle in water you can see the bottom of. Two lengths — you choose how far west we go.",
+    title: "Book the Day Trip | Private Boat, Funchal Madeira — Chifbay",
+    desc: "Book the private day trip from Funchal, Madeira. 2h30 to Ribeira Brava €500 or 3h to Ponta do Sol with video €600. Swimming, paddle, drone. Live calendar.",
+    schema: {
+      name: "Private Day Boat Trip - Madeira",
+      description: "Private day boat trip from Funchal, Madeira. Camara de Lobos, Cabo Girao with drone, swimming and paddle at Faja dos Padres, on to Ribeira Brava or Ponta do Sol. The whole boat for up to 5 guests.",
+      image: "assets/exp-coves.jpg",
+      low: "500", high: "600", count: "2",
+      offers: [
+        ["Day trip 2h30 - Ribeira Brava", "500"],
+        ["Day trip 3h - Ponta do Sol with video", "600"],
+      ],
+    },
+  },
+  {
+    file: "book-sunset.html",
+    trip: "sunset",
+    photo: "assets/exp-sunset.jpg",
+    photoAlt: "Sunset over the Atlantic from a private Chifbay boat off Funchal, Madeira",
+    kicker: "The Sunset Trip · Funchal, Madeira",
+    h1: "Book the <em>sunset</em> trip",
+    lede: "The same west coast taken as the light turns. Drinks and food on deck, the drone over Cabo Girão, and the coast to your group alone.",
+    title: "Book the Sunset Trip | Private Boat, Funchal Madeira — Chifbay",
+    desc: "Book the private sunset trip from Funchal, Madeira. Departs 18:30 — 2h to Cabo Girão €400 or 2h30 to Ribeira Brava €500. Live calendar, pay by card.",
+    schema: {
+      name: "Private Sunset Boat Trip - Madeira",
+      description: "Private sunset boat trip from Funchal, Madeira. Departs 18:30 - 2h to Cabo Girao, or 2h30 on to Ribeira Brava. Drone footage, drinks and food aboard, the whole boat for up to 5 guests.",
+      image: "assets/exp-sunset.jpg",
+      low: "400", high: "500", count: "2",
+      offers: [
+        ["Sunset 2h - Cabo Girao", "400"],
+        ["Sunset 2h30 - Ribeira Brava", "500"],
+      ],
+    },
+  },
+];
+
+const offer = (url, [name, price]) => ({
+  "@type": "Offer", name, price, priceCurrency: "EUR",
+  availability: "https://schema.org/InStock", url,
+});
+
+function productSchema(p) {
+  const url = `${BASE}/${p.file}`;
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: p.schema.name,
+    description: p.schema.description,
+    image: `${BASE}/${p.schema.image}`,
+    brand: { "@type": "Brand", name: "Chifbay" },
+    offers: {
+      "@type": "AggregateOffer",
+      url,
+      lowPrice: p.schema.low,
+      highPrice: p.schema.high,
+      offerCount: p.schema.count,
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      offers: p.schema.offers.map((o) => offer(url, o)),
+    },
+  });
+}
+
+const WA_SVG = `<svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>`;
+
+function page(p) {
+  const stepOne = p.trip ? "step.1.one" : "step.1.all";
+  const stepOneText = p.trip ? "Choose your option" : "Choose your trip";
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>${p.title}</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/>
+<meta name="description" content="${p.desc}"/>
+<link rel="canonical" href="${BASE}/${p.file}"/>
+<meta property="og:title" content="${p.title}"/>
+<meta property="og:description" content="${p.desc}"/>
+<meta property="og:image" content="${BASE}/${p.schema.image}"/>
+<meta property="og:type" content="website"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="peak.css"/>
+<link rel="stylesheet" href="motion.css"/>
+<link rel="stylesheet" href="booking.css"/>
+<link rel="preload" as="image" href="${p.photo}"/>
+<script type="application/ld+json">
+${productSchema(p)}
+</script>
+  <script defer src="https://dashboard-pink-nine-58.vercel.app/t.js" data-store="chifbay"></script>
+<script defer src="/track.js"></script>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap ni">
+  <a class="logo" href="/"><img decoding="async" src="assets/logo-white.png" alt="Chifbay — private boat tours in Madeira, Funchal"></a>
+  <nav class="nl">
+    <a href="/">Home</a>
+    <a href="experiences.html">Experiences</a>
+    <a href="about.html">The Story</a>
+    <a href="blog.html">Journal</a>
+    <a href="contact.html">Contact</a>
+    <a href="/reviews.html">Reviews</a>
+    <a href="/review.html">Leave a review</a>
+  </nav>
+  <div style="display:flex;align-items:center">
+    <a class="nc" href="#bkbox">Book your boat</a>
+    <button class="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</div></nav>
+
+<div class="annc"><span>Best price, direct — you are booking on chifbay.com</span></div>
+
+<header class="bkhero">
+  <div class="bkhbg" role="img" aria-label="${p.photoAlt}" style="background-image:url('${p.photo}')"></div>
+  <div class="bkhov"></div>
+  <div class="bkhc">
+    <span class="bkkick">${p.kicker}</span>
+    <h1>${p.h1}</h1>
+    <p>${p.lede}</p>
+  </div>
+</header>
+
+<main class="bkwrap" id="bkbox"${p.trip ? ` data-trip="${p.trip}"` : ""}>
+
+  <!-- Where these places actually are. Drawn from real sailing distances, so
+       nobody has to wonder what "Ponta do Sol" means. -->
+  <section class="bkmapbox">
+    <div class="bkmaph" data-t="map.title">Where you actually go</div>
+    <p class="bkmapc" data-t="map.caption">Everything is within 18 km west of Funchal — a stretch of coast with 580-metre cliffs, a cove with no road into it, and villages you can only really see from the water.</p>
+    <div id="bkmap"></div>
+  </section>
+
+  <div class="bksteps">
+    <span class="bkdot now" data-step="1"></span>
+    <span class="bkdot" data-step="2"></span>
+    <span class="bkdot" data-step="3"></span>
+    <span class="bkdot" data-step="4"></span>
+  </div>
+
+  <div id="bkloading"><p class="bkload" data-t="ui.loading">Loading the boat calendar…</p></div>
+
+  <div id="bkflow" hidden>
+
+    <!-- 1. which trip -->
+    <section class="bkstep on" data-step="1">
+      <h2 class="bkh" data-t="${stepOne}">${stepOneText}</h2>
+      <p class="bksub" data-t="step.1.sub">The whole boat is yours — never shared with another group.</p>
+      <div class="bkcards" id="bktrips"></div>
+    </section>
+
+    <!-- 2. when -->
+    <section class="bkstep" data-step="2">
+      <div class="bkpicked" id="bkpicked"></div>
+      <h2 class="bkh" data-t="step.2">Pick your day</h2>
+      <p class="bksub" data-t="step.2.sub">Days with a dot are open. Every time is Funchal time.</p>
+      <div id="bkcal"></div>
+      <div id="bktimes"></div>
+      <div class="bkactions">
+        <button type="button" class="bkbtn" id="bkto3" disabled><span data-t="ui.continue">Continue</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button type="button" class="bkback" data-back="1" data-t="ui.back">Back</button>
+      </div>
+    </section>
+
+    <!-- 3. who -->
+    <section class="bkstep" data-step="3">
+      <h2 class="bkh" data-t="step.3">Who is coming?</h2>
+      <p class="bksub" data-t="step.3.sub">We only need this to meet you at the marina.</p>
+      <div class="bksumbox" id="bksum"></div>
+      <form id="bkform">
+        <div class="bkfields">
+          <div class="bkfield wide">
+            <label for="bkname" data-t="ui.name">Lead guest name</label>
+            <input id="bkname" name="name" type="text" required autocomplete="name" maxlength="120">
+          </div>
+          <div class="bkfield">
+            <label for="bkemail" data-t="ui.email">Email</label>
+            <input id="bkemail" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="bkfield">
+            <label for="bkphone" data-t="ui.phone">Phone (WhatsApp)</label>
+            <input id="bkphone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+          </div>
+          <div class="bkfield">
+            <label for="bkguests" data-t="ui.guests">Guests</label>
+            <select id="bkguests" name="guests" required></select>
+          </div>
+        </div>
+        <div class="bkactions">
+          <button type="submit" class="bkbtn" id="bkpay" data-t="ui.pay">Pay and confirm</button>
+          <button type="button" class="bkback" data-back="2" data-t="ui.back">Back</button>
+        </div>
+        <div class="bkmsg" id="bkmsg"></div>
+        <p class="bksafe" data-t="ui.safe">
+          Free cancellation up to 24 hours before departure. Your card details go
+          straight to Stripe and are never seen by us or stored on this site.
+        </p>
+      </form>
+    </section>
+
+    <!-- 4. pay -->
+    <section class="bkstep" data-step="4">
+      <h2 class="bkh" data-t="step.4">Payment</h2>
+      <p class="bksub" data-t="step.4.sub">Your slot is held for 30 minutes while you finish.</p>
+      <div id="bkstripe"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fg">
+      <div class="fb2">
+        <div class="logo" style="margin-bottom:16px"><img decoding="async" src="assets/logo-white.png" alt="Chifbay — private boat tours in Madeira, Funchal" loading="lazy" style="height:42px;width:auto;display:block"></div>
+        <p>Private boat tours from Funchal, Madeira. Sunset runs along the west coast and day trips with swimming and paddle - your group only, always.</p>
+      </div>
+      <div class="fc"><h3>Book</h3>
+        <a href="/book-day.html">Book the Day Trip</a>
+        <a href="/book-sunset.html">Book the Sunset Trip</a>
+        <a href="experiences.html">All experiences</a>
+      </div>
+      <div class="fc"><h3>Contact</h3>
+        <a href="about.html">The Story</a>
+        <a href="contact.html">Contact</a>
+        <a href="/review.html">Leave a review</a>
+        <a href="/reviews.html">Our reviews</a>
+        <a href="tel:+351937200320">+351 937 200 320</a>
+        <a href="mailto:hello@chifbay.com">hello@chifbay.com</a>
+        <a href="https://www.instagram.com/chifbay" target="_blank" rel="noopener">Instagram @chifbay</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span class="fcr">32.6442 N - 16.9165 W - (c) <span id="yr">2026</span> Chifbay - Madeira, Portugal</span>
+      <span class="fcr">Funchal Marina - Built for the Atlantic</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="${WA}" target="_blank" rel="noopener" aria-label="WhatsApp">${WA_SVG}</a>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/booking-config.js"></script>
+<script src="/booking-content.js"></script>
+<script src="/booking.js"></script>
+<script src="peak.js"></script>
+</body>
+</html>
+`;
+}
+
+let n = 0;
+for (const p of PAGES) {
+  fs.writeFileSync(path.join(ROOT, p.file), page(p), "utf8");
+  console.log("  wrote  " + p.file + (p.trip ? "   (" + p.trip + " only)" : "   (everything)"));
+  n++;
+}
+console.log(`\n${n} booking pages written.`);

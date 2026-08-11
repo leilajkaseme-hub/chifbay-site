@@ -70,6 +70,11 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.08;letter-sp
 /* lock the page behind the open drawer so the background can't scroll —
    this is what removes the "jumpy/glitched" feel on the animated pages */
 html.nav-open,html.nav-open body{overflow:hidden}
+/* The cookie bar is fixed to the bottom at z-index 9999, so it sat on top of
+   the open mobile menu and ate the bottom entries. Step aside while the menu
+   is open; it comes straight back when the menu closes. !important is needed
+   because track.js writes the bar's styles inline. */
+html.nav-open #cb-consent{display:none!important}
 
 /* ------------------------------------------------------------------
    THE MOBILE DRAWER BUG — read this before touching #nav.

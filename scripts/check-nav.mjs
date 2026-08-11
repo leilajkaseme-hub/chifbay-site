@@ -31,7 +31,8 @@ const PAGES = [
   'index.html', 'experiences.html', 'about.html', 'contact.html',
   'hidden-coves-half-day.html', 'sunset-cruise.html', 'coastal-discovery-full-day.html',
 ];
-const EXTRA = ['reviews.html', 'blog.html']; // root-only, not in the i18n PAGES list
+// root-only, not in the i18n PAGES list
+const EXTRA = ['reviews.html', 'blog.html', 'book.html', 'book-day.html', 'book-sunset.html'];
 
 /* playwright-core is not a dependency of this site. Use whichever copy exists:
    a local install first, otherwise the one in the video-creation project. */

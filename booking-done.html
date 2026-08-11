@@ -23,8 +23,9 @@
   letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
 .dnrow span:last-child{text-align:right;font-weight:500}
 .dnnext{margin-top:32px;font-size:14.5px;opacity:.62;line-height:1.7}
-.dnbtn{display:inline-block;margin-top:28px;padding:14px 32px;border-radius:10px;
-  background:var(--gold,#c9a227);color:#0b0f14;font-weight:600;text-decoration:none}
+.dnbtn{display:inline-block;margin-top:28px;padding:14px 32px;border-radius:100px;
+  background:var(--teal,#e0be7a);color:var(--ink,#050f18);font-weight:600;text-decoration:none}
+.dnsub a{color:var(--teal,#e0be7a)}
 </style>
 </head>
 <body>
@@ -59,7 +60,8 @@
         body.innerHTML =
           '<h1 class="dnh">Payment not completed</h1>' +
           '<p class="dnsub">Nothing has been charged and your slot has been released. ' +
-          'You can <a href="/book.html">try again</a> or message us on WhatsApp.</p>';
+          'You can <a href="/book.html">try again</a> or ' +
+          '<a href="https://wa.me/351937200320">message us on WhatsApp</a>.</p>';
         return;
       }
       var b = res.booking || {};
@@ -113,7 +115,8 @@
       body.innerHTML =
         '<h1 class="dnh">We could not load your booking</h1>' +
         '<p class="dnsub">If your card was charged you are booked — ' +
-        'message us on WhatsApp and we will confirm straight away.</p>';
+        '<a href="https://wa.me/351937200320">message us on WhatsApp</a> ' +
+        'and we will confirm straight away.</p>';
     });
 })();
 </script>
