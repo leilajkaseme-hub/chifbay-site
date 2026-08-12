@@ -1,0 +1,31 @@
+# Chifbay
+
+> Private boat charter company in Funchal, Madeira, Portugal. One boat, one group at a time — never a shared tour. Whole-boat flat pricing for up to 5 guests, direct online booking with live availability and instant card payment.
+
+Chifbay operates a single private boat, a 2026 Karnic R8S (9 metres, Mercury V8 300hp), crewed by two Chifbay skippers on every trip. Every trip is exclusive to one group — Chifbay never mixes guests from different bookings on the same boat. There is a bathroom on board. Local wine, poncha, beer, soft drinks and snacks are included in the price on every trip, at no extra charge.
+
+Two trips are offered, both departing Marina do Funchal, Pontoon C:
+
+- **Day Trip** — departs 10:00 or 14:00. 2h30 (€500, turns at Ribeira Brava) or 3h (€600, continues to Ponta do Sol with a filmed video). Swimming and paddle boarding at Fajã dos Padres, a cove reachable only by boat. Drone footage included.
+- **Sunset Trip** — departs 18:30. 2h (€400, turns at Cabo Girão) or 2h30 (€500, continues to Ribeira Brava). No swimming (the water is too cold by then). Drone footage included.
+
+All prices are a flat rate for the whole boat, not per person.
+
+## Key pages
+
+- [Home](https://chifbay.com/): overview, FAQ, reviews, location
+- [Book a boat](https://chifbay.com/book.html): live calendar, instant card payment via Stripe, both trips
+- [Day Trip details](https://chifbay.com/hidden-coves-half-day.html): route, itinerary, FAQ
+- [Sunset Trip details](https://chifbay.com/sunset-cruise.html): route, itinerary, FAQ
+- [All experiences](https://chifbay.com/experiences.html)
+- [The Story](https://chifbay.com/about.html): the boat, the crew, why Chifbay is one boat and not a fleet
+- [Reviews](https://chifbay.com/reviews.html): verified guest reviews, 5.0 average
+- [Contact](https://chifbay.com/contact.html): phone, email, WhatsApp, general FAQ
+- [Journal](https://chifbay.com/blog.html): guides to Madeira — beaches, viewpoints, food, practical travel information
+
+## Contact
+
+- Phone / WhatsApp: +351 937 200 320
+- Email: hello@chifbay.com
+- Departure point: Marina do Funchal, 9000-055 Funchal, Madeira, Portugal (32.6442° N, 16.9165° W)
+- Instagram: https://www.instagram.com/chifbay
