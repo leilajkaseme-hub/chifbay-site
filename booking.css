@@ -92,6 +92,25 @@
 .bkmicon path{fill:none;stroke:#7a9aaa;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
 .bkmicon .eye{fill:#7a9aaa;opacity:.55}
 .bkms.on .bkmicon path{stroke:#e0be7a;opacity:1}
+
+/* --------------------------------------------------------- reassurance
+   Answers the questions guests keep asking on WhatsApp AFTER paying — boat
+   model, skippers, bathroom, food — before they ever have to ask. Real
+   Chifbay photos, not stock, so "is it really like Instagram" answers
+   itself. Page tokens (not the map's fixed navy) so this flips with the
+   light/dark theme like the rest of the funnel. */
+.bkreassure{display:grid;grid-template-columns:1fr 1.3fr 1fr;margin:0 0 40px;
+  border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--hair);background:var(--mid)}
+.bkr-photo{background-size:cover;background-position:center;min-height:220px}
+.bkr-body{padding:26px 28px}
+.bkr-kick{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:block}
+.bkr-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.bkr-list li{display:flex;gap:10px;font-size:.88rem;line-height:1.55;color:var(--paper-dim)}
+.bkr-list svg{flex-shrink:0;width:17px;height:17px;margin-top:2px;stroke:var(--teal);
+  fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.bkr-list strong{color:var(--paper);font-weight:600}
+@media(max-width:860px){.bkreassure{grid-template-columns:1fr}.bkr-photo{min-height:170px}}
 .bkms.on .bkmicon .eye{fill:#e0be7a;opacity:1}
 .bkms.on .bkmc{fill:#7a9aaa}
 .bkms.on .bkmtick{stroke:rgba(224,190,122,.32)}
