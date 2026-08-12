@@ -69,7 +69,22 @@ async function graphCall(path, body) {
   const json = await res.json().catch(() => ({}));
   if (!res.ok || json.error) {
     const e = json.error ?? {};
-    throw new Error(`${path}: ${e.message ?? res.status}${e.error_user_msg ? ` — ${e.error_user_msg}` : ""}`);
+    // Meta's short message ("API access blocked.") is often not enough to tell
+    // a revoked token from a restricted app from a rate limit. The code, the
+    // subcode and the trace id are what support and the docs are keyed on, so
+    // carry all of them into the log.
+    const bits = [
+      e.code != null ? `code ${e.code}` : null,
+      e.error_subcode != null ? `subcode ${e.error_subcode}` : null,
+      e.type || null,
+      e.fbtrace_id ? `fbtrace ${e.fbtrace_id}` : null,
+    ].filter(Boolean);
+    throw new Error(
+      `${path}: ${e.message ?? res.status}` +
+      (e.error_user_msg ? ` — ${e.error_user_msg}` : "") +
+      (bits.length ? ` [${bits.join(", ")}]` : "") +
+      (Object.keys(e).length ? "" : ` raw: ${JSON.stringify(json).slice(0, 300)}`),
+    );
   }
   return json;
 }
