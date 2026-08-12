@@ -266,8 +266,11 @@ priority when a post fails or the queue runs dry, normal when a post goes out.
   `Media ID is not available` look like the same wall. `API access blocked.`
   was seen on `/media` on 12 Aug 2026 and went away on its own — if it comes
   back, the code and subcode are now in the log.
-- **A green workflow does not mean a post.** The publish step failing still
-  lets the "commit the record" step run. Read `ledger.jsonl`, not the tick.
+- **A green workflow used to not mean a post.** `node bin/post.mjs | tee log`
+  under `bash -e` takes `tee`'s exit code, so a failed post finished green and
+  the `if: failure()` ntfy step never fired. Fixed with `set -o pipefail`.
+  Any new step that pipes needs the same line. `ledger.jsonl` is still the
+  truth, not the tick.
 
 ---
 
