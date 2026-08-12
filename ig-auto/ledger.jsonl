@@ -3,3 +3,4 @@
 {"at":"2026-08-12T11:48:03.940Z","ok":false,"kind":"feed","id":"20260811031840-53bd","error":"/17841473755961444/media: API access blocked."}
 {"at":"2026-08-12T18:51:57.002Z","ok":false,"kind":"story","id":"20260811034036-fee2","error":"/17841473755961444/media: API access blocked."}
 {"at":"2026-08-12T20:59:10.750Z","ok":false,"kind":"story","id":"20260811034036-fee2","error":"/17841473755961444/media_publish: Media ID is not available — The media is not ready for publishing, please wait for a moment [code 9007, subcode 2207027, OAuthException, fbtrace AUd--R1ZRz6UkzEvwmMy-lG]"}
+{"at":"2026-08-12T21:01:18.824Z","ok":true,"kind":"story","id":"20260811034036-fee2","sha256":"7d877bdc80ef8a01715a33a5629d4cd19711495e486317e8e462969e1abd778f","origin":"social/chifbay-25.jpg","source":"library","angle":"sunset","url":"https://www.chifbay.com/ig/20260811034036-fee2.jpg","transport":"graph","media_id":"18097265351527377","confirmed":true}
