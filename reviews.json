@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T16:15:55.063Z",
+  "updatedAt": "2026-08-12T20:15:52.682Z",
   "aggregate": {
     "rating": 5,
     "count": 35
@@ -22,27 +22,6 @@
       "translation": null
     },
     {
-      "id": "google-3a5d94c3b4ab5ee3",
-      "source": "google",
-      "rating": 5,
-      "author": "Enzo",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-10",
-      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
-      "photos": [
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
       "id": "gyg-0600ceaed116",
       "source": "getyourguide",
       "rating": 5,
@@ -59,6 +38,27 @@
         "text": "Thank you so much for your kind review! We’re really happy you enjoyed your time with us and discovering Madeira from the sea. It was a pleasure having you on board and giving you the space to enjoy this special moment together. We hope to welcome you back one day The Chifbay Team⚓️",
         "date": "2026-08-10"
       },
+      "translation": null
+    },
+    {
+      "id": "google-3a5d94c3b4ab5ee3",
+      "source": "google",
+      "rating": 5,
+      "author": "Enzo",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-09",
+      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
+      "photos": [
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
       "translation": null
     },
     {
@@ -404,7 +404,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-07-15",
-      "text": "Top experience 🥰. We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them were super well-coordinated, warm, and professional at the same time. You notice immediately that passion and experience come together here. Particularly worth mentioning are the excellent drinks, the delicious food, and the fresh, perfectly ripe pineapple – simply brilliant. The boat trip was sporty and fast, but always considerate and safe. Exactly the right balance between action and relaxation. There were 2–3 opportunities to swim – whoever wanted to could get in the water, everything very uncomplicated. The toilet on board is also a real plus. We had a blast the whole time and felt in the best of hands. For us, it's clear: When we are back in Madeira, we will definitely come back!",
+      "text": "Top experience 🥰. We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them were super well-coordinated, warm, and professional at the same time. You notice immediately that passion and experience come together here. Particularly worth mentioning are the excellent drinks, the delicious food, and the fresh, perfectly ripe pineapple – simply brilliant. The boat trip was sporty and fast, but always considerate and safe. Exactly the right balance between action and relaxation. There were 2–3 opportunities to swim – whoever wanted to could get in the water, everything very uncomplicated. The toilet on board is also a real plus. We had a blast the whole time and felt in the best of hands. For us, it's clear: When we are back in Madeira, we will definitely come back! Read less Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
       "translation": null
     },
     {
@@ -605,7 +605,7 @@
       "tourName": "Yacht Cruise with Drinks",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
       "reply": {
-        "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+        "text": "Wow, thank you for this amazing review Franziska! It was truly a pleasure having you on board. We’re so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
         "date": "2026-06-02"
       },
       "translation": null
