@@ -12,9 +12,15 @@ name: Chifbay Instagram — daily post
 #
 # 10:00 UTC, then the script waits a random 0-90 minutes before publishing, so
 # the account is not posting at the same second every day.
+#
+# 15:00 UTC is the catch-up. bin/post.mjs refuses to post twice in one day, so
+# on a normal day the second run prints "already posted today" and stops. It
+# only does anything when the morning run failed — which turns a bad half hour
+# at Meta into a late post instead of a missing day.
 on:
   schedule:
     - cron: "0 10 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -23,6 +29,16 @@ permissions:
 concurrency:
   group: ig-auto
   cancel-in-progress: false
+
+# GitHub's default shell is "bash -e", which has no pipefail: in "node post.mjs
+# | tee log" the step takes tee's exit code, so a post that never went out
+# still finished green and the if: failure() alert never fired. That is exactly
+# how this ran broken for a day with every run showing a tick. Naming the shell
+# "bash" makes Actions use "bash --noprofile --norc -eo pipefail", for every
+# step here and every step added later.
+defaults:
+  run:
+    shell: bash
 
 jobs:
   post:
@@ -47,17 +63,16 @@ jobs:
         working-directory: ig-auto
         env:
           # A manual run is a human watching a log, so it posts straight away.
-          # Scheduled runs keep the random 0-90 minute drift.
-          IG_NO_JITTER: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+          # The catch-up run skips the drift too — it is already late.
+          # The normal 10:00 run keeps the random 0-90 minute drift.
+          IG_NO_JITTER: >-
+            ${{ (github.event_name == 'workflow_dispatch'
+                 || github.event.schedule == '0 15 * * *') && '1' || '0' }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           # Only used if config.json is switched back to the "make-webhook" transport.
           MAKE_IG_WEBHOOK: ${{ secrets.MAKE_IG_WEBHOOK }}
         run: |
-          # Without pipefail the step takes tee's exit code, so a failed post
-          # still passes: the run goes green, the job never fails, and the ntfy
-          # alert below never fires. That is how three days of silence happened.
-          set -o pipefail
           node bin/post.mjs | tee /tmp/post.log
           echo "posted=$(grep -o 'POSTED=.*' /tmp/post.log | cut -d= -f2)" >> "$GITHUB_OUTPUT"
 

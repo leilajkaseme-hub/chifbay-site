@@ -9,7 +9,8 @@
     "status": "node bin/status.mjs",
     "heartbeat": "node bin/heartbeat.mjs",
     "whoami": "node bin/whoami.mjs",
-    "token-check": "node bin/token-check.mjs"
+    "token-check": "node bin/token-check.mjs",
+    "test": "node test-publish.mjs"
   },
   "dependencies": {
     "sharp": "^0.33.5"

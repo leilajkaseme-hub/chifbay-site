@@ -29,7 +29,8 @@
 
   "transport": "graph",
 
-  "heartbeat_max_days_since_post": 2,
+  "_comment_heartbeat": "0 = the heartbeat expects a post TODAY. It runs at 21:00 UTC, after both posting windows and both catch-up runs, so nothing is still in flight. It was 2, which let a feed that died on Tuesday go unreported until the next Monday.",
+  "heartbeat_max_days_since_post": 0,
 
 
   "ntfy": {

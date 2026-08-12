@@ -10,7 +10,10 @@
 // silently disabled, the Make organisation out of operations, the repo's
 // Actions turned off, a queue that ran dry while nobody was looking.
 //
-// Runs twice a week. Silence means the feed is genuinely alive.
+// Runs every day at 21:00 UTC, after both posting windows and both catch-up
+// runs have closed, so "nothing went out today" is a real answer and not a
+// race with a job still waiting out its jitter. Silence means the feed is
+// genuinely alive, today.
 import { config, kindOf, lastPostKey, listQueue, readLedger, state, today } from "../lib/queue.mjs";
 import { alert } from "../lib/notify.mjs";
 
@@ -60,9 +63,16 @@ for (const [kind, target, low] of [
   }
 }
 
+// Two is the threshold, not three. A single bad window is normal and the
+// catch-up run usually rescues it, so the day still looks healthy above. Twice
+// in a week is a pattern, and a pattern is the thing that quietly becomes a
+// dead account.
 const recentFails = ledger.filter((e) => !e.ok && Date.parse(e.at) > Date.now() - 7 * DAY);
-if (recentFails.length >= 3) {
-  problems.push(`${recentFails.length} failures in the last 7 days`);
+if (recentFails.length >= 2) {
+  problems.push(
+    `${recentFails.length} failures in the last 7 days — read ig-auto/ledger.jsonl, ` +
+    "the error field carries Meta's code and subcode",
+  );
 }
 
 if (problems.length) {

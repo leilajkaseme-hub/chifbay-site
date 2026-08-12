@@ -13,11 +13,19 @@ Runs in GitHub's cloud on a schedule. **Your computer can be off.**
 10:00 UTC   post        oldest feed item         ->  Meta API      ->  Instagram
 17:00 UTC   story       oldest story item        ->  Meta API      ->  Instagram
             (each + 0-90 min random wait)
-Mon + Thu   heartbeat   "did anything go out?"   ->  alert if it quietly stopped
+15:00 UTC   post again  only if 10:00 failed     ->  a late post, not a lost day
+20:30 UTC   story again only if 17:00 failed     ->  a late story, not a lost day
+21:00 UTC   heartbeat   "did BOTH go out today?" ->  alert if either did not
 ```
 
 Feed and story have separate queues and separate daily guards, so one of each
 goes out per day and a story failing never costs you the feed post.
+
+**The catch-up runs cost nothing on a good day.** `bin/post.mjs` refuses to post
+twice in one day, so they print `already posted today` and stop. They only do
+work when the first window failed, and they skip the random wait because they
+are already late. The heartbeat sits after both of them on purpose: by 21:00
+there is nothing still in flight, so "nothing went out today" is a real answer.
 
 Split by how much each may fail:
 
@@ -289,7 +297,8 @@ priority when a post fails or the queue runs dry, normal when a post goes out.
 | `bin/topup.mjs` | fill both queues |
 | `bin/post.mjs` | publish the oldest item (`IG_KIND=story` for a story) |
 | `bin/status.mjs` | health at a glance |
-| `bin/heartbeat.mjs` | "has it quietly stopped?" — runs twice a week |
+| `bin/heartbeat.mjs` | "has it quietly stopped?" — runs daily at 21:00 UTC |
+| `test-publish.mjs` | guards the container race and the pipefail trap (`npm test`) |
 | `bin/whoami.mjs` | setup helper — finds `IG_USER_ID` |
 | `bin/token-check.mjs` | checks the token is valid and never-expiring |
 

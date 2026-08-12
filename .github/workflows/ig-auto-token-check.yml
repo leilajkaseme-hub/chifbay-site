@@ -17,6 +17,13 @@ on:
 permissions:
   contents: read
 
+# Actions defaults to "bash -e", which has no pipefail — a piped step would
+# then take the exit code of the last command in the pipe and hide a failure.
+# Named "bash" it becomes "bash --noprofile --norc -eo pipefail".
+defaults:
+  run:
+    shell: bash
+
 jobs:
   check:
     runs-on: ubuntu-latest

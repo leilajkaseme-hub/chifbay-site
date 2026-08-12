@@ -8,14 +8,23 @@ name: Chifbay Instagram — heartbeat
 # operations, the scenario being switched off, a queue that ran dry while nobody
 # was looking. In every one of those cases nothing "fails", posts just stop.
 #
-# Twice a week. Silence means the feed is genuinely alive.
+# Every day at 21:00 UTC. That is after the feed window (10:00 + up to 90 min),
+# after the story window (17:00 + up to 90 min) and after both catch-up runs,
+# so by then a healthy day has posted twice and there is nothing left to wait
+# for. It used to run Monday and Thursday and tolerate two quiet days, which
+# meant a feed that stopped on a Tuesday was reported the following Monday.
+# Silence means the feed is genuinely alive, today.
 on:
   schedule:
-    - cron: "0 12 * * 1,4"
+    - cron: "0 21 * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: read
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   heartbeat:

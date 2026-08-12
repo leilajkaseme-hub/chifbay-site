@@ -11,9 +11,15 @@ name: Chifbay Instagram — daily story
 # A story published through the API is the picture and nothing else — Meta does
 # not let an app attach text, stickers, polls or link stickers. Those exist only
 # in the phone app.
+#
+# 20:30 UTC is the catch-up. bin/post.mjs refuses to post twice in one day, so
+# on a normal day the second run prints "already posted today" and stops. It
+# only does anything when the 17:00 run failed. It is before the 21:00
+# heartbeat on purpose: the retry gets its chance before anything shouts.
 on:
   schedule:
     - cron: "0 17 * * *"
+    - cron: "30 20 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -22,6 +28,16 @@ permissions:
 concurrency:
   group: ig-auto
   cancel-in-progress: false
+
+# GitHub's default shell is "bash -e", which has no pipefail: in "node post.mjs
+# | tee log" the step takes tee's exit code, so a post that never went out
+# still finished green and the if: failure() alert never fired. That is exactly
+# how this ran broken for a day with every run showing a tick. Naming the shell
+# "bash" makes Actions use "bash --noprofile --norc -eo pipefail", for every
+# step here and every step added later.
+defaults:
+  run:
+    shell: bash
 
 jobs:
   story:
@@ -46,8 +62,12 @@ jobs:
         working-directory: ig-auto
         env:
           # A manual run is a human watching a log, so it posts straight away.
-          # Scheduled runs keep the random 0-90 minute drift.
-          IG_NO_JITTER: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+          # The catch-up run skips the drift too: it is already late, and it has
+          # to finish before the 21:00 heartbeat decides nothing went out.
+          # The normal 17:00 run keeps the random 0-90 minute drift.
+          IG_NO_JITTER: >-
+            ${{ (github.event_name == 'workflow_dispatch'
+                 || github.event.schedule == '30 20 * * *') && '1' || '0' }}
           IG_KIND: story
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}

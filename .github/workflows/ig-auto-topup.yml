@@ -24,6 +24,14 @@ concurrency:
   group: ig-auto
   cancel-in-progress: false
 
+# GitHub's default shell is "bash -e", which has no pipefail: in "node x.mjs
+# | tee log" the step takes tee's exit code, so a job that did nothing still
+# finishes green. Naming the shell "bash" makes Actions use
+# "bash --noprofile --norc -eo pipefail". test-publish.mjs enforces this.
+defaults:
+  run:
+    shell: bash
+
 jobs:
   topup:
     runs-on: ubuntu-latest

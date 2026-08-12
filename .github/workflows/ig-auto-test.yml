@@ -1,0 +1,44 @@
+name: Chifbay Instagram — tests
+
+# The two faults that stopped this account posting were both invisible: one was
+# a race with Meta's own image download, the other made a failed post finish
+# green. Neither showed up in a review and neither showed up in the Actions tab.
+#
+# So they are a test, and the test runs on every change to the posting code or
+# to the workflows that carry it. A red tick here is cheap. A silent feed is not.
+on:
+  push:
+    paths:
+      - "ig-auto/**"
+      - ".github/workflows/ig-auto-*.yml"
+  pull_request:
+    paths:
+      - "ig-auto/**"
+      - ".github/workflows/ig-auto-*.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # No npm install on purpose: the tests use a fake Meta and Node's own
+      # assert, so nothing here can break because a package changed.
+      - name: Publishing rules still hold
+        working-directory: ig-auto
+        run: node test-publish.mjs
