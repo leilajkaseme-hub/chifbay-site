@@ -250,6 +250,27 @@ priority when a post fails or the queue runs dry, normal when a post goes out.
 
 ---
 
+## Things that will bite you
+
+- **Creating a media container uploads nothing.** It only hands Meta a URL;
+  Meta downloads the picture afterwards, on its own servers. Publishing before
+  that finishes fails with `Media ID is not available` (code 9007, subcode
+  2207027). It is a race, so it looks fine until it is not — the first two
+  posts went out, every one after them failed. `publish.mjs` now polls
+  `status_code` until `FINISHED`. Never publish straight after creating a
+  container.
+- **A failed publish must not build a new container.** A new container means a
+  new download and the same race. Retry the same `creation_id`.
+- **Meta's short message hides the reason.** `graphCall()` prints the code, the
+  subcode and the `fbtrace_id`; without them `API access blocked.` and
+  `Media ID is not available` look like the same wall. `API access blocked.`
+  was seen on `/media` on 12 Aug 2026 and went away on its own — if it comes
+  back, the code and subcode are now in the log.
+- **A green workflow does not mean a post.** The publish step failing still
+  lets the "commit the record" step run. Read `ledger.jsonl`, not the tick.
+
+---
+
 ## Files
 
 | Path | What it does |
