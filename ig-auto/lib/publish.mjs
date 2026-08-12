@@ -59,13 +59,16 @@ async function makeWebhook(item) {
 export const GRAPH = "https://graph.facebook.com/v21.0";
 
 /** Meta returns its real reason inside error.message — surface it, not "400". */
-async function graphCall(path, body) {
-  const res = await fetch(`${GRAPH}${path}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-    signal: AbortSignal.timeout(120_000),
-  });
+async function graphCall(path, body, method = "POST") {
+  const url = new URL(`${GRAPH}${path}`);
+  const init = { method, signal: AbortSignal.timeout(120_000) };
+  if (method === "GET") {
+    for (const [k, v] of Object.entries(body)) url.searchParams.set(k, v);
+  } else {
+    init.headers = { "Content-Type": "application/json" };
+    init.body = JSON.stringify(body);
+  }
+  const res = await fetch(url, init);
   const json = await res.json().catch(() => ({}));
   if (!res.ok || json.error) {
     const e = json.error ?? {};
@@ -89,6 +92,39 @@ async function graphCall(path, body) {
   return json;
 }
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Wait for Meta to finish downloading the image into the container.
+ *
+ * Creating a container only queues the work — Meta fetches the URL on its own
+ * servers afterwards. Publishing before that finishes fails with
+ * "Media ID is not available" (code 9007, subcode 2207027). It is a race, so it
+ * looks like it works until one day it does not: the very first two posts went
+ * out fine and every one after them failed.
+ *
+ * Meta's own guidance is to poll status_code every few seconds. FINISHED means
+ * ready, ERROR means the image itself was refused and no amount of waiting will
+ * help, so say that instead of timing out five minutes later.
+ */
+async function waitForContainer(id, token, { timeoutMs = 300_000, everyMs = 5_000 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  let last = "IN_PROGRESS";
+  while (Date.now() < deadline) {
+    const s = await graphCall(`/${id}`, { fields: "status_code,status", access_token: token }, "GET");
+    last = s.status_code ?? "UNKNOWN";
+    if (last === "FINISHED") return;
+    if (last === "ERROR" || last === "EXPIRED") {
+      throw new Error(`Instagram refused the image (${last}): ${s.status ?? "no reason given"}`);
+    }
+    await sleep(everyMs);
+  }
+  throw new Error(
+    `the media container was still "${last}" after ${Math.round(timeoutMs / 1000)}s — ` +
+    "Instagram never finished downloading the image",
+  );
+}
+
 /**
  * Direct Graph API. Two steps, because Meta fetches the image itself: create a
  * media container pointing at the public URL, then publish that container.
@@ -110,10 +146,24 @@ async function graph(item) {
   });
   if (!container.id) throw new Error(`no container id: ${JSON.stringify(container).slice(0, 200)}`);
 
-  const out = await graphCall(`/${user}/media_publish`, {
-    creation_id: container.id,
-    access_token: token,
-  });
+  await waitForContainer(container.id, token);
+
+  // FINISHED is Meta's own answer and it is still occasionally early, so give
+  // the same container a few more tries rather than building a new one — a
+  // second container means a second download and the same race all over again.
+  let out, lastErr;
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      out = await graphCall(`/${user}/media_publish`, { creation_id: container.id, access_token: token });
+      break;
+    } catch (err) {
+      lastErr = err;
+      if (!/9007|2207027|not ready|not available/i.test(err.message) || attempt === 4) throw err;
+      console.warn(`container ${container.id} not ready yet, retrying in 10s`);
+      await sleep(10_000);
+    }
+  }
+  if (!out) throw lastErr;
   if (!out.id) throw new Error(`no media id: ${JSON.stringify(out).slice(0, 200)}`);
   return { transport: "graph", media_id: out.id, confirmed: true };
 }
