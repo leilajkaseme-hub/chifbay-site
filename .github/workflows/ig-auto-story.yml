@@ -52,6 +52,10 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: |
+          # Without pipefail the step takes tee's exit code, so a failed post
+          # still passes: the run goes green, the job never fails, and the ntfy
+          # alert below never fires. That is how three days of silence happened.
+          set -o pipefail
           node bin/post.mjs | tee /tmp/story.log
           echo "posted=$(grep -o 'POSTED=.*' /tmp/story.log | cut -d= -f2)" >> "$GITHUB_OUTPUT"
 
