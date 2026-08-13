@@ -13,7 +13,10 @@
 // For a Madeira boat feed the useful reading is mostly b: a golden sunset is
 // strongly +b, open ocean is strongly -b. Putting those two side by side is
 // exactly the jump that makes a grid look thrown together.
-import sharp from "sharp";
+// sharp is loaded inside measure(), not at the top. Everything else in this
+// file is arithmetic, and the ordering tests need only the arithmetic — a
+// top-level import would drag a native dependency into a test job that
+// deliberately installs nothing, and the maths would go untested in CI.
 
 /** sRGB channel 0..255 -> linear 0..1. */
 function linear(c) {
@@ -44,6 +47,7 @@ export function rgbToLab(r, g, b) {
  * asked them what the photo is, rather than the arithmetic mean.
  */
 export async function measure(input) {
+  const sharp = (await import("sharp")).default;
   const { data, info } = await sharp(input)
     .rotate()
     .resize(48, 48, { fit: "cover" })

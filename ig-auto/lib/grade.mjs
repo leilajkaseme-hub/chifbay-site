@@ -23,7 +23,8 @@
 //
 // Every step is clamped. Run `node bin/feed-plan.mjs --preview` and look at the
 // result before changing any number here.
-import sharp from "sharp";
+// sharp is loaded inside applyGrade for the same reason as in palette.mjs:
+// gradeFor() is pure arithmetic and must be testable without it.
 import { measure } from "./palette.mjs";
 
 export const LOOK = {
@@ -72,6 +73,7 @@ const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
  * every photo ends on exactly the same two steps and therefore matches.
  */
 export async function applyGrade(input, look = LOOK) {
+  const sharp = (await import("sharp")).default;
   const m = await measure(input);
   const { brightness, saturation } = gradeFor(m, look);
 
