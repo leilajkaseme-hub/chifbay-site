@@ -33,7 +33,14 @@
     BOOKING_HOST: "book.chifbay.com",
     ATTR_DAYS: 90,           // how long we remember which ad brought them
     CONSENT_BANNER: true,    // false = no banner (only legal outside the EU)
-    DEBUG: false             // true = log every event to the console
+    DEBUG: false,            // true = log every event to the console
+
+    // Every ad click that lands here gets logged server-side — IP and user
+    // agent read off the request itself, not off anything this script sends.
+    // Independent of consent: no personal data is stored on the visitor's
+    // device, this only tells our own server about a click it was already
+    // going to be billed for. See booking-api/worker.js's /v1/click.
+    CLICK_LOG_URL: "https://chifbay-booking-api.chifandcopt.workers.dev/v1/click"
   };
 
   // Price floor per tour, used as the event value so the ad platforms can
@@ -94,8 +101,10 @@
   // Keep the first touch forever, refresh the last touch whenever a new ad
   // click arrives. A plain visit with no parameters never wipes what we have —
   // that is the usual way attribution gets lost.
+  var LANDING_PARAMS = currentParams();
+
   function computeAttr() {
-    var found = currentParams();
+    var found = LANDING_PARAMS;
     var stored = loadAttr();
 
     PASS_THROUGH.forEach(function (k) { if (found[k]) stored[k] = found[k]; });
@@ -109,6 +118,23 @@
   }
 
   var ATTR = computeAttr();
+
+  // Only when THIS load carries a fresh gclid — i.e. this is the ad click
+  // landing, not a later internal navigation — and only once per landing.
+  // A bot that never runs JS was never going to hit this anyway; the click
+  // was already billed by Google's ad server before this page was asked for.
+  (function logClick() {
+    if (!CFG.CLICK_LOG_URL || !LANDING_PARAMS.gclid) return;
+    try {
+      var payload = JSON.stringify({ gclid: LANDING_PARAMS.gclid, path: location.pathname });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(CFG.CLICK_LOG_URL, new Blob([payload], { type: "text/plain" }));
+      } else {
+        fetch(CFG.CLICK_LOG_URL, { method: "POST", mode: "no-cors", body: payload, keepalive: true });
+      }
+      log("click logged", LANDING_PARAMS.gclid);
+    } catch (e) { /* never let logging break the page */ }
+  })();
 
   // This is an advertising cookie, so it is only written once the visitor has
   // accepted. Until then the click id lives in memory and rides along in the
