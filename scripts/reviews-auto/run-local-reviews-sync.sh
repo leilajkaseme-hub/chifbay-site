@@ -12,10 +12,12 @@
 # around as a manual-trigger-only fallback, not on a schedule, since it
 # cannot succeed unattended from GitHub's infrastructure.
 #
-# Tripadvisor is still not included anywhere — DataDome (their bot
-# mitigation vendor) 403s every scraper attempt, including from this same
-# home IP, so that one's genuinely not free-scrapable. data/tripadvisor-
-# manual.json stays hand-maintained; build-reviews.mjs folds it in either way.
+# Tripadvisor is scraped too (see the Route 2 block below) — real Chrome in
+# HEADED mode gets past DataDome, their bot mitigation vendor, from this same
+# home IP. It pulls from all 4 of Chifbay's Tripadvisor pages: the claimed
+# attraction listing plus one auto-generated review page per Viator-synced
+# tour (Chifbay has no single unified Tripadvisor listing). data/tripadvisor-
+# manual.json is a hand-maintained fallback; build-reviews.mjs folds it in too.
 set -euo pipefail
 
 # Paths are derived from this script's own location, never hardcoded. A
