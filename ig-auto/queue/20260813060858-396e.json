@@ -1,0 +1,51 @@
+{
+  "id": "20260813060858-396e",
+  "kind": "feed",
+  "created": "2026-08-13T06:09:04.515Z",
+  "source": "library",
+  "origin": "social/chifbay-31.jpg",
+  "image": "ig/20260813060858-396e-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813060858-396e-1.jpg",
+  "sha256": "2617d2014eed2cf09c0d8ad67c2ccb1e8be30b000020f6a9a0cd71cdc7c0e78d",
+  "slides": [
+    {
+      "origin": "social/chifbay-31.jpg",
+      "image": "ig/20260813060858-396e-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060858-396e-1.jpg",
+      "sha256": "2617d2014eed2cf09c0d8ad67c2ccb1e8be30b000020f6a9a0cd71cdc7c0e78d"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813060858-396e-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060858-396e-2.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-38.jpg",
+      "image": "ig/20260813060858-396e-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060858-396e-3.jpg",
+      "sha256": "f9a2ccef2c88e8777630bb92b991ae2648450ff304204c36a48e92e8a5a37963"
+    },
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260813060858-396e-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060858-396e-4.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    }
+  ],
+  "plan_index": 8,
+  "plan_cover": "social/chifbay-31.jpg",
+  "palette": "amber",
+  "angle": "swimstop",
+  "caption": "The swim stop in a quiet cove. Clear water, nobody else around.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nSend us a message for availability",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#privateboattour",
+    "#boattour",
+    "#snorkelling",
+    "#swimming"
+  ],
+  "rendered_caption": "The swim stop in a quiet cove. Clear water, nobody else around.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nSend us a message for availability\n\n#madeiraisland #madeira #privateboattour #boattour #snorkelling #swimming",
+  "writer": "template"
+}

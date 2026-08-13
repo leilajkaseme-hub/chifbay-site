@@ -1,0 +1,50 @@
+{
+  "id": "20260813060916-e616",
+  "kind": "feed",
+  "created": "2026-08-13T06:09:22.876Z",
+  "source": "library",
+  "origin": "social/chifbay-54.jpg",
+  "image": "ig/20260813060916-e616-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813060916-e616-1.jpg",
+  "sha256": "4ef5c17b22d3bad2608f4264b1f9059f6fb8fbc2e8a2584fb529b4164de8270a",
+  "slides": [
+    {
+      "origin": "social/chifbay-54.jpg",
+      "image": "ig/20260813060916-e616-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060916-e616-1.jpg",
+      "sha256": "4ef5c17b22d3bad2608f4264b1f9059f6fb8fbc2e8a2584fb529b4164de8270a"
+    },
+    {
+      "origin": "social/chifbay-41.jpg",
+      "image": "ig/20260813060916-e616-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060916-e616-2.jpg",
+      "sha256": "6091539cc5810ee3f662b46ae184d6a53ec3c346acbc1a3e308752909ff05e74"
+    },
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260813060916-e616-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060916-e616-3.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813060916-e616-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060916-e616-4.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    }
+  ],
+  "plan_index": 11,
+  "plan_cover": "social/chifbay-54.jpg",
+  "palette": "amber",
+  "angle": "skipper",
+  "caption": "Behind the scenes: the skipper, the route, reading the sea that morning.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#privateboattour",
+    "#skipper"
+  ],
+  "rendered_caption": "Behind the scenes: the skipper, the route, reading the sea that morning.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com\n\n#madeira #madeiraisland #boattour #privateboattour #skipper",
+  "writer": "template"
+}

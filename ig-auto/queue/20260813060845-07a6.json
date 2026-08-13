@@ -1,0 +1,53 @@
+{
+  "id": "20260813060845-07a6",
+  "kind": "feed",
+  "created": "2026-08-13T06:08:52.822Z",
+  "source": "library",
+  "origin": "social/chifbay-28.jpg",
+  "image": "ig/20260813060845-07a6-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813060845-07a6-1.jpg",
+  "sha256": "8036699e8eb8a8a30b82c51e9bf4d8f877d94f974875f1d5bfea419a874c4eac",
+  "slides": [
+    {
+      "origin": "social/chifbay-28.jpg",
+      "image": "ig/20260813060845-07a6-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060845-07a6-1.jpg",
+      "sha256": "8036699e8eb8a8a30b82c51e9bf4d8f877d94f974875f1d5bfea419a874c4eac"
+    },
+    {
+      "origin": "social/chifbay-54.jpg",
+      "image": "ig/20260813060845-07a6-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060845-07a6-2.jpg",
+      "sha256": "4ef5c17b22d3bad2608f4264b1f9059f6fb8fbc2e8a2584fb529b4164de8270a"
+    },
+    {
+      "origin": "social/chifbay-39.jpg",
+      "image": "ig/20260813060845-07a6-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060845-07a6-3.jpg",
+      "sha256": "12aa40597187a9f3e66f80876101d5d002ca906b595d7f33dfda27e1e58b5b7f"
+    },
+    {
+      "origin": "social/chifbay-31.jpg",
+      "image": "ig/20260813060845-07a6-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060845-07a6-4.jpg",
+      "sha256": "2617d2014eed2cf09c0d8ad67c2ccb1e8be30b000020f6a9a0cd71cdc7c0e78d"
+    }
+  ],
+  "plan_index": 6,
+  "plan_cover": "social/chifbay-28.jpg",
+  "palette": "amber",
+  "angle": "dolphins",
+  "caption": "Wild dolphins alongside the boat. Respectful distance, never chasing.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nWhatsApp us to check a date",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#boattrip",
+    "#boatlife",
+    "#dolphinwatching",
+    "#wildlifewatching",
+    "#slowtravel",
+    "#madeiratravel"
+  ],
+  "rendered_caption": "Wild dolphins alongside the boat. Respectful distance, never chasing.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nWhatsApp us to check a date\n\n#funchal #visitmadeira #boattrip #boatlife #dolphinwatching #wildlifewatching #slowtravel #madeiratravel",
+  "writer": "template"
+}

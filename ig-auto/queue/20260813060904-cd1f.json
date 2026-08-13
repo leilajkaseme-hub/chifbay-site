@@ -1,0 +1,52 @@
+{
+  "id": "20260813060904-cd1f",
+  "kind": "feed",
+  "created": "2026-08-13T06:09:10.590Z",
+  "source": "library",
+  "origin": "social/chifbay-06.jpg",
+  "image": "ig/20260813060904-cd1f-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813060904-cd1f-1.jpg",
+  "sha256": "8739a671b22edeb4134fb934784c1e512dec8eeee10a88632f1e8f6bc775fea5",
+  "slides": [
+    {
+      "origin": "social/chifbay-06.jpg",
+      "image": "ig/20260813060904-cd1f-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060904-cd1f-1.jpg",
+      "sha256": "8739a671b22edeb4134fb934784c1e512dec8eeee10a88632f1e8f6bc775fea5"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813060904-cd1f-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060904-cd1f-2.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260813060904-cd1f-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060904-cd1f-3.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    },
+    {
+      "origin": "social/chifbay-47.jpg",
+      "image": "ig/20260813060904-cd1f-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060904-cd1f-4.jpg",
+      "sha256": "2d17b61c9fef52b57e6254a1a4d1fa48f329dd4fcd9c0eccd302c4a66be0c579"
+    }
+  ],
+  "plan_index": 9,
+  "plan_cover": "social/chifbay-06.jpg",
+  "palette": "amber",
+  "angle": "marina",
+  "caption": "Leaving Funchal marina, the town falling away behind.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nLink in bio if you want the quiet version of Madeira",
+  "hashtags": [
+    "#visitmadeira",
+    "#funchal",
+    "#boatlife",
+    "#boattrip",
+    "#funchalmarina",
+    "#islandlife",
+    "#travelportugal"
+  ],
+  "rendered_caption": "Leaving Funchal marina, the town falling away behind.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nLink in bio if you want the quiet version of Madeira\n\n#visitmadeira #funchal #boatlife #boattrip #funchalmarina #islandlife #travelportugal",
+  "writer": "template"
+}

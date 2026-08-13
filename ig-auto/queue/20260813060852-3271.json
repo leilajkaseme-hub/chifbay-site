@@ -1,0 +1,44 @@
+{
+  "id": "20260813060852-3271",
+  "kind": "feed",
+  "created": "2026-08-13T06:08:58.477Z",
+  "source": "library",
+  "origin": "social/chifbay-59.jpg",
+  "image": "ig/20260813060852-3271-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813060852-3271-1.jpg",
+  "sha256": "935dd7d04061c76f976ddd91fbab52fb816f1704d6ed9180e0f6f0653492d1bf",
+  "slides": [
+    {
+      "origin": "social/chifbay-59.jpg",
+      "image": "ig/20260813060852-3271-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060852-3271-1.jpg",
+      "sha256": "935dd7d04061c76f976ddd91fbab52fb816f1704d6ed9180e0f6f0653492d1bf"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813060852-3271-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060852-3271-2.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-31.jpg",
+      "image": "ig/20260813060852-3271-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060852-3271-3.jpg",
+      "sha256": "2617d2014eed2cf09c0d8ad67c2ccb1e8be30b000020f6a9a0cd71cdc7c0e78d"
+    }
+  ],
+  "plan_index": 7,
+  "plan_cover": "social/chifbay-59.jpg",
+  "palette": "amber",
+  "angle": "cliffs",
+  "caption": "Madeira's coastline seen from the water — cliffs, Cabo Girao, sea caves.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nDetails and dates on chifbay.com",
+  "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#atlanticocean",
+    "#seaday",
+    "#cabogirao"
+  ],
+  "rendered_caption": "Madeira's coastline seen from the water — cliffs, Cabo Girao, sea caves.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nDetails and dates on chifbay.com\n\n#madeiraportugal #portugal #atlanticocean #seaday #cabogirao",
+  "writer": "template"
+}

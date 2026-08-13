@@ -1,0 +1,53 @@
+{
+  "id": "20260813060910-9c8d",
+  "kind": "feed",
+  "created": "2026-08-13T06:09:16.695Z",
+  "source": "library",
+  "origin": "social/chifbay-60.jpg",
+  "image": "ig/20260813060910-9c8d-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813060910-9c8d-1.jpg",
+  "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d",
+  "slides": [
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813060910-9c8d-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060910-9c8d-1.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-40.jpg",
+      "image": "ig/20260813060910-9c8d-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060910-9c8d-2.jpg",
+      "sha256": "9b65a3f443f1950f65cd32ccc5f7718fa44e08052caa9df2776542d811fc2ce1"
+    },
+    {
+      "origin": "social/chifbay-22.jpg",
+      "image": "ig/20260813060910-9c8d-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060910-9c8d-3.jpg",
+      "sha256": "b1a3ae4562a972a7d7f0d7e7f2b45b4ef37620f6c83dab780d170ac490474642"
+    },
+    {
+      "origin": "social/chifbay-37.jpg",
+      "image": "ig/20260813060910-9c8d-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813060910-9c8d-4.jpg",
+      "sha256": "873268482cf7c1152131d6ef076a0a1d1adab1fd684cde80d9211a4a609f9290"
+    }
+  ],
+  "plan_index": 10,
+  "plan_cover": "social/chifbay-60.jpg",
+  "palette": "golden",
+  "angle": "openocean",
+  "caption": "Open Atlantic — the colour of the water, the quiet once the engine drops.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nWe keep it to five guests. Ask us about your dates.",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#seaday",
+    "#atlanticocean",
+    "#atlantic",
+    "#oceanview",
+    "#traveleurope",
+    "#visitportugal"
+  ],
+  "rendered_caption": "Open Atlantic — the colour of the water, the quiet once the engine drops.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nWe keep it to five guests. Ask us about your dates.\n\n#portugal #madeiraportugal #seaday #atlanticocean #atlantic #oceanview #traveleurope #visitportugal",
+  "writer": "template"
+}
