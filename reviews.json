@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-13T07:30:37.692Z",
+  "updatedAt": "2026-08-13T16:17:12.115Z",
   "aggregate": {
     "rating": 5,
     "count": 40
@@ -423,6 +423,22 @@
       "translation": null
     },
     {
+      "id": "gyg-96e35c1fc3e7",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "GetYourGuide traveler",
+      "country": "Germany",
+      "countryFlag": "🇩🇪",
+      "date": "2026-07-15",
+      "text": "",
+      "photos": [],
+      "tourId": "t1340940",
+      "tourName": "Yacht Cruise with Drinks",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "tripadvisor-9e5d9d0f77aa",
       "source": "tripadvisor",
       "rating": 5,
@@ -464,22 +480,6 @@
       "countryFlag": "",
       "date": "2026-07-15",
       "text": "Top experience 🥰. We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them were super well-coordinated, warm, and professional at the same time. You notice immediately that passion and experience come together here. Particularly worth mentioning are the excellent drinks, the delicious food, and the fresh, perfectly ripe pineapple – simply brilliant. The boat trip was sporty and fast, but always considerate and safe. Exactly the right balance between action and relaxation. There were 2–3 opportunities to swim – whoever wanted to could get in the water, everything very uncomplicated. The toilet on board is also a real plus. We had a blast the whole time and felt in the best of hands. For us, it's clear: When we are back in Madeira, we will definitely come back! Read less Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
-      "translation": null
-    },
-    {
-      "id": "gyg-96e35c1fc3e7",
-      "source": "getyourguide",
-      "rating": 5,
-      "author": "GetYourGuide traveler",
-      "country": "Germany",
-      "countryFlag": "🇩🇪",
-      "date": "2026-07-15",
-      "text": "",
-      "photos": [],
-      "tourId": "t1340940",
-      "tourName": "Yacht Cruise with Drinks",
-      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
-      "reply": null,
       "translation": null
     },
     {
@@ -624,29 +624,6 @@
       "translation": null
     },
     {
-      "id": "gyg-f4b7da8b9abc",
-      "source": "getyourguide",
-      "rating": 5,
-      "author": "Franziska",
-      "country": "Germany",
-      "countryFlag": "🇩🇪",
-      "date": "2026-06-01",
-      "text": "Sehr empfehlenswert! Vater und Sohn, super hilfsbereit und bemüht einen schönen Aufenthalt auf See zu gewährleisten. Viele Sprachen möglich. Man kann sich die Tour individuell gestalten, man erhält viele Informationen wenn man das möchte. Super war die frische Zubereitung der Getränke und Snacks vor Ort, sehr lecker. Rund um eine super Tour, vielen lieben Dank.",
-      "photos": [
-        "assets/reviews/gyg/gyg-f4b7da8b9abc-1.jpg",
-        "assets/reviews/gyg/gyg-f4b7da8b9abc-2.jpg",
-        "assets/reviews/gyg/gyg-f4b7da8b9abc-3.jpg"
-      ],
-      "tourId": "t1340940",
-      "tourName": "Yacht Cruise with Drinks",
-      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
-      "reply": {
-        "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
-        "date": "2026-06-02"
-      },
-      "translation": null
-    },
-    {
       "id": "gyg-e142c3e6773e",
       "source": "getyourguide",
       "rating": 5,
@@ -659,6 +636,29 @@
         "assets/reviews/gyg/gyg-e142c3e6773e-1.jpg",
         "assets/reviews/gyg/gyg-e142c3e6773e-2.jpg",
         "assets/reviews/gyg/gyg-e142c3e6773e-3.jpg"
+      ],
+      "tourId": "t1340940",
+      "tourName": "Yacht Cruise with Drinks",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+      "reply": {
+        "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+        "date": "2026-06-02"
+      },
+      "translation": null
+    },
+    {
+      "id": "gyg-f4b7da8b9abc",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "Franziska",
+      "country": "Germany",
+      "countryFlag": "🇩🇪",
+      "date": "2026-06-01",
+      "text": "Sehr empfehlenswert! Vater und Sohn, super hilfsbereit und bemüht einen schönen Aufenthalt auf See zu gewährleisten. Viele Sprachen möglich. Man kann sich die Tour individuell gestalten, man erhält viele Informationen wenn man das möchte. Super war die frische Zubereitung der Getränke und Snacks vor Ort, sehr lecker. Rund um eine super Tour, vielen lieben Dank.",
+      "photos": [
+        "assets/reviews/gyg/gyg-f4b7da8b9abc-1.jpg",
+        "assets/reviews/gyg/gyg-f4b7da8b9abc-2.jpg",
+        "assets/reviews/gyg/gyg-f4b7da8b9abc-3.jpg"
       ],
       "tourId": "t1340940",
       "tourName": "Yacht Cruise with Drinks",
