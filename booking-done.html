@@ -88,6 +88,17 @@
           }
           var cfg = window.cbCfg || {};
           if (window.gtag && cfg.googleAdsId && cfg.adsPurchaseLabel) {
+            // Enhanced Conversions: gtag hashes this client-side before it
+            // ever leaves the browser. Phone must be E.164 (no spaces) or
+            // Google silently drops it as unmatched.
+            var udata = {};
+            if (res.email) udata.email = res.email;
+            if (res.phone) {
+              var p = String(res.phone).replace(/[^\d+]/g, "");
+              if (p) udata.phone_number = p;
+            }
+            if (udata.email || udata.phone_number) gtag("set", "user_data", udata);
+
             gtag("event", "conversion", {
               send_to: cfg.googleAdsId + "/" + cfg.adsPurchaseLabel,
               value: value,
