@@ -27,21 +27,29 @@
 // gradeFor() is pure arithmetic and must be testable without it.
 import { measure } from "./palette.mjs";
 
+// TUNED DOWN after looking at the first result: it was visibly relighting the
+// photos and that looked worse than the mismatch it was fixing. A real photo
+// that has been obviously processed reads as cheap, and these are good photos.
+// So the numbers here are now almost nothing. The grade exists only to stop the
+// two or three genuine outliers from shouting; the ORDER is what makes the grid
+// hold together, and the order costs the pictures nothing.
 export const LOOK = {
   // Brightness target. Photos are nudged towards this, never pinned to it —
   // a feed where every square is the same brightness is flat and lifeless.
   targetL: 56,
-  maxBrightnessShift: 0.16,   // +/- 16% brightness, no more
+  maxBrightnessShift: 0.05,   // +/- 5%. Below what the eye reads as "edited".
+  pullToTarget: 0.30,         // and only ever 30% of the way there
 
   // Colour ceiling. Measured across the library: the warmest photo is b +47
-  // and the coldest is b -51. Anything past this gets compressed towards it.
-  chromaCeiling: 34,
-  minSaturation: 0.78,        // never wash a photo out past this
+  // and the coldest is b -51. Only those extremes are touched now — 44 leaves
+  // all but a handful of photos completely untouched.
+  chromaCeiling: 44,
+  minSaturation: 0.92,        // never wash a photo out past this
 
-  // The shared curve. Small numbers on purpose.
-  shadowLift: 6,              // 0..255, stops blacks being pure black
-  contrast: 1.06,
-  warmth: 1.012,              // red channel gain; blue is reduced by the same
+  // The shared curve. Small enough to be a whisper.
+  shadowLift: 2,              // 0..255, stops blacks being pure black
+  contrast: 1.02,
+  warmth: 1.004,              // red channel gain; blue is reduced by the same
 };
 
 /**
@@ -53,7 +61,11 @@ export function gradeFor(m, look = LOOK) {
   // Brightness: close the gap to the target, but only part of the way. Going
   // all the way would flatten the feed into one grey tone.
   const wanted = look.targetL / Math.max(20, m.brightness);
-  const brightness = clamp(1 + (wanted - 1) * 0.55, 1 - look.maxBrightnessShift, 1 + look.maxBrightnessShift);
+  const brightness = clamp(
+    1 + (wanted - 1) * look.pullToTarget,
+    1 - look.maxBrightnessShift,
+    1 + look.maxBrightnessShift,
+  );
 
   // Saturation: only the photos above the ceiling are touched at all.
   const saturation = m.chroma > look.chromaCeiling

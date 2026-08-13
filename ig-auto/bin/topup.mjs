@@ -68,7 +68,15 @@ async function buildPlanned({ hashes, cooldown, context }) {
     ...recentPosts(400).filter((p) => kindOf(p) === "feed").map((p) => p.plan_cover),
   ].filter(Boolean));
 
-  const next = plan.posts.find((p) => !done.has(p.cover) && !cooldown.has(p.cover));
+  // Only "has this cover already been used as a cover" may skip a post.
+  //
+  // Consulting the general photo cooldown here was wrong and skipped plan
+  // entries 2 and 4 outright: their covers had appeared as supporting SLIDES in
+  // posts 0 and 1, which put them on cooldown. Slides are meant to be reusable
+  // — that is the whole reason 78 photos make 78 posts instead of 20 — and
+  // skipping plan entries also puts holes in an order that was chosen so the
+  // grid reads correctly.
+  const next = plan.posts.find((p) => !done.has(p.cover));
   if (!next) return null;
 
   const id = newId();

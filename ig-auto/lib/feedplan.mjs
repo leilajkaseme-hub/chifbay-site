@@ -51,15 +51,87 @@ const SLIDE_COOLDOWN = 8;
 const MAX_SLIDE_DISTANCE = 18;
 
 /**
- * How far ahead the order may reach to avoid repeating a composition.
+ * Two photos are TWINS when they are close in colour AND shaped the same.
  *
- * Small on purpose. The colour gradient is the backbone and must survive; this
- * only lets a post jump a few places to dodge looking like its neighbour.
+ * That combination is what "from the same shoot" looks like to a measuring
+ * program: same light, same framing, shutter pressed twice. Twins must never
+ * share a post and must never touch in the grid. Four of them in one carousel
+ * looks cheap however good each frame is, and it is the single fastest way to
+ * make a real business look like a stock account.
  */
-const LOOKAHEAD = 7;
+export function areTwins(a, b) {
+  return distance(a, b) < 9 && layoutDistance(a, b) < 1.0;
+}
 
-/** Below this, two covers are the same picture twice. */
-const SAME_SHAPE = 0.75;
+/**
+ * How different two photos in the same post must look.
+ *
+ * The first version chose each slide by picking the CLOSEST remaining photo in
+ * colour, which is precisely a machine for collecting near-duplicates. Inside a
+ * post the palette is already guaranteed by the wall above, so the selection
+ * has nothing left to optimise for except being a different picture — a
+ * different point of view, a different subject, a different distance.
+ */
+const MIN_SHAPE_IN_POST = 1.05;
+
+/** How different a post must look from the ones touching it in the grid. */
+const MIN_SHAPE_IN_GRID = 0.85;
+
+/**
+ * The most colour two touching squares may differ by. This is the number the
+ * whole feature exists to hold down, so it is checked before anything else.
+ */
+const MAX_GRID_JUMP = 22;
+
+/** The most WARM-COLD (b*) change allowed between two touching squares. */
+const MAX_HUE_JUMP = 12;
+
+/**
+ * How far ahead the order may look. Wide enough that the colour filter and the
+ * shape filter can usually both be satisfied at once; narrow enough that the
+ * gradient is never abandoned to chase a different-looking picture.
+ */
+const LOOKAHEAD_WIDE = 10;
+
+/** Skipped this many times and a photo is placed regardless of any filter. */
+const FORCE_AFTER = 6;
+
+/**
+ * Throw away photos the library holds more than once.
+ *
+ * This has to happen before anything else, because no ordering rule can save a
+ * plan whose input contains the same picture twice — the best it can do is put
+ * the two copies far apart, and they still both go out. It showed up in the
+ * preview as two identical squares side by side.
+ *
+ * There are two kinds here. Five pairs are byte-for-byte the same file kept in
+ * both `klook-photos/` and `clickandboat-sunset-photos/` — the same photos were
+ * uploaded to two different channels. Four more are near-identical frames from
+ * the same burst. Both kinds measure as shape ~0 and colour ~0, so one test
+ * catches them.
+ *
+ * The survivor is the one with more contrast, which is usually the less
+ * compressed copy, and the origin string breaks ties so the choice is stable
+ * from run to run.
+ */
+export function dedupeLibrary(photos) {
+  const dropped = [];
+  const kept = [];
+
+  for (const p of photos) {
+    const twin = kept.find((k) => layoutDistance(k, p) < 0.35 && distance(k, p) < 12);
+    if (!twin) { kept.push(p); continue; }
+
+    const better = (p.contrast - twin.contrast) || twin.origin.localeCompare(p.origin);
+    if (better > 0) {
+      kept[kept.indexOf(twin)] = p;
+      dropped.push({ dropped: twin.origin, kept: p.origin });
+    } else {
+      dropped.push({ dropped: p.origin, kept: twin.origin });
+    }
+  }
+  return { photos: kept, dropped };
+}
 
 /**
  * The order the posts go out: warm covers first, cold last, but never the same
@@ -80,11 +152,74 @@ export function orderCovers(photos, { perRow = 3 } = {}) {
   const skips = new Map();   // origin -> how many times it has been passed over
 
   while (pool.length) {
-    const window = pool.slice(0, LOOKAHEAD);
+    const window = pool.slice(0, LOOKAHEAD_WIDE);
     const neighbours = [out[out.length - 1], out[out.length - perRow]].filter(Boolean);
 
+    // Two filters, and the ORDER of them is the design decision.
+    //
+    // Colour first and hardest: a warm square against a cold one is the thing
+    // that makes a grid look thrown together, and it is visible from across the
+    // room. Shape second: a repeated composition looks cheap, but only once you
+    // are actually looking. Filtering on shape first pushed the worst colour
+    // jump from 24 to 38, because it left the colour choice nothing to work
+    // with. This way shape gets everything colour can spare and no more.
+    //
+    // Each filter falls back to the pool it narrowed if it empties. Late in the
+    // plan the leftovers can all resemble each other, and refusing to place
+    // anything is not an option.
+    // Nothing may be passed over for ever. A hard filter can exclude the same
+    // photo every single round — a warm one keeps failing the colour test once
+    // the feed has moved to the cold end — and then it is still unplaced at the
+    // very end and lands 112 points from its neighbour. This is the guard, and
+    // it has to sit ABOVE the filters, because a score cannot rescue a
+    // candidate that was filtered out before scoring.
+    //
+    // Forcing it in here is cheap: the pool is warmth-sorted, so the head of it
+    // is always the closest remaining photo in colour to where the feed is now.
+    // Even a forced placement keeps the twin ban. Bypassing every rule put two
+    // frames of the same shot next to each other at position 47 — the guard
+    // against one fault must not create another. Only if every overdue
+    // candidate is a twin of a neighbour does the ban finally give way.
+    const overdue = window
+      .map((c, i) => ({ c, i, skips: skips.get(c.origin) ?? 0 }))
+      .filter((x) => x.skips >= FORCE_AFTER)
+      .sort((x, y) => y.skips - x.skips);
+
+    const forced = overdue.find((x) => neighbours.every((n) => !areTwins(x.c, n))) ?? overdue[0];
+    if (forced) {
+      window.forEach((c, i) => {
+        if (i !== forced.i) skips.set(c.origin, (skips.get(c.origin) ?? 0) + 1);
+      });
+      out.push(pool.splice(forced.i, 1)[0]);
+      continue;
+    }
+
+    // Four tiers, tried in order, and WHAT GETS GIVEN UP FIRST is the design.
+    //
+    // Everything relaxes under pressure except the twin ban, which is last to
+    // go. Two versions ago the shape rule fell straight back to "anything" when
+    // it could not be met, and two frames of the same picture ended up side by
+    // side in the preview — the exact fault this is here to prevent. Giving up
+    // a little colour, or a little variety, is a smaller loss than that.
+    const ok = (cand, colour, shape, twins) =>
+      neighbours.every((n) =>
+        // Two colour tests, and warm-to-cold is checked on its own. The
+        // composite also carries brightness and red, so it can be satisfied by
+        // a pair that still changes temperature — which is the one thing this
+        // must not allow.
+        (!colour || (Math.abs(cand.b - n.b) <= MAX_HUE_JUMP && distance(cand, n) <= MAX_GRID_JUMP)) &&
+        (!shape || layoutDistance(cand, n) >= MIN_SHAPE_IN_GRID) &&
+        (!twins || !areTwins(cand, n)));
+
+    const choices =
+      window.filter((c) => ok(c, true, true, true)).length  ? window.filter((c) => ok(c, true, true, true))
+      : window.filter((c) => ok(c, true, false, true)).length ? window.filter((c) => ok(c, true, false, true))
+      : window.filter((c) => ok(c, false, false, true)).length ? window.filter((c) => ok(c, false, false, true))
+      : window;
+
     let bestAt = 0, bestScore = -Infinity;
-    window.forEach((cand, i) => {
+    choices.forEach((cand) => {
+      const i = window.indexOf(cand);
       // Looking least like the neighbours is the point, so shape leads.
       // Position keeps the gradient honest: reaching six places ahead to find a
       // different-looking photo costs more than reaching one.
@@ -133,34 +268,24 @@ export function buildCarousels(photos, { slides = 4 } = {}) {
   const out = [];
 
   covers.forEach((cover, index) => {
-    // Everything allowed in this post: inside the palette wall around the
-    // cover. That wall is absolute. The cooldown is only a preference between
-    // photos that already fit — a photo repeating eight posts later is
-    // invisible, a colour break mid-swipe is not.
-    const near = photos
-      .filter((p) => p.origin !== cover.origin && distance(cover, p) <= MAX_SLIDE_DISTANCE);
+    const near = photos.filter((p) => p.origin !== cover.origin);
 
-    const chain = [cover];
-    const used = new Set([cover.origin]);
-
-    while (chain.length < slides) {
-      const here = chain[chain.length - 1];
-      let best = null, bestScore = Infinity;
-      for (const p of near) {
-        if (used.has(p.origin)) continue;
-        // Distance from the photo now on screen, because that is the step the
-        // thumb actually makes. Choosing the set first and ordering it after
-        // does not work: two photos can each sit 18 from the cover and 36 from
-        // each other, and that is a 36-point jump on slide 3.
-        const score =
-          distance(here, p)
-          - Math.min(18, Math.abs(here.brightness - p.brightness)) * 0.35
-          + (index - (lastUsed.get(p.origin) ?? -Infinity) >= SLIDE_COOLDOWN ? 0 : 6);
-        if (score < bestScore) { bestScore = score; best = p; }
-      }
-      if (!best) break;   // a lonely photo with no palette neighbours: post fewer slides
-      chain.push(best);
-      used.add(best.origin);
+    // Build at the full shape floor, and only bend it if the post would come
+    // out too short to be a carousel at all.
+    //
+    // Measured over the real library: at the strict floor 67 of 78 posts fill
+    // to four and no two slides anywhere are closer than 1.05 in shape. Bending
+    // all the way to 0.45 buys ten more full posts but lets 0.70 pairs through
+    // — two photos that read as the same picture. Three genuinely different
+    // photos beat four where two of them repeat, so strict wins and the short
+    // posts stay short. The bend below exists only so a cover at the very end
+    // of the colour line, with almost no palette neighbours, still goes out as
+    // a carousel instead of a lone photo.
+    let chain = [cover];
+    let used = new Set([cover.origin]);
+    for (const [floor, wall] of [[MIN_SHAPE_IN_POST, MAX_SLIDE_DISTANCE], [0.85, MAX_SLIDE_DISTANCE], [0.65, MAX_SLIDE_DISTANCE + 8]]) {
+      ({ chain, used } = fillPost({ cover, near, slides, floor, wall, index, lastUsed }));
+      if (chain.length >= Math.min(3, slides)) break;
     }
 
     for (const p of chain) lastUsed.set(p.origin, index);
@@ -174,6 +299,44 @@ export function buildCarousels(photos, { slides = 4 } = {}) {
   });
 
   return out;
+}
+
+/** One post's slides at a given shape floor. Pulled out so the floor can be retried. */
+function fillPost({ cover, near, slides, floor, wall, index, lastUsed }) {
+  const chain = [cover];
+  const used = new Set([cover.origin]);
+
+  while (chain.length < slides) {
+      // A candidate has to be a genuinely different picture from EVERY slide
+      // already in the post, not just from the last one. Checking only the
+      // previous slide lets slide 4 repeat slide 2.
+      // The palette wall holds between EVERY pair, not only against the cover:
+      // two slides can each sit 18 from the cover and 36 from each other, which
+      // is a visible break mid-swipe. The twin ban never relaxes at all.
+      const fits = near.filter((p) =>
+        !used.has(p.origin) &&
+        chain.every((c) =>
+          distance(c, p) <= wall &&
+          !areTwins(c, p) &&
+          layoutDistance(c, p) >= floor));
+
+      if (!fits.length) break;   // rather post three good slides than a near-repeat
+
+      let best = null, bestScore = -Infinity;
+      for (const p of fits) {
+        // Most different from what is already in the post wins. Colour is not
+        // optimised here at all — the wall around the cover already guarantees
+        // the palette, so spending the choice on colour again only buys
+        // duplicates.
+        const shape = Math.min(...chain.map((c) => layoutDistance(c, p)));
+        const rested = index - (lastUsed.get(p.origin) ?? -Infinity) >= SLIDE_COOLDOWN;
+        const score = shape * 10 + (rested ? 3 : 0);
+        if (score > bestScore) { bestScore = score; best = p; }
+      }
+      chain.push(best);
+      used.add(best.origin);
+  }
+  return { chain, used };
 }
 
 /** How the plan will look as rows of three, for the report. */
@@ -190,18 +353,40 @@ export function rows(list, perRow = 3) {
  * because the grid is three wide.
  */
 export function worstJump(list, perRow = 3) {
-  let worst = 0, where = null;
+  let worst = 0, where = null, worstHue = 0, whereHue = null;
   for (let i = 1; i < list.length; i++) {
     for (const back of [1, perRow]) {
       if (i - back < 0) continue;
-      const d = distance(list[i].cover, list[i - back].cover);
-      if (d > worst) {
-        worst = d;
-        where = `${list[i - back].cover.origin} -> ${list[i].cover.origin}`;
-      }
+      const a = list[i - back].cover, b = list[i].cover;
+      const d = distance(a, b);
+      if (d > worst) { worst = d; where = `${a.origin} -> ${b.origin}`; }
+
+      // Reported separately, because the two are not the same complaint.
+      // The composite above also counts brightness and red, so a dark frame
+      // beside a bright one at the SAME hue scores high — and that reads as
+      // rhythm, not as a clash. Warm-next-to-cold is the actual fault, and this
+      // is the number that measures only that.
+      const hue = Math.abs(a.b - b.b);
+      if (hue > worstHue) { worstHue = hue; whereHue = `${a.origin} -> ${b.origin}`; }
     }
   }
-  return { worst, where };
+  // The distribution says more than the maximum does. One 15-point step out of
+  // 152 pairs is not a feed that jumps around; a median of 15 would be.
+  const hues = [];
+  for (let i = 1; i < list.length; i++) {
+    for (const back of [1, perRow]) {
+      if (i - back >= 0) hues.push(Math.abs(list[i].cover.b - list[i - back].cover.b));
+    }
+  }
+  hues.sort((x, y) => x - y);
+  const at = (q) => (hues.length ? hues[Math.floor(q * (hues.length - 1))] : 0);
+
+  return {
+    worst, where, worstHue, whereHue,
+    pairs: hues.length,
+    medianHue: at(0.5),
+    p90Hue: at(0.9),
+  };
 }
 
 /** Worst colour jump between two slides inside the same post. */

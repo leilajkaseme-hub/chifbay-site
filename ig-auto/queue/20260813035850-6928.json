@@ -1,0 +1,51 @@
+{
+  "id": "20260813035850-6928",
+  "kind": "feed",
+  "created": "2026-08-13T03:59:06.426Z",
+  "source": "library",
+  "origin": "social/chifbay-32.jpg",
+  "image": "ig/20260813035850-6928-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813035850-6928-1.jpg",
+  "sha256": "7d4dd8a210c368ed7217497ebf436d3260c1907db344cf95b75a835b0990ceca",
+  "slides": [
+    {
+      "origin": "social/chifbay-32.jpg",
+      "image": "ig/20260813035850-6928-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035850-6928-1.jpg",
+      "sha256": "7d4dd8a210c368ed7217497ebf436d3260c1907db344cf95b75a835b0990ceca"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813035850-6928-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035850-6928-2.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-38.jpg",
+      "image": "ig/20260813035850-6928-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035850-6928-3.jpg",
+      "sha256": "f9a2ccef2c88e8777630bb92b991ae2648450ff304204c36a48e92e8a5a37963"
+    },
+    {
+      "origin": "social/chifbay-31.jpg",
+      "image": "ig/20260813035850-6928-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035850-6928-4.jpg",
+      "sha256": "2617d2014eed2cf09c0d8ad67c2ccb1e8be30b000020f6a9a0cd71cdc7c0e78d"
+    }
+  ],
+  "plan_index": 0,
+  "plan_cover": "social/chifbay-32.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "The whole sea turns gold for about half an hour. Then it is gone.\nOne guest stretched out on the bow, the rest of us near the skipper, nobody saying much.\nOur Karnic takes five, so this light is yours and not a crowd's.\nA luz da tarde, mesmo antes do sol cair.\nSend us a WhatsApp and we'll tell you which evenings are still open.",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#boattrip",
+    "#boatlife",
+    "#sunsetcruise",
+    "#goldenhour"
+  ],
+  "rendered_caption": "The whole sea turns gold for about half an hour. Then it is gone.\nOne guest stretched out on the bow, the rest of us near the skipper, nobody saying much.\nOur Karnic takes five, so this light is yours and not a crowd's.\nA luz da tarde, mesmo antes do sol cair.\nSend us a WhatsApp and we'll tell you which evenings are still open.\n\n#funchal #visitmadeira #boattrip #boatlife #sunsetcruise #goldenhour",
+  "writer": "claude"
+}

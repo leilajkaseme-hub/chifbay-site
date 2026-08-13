@@ -1,0 +1,53 @@
+{
+  "id": "20260813035921-8213",
+  "kind": "feed",
+  "created": "2026-08-13T03:59:36.267Z",
+  "source": "library",
+  "origin": "social/chifbay-08.jpg",
+  "image": "ig/20260813035921-8213-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813035921-8213-1.jpg",
+  "sha256": "1f169c116443194a18dff6f5b07721eb553b440daa98403b2f5e711b359ff81a",
+  "slides": [
+    {
+      "origin": "social/chifbay-08.jpg",
+      "image": "ig/20260813035921-8213-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035921-8213-1.jpg",
+      "sha256": "1f169c116443194a18dff6f5b07721eb553b440daa98403b2f5e711b359ff81a"
+    },
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260813035921-8213-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035921-8213-2.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    },
+    {
+      "origin": "social/chifbay-40.jpg",
+      "image": "ig/20260813035921-8213-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035921-8213-3.jpg",
+      "sha256": "9b65a3f443f1950f65cd32ccc5f7718fa44e08052caa9df2776542d811fc2ce1"
+    },
+    {
+      "origin": "social/chifbay-47.jpg",
+      "image": "ig/20260813035921-8213-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035921-8213-4.jpg",
+      "sha256": "2d17b61c9fef52b57e6254a1a4d1fa48f329dd4fcd9c0eccd302c4a66be0c579"
+    }
+  ],
+  "plan_index": 2,
+  "plan_cover": "social/chifbay-08.jpg",
+  "palette": "amber",
+  "angle": "wildlife",
+  "caption": "A whale tail, right there, water still running off it. Then nothing but rings on the surface.\nWe hold our distance and let it choose. Some days we see nothing, and that is fine too.\nOnly five of us on board, so nobody is standing on anyone's toes.\nQuietly one of the best minutes we have had out here.\nSend us a message and we'll tell you what days are open.",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#privateboattour",
+    "#boattour",
+    "#marinelife",
+    "#seaturtle",
+    "#visitportugal",
+    "#traveleurope"
+  ],
+  "rendered_caption": "A whale tail, right there, water still running off it. Then nothing but rings on the surface.\nWe hold our distance and let it choose. Some days we see nothing, and that is fine too.\nOnly five of us on board, so nobody is standing on anyone's toes.\nQuietly one of the best minutes we have had out here.\nSend us a message and we'll tell you what days are open.\n\n#madeiraisland #madeira #privateboattour #boattour #marinelife #seaturtle #visitportugal #traveleurope",
+  "writer": "claude"
+}

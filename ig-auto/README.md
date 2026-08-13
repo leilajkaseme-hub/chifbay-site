@@ -88,11 +88,17 @@ is on its own.
 
 Three things fix that, and they are separate on purpose.
 
-**1. One shared edit** (`lib/grade.mjs`). Every photo goes through the same
-leveller before it is cropped: extreme colour compressed towards a ceiling,
-exposure nudged towards a middle band, then one shared curve and a touch of
-warmth. It has no mood of its own and every step is clamped — it cannot wreck a
-picture. This alone is most of what makes a mixed library read as one account.
+**1. One shared edit, and barely any of it** (`lib/grade.mjs`). Every photo gets
+the same leveller before cropping: extreme colour compressed towards a ceiling,
+exposure nudged, then one shared curve and a touch of warmth.
+
+The first version was much stronger and it was **wrong** — it visibly relit good
+photos, and an obviously processed photo reads as cheaper than the mismatch it
+was fixing. The numbers are now almost nothing: brightness may move 5%,
+saturation only drops on the two or three genuine outliers, contrast is 1.02.
+**The order is what makes the grid hold together, and the order costs the
+pictures nothing.** The grade only stops the extremes from shouting. If you
+change a number in `LOOK`, look at the preview before and after.
 
 **2. Colour measured properly** (`lib/palette.mjs`). Each photo is reduced to
 CIELAB, where equal distances look equally different — unlike RGB, where two
@@ -102,7 +108,7 @@ blue to yellow. Across this library it runs from **+47** (amber sunset) to
 
 **3. An order that never jumps** (`lib/feedplan.mjs`). Posts are sorted along
 that line, warm first. Neighbours in the grid are then neighbours in colour by
-construction. 87 covers across the whole range is about one point of `b*` per
+construction. 78 covers across the whole range is about one point of `b*` per
 post, so a visible grid of twelve is a gentle gradient and the palette only
 turns over across months.
 
@@ -119,36 +125,59 @@ to avoid repeating a composition next to itself or directly above itself.
 cd ig-auto
 node bin/feed-plan.mjs --report     # rows, palettes, and the worst jump
 node bin/feed-plan.mjs --preview    # writes feed-preview.jpg — the real grid
+node bin/feed-plan.mjs --slides=0   # one carousel side by side, to check a swipe
 ```
 
-Two numbers decide whether a plan is good, and both are in `--report`:
+`--report` gives three numbers:
 
-| Number | Means | Must be |
-| --- | --- | --- |
-| worst jump between neighbours | biggest colour step between two touching squares | under 25 |
-| worst jump inside one post | biggest step between two slides of one carousel | under 25 |
+| Number | What it means |
+| --- | --- |
+| warm-cold step between touching squares | the actual complaint this fixes. Median **2.2** over 152 pairs, worst 15.8, against a library spanning 98 points |
+| worst overall difference | also counts brightness and red, so it reads higher. A dark square beside a bright one at the same hue is rhythm, not a clash |
+| worst jump inside one post | the biggest step between two slides of one carousel |
 
-Anything above 25 is a clash a visitor notices. Both are checked by the tests,
-against synthetic photos, so a change to the ordering cannot quietly break them.
+Judge the first by its **median**, not its maximum — one 15-point step out of
+152 pairs is not a feed that jumps around; a median of 15 would be. The tests
+check these against synthetic photos so a change to the ordering cannot quietly
+break them.
+
+Then look at the preview. **Every real fault found so far was invisible in the
+numbers and obvious in the picture** — nine identical sunsets in a perfect
+colour plan, and two copies of one photo sitting side by side.
 
 ### Carousels
 
-One post a day, **four photos**: a cover plus three. The cover is what lands in
-the grid, so it is used once and never repeats. The three behind it share its
-palette — the swipe must not break the look either — and may appear again in a
-later post, never within eight posts.
+One post a day, **up to four photos**: a cover plus three. The cover is what
+lands in the grid, so it is used once and never repeats. The others share its
+palette — the swipe must not break the look either — and may come back in a
+later post, never within eight.
 
-That is the reason for the split. Four fresh photos per post would empty an
-87-photo library in **21 days**. Unique covers with shared supporting slides
-gives **87 posts, about three months**.
+That split is why the library lasts. Four fresh photos per post would empty it
+in **21 days**; unique covers with reusable supporting slides gives **78 posts,
+about three months**.
+
+**Every slide must be a visibly different picture, and that beats filling the
+post.** Two photos count as the same shot when they are close in colour AND
+shaped alike — which is what "from the same shoot" measures as — and those never
+share a post or touch in the grid, at any relaxation. Measured over the real
+library: holding the shape floor strictly gives 72 of 78 posts a full four
+slides and the rest three, with no two slides anywhere closer than 1.05.
+Loosening it to fill every post let 0.70 pairs through, which read as one
+picture twice. Three different photos beat four where two repeat.
+
+**Nine duplicates in the library are ignored.** Five pairs are byte-for-byte the
+same file kept in both `klook-photos/` and `clickandboat-sunset-photos/`; four
+more are near-identical frames. Before this, both copies got their own post and
+two identical squares landed side by side in the grid. `--report` names every
+one it drops.
 
 Change the count with `carousel_slides` in `config.json`. Meta allows 2 to 10.
 
 > **The honest limit.** Ordering can only arrange what exists. The warm half of
 > this library is mostly one composition — sun on the horizon over water — so
-> some rows still stack similar shots. No code fixes that; more variety in the
-> shooting does. Wide drone shots, detail shots and people are what the plan is
-> short of.
+> the plan runs out of genuinely different warm photos before it runs out of
+> warm photos. No code fixes that; more variety in the shooting does. Wide drone
+> shots, detail shots on deck, and people are what it is short of.
 
 ## Where the pictures come from
 
@@ -365,7 +394,8 @@ priority when a post fails or the queue runs dry, normal when a post goes out.
 | `lib/palette.mjs` | measures a photo in CIELAB: colour, and a 5x5 layout signature |
 | `lib/grade.mjs` | the one shared edit every photo gets |
 | `lib/feedplan.mjs` | which photos share a post, and the order posts go out |
-| `bin/feed-plan.mjs` | build the plan, print the report, render the preview |
+| `bin/feed-plan.mjs` | build the plan, print the report, render the previews |
+| `post-N-slides.jpg` | one carousel side by side, from `--slides=N` |
 | `feed-plan.json` | the current plan — topup.mjs builds from this |
 | `feed-preview.jpg` | the planned grid as a picture. Look at this. |
 | `lib/caption.mjs` | reads the photo, writes the words, blocks repeats |

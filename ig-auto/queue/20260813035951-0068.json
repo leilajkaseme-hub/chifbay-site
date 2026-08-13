@@ -1,0 +1,51 @@
+{
+  "id": "20260813035951-0068",
+  "kind": "feed",
+  "created": "2026-08-13T04:00:04.683Z",
+  "source": "library",
+  "origin": "social/chifbay-38.jpg",
+  "image": "ig/20260813035951-0068-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813035951-0068-1.jpg",
+  "sha256": "f9a2ccef2c88e8777630bb92b991ae2648450ff304204c36a48e92e8a5a37963",
+  "slides": [
+    {
+      "origin": "social/chifbay-38.jpg",
+      "image": "ig/20260813035951-0068-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035951-0068-1.jpg",
+      "sha256": "f9a2ccef2c88e8777630bb92b991ae2648450ff304204c36a48e92e8a5a37963"
+    },
+    {
+      "origin": "../clickandboat-sunset-photos/2-golden-hour-dining.jpg",
+      "image": "ig/20260813035951-0068-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035951-0068-2.jpg",
+      "sha256": "193761f84b561057a3b1b19559c46074bd71df6b8403a9646fe12c2cf8d6d14e"
+    },
+    {
+      "origin": "social/chifbay-48.jpg",
+      "image": "ig/20260813035951-0068-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035951-0068-3.jpg",
+      "sha256": "d283462c5cbe786596fa8a2ccb3383dd837cc782e4f9e9a34efc9ba9a2b20e1b"
+    },
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260813035951-0068-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035951-0068-4.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    }
+  ],
+  "plan_index": 4,
+  "plan_cover": "social/chifbay-38.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "Engine off, the boat turning slowly on its own, and nobody moved for a while.\nTwo of them out on the bow, the hills of Madeira going dark behind, the sun still hanging over the water on the right.\nWe stay out here until it drops, then we take the last light home.\nO mar todo dourado.\nWe keep it to five guests. Message us with your dates and we'll see what fits.",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#seaday",
+    "#atlanticocean",
+    "#sunsetcruise",
+    "#goldenhour"
+  ],
+  "rendered_caption": "Engine off, the boat turning slowly on its own, and nobody moved for a while.\nTwo of them out on the bow, the hills of Madeira going dark behind, the sun still hanging over the water on the right.\nWe stay out here until it drops, then we take the last light home.\nO mar todo dourado.\nWe keep it to five guests. Message us with your dates and we'll see what fits.\n\n#portugal #madeiraportugal #seaday #atlanticocean #sunsetcruise #goldenhour",
+  "writer": "claude"
+}

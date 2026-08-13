@@ -1,0 +1,44 @@
+{
+  "id": "20260813035936-ba76",
+  "kind": "feed",
+  "created": "2026-08-13T03:59:51.436Z",
+  "source": "library",
+  "origin": "social/chifbay-41.jpg",
+  "image": "ig/20260813035936-ba76-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813035936-ba76-1.jpg",
+  "sha256": "6091539cc5810ee3f662b46ae184d6a53ec3c346acbc1a3e308752909ff05e74",
+  "slides": [
+    {
+      "origin": "social/chifbay-41.jpg",
+      "image": "ig/20260813035936-ba76-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035936-ba76-1.jpg",
+      "sha256": "6091539cc5810ee3f662b46ae184d6a53ec3c346acbc1a3e308752909ff05e74"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813035936-ba76-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035936-ba76-2.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-08.jpg",
+      "image": "ig/20260813035936-ba76-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813035936-ba76-3.jpg",
+      "sha256": "1f169c116443194a18dff6f5b07721eb553b440daa98403b2f5e711b359ff81a"
+    }
+  ],
+  "plan_index": 3,
+  "plan_cover": "social/chifbay-41.jpg",
+  "palette": "amber",
+  "angle": "onboard",
+  "caption": "Two glasses, one clink, and the sun doing the rest.\nThe headland on the right, the light running all the way to the boat.\nNever more than five of us on board, so there is room to sit and say nothing for a while.\nUm brinde ao fim do dia.\nLink in bio if you want the quiet version of Madeira.",
+  "hashtags": [
+    "#visitmadeira",
+    "#funchal",
+    "#boatlife",
+    "#boattrip",
+    "#dayonaboat"
+  ],
+  "rendered_caption": "Two glasses, one clink, and the sun doing the rest.\nThe headland on the right, the light running all the way to the boat.\nNever more than five of us on board, so there is room to sit and say nothing for a while.\nUm brinde ao fim do dia.\nLink in bio if you want the quiet version of Madeira.\n\n#visitmadeira #funchal #boatlife #boattrip #dayonaboat",
+  "writer": "claude"
+}

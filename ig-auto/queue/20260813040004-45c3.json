@@ -1,0 +1,46 @@
+{
+  "id": "20260813040004-45c3",
+  "kind": "feed",
+  "created": "2026-08-13T04:00:24.292Z",
+  "source": "library",
+  "origin": "social/chifbay-29.jpg",
+  "image": "ig/20260813040004-45c3-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813040004-45c3-1.jpg",
+  "sha256": "debc7a7ac21a47a4dd2e8956a3d73ca29bbd87102b79e52edea91a705eda891e",
+  "slides": [
+    {
+      "origin": "social/chifbay-29.jpg",
+      "image": "ig/20260813040004-45c3-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813040004-45c3-1.jpg",
+      "sha256": "debc7a7ac21a47a4dd2e8956a3d73ca29bbd87102b79e52edea91a705eda891e"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813040004-45c3-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813040004-45c3-2.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-08.jpg",
+      "image": "ig/20260813040004-45c3-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813040004-45c3-3.jpg",
+      "sha256": "1f169c116443194a18dff6f5b07721eb553b440daa98403b2f5e711b359ff81a"
+    }
+  ],
+  "plan_index": 5,
+  "plan_cover": "social/chifbay-29.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "Just water, cloud, and the sun still sitting above the line.\nThe gold path runs all the way back to the boat. The coast on the right has already gone dark.\nNever more than five of us on board, so nobody is looking over a shoulder.\nBook straight with us on chifbay.com",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#privateboattour",
+    "#sunsetlovers",
+    "#goldenhour",
+    "#islandhopping"
+  ],
+  "rendered_caption": "Just water, cloud, and the sun still sitting above the line.\nThe gold path runs all the way back to the boat. The coast on the right has already gone dark.\nNever more than five of us on board, so nobody is looking over a shoulder.\nBook straight with us on chifbay.com\n\n#madeira #madeiraisland #boattour #privateboattour #sunsetlovers #goldenhour #islandhopping",
+  "writer": "claude"
+}

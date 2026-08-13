@@ -242,21 +242,127 @@ await check("a story is never turned into a carousel", async () => {
 // --- 4. the grid plan -------------------------------------------------------
 
 const { distance, layoutDistance } = await import("./lib/palette.mjs");
-const { buildCarousels, worstJump, worstSwipe } = await import("./lib/feedplan.mjs");
+const { areTwins, buildCarousels, dedupeLibrary, worstJump, worstSwipe } =
+  await import("./lib/feedplan.mjs");
 
-/** Fake photos spread along the warm-cold line, in deliberately bad order. */
-const fakePhotos = Array.from({ length: 40 }, (_, i) => ({
+/**
+ * Fake photos spread along the warm-cold line, in deliberately bad order.
+ *
+ * The layouts have to be genuinely unalike. The first attempt used
+ * sin(i * 1.7 + k), which quietly produced near-identical vectors for some
+ * pairs, and the tests then failed on the fixture rather than on the code —
+ * a fixture that contains twins cannot be used to prove twins get separated.
+ * A cheap integer hash per cell gives vectors that are near-orthogonal.
+ */
+const shapeFor = (i) => {
+  const v = Array.from({ length: 25 }, (_, k) => {
+    // A single multiply is not enough of a mix: i*25+k on consecutive rows
+    // stayed correlated and photos 0 and 42 came out 0.2 apart in shape, so the
+    // fixture contained twins of its own. This is a proper avalanche.
+    let h = Math.imul(i + 1, 0x9e3779b1) ^ Math.imul(k + 1, 0x85ebca77);
+    h ^= h >>> 15; h = Math.imul(h, 0x2c1b3c6d);
+    h ^= h >>> 12; h = Math.imul(h, 0x297a2d39);
+    h ^= h >>> 15;
+    return ((h >>> 0) % 2000) / 1000 - 1;
+  });
+  const mean = v.reduce((s, x) => s + x, 0) / v.length;
+  const sd = Math.sqrt(v.reduce((s, x) => s + (x - mean) ** 2, 0) / v.length) || 1;
+  return v.map((x) => (x - mean) / sd);
+};
+
+const COUNT = 60;
+const SPREAD = 80;   // b* from +40 down to -40
+const fakePhotos = Array.from({ length: COUNT }, (_, i) => ({
   origin: `p${i}.jpg`,
   L: 55, a: 5,
-  b: ((i * 17) % 40) * 2 - 40,          // shuffled warmth, so sorting must do the work
+  // Unique warmth per photo, shuffled, so sorting has to do the work.
+  b: (((i * 23) % COUNT) / (COUNT - 1)) * SPREAD - SPREAD / 2,
   chroma: 20, brightness: 40 + (i % 5) * 8, contrast: 30,
-  layout: Array.from({ length: 25 }, (_, k) => Math.sin(i * 1.7 + k)),
+  layout: shapeFor(i),
 }));
 
-await check("the grid never jumps: no neighbour pair clashes", () => {
+/** The tightest ordering possible here: the whole range shared between covers. */
+const IDEAL_STEP = SPREAD / (COUNT - 1);
+
+await check("the grid never changes temperature between neighbours", () => {
+  // Warm-next-to-cold is the fault this whole feature exists to stop, so it is
+  // measured on its own. The composite distance also carries brightness, where
+  // a difference is wanted, not a defect.
   const plan = buildCarousels(fakePhotos, { slides: 4 });
-  const { worst } = worstJump(plan);
-  assert.ok(worst < 25, `worst neighbour jump is ${worst.toFixed(1)}, over the 25 limit`);
+  const { worstHue, medianHue } = worstJump(plan);
+  assert.ok(worstHue < 25, `worst warm-cold step is ${worstHue.toFixed(1)}`);
+  // Judged against the tightest step the fixture allows, not a bare number.
+  assert.ok(medianHue < IDEAL_STEP * 3,
+    `median warm-cold step ${medianHue.toFixed(1)} is over 3x the ideal ${IDEAL_STEP.toFixed(1)}`);
+});
+
+// --- the faults the previews caught, which numbers alone did not -------------
+
+await check("the same photo stored twice is dropped, not posted twice", () => {
+  // Five pairs in the real library are byte-identical files kept in two
+  // folders. Before this, both copies got their own post and two identical
+  // squares landed side by side in the grid.
+  const one = fakePhotos[3];
+  const copy = { ...one, origin: "copy-of-p3.jpg" };
+  const { photos, dropped } = dedupeLibrary([...fakePhotos, copy]);
+  assert.equal(photos.length, fakePhotos.length, "the duplicate was not removed");
+  assert.equal(dropped.length, 1);
+  assert.ok([one.origin, copy.origin].includes(dropped[0].dropped));
+});
+
+await check("dedupe keeps one of a pair, never both and never neither", () => {
+  const { photos } = dedupeLibrary(fakePhotos);
+  assert.equal(photos.length, fakePhotos.length, "distinct photos must survive untouched");
+});
+
+await check("no post contains two frames of the same shot", () => {
+  const plan = buildCarousels(fakePhotos, { slides: 4 });
+  for (const c of plan) {
+    for (let i = 0; i < c.slides.length; i++) {
+      for (let j = i + 1; j < c.slides.length; j++) {
+        assert.ok(
+          !areTwins(c.slides[i], c.slides[j]),
+          `${c.cover.origin}: slides ${i + 1} and ${j + 1} are the same picture twice`,
+        );
+      }
+    }
+  }
+});
+
+await check("every slide in a post is a visibly different picture", () => {
+  // Not merely "not twins" — a carousel of four near-identical frames looks
+  // cheap even when each one passes the twin test.
+  const plan = buildCarousels(fakePhotos, { slides: 4 });
+  for (const c of plan) {
+    for (let i = 0; i < c.slides.length; i++) {
+      for (let j = i + 1; j < c.slides.length; j++) {
+        const shape = layoutDistance(c.slides[i], c.slides[j]);
+        assert.ok(shape >= 1.0, `${c.cover.origin}: slides ${i + 1} and ${j + 1} are shaped alike (${shape.toFixed(2)})`);
+      }
+    }
+  }
+});
+
+await check("no two touching squares in the grid are the same shot", () => {
+  const plan = buildCarousels(fakePhotos, { slides: 4 });
+  for (let i = 1; i < plan.length; i++) {
+    for (const back of [1, 3]) {
+      if (i - back < 0) continue;
+      assert.ok(
+        !areTwins(plan[i].cover, plan[i - back].cover),
+        `posts ${i - back} and ${i} show the same picture`,
+      );
+    }
+  }
+});
+
+await check("the grade barely touches the photo", async () => {
+  // Tuned down after the first look: it was visibly relighting good photos and
+  // that read as cheaper than the mismatch it was fixing.
+  const { LOOK } = await import("./lib/grade.mjs");
+  assert.ok(LOOK.maxBrightnessShift <= 0.06, `brightness may move ${LOOK.maxBrightnessShift * 100}%`);
+  assert.ok(LOOK.minSaturation >= 0.9, `saturation may drop to ${LOOK.minSaturation}`);
+  assert.ok(LOOK.contrast <= 1.03, `contrast multiplier is ${LOOK.contrast}`);
 });
 
 await check("no photo is stranded to the end and posted out of palette", () => {

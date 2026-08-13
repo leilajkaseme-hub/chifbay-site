@@ -14,7 +14,7 @@ import sharp from "sharp";
 import { libraryFiles } from "../lib/image.mjs";
 import { measure, family } from "../lib/palette.mjs";
 import { applyGrade, gradeFor } from "../lib/grade.mjs";
-import { buildCarousels, rows, worstJump, worstSwipe } from "../lib/feedplan.mjs";
+import { buildCarousels, dedupeLibrary, rows, worstJump, worstSwipe } from "../lib/feedplan.mjs";
 import { config, ROOT, sha256 } from "../lib/queue.mjs";
 
 const args = new Set(process.argv.slice(2));
@@ -61,14 +61,23 @@ function report(order) {
       .join("  |  ");
     console.log(`  row ${String(i + 1).padStart(2)}  ${line}`);
   });
-  console.log(`\nworst jump between neighbours: ${worst.toFixed(1)}`);
+  const { worstHue, whereHue, pairs, medianHue, p90Hue } = worstJump(order);
+  console.log(`\nWARM-COLD step between touching squares, over ${pairs} pairs`);
+  console.log(`  median ${medianHue.toFixed(1)}   9 in 10 under ${p90Hue.toFixed(1)}   worst ${worstHue.toFixed(1)}`);
+  console.log(`  (the full library spans 98 points, so these are small steps)`);
+  console.log(`  worst pair: ${whereHue}`);
+  console.log(worstHue < 25
+    ? "  nothing a visitor would read as the grid changing temperature"
+    : "  A VISIBLE CLASH — look at the preview");
+
+  console.log(`\nworst overall difference between neighbours: ${worst.toFixed(1)}`);
   console.log(`  ${where}`);
-  console.log(worst < 25
-    ? "  under 25 — no visible clash in the grid"
-    : "  ABOVE 25 — there is a jump a visitor would notice");
+  console.log("  this one also counts brightness and red, so a dark frame next");
+  console.log("  to a bright one at the same hue scores high. That is rhythm,");
+  console.log("  not a clash — judge it in the preview, not by the number.");
 
   const sw = worstSwipe(order);
-  console.log(`worst jump inside one post:    ${sw.worst.toFixed(1)}`);
+  console.log(`\nworst jump inside one post: ${sw.worst.toFixed(1)}`);
   console.log(`  ${sw.where}`);
 }
 
@@ -99,14 +108,49 @@ async function preview(order, count = 18) {
 
 // ----------------------------------------------------------------------------
 
-const photos = await measureAll();
+const all = await measureAll();
+const { photos, dropped } = dedupeLibrary(all);
 const carousels = buildCarousels(photos, { slides: SLIDES });
 const order = carousels;   // buildCarousels already returns them in posting order
 
-console.log(`${photos.length} photos -> ${carousels.length} carousels of ${SLIDES}`);
+if (dropped.length) {
+  console.log(`\n${dropped.length} duplicate photo(s) ignored — the library holds them twice:`);
+  for (const d of dropped) console.log(`  ${d.dropped}\n    same picture as ${d.kept}`);
+}
+console.log(`\n${photos.length} unique photos -> ${carousels.length} carousels of up to ${SLIDES}`);
 
 if (args.has("--report") || args.size === 0) report(order);
 if (args.has("--preview")) await preview(order);
+
+// --slides N renders one post's photos in a row, which is the only way to check
+// the thing the grid preview cannot show: that a carousel is four different
+// pictures and not four frames of one.
+const slidesArg = process.argv.find((a) => a.startsWith("--slides"));
+if (slidesArg) {
+  const n = Number(slidesArg.split("=")[1] ?? 0);
+  const post = order[n];
+  if (!post) throw new Error(`there is no post ${n} — the plan has ${order.length}`);
+  const CELL = 420, GAP = 6;
+  const tiles = [];
+  for (const [i, p] of post.slides.entries()) {
+    tiles.push({
+      input: await sharp(await applyGrade(p.path))
+        .resize(CELL, Math.round(CELL * 1.25), { fit: "cover", position: "attention" })
+        .toBuffer(),
+      left: i * (CELL + GAP),
+      top: 0,
+    });
+  }
+  const out = join(ROOT, `post-${n}-slides.jpg`);
+  await sharp({
+    create: {
+      width: post.slides.length * CELL + (post.slides.length - 1) * GAP,
+      height: Math.round(CELL * 1.25), channels: 3, background: "#ffffff",
+    },
+  }).composite(tiles).jpeg({ quality: 88 }).toFile(out);
+  console.log(`\npost ${n} (${post.family}): ${out}`);
+  post.slides.forEach((p, i) => console.log(`  ${i + 1}. ${p.origin}`));
+}
 
 if (args.has("--write")) {
   writeFileSync(PLAN, JSON.stringify({
