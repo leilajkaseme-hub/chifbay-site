@@ -1,0 +1,53 @@
+{
+  "id": "20260813032157-ac8a",
+  "kind": "feed",
+  "created": "2026-08-13T03:22:14.007Z",
+  "source": "library",
+  "origin": "social/chifbay-06.jpg",
+  "image": "ig/20260813032157-ac8a-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813032157-ac8a-1.jpg",
+  "sha256": "970f330c578ba731b3834664f8c60651a060aa57912a5df5be970751d775b83e",
+  "slides": [
+    {
+      "origin": "social/chifbay-06.jpg",
+      "image": "ig/20260813032157-ac8a-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032157-ac8a-1.jpg",
+      "sha256": "970f330c578ba731b3834664f8c60651a060aa57912a5df5be970751d775b83e"
+    },
+    {
+      "origin": "social/chifbay-29.jpg",
+      "image": "ig/20260813032157-ac8a-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032157-ac8a-2.jpg",
+      "sha256": "8912b31d46c0aae959059d9f3d34e0847958def4741d5c5b56a7605e217d5bb1"
+    },
+    {
+      "origin": "social/chifbay-08.jpg",
+      "image": "ig/20260813032157-ac8a-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032157-ac8a-3.jpg",
+      "sha256": "40a9074dcadcce46115fa4102a85c09a4d8b083dabe562636cfaa2de12889c49"
+    },
+    {
+      "origin": "../clickandboat-sunset-photos/1-sunset-couple-bow.jpg",
+      "image": "ig/20260813032157-ac8a-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032157-ac8a-4.jpg",
+      "sha256": "adb9db4ac114c9da2ad468fa5a52dea551d8d212f0a9dd74f72c4e03802e07e7"
+    }
+  ],
+  "plan_index": 5,
+  "plan_cover": "social/chifbay-06.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "Sun sitting low, right beside the headland, the sea going flat under it.\nThat is our bimini frame in the corner. We left it in the picture.\nGold on one side of the sky, still blue on the other.\nO sol a descer ao lado da montanha.\nWrite to us and we will tell you which dates are open.",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#privateboattour",
+    "#boattour",
+    "#sunsetlovers",
+    "#goldenhour",
+    "#visitportugal",
+    "#traveleurope"
+  ],
+  "rendered_caption": "Sun sitting low, right beside the headland, the sea going flat under it.\nThat is our bimini frame in the corner. We left it in the picture.\nGold on one side of the sky, still blue on the other.\nO sol a descer ao lado da montanha.\nWrite to us and we will tell you which dates are open.\n\n#madeiraisland #madeira #privateboattour #boattour #sunsetlovers #goldenhour #visitportugal #traveleurope",
+  "writer": "claude"
+}

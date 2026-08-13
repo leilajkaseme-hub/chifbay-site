@@ -10,15 +10,27 @@
 // Images are written into the site's public ig/ folder and committed here, days
 // before they are needed. By posting time GitHub Pages has long since deployed
 // them, so the URL Instagram fetches is guaranteed to be live.
-import { writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import {
   config, brand, ensureDirs, listQueue, newId, originsOnCooldown,
-  postedHashes, publicDir, recentPosts, sha256, withLock, writeItem, kindOf,
+  postedHashes, publicDir, recentPosts, ROOT, sha256, SITE_ROOT, withLock,
+  writeItem, kindOf,
 } from "../lib/queue.mjs";
 import { generateAI, normalise, pickFromLibrary } from "../lib/image.mjs";
+import { applyGrade } from "../lib/grade.mjs";
 import { pickAngle, render, writeCaption } from "../lib/caption.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
+
+/** The grid plan, if one has been built. Missing is a normal state, not a fault. */
+function readPlan() {
+  try {
+    const plan = JSON.parse(readFileSync(join(ROOT, "feed-plan.json"), "utf8"));
+    return plan?.posts?.length ? plan : null;
+  } catch {
+    return null;
+  }
+}
 
 // Pollinations' free tier is serial, and every feed item costs a caption call,
 // so each run adds at most a handful and the next day's run finishes the job.
@@ -36,6 +48,80 @@ function varietyContext(kind) {
     .reverse();
   const posted = recentPosts(60).filter((p) => kindOf(p) === kind);
   return [...queued, ...posted].slice(0, config.caption_similarity_window);
+}
+
+/**
+ * Build one feed post from the grid plan: a carousel whose cover is the photo
+ * the plan put at this position, and whose other slides share its palette.
+ *
+ * The plan is the authority on WHICH photos and in WHAT order. This only turns
+ * its decision into files. If there is no plan, or the plan is used up, the
+ * caller falls back to the old one-photo path so a missing plan can never stop
+ * the account posting.
+ */
+async function buildPlanned({ hashes, cooldown, context }) {
+  const plan = readPlan();
+  if (!plan) return null;
+
+  const done = new Set([
+    ...listQueue("feed").map((i) => i.plan_cover),
+    ...recentPosts(400).filter((p) => kindOf(p) === "feed").map((p) => p.plan_cover),
+  ].filter(Boolean));
+
+  const next = plan.posts.find((p) => !done.has(p.cover) && !cooldown.has(p.cover));
+  if (!next) return null;
+
+  const id = newId();
+  const slides = [];
+  for (const [i, origin] of next.slides.entries()) {
+    const abs = join(SITE_ROOT, origin);
+    if (!existsSync(abs)) { console.warn(`plan slide missing on disk: ${origin}`); continue; }
+    // Graded first, then cropped. Grading measures the whole picture, so doing
+    // it after a 4:5 crop would read a different photo from the one the plan
+    // measured, and the grid would drift away from the preview.
+    const buf = await normalise(await applyGrade(abs), "feed");
+    const file = `${id}-${i + 1}.jpg`;
+    writeFileSync(join(publicDir, file), buf);
+    slides.push({
+      origin,
+      image: `${config.public_dir}/${file}`,
+      url: `${config.public_base}/${file}`,
+      sha256: sha256(buf),
+    });
+  }
+  if (slides.length < 2) return null;   // not a carousel; let the old path handle it
+
+  const caption = writeCaption({
+    imagePath: join(publicDir, slides[0].image.split("/").pop()),
+    angleHint: pickAngle(context),
+    recent: context,
+    source: "library",
+  });
+
+  const item = {
+    id,
+    kind: "feed",
+    created: new Date().toISOString(),
+    source: "library",
+    // The cover doubles as the item's identity everywhere else in the codebase
+    // — dedupe, cooldown and the ledger all read these top-level fields.
+    origin: slides[0].origin,
+    image: slides[0].image,
+    url: slides[0].url,
+    sha256: slides[0].sha256,
+    slides,
+    plan_index: next.plan_index,
+    plan_cover: next.cover,
+    palette: next.family,
+    angle: caption.angle,
+    caption: caption.text,
+    hashtags: caption.hashtags,
+    rendered_caption: render(caption),
+    writer: caption.writer,
+  };
+  writeItem(item);
+  for (const s of slides) { hashes.add(s.sha256); cooldown.add(s.origin); }
+  return item;
 }
 
 async function buildOne({ hashes, cooldown, context, kind }) {
@@ -63,7 +149,10 @@ async function buildOne({ hashes, cooldown, context, kind }) {
     if (!picked) continue; // library-only angle with nothing left to give
 
     // Feed is 4:5, story is 9:16 — different crops of the same library.
-    const buf = await normalise(picked.buf, kind);
+    // Graded first, then cropped, so the house look is measured from the whole
+    // picture. Stories never appear in the grid, but they are the same brand on
+    // the same day and looking like a different account would be odd.
+    const buf = await normalise(await applyGrade(picked.buf), kind);
     const hash = sha256(buf);
     if (hashes.has(hash)) continue; // already published this exact picture
     hashes.add(hash);
@@ -132,7 +221,11 @@ async function main() {
     let built = 0;
     for (let i = 0; i < need; i++) {
       try {
-        const item = await buildOne({ hashes, cooldown, context: varietyContext(kind), kind });
+        const context = varietyContext(kind);
+        // Feed posts come from the grid plan. buildOne is the fallback for
+        // stories, and for a feed whose plan is missing or used up.
+        const item = (kind === "feed" && await buildPlanned({ hashes, cooldown, context }))
+          || await buildOne({ hashes, cooldown, context, kind });
         if (!item) { console.warn(`${kind}: no usable angle left`); break; }
         built++;
         console.log(`+ ${kind} ${item.id} [${item.angle}] ${item.source} ${item.origin}`);

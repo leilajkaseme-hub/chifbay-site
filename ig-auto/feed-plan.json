@@ -1,0 +1,1397 @@
+{
+  "built": "2026-08-13T03:26:08.271Z",
+  "slides": 4,
+  "posts": [
+    {
+      "plan_index": 0,
+      "family": "amber",
+      "warmth": 37.09,
+      "cover": "social/chifbay-32.jpg",
+      "slides": [
+        "social/chifbay-32.jpg",
+        "social/chifbay-65.jpg",
+        "social/chifbay-13.jpg",
+        "social/chifbay-60.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0337277678208527,
+        "saturation": 0.8615163415966541
+      }
+    },
+    {
+      "plan_index": 1,
+      "family": "golden",
+      "warmth": 35.11,
+      "cover": "social/chifbay-65.jpg",
+      "slides": [
+        "social/chifbay-65.jpg",
+        "social/chifbay-62.jpg",
+        "social/chifbay-29.jpg",
+        "social/chifbay-06.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9533773043265881,
+        "saturation": 0.9374252330252856
+      }
+    },
+    {
+      "plan_index": 2,
+      "family": "amber",
+      "warmth": 31.35,
+      "cover": "social/chifbay-08.jpg",
+      "slides": [
+        "social/chifbay-08.jpg",
+        "social/chifbay-31.jpg",
+        "social/chifbay-38.jpg",
+        "social/chifbay-56.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0405356732170374,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 3,
+      "family": "amber",
+      "warmth": 33.93,
+      "cover": "social/chifbay-62.jpg",
+      "slides": [
+        "social/chifbay-62.jpg",
+        "social/chifbay-59.jpg",
+        "social/chifbay-60.jpg",
+        "social/chifbay-41.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0215048532375193,
+        "saturation": 0.9874758197134516
+      }
+    },
+    {
+      "plan_index": 4,
+      "family": "golden",
+      "warmth": 29.1,
+      "cover": "social/chifbay-60.jpg",
+      "slides": [
+        "social/chifbay-60.jpg",
+        "social/chifbay-38.jpg",
+        "social/chifbay-45.jpg",
+        "social/chifbay-22.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9430363197066725,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 5,
+      "family": "amber",
+      "warmth": 32.24,
+      "cover": "social/chifbay-06.jpg",
+      "slides": [
+        "social/chifbay-06.jpg",
+        "social/chifbay-29.jpg",
+        "social/chifbay-08.jpg",
+        "../clickandboat-sunset-photos/1-sunset-couple-bow.jpg"
+      ],
+      "grade": {
+        "brightness": 1.018683885980419,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 6,
+      "family": "amber",
+      "warmth": 31.54,
+      "cover": "social/chifbay-13.jpg",
+      "slides": [
+        "social/chifbay-13.jpg",
+        "social/chifbay-60.jpg",
+        "social/chifbay-38.jpg",
+        "../klook-photos/05-07-sunset-couple-bow.jpg"
+      ],
+      "grade": {
+        "brightness": 1.086006801484462,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 7,
+      "family": "amber",
+      "warmth": 31.98,
+      "cover": "social/chifbay-29.jpg",
+      "slides": [
+        "social/chifbay-29.jpg",
+        "social/chifbay-06.jpg",
+        "social/chifbay-08.jpg",
+        "social/chifbay-62.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0418901556114812,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 8,
+      "family": "amber",
+      "warmth": 30.72,
+      "cover": "social/chifbay-41.jpg",
+      "slides": [
+        "social/chifbay-41.jpg",
+        "social/chifbay-60.jpg",
+        "social/chifbay-38.jpg",
+        "social/chifbay-09.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0310340352980853,
+        "saturation": 0.9674254945025645
+      }
+    },
+    {
+      "plan_index": 9,
+      "family": "amber",
+      "warmth": 29.19,
+      "cover": "social/chifbay-59.jpg",
+      "slides": [
+        "social/chifbay-59.jpg",
+        "social/chifbay-65.jpg",
+        "social/chifbay-32.jpg",
+        "social/chifbay-31.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0889863202162922,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 10,
+      "family": "amber",
+      "warmth": 30.46,
+      "cover": "social/chifbay-31.jpg",
+      "slides": [
+        "social/chifbay-31.jpg",
+        "social/chifbay-56.jpg",
+        "social/chifbay-40.jpg",
+        "social/chifbay-49.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 11,
+      "family": "amber",
+      "warmth": 28.99,
+      "cover": "social/chifbay-28.jpg",
+      "slides": [
+        "social/chifbay-28.jpg",
+        "social/chifbay-54.jpg",
+        "social/chifbay-39.jpg",
+        "social/chifbay-41.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 0.7895546366571166
+      }
+    },
+    {
+      "plan_index": 12,
+      "family": "amber",
+      "warmth": 28.11,
+      "cover": "social/chifbay-38.jpg",
+      "slides": [
+        "social/chifbay-38.jpg",
+        "social/chifbay-60.jpg",
+        "social/chifbay-59.jpg",
+        "social/chifbay-45.jpg"
+      ],
+      "grade": {
+        "brightness": 1.1343173566983522,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 13,
+      "family": "amber",
+      "warmth": 25.29,
+      "cover": "../clickandboat-sunset-photos/1-sunset-couple-bow.jpg",
+      "slides": [
+        "../clickandboat-sunset-photos/1-sunset-couple-bow.jpg",
+        "social/chifbay-47.jpg",
+        "social/chifbay-22.jpg",
+        "social/chifbay-37.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0333383751485201,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 14,
+      "family": "golden",
+      "warmth": 24.13,
+      "cover": "social/chifbay-56.jpg",
+      "slides": [
+        "social/chifbay-56.jpg",
+        "../clickandboat-sunset-photos/2-golden-hour-dining.jpg",
+        "../klook-photos/04-18-golden-hour-dining.jpg",
+        "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9701808312638182,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 15,
+      "family": "amber",
+      "warmth": 25.29,
+      "cover": "../klook-photos/05-07-sunset-couple-bow.jpg",
+      "slides": [
+        "../klook-photos/05-07-sunset-couple-bow.jpg",
+        "../clickandboat-sunset-photos/1-sunset-couple-bow.jpg",
+        "social/chifbay-08.jpg",
+        "social/chifbay-29.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0333383751485201,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 16,
+      "family": "golden",
+      "warmth": 24.08,
+      "cover": "social/chifbay-45.jpg",
+      "slides": [
+        "social/chifbay-45.jpg",
+        "social/chifbay-09.jpg",
+        "social/chifbay-56.jpg",
+        "social/chifbay-13.jpg"
+      ],
+      "grade": {
+        "brightness": 1.009690529034787,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 17,
+      "family": "amber",
+      "warmth": 23.97,
+      "cover": "social/chifbay-47.jpg",
+      "slides": [
+        "social/chifbay-47.jpg",
+        "../klook-photos/02-13-onboard-drinks-snacks.jpg",
+        "social/chifbay-26.jpg",
+        "social/chifbay-57.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0378102125617075,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 18,
+      "family": "amber",
+      "warmth": 23.17,
+      "cover": "social/chifbay-09.jpg",
+      "slides": [
+        "social/chifbay-09.jpg",
+        "social/chifbay-31.jpg",
+        "social/chifbay-06.jpg",
+        "social/chifbay-29.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0684250486124545,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 19,
+      "family": "golden",
+      "warmth": 21.86,
+      "cover": "social/chifbay-22.jpg",
+      "slides": [
+        "social/chifbay-22.jpg",
+        "social/chifbay-40.jpg",
+        "social/chifbay-49.jpg",
+        "social/chifbay-48.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9950033453758441,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 20,
+      "family": "amber",
+      "warmth": 21.75,
+      "cover": "social/chifbay-39.jpg",
+      "slides": [
+        "social/chifbay-39.jpg",
+        "social/chifbay-54.jpg",
+        "social/chifbay-28.jpg",
+        "social/chifbay-41.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 21,
+      "family": "amber",
+      "warmth": 21.48,
+      "cover": "social/chifbay-54.jpg",
+      "slides": [
+        "social/chifbay-54.jpg",
+        "social/chifbay-39.jpg",
+        "social/chifbay-09.jpg",
+        "social/chifbay-28.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0145760072205356,
+        "saturation": 0.9349964107091169
+      }
+    },
+    {
+      "plan_index": 22,
+      "family": "amber",
+      "warmth": 20.18,
+      "cover": "social/chifbay-49.jpg",
+      "slides": [
+        "social/chifbay-49.jpg",
+        "social/chifbay-37.jpg",
+        "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg",
+        "social/chifbay-44.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0135852937017893,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 23,
+      "family": "amber",
+      "warmth": 20.03,
+      "cover": "social/chifbay-40.jpg",
+      "slides": [
+        "social/chifbay-40.jpg",
+        "social/chifbay-49.jpg",
+        "../clickandboat-sunset-photos/2-golden-hour-dining.jpg",
+        "../klook-photos/04-18-golden-hour-dining.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0475288259224764,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 24,
+      "family": "amber",
+      "warmth": 17.96,
+      "cover": "../clickandboat-sunset-photos/2-golden-hour-dining.jpg",
+      "slides": [
+        "../clickandboat-sunset-photos/2-golden-hour-dining.jpg",
+        "social/chifbay-56.jpg",
+        "social/chifbay-38.jpg",
+        "social/chifbay-60.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 25,
+      "family": "amber",
+      "warmth": 17.83,
+      "cover": "social/chifbay-37.jpg",
+      "slides": [
+        "social/chifbay-37.jpg",
+        "../klook-photos/02-13-onboard-drinks-snacks.jpg",
+        "social/chifbay-26.jpg",
+        "social/chifbay-57.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0221212931369135,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 26,
+      "family": "amber",
+      "warmth": 17.96,
+      "cover": "../klook-photos/04-18-golden-hour-dining.jpg",
+      "slides": [
+        "../klook-photos/04-18-golden-hour-dining.jpg",
+        "../clickandboat-sunset-photos/2-golden-hour-dining.jpg",
+        "social/chifbay-14.jpg",
+        "social/chifbay-67.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 27,
+      "family": "amber",
+      "warmth": 16.74,
+      "cover": "social/chifbay-48.jpg",
+      "slides": [
+        "social/chifbay-48.jpg",
+        "social/chifbay-22.jpg",
+        "social/chifbay-45.jpg",
+        "../clickandboat-sunset-photos/1-sunset-couple-bow.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0312995242956111,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 28,
+      "family": "golden",
+      "warmth": 15.1,
+      "cover": "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg",
+      "slides": [
+        "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg",
+        "social/chifbay-26.jpg",
+        "social/chifbay-70.jpg",
+        "social/chifbay-21.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9485184102682768,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 29,
+      "family": "soft",
+      "warmth": 13.17,
+      "cover": "social/chifbay-26.jpg",
+      "slides": [
+        "social/chifbay-26.jpg",
+        "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg",
+        "social/chifbay-44.jpg",
+        "social/chifbay-57.jpg"
+      ],
+      "grade": {
+        "brightness": 1.1370752966901323,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 30,
+      "family": "golden",
+      "warmth": 15.1,
+      "cover": "../klook-photos/02-13-onboard-drinks-snacks.jpg",
+      "slides": [
+        "../klook-photos/02-13-onboard-drinks-snacks.jpg",
+        "social/chifbay-26.jpg",
+        "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg",
+        "social/chifbay-44.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9485184102682768,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 31,
+      "family": "soft",
+      "warmth": 12.6,
+      "cover": "social/chifbay-14.jpg",
+      "slides": [
+        "social/chifbay-14.jpg",
+        "social/chifbay-26.jpg",
+        "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg",
+        "social/chifbay-44.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0239101559918282,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 32,
+      "family": "soft",
+      "warmth": 12.45,
+      "cover": "social/chifbay-44.jpg",
+      "slides": [
+        "social/chifbay-44.jpg",
+        "social/chifbay-57.jpg",
+        "social/chifbay-69.jpg",
+        "social/chifbay-42.jpg"
+      ],
+      "grade": {
+        "brightness": 1.1319335504903068,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 33,
+      "family": "soft",
+      "warmth": 11.88,
+      "cover": "social/chifbay-57.jpg",
+      "slides": [
+        "social/chifbay-57.jpg",
+        "social/chifbay-44.jpg",
+        "../clickandboat-sunset-photos/4-onboard-drinks-snacks.jpg",
+        "social/chifbay-37.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9453040194609421,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 34,
+      "family": "soft",
+      "warmth": 10.68,
+      "cover": "social/chifbay-67.jpg",
+      "slides": [
+        "social/chifbay-67.jpg",
+        "social/chifbay-15.jpg",
+        "social/chifbay-27.jpg",
+        "social/chifbay-05.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0259509821458368,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 35,
+      "family": "neutral",
+      "warmth": 8.65,
+      "cover": "social/chifbay-69.jpg",
+      "slides": [
+        "social/chifbay-69.jpg",
+        "social/chifbay-42.jpg",
+        "social/chifbay-15.jpg",
+        "social/chifbay-34.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0245805269954722,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 36,
+      "family": "neutral",
+      "warmth": 7.92,
+      "cover": "social/chifbay-42.jpg",
+      "slides": [
+        "social/chifbay-42.jpg",
+        "social/chifbay-70.jpg",
+        "social/chifbay-21.jpg",
+        "social/chifbay-68.jpg"
+      ],
+      "grade": {
+        "brightness": 1.040630905990174,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 37,
+      "family": "soft",
+      "warmth": 7.59,
+      "cover": "social/chifbay-70.jpg",
+      "slides": [
+        "social/chifbay-70.jpg",
+        "social/chifbay-21.jpg",
+        "social/chifbay-27.jpg",
+        "social/chifbay-15.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9574862351105069,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 38,
+      "family": "soft",
+      "warmth": 7.63,
+      "cover": "social/chifbay-21.jpg",
+      "slides": [
+        "social/chifbay-21.jpg",
+        "social/chifbay-70.jpg",
+        "social/chifbay-67.jpg",
+        "../klook-photos/02-13-onboard-drinks-snacks.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0157306572873441,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 39,
+      "family": "soft",
+      "warmth": 6.92,
+      "cover": "social/chifbay-46.jpg",
+      "slides": [
+        "social/chifbay-46.jpg",
+        "social/chifbay-26.jpg",
+        "social/chifbay-14.jpg",
+        "social/chifbay-44.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9861562840753052,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 40,
+      "family": "neutral",
+      "warmth": 5.91,
+      "cover": "social/chifbay-27.jpg",
+      "slides": [
+        "social/chifbay-27.jpg",
+        "social/chifbay-15.jpg",
+        "social/chifbay-25.jpg",
+        "social/chifbay-63.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0590353436542583,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 41,
+      "family": "verdant",
+      "warmth": 4.1,
+      "cover": "social/chifbay-16.jpg",
+      "slides": [
+        "social/chifbay-16.jpg",
+        "social/chifbay-36.jpg",
+        "social/chifbay-33.jpg",
+        "social/chifbay-07.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0478567880392706,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 42,
+      "family": "neutral",
+      "warmth": 5.19,
+      "cover": "social/chifbay-15.jpg",
+      "slides": [
+        "social/chifbay-15.jpg",
+        "social/chifbay-27.jpg",
+        "social/chifbay-05.jpg",
+        "social/chifbay-18.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9433698018546074,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 43,
+      "family": "neutral",
+      "warmth": 2.18,
+      "cover": "social/chifbay-34.jpg",
+      "slides": [
+        "social/chifbay-34.jpg",
+        "social/chifbay-12.jpg",
+        "social/chifbay-02.jpg",
+        "social/chifbay-10.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9972979700770759,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 44,
+      "family": "neutral",
+      "warmth": 1.69,
+      "cover": "social/chifbay-05.jpg",
+      "slides": [
+        "social/chifbay-05.jpg",
+        "social/chifbay-68.jpg",
+        "../clickandboat-sunset-photos/5-helm-seats-detail.jpg",
+        "../klook-photos/03-04-helm-seats-detail.jpg"
+      ],
+      "grade": {
+        "brightness": 0.8975222848472837,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 45,
+      "family": "neutral",
+      "warmth": 1,
+      "cover": "social/chifbay-25.jpg",
+      "slides": [
+        "social/chifbay-25.jpg",
+        "social/chifbay-05.jpg",
+        "social/chifbay-42.jpg",
+        "social/chifbay-69.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0128247104711219,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 46,
+      "family": "neutral",
+      "warmth": 0.95,
+      "cover": "social/chifbay-68.jpg",
+      "slides": [
+        "social/chifbay-68.jpg",
+        "social/chifbay-70.jpg",
+        "social/chifbay-21.jpg",
+        "social/chifbay-67.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0296221215579109,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 47,
+      "family": "neutral",
+      "warmth": 0.9,
+      "cover": "social/chifbay-63.jpg",
+      "slides": [
+        "social/chifbay-63.jpg",
+        "social/chifbay-05.jpg",
+        "social/chifbay-72.jpg",
+        "social/chifbay-76.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0049173204489836,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 48,
+      "family": "neutral",
+      "warmth": 0.63,
+      "cover": "social/chifbay-18.jpg",
+      "slides": [
+        "social/chifbay-18.jpg",
+        "social/chifbay-12.jpg",
+        "social/chifbay-02.jpg",
+        "social/chifbay-51.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0102657199556488,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 49,
+      "family": "neutral",
+      "warmth": -0.9,
+      "cover": "social/chifbay-12.jpg",
+      "slides": [
+        "social/chifbay-12.jpg",
+        "social/chifbay-07.jpg",
+        "social/chifbay-33.jpg",
+        "social/chifbay-36.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0920873112362837,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 50,
+      "family": "neutral",
+      "warmth": -1.49,
+      "cover": "social/chifbay-02.jpg",
+      "slides": [
+        "social/chifbay-02.jpg",
+        "social/chifbay-12.jpg",
+        "social/chifbay-15.jpg",
+        "social/chifbay-27.jpg"
+      ],
+      "grade": {
+        "brightness": 1.017615541789953,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 51,
+      "family": "neutral",
+      "warmth": -1.97,
+      "cover": "social/chifbay-07.jpg",
+      "slides": [
+        "social/chifbay-07.jpg",
+        "social/chifbay-10.jpg",
+        "social/chifbay-64.jpg",
+        "social/chifbay-51.jpg"
+      ],
+      "grade": {
+        "brightness": 1.1260110245624035,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 52,
+      "family": "verdant",
+      "warmth": -3.27,
+      "cover": "social/chifbay-36.jpg",
+      "slides": [
+        "social/chifbay-36.jpg",
+        "social/chifbay-23.jpg",
+        "social/chifbay-71.jpg",
+        "../clickandboat-sunset-photos/5-helm-seats-detail.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 53,
+      "family": "neutral",
+      "warmth": -4.86,
+      "cover": "social/chifbay-72.jpg",
+      "slides": [
+        "social/chifbay-72.jpg",
+        "../klook-photos/03-04-helm-seats-detail.jpg",
+        "../clickandboat-sunset-photos/5-helm-seats-detail.jpg",
+        "social/chifbay-76.jpg"
+      ],
+      "grade": {
+        "brightness": 1.042080151381064,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 54,
+      "family": "neutral",
+      "warmth": -4.99,
+      "cover": "social/chifbay-33.jpg",
+      "slides": [
+        "social/chifbay-33.jpg",
+        "social/chifbay-76.jpg",
+        "social/chifbay-11.jpg",
+        "social/chifbay-20.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0691806860024475,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 55,
+      "family": "neutral",
+      "warmth": -5.18,
+      "cover": "../clickandboat-sunset-photos/5-helm-seats-detail.jpg",
+      "slides": [
+        "../clickandboat-sunset-photos/5-helm-seats-detail.jpg",
+        "../klook-photos/03-04-helm-seats-detail.jpg",
+        "social/chifbay-76.jpg",
+        "social/chifbay-33.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9851352250258335,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 56,
+      "family": "neutral",
+      "warmth": -6.2,
+      "cover": "social/chifbay-64.jpg",
+      "slides": [
+        "social/chifbay-64.jpg",
+        "social/chifbay-51.jpg",
+        "social/chifbay-30.jpg",
+        "social/chifbay-04.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9713356016522213,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 57,
+      "family": "neutral",
+      "warmth": -5.18,
+      "cover": "../klook-photos/03-04-helm-seats-detail.jpg",
+      "slides": [
+        "../klook-photos/03-04-helm-seats-detail.jpg",
+        "../clickandboat-sunset-photos/5-helm-seats-detail.jpg",
+        "social/chifbay-76.jpg",
+        "social/chifbay-18.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9851352250258335,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 58,
+      "family": "neutral",
+      "warmth": -6.67,
+      "cover": "social/chifbay-76.jpg",
+      "slides": [
+        "social/chifbay-76.jpg",
+        "social/chifbay-02.jpg",
+        "social/chifbay-12.jpg",
+        "social/chifbay-68.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 59,
+      "family": "neutral",
+      "warmth": -6.71,
+      "cover": "social/chifbay-10.jpg",
+      "slides": [
+        "social/chifbay-10.jpg",
+        "social/chifbay-07.jpg",
+        "social/chifbay-25.jpg",
+        "social/chifbay-34.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 60,
+      "family": "deep",
+      "warmth": -8.88,
+      "cover": "social/chifbay-51.jpg",
+      "slides": [
+        "social/chifbay-51.jpg",
+        "social/chifbay-71.jpg",
+        "social/chifbay-77.jpg",
+        "social/chifbay-03.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 61,
+      "family": "azure",
+      "warmth": -9.99,
+      "cover": "social/chifbay-23.jpg",
+      "slides": [
+        "social/chifbay-23.jpg",
+        "social/chifbay-36.jpg",
+        "social/chifbay-72.jpg",
+        "../clickandboat-sunset-photos/5-helm-seats-detail.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0428305042056656,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 62,
+      "family": "deep",
+      "warmth": -12.88,
+      "cover": "social/chifbay-11.jpg",
+      "slides": [
+        "social/chifbay-11.jpg",
+        "social/chifbay-20.jpg",
+        "social/chifbay-66.jpg",
+        "social/chifbay-24.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0877384151962308,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 63,
+      "family": "azure",
+      "warmth": -14.01,
+      "cover": "social/chifbay-71.jpg",
+      "slides": [
+        "social/chifbay-71.jpg",
+        "social/chifbay-53.jpg",
+        "social/chifbay-52.jpg",
+        "social/chifbay-19.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0420105402224697,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 64,
+      "family": "deep",
+      "warmth": -14.41,
+      "cover": "social/chifbay-20.jpg",
+      "slides": [
+        "social/chifbay-20.jpg",
+        "social/chifbay-30.jpg",
+        "social/chifbay-04.jpg",
+        "social/chifbay-35.jpg"
+      ],
+      "grade": {
+        "brightness": 1.16,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 65,
+      "family": "azure",
+      "warmth": -14.56,
+      "cover": "social/chifbay-35.jpg",
+      "slides": [
+        "social/chifbay-35.jpg",
+        "social/chifbay-53.jpg",
+        "social/chifbay-52.jpg",
+        "social/chifbay-19.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0385788023128404,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 66,
+      "family": "deep",
+      "warmth": -16.18,
+      "cover": "social/chifbay-77.jpg",
+      "slides": [
+        "social/chifbay-77.jpg",
+        "social/chifbay-30.jpg",
+        "social/chifbay-04.jpg",
+        "social/chifbay-20.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0983613730120731,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 67,
+      "family": "azure",
+      "warmth": -16.57,
+      "cover": "social/chifbay-30.jpg",
+      "slides": [
+        "social/chifbay-30.jpg",
+        "social/chifbay-04.jpg",
+        "social/chifbay-20.jpg",
+        "social/chifbay-11.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9647717604588443,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 68,
+      "family": "azure",
+      "warmth": -16.71,
+      "cover": "social/chifbay-04.jpg",
+      "slides": [
+        "social/chifbay-04.jpg",
+        "social/chifbay-03.jpg",
+        "social/chifbay-20.jpg",
+        "social/chifbay-11.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0318235771706403,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 69,
+      "family": "azure",
+      "warmth": -16.79,
+      "cover": "social/chifbay-53.jpg",
+      "slides": [
+        "social/chifbay-53.jpg",
+        "social/chifbay-52.jpg",
+        "social/chifbay-19.jpg",
+        "social/chifbay-30.jpg"
+      ],
+      "grade": {
+        "brightness": 1.035413241033896,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 70,
+      "family": "azure",
+      "warmth": -16.82,
+      "cover": "social/chifbay-03.jpg",
+      "slides": [
+        "social/chifbay-03.jpg",
+        "social/chifbay-66.jpg",
+        "social/chifbay-24.jpg",
+        "social/chifbay-17.jpg"
+      ],
+      "grade": {
+        "brightness": 1.035983303832718,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 71,
+      "family": "azure",
+      "warmth": -17.15,
+      "cover": "social/chifbay-52.jpg",
+      "slides": [
+        "social/chifbay-52.jpg",
+        "social/chifbay-71.jpg",
+        "social/chifbay-51.jpg",
+        "social/chifbay-64.jpg"
+      ],
+      "grade": {
+        "brightness": 1.041135598629921,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 72,
+      "family": "azure",
+      "warmth": -18.41,
+      "cover": "social/chifbay-66.jpg",
+      "slides": [
+        "social/chifbay-66.jpg",
+        "social/chifbay-30.jpg",
+        "social/chifbay-04.jpg",
+        "social/chifbay-20.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0350459380546668,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 73,
+      "family": "azure",
+      "warmth": -17.55,
+      "cover": "social/chifbay-19.jpg",
+      "slides": [
+        "social/chifbay-19.jpg",
+        "social/chifbay-35.jpg",
+        "social/chifbay-53.jpg",
+        "social/chifbay-52.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0271143601597281,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 74,
+      "family": "azure",
+      "warmth": -20.24,
+      "cover": "social/chifbay-24.jpg",
+      "slides": [
+        "social/chifbay-24.jpg",
+        "social/chifbay-77.jpg",
+        "social/chifbay-30.jpg",
+        "social/chifbay-04.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0160143747748924,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 75,
+      "family": "azure",
+      "warmth": -24.23,
+      "cover": "social/chifbay-17.jpg",
+      "slides": [
+        "social/chifbay-17.jpg",
+        "social/chifbay-58.jpg",
+        "../clickandboat-sunset-photos/3-bow-coast-pov.jpg",
+        "../klook-photos/01-15-bow-coast-pov.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0244702894151636,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 76,
+      "family": "azure",
+      "warmth": -24.73,
+      "cover": "social/chifbay-58.jpg",
+      "slides": [
+        "social/chifbay-58.jpg",
+        "social/chifbay-50.jpg",
+        "social/chifbay-43.jpg",
+        "social/chifbay-55.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0227926057436,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 77,
+      "family": "azure",
+      "warmth": -25.88,
+      "cover": "../clickandboat-sunset-photos/3-bow-coast-pov.jpg",
+      "slides": [
+        "../clickandboat-sunset-photos/3-bow-coast-pov.jpg",
+        "../klook-photos/01-15-bow-coast-pov.jpg",
+        "social/chifbay-50.jpg",
+        "social/chifbay-73.jpg"
+      ],
+      "grade": {
+        "brightness": 1.039949805745918,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 78,
+      "family": "azure",
+      "warmth": -26.47,
+      "cover": "social/chifbay-50.jpg",
+      "slides": [
+        "social/chifbay-50.jpg",
+        "../clickandboat-sunset-photos/3-bow-coast-pov.jpg",
+        "../klook-photos/01-15-bow-coast-pov.jpg",
+        "social/chifbay-58.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0599489127437312,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 79,
+      "family": "azure",
+      "warmth": -25.88,
+      "cover": "../klook-photos/01-15-bow-coast-pov.jpg",
+      "slides": [
+        "../klook-photos/01-15-bow-coast-pov.jpg",
+        "../clickandboat-sunset-photos/3-bow-coast-pov.jpg",
+        "social/chifbay-50.jpg",
+        "social/chifbay-43.jpg"
+      ],
+      "grade": {
+        "brightness": 1.039949805745918,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 80,
+      "family": "azure",
+      "warmth": -28.13,
+      "cover": "social/chifbay-43.jpg",
+      "slides": [
+        "social/chifbay-43.jpg",
+        "social/chifbay-55.jpg",
+        "social/chifbay-50.jpg",
+        "../clickandboat-sunset-photos/3-bow-coast-pov.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0048224639091934,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 81,
+      "family": "azure",
+      "warmth": -28.31,
+      "cover": "social/chifbay-55.jpg",
+      "slides": [
+        "social/chifbay-55.jpg",
+        "social/chifbay-43.jpg",
+        "social/chifbay-50.jpg",
+        "../clickandboat-sunset-photos/3-bow-coast-pov.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0617429214204088,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 82,
+      "family": "azure",
+      "warmth": -30.91,
+      "cover": "social/chifbay-73.jpg",
+      "slides": [
+        "social/chifbay-73.jpg",
+        "social/chifbay-01.jpg",
+        "social/chifbay-61.jpg",
+        "social/chifbay-74.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0129185720511305,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 83,
+      "family": "azure",
+      "warmth": -40.63,
+      "cover": "social/chifbay-75.jpg",
+      "slides": [
+        "social/chifbay-75.jpg",
+        "social/chifbay-74.jpg",
+        "social/chifbay-43.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0171077412281444,
+        "saturation": 0.8118090075515767
+      }
+    },
+    {
+      "plan_index": 84,
+      "family": "azure",
+      "warmth": -33.04,
+      "cover": "social/chifbay-61.jpg",
+      "slides": [
+        "social/chifbay-61.jpg",
+        "social/chifbay-01.jpg",
+        "social/chifbay-73.jpg",
+        "social/chifbay-17.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9793405667047336,
+        "saturation": 0.9820478052724086
+      }
+    },
+    {
+      "plan_index": 85,
+      "family": "azure",
+      "warmth": -36.76,
+      "cover": "social/chifbay-74.jpg",
+      "slides": [
+        "social/chifbay-74.jpg",
+        "social/chifbay-75.jpg",
+        "social/chifbay-55.jpg",
+        "social/chifbay-43.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0359275835128499,
+        "saturation": 0.9063824680641913
+      }
+    },
+    {
+      "plan_index": 86,
+      "family": "azure",
+      "warmth": -33.09,
+      "cover": "social/chifbay-01.jpg",
+      "slides": [
+        "social/chifbay-01.jpg",
+        "social/chifbay-61.jpg",
+        "social/chifbay-73.jpg",
+        "social/chifbay-58.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9793645949409476,
+        "saturation": 0.9820043471498209
+      }
+    }
+  ]
+}

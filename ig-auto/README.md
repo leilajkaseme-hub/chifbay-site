@@ -9,8 +9,8 @@ Runs in GitHub's cloud on a schedule. **Your computer can be off.**
 ## How it works
 
 ```
-05:00 UTC   top up      build both queues ahead  ->  queue/ + ig/  ->  git push
-10:00 UTC   post        oldest feed item         ->  Meta API      ->  Instagram
+05:00 UTC   top up      refresh the grid plan, build both queues  ->  git push
+10:00 UTC   post        next planned CAROUSEL    ->  Meta API      ->  Instagram
 17:00 UTC   story       oldest story item        ->  Meta API      ->  Instagram
             (each + 0-90 min random wait)
 15:00 UTC   post again  only if 10:00 failed     ->  a late post, not a lost day
@@ -77,6 +77,78 @@ A story published through the API is **the picture and nothing else**. Meta does
 not let an app add text overlays, stickers, polls, music or link stickers —
 those exist only in the phone app. So stories here are chosen for images that
 stand on their own, cropped to 9:16.
+
+## How the grid is made to look like one feed
+
+A feed is not judged one photo at a time. The grid is three wide and a new post
+pushes everything right and down, so what a visitor sees is a **row of three**
+and the rows around it. A gold sunset next to a blue-hour shot next to a green
+cliff is what makes an account look thrown together, however good each picture
+is on its own.
+
+Three things fix that, and they are separate on purpose.
+
+**1. One shared edit** (`lib/grade.mjs`). Every photo goes through the same
+leveller before it is cropped: extreme colour compressed towards a ceiling,
+exposure nudged towards a middle band, then one shared curve and a touch of
+warmth. It has no mood of its own and every step is clamped — it cannot wreck a
+picture. This alone is most of what makes a mixed library read as one account.
+
+**2. Colour measured properly** (`lib/palette.mjs`). Each photo is reduced to
+CIELAB, where equal distances look equally different — unlike RGB, where two
+blues can be far apart and look identical. The number that matters here is `b*`,
+blue to yellow. Across this library it runs from **+47** (amber sunset) to
+**−51** (blue hour), and every photo sits somewhere on that one line.
+
+**3. An order that never jumps** (`lib/feedplan.mjs`). Posts are sorted along
+that line, warm first. Neighbours in the grid are then neighbours in colour by
+construction. 87 covers across the whole range is about one point of `b*` per
+post, so a visible grid of twelve is a gentle gradient and the palette only
+turns over across months.
+
+Colour alone is not enough, and the preview proved it: the first plan was
+flawless on colour and still looked like stock, because the top three rows were
+the same picture nine times — sun on the horizon, dead centre. So each photo
+also gets a **5×5 layout signature**, normalised against its own exposure so it
+describes shape rather than brightness, and the order reaches a few places ahead
+to avoid repeating a composition next to itself or directly above itself.
+
+**Look at it before you trust it:**
+
+```bash
+cd ig-auto
+node bin/feed-plan.mjs --report     # rows, palettes, and the worst jump
+node bin/feed-plan.mjs --preview    # writes feed-preview.jpg — the real grid
+```
+
+Two numbers decide whether a plan is good, and both are in `--report`:
+
+| Number | Means | Must be |
+| --- | --- | --- |
+| worst jump between neighbours | biggest colour step between two touching squares | under 25 |
+| worst jump inside one post | biggest step between two slides of one carousel | under 25 |
+
+Anything above 25 is a clash a visitor notices. Both are checked by the tests,
+against synthetic photos, so a change to the ordering cannot quietly break them.
+
+### Carousels
+
+One post a day, **four photos**: a cover plus three. The cover is what lands in
+the grid, so it is used once and never repeats. The three behind it share its
+palette — the swipe must not break the look either — and may appear again in a
+later post, never within eight posts.
+
+That is the reason for the split. Four fresh photos per post would empty an
+87-photo library in **21 days**. Unique covers with shared supporting slides
+gives **87 posts, about three months**.
+
+Change the count with `carousel_slides` in `config.json`. Meta allows 2 to 10.
+
+> **The honest limit.** Ordering can only arrange what exists. The warm half of
+> this library is mostly one composition — sun on the horizon over water — so
+> some rows still stack similar shots. No code fixes that; more variety in the
+> shooting does. Wide drone shots, detail shots and people are what the plan is
+> short of.
 
 ## Where the pictures come from
 
@@ -290,6 +362,12 @@ priority when a post fails or the queue runs dry, normal when a post goes out.
 | `brand.json` | voice, facts, the 12 angles, hashtag pools, ban list |
 | `lib/queue.mjs` | queue, ledger, lock, daily guard, dedupe |
 | `lib/image.mjs` | picks a real photo, crops to 4:5 (feed) or 9:16 (story) |
+| `lib/palette.mjs` | measures a photo in CIELAB: colour, and a 5x5 layout signature |
+| `lib/grade.mjs` | the one shared edit every photo gets |
+| `lib/feedplan.mjs` | which photos share a post, and the order posts go out |
+| `bin/feed-plan.mjs` | build the plan, print the report, render the preview |
+| `feed-plan.json` | the current plan — topup.mjs builds from this |
+| `feed-preview.jpg` | the planned grid as a picture. Look at this. |
 | `lib/caption.mjs` | reads the photo, writes the words, blocks repeats |
 | `lib/publish.mjs` | transports: `graph`, `make-webhook`, `dry-run` |
 | `lib/notify.mjs` | ntfy push |

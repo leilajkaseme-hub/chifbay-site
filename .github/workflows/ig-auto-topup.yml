@@ -58,6 +58,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      # The grid plan decides which photos share a post and what order the posts
+      # go out in, so it has to be current before anything is built. Rebuilding
+      # is cheap and idempotent: the measurements are cached on file content, so
+      # this only does real work when a photo has been added or replaced. It
+      # also refreshes feed-preview.jpg, which is how the planned grid gets
+      # looked at without opening a single tool.
+      - name: Refresh the grid plan
+        working-directory: ig-auto
+        run: node bin/feed-plan.mjs --write --preview --report
+
       - name: Build queue items
         id: build
         working-directory: ig-auto

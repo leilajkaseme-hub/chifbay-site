@@ -18,7 +18,7 @@ import {
   alreadyPostedToday, appendLedger, config, ensureDirs, kindOf, lastPostKey,
   listQueue, markPosted, recentPosts, saveState, today, withLock,
 } from "../lib/queue.mjs";
-import { assertImageIsLive, publish } from "../lib/publish.mjs";
+import { assertImageIsLive, publish, slideUrls } from "../lib/publish.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -53,15 +53,24 @@ function notConfigured() {
 }
 
 /**
- * Oldest first, but skip past an angle the last two posts already used.
+ * Which item goes out next.
  *
- * The library is heavily weighted towards sunsets — that is the product — and
- * the caption model names what it honestly sees, so the queue naturally ends up
- * with runs of the same subject. Three sunsets in three days is the most
- * repetitive the feed can look. Reordering here fixes it for free, instead of
- * throwing away pictures and captions that are individually fine.
+ * Feed items carry a `plan_index` from the grid plan, and that order is the
+ * whole point of the plan: it is what makes this post sit well next to the two
+ * beside it and the one above it. Nothing here may second-guess it.
+ *
+ * The old rule here skipped past an angle used in the last two posts, to break
+ * up runs of sunsets. The plan now decides that with the actual colour and
+ * composition of the pictures, so keeping the old rule would only corrupt a
+ * considered order. Stories have no grid, so they stay oldest-first with the
+ * angle-variety rule.
  */
 function chooseNext(queue) {
+  const planned = queue.filter((i) => Number.isFinite(i.plan_index));
+  if (planned.length) {
+    return planned.sort((a, b) => a.plan_index - b.plan_index)[0];
+  }
+
   const lastAngles = recentPosts(40)
     .filter((p) => kindOf(p) === KIND)
     .slice(0, 2)
@@ -111,7 +120,10 @@ async function main() {
     // A dry run is for checking wiring locally, before the image has ever been
     // pushed, so the liveness check would always fail and prove nothing.
     if ((process.env.IG_TRANSPORT || config.transport) !== "dry-run") {
-      await assertImageIsLive(item.url);
+      // Every slide, not just the cover. Meta builds a carousel child by child
+      // and gives up on the whole post if one URL is dead, so finding that here
+      // costs one HEAD request and saves the post.
+      for (const url of slideUrls(item)) await assertImageIsLive(url);
     }
 
     let lastErr;

@@ -126,6 +126,61 @@ async function waitForContainer(id, token, { timeoutMs = 300_000, everyMs = 5_00
 }
 
 /**
+ * Every picture in this post, in order. The first one is the cover: it is what
+ * the grid shows and the only one most people ever see.
+ *
+ * Single-photo items from before carousels existed still only have `url`, and
+ * they must keep working — the queue is committed to the repo and there is no
+ * migration step.
+ */
+export function slideUrls(item) {
+  const urls = (item.slides ?? []).map((s) => s.url).filter(Boolean);
+  return urls.length ? urls : [item.url];
+}
+
+/**
+ * A carousel is three rounds of the same two-step dance, not one.
+ *
+ * Each picture gets its own container with is_carousel_item, and each of those
+ * has to finish downloading before it can be attached to anything. Then a
+ * parent container holds the children and carries the caption — the children
+ * must not have captions of their own. Meta allows 2 to 10 children.
+ *
+ * The children are built one after another rather than all at once on purpose.
+ * They are the same size request repeated, and firing ten at a Graph endpoint
+ * that is already rate limited is how you turn a post into a 429.
+ */
+async function carouselContainer(user, token, urls, caption) {
+  if (urls.length > 10) throw new Error(`a carousel takes at most 10 photos, got ${urls.length}`);
+
+  const children = [];
+  for (const [i, image_url] of urls.entries()) {
+    const child = await graphCall(`/${user}/media`, {
+      image_url,
+      is_carousel_item: true,
+      access_token: token,
+    });
+    if (!child.id) throw new Error(`no container id for slide ${i + 1}: ${JSON.stringify(child).slice(0, 200)}`);
+    await waitForContainer(child.id, token);
+    children.push(child.id);
+  }
+
+  const parent = await graphCall(`/${user}/media`, {
+    media_type: "CAROUSEL",
+    children: children.join(","),
+    caption,
+    access_token: token,
+  });
+  if (!parent.id) throw new Error(`no carousel container id: ${JSON.stringify(parent).slice(0, 200)}`);
+
+  // The parent has nothing to download — its children are already finished —
+  // but Meta still assembles it, and publishing early fails the same way a
+  // single photo does.
+  await waitForContainer(parent.id, token);
+  return parent.id;
+}
+
+/**
  * Direct Graph API. Two steps, because Meta fetches the image itself: create a
  * media container pointing at the public URL, then publish that container.
  */
@@ -139,14 +194,20 @@ async function graph(item) {
   // or link stickers either — those exist only in the phone app. An API story is
   // the picture and nothing else.
   const isStory = item.kind === "story";
-  const container = await graphCall(`/${user}/media`, {
-    image_url: item.url,
-    access_token: token,
-    ...(isStory ? { media_type: "STORIES" } : { caption: item.rendered_caption }),
-  });
-  if (!container.id) throw new Error(`no container id: ${JSON.stringify(container).slice(0, 200)}`);
+  const urls = slideUrls(item);
 
-  await waitForContainer(container.id, token);
+  let container;
+  if (!isStory && urls.length > 1) {
+    container = { id: await carouselContainer(user, token, urls, item.rendered_caption) };
+  } else {
+    container = await graphCall(`/${user}/media`, {
+      image_url: urls[0],
+      access_token: token,
+      ...(isStory ? { media_type: "STORIES" } : { caption: item.rendered_caption }),
+    });
+    if (!container.id) throw new Error(`no container id: ${JSON.stringify(container).slice(0, 200)}`);
+    await waitForContainer(container.id, token);
+  }
 
   // FINISHED is Meta's own answer and it is still occasionally early, so give
   // the same container a few more tries rather than building a new one — a

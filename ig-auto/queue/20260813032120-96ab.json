@@ -1,0 +1,51 @@
+{
+  "id": "20260813032120-96ab",
+  "kind": "feed",
+  "created": "2026-08-13T03:21:40.279Z",
+  "source": "library",
+  "origin": "social/chifbay-32.jpg",
+  "image": "ig/20260813032120-96ab-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260813032120-96ab-1.jpg",
+  "sha256": "03b6d386e4de3f68dc9704d937663839f376febec10be802121c42eb191d3706",
+  "slides": [
+    {
+      "origin": "social/chifbay-32.jpg",
+      "image": "ig/20260813032120-96ab-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032120-96ab-1.jpg",
+      "sha256": "03b6d386e4de3f68dc9704d937663839f376febec10be802121c42eb191d3706"
+    },
+    {
+      "origin": "social/chifbay-65.jpg",
+      "image": "ig/20260813032120-96ab-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032120-96ab-2.jpg",
+      "sha256": "27fa65474af849c33f1c1abaa1e54bd25d65511814662c1d5f13c1b4b0c31f4c"
+    },
+    {
+      "origin": "social/chifbay-13.jpg",
+      "image": "ig/20260813032120-96ab-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032120-96ab-3.jpg",
+      "sha256": "b9a21d12f814bbb722333ad20d389125cc404fcfc3f758b0d2de0b914149946b"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260813032120-96ab-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260813032120-96ab-4.jpg",
+      "sha256": "fd33dc44b12aa7932b595f0d5e91e12ebf57e98cba24af08ddd6a1042feae918"
+    }
+  ],
+  "plan_index": 0,
+  "plan_cover": "social/chifbay-32.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "The sea turns to liquid gold, and nobody on board says much.\nOne guest stretched out on the bow, the rest at the wheel with our skipper.\nJust our boat and a long line of white water behind us.\nO mar fica dourado.\nWhatsApp us to check a date.",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#boattrip",
+    "#boatlife",
+    "#sunsetcruise",
+    "#goldenhour"
+  ],
+  "rendered_caption": "The sea turns to liquid gold, and nobody on board says much.\nOne guest stretched out on the bow, the rest at the wheel with our skipper.\nJust our boat and a long line of white water behind us.\nO mar fica dourado.\nWhatsApp us to check a date.\n\n#funchal #visitmadeira #boattrip #boatlife #sunsetcruise #goldenhour",
+  "writer": "claude"
+}
