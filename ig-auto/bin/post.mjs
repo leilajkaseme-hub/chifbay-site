@@ -161,6 +161,8 @@ async function main() {
     hashtags: item.hashtags,
     caption: item.caption,
     url: item.url,
+    plan_cover: item.plan_cover,
+    plan_index: item.plan_index,
     ...result,
   });
   saveState({ [lastPostKey(KIND)]: today() });
