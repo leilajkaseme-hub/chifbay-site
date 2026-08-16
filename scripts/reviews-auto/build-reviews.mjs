@@ -158,7 +158,12 @@ async function main() {
   const scraped = [...gyg, ...google, ...ta];
   const scrapedById = new Map(scraped.map((r) => [r.id, r]));
   const carried = (prev.reviews || []).filter((r) => !scrapedById.has(r.id));
-  const all = [...scraped, ...carried];
+  // Tripadvisor's Content API sometimes prepends its own UI label ("See all
+  // N photos") to the review text — a scraping artifact, not part of what
+  // the guest wrote. Strip it so it never reaches the page or JSON-LD.
+  const all = [...scraped, ...carried].map((r) => (
+    r.text ? { ...r, text: r.text.replace(/^See all \d+ photos?\s*/i, "") } : r
+  ));
 
   if (carried.length) {
     console.log(
