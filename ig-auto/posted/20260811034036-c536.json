@@ -7,5 +7,11 @@
   "angle": "marina",
   "image": "ig/20260811034036-c536.jpg",
   "url": "https://www.chifbay.com/ig/20260811034036-c536.jpg",
-  "sha256": "ade4fe6e97a22bbed58f0b46198a481b7c1ec830cb71ba27f4b03985ea027723"
+  "sha256": "ade4fe6e97a22bbed58f0b46198a481b7c1ec830cb71ba27f4b03985ea027723",
+  "posted_at": "2026-08-16T17:43:25.892Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "18106335410596120",
+    "confirmed": true
+  }
 }
