@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-16T16:16:31.491Z",
+  "updatedAt": "2026-08-16T20:16:28.006Z",
   "aggregate": {
     "rating": 5,
     "count": 45
@@ -25,38 +25,6 @@
       "countryFlag": "",
       "date": "2026-08-15",
       "text": "The tour is really beautiful! It was really great! The crew was incredibly attentive, courteous, and reserved at the right moments. It was just beautiful! I can recommend it to everyone!",
-      "translation": null
-    },
-    {
-      "id": "google-104fb085794cf1dd",
-      "source": "google",
-      "rating": 5,
-      "author": "Spencer Trierweiler",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-14",
-      "text": "Amazing top to bottom. Crazy views. Great views. ",
-      "photos": [],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-5ba568693ac744ae",
-      "source": "google",
-      "rating": 5,
-      "author": "Kyle Claussen",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-14",
-      "text": "Brand new boat - family run - great food and fun ",
-      "photos": [],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
       "translation": null
     },
     {
@@ -127,6 +95,38 @@
       "translation": null
     },
     {
+      "id": "google-104fb085794cf1dd",
+      "source": "google",
+      "rating": 5,
+      "author": "Spencer Trierweiler",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-13",
+      "text": "Amazing top to bottom. Crazy views. Great views. ",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-5ba568693ac744ae",
+      "source": "google",
+      "rating": 5,
+      "author": "Kyle Claussen",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-13",
+      "text": "Brand new boat - family run - great food and fun ",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "gyg-abec3e42a0e2",
       "source": "getyourguide",
       "rating": 5,
@@ -165,27 +165,6 @@
       "translation": null
     },
     {
-      "id": "google-3a5d94c3b4ab5ee3",
-      "source": "google",
-      "rating": 5,
-      "author": "Enzo",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-10",
-      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
-      "photos": [
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
       "id": "gyg-0600ceaed116",
       "source": "getyourguide",
       "rating": 5,
@@ -202,6 +181,27 @@
         "text": "Thank you so much for your kind review! We’re really happy you enjoyed your time with us and discovering Madeira from the sea. It was a pleasure having you on board and giving you the space to enjoy this special moment together. We hope to welcome you back one day The Chifbay Team⚓️",
         "date": "2026-08-10"
       },
+      "translation": null
+    },
+    {
+      "id": "google-3a5d94c3b4ab5ee3",
+      "source": "google",
+      "rating": 5,
+      "author": "Enzo",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-09",
+      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
+      "photos": [
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
       "translation": null
     },
     {
@@ -345,24 +345,6 @@
       "translation": null
     },
     {
-      "id": "google-3f7086e1be276765",
-      "source": "google",
-      "rating": 5,
-      "author": "Dalila Nunes",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-26",
-      "text": "An experience to repeat, it was fantastic, without a doubt I recommend it for a pleasant, relaxed moment in the best company.",
-      "photos": [
-        "assets/reviews/google/google-3f7086e1be276765-1.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
       "id": "google-63010fc81a95b6d9",
       "source": "google",
       "rating": 5,
@@ -373,6 +355,24 @@
       "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
       "photos": [
         "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-3f7086e1be276765",
+      "source": "google",
+      "rating": 5,
+      "author": "Dalila Nunes",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-26",
+      "text": "An experience to repeat, it was fantastic, without a doubt I recommend it for a pleasant, relaxed moment in the best company.",
+      "photos": [
+        "assets/reviews/google/google-3f7086e1be276765-1.jpg"
       ],
       "tourId": null,
       "tourName": null,
@@ -437,26 +437,6 @@
       "translation": null
     },
     {
-      "id": "google-7b024a0503fbc242",
-      "source": "google",
-      "rating": 5,
-      "author": "Sabrina Di Girolamo",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-26",
-      "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
-      "photos": [
-        "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
-        "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
-        "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
       "id": "gyg-7b56db446864",
       "source": "getyourguide",
       "rating": 5,
@@ -504,6 +484,26 @@
         "text": "Thank you very much, Jessy, for this wonderful commentary! We are delighted that you enjoyed the excursion, the atmosphere, the sunset, the swimming, the paddleboarding, and the aperitif. It was a real pleasure to share this moment with you. We hope the video will allow you to keep beautiful souvenirs of this evening for a long time. Looking forward to welcoming you again! 😊",
         "date": "2026-07-28"
       },
+      "translation": null
+    },
+    {
+      "id": "google-7b024a0503fbc242",
+      "source": "google",
+      "rating": 5,
+      "author": "Sabrina Di Girolamo",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-19",
+      "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
+      "photos": [
+        "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
+        "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
+        "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
       "translation": null
     },
     {
@@ -702,7 +702,7 @@
       "tourName": "Luxury Sunset Yacht Experience",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
       "reply": {
-        "text": "Thank you so much, Elena. That means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
+        "text": "Thank you so much Elena, that means a lot to us! 🙏 So glad you had a wonderful time on the water — we hope to see you again if you ever come back to Madeira! ⛵",
         "date": "2026-06-02"
       },
       "translation": null
