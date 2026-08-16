@@ -1,0 +1,53 @@
+{
+  "id": "20260816051624-ceb4",
+  "kind": "feed",
+  "created": "2026-08-16T05:16:43.110Z",
+  "source": "library",
+  "origin": "social/chifbay-47.jpg",
+  "image": "ig/20260816051624-ceb4-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260816051624-ceb4-1.jpg",
+  "sha256": "2d17b61c9fef52b57e6254a1a4d1fa48f329dd4fcd9c0eccd302c4a66be0c579",
+  "slides": [
+    {
+      "origin": "social/chifbay-47.jpg",
+      "image": "ig/20260816051624-ceb4-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260816051624-ceb4-1.jpg",
+      "sha256": "2d17b61c9fef52b57e6254a1a4d1fa48f329dd4fcd9c0eccd302c4a66be0c579"
+    },
+    {
+      "origin": "social/chifbay-49.jpg",
+      "image": "ig/20260816051624-ceb4-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260816051624-ceb4-2.jpg",
+      "sha256": "25f490eb01c80783fa9b8e8143add45a25b6ba61d83f5798885a2c88137a08b7"
+    },
+    {
+      "origin": "social/chifbay-48.jpg",
+      "image": "ig/20260816051624-ceb4-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260816051624-ceb4-3.jpg",
+      "sha256": "d283462c5cbe786596fa8a2ccb3383dd837cc782e4f9e9a34efc9ba9a2b20e1b"
+    },
+    {
+      "origin": "social/chifbay-40.jpg",
+      "image": "ig/20260816051624-ceb4-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260816051624-ceb4-4.jpg",
+      "sha256": "9b65a3f443f1950f65cd32ccc5f7718fa44e08052caa9df2776542d811fc2ce1"
+    }
+  ],
+  "plan_index": 12,
+  "plan_cover": "social/chifbay-47.jpg",
+  "palette": "amber",
+  "angle": "marina",
+  "caption": "Our boat resting in the harbour, traditional fishing boats scattered around her, the village catching the last gold light behind.\nKarnic R8S, private trips out of Funchal marina, skipper included, never more than five on board.\nSend us a message for availability.",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#boattrip",
+    "#boatlife",
+    "#harbourlife",
+    "#islandlife",
+    "#islandhopping",
+    "#madeiratravel"
+  ],
+  "rendered_caption": "Our boat resting in the harbour, traditional fishing boats scattered around her, the village catching the last gold light behind.\nKarnic R8S, private trips out of Funchal marina, skipper included, never more than five on board.\nSend us a message for availability.\n\n#funchal #visitmadeira #boattrip #boatlife #harbourlife #islandlife #islandhopping #madeiratravel",
+  "writer": "claude"
+}
