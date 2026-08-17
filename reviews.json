@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-17T16:16:35.727Z",
+  "updatedAt": "2026-08-17T20:16:31.438Z",
   "aggregate": {
     "rating": 5,
     "count": 46
@@ -55,38 +55,6 @@
       "translation": null
     },
     {
-      "id": "google-104fb085794cf1dd",
-      "source": "google",
-      "rating": 5,
-      "author": "Spencer Trierweiler",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-14",
-      "text": "Amazing top to bottom. Crazy views. Great views. ",
-      "photos": [],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-5ba568693ac744ae",
-      "source": "google",
-      "rating": 5,
-      "author": "Kyle Claussen",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-14",
-      "text": "Brand new boat - family run - great food and fun ",
-      "photos": [],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
       "id": "google-d4feaa7d0c2f327c",
       "source": "google",
       "rating": 5,
@@ -127,6 +95,38 @@
       "countryFlag": "",
       "date": "2026-08-13",
       "text": "Such a fun activity to do when you’re on vacation here. The guys on the boat are very friendly and helpful. This boat trip is a perfect way to relax and have fun in and around the ocean. I would really recommend to book this ",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-104fb085794cf1dd",
+      "source": "google",
+      "rating": 5,
+      "author": "Spencer Trierweiler",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-13",
+      "text": "Amazing top to bottom. Crazy views. Great views. ",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-5ba568693ac744ae",
+      "source": "google",
+      "rating": 5,
+      "author": "Kyle Claussen",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-13",
+      "text": "Brand new boat - family run - great food and fun ",
       "photos": [],
       "tourId": null,
       "tourName": null,
@@ -756,7 +756,7 @@
       "tourName": "Yacht Cruise with Drinks",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
       "reply": {
-        "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+        "text": "Wow, thank you for this amazing review Franziska! It was truly a pleasure having you on board. We’re so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
         "date": "2026-06-02"
       },
       "translation": null
