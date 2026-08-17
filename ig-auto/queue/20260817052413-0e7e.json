@@ -1,0 +1,44 @@
+{
+  "id": "20260817052413-0e7e",
+  "kind": "feed",
+  "created": "2026-08-17T05:24:52.691Z",
+  "source": "library",
+  "origin": "social/chifbay-39.jpg",
+  "image": "ig/20260817052413-0e7e-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260817052413-0e7e-1.jpg",
+  "sha256": "12aa40597187a9f3e66f80876101d5d002ca906b595d7f33dfda27e1e58b5b7f",
+  "slides": [
+    {
+      "origin": "social/chifbay-39.jpg",
+      "image": "ig/20260817052413-0e7e-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260817052413-0e7e-1.jpg",
+      "sha256": "12aa40597187a9f3e66f80876101d5d002ca906b595d7f33dfda27e1e58b5b7f"
+    },
+    {
+      "origin": "social/chifbay-09.jpg",
+      "image": "ig/20260817052413-0e7e-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260817052413-0e7e-2.jpg",
+      "sha256": "fb872f34174c96ae824b740d0b52560f51162aeb72a8313f14e8c6f3f3847758"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260817052413-0e7e-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260817052413-0e7e-3.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    }
+  ],
+  "plan_index": 13,
+  "plan_cover": "social/chifbay-39.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "The sun sitting low, right on the waterline — sky gone orange, sea gone still.\nPrivate boat from Funchal, skipper included, five guests maximum.\nLayer up for the crossing, the air is cooler out there than the colours suggest.\nLink in bio if you want the quiet version of Madeira",
+  "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#atlanticocean",
+    "#seaday",
+    "#sunsetcruise"
+  ],
+  "rendered_caption": "The sun sitting low, right on the waterline — sky gone orange, sea gone still.\nPrivate boat from Funchal, skipper included, five guests maximum.\nLayer up for the crossing, the air is cooler out there than the colours suggest.\nLink in bio if you want the quiet version of Madeira\n\n#madeiraportugal #portugal #atlanticocean #seaday #sunsetcruise",
+  "writer": "claude"
+}
