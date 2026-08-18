@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T16:51:32.853Z",
+  "updatedAt": "2026-08-18T20:16:28.827Z",
   "aggregate": {
     "rating": 5,
     "count": 46
@@ -39,14 +39,14 @@
       "translation": null
     },
     {
-      "id": "google-c8cb77012b8231d8",
+      "id": "google-5ba568693ac744ae",
       "source": "google",
       "rating": 5,
-      "author": "Jessica Claussen",
+      "author": "Kyle Claussen",
       "country": "",
       "countryFlag": "",
       "date": "2026-08-14",
-      "text": "We had the perfect night with Chifbay!  We booked a private sunset cruise.  The crew was perfectly on time.  The boat was very clean and cared for.  The crew was knowledgeable and engaging but not annoying. The food on board was delicious and fresh and they kept the drinks flowing to our liking. I would highly recommend this experience if you want a relaxed and beautiful way to spend an evening in Madeira. ",
+      "text": "Brand new boat - family run - great food and fun ",
       "photos": [],
       "tourId": null,
       "tourName": null,
@@ -71,14 +71,14 @@
       "translation": null
     },
     {
-      "id": "google-5ba568693ac744ae",
+      "id": "google-c8cb77012b8231d8",
       "source": "google",
       "rating": 5,
-      "author": "Kyle Claussen",
+      "author": "Jessica Claussen",
       "country": "",
       "countryFlag": "",
       "date": "2026-08-14",
-      "text": "Brand new boat - family run - great food and fun ",
+      "text": "We had the perfect night with Chifbay!  We booked a private sunset cruise.  The crew was perfectly on time.  The boat was very clean and cared for.  The crew was knowledgeable and engaging but not annoying. The food on board was delicious and fresh and they kept the drinks flowing to our liking. I would highly recommend this experience if you want a relaxed and beautiful way to spend an evening in Madeira. ",
       "photos": [],
       "tourId": null,
       "tourName": null,
@@ -87,14 +87,14 @@
       "translation": null
     },
     {
-      "id": "google-d4feaa7d0c2f327c",
+      "id": "google-ea69a044fdeea8d0",
       "source": "google",
       "rating": 5,
-      "author": "Daudier Polcyn",
+      "author": "Lisa Mark",
       "country": "",
       "countryFlag": "",
       "date": "2026-08-13",
-      "text": "Sunset boat tour with Chifbay and it was one of the best things we did in Madeira. My wife and I loved every minute. Paco and Hugo took care of us the whole time, super friendly and clearly know what they’re doing. Food was really good too, wasn’t expecting that on a boat. And the view of the island as the sun went down was incredible. 100% recommend this tour to anyone visiting Funchal ",
+      "text": "Such a fun activity to do when you’re on vacation here. The guys on the boat are very friendly and helpful. This boat trip is a perfect way to relax and have fun in and around the ocean. I would really recommend to book this ",
       "photos": [],
       "tourId": null,
       "tourName": null,
@@ -119,14 +119,14 @@
       "translation": null
     },
     {
-      "id": "google-ea69a044fdeea8d0",
+      "id": "google-d4feaa7d0c2f327c",
       "source": "google",
       "rating": 5,
-      "author": "Lisa Mark",
+      "author": "Daudier Polcyn",
       "country": "",
       "countryFlag": "",
       "date": "2026-08-13",
-      "text": "Such a fun activity to do when you’re on vacation here. The guys on the boat are very friendly and helpful. This boat trip is a perfect way to relax and have fun in and around the ocean. I would really recommend to book this ",
+      "text": "Sunset boat tour with Chifbay and it was one of the best things we did in Madeira. My wife and I loved every minute. Paco and Hugo took care of us the whole time, super friendly and clearly know what they’re doing. Food was really good too, wasn’t expecting that on a boat. And the view of the island as the sun went down was incredible. 100% recommend this tour to anyone visiting Funchal ",
       "photos": [],
       "tourId": null,
       "tourName": null,
@@ -213,6 +213,22 @@
       "translation": null
     },
     {
+      "id": "google-6a9cd84eec9e97f6",
+      "source": "google",
+      "rating": 5,
+      "author": "Remo Grüniger",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-04",
+      "text": "We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them worked together seamlessly, warmly, and professionally. You could immediately tell that their passion and experience combined. The excellent drinks, delicious food, and fresh, perfectly ripe pineapple were particularly noteworthy – simply fantastic. The boat trip was sporty and fast, but always considerate and safe. It struck the perfect balance between action and relaxation. There were two or three opportunities to swim – anyone who wanted to could go in the water; it was all very straightforward. The onboard toilet was also a real plus. We had a blast the whole time and felt completely at ease. We're certain of one thing: if we're ever back in Madeira, we'll definitely be back!",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "google-4655e13aecd4d356",
       "source": "google",
       "rating": 5,
@@ -224,22 +240,6 @@
       "photos": [
         "assets/reviews/google/google-4655e13aecd4d356-1.jpg"
       ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-6a9cd84eec9e97f6",
-      "source": "google",
-      "rating": 5,
-      "author": "Remo Grüniger",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-04",
-      "text": "We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them worked together seamlessly, warmly, and professionally. You could immediately tell that their passion and experience combined. The excellent drinks, delicious food, and fresh, perfectly ripe pineapple were particularly noteworthy – simply fantastic. The boat trip was sporty and fast, but always considerate and safe. It struck the perfect balance between action and relaxation. There were two or three opportunities to swim – anyone who wanted to could go in the water; it was all very straightforward. The onboard toilet was also a real plus. We had a blast the whole time and felt completely at ease. We're certain of one thing: if we're ever back in Madeira, we'll definitely be back!",
-      "photos": [],
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
@@ -279,33 +279,19 @@
       "translation": null
     },
     {
-      "id": "google-63010fc81a95b6d9",
+      "id": "google-ff0b71a926e1e229",
       "source": "google",
       "rating": 5,
-      "author": "Patricia Nobrega",
+      "author": "Timoteo Gomes",
       "country": "",
       "countryFlag": "",
       "date": "2026-07-28",
-      "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
+      "text": "Sometimes we forget how lucky we are. This tour was a great way to disconnect, appreciate the Madeira coast and enjoy a spectacular sunset. It's worth it. The crew was very friendly and contributed to making the whole experience even more enjoyable. I recommend it.",
       "photos": [
-        "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
+        "assets/reviews/google/google-ff0b71a926e1e229-1.jpg",
+        "assets/reviews/google/google-ff0b71a926e1e229-2.jpg",
+        "assets/reviews/google/google-ff0b71a926e1e229-3.jpg"
       ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-a9d225d691bb7a88",
-      "source": "google",
-      "rating": 5,
-      "author": "Avelino Paulo Nóbrega",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-28",
-      "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
-      "photos": [],
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
@@ -331,18 +317,32 @@
       "translation": null
     },
     {
-      "id": "google-ff0b71a926e1e229",
+      "id": "google-a9d225d691bb7a88",
       "source": "google",
       "rating": 5,
-      "author": "Timoteo Gomes",
+      "author": "Avelino Paulo Nóbrega",
       "country": "",
       "countryFlag": "",
       "date": "2026-07-28",
-      "text": "Sometimes we forget how lucky we are. This tour was a great way to disconnect, appreciate the Madeira coast and enjoy a spectacular sunset. It's worth it. The crew was very friendly and contributed to making the whole experience even more enjoyable. I recommend it.",
+      "text": "A spectacular experience along the island's coast. Very attentive and helpful staff. There was never a shortage of drinks and good cheer. I highly recommend this boat trip.",
+      "photos": [],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "google-63010fc81a95b6d9",
+      "source": "google",
+      "rating": 5,
+      "author": "Patricia Nobrega",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-28",
+      "text": "Wonderful. It was unforgettable! Very friendly and attentive staff. I recommend it!",
       "photos": [
-        "assets/reviews/google/google-ff0b71a926e1e229-1.jpg",
-        "assets/reviews/google/google-ff0b71a926e1e229-2.jpg",
-        "assets/reviews/google/google-ff0b71a926e1e229-3.jpg"
+        "assets/reviews/google/google-63010fc81a95b6d9-1.jpg"
       ],
       "tourId": null,
       "tourName": null,
@@ -756,7 +756,7 @@
       "tourName": "Yacht Cruise with Drinks",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
       "reply": {
-        "text": "Wow, thank you for this amazing review Franziska! It was truly a pleasure having you on board. We’re so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+        "text": "Wow, thank you for this amazing review, Franziska! It was truly a pleasure having you on board. We're so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
         "date": "2026-06-02"
       },
       "translation": null
