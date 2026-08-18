@@ -1,0 +1,51 @@
+{
+  "id": "20260818051750-0569",
+  "kind": "feed",
+  "created": "2026-08-18T05:18:09.358Z",
+  "source": "library",
+  "origin": "social/chifbay-45.jpg",
+  "image": "ig/20260818051750-0569-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260818051750-0569-1.jpg",
+  "sha256": "c36277878d0f72afc009423691774c6da707fa0d540c1bf87995afba3d2c75d8",
+  "slides": [
+    {
+      "origin": "social/chifbay-45.jpg",
+      "image": "ig/20260818051750-0569-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260818051750-0569-1.jpg",
+      "sha256": "c36277878d0f72afc009423691774c6da707fa0d540c1bf87995afba3d2c75d8"
+    },
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260818051750-0569-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260818051750-0569-2.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260818051750-0569-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260818051750-0569-3.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-40.jpg",
+      "image": "ig/20260818051750-0569-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260818051750-0569-4.jpg",
+      "sha256": "9b65a3f443f1950f65cd32ccc5f7718fa44e08052caa9df2776542d811fc2ce1"
+    }
+  ],
+  "plan_index": 14,
+  "plan_cover": "social/chifbay-45.jpg",
+  "palette": "amber",
+  "angle": "onboard",
+  "caption": "Two on board, feet up, Funchal glowing gold behind us.\nKarnic R8S, private boat, skipper included.\nWe keep it to five guests. Ask us about your dates.",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#privateboattour",
+    "#boattour",
+    "#dayonaboat",
+    "#islandlife"
+  ],
+  "rendered_caption": "Two on board, feet up, Funchal glowing gold behind us.\nKarnic R8S, private boat, skipper included.\nWe keep it to five guests. Ask us about your dates.\n\n#madeiraisland #madeira #privateboattour #boattour #dayonaboat #islandlife",
+  "writer": "claude"
+}
