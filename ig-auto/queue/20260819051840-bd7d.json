@@ -1,0 +1,52 @@
+{
+  "id": "20260819051840-bd7d",
+  "kind": "feed",
+  "created": "2026-08-19T05:18:59.766Z",
+  "source": "library",
+  "origin": "social/chifbay-56.jpg",
+  "image": "ig/20260819051840-bd7d-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260819051840-bd7d-1.jpg",
+  "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164",
+  "slides": [
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260819051840-bd7d-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260819051840-bd7d-1.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    },
+    {
+      "origin": "social/chifbay-14.jpg",
+      "image": "ig/20260819051840-bd7d-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260819051840-bd7d-2.jpg",
+      "sha256": "997dcfbd7802bf6e9c18a821fc6269f236faebdc1d638dac3ab069d1cf82d1c8"
+    },
+    {
+      "origin": "social/chifbay-67.jpg",
+      "image": "ig/20260819051840-bd7d-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260819051840-bd7d-3.jpg",
+      "sha256": "4930a8bcb3d30ad0f1174dc0e590938a61980c6add6d5b52c5a165ef76a4c6ce"
+    },
+    {
+      "origin": "social/chifbay-57.jpg",
+      "image": "ig/20260819051840-bd7d-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260819051840-bd7d-4.jpg",
+      "sha256": "c6b5e1c59eb807b8f67a69d3f0a0e656a0a8fac2b7da62b33460c389d10a3009"
+    }
+  ],
+  "plan_index": 15,
+  "plan_cover": "social/chifbay-56.jpg",
+  "palette": "golden",
+  "angle": "onboard",
+  "caption": "A glass of Madeira wine, some cheese and fruit, the sea right there beside us.\nSmall touches we like to bring along on the Karnic R8S.\nPrivate boat, skipper included, five guests maximum.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#visitmadeira",
+    "#funchal",
+    "#boatlife",
+    "#boattrip",
+    "#islandlife",
+    "#slowtravel",
+    "#travelportugal"
+  ],
+  "rendered_caption": "A glass of Madeira wine, some cheese and fruit, the sea right there beside us.\nSmall touches we like to bring along on the Karnic R8S.\nPrivate boat, skipper included, five guests maximum.\nBook direct on chifbay.com\n\n#visitmadeira #funchal #boatlife #boattrip #islandlife #slowtravel #travelportugal",
+  "writer": "claude"
+}
