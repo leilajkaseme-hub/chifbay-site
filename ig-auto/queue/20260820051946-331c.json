@@ -1,0 +1,53 @@
+{
+  "id": "20260820051946-331c",
+  "kind": "feed",
+  "created": "2026-08-20T05:19:57.022Z",
+  "source": "library",
+  "origin": "social/chifbay-09.jpg",
+  "image": "ig/20260820051946-331c-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260820051946-331c-1.jpg",
+  "sha256": "fb872f34174c96ae824b740d0b52560f51162aeb72a8313f14e8c6f3f3847758",
+  "slides": [
+    {
+      "origin": "social/chifbay-09.jpg",
+      "image": "ig/20260820051946-331c-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260820051946-331c-1.jpg",
+      "sha256": "fb872f34174c96ae824b740d0b52560f51162aeb72a8313f14e8c6f3f3847758"
+    },
+    {
+      "origin": "social/chifbay-60.jpg",
+      "image": "ig/20260820051946-331c-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260820051946-331c-2.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    },
+    {
+      "origin": "social/chifbay-38.jpg",
+      "image": "ig/20260820051946-331c-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260820051946-331c-3.jpg",
+      "sha256": "f9a2ccef2c88e8777630bb92b991ae2648450ff304204c36a48e92e8a5a37963"
+    },
+    {
+      "origin": "social/chifbay-56.jpg",
+      "image": "ig/20260820051946-331c-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260820051946-331c-4.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    }
+  ],
+  "plan_index": 16,
+  "plan_cover": "social/chifbay-09.jpg",
+  "palette": "amber",
+  "angle": "cliffs",
+  "caption": "Tucked between the rocks, water calm enough to see straight through it.\nThis is one of the quiet corners we like to stop at on the Karnic R8S.\nPrivate boat, skipper included, five guests maximum.\nWhatsApp us to check a date.",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#seaday",
+    "#atlanticocean",
+    "#seacliffs",
+    "#coastline",
+    "#visitportugal",
+    "#traveleurope"
+  ],
+  "rendered_caption": "Tucked between the rocks, water calm enough to see straight through it.\nThis is one of the quiet corners we like to stop at on the Karnic R8S.\nPrivate boat, skipper included, five guests maximum.\nWhatsApp us to check a date.\n\n#portugal #madeiraportugal #seaday #atlanticocean #seacliffs #coastline #visitportugal #traveleurope",
+  "writer": "claude"
+}
