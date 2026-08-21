@@ -1,0 +1,50 @@
+{
+  "id": "20260821052046-fb35",
+  "kind": "feed",
+  "created": "2026-08-21T05:21:03.168Z",
+  "source": "library",
+  "origin": "social/chifbay-40.jpg",
+  "image": "ig/20260821052046-fb35-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260821052046-fb35-1.jpg",
+  "sha256": "9b65a3f443f1950f65cd32ccc5f7718fa44e08052caa9df2776542d811fc2ce1",
+  "slides": [
+    {
+      "origin": "social/chifbay-40.jpg",
+      "image": "ig/20260821052046-fb35-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260821052046-fb35-1.jpg",
+      "sha256": "9b65a3f443f1950f65cd32ccc5f7718fa44e08052caa9df2776542d811fc2ce1"
+    },
+    {
+      "origin": "social/chifbay-44.jpg",
+      "image": "ig/20260821052046-fb35-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260821052046-fb35-2.jpg",
+      "sha256": "0f25e691199232702bce20b162881ce3a7031c5973c168470c0465a7ddd26e22"
+    },
+    {
+      "origin": "social/chifbay-57.jpg",
+      "image": "ig/20260821052046-fb35-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260821052046-fb35-3.jpg",
+      "sha256": "c6b5e1c59eb807b8f67a69d3f0a0e656a0a8fac2b7da62b33460c389d10a3009"
+    },
+    {
+      "origin": "social/chifbay-21.jpg",
+      "image": "ig/20260821052046-fb35-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260821052046-fb35-4.jpg",
+      "sha256": "ff9acaadd836b1b39101173b29847c529bdf7f3137f0aec2a66029e2efcb61c6"
+    }
+  ],
+  "plan_index": 17,
+  "plan_cover": "social/chifbay-40.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "Heading back in, the hills catching the last light and the water gone gold.\nKarnic R8S, private boat, skipper included, five guests maximum.\nIt cools fast once the sun drops this low — worth a layer for the ride in.\nDetails and dates on chifbay.com",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#privateboattour",
+    "#goldenhour"
+  ],
+  "rendered_caption": "Heading back in, the hills catching the last light and the water gone gold.\nKarnic R8S, private boat, skipper included, five guests maximum.\nIt cools fast once the sun drops this low — worth a layer for the ride in.\nDetails and dates on chifbay.com\n\n#madeira #madeiraisland #boattour #privateboattour #goldenhour",
+  "writer": "claude"
+}
