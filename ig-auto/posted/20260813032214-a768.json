@@ -7,5 +7,11 @@
   "angle": "review",
   "image": "ig/20260813032214-a768.jpg",
   "url": "https://www.chifbay.com/ig/20260813032214-a768.jpg",
-  "sha256": "8ba163f83479bd3696af7567b1e5aadf0e3b97d1a0217c01c73c50c78eb82e0c"
+  "sha256": "8ba163f83479bd3696af7567b1e5aadf0e3b97d1a0217c01c73c50c78eb82e0c",
+  "posted_at": "2026-08-22T17:36:40.614Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17882157423621582",
+    "confirmed": true
+  }
 }
