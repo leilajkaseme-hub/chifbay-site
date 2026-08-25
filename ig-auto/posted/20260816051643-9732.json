@@ -7,5 +7,11 @@
   "angle": "cliffs",
   "image": "ig/20260816051643-9732.jpg",
   "url": "https://www.chifbay.com/ig/20260816051643-9732.jpg",
-  "sha256": "07c50311405c7326fc7359380ecc44cca739569369a131fcb3410fb9e701321e"
+  "sha256": "07c50311405c7326fc7359380ecc44cca739569369a131fcb3410fb9e701321e",
+  "posted_at": "2026-08-25T18:58:20.053Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "18101234135340259",
+    "confirmed": true
+  }
 }
