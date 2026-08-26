@@ -7,5 +7,11 @@
   "angle": "swimstop",
   "image": "ig/20260817052453-2cfb.jpg",
   "url": "https://www.chifbay.com/ig/20260817052453-2cfb.jpg",
-  "sha256": "bc0660c8e6eac4841a8bca578dde97710a63f7b4d133f2a9cb4ef78de49630c6"
+  "sha256": "bc0660c8e6eac4841a8bca578dde97710a63f7b4d133f2a9cb4ef78de49630c6",
+  "posted_at": "2026-08-26T19:20:07.417Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17937653187357951",
+    "confirmed": true
+  }
 }
