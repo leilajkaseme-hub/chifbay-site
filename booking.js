@@ -234,6 +234,15 @@
       ") scale(" + s.toFixed(4) + ')">' + d + "</g>";
   }
 
+  // Standalone version of the same glyph for the mobile list (bkrl) — the map
+  // icons live inside the big coordinate-transformed <g>, this one is a plain
+  // self-contained <svg> sized in normal flow next to the place name.
+  function listIconMarkup(id) {
+    var d = ICON_PATHS[id];
+    if (!d) return "";
+    return '<svg class="bkrlicon" viewBox="0 0 24 24" aria-hidden="true">' + d + "</svg>";
+  }
+
   /**
    * routeIds — the stops this option visits, or null before anything is picked.
    * With null the page's whole reachable coast is drawn and nothing is marked
@@ -313,7 +322,8 @@
       var s = C.stop(id);
       if (!s) return;
       var isTurn = id === turn;
-      list += '<li' + (isTurn ? ' class="turn"' : "") + "><b>" + esc(s.name) + "</b><span>" +
+      list += '<li' + (isTurn ? ' class="turn"' : "") + "><b>" + listIconMarkup(s.icon) +
+        esc(s.name) + "</b><span>" +
         esc(isTurn ? t("stop.turn") : t("stop." + id)) + "</span></li>";
     });
     list += "</ol>";

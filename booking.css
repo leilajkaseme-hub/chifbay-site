@@ -129,6 +129,9 @@
 .bkrl li span{display:block;color:var(--muted);font-size:.78rem;font-family:'Space Mono',monospace;
   letter-spacing:.05em}
 .bkrl li.turn b{color:var(--teal)}
+.bkrlicon{display:inline-block;width:14px;height:14px;margin:0 6px -2px 0;fill:none;
+  stroke:var(--photo-accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+.bkrlicon .eye{fill:var(--photo-accent);stroke:none;opacity:.8}
 
 /* ------------------------------------------------------------- the choices */
 /* Two across, always. Three would leave the fourth option stranded on its own
@@ -264,16 +267,15 @@
 #bkstripe{min-height:520px;border-radius:var(--radius);overflow:hidden}
 
 /* ------------------------------------------------------------ under 760px
-   The map used to switch to a plain text list here, because the SVG's
-   labels shrink to ~6px once width:100% squeezes a 900-unit-wide drawing
-   into a 320px phone screen. Scrolling it horizontally at its real size
-   keeps the actual graphic instead of dropping to a list. */
+   The SVG's labels shrink to ~6px once width:100% squeezes a 900-unit-wide
+   drawing into a phone screen, and scrolling it sideways at readable size
+   still only shows part of the route at once. Show the full route as a
+   vertical list instead — same gold dots and place icons as the map, every
+   stop visible with no swipe needed. */
 @media(max-width:760px){
+  .bkmapsvg{display:none}
+  .bkrl{display:block}
   .bkmapbox{padding:20px}
-  #bkmap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -20px;padding:0 20px 4px}
-  #bkmap::before{content:"swipe to see the whole coast →";display:block;color:var(--muted);
-    font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.05em;margin-bottom:10px}
-  .bkmapsvg{width:820px;max-width:none;flex-shrink:0}
 }
 @media(max-width:640px){
   /* clears the announcement bar plus the fixed nav */
