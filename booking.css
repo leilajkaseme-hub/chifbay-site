@@ -263,11 +263,17 @@
 .bksafe{color:var(--muted);font-size:.8rem;margin-top:20px;line-height:1.7;max-width:64ch}
 #bkstripe{min-height:520px;border-radius:var(--radius);overflow:hidden}
 
-/* ------------------------------------------------------------ under 760px */
+/* ------------------------------------------------------------ under 760px
+   The map used to switch to a plain text list here, because the SVG's
+   labels shrink to ~6px once width:100% squeezes a 900-unit-wide drawing
+   into a 320px phone screen. Scrolling it horizontally at its real size
+   keeps the actual graphic instead of dropping to a list. */
 @media(max-width:760px){
-  .bkmapsvg{display:none}
-  .bkrl{display:block}
   .bkmapbox{padding:20px}
+  #bkmap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -20px;padding:0 20px 4px}
+  #bkmap::before{content:"swipe to see the whole coast →";display:block;color:var(--muted);
+    font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.05em;margin-bottom:10px}
+  .bkmapsvg{width:820px;max-width:none;flex-shrink:0}
 }
 @media(max-width:640px){
   /* clears the announcement bar plus the fixed nav */
