@@ -1,0 +1,50 @@
+{
+  "id": "20260828165757-797c",
+  "kind": "feed",
+  "created": "2026-08-28T16:58:07.422Z",
+  "source": "library",
+  "origin": "social/chifbay-57.jpg",
+  "image": "ig/20260828165757-797c-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260828165757-797c-1.jpg",
+  "sha256": "c6b5e1c59eb807b8f67a69d3f0a0e656a0a8fac2b7da62b33460c389d10a3009",
+  "slides": [
+    {
+      "origin": "social/chifbay-57.jpg",
+      "image": "ig/20260828165757-797c-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260828165757-797c-1.jpg",
+      "sha256": "c6b5e1c59eb807b8f67a69d3f0a0e656a0a8fac2b7da62b33460c389d10a3009"
+    },
+    {
+      "origin": "social/chifbay-12.jpg",
+      "image": "ig/20260828165757-797c-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260828165757-797c-2.jpg",
+      "sha256": "ffb94a1ab5f936e365ee84a9fd64de010a72f5f0c59dcf439897d9c9f9c90f3e"
+    },
+    {
+      "origin": "social/chifbay-05.jpg",
+      "image": "ig/20260828165757-797c-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260828165757-797c-3.jpg",
+      "sha256": "71773312660efafb30c4bd893215df0d7d91bcd454f3cfe2d3cb8d76dbad2340"
+    },
+    {
+      "origin": "social/chifbay-63.jpg",
+      "image": "ig/20260828165757-797c-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260828165757-797c-4.jpg",
+      "sha256": "fa10e7aaafc95fefd37efee44ba7348ef09e71def2e35a8eed8c292b8e860388"
+    }
+  ],
+  "plan_index": 25,
+  "plan_cover": "social/chifbay-57.jpg",
+  "palette": "soft",
+  "angle": "onboard",
+  "caption": "Poncha, Madeira wine, olives, cheese, chouriço — laid out on the bow before we even leave the marina.\nKarnic R8S, private boat, skipper included, five guests maximum.\nNothing fancy, just the local stuff done right.\nMessage us if you want a date on the water.",
+  "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#atlanticocean",
+    "#seaday",
+    "#dayonaboat"
+  ],
+  "rendered_caption": "Poncha, Madeira wine, olives, cheese, chouriço — laid out on the bow before we even leave the marina.\nKarnic R8S, private boat, skipper included, five guests maximum.\nNothing fancy, just the local stuff done right.\nMessage us if you want a date on the water.\n\n#madeiraportugal #portugal #atlanticocean #seaday #dayonaboat",
+  "writer": "claude"
+}
