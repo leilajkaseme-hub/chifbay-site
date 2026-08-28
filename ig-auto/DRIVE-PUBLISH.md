@@ -25,46 +25,63 @@ places to look when Instagram changes something.
 **A photo posts the day after it lands**, not the same day, because the queue is
 built once at 05:00. That is the "next day at a fixed hour" the brief asked for.
 
-## Setting it up — three steps, about ten minutes
+## Setting it up
 
-Steps 1 and 2 are in Google's consoles and only the account owner can do them.
+Most of it is already done. **Steps 1 and 2 below are finished** — recorded here
+so the setup can be rebuilt or audited later. Only step 3 is left, and it is two
+copy-pastes.
 
-### 1. Create a service account
+### 1. Service account — DONE 2026-08-28
+
+| | |
+|---|---|
+| Google Cloud project | **My Project 65947** — `decoded-shadow-503522-g1` |
+| Google Drive API | **enabled** |
+| Service account | `chifbay-drive-publish@decoded-shadow-503522-g1.iam.gserviceaccount.com` |
+| IAM roles | **none, deliberately** — its access comes from the folder share, not from IAM |
 
 A service account is a robot Google account. Its credential never expires and
-nobody has to re-approve a consent screen, which is the reason it was chosen
-over a normal OAuth login.
+nobody has to re-approve a consent screen, which is why it beat a normal OAuth
+login for a job that must run unattended for years.
 
-1. https://console.cloud.google.com/ — pick a project or make one
-2. Enable the **Google Drive API** for it
-3. **IAM & Admin → Service Accounts → Create**. Any name. No roles needed —
-   it gets its access from the folder being shared with it, not from IAM.
-4. Open it → **Keys → Add key → Create new key → JSON**. A file downloads.
-5. Copy the `client_email` from that file. It looks like
-   `something@your-project.iam.gserviceaccount.com`.
+### 2. Folder shared — DONE 2026-08-28
 
-### 2. Share the folder with it
-
-1. Open the **publish** folder in Drive, in `chifandcopt@gmail.com`
-2. Share → paste the `client_email` → **Viewer** → Send
-3. Copy the folder id out of the URL. In
-   `https://drive.google.com/drive/folders/1A2B3C4D5E6F`
-   the id is `1A2B3C4D5E6F`.
+| | |
+|---|---|
+| Folder | **PUBLISH**, in `chifandcopt@gmail.com` (owner: Chif & Co) |
+| Folder id | `1s2Jh9uGJn9SPyB7vpEyEW7uGus3mrF1s` |
+| Service account access | **Viewer** |
+| General access | **Restricted** — not public, and it must stay that way |
 
 Viewer, not Editor, on purpose: this job never writes to Drive and never
 deletes. The folder is yours; a sync job that *can* delete photos is a sync job
 that eventually does.
 
-### 3. Two GitHub secrets
+### 3. The key and the two secrets — LEFT TO DO
 
-In the `chifbay-site` repo → Settings → Secrets and variables → Actions:
+Do the whole of this in one sitting, so the private key is never left sitting in
+your Downloads folder.
+
+1. Open the service account:
+   https://console.cloud.google.com/iam-admin/serviceaccounts?project=decoded-shadow-503522-g1
+2. Click `chifbay-drive-publish...` → **Keys → Add key → Create new key → JSON**.
+   A file downloads. **That file is a private key** — it is the whole credential,
+   so treat it like a password.
+3. In the `chifbay-site` repo → Settings → Secrets and variables → Actions →
+   New repository secret:
 
 | Secret | Value |
 |---|---|
-| `GOOGLE_SERVICE_ACCOUNT_JSON` | the whole contents of the JSON key file |
-| `DRIVE_PUBLISH_FOLDER_ID` | the folder id from step 2 |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | the entire contents of the downloaded JSON file |
+| `DRIVE_PUBLISH_FOLDER_ID` | `1s2Jh9uGJn9SPyB7vpEyEW7uGus3mrF1s` |
 
-Then run the workflow once by hand from the Actions tab to prove it.
+4. Delete the downloaded JSON file from your machine. GitHub has it now, and a
+   private key in a Downloads folder is the thing that leaks later.
+5. Actions tab → **ig-auto — pull new photos from the Drive publish folder** →
+   Run workflow. Drop a photo in PUBLISH first so there is something to pull.
+
+Until those secrets exist the daily job exits cleanly with a notice instead of
+failing, so nothing is broken in the meantime.
 
 ## Checking it
 
