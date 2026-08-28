@@ -93,13 +93,25 @@ if (!Number.isFinite(BUDGET) || BUDGET < 0) {
 const readJSON = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 const langsInPlay = () => (ONLY_LANG ? [ONLY_LANG] : Object.keys(LANGS));
 
-/** Articles live one level deeper under /<lang>/posts/, so every relative hop
- *  out of the file gains one "../". Absolute paths ("/track.js") are already
- *  correct and must not be touched. */
+/** Force every relative asset reference to exactly two hops.
+ *
+ *  A post lives at /<lang>/posts/<slug>.html, which is two levels below the
+ *  site root, so "../../peak.css" is correct and nothing else is.
+ *
+ *  This used to ADD one hop to whatever came back, which is right only if the
+ *  model echoes the English file's single "../". It stopped being right the
+ *  moment the first translated sibling existed in the folder: the model read
+ *  the neighbours, copied their already-correct "../../", and the add-one step
+ *  turned it into "../../../". 23 of the first 41 pages came out that way and
+ *  would have rendered with no stylesheet at all.
+ *
+ *  Setting the depth rather than incrementing it is correct whatever the model
+ *  produces, and it repairs a file that is already wrong. Absolute paths
+ *  ("/track.js") and full URLs are untouched. */
 function deepenPaths(html) {
   return html
-    .replace(/(href|src)="\.\.\//g, '$1="../../')
-    .replace(/url\(['"]?\.\.\//g, "url('../../");
+    .replace(/(href|src)="(?:\.\.\/)+/g, '$1="../../')
+    .replace(/url\((['"]?)(?:\.\.\/)+/g, "url($1../../");
 }
 
 function setDocMeta(html, lang, slug) {
