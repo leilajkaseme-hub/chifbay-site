@@ -1,0 +1,84 @@
+name: ig-auto — pull new photos from the Drive publish folder
+
+# Runs 30 minutes BEFORE the top-up that builds the queue, so a photo dropped
+# in Drive yesterday is queued this morning and posted at 10:00 UTC.
+#
+# It posts nothing. It only adds files to the photo library that ig-auto
+# already reads, so the daily post keeps all its existing guards.
+#
+# Setup (two secrets, a shared folder): ig-auto/DRIVE-PUBLISH.md
+
+on:
+  schedule:
+    - cron: "30 4 * * *"   # 04:30 UTC, before top-up at 05:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-auto-drive-sync
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash   # so `a | tee b` cannot report a failed run as green
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Missing secrets are the normal state until setup is done. Say so and
+      # stop cleanly — a red cross every morning would train everyone to
+      # ignore this job's alerts, which is how the last ig-auto outage hid.
+      - name: Are the secrets set?
+        id: gate
+        env:
+          KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          FOLDER: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
+        run: |
+          if [ -z "$KEY" ] || [ -z "$FOLDER" ]; then
+            echo "ready=no" >> "$GITHUB_OUTPUT"
+            echo "::notice::Drive sync is not set up yet — see ig-auto/DRIVE-PUBLISH.md"
+          else
+            echo "ready=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Pull new photos
+        if: steps.gate.outputs.ready == 'yes'
+        working-directory: ig-auto
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
+        run: node bin/drive-sync.mjs
+
+      # Proves the queue builder will accept what we just wrote. Better to fail
+      # here, 30 minutes before top-up, than to have top-up refuse at 05:00.
+      - name: Check the library is still usable
+        if: steps.gate.outputs.ready == 'yes'
+        working-directory: ig-auto
+        run: node bin/check-library.mjs
+
+      - name: Commit & push
+        if: steps.gate.outputs.ready == 'yes'
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "no new photos — nothing to commit"
+            exit 0
+          fi
+          N=$(git status --porcelain social-drive | wc -l | tr -d ' ')
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "ig-auto: ${N} new photo(s) from the Drive publish folder"
+          git pull --rebase origin main || true
+          git push
