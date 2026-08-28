@@ -57,31 +57,51 @@ Viewer, not Editor, on purpose: this job never writes to Drive and never
 deletes. The folder is yours; a sync job that *can* delete photos is a sync job
 that eventually does.
 
-### 3. The key and the two secrets — LEFT TO DO
+### 3. Secrets
 
-Do the whole of this in one sitting, so the private key is never left sitting in
-your Downloads folder.
+`DRIVE_PUBLISH_FOLDER_ID` — **DONE 2026-08-28.** It is a folder id, not a
+credential; it is in this file and in the git history already.
 
-1. Open the service account:
-   https://console.cloud.google.com/iam-admin/serviceaccounts?project=decoded-shadow-503522-g1
-2. Click `chifbay-drive-publish...` → **Keys → Add key → Create new key → JSON**.
-   A file downloads. **That file is a private key** — it is the whole credential,
-   so treat it like a password.
-3. In the `chifbay-site` repo → Settings → Secrets and variables → Actions →
-   New repository secret:
+`GOOGLE_SERVICE_ACCOUNT_JSON` — **left to the account owner, deliberately.**
+That file is a private key: whoever holds it can read this Drive. Creating it
+and moving it is a two-minute job and it belongs to the person who owns the
+account, not to an assistant session.
 
-| Secret | Value |
-|---|---|
-| `GOOGLE_SERVICE_ACCOUNT_JSON` | the entire contents of the downloaded JSON file |
-| `DRIVE_PUBLISH_FOLDER_ID` | `1s2Jh9uGJn9SPyB7vpEyEW7uGus3mrF1s` |
+Three commands, in one sitting, so the key is never left lying around:
 
-4. Delete the downloaded JSON file from your machine. GitHub has it now, and a
-   private key in a Downloads folder is the thing that leaks later.
-5. Actions tab → **ig-auto — pull new photos from the Drive publish folder** →
-   Run workflow. Drop a photo in PUBLISH first so there is something to pull.
+```bash
+# 1. Create the key in the console:
+#    https://console.cloud.google.com/iam-admin/serviceaccounts?project=decoded-shadow-503522-g1
+#    click chifbay-drive-publish -> Keys -> Add key -> Create new key -> JSON
 
-Until those secrets exist the daily job exits cleanly with a notice instead of
+# 2. Push the file straight into the secret. Nothing is opened, printed or
+#    pasted — gh encrypts it locally and uploads it. Fix the filename first.
+gh secret set GOOGLE_SERVICE_ACCOUNT_JSON \
+  --repo leilajkaseme-hub/chifbay-site \
+  < ~/Downloads/decoded-shadow-503522-g1-XXXXXXXX.json
+
+# 3. Shred the local copy. GitHub has it now, and a private key parked in
+#    Downloads is the one that leaks six months from now.
+rm ~/Downloads/decoded-shadow-503522-g1-XXXXXXXX.json
+```
+
+Prefer that to pasting the JSON into the GitHub web form: the value never
+touches a clipboard, a terminal scrollback or a browser field.
+
+Then check and run it:
+
+```bash
+gh secret list --repo leilajkaseme-hub/chifbay-site      # both names present?
+gh workflow run ig-auto-drive-sync.yml --repo leilajkaseme-hub/chifbay-site
+```
+
+Drop a photo in PUBLISH first, or the run has nothing to pull.
+
+Until that secret exists the daily job exits cleanly with a notice instead of
 failing, so nothing is broken in the meantime.
+
+**If the key ever leaks**, delete it on that same Keys page and create a new
+one. The service account keeps its Drive access; only the key changes.
 
 ## Checking it
 
