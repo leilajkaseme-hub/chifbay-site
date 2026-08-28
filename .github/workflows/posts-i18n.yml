@@ -1,0 +1,120 @@
+name: Journal — translate articles (fr / de / pt / es / it)
+
+# Runs in GitHub's cloud on a schedule. Your computer can be OFF.
+#
+# Why this exists, and why it is not translate.yml:
+# translate.yml calls scripts/i18n-build.mjs, which needs ANTHROPIC_API_KEY.
+# That secret has always been empty, so it has never run once, which is why 67
+# articles sat in English only while most of the search volume for the places
+# they describe is Portuguese, Polish, German and French.
+#
+# This job uses CLAUDE_CODE_OAUTH_TOKEN instead — the same secret as
+# blog-auto.yml, which has produced every article on the site. Nothing new to
+# obtain, nothing that expires.
+#
+# It runs AFTER blog-auto (09:00 UTC) so a post written this morning is picked
+# up the same day rather than waiting 24 hours.
+
+on:
+  schedule:
+    - cron: "40 10 * * *"   # daily, 20 min after the Journal post is committed
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: "How many article translations to do in this run"
+        required: false
+        default: "8"
+      lang:
+        description: "Restrict to one language (fr/de/pt/es/it), blank = all"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pages: write
+
+# Two runs at once would translate the same articles twice and then fight over
+# the same commit. Queue instead — a late run is fine, a clash is not.
+concurrency:
+  group: posts-i18n
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash   # without this, `a | tee b` reports tee's exit code and a
+                  # failed run is reported green — the ig-auto trap, same fix
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: What is missing
+        run: node scripts/posts-i18n.mjs --plan
+
+      - name: Translate
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          BUDGET: ${{ github.event.inputs.budget || '8' }}
+          LANG_ARG: ${{ github.event.inputs.lang || '' }}
+        run: |
+          set -euo pipefail
+          if [ -n "$LANG_ARG" ]; then
+            node scripts/posts-i18n.mjs --budget "$BUDGET" --lang "$LANG_ARG"
+          else
+            node scripts/posts-i18n.mjs --budget "$BUDGET"
+          fi
+
+      # A run that translated nothing new must not create an empty commit —
+      # that would spam the history and trigger a pointless Pages rebuild.
+      - name: Commit & push
+        run: |
+          set -euo pipefail
+          if git diff --quiet && git diff --cached --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "nothing changed — not committing"
+            exit 0
+          fi
+          DONE=$(git status --porcelain | grep -c 'posts/.*\.html' || true)
+          git add -A
+          git commit -m "Journal: ${DONE} translated article file(s)"
+          git pull --rebase origin main || true
+          git push
+
+      # Same self-heal as blog-auto.yml: Pages deploys fail transiently, and a
+      # translation that is committed but never served is worth nothing.
+      - name: Verify a translation is live
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          git pull --rebase origin main || true
+          PAGE=$(ls fr/posts/*.html de/posts/*.html pt/posts/*.html 2>/dev/null | head -1 || true)
+          if [ -z "$PAGE" ]; then echo "nothing translated yet — skipping"; exit 0; fi
+          echo "checking https://chifbay.com/$PAGE"
+          for attempt in 1 2 3; do
+            for i in $(seq 1 10); do
+              if curl -sf --max-time 20 "https://chifbay.com/$PAGE?nocache=$(date +%s)" >/dev/null; then
+                echo "live"; exit 0
+              fi
+              sleep 30
+            done
+            echo "still not live — requesting a fresh Pages build (attempt $attempt)"
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" >/dev/null || true
+          done
+          echo "::warning::translated pages are committed but not serving yet"
