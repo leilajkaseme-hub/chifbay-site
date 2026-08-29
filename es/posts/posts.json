@@ -1,5 +1,28 @@
 [
   {
+    "slug": "pico-ruivo-madeira-guide",
+    "title": "Pico Ruivo, Madeira: la guía completa 2026 del pico más alto de la isla",
+    "category": "Nature",
+    "date": "2026-08-29",
+    "description": "¿Es más difícil subir al Pico Ruivo que al Pico do Arieiro? Guía práctica 2026: ruta fácil, sendero de cresta, reserva SIMplifica y refugio de la cumbre.",
+    "heroImage": "assets/journal/pico-ruivo-madeira-guide-hero.jpg",
+    "heroAlt": "Pico Ruivo, Madeira: The Complete 2026 Guide to the Island's Highest Peak — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Pico Ruivo Madeira",
+      "Pico Ruivo highest peak",
+      "Pico Ruivo vs Pico do Arieiro",
+      "Achada do Teixeira trail",
+      "PR1.2 Vereda do Pico Ruivo",
+      "PR1 Vereda do Areeiro",
+      "SIMplifica Pico Ruivo booking",
+      "Casa de Abrigo do Pico Ruivo",
+      "Madeira highest mountain",
+      "things to do in Madeira nature"
+    ],
+    "lang": "es"
+  },
+  {
     "slug": "ponta-do-sol-madeira-guide",
     "title": "Ponta do Sol, Madeira: pueblo, playa y ruta en barco (2026)",
     "category": "Experience",
@@ -203,6 +226,29 @@
       "Faja dos Padres gardens",
       "Madeira botanical gardens guide",
       "things to do in Madeira"
+    ],
+    "lang": "es"
+  },
+  {
+    "slug": "funchal-nautico-2026-guide",
+    "title": "Funchal Náutico 2026: regatas, fechas y dónde verlas",
+    "category": "What's On",
+    "date": "2026-08-18",
+    "description": "Guía de Funchal Náutico 2026: regata Porto Santo Line, carrera de canoas tradicionales, travesía José da Silva «SACA» y dónde verlo desde tierra o mar.",
+    "heroImage": "assets/journal/funchal-nautico-2026-guide-hero.jpg",
+    "heroAlt": "Funchal Náutico 2026: Boat Races, Dates & Where to Watch — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "Funchal Nautico 2026",
+      "Funchal boat races",
+      "Regata Porto Santo Line",
+      "Regata de Canoas Tradicionais do Funchal",
+      "Jose da Silva SACA swim",
+      "Funchal Bay events August 2026",
+      "traditional canoe race Madeira",
+      "Funchal sea sports festival",
+      "things to do in Madeira August 2026",
+      "Madeira events calendar"
     ],
     "lang": "es"
   }
