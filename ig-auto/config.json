@@ -13,6 +13,7 @@
   },
   "ai_provider": "pollinations",
   "library_dirs": [
+    "social-drive",
     "social"
   ],
   "library_reuse_days": 120,
