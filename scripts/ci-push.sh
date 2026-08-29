@@ -38,13 +38,16 @@ while [ $# -gt 0 ]; do
 done
 
 ATTEMPTS="${CI_PUSH_ATTEMPTS:-5}"
+# Overridable so the recovery paths below can be exercised against a throwaway
+# branch instead of main. A recovery path that has never run is not one.
+BRANCH="${CI_PUSH_BRANCH:-main}"
 MSG="$(git log -1 --pretty=%s)"
 
 for i in $(seq 1 "$ATTEMPTS"); do
-  git fetch -q origin main
+  git fetch -q origin "$BRANCH"
 
-  if git rebase origin/main >/dev/null 2>&1; then
-    if git push -q origin HEAD:main 2>/dev/null; then
+  if REBASE_OUT="$(git rebase "origin/$BRANCH" 2>&1)"; then
+    if git push -q origin "HEAD:$BRANCH" 2>/dev/null; then
       echo "pushed on attempt ${i}: ${MSG}"
       exit 0
     fi
@@ -53,15 +56,26 @@ for i in $(seq 1 "$ATTEMPTS"); do
     CONFLICTS="$(git diff --name-only --diff-filter=U | tr '\n' ' ')"
     git rebase --abort >/dev/null 2>&1 || true
 
+    # A rebase that never STARTED is not a conflict, and calling it one sends
+    # whoever reads the log hunting for a merge that never happened. The usual
+    # cause is an earlier step leaving the tree dirty. Found by testing this
+    # exact path: it announced "conflict on unknown files" for a stray edit.
+    if [ -z "$CONFLICTS" ]; then
+      echo "::error::ci-push: could not rebase onto origin/$BRANCH, and nothing conflicted."
+      echo "That usually means the working tree was dirty before the push. git said:"
+      echo "$REBASE_OUT" | sed 's/^/  /'
+      exit 1
+    fi
+
     if [ -z "$REGEN" ]; then
-      echo "::error::ci-push: conflict on ${CONFLICTS:-unknown files} against origin/main."
+      echo "::error::ci-push: conflict on ${CONFLICTS:-unknown files} against origin/$BRANCH."
       echo "Another job changed the same generated file. Nothing was pushed and the"
       echo "working tree is clean — re-run this workflow, it is safe to repeat."
       exit 1
     fi
 
-    echo "attempt ${i}: conflict on ${CONFLICTS:-?} — rebuilding on top of the newer main"
-    git reset -q --hard origin/main
+    echo "attempt ${i}: conflict on ${CONFLICTS:-?} — rebuilding on top of the newer origin/$BRANCH"
+    git reset -q --hard "origin/$BRANCH"
     if ! bash -c "$REGEN"; then
       echo "::error::ci-push: the regenerate command failed: $REGEN"
       exit 1
