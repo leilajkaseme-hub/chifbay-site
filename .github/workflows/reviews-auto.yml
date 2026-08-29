@@ -75,8 +75,7 @@ jobs:
           fi
           git add -A
           git commit -m "Reviews sync: ${NEW_COUNT} new review(s)"
-          git pull --rebase origin main || true
-          git push
+          scripts/ci-push.sh
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       # Informational ping — a new review is good news, not a failure, so it

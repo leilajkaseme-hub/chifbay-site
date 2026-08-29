@@ -54,8 +54,7 @@ jobs:
           TITLE=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['title'])")
           git add -A
           git commit -m "New Journal post: $TITLE"
-          git pull --rebase origin main || true
-          git push
+          scripts/ci-push.sh
 
       # GitHub Pages deploys can fail transiently ("Deployment failed, try again
       # later") — when that happens the post is committed but never goes live.

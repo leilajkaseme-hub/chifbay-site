@@ -93,8 +93,7 @@ jobs:
           DONE=$(git status --porcelain | grep -c 'posts/.*\.html' || true)
           git add -A
           git commit -m "Journal: ${DONE} translated article file(s)"
-          git pull --rebase origin main || true
-          git push
+          scripts/ci-push.sh
 
       # Same self-heal as blog-auto.yml: Pages deploys fail transiently, and a
       # translation that is committed but never served is worth nothing.

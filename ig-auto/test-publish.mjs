@@ -18,7 +18,7 @@
 // No network and no packages: fetch is replaced with a fake Meta that behaves
 // the way the real one does. Run it with `node test-publish.mjs`.
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
 
 let passed = 0;
 const failures = [];
@@ -453,6 +453,40 @@ await check("every workflow that pipes runs under pipefail", () => {
       /defaults:\s*\n\s*run:\s*\n\s*shell:\s*bash/,
       `ig-auto-${wf}.yml pipes but has no "defaults: run: shell: bash" — a failed post would go green`,
     );
+  }
+});
+
+await check("no workflow pushes with `git pull --rebase ... || true`", () => {
+  // That `|| true` swallows a rebase conflict, leaves the repo mid-rebase, and
+  // the next `git push` dies with "You are not currently on a branch" — a red
+  // run and a phone alert for work that actually succeeded. It happened on
+  // 2026-08-29. scripts/ci-push.sh fetches, rebases, pushes and retries, and
+  // says which files conflicted when it truly cannot.
+  const dir = new URL("../.github/workflows/", import.meta.url);
+  for (const f of readdirSync(dir)) {
+    if (!f.endsWith(".yml")) continue;
+    const text = readFileSync(new URL(f, dir), "utf8");
+    assert.ok(
+      !/git pull --rebase[^\n]*\|\| true\s*\n\s*git push/.test(text),
+      `${f} still pushes with "git pull --rebase || true; git push" — use scripts/ci-push.sh`,
+    );
+  }
+});
+
+await check("ci-push.sh is executable and only regenerates the feed plan", () => {
+  const sh = new URL("../scripts/ci-push.sh", import.meta.url);
+  assert.ok(statSync(sh).mode & 0o111, "scripts/ci-push.sh is not executable");
+
+  // --regenerate rebuilds a file from scratch. That is right for the feed plan,
+  // which is a pure function of the photo library, and WRONG for anything that
+  // records a publication: a rebuilt ledger is a post that denies happening.
+  const dir = new URL("../.github/workflows/", import.meta.url);
+  for (const f of readdirSync(dir)) {
+    if (!f.endsWith(".yml")) continue;
+    const text = readFileSync(new URL(f, dir), "utf8");
+    if (!/ci-push\.sh --regenerate/.test(text)) continue;
+    assert.equal(f, "ig-auto-replan.yml",
+      `${f} uses --regenerate; only the deterministic feed plan may be rebuilt on conflict`);
   }
 });
 

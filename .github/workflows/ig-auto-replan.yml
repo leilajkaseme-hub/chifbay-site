@@ -80,8 +80,7 @@ jobs:
             exit 0
           fi
           git commit -m "Instagram: replan the grid (${{ steps.plan.outputs.photos }} photos)"
-          git pull --rebase origin main || true
-          git push
+          scripts/ci-push.sh --regenerate 'cd ig-auto && node bin/feed-plan.mjs --write --preview'
 
       # The preview goes to the phone, because every real fault in this planner
       # so far was invisible in the numbers and obvious in the picture.

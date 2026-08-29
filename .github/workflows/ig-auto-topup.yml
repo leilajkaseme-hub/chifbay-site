@@ -97,8 +97,7 @@ jobs:
             exit 0
           fi
           git commit -m "Instagram queue: +${BUILT} post(s)"
-          git pull --rebase origin main || true
-          git push
+          scripts/ci-push.sh
 
       - name: Notify failure (ntfy)
         if: failure()
