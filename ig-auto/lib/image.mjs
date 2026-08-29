@@ -2,8 +2,10 @@
 //
 // Two sources, in this order of preference:
 //
-//   library — a real photo of the real boat. 80+ of them exist across
-//             site/social, klook-photos and clickandboat-sunset-photos. These
+//   library — a real photo of the real boat. 80+ of them live in site/social.
+//             (They used to be spread over two more folders that sat OUTSIDE
+//             the repo, so CI could not see five of them — see
+//             bin/check-library.mjs.) These
 //             are always the better post: real light, real guests, real hull.
 //
 //   ai      — scenery and wildlife only (ocean, cliffs, sunsets, dolphins).

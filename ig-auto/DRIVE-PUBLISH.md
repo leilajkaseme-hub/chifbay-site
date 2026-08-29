@@ -137,19 +137,25 @@ photo arriving.
 **This job is allowed to fail.** It fills a buffer that holds about twelve days.
 A broken sync is this week's problem, not tonight's.
 
-## A pre-existing fault this uncovered
+## A pre-existing fault this uncovered — FIXED 2026-08-29
 
-`bin/check-library.mjs` already reports it, and it is worth fixing separately:
+`config.library_dirs` used to hold two folders that sit NEXT TO the repo, not
+inside it:
 
 ```
-"../klook-photos" is outside the repo
-"../clickandboat-sunset-photos" is outside the repo
+"../klook-photos"                 5 photos
+"../clickandboat-sunset-photos"   the same 5 photos, renamed
 ```
 
-Both are in `config.library_dirs`, and **GitHub Actions only ever sees what is
-committed**, so no photo in either folder has ever been postable from CI. They
-work locally and silently contribute nothing in the cloud. Fix is to move the
-photos into `social/` and drop the two entries.
+**GitHub Actions only ever sees what is committed**, so those five real photos
+of the boat could never be posted from the cloud. The laptop counted 87 files /
+82 distinct photos; CI counted 77. Nothing failed and no log said anything —
+the only symptom was a number nobody was comparing across two machines.
+
+Fixed: the five are committed into `social/` as `onboard-*.jpg`, both entries
+are gone from `config.json`, and `bin/check-library.mjs` now fails the run if a
+library folder is ever outside the repo again. Library is 82 photos, same on
+both machines.
 
 ## Google Business Profile
 

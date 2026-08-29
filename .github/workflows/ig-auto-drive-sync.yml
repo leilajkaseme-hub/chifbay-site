@@ -52,6 +52,13 @@ jobs:
             echo "ready=yes" >> "$GITHUB_OUTPUT"
           fi
 
+      # drive-sync itself needs nothing but Node built-ins. check-library reads
+      # the library through lib/image.mjs, which needs sharp.
+      - name: Install deps
+        if: steps.gate.outputs.ready == 'yes'
+        working-directory: ig-auto
+        run: npm install --no-audit --no-fund
+
       - name: Pull new photos
         if: steps.gate.outputs.ready == 'yes'
         working-directory: ig-auto

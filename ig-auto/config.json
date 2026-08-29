@@ -13,9 +13,7 @@
   },
   "ai_provider": "pollinations",
   "library_dirs": [
-    "social",
-    "../klook-photos",
-    "../clickandboat-sunset-photos"
+    "social"
   ],
   "library_reuse_days": 120,
   "public_dir": "ig",
