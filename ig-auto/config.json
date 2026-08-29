@@ -28,7 +28,8 @@
   "_comment_ig_user_id": "Not a secret, just the Instagram Business Account id. Filled in by the whoami workflow. The IG_USER_ID env var overrides it.",
   "ig_user_id": "17841473755961444",
   "transport": "graph",
-  "_comment_heartbeat": "0 = the heartbeat expects a post TODAY. It runs at 21:00 UTC, after both posting windows and both catch-up runs, so nothing is still in flight. It was 2, which let a feed that died on Tuesday go unreported until the next Monday.",
+  "_comment_heartbeat": "Elapsed HOURS, not calendar days. GitHub cron drifts badly here — a post scheduled 10:00 UTC went out at 23:46, and a 21:00 heartbeat ran at 00:22 — and a calendar-day rule flips on that drift and cries wolf. Widest real gap between two good posts is 33.3h, so 40 is the tightest honest limit. max_days is only the fallback when a post has no ledger timestamp.",
+  "heartbeat_max_hours_since_post": 40,
   "heartbeat_max_days_since_post": 0,
   "ntfy": {
     "alerts": "https://ntfy.sh/futurx-blog-alerts-544024878e",

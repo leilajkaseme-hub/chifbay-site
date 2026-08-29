@@ -1,0 +1,106 @@
+name: Chifbay Instagram — replan the grid when photos change
+
+# Add photos to social/, push, and the feed replans itself.
+#
+# The plan decides which photos share a carousel and what order the posts go
+# out in, so a new photo is not "in the feed" until this has run. Doing it on
+# push rather than only on the 05:00 top-up means you see the new grid within a
+# minute of pushing, while you are still looking at the folder — not tomorrow.
+#
+# The replan RESUMES: covers already posted or waiting in the queue are spent,
+# and the new posts carry on from the colour showing at the top of the grid.
+# So this is safe to run at any time and never reorders what is already queued.
+on:
+  push:
+    paths:
+      - "social/**"
+      - "social-drive/**"
+      - "ig-auto/lib/palette.mjs"
+      - "ig-auto/lib/grade.mjs"
+      - "ig-auto/lib/feedplan.mjs"
+      - "ig-auto/config.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Same group as the top-up and the posters. A replan halfway through building a
+# queue item would hand it a plan that no longer matches what it just read.
+concurrency:
+  group: ig-auto
+  cancel-in-progress: false
+
+# "bash -e" has no pipefail, so a piped step can fail green. See the note in
+# ig-auto-topup.yml; test-publish.mjs enforces this on every workflow.
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  replan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        working-directory: ig-auto
+        run: npm install --no-audit --no-fund
+
+      # Every library folder must live inside this repo. Two of them did not,
+      # and the account quietly lost five photos: the preview on the laptop
+      # planned 78 posts, Actions planned 73, and nothing anywhere said so.
+      - name: Check the library is reachable from CI
+        working-directory: ig-auto
+        run: node bin/check-library.mjs
+
+      - name: Replan
+        id: plan
+        working-directory: ig-auto
+        run: |
+          node bin/feed-plan.mjs --write --preview --report | tee /tmp/replan.log
+          {
+            echo "photos=$(grep -oE '^[0-9]+ unique photos' /tmp/replan.log | head -1 | cut -d' ' -f1)"
+            echo "posts=$(grep -oE '^[0-9]+ posts planned' /tmp/replan.log | head -1 | cut -d' ' -f1)"
+            echo "worst=$(grep -A1 'WARM-COLD step' /tmp/replan.log | tail -1 | tr -s ' ')"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ig-auto
+          if git diff --staged --quiet; then
+            echo "the plan did not change"
+            exit 0
+          fi
+          git commit -m "Instagram: replan the grid (${{ steps.plan.outputs.photos }} photos)"
+          git pull --rebase origin main || true
+          git push
+
+      # The preview goes to the phone, because every real fault in this planner
+      # so far was invisible in the numbers and obvious in the picture.
+      - name: Send the new grid (ntfy)
+        if: success()
+        run: |
+          curl -s --max-time 60 \
+            -H "Title: CHIFBAY : grille replanifiée" \
+            -H "Tags: framed_picture,boat" \
+            -H "Filename: feed-preview.jpg" \
+            -H "Message: ${{ steps.plan.outputs.photos }} photos, ${{ steps.plan.outputs.posts }} publications prévues. Écart chaud-froid : ${{ steps.plan.outputs.worst }}" \
+            -T ig-auto/feed-preview.jpg \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true
+
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY : replanification de la grille EN ÉCHEC" \
+            -H "Priority: high" -H "Tags: rotating_light,boat" \
+            -d "De nouvelles photos ont été poussées mais la grille n'a pas pu être replanifiée : elles ne sont PAS encore dans le feed. La publication continue sur l'ancien plan. Journal : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

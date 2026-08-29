@@ -18,7 +18,39 @@ import { config, kindOf, lastPostKey, listQueue, readLedger, state, today } from
 import { alert } from "../lib/notify.mjs";
 
 const DAY = 86_400_000;
+const HOUR = 3_600_000;
+
+/** Hours, not calendar days.
+ *
+ *  This used to ask "did a post go out TODAY", which is the right question and
+ *  the wrong unit. GitHub's shared cron is best effort and drifts badly on this
+ *  repo: the 2026-08-28 feed post was scheduled for 10:00 UTC and actually went
+ *  out at 23:46 UTC, and the 21:00 heartbeat of 2026-08-26 did not run until
+ *  00:22 the next day. Either drift alone flips a calendar-day comparison, and
+ *  on 2026-08-27 one did — it alerted "no feed post for 1 days" on a day that
+ *  had posted normally.
+ *
+ *  A false alarm is worse than no alarm: it is what teaches everyone to swipe
+ *  the notification away, and this feed already died once behind an alert
+ *  nobody trusted. Elapsed hours cannot be flipped by a late run, so the same
+ *  strict question survives a schedule that wanders.
+ *
+ *  40 hours, not 24: the widest REAL gap between two good feed posts in this
+ *  ledger is 33.3 hours, so anything under ~36 would fire on a healthy feed.
+ *  A feed that genuinely stops is still caught by the following evening's
+ *  heartbeat. Detecting a dead feed one run later is a cheap price for an
+ *  alert that is always true when it fires. */
+const maxHours = config.heartbeat_max_hours_since_post ?? 40;
 const maxDays = config.heartbeat_max_days_since_post ?? 2;
+
+/** When this kind last posted successfully, from the ledger, in ms.
+ *  The ledger is the only record with a real timestamp — state holds a date
+ *  string, which is exactly the resolution that caused the false alarm. */
+function lastOkAt(kind) {
+  const e = ok.filter((x) => kindOf(x) === kind).at(-1);
+  const t = e?.at ? Date.parse(e.at) : NaN;
+  return Number.isNaN(t) ? null : t;
+}
 
 const ledger = readLedger();
 const ok = ledger.filter((e) => e.ok);
@@ -42,10 +74,17 @@ for (const [kind, target, low] of [
     `${daysSince === null ? "" : ` (${daysSince}d ago)`}, queue ${queue.length}/${target}`,
   );
 
+  const at = lastOkAt(kind);
   if (!last) {
     // Not an alert on a fresh install — there is genuinely nothing to report.
     console.log(`            nothing posted yet — run the ${kind} workflow once to start`);
+  } else if (at !== null) {
+    const hours = Math.floor((Date.now() - at) / HOUR);
+    if (hours > maxHours) {
+      problems.push(`no ${kind} post for ${hours} hours (limit ${maxHours})`);
+    }
   } else if (daysSince > maxDays) {
+    // No ledger entry to time — fall back to the coarse calendar check.
     problems.push(`no ${kind} post for ${daysSince} days`);
   }
 
