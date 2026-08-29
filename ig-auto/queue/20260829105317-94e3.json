@@ -1,0 +1,51 @@
+{
+  "id": "20260829105317-94e3",
+  "kind": "feed",
+  "created": "2026-08-29T10:53:30.092Z",
+  "source": "library",
+  "origin": "social/onboard-sunset-couple-bow.jpg",
+  "image": "ig/20260829105317-94e3-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260829105317-94e3-1.jpg",
+  "sha256": "bf38adc9228585c2d61e9f693a4adc1bfb2ea2b99a1ebbc8f97d73f0294b6b67",
+  "slides": [
+    {
+      "origin": "social/onboard-sunset-couple-bow.jpg",
+      "image": "ig/20260829105317-94e3-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260829105317-94e3-1.jpg",
+      "sha256": "bf38adc9228585c2d61e9f693a4adc1bfb2ea2b99a1ebbc8f97d73f0294b6b67"
+    },
+    {
+      "origin": "social/onboard-drinks-snacks.jpg",
+      "image": "ig/20260829105317-94e3-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260829105317-94e3-2.jpg",
+      "sha256": "958aa888d859914f9ebf8464f800bb103a34c0a6ed848fb0f36a117869ac20b7"
+    },
+    {
+      "origin": "social/chifbay-40.jpg",
+      "image": "ig/20260829105317-94e3-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260829105317-94e3-3.jpg",
+      "sha256": "9b65a3f443f1950f65cd32ccc5f7718fa44e08052caa9df2776542d811fc2ce1"
+    },
+    {
+      "origin": "social/chifbay-37.jpg",
+      "image": "ig/20260829105317-94e3-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260829105317-94e3-4.jpg",
+      "sha256": "873268482cf7c1152131d6ef076a0a1d1adab1fd684cde80d9211a4a609f9290"
+    }
+  ],
+  "plan_index": 11,
+  "plan_cover": "social/onboard-sunset-couple-bow.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "Two glasses of wine, the coast turning gold, not much left to say.\nKarnic R8S, private boat, skipper included, five guests maximum.\nFunchal behind them, the sun doing the rest.\nWe keep it to five guests. Ask us about your dates.",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#privateboattour",
+    "#boattour",
+    "#sunsetcruise",
+    "#goldenhour"
+  ],
+  "rendered_caption": "Two glasses of wine, the coast turning gold, not much left to say.\nKarnic R8S, private boat, skipper included, five guests maximum.\nFunchal behind them, the sun doing the rest.\nWe keep it to five guests. Ask us about your dates.\n\n#madeiraisland #madeira #privateboattour #boattour #sunsetcruise #goldenhour",
+  "writer": "claude"
+}
