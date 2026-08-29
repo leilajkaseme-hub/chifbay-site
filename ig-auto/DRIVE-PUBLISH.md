@@ -120,6 +120,13 @@ the credential works.
 Google Doc — is listed as skipped in the log rather than ignored quietly.
 ig-auto has no video path yet.
 
+**A folder it cannot see is a hard error, not a quiet zero.** `files.list` on
+an unshared folder returns an empty list — identical to an empty folder — so a
+share that never took would have logged `0 file(s)` every morning and looked
+healthy. `drive-sync` calls `files.get` on the folder id first, which really
+does 404, and stops with the reason. It also refuses an id that turns out to be
+a file rather than a folder.
+
 **The state file is keyed on the Drive file id**, not the filename, in
 `drive-state.json`. Rename a photo in Drive and it is not pulled twice. Two
 photos with the same name do not collide.

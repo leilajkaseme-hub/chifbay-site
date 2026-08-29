@@ -127,6 +127,41 @@ async function accessToken() {
 }
 
 // ------------------------------------------------------------------- drive
+/** Prove the folder is actually reachable BEFORE listing it.
+ *
+ *  files.list on a folder the service account cannot see does not fail — it
+ *  returns an empty list, exactly like a folder with nothing in it. So a share
+ *  that was never granted, or an id typed wrong, would log
+ *  "0 file(s), 0 image(s), 0 new" every morning forever and look healthy.
+ *  This project has already lost weeks twice to a job that failed by being
+ *  quiet, so the ambiguity is removed here rather than remembered.
+ *
+ *  files.get on the same id DOES 404 when there is no access. */
+async function checkFolder(token, folderId) {
+  const res = await fetch(
+    `https://www.googleapis.com/drive/v3/files/${folderId}` +
+    `?fields=id,name,mimeType&supportsAllDrives=true`,
+    { headers: { authorization: `Bearer ${token}` } });
+
+  if (res.status === 404 || res.status === 403) {
+    throw new Error(
+      `the service account cannot see folder ${folderId} (HTTP ${res.status}).\n` +
+      `  Either the id is wrong, or the folder was never shared with\n` +
+      `  the service account address as Viewer. See ig-auto/DRIVE-PUBLISH.md.`);
+  }
+  if (!res.ok) {
+    throw new Error(`drive get folder ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  }
+
+  const folder = await res.json();
+  if (folder.mimeType !== "application/vnd.google-apps.folder") {
+    throw new Error(
+      `${folderId} is a ${folder.mimeType}, not a folder.\n` +
+      `  DRIVE_PUBLISH_FOLDER_ID must be the id from the FOLDER's URL.`);
+  }
+  return folder;
+}
+
 async function listFolder(token, folderId) {
   const files = [];
   let pageToken = "";
@@ -191,13 +226,18 @@ async function main() {
   fs.mkdirSync(DEST, { recursive: true });
 
   const token = await accessToken();
+  const folder = await checkFolder(token, folderId);
   const files = await listFolder(token, folderId);
 
   const images = files.filter((f) => IMAGE_MIME[f.mimeType]);
   const others = files.filter((f) => !IMAGE_MIME[f.mimeType]);
   const fresh = images.filter((f) => !state.pulled[f.id]);
 
+  console.log(`drive folder "${folder.name}" (${folderId}) is reachable`);
   console.log(`drive folder: ${files.length} file(s), ${images.length} image(s), ${fresh.length} new`);
+  if (!files.length) {
+    console.log("  the folder is genuinely empty — drop a photo in it to test the chain");
+  }
   for (const f of others) console.log(`  skipped (not a still image): ${f.name} [${f.mimeType}]`);
 
   if (CHECK) {
