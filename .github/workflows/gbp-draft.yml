@@ -1,0 +1,96 @@
+name: Google Business Profile — today's post, ready to paste
+
+# Chifbay publishes daily to Instagram and to the Journal, both fully
+# automatic. Google Business Profile cannot join them, and the reason is worth
+# writing down so nobody re-opens it every month:
+#
+#   The Business Profile API is granted by application, over days to weeks, and
+#   Google points it at agencies, tool vendors and businesses with ten or more
+#   locations. A one-boat operator is told to use the dashboard. It also
+#   refuses service accounts — it wants OAuth as the profile owner plus a
+#   stored refresh token.
+#
+# Driving the dashboard with a headless browser would work and is not worth it:
+# it breaks Google's terms using the account that holds the profile, and that
+# profile is the biggest local-search asset Chifbay has. Of the businesses
+# ChatGPT names in an answer, 88.8% come from Google Places. It is not the
+# thing to gamble for one post a day.
+#
+# So this automates the part that is actually work — the words, the length, the
+# photo, the link — and leaves fifteen seconds of pasting.
+#
+# It runs after blog-auto SUCCEEDS rather than on a clock of its own, because
+# GitHub's cron drifts by hours here and a draft written before the article
+# exists would link to a 404.
+
+on:
+  workflow_run:
+    workflows: ["Chifbay Journal — auto post (cloud, no API key)"]
+    types: [completed]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  draft:
+    # Nothing to announce when the Journal did not publish. The failure alert
+    # belongs to blog-auto, and repeating it here would just be a second buzz.
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main   # workflow_run checks out the triggering SHA, which predates the new post
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Write the draft
+        id: draft
+        run: |
+          set -euo pipefail
+          node scripts/gbp-draft.mjs > /tmp/gbp.txt
+          cat /tmp/gbp.txt
+          if grep -q "no draft today" /tmp/gbp.txt; then
+            echo "send=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "send=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      # A draft that links to a page Google cannot fetch is worse than none:
+      # the post goes up, the button 404s, and the profile takes the hit.
+      - name: Are the link and the photo really live?
+        if: steps.draft.outputs.send == 'yes'
+        run: |
+          set -euo pipefail
+          node scripts/gbp-draft.mjs --json > /tmp/gbp.json
+          URL=$(python3 -c "import json;print(json.load(open('/tmp/gbp.json'))['callToAction']['url'])")
+          IMG=$(python3 -c "import json;d=json.load(open('/tmp/gbp.json'));print(d['media'][0]['sourceUrl'] if d['media'] else '')")
+          for u in "$URL" $IMG; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 30 "$u")
+            echo "$code  $u"
+            [ "$code" = "200" ] || { echo "::error::$u answered $code — not sending a draft that points at it"; exit 1; }
+          done
+
+      - name: Send it to the phone
+        if: steps.draft.outputs.send == 'yes'
+        run: |
+          set -euo pipefail
+          BODY=$(sed -n '/^--- paste this as the post text ---$/,$p' /tmp/gbp.txt)
+          curl -s --max-time 30 \
+            -H "Title: CHIFBAY : post Google du jour" \
+            -H "Tags: round_pushpin,boat" \
+            -H "Actions: view, Ouvrir la fiche Google, https://business.google.com/posts, clear=true" \
+            -d "$BODY" \
+            https://ntfy.sh/futurx-inbox-544024878e > /dev/null
+          echo "sent"
