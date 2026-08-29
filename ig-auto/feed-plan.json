@@ -1,5 +1,5 @@
 {
-  "built": "2026-08-28T16:57:40.125Z",
+  "built": "2026-08-29T10:44:59.888Z",
   "slides": 4,
   "posts": [
     {
@@ -71,9 +71,9 @@
       "cover": "social/chifbay-38.jpg",
       "slides": [
         "social/chifbay-38.jpg",
+        "social/onboard-golden-hour-dining.jpg",
         "social/chifbay-48.jpg",
-        "social/chifbay-49.jpg",
-        "social/chifbay-47.jpg"
+        "social/chifbay-56.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -165,9 +165,9 @@
       "cover": "social/chifbay-60.jpg",
       "slides": [
         "social/chifbay-60.jpg",
-        "social/chifbay-40.jpg",
-        "social/chifbay-22.jpg",
-        "social/chifbay-37.jpg"
+        "social/chifbay-49.jpg",
+        "social/chifbay-37.jpg",
+        "social/chifbay-40.jpg"
       ],
       "grade": {
         "brightness": 0.967582573420328,
@@ -176,6 +176,22 @@
     },
     {
       "plan_index": 11,
+      "family": "amber",
+      "warmth": 26.02,
+      "cover": "social/onboard-sunset-couple-bow.jpg",
+      "slides": [
+        "social/onboard-sunset-couple-bow.jpg",
+        "social/onboard-drinks-snacks.jpg",
+        "social/chifbay-40.jpg",
+        "social/chifbay-37.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0469918591088527,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 12,
       "family": "amber",
       "warmth": 24.73,
       "cover": "social/chifbay-54.jpg",
@@ -191,15 +207,15 @@
       }
     },
     {
-      "plan_index": 12,
+      "plan_index": 13,
       "family": "amber",
       "warmth": 24.42,
       "cover": "social/chifbay-47.jpg",
       "slides": [
         "social/chifbay-47.jpg",
-        "social/chifbay-49.jpg",
-        "social/chifbay-48.jpg",
-        "social/chifbay-40.jpg"
+        "social/chifbay-08.jpg",
+        "social/chifbay-40.jpg",
+        "social/chifbay-60.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -207,7 +223,7 @@
       }
     },
     {
-      "plan_index": 13,
+      "plan_index": 14,
       "family": "amber",
       "warmth": 24.01,
       "cover": "social/chifbay-39.jpg",
@@ -222,7 +238,7 @@
       }
     },
     {
-      "plan_index": 14,
+      "plan_index": 15,
       "family": "amber",
       "warmth": 23.42,
       "cover": "social/chifbay-45.jpg",
@@ -238,15 +254,15 @@
       }
     },
     {
-      "plan_index": 15,
+      "plan_index": 16,
       "family": "golden",
       "warmth": 23.07,
       "cover": "social/chifbay-56.jpg",
       "slides": [
         "social/chifbay-56.jpg",
-        "social/chifbay-14.jpg",
-        "social/chifbay-67.jpg",
-        "social/chifbay-57.jpg"
+        "social/chifbay-31.jpg",
+        "social/chifbay-38.jpg",
+        "social/chifbay-60.jpg"
       ],
       "grade": {
         "brightness": 0.9899305228366915,
@@ -254,31 +270,15 @@
       }
     },
     {
-      "plan_index": 16,
+      "plan_index": 17,
       "family": "amber",
       "warmth": 22.84,
       "cover": "social/chifbay-09.jpg",
       "slides": [
         "social/chifbay-09.jpg",
         "social/chifbay-60.jpg",
-        "social/chifbay-38.jpg",
-        "social/chifbay-56.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 17,
-      "family": "amber",
-      "warmth": 20.35,
-      "cover": "social/chifbay-40.jpg",
-      "slides": [
-        "social/chifbay-40.jpg",
-        "social/chifbay-44.jpg",
-        "social/chifbay-57.jpg",
-        "social/chifbay-21.jpg"
+        "social/chifbay-56.jpg",
+        "social/chifbay-37.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -288,13 +288,29 @@
     {
       "plan_index": 18,
       "family": "amber",
+      "warmth": 20.35,
+      "cover": "social/chifbay-40.jpg",
+      "slides": [
+        "social/chifbay-40.jpg",
+        "social/chifbay-67.jpg",
+        "social/chifbay-57.jpg",
+        "social/chifbay-49.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 19,
+      "family": "amber",
       "warmth": 20.84,
       "cover": "social/chifbay-22.jpg",
       "slides": [
         "social/chifbay-22.jpg",
-        "social/chifbay-37.jpg",
-        "social/chifbay-57.jpg",
-        "social/chifbay-56.jpg"
+        "social/onboard-drinks-snacks.jpg",
+        "social/chifbay-21.jpg",
+        "social/chifbay-44.jpg"
       ],
       "grade": {
         "brightness": 1.0111722138784613,
@@ -302,7 +318,7 @@
       }
     },
     {
-      "plan_index": 19,
+      "plan_index": 20,
       "family": "amber",
       "warmth": 17.75,
       "cover": "social/chifbay-37.jpg",
@@ -310,7 +326,7 @@
         "social/chifbay-37.jpg",
         "social/chifbay-57.jpg",
         "social/chifbay-70.jpg",
-        "social/chifbay-67.jpg"
+        "social/chifbay-14.jpg"
       ],
       "grade": {
         "brightness": 1.0359407968716763,
@@ -318,7 +334,7 @@
       }
     },
     {
-      "plan_index": 20,
+      "plan_index": 21,
       "family": "amber",
       "warmth": 19.68,
       "cover": "social/chifbay-49.jpg",
@@ -334,7 +350,39 @@
       }
     },
     {
-      "plan_index": 21,
+      "plan_index": 22,
+      "family": "amber",
+      "warmth": 17.25,
+      "cover": "social/onboard-golden-hour-dining.jpg",
+      "slides": [
+        "social/onboard-golden-hour-dining.jpg",
+        "social/chifbay-60.jpg",
+        "social/chifbay-38.jpg",
+        "social/chifbay-56.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 23,
+      "family": "amber",
+      "warmth": 17.26,
+      "cover": "social/chifbay-48.jpg",
+      "slides": [
+        "social/chifbay-48.jpg",
+        "social/chifbay-57.jpg",
+        "social/chifbay-26.jpg",
+        "social/chifbay-56.jpg"
+      ],
+      "grade": {
+        "brightness": 1.047520038523805,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 24,
       "family": "amber",
       "warmth": 14.55,
       "cover": "social/chifbay-26.jpg",
@@ -350,23 +398,23 @@
       }
     },
     {
-      "plan_index": 22,
-      "family": "amber",
-      "warmth": 17.26,
-      "cover": "social/chifbay-48.jpg",
+      "plan_index": 25,
+      "family": "golden",
+      "warmth": 14.05,
+      "cover": "social/onboard-drinks-snacks.jpg",
       "slides": [
-        "social/chifbay-48.jpg",
-        "social/chifbay-57.jpg",
-        "social/chifbay-42.jpg",
-        "social/chifbay-44.jpg"
+        "social/onboard-drinks-snacks.jpg",
+        "social/chifbay-27.jpg",
+        "social/chifbay-16.jpg",
+        "social/chifbay-67.jpg"
       ],
       "grade": {
-        "brightness": 1.047520038523805,
+        "brightness": 0.9716907677146606,
         "saturation": 1
       }
     },
     {
-      "plan_index": 23,
+      "plan_index": 26,
       "family": "soft",
       "warmth": 13.06,
       "cover": "social/chifbay-14.jpg",
@@ -382,15 +430,15 @@
       }
     },
     {
-      "plan_index": 24,
+      "plan_index": 27,
       "family": "soft",
       "warmth": 11.4,
       "cover": "social/chifbay-44.jpg",
       "slides": [
         "social/chifbay-44.jpg",
-        "social/chifbay-16.jpg",
-        "social/chifbay-27.jpg",
-        "social/chifbay-18.jpg"
+        "social/chifbay-46.jpg",
+        "social/chifbay-68.jpg",
+        "social/chifbay-70.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -398,47 +446,15 @@
       }
     },
     {
-      "plan_index": 25,
-      "family": "soft",
-      "warmth": 10.84,
-      "cover": "social/chifbay-57.jpg",
-      "slides": [
-        "social/chifbay-57.jpg",
-        "social/chifbay-12.jpg",
-        "social/chifbay-05.jpg",
-        "social/chifbay-63.jpg"
-      ],
-      "grade": {
-        "brightness": 0.969059050856812,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 26,
-      "family": "soft",
-      "warmth": 10.12,
-      "cover": "social/chifbay-67.jpg",
-      "slides": [
-        "social/chifbay-67.jpg",
-        "social/chifbay-46.jpg",
-        "social/chifbay-68.jpg",
-        "social/chifbay-70.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0427135226457267,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 27,
+      "plan_index": 28,
       "family": "neutral",
       "warmth": 8.36,
       "cover": "social/chifbay-69.jpg",
       "slides": [
         "social/chifbay-69.jpg",
         "social/chifbay-02.jpg",
-        "social/chifbay-67.jpg",
-        "social/chifbay-05.jpg"
+        "social/chifbay-05.jpg",
+        "social-drive/008-1KqJChSW.jpg"
       ],
       "grade": {
         "brightness": 1.0384876201707949,
@@ -446,7 +462,23 @@
       }
     },
     {
-      "plan_index": 28,
+      "plan_index": 29,
+      "family": "soft",
+      "warmth": 10.84,
+      "cover": "social/chifbay-57.jpg",
+      "slides": [
+        "social/chifbay-57.jpg",
+        "social/chifbay-18.jpg",
+        "social/chifbay-34.jpg",
+        "social/chifbay-12.jpg"
+      ],
+      "grade": {
+        "brightness": 0.969059050856812,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 30,
       "family": "neutral",
       "warmth": 7.8,
       "cover": "social/chifbay-42.jpg",
@@ -454,7 +486,7 @@
         "social/chifbay-42.jpg",
         "social/chifbay-07.jpg",
         "social/chifbay-68.jpg",
-        "social/chifbay-70.jpg"
+        "social-drive/008-1KqJChSW.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -462,15 +494,47 @@
       }
     },
     {
-      "plan_index": 29,
+      "plan_index": 31,
+      "family": "soft",
+      "warmth": 10.12,
+      "cover": "social/chifbay-67.jpg",
+      "slides": [
+        "social/chifbay-67.jpg",
+        "social/chifbay-40.jpg",
+        "social/chifbay-56.jpg",
+        "social/onboard-golden-hour-dining.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0427135226457267,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 32,
+      "family": "soft",
+      "warmth": 7.53,
+      "cover": "social/chifbay-21.jpg",
+      "slides": [
+        "social/chifbay-21.jpg",
+        "social/chifbay-02.jpg",
+        "social/chifbay-05.jpg",
+        "social/chifbay-15.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0280437325247347,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 33,
       "family": "neutral",
       "warmth": 5.89,
       "cover": "social/chifbay-70.jpg",
       "slides": [
         "social/chifbay-70.jpg",
-        "social/chifbay-64.jpg",
-        "social/chifbay-07.jpg",
-        "social/chifbay-34.jpg"
+        "social/chifbay-16.jpg",
+        "social/onboard-helm-seats-detail.jpg",
+        "social/chifbay-63.jpg"
       ],
       "grade": {
         "brightness": 0.9791135609338913,
@@ -478,13 +542,29 @@
       }
     },
     {
-      "plan_index": 30,
+      "plan_index": 34,
+      "family": "neutral",
+      "warmth": 7.22,
+      "cover": "social/chifbay-27.jpg",
+      "slides": [
+        "social/chifbay-27.jpg",
+        "social/onboard-drinks-snacks.jpg",
+        "social/chifbay-67.jpg",
+        "social/chifbay-16.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 35,
       "family": "soft",
       "warmth": 5.59,
       "cover": "social/chifbay-46.jpg",
       "slides": [
         "social/chifbay-46.jpg",
-        "social/chifbay-67.jpg",
+        "social/chifbay-44.jpg",
         "social/chifbay-68.jpg",
         "social/chifbay-70.jpg"
       ],
@@ -494,7 +574,7 @@
       }
     },
     {
-      "plan_index": 31,
+      "plan_index": 36,
       "family": "verdant",
       "warmth": 4.71,
       "cover": "social/chifbay-16.jpg",
@@ -510,23 +590,7 @@
       }
     },
     {
-      "plan_index": 32,
-      "family": "soft",
-      "warmth": 7.53,
-      "cover": "social/chifbay-21.jpg",
-      "slides": [
-        "social/chifbay-21.jpg",
-        "social/chifbay-44.jpg",
-        "social/chifbay-16.jpg",
-        "social/chifbay-18.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0280437325247347,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 33,
+      "plan_index": 37,
       "family": "neutral",
       "warmth": 4.13,
       "cover": "social/chifbay-15.jpg",
@@ -534,7 +598,7 @@
         "social/chifbay-15.jpg",
         "social/chifbay-33.jpg",
         "social/chifbay-12.jpg",
-        "social/chifbay-63.jpg"
+        "social/chifbay-18.jpg"
       ],
       "grade": {
         "brightness": 0.9674244472769347,
@@ -542,31 +606,15 @@
       }
     },
     {
-      "plan_index": 34,
-      "family": "neutral",
-      "warmth": 7.22,
-      "cover": "social/chifbay-27.jpg",
-      "slides": [
-        "social/chifbay-27.jpg",
-        "social/chifbay-57.jpg",
-        "social/chifbay-67.jpg",
-        "social/chifbay-37.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 35,
+      "plan_index": 38,
       "family": "neutral",
       "warmth": 1.14,
       "cover": "social/chifbay-34.jpg",
       "slides": [
         "social/chifbay-34.jpg",
-        "social/chifbay-02.jpg",
-        "social/chifbay-05.jpg",
-        "social/chifbay-18.jpg"
+        "social/chifbay-07.jpg",
+        "social-drive/186-1tkpZn7A.png",
+        "social/chifbay-51.jpg"
       ],
       "grade": {
         "brightness": 1.0123542232337337,
@@ -574,14 +622,14 @@
       }
     },
     {
-      "plan_index": 36,
+      "plan_index": 39,
       "family": "neutral",
       "warmth": 0.77,
       "cover": "social/chifbay-05.jpg",
       "slides": [
         "social/chifbay-05.jpg",
         "social/chifbay-42.jpg",
-        "social/chifbay-02.jpg",
+        "social/chifbay-57.jpg",
         "social/chifbay-68.jpg"
       ],
       "grade": {
@@ -590,14 +638,14 @@
       }
     },
     {
-      "plan_index": 37,
+      "plan_index": 40,
       "family": "neutral",
       "warmth": 0.71,
       "cover": "social/chifbay-63.jpg",
       "slides": [
         "social/chifbay-63.jpg",
-        "social/chifbay-07.jpg",
-        "social/chifbay-51.jpg",
+        "social/chifbay-02.jpg",
+        "social-drive/001-12M0Xk9l.jpg",
         "social/chifbay-76.jpg"
       ],
       "grade": {
@@ -606,7 +654,7 @@
       }
     },
     {
-      "plan_index": 38,
+      "plan_index": 41,
       "family": "neutral",
       "warmth": 0.25,
       "cover": "social/chifbay-68.jpg",
@@ -614,7 +662,7 @@
         "social/chifbay-68.jpg",
         "social/chifbay-10.jpg",
         "social/chifbay-64.jpg",
-        "social/chifbay-76.jpg"
+        "social/onboard-helm-seats-detail.jpg"
       ],
       "grade": {
         "brightness": 1.0491659973241796,
@@ -622,7 +670,7 @@
       }
     },
     {
-      "plan_index": 39,
+      "plan_index": 42,
       "family": "neutral",
       "warmth": 0.24,
       "cover": "social/chifbay-25.jpg",
@@ -630,7 +678,7 @@
         "social/chifbay-25.jpg",
         "social/chifbay-33.jpg",
         "social/chifbay-72.jpg",
-        "social/chifbay-36.jpg"
+        "social-drive/008-1KqJChSW.jpg"
       ],
       "grade": {
         "brightness": 1.0257284045853237,
@@ -638,15 +686,15 @@
       }
     },
     {
-      "plan_index": 40,
+      "plan_index": 43,
       "family": "neutral",
       "warmth": -0.38,
       "cover": "social/chifbay-18.jpg",
       "slides": [
         "social/chifbay-18.jpg",
-        "social/chifbay-16.jpg",
-        "social/chifbay-44.jpg",
-        "social/chifbay-21.jpg"
+        "social-drive/124-1HaSrnmE.png",
+        "social/chifbay-07.jpg",
+        "social/chifbay-36.jpg"
       ],
       "grade": {
         "brightness": 1.0235632122060523,
@@ -654,63 +702,15 @@
       }
     },
     {
-      "plan_index": 41,
+      "plan_index": 44,
       "family": "neutral",
       "warmth": -1.37,
       "cover": "social/chifbay-12.jpg",
       "slides": [
         "social/chifbay-12.jpg",
-        "social/chifbay-15.jpg",
-        "social/chifbay-16.jpg",
-        "social/chifbay-67.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 42,
-      "family": "neutral",
-      "warmth": -2.27,
-      "cover": "social/chifbay-02.jpg",
-      "slides": [
-        "social/chifbay-02.jpg",
-        "social/chifbay-69.jpg",
         "social/chifbay-67.jpg",
-        "social/chifbay-05.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0295770968576605,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 43,
-      "family": "neutral",
-      "warmth": -2.38,
-      "cover": "social/chifbay-07.jpg",
-      "slides": [
-        "social/chifbay-07.jpg",
-        "social/chifbay-34.jpg",
-        "social/chifbay-70.jpg",
-        "social/chifbay-18.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 44,
-      "family": "verdant",
-      "warmth": -3.6,
-      "cover": "social/chifbay-36.jpg",
-      "slides": [
-        "social/chifbay-36.jpg",
-        "social/chifbay-11.jpg",
-        "social/chifbay-33.jpg",
-        "social/chifbay-23.jpg"
+        "social/chifbay-16.jpg",
+        "social/chifbay-70.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -719,6 +719,102 @@
     },
     {
       "plan_index": 45,
+      "family": "neutral",
+      "warmth": -2.27,
+      "cover": "social/chifbay-02.jpg",
+      "slides": [
+        "social/chifbay-02.jpg",
+        "social/chifbay-69.jpg",
+        "social/chifbay-67.jpg",
+        "social/chifbay-15.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0295770968576605,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 46,
+      "family": "neutral",
+      "warmth": -2.38,
+      "cover": "social/chifbay-07.jpg",
+      "slides": [
+        "social/chifbay-07.jpg",
+        "social/chifbay-34.jpg",
+        "social-drive/186-1tkpZn7A.png",
+        "social/chifbay-51.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 47,
+      "family": "neutral",
+      "warmth": -3.55,
+      "cover": "social-drive/008-1KqJChSW.jpg",
+      "slides": [
+        "social-drive/008-1KqJChSW.jpg",
+        "social-drive/080-1Vf8N_aV.png",
+        "social/chifbay-23.jpg",
+        "social-drive/011-1XvEEVBm.png"
+      ],
+      "grade": {
+        "brightness": 1.0297858667665625,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 48,
+      "family": "verdant",
+      "warmth": -3.6,
+      "cover": "social/chifbay-36.jpg",
+      "slides": [
+        "social/chifbay-36.jpg",
+        "social/chifbay-11.jpg",
+        "social-drive/151-1oJrb1L_.png",
+        "social/chifbay-76.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 49,
+      "family": "neutral",
+      "warmth": -5.15,
+      "cover": "social/chifbay-33.jpg",
+      "slides": [
+        "social/chifbay-33.jpg",
+        "social-drive/001-12M0Xk9l.jpg",
+        "social/chifbay-20.jpg",
+        "social/chifbay-03.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 50,
+      "family": "neutral",
+      "warmth": -6.15,
+      "cover": "social/onboard-helm-seats-detail.jpg",
+      "slides": [
+        "social/onboard-helm-seats-detail.jpg",
+        "social/chifbay-05.jpg",
+        "social/chifbay-25.jpg",
+        "social/chifbay-72.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0026147030470307,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 51,
       "family": "neutral",
       "warmth": -6.8,
       "cover": "social/chifbay-72.jpg",
@@ -734,111 +830,15 @@
       }
     },
     {
-      "plan_index": 46,
-      "family": "neutral",
-      "warmth": -5.15,
-      "cover": "social/chifbay-33.jpg",
-      "slides": [
-        "social/chifbay-33.jpg",
-        "social/chifbay-77.jpg",
-        "social/chifbay-03.jpg",
-        "social/chifbay-64.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 47,
-      "family": "soft",
-      "warmth": -7.38,
-      "cover": "social/chifbay-64.jpg",
-      "slides": [
-        "social/chifbay-64.jpg",
-        "social/chifbay-10.jpg",
-        "social/chifbay-68.jpg",
-        "social/chifbay-76.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9906731487989475,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 48,
-      "family": "neutral",
-      "warmth": -7.47,
-      "cover": "social/chifbay-10.jpg",
-      "slides": [
-        "social/chifbay-10.jpg",
-        "social/chifbay-25.jpg",
-        "social/chifbay-51.jpg",
-        "social/chifbay-76.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 49,
-      "family": "neutral",
-      "warmth": -7.83,
-      "cover": "social/chifbay-76.jpg",
-      "slides": [
-        "social/chifbay-76.jpg",
-        "social/chifbay-30.jpg",
-        "social/chifbay-04.jpg",
-        "social/chifbay-20.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 50,
-      "family": "deep",
-      "warmth": -9.53,
-      "cover": "social/chifbay-51.jpg",
-      "slides": [
-        "social/chifbay-51.jpg",
-        "social/chifbay-02.jpg",
-        "social/chifbay-35.jpg",
-        "social/chifbay-11.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 51,
-      "family": "deep",
-      "warmth": -10.39,
-      "cover": "social/chifbay-23.jpg",
-      "slides": [
-        "social/chifbay-23.jpg",
-        "social/chifbay-07.jpg",
-        "social/chifbay-11.jpg",
-        "social/chifbay-35.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
       "plan_index": 52,
-      "family": "deep",
-      "warmth": -13.01,
-      "cover": "social/chifbay-11.jpg",
+      "family": "neutral",
+      "warmth": -7.09,
+      "cover": "social-drive/124-1HaSrnmE.png",
       "slides": [
-        "social/chifbay-11.jpg",
-        "social/chifbay-36.jpg",
+        "social-drive/124-1HaSrnmE.png",
+        "social/chifbay-18.jpg",
         "social/chifbay-12.jpg",
-        "social/chifbay-33.jpg"
+        "social/chifbay-10.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -847,30 +847,30 @@
     },
     {
       "plan_index": 53,
-      "family": "deep",
-      "warmth": -13.65,
-      "cover": "social/chifbay-35.jpg",
+      "family": "soft",
+      "warmth": -7.38,
+      "cover": "social/chifbay-64.jpg",
       "slides": [
-        "social/chifbay-35.jpg",
-        "social/chifbay-58.jpg",
-        "social/chifbay-66.jpg",
-        "social/chifbay-17.jpg"
+        "social/chifbay-64.jpg",
+        "social/chifbay-70.jpg",
+        "social/chifbay-02.jpg",
+        "social/chifbay-63.jpg"
       ],
       "grade": {
-        "brightness": 1.05,
+        "brightness": 0.9906731487989475,
         "saturation": 1
       }
     },
     {
       "plan_index": 54,
-      "family": "deep",
-      "warmth": -14.81,
-      "cover": "social/chifbay-20.jpg",
+      "family": "neutral",
+      "warmth": -7.46,
+      "cover": "social-drive/186-1tkpZn7A.png",
       "slides": [
-        "social/chifbay-20.jpg",
-        "social/chifbay-03.jpg",
-        "social/chifbay-55.jpg",
-        "social/chifbay-19.jpg"
+        "social-drive/186-1tkpZn7A.png",
+        "social/chifbay-04.jpg",
+        "social/chifbay-35.jpg",
+        "social/chifbay-30.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -879,14 +879,14 @@
     },
     {
       "plan_index": 55,
-      "family": "deep",
-      "warmth": -14.89,
-      "cover": "social/chifbay-71.jpg",
+      "family": "neutral",
+      "warmth": -7.47,
+      "cover": "social/chifbay-10.jpg",
       "slides": [
-        "social/chifbay-71.jpg",
-        "social/chifbay-72.jpg",
-        "social/chifbay-64.jpg",
-        "social/chifbay-77.jpg"
+        "social/chifbay-10.jpg",
+        "social/chifbay-68.jpg",
+        "social-drive/008-1KqJChSW.jpg",
+        "social/chifbay-51.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -895,14 +895,14 @@
     },
     {
       "plan_index": 56,
-      "family": "deep",
-      "warmth": -16.83,
-      "cover": "social/chifbay-03.jpg",
+      "family": "neutral",
+      "warmth": -7.83,
+      "cover": "social/chifbay-76.jpg",
       "slides": [
-        "social/chifbay-03.jpg",
-        "social/chifbay-53.jpg",
-        "social/chifbay-10.jpg",
-        "social/chifbay-23.jpg"
+        "social/chifbay-76.jpg",
+        "social/chifbay-11.jpg",
+        "social/chifbay-07.jpg",
+        "social/chifbay-36.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -911,14 +911,30 @@
     },
     {
       "plan_index": 57,
-      "family": "deep",
-      "warmth": -15.98,
-      "cover": "social/chifbay-53.jpg",
+      "family": "azure",
+      "warmth": -9.46,
+      "cover": "social-drive/001-12M0Xk9l.jpg",
       "slides": [
-        "social/chifbay-53.jpg",
-        "social/chifbay-30.jpg",
-        "social/chifbay-50.jpg",
+        "social-drive/001-12M0Xk9l.jpg",
+        "social/chifbay-33.jpg",
+        "social/chifbay-20.jpg",
         "social/chifbay-03.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9683867987220114,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 58,
+      "family": "deep",
+      "warmth": -9.53,
+      "cover": "social/chifbay-51.jpg",
+      "slides": [
+        "social/chifbay-51.jpg",
+        "social/chifbay-53.jpg",
+        "social/onboard-helm-seats-detail.jpg",
+        "social-drive/005-1J0OAZtR.png"
       ],
       "grade": {
         "brightness": 1.05,
@@ -926,47 +942,31 @@
       }
     },
     {
-      "plan_index": 58,
-      "family": "azure",
-      "warmth": -17.05,
-      "cover": "social/chifbay-30.jpg",
-      "slides": [
-        "social/chifbay-30.jpg",
-        "social/chifbay-76.jpg",
-        "social/chifbay-04.jpg",
-        "social/chifbay-51.jpg"
-      ],
-      "grade": {
-        "brightness": 0.984864414027555,
-        "saturation": 1
-      }
-    },
-    {
       "plan_index": 59,
       "family": "deep",
-      "warmth": -16.95,
-      "cover": "social/chifbay-19.jpg",
+      "warmth": -10.39,
+      "cover": "social/chifbay-23.jpg",
       "slides": [
-        "social/chifbay-19.jpg",
-        "social/chifbay-58.jpg",
-        "social/chifbay-24.jpg",
-        "social/chifbay-71.jpg"
+        "social/chifbay-23.jpg",
+        "social-drive/011-1XvEEVBm.png",
+        "social-drive/080-1Vf8N_aV.png",
+        "social/chifbay-19.jpg"
       ],
       "grade": {
-        "brightness": 1.0415228016972005,
+        "brightness": 1.05,
         "saturation": 1
       }
     },
     {
       "plan_index": 60,
       "family": "deep",
-      "warmth": -17.93,
-      "cover": "social/chifbay-77.jpg",
+      "warmth": -13.01,
+      "cover": "social/chifbay-11.jpg",
       "slides": [
-        "social/chifbay-77.jpg",
-        "social/chifbay-33.jpg",
         "social/chifbay-11.jpg",
-        "social/chifbay-35.jpg"
+        "social/chifbay-71.jpg",
+        "social/onboard-bow-coast-pov.jpg",
+        "social-drive/151-1oJrb1L_.png"
       ],
       "grade": {
         "brightness": 1.05,
@@ -976,13 +976,13 @@
     {
       "plan_index": 61,
       "family": "deep",
-      "warmth": -19.28,
-      "cover": "social/chifbay-66.jpg",
+      "warmth": -13.65,
+      "cover": "social/chifbay-35.jpg",
       "slides": [
-        "social/chifbay-66.jpg",
-        "social/chifbay-10.jpg",
         "social/chifbay-35.jpg",
-        "social/chifbay-64.jpg"
+        "social/chifbay-58.jpg",
+        "social/chifbay-77.jpg",
+        "social/chifbay-66.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -992,61 +992,61 @@
     {
       "plan_index": 62,
       "family": "azure",
-      "warmth": -20.45,
-      "cover": "social/chifbay-24.jpg",
+      "warmth": -13.9,
+      "cover": "social-drive/011-1XvEEVBm.png",
       "slides": [
-        "social/chifbay-24.jpg",
-        "social/chifbay-73.jpg",
-        "social/chifbay-55.jpg",
-        "social/chifbay-58.jpg"
+        "social-drive/011-1XvEEVBm.png",
+        "social/chifbay-50.jpg",
+        "social/chifbay-30.jpg",
+        "social/chifbay-71.jpg"
       ],
       "grade": {
-        "brightness": 1.030431461187955,
+        "brightness": 1.027783771390502,
         "saturation": 1
       }
     },
     {
       "plan_index": 63,
-      "family": "deep",
-      "warmth": -24.64,
-      "cover": "social/chifbay-17.jpg",
+      "family": "azure",
+      "warmth": -14.49,
+      "cover": "social-drive/005-1J0OAZtR.png",
       "slides": [
-        "social/chifbay-17.jpg",
-        "social/chifbay-20.jpg",
-        "social/chifbay-58.jpg",
-        "social/chifbay-19.jpg"
+        "social-drive/005-1J0OAZtR.png",
+        "social/chifbay-02.jpg",
+        "social/chifbay-64.jpg",
+        "social/chifbay-71.jpg"
       ],
       "grade": {
-        "brightness": 1.0425424885443622,
+        "brightness": 1.0046740460756058,
         "saturation": 1
       }
     },
     {
       "plan_index": 64,
-      "family": "deep",
-      "warmth": -24.69,
-      "cover": "social/chifbay-58.jpg",
+      "family": "azure",
+      "warmth": -14.76,
+      "cover": "social-drive/080-1Vf8N_aV.png",
       "slides": [
-        "social/chifbay-58.jpg",
-        "social/chifbay-43.jpg",
-        "social/chifbay-30.jpg",
-        "social/chifbay-20.jpg"
+        "social-drive/080-1Vf8N_aV.png",
+        "social/chifbay-24.jpg",
+        "social-drive/177-1iGm5-7p.png",
+        "social/chifbay-71.jpg"
       ],
       "grade": {
-        "brightness": 1.036007642655387,
+        "brightness": 0.9802822983314394,
         "saturation": 1
       }
     },
     {
       "plan_index": 65,
       "family": "deep",
-      "warmth": -18.27,
-      "cover": "social/chifbay-04.jpg",
+      "warmth": -14.81,
+      "cover": "social/chifbay-20.jpg",
       "slides": [
-        "social/chifbay-04.jpg",
+        "social/chifbay-20.jpg",
+        "social/chifbay-33.jpg",
         "social/chifbay-03.jpg",
-        "social/chifbay-53.jpg",
-        "social/chifbay-72.jpg"
+        "social-drive/001-12M0Xk9l.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -1055,27 +1055,219 @@
     },
     {
       "plan_index": 66,
-      "family": "azure",
-      "warmth": -32.55,
-      "cover": "social/chifbay-73.jpg",
+      "family": "deep",
+      "warmth": -14.89,
+      "cover": "social/chifbay-71.jpg",
       "slides": [
-        "social/chifbay-73.jpg",
-        "social/chifbay-58.jpg",
-        "social/chifbay-24.jpg",
-        "social/chifbay-55.jpg"
+        "social/chifbay-71.jpg",
+        "social/chifbay-72.jpg",
+        "social-drive/008-1KqJChSW.jpg",
+        "social/chifbay-07.jpg"
       ],
       "grade": {
-        "brightness": 1.0252967238806352,
+        "brightness": 1.05,
         "saturation": 1
       }
     },
     {
       "plan_index": 67,
-      "family": "deep",
-      "warmth": -26.35,
-      "cover": "social/chifbay-50.jpg",
+      "family": "azure",
+      "warmth": -14.9,
+      "cover": "social-drive/129-1JR175fp.png",
       "slides": [
+        "social-drive/129-1JR175fp.png",
+        "social/chifbay-19.jpg",
+        "social-drive/186-1tkpZn7A.png",
+        "social/chifbay-23.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0121656535307013,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 68,
+      "family": "deep",
+      "warmth": -15.98,
+      "cover": "social/chifbay-53.jpg",
+      "slides": [
+        "social/chifbay-53.jpg",
+        "social/onboard-bow-coast-pov.jpg",
+        "social/chifbay-11.jpg",
+        "social-drive/151-1oJrb1L_.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 69,
+      "family": "deep",
+      "warmth": -15.99,
+      "cover": "social-drive/151-1oJrb1L_.png",
+      "slides": [
+        "social-drive/151-1oJrb1L_.png",
+        "social/chifbay-17.jpg",
+        "social/chifbay-58.jpg",
+        "social/chifbay-35.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 70,
+      "family": "deep",
+      "warmth": -16.83,
+      "cover": "social/chifbay-03.jpg",
+      "slides": [
+        "social/chifbay-03.jpg",
+        "social/chifbay-77.jpg",
+        "social/chifbay-10.jpg",
+        "social/chifbay-30.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 71,
+      "family": "azure",
+      "warmth": -17.05,
+      "cover": "social/chifbay-30.jpg",
+      "slides": [
+        "social/chifbay-30.jpg",
         "social/chifbay-50.jpg",
+        "social-drive/011-1XvEEVBm.png",
+        "social/chifbay-71.jpg"
+      ],
+      "grade": {
+        "brightness": 0.984864414027555,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 72,
+      "family": "deep",
+      "warmth": -16.95,
+      "cover": "social/chifbay-19.jpg",
+      "slides": [
+        "social/chifbay-19.jpg",
+        "social-drive/080-1Vf8N_aV.png",
+        "social/onboard-helm-seats-detail.jpg",
+        "social/chifbay-66.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0415228016972005,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 73,
+      "family": "deep",
+      "warmth": -17.93,
+      "cover": "social/chifbay-77.jpg",
+      "slides": [
+        "social/chifbay-77.jpg",
+        "social/chifbay-33.jpg",
+        "social/chifbay-64.jpg",
+        "social-drive/005-1J0OAZtR.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 74,
+      "family": "deep",
+      "warmth": -19.28,
+      "cover": "social/chifbay-66.jpg",
+      "slides": [
+        "social/chifbay-66.jpg",
+        "social/chifbay-10.jpg",
+        "social/chifbay-76.jpg",
+        "social/chifbay-51.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 75,
+      "family": "azure",
+      "warmth": -20.45,
+      "cover": "social/chifbay-24.jpg",
+      "slides": [
+        "social/chifbay-24.jpg",
+        "social/chifbay-73.jpg",
+        "social-drive/177-1iGm5-7p.png",
+        "social/chifbay-58.jpg"
+      ],
+      "grade": {
+        "brightness": 1.030431461187955,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 76,
+      "family": "deep",
+      "warmth": -24.64,
+      "cover": "social/chifbay-17.jpg",
+      "slides": [
+        "social/chifbay-17.jpg",
+        "social/onboard-bow-coast-pov.jpg",
+        "social/chifbay-20.jpg",
+        "social/chifbay-11.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0425424885443622,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 77,
+      "family": "deep",
+      "warmth": -24.69,
+      "cover": "social/chifbay-58.jpg",
+      "slides": [
+        "social/chifbay-58.jpg",
+        "social/chifbay-53.jpg",
+        "social-drive/151-1oJrb1L_.png",
+        "social/chifbay-04.jpg"
+      ],
+      "grade": {
+        "brightness": 1.036007642655387,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 78,
+      "family": "deep",
+      "warmth": -18.27,
+      "cover": "social/chifbay-04.jpg",
+      "slides": [
+        "social/chifbay-04.jpg",
+        "social-drive/186-1tkpZn7A.png",
+        "social/chifbay-72.jpg",
+        "social/chifbay-35.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 79,
+      "family": "deep",
+      "warmth": -24.97,
+      "cover": "social-drive/177-1iGm5-7p.png",
+      "slides": [
+        "social-drive/177-1iGm5-7p.png",
         "social/chifbay-71.jpg",
         "social/chifbay-30.jpg",
         "social/chifbay-03.jpg"
@@ -1086,30 +1278,62 @@
       }
     },
     {
-      "plan_index": 68,
-      "family": "azure",
-      "warmth": -36.65,
-      "cover": "social/chifbay-61.jpg",
+      "plan_index": 80,
+      "family": "deep",
+      "warmth": -25.85,
+      "cover": "social/onboard-bow-coast-pov.jpg",
       "slides": [
-        "social/chifbay-61.jpg",
-        "social/chifbay-74.jpg",
-        "social/chifbay-73.jpg",
-        "social/chifbay-55.jpg"
+        "social/onboard-bow-coast-pov.jpg",
+        "social/chifbay-19.jpg",
+        "social-drive/011-1XvEEVBm.png",
+        "social/chifbay-50.jpg"
       ],
       "grade": {
-        "brightness": 0.9959505885838961,
+        "brightness": 1.05,
         "saturation": 1
       }
     },
     {
-      "plan_index": 69,
+      "plan_index": 81,
+      "family": "deep",
+      "warmth": -26.35,
+      "cover": "social/chifbay-50.jpg",
+      "slides": [
+        "social/chifbay-50.jpg",
+        "social-drive/080-1Vf8N_aV.png",
+        "social/chifbay-30.jpg",
+        "social/chifbay-71.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 82,
+      "family": "azure",
+      "warmth": -32.55,
+      "cover": "social/chifbay-73.jpg",
+      "slides": [
+        "social/chifbay-73.jpg",
+        "social/chifbay-58.jpg",
+        "social/chifbay-43.jpg",
+        "social/onboard-bow-coast-pov.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0252967238806352,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 83,
       "family": "azure",
       "warmth": -27.73,
       "cover": "social/chifbay-43.jpg",
       "slides": [
         "social/chifbay-43.jpg",
         "social/chifbay-58.jpg",
-        "social/chifbay-30.jpg",
+        "social/onboard-bow-coast-pov.jpg",
         "social/chifbay-20.jpg"
       ],
       "grade": {
@@ -1118,31 +1342,31 @@
       }
     },
     {
-      "plan_index": 70,
-      "family": "deep",
-      "warmth": -43.51,
-      "cover": "social/chifbay-74.jpg",
+      "plan_index": 84,
+      "family": "azure",
+      "warmth": -36.65,
+      "cover": "social/chifbay-61.jpg",
       "slides": [
+        "social/chifbay-61.jpg",
         "social/chifbay-74.jpg",
-        "social/chifbay-55.jpg",
-        "social/chifbay-73.jpg",
-        "social/chifbay-61.jpg"
+        "social/onboard-bow-coast-pov.jpg",
+        "social/chifbay-55.jpg"
       ],
       "grade": {
-        "brightness": 1.05,
-        "saturation": 0.989244561467902
+        "brightness": 0.9959505885838961,
+        "saturation": 1
       }
     },
     {
-      "plan_index": 71,
+      "plan_index": 85,
       "family": "deep",
       "warmth": -28.04,
       "cover": "social/chifbay-55.jpg",
       "slides": [
         "social/chifbay-55.jpg",
-        "social/chifbay-19.jpg",
-        "social/chifbay-58.jpg",
-        "social/chifbay-20.jpg"
+        "social/chifbay-24.jpg",
+        "social/onboard-bow-coast-pov.jpg",
+        "social/chifbay-58.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -1150,7 +1374,23 @@
       }
     },
     {
-      "plan_index": 72,
+      "plan_index": 86,
+      "family": "deep",
+      "warmth": -43.51,
+      "cover": "social/chifbay-74.jpg",
+      "slides": [
+        "social/chifbay-74.jpg",
+        "social/onboard-bow-coast-pov.jpg",
+        "social/chifbay-50.jpg",
+        "social/chifbay-73.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 0.989244561467902
+      }
+    },
+    {
+      "plan_index": 87,
       "family": "azure",
       "warmth": -47.2,
       "cover": "social/chifbay-75.jpg",
