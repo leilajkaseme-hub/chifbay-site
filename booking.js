@@ -65,9 +65,33 @@
     return est ? eur + ' <span class="bkfxest">≈ ' + est + '</span>' : eur;
   }
 
+  /* "3h", "2h30" — never "3 h" or "2 h 30". The space was the whole problem:
+     it broke the number in two, so the eye read it as a stray letter rather
+     than a duration. The compact form is also the one every OTA uses. */
   function dur(minutes) {
     var h = Math.floor(minutes / 60), m = minutes % 60;
-    return (h ? h + " " + t("ui.hoursShort") : "") + (m ? " " + m : "");
+    if (!h) return m + " " + t("ui.minsShort");
+    return h + t("ui.hoursShort") + (m ? pad(m) : "");
+  }
+
+  /* The long form, for the one place with room to spell it out. */
+  function durLong(minutes) {
+    var h = Math.floor(minutes / 60), m = minutes % 60;
+    var out = h ? t(h === 1 ? "ui.hourOne" : "ui.hourMany", { n: h }) : "";
+    return m ? out + " " + m + " " + t("ui.minsShort") : out;
+  }
+
+  /* When you get back. This is what the guest is actually asking when they
+     look for the duration — "am I back in time for dinner" — and no page on
+     the site answered it. Departure times are local Funchal time. */
+  function endTime(hhmm, minutes) {
+    var p = hhmm.split(":").map(Number);
+    var total = (p[0] * 60 + p[1] + minutes) % 1440;
+    return pad(Math.floor(total / 60)) + ":" + pad(total % 60);
+  }
+
+  function endTimes(times, minutes) {
+    return times.map(function (x) { return endTime(x, minutes); });
   }
 
   function pad(n) { return String(n).padStart(2, "0"); }
@@ -374,7 +398,9 @@
         '<div class="bkcbody">' +
           '<span class="bkck">' + esc(o.trip.name) + "</span>" +
           "<h3>" + esc(o.v.name) + "</h3>" +
-          "<p>" + esc(o.v.blurb) + "</p>" +
+          // A sentence written here beats the one the payment Worker ships,
+          // so wording never needs a Worker deploy. Falls back to the Worker's.
+          "<p>" + esc(t("blurb." + o.tripId + "/" + o.varId) || o.v.blurb) + "</p>" +
           routeStrip(o.tripId, o.varId) +
           (hls.length
             ? '<ul class="bkcl">' + hls.map(function (h) {
@@ -384,11 +410,15 @@
             : "") +
           '<div class="bkcfoot">' +
             '<span class="bkprice">' + money(o.v.amount) + "<em>" + esc(t("ui.wholeBoat")) + "</em></span>" +
+            '<span class="bkcdurb"><b>' + esc(dur(o.v.minutes)) + "</b><em>" +
+              esc(t("ui.onTheWater")) + "</em></span>" +
             '<button type="button" class="bkbtn bksm">' + esc(t("ui.choose")) +
               '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>' +
           "</div>" +
           '<span class="bkcmeta">' + esc(t("ui.departs")) + " " +
             esc(o.trip.times.join(" " + t("ui.or") + " ")) + " · " +
+            esc(t("ui.backBy")) + " " +
+            esc(endTimes(o.trip.times, o.v.minutes).join(" " + t("ui.or") + " ")) + " · " +
             esc(t("ui.upTo", { n: state.catalogue.maxGuests })) + "</span>" +
         "</div>";
 
@@ -572,7 +602,10 @@
     var v = trip.variants[state.variant];
     $("#bksum").innerHTML =
       "<strong>" + esc(trip.name + " — " + v.name) + "</strong>" +
-      "<span>" + esc(longDate(state.date) + " · " + state.time) + " (" + esc(t("ui.funchalTime")) + ")</span>" +
+      "<span>" + esc(longDate(state.date)) + "</span>" +
+      // The line that was missing everywhere: how long, and when you are back.
+      "<span><b>" + esc(state.time + " – " + endTime(state.time, v.minutes)) + "</b> · " +
+        esc(durLong(v.minutes)) + " (" + esc(t("ui.funchalTime")) + ")</span>" +
       "<span>" + esc(t("ui.upTo", { n: state.catalogue.maxGuests })) + "</span>" +
       '<span class="bksumprice">' + money(v.amount) + "</span>";
   }

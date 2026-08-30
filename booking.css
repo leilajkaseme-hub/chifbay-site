@@ -147,9 +147,21 @@
 .bkcpic{position:relative;aspect-ratio:16/9;overflow:hidden;cursor:pointer;background:var(--mid)}
 .bkcpic img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .bkcard:hover .bkcpic img{transform:scale(1.05)}
-.bkcdur{position:absolute;left:14px;bottom:14px;padding:6px 13px;border-radius:100px;
-  background:rgba(var(--scrim-rgb),.74);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14);
-  font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.14em;color:var(--on-photo)}
+/* Was .66rem (about 10px) of letter-spaced mono on a dark photo — the least
+   readable thing on the card, for one of the two numbers the guest is looking
+   for. Bigger, tighter, and on a solid scrim so it survives a dark photo. */
+.bkcdur{position:absolute;left:14px;bottom:14px;padding:7px 14px;border-radius:100px;
+  background:rgba(var(--scrim-rgb),.88);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);
+  font-family:'Space Mono',monospace;font-size:.92rem;font-weight:700;letter-spacing:.04em;
+  color:var(--on-photo)}
+
+/* The duration, next to the price, because those are the two numbers a guest
+   compares. The badge on the photo disappears entirely when a variant has no
+   photo; this one never does. */
+.bkcdurb{display:flex;flex-direction:column;gap:2px;line-height:1.1;text-align:right}
+.bkcdurb b{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:400}
+.bkcdurb em{font-style:normal;font-size:.62rem;color:var(--muted);letter-spacing:.12em;
+  text-transform:uppercase;font-family:'Space Mono',monospace}
 .bkcbody{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .bkck{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--teal)}
@@ -168,8 +180,14 @@
   color:var(--paper-dim)}
 .bkcl svg{width:15px;height:15px;flex-shrink:0;margin-top:4px;fill:none;stroke:var(--teal);
   stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.bkcfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;
-  flex-wrap:wrap}
+/* Two rows on purpose, not by accident. The price carries a converted estimate
+   for anyone outside the euro — which is two of the three biggest source
+   markets — and that made the row overflow and drop the button into a ragged
+   half-width orphan. Fixed rows: the two numbers face each other, the CTA gets
+   its own full-width line, and it looks the same in every currency. */
+.bkcfoot{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;
+  gap:10px 14px;flex-wrap:wrap}
+.bkcfoot .bksm{flex:1 0 100%;justify-content:center;margin-top:4px}
 .bkprice{font-family:'Playfair Display',Georgia,serif;font-size:1.85rem;display:flex;
   align-items:baseline;gap:8px;line-height:1}
 .bkprice em{font-style:normal;font-size:.62rem;color:var(--muted);letter-spacing:.12em;
@@ -236,6 +254,7 @@
   border:1px solid rgba(var(--teal-rgb),.28);display:grid;gap:5px;margin-bottom:26px}
 .bksumbox strong{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:400}
 .bksumbox span{font-size:.88rem;color:var(--paper-dim)}
+.bksumbox span b{color:var(--paper);font-weight:600}
 .bksumprice{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem!important;
   color:var(--teal)!important;margin-top:6px}
 .bkfields{display:grid;gap:16px;grid-template-columns:1fr 1fr;max-width:720px}

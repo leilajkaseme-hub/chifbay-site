@@ -77,6 +77,17 @@ window.CHIFBAY_CONTENT = (function () {
     "stop.sol":     "Sun-trap village",
     "stop.turn":    "We turn here",
 
+    // One-line description per option. Overrides the blurb the Worker sends,
+    // so wording changes never touch the payment Worker.
+    "blurb.day-trip/ribeira-brava":
+      "C\u00e2mara de Lobos, the drone at Cabo Gir\u00e3o, swim and paddle at Faj\u00e3 dos Padres.",
+    "blurb.day-trip/ponta-do-sol":
+      "The long day trip: everything in To Ribeira Brava, then on to Ponta do Sol, with a filmed video of your day.",
+    "blurb.sunset/cabo-girao":
+      "The west coast as the light turns, drinks and food on deck, the drone at Cabo Gir\u00e3o.",
+    "blurb.sunset/ribeira-brava":
+      "The longer run, out past Cabo Gir\u00e3o to Ribeira Brava and back into a lit-up Funchal.",
+
     // what you actually do, per option
     "hl.day-trip/ribeira-brava": [
       "Swim, jump in and paddle at Fajã dos Padres",
@@ -84,7 +95,7 @@ window.CHIFBAY_CONTENT = (function () {
       "Drinks and food served on board",
     ],
     "hl.day-trip/ponta-do-sol": [
-      "Everything in the 2h30, then 30 minutes further west",
+      "Everything in the To Ribeira Brava trip, then 30 minutes further west",
       "A filmed, edited video of your day",
       "Ponta do Sol — the furthest west we run",
     ],
@@ -94,7 +105,7 @@ window.CHIFBAY_CONTENT = (function () {
       "Open-throttle run back into a lit-up Funchal",
     ],
     "hl.sunset/ribeira-brava": [
-      "Everything in the 2 hours",
+      "Everything in the To Cabo Girão trip",
       "On past Fajã dos Padres to Ribeira Brava",
       "Thirty more minutes in the best light of the day",
     ],
@@ -142,6 +153,10 @@ window.CHIFBAY_CONTENT = (function () {
     "ui.wholeBoat":   "whole boat",
     "ui.upTo":        "Whole boat, up to {n} guests",
     "ui.departs":     "departs",
+    "ui.backBy":      "back",
+    "ui.onTheWater":  "on the water",
+    "ui.hourOne":     "{n} hour",
+    "ui.hourMany":    "{n} hours",
     "ui.or":          "or",
     "ui.from":        "From",
     "ui.duration":    "Duration",
