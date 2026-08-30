@@ -128,6 +128,17 @@ for f in gyg-tours.json gyg-reviews.json google-reviews.json tripadvisor-reviews
   fi
 done
 
+# The Google and GetYourGuide scrapers download review PHOTOS into
+# assets/reviews/ alongside the JSON. They have to cross over too: reviews.json
+# carries their paths, so shipping the JSON without the images publishes broken
+# pictures. Five of them 404'd on the live site on 2026-08-30 because this copy
+# was missing from the first version of this worktree change.
+# `/.` merges into the worktree's existing set rather than replacing it.
+if [ -d "$REPO_DIR/assets/reviews" ]; then
+  mkdir -p "$WT/assets/reviews"
+  cp -R "$REPO_DIR/assets/reviews/." "$WT/assets/reviews/" || fail "copying review photos failed"
+fi
+
 BUILD_LOG="$(mktemp)"
 ( cd "$WT/scripts/reviews-auto" && node build-reviews.mjs ) | tee "$BUILD_LOG" \
   || fail "build-reviews.mjs failed — see launchd-err.log"
