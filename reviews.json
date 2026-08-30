@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T16:36:55.285Z",
+  "updatedAt": "2026-08-30T20:16:34.271Z",
   "aggregate": {
     "rating": 5,
     "count": 55
@@ -69,27 +69,6 @@
         "assets/reviews/google/google-eb909f10a2597e25-2.jpg",
         "assets/reviews/google/google-eb909f10a2597e25-3.jpg",
         "assets/reviews/google/google-eb909f10a2597e25-4.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
-      "id": "google-3a5d94c3b4ab5ee3",
-      "source": "google",
-      "rating": 5,
-      "author": "Enzo",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-16",
-      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
-      "photos": [
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
       ],
       "tourId": null,
       "tourName": null,
@@ -319,6 +298,27 @@
         "text": "Thank you so much for your kind review! We’re really happy you enjoyed your time with us and discovering Madeira from the sea. It was a pleasure having you on board and giving you the space to enjoy this special moment together. We hope to welcome you back one day The Chifbay Team⚓️",
         "date": "2026-08-10"
       },
+      "translation": null
+    },
+    {
+      "id": "google-3a5d94c3b4ab5ee3",
+      "source": "google",
+      "rating": 5,
+      "author": "Enzo",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-09",
+      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
+      "photos": [
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
       "translation": null
     },
     {
@@ -656,17 +656,6 @@
       "translation": null
     },
     {
-      "id": "tripadvisor-e26032d4c3cf",
-      "source": "tripadvisor",
-      "rating": 5,
-      "author": "janeprice1981",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-15",
-      "text": "Wonderful luxury boat trip. Fantastic 3 hour trip with Chifbay! Immaculate boat, amazing service & one of the best guacamoles i’ve tasted made fresh on board by our skipper! Nothing was too much trouble and my mother, son and husband all enjoyed our trip! We had flexibility on swimming for as long or as little as we wanted. Use of a paddleboard and even drone footage provided! A superb professional well organised experienced. Highly recommend!",
-      "translation": null
-    },
-    {
       "id": "tripadvisor-9e5d9d0f77aa",
       "source": "tripadvisor",
       "rating": 5,
@@ -675,6 +664,17 @@
       "countryFlag": "",
       "date": "2026-07-15",
       "text": "Absolutely Worth It. Couldn’t have asked for a better experience. The whole team was amazing and genuinely made my birthday so special. Thank you for all the effort and for giving us memories we’ll always cherish. Can’t wait to be back! Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
+      "translation": null
+    },
+    {
+      "id": "tripadvisor-e26032d4c3cf",
+      "source": "tripadvisor",
+      "rating": 5,
+      "author": "janeprice1981",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-15",
+      "text": "Wonderful luxury boat trip. Fantastic 3 hour trip with Chifbay! Immaculate boat, amazing service & one of the best guacamoles i’ve tasted made fresh on board by our skipper! Nothing was too much trouble and my mother, son and husband all enjoyed our trip! We had flexibility on swimming for as long or as little as we wanted. Use of a paddleboard and even drone footage provided! A superb professional well organised experienced. Highly recommend!",
       "translation": null
     },
     {
