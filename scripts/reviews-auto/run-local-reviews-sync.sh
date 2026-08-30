@@ -56,9 +56,13 @@ if [ -f "$HEARTBEAT" ]; then
   fi
 fi
 
-cd "$REPO_DIR" || fail "repo dir missing: $REPO_DIR"
-git pull --rebase --autostash origin main --quiet || fail "git pull failed"
-
+# NOTE: this job deliberately does NOT touch the checkout it lives in.
+# It used to start with `git pull --rebase --autostash origin main`, which is
+# how it died: on 2026-08-19 that rebase hit a conflict, left the repo mid-
+# rebase, and every run for the next eleven days failed on the same line. The
+# reviews were scraped correctly every time and never reached the site.
+# Scraping needs no git at all, and publishing now happens in a throwaway
+# worktree further down, so nothing an editor session does here can stop it.
 cd "$SCRIPT_DIR" || fail "reviews-auto dir missing"
 [ -d node_modules ] || npm install --no-audit --no-fund || fail "npm install failed"
 
@@ -96,17 +100,46 @@ if [ "$TA_OK" -eq 0 ]; then
     "$NTFY_ALERTS" >/dev/null 2>&1 || true
 fi
 
+# --- publish through a throwaway worktree ----------------------------------
+#
+# The build is run in a fresh checkout of origin/main, NOT in this repo. That
+# matters: build-reviews.mjs rewrites reviews.html and every index.html to
+# inject the teaser, so building in a stale checkout and pushing the result
+# would quietly revert whatever has been published since. This checkout was
+# eleven days behind when the fault was found; publishing from it would have
+# undone the legal footer, the booking-page fixes and eleven Journal posts.
+#
+# Only the freshly scraped JSON crosses over. Templates, copy and every other
+# file come from origin/main.
+git -C "$REPO_DIR" fetch --quiet origin main || fail "git fetch failed"
+WT="$(mktemp -d)/reviews-publish"
+git -C "$REPO_DIR" worktree add --quiet --detach "$WT" origin/main || fail "worktree add failed"
+cleanup_wt() {
+  git -C "$REPO_DIR" worktree remove --force "$WT" >/dev/null 2>&1 || true
+  git -C "$REPO_DIR" worktree prune >/dev/null 2>&1 || true
+}
+trap cleanup_wt EXIT
+
+# Scraper output only. tripadvisor-manual.json is hand-maintained IN the repo,
+# so the worktree's own copy (origin/main's) is the authority, not this one.
+for f in gyg-tours.json gyg-reviews.json google-reviews.json tripadvisor-reviews.json; do
+  if [ -f "$SCRIPT_DIR/data/$f" ]; then
+    cp "$SCRIPT_DIR/data/$f" "$WT/scripts/reviews-auto/data/$f"
+  fi
+done
+
 BUILD_LOG="$(mktemp)"
-node build-reviews.mjs | tee "$BUILD_LOG" || fail "build-reviews.mjs failed — see launchd-err.log"
+( cd "$WT/scripts/reviews-auto" && node build-reviews.mjs ) | tee "$BUILD_LOG" \
+  || fail "build-reviews.mjs failed — see launchd-err.log"
 NEW_COUNT="$(grep -o 'NEW_REVIEW_COUNT=.*' "$BUILD_LOG" | cut -d= -f2 || true)"
 NEW_SUMMARY="$(grep -o 'NEW_REVIEW_SUMMARY=.*' "$BUILD_LOG" | cut -d= -f2- || true)"
 rm -f "$BUILD_LOG"
 
-cd "$REPO_DIR"
-
 # Everything scraped and built cleanly — that is a successful run whether or
 # not it produced a diff, so stamp the heartbeat before the early exit.
 date +%s > "$HEARTBEAT"
+
+cd "$WT"
 
 # Stage ONLY what this pipeline produces. This used to be `git add -A`, which
 # meant any unrelated work-in-progress sitting in the repo got swept into the
@@ -127,13 +160,16 @@ REVIEW_PATHS=(
 )
 git add -- "${REVIEW_PATHS[@]}" 2>/dev/null || true
 
-CHANGES="$(git diff --cached --name-only)"
-if [ -z "$CHANGES" ]; then
+if git diff --cached --quiet; then
   exit 0
 fi
-git commit -m "Reviews sync (local): ${NEW_COUNT:-0} new review(s)" --quiet || fail "git commit failed"
-git pull --rebase --autostash origin main --quiet || fail "git pull (pre-push) failed"
-git push origin main --quiet || fail "git push failed"
+git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
+  commit -m "Reviews sync (local): ${NEW_COUNT:-0} new review(s)" --quiet \
+  || fail "git commit failed"
+
+# scripts/ci-push.sh fetches, rebases, pushes and retries — a race with the
+# blog or Instagram jobs costs seconds instead of a failed run.
+"$WT/scripts/ci-push.sh" || fail "git push failed"
 
 if [ -n "${NEW_COUNT:-}" ] && [ "$NEW_COUNT" != "0" ]; then
   curl -s --max-time 20 \
