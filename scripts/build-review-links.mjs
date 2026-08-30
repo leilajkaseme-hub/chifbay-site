@@ -54,14 +54,11 @@ const TARGETS = {
   },
   tripadvisor: {
     url: pick("TURL"),
-    // Observed 2026-08-30: this URL 301s to
-    // .../UserReviewEdit-g2590007-d34387047-Chifbay_Private_Boat_Tours_Funchal_Madeira-Sao_Martinho_...
-    // The listing was renamed and moved geo (Funchal -> São Martinho); the
-    // d34387047 id is unchanged. Kept as-is because this is the URL already
-    // live on review.html, so this changes nothing for guests. Tripadvisor's
-    // DataDome blocks every request from here, browser included, so the newer
-    // URL could not be opened even once to confirm it. Switch to it after
-    // tapping it on a phone.
+    // Tripadvisor blocks curl and automated browsers alike (DataDome), so this
+    // was confirmed the only way it can be: by opening chifbay.com/r/tripadvisor
+    // in the real browser on 2026-08-30 and landing on "Write a review".
+    // The listing was renamed (was g189167 ChifBay_Luxury_Yacht_Experiences);
+    // the old URL still 301s here and the d34387047 id never changed.
     expect: /^https:\/\/www\.tripadvisor\.com\/UserReviewEdit-g\d+-d\d+-/,
     brand: "Tripadvisor",
   },

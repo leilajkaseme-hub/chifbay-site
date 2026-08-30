@@ -199,7 +199,10 @@
 <script>
 (function(){
   var GURL = 'https://search.google.com/local/writereview?placeid=ChIJLUOnXLFhYAwRzK7dtdeu8Js';
-  var TURL = 'https://www.tripadvisor.com/UserReviewEdit-g189167-d34387047-ChifBay_Luxury_Yacht_Experiences_Madeira-Funchal_Madeira_Madeira_Islands.html';
+  // Tripadvisor listing d34387047. The name and the geo id both changed when
+  // it was renamed (was g189167 ChifBay_Luxury_Yacht_Experiences_Madeira); the
+  // old URL still 301s here, this one saves the hop. Confirmed live 2026-08-30.
+  var TURL = 'https://www.tripadvisor.com/UserReviewEdit-g2590007-d34387047-Chifbay_Private_Boat_Tours_Funchal_Madeira-Sao_Martinho_Funchal_Madeira_Madeira_Islands.html';
   var GW   = 'https://store-gateway.vercel.app/';
 
   var ua = navigator.userAgent || '';
