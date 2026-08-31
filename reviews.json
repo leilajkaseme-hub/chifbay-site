@@ -1,10 +1,26 @@
 {
-  "updatedAt": "2026-08-31T06:56:20.538Z",
+  "updatedAt": "2026-08-31T11:16:40.608Z",
   "aggregate": {
     "rating": 5,
-    "count": 55
+    "count": 56
   },
   "reviews": [
+    {
+      "id": "gyg-3a36c0eca6c2",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "GetYourGuide traveler",
+      "country": "United Kingdom",
+      "countryFlag": "🇬🇧",
+      "date": "2026-08-31",
+      "text": "",
+      "photos": [],
+      "tourId": "t1340940",
+      "tourName": "Yacht Cruise with Drinks",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+      "reply": null,
+      "translation": null
+    },
     {
       "id": "google-52b4f98963890871",
       "source": "google",
@@ -40,27 +56,6 @@
       "translation": null
     },
     {
-      "id": "google-eb909f10a2597e25",
-      "source": "google",
-      "rating": 5,
-      "author": "Thomas Bisogne",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-29",
-      "text": "The boat is brand new and absolutely immaculate — not a detail missed anywhere. The snacks were genuinely delicious, the wine was cold, and everything felt thought through rather than thrown together. What set it apart, though, was the family running it. Watching the father-and-son dynamic play out on the water was honestly heartwarming. You can feel their values in how they treat you — warm, generous, proud of their island and eager to share it. They talked us through the landscape and the history of the coastline as we went, and because the tour is intimate, it never felt like being herded around on a booze cruise. The drone footage they captured was incredible and gave us the most beautiful photo we took during our entire stay. Madeira is full of dramatic, over-the-top, adrenaline-fueled activities. This quiet sunset on the water beat all of them. Service was impeccable. Cannot recommend it highly enough. ",
-      "photos": [
-        "assets/reviews/google/google-eb909f10a2597e25-1.jpg",
-        "assets/reviews/google/google-eb909f10a2597e25-2.jpg",
-        "assets/reviews/google/google-eb909f10a2597e25-3.jpg",
-        "assets/reviews/google/google-eb909f10a2597e25-4.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": null,
-      "translation": null
-    },
-    {
       "id": "gyg-449b2fd565b6",
       "source": "getyourguide",
       "rating": 5,
@@ -80,6 +75,27 @@
       "translation": null
     },
     {
+      "id": "google-eb909f10a2597e25",
+      "source": "google",
+      "rating": 5,
+      "author": "Thomas Bisogne",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-28",
+      "text": "The boat is brand new and absolutely immaculate — not a detail missed anywhere. The snacks were genuinely delicious, the wine was cold, and everything felt thought through rather than thrown together. What set it apart, though, was the family running it. Watching the father-and-son dynamic play out on the water was honestly heartwarming. You can feel their values in how they treat you — warm, generous, proud of their island and eager to share it. They talked us through the landscape and the history of the coastline as we went, and because the tour is intimate, it never felt like being herded around on a booze cruise. The drone footage they captured was incredible and gave us the most beautiful photo we took during our entire stay. Madeira is full of dramatic, over-the-top, adrenaline-fueled activities. This quiet sunset on the water beat all of them. Service was impeccable. Cannot recommend it highly enough. ",
+      "photos": [
+        "assets/reviews/google/google-eb909f10a2597e25-1.jpg",
+        "assets/reviews/google/google-eb909f10a2597e25-2.jpg",
+        "assets/reviews/google/google-eb909f10a2597e25-3.jpg",
+        "assets/reviews/google/google-eb909f10a2597e25-4.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "google-0ef44042db91d174",
       "source": "google",
       "rating": 5,
@@ -87,7 +103,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-08-17",
-      "text": "Response from the owner a day ago Thank you so much for your 5 star review🤩We really appreciate it and hope to welcome you on board again soon. The Chifbay Team⚓️",
+      "text": "Response from the owner 2 days ago Thank you so much for your 5 star review🤩We really appreciate it and hope to welcome you on board again soon. The Chifbay Team⚓️",
       "photos": [],
       "tourId": null,
       "tourName": null,
@@ -659,17 +675,6 @@
       "translation": null
     },
     {
-      "id": "tripadvisor-e26032d4c3cf",
-      "source": "tripadvisor",
-      "rating": 5,
-      "author": "janeprice1981",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-07-15",
-      "text": "Wonderful luxury boat trip. Fantastic 3 hour trip with Chifbay! Immaculate boat, amazing service & one of the best guacamoles i’ve tasted made fresh on board by our skipper! Nothing was too much trouble and my mother, son and husband all enjoyed our trip! We had flexibility on swimming for as long or as little as we wanted. Use of a paddleboard and even drone footage provided! A superb professional well organised experienced. Highly recommend!",
-      "translation": null
-    },
-    {
       "id": "tripadvisor-9e5d9d0f77aa",
       "source": "tripadvisor",
       "rating": 5,
@@ -678,6 +683,17 @@
       "countryFlag": "",
       "date": "2026-07-15",
       "text": "Absolutely Worth It. Couldn’t have asked for a better experience. The whole team was amazing and genuinely made my birthday so special. Thank you for all the effort and for giving us memories we’ll always cherish. Can’t wait to be back! Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
+      "translation": null
+    },
+    {
+      "id": "tripadvisor-e26032d4c3cf",
+      "source": "tripadvisor",
+      "rating": 5,
+      "author": "janeprice1981",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-15",
+      "text": "Wonderful luxury boat trip. Fantastic 3 hour trip with Chifbay! Immaculate boat, amazing service & one of the best guacamoles i’ve tasted made fresh on board by our skipper! Nothing was too much trouble and my mother, son and husband all enjoyed our trip! We had flexibility on swimming for as long or as little as we wanted. Use of a paddleboard and even drone footage provided! A superb professional well organised experienced. Highly recommend!",
       "translation": null
     },
     {
