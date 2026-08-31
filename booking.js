@@ -55,6 +55,15 @@
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
+  function eurOnly(cents) {
+    return "\u20ac" + (cents / 100).toFixed(cents % 100 === 0 ? 0 : 2);
+  }
+
+  function fxOnly(cents) {
+    var fx = window.CHIFBAY_FX;
+    return (fx && fx.estimate(cents)) || "";
+  }
+
   function money(cents) {
     var eur = "€" + (cents / 100).toFixed(cents % 100 === 0 ? 0 : 2);
     // fx.js is what decides whether there is anything to add here — see its
@@ -373,56 +382,118 @@
     return '<div class="bkrt">' + parts.join('<span class="bkrta" aria-hidden="true">›</span>') + "</div>";
   }
 
+  /* One card per TRIP, not one per variant.
+   *
+   * It used to be one card per variant: four cards, each about 790px tall on a
+   * phone — 85% of the screen. You saw one at a time, the two Day Trip lengths
+   * were a full screen apart, and the last Sunset option only appeared on the
+   * fifth screen of a 6.4-screen page. Comparing "2h30 at 500" with "3h at
+   * 600" meant scrolling back and forth between two cards that looked the
+   * same, which is also why the page read as one long undifferentiated flow.
+   *
+   * Now the lengths are a switch at the top of one card. Both prices are
+   * visible at once, choosing is a tap instead of a scroll, and the page holds
+   * two clearly different products instead of four near-identical blocks.
+   */
+  function variantBody(o) {
+    var hls = (C && C.highlights(o.tripId, o.varId)) || [];
+    return (
+      "<h3>" + esc(o.v.name) + "</h3>" +
+      "<p>" + esc(t("blurb." + o.tripId + "/" + o.varId) || o.v.blurb) + "</p>" +
+      routeStrip(o.tripId, o.varId) +
+      (hls.length
+        ? '<ul class="bkcl">' + hls.map(function (h) {
+            return '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>' +
+              esc(h) + "</li>";
+          }).join("") + "</ul>"
+        : "") +
+      '<span class="bkcmeta">' + esc(t("ui.departs")) + " " +
+        esc(o.trip.times.join(" " + t("ui.or") + " ")) + " · " +
+        esc(t("ui.backBy")) + " " +
+        esc(endTimes(o.trip.times, o.v.minutes).join(" " + t("ui.or") + " ")) + " · " +
+        esc(t("ui.upTo", { n: state.catalogue.maxGuests })) + "</span>"
+    );
+  }
+
   function renderTrips() {
     var wrap = $("#bktrips");
     if (!wrap) return;
     wrap.innerHTML = "";
 
+    // Group the flat offer list back into one entry per trip, order preserved.
+    var groups = [];
     offers().forEach(function (o) {
-      var c = C && C.variant(o.tripId, o.varId);
-      var hls = (C && C.highlights(o.tripId, o.varId)) || [];
+      var g = null;
+      for (var i = 0; i < groups.length; i++) if (groups[i].tripId === o.tripId) g = groups[i];
+      if (!g) { g = { tripId: o.tripId, trip: o.trip, variants: [] }; groups.push(g); }
+      g.variants.push(o);
+    });
 
+    groups.forEach(function (g) {
       var card = document.createElement("article");
       card.className = "bkcard";
-      card.dataset.trip = o.tripId;
-      card.dataset.variant = o.varId;
+      card.dataset.trip = g.tripId;
 
-      var pic = c && c.photo
-        ? '<div class="bkcpic"><img src="' + esc(c.photo) + '" alt="' + esc(c.alt || o.v.name) +
-          '" loading="lazy" decoding="async" width="640" height="360">' +
-          '<span class="bkcdur">' + esc(dur(o.v.minutes)) + "</span></div>"
-        : "";
+      // Each length can have its own photo; the switch swaps it too.
+      var pics = g.variants.map(function (o, i) {
+        var c = C && C.variant(o.tripId, o.varId);
+        if (!c || !c.photo) return "";
+        return '<img class="bkcimg" data-i="' + i + '" src="' +
+          esc(c.photo) + '" alt="' + esc(c.alt || o.v.name) +
+          '" loading="lazy" decoding="async" width="640" height="360">';
+      }).join("");
+
+      // The switch carries BOTH numbers a guest compares. That is the whole
+      // point: no tap needed to see what the other length costs.
+      var segs = g.variants.map(function (o, i) {
+        return '<button type="button" class="bkseg" data-i="' + i +
+          '" role="tab" aria-selected="false">' +
+          "<b>" + esc(dur(o.v.minutes)) + "</b>" +
+          '<em>' + esc(eurOnly(o.v.amount)) + "</em></button>";
+      }).join("");
 
       card.innerHTML =
-        pic +
+        (pics ? '<div class="bkcpic">' + pics + "</div>" : "") +
         '<div class="bkcbody">' +
-          '<span class="bkck">' + esc(o.trip.name) + "</span>" +
-          "<h3>" + esc(o.v.name) + "</h3>" +
-          // A sentence written here beats the one the payment Worker ships,
-          // so wording never needs a Worker deploy. Falls back to the Worker's.
-          "<p>" + esc(t("blurb." + o.tripId + "/" + o.varId) || o.v.blurb) + "</p>" +
-          routeStrip(o.tripId, o.varId) +
-          (hls.length
-            ? '<ul class="bkcl">' + hls.map(function (h) {
-                return '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>' +
-                  esc(h) + "</li>";
-              }).join("") + "</ul>"
+          '<span class="bkck">' + esc(g.trip.name) + "</span>" +
+          (g.variants.length > 1
+            ? '<div class="bksegs" role="tablist" aria-label="' + esc(g.trip.name) + '">' + segs + "</div>"
             : "") +
+          '<div class="bkfx"></div>' +
+          '<div class="bkvar"></div>' +
           '<div class="bkcfoot">' +
-            '<span class="bkprice">' + money(o.v.amount) + "<em>" + esc(t("ui.wholeBoat")) + "</em></span>" +
-            '<span class="bkcdurb"><b>' + esc(dur(o.v.minutes)) + "</b><em>" +
-              esc(t("ui.onTheWater")) + "</em></span>" +
             '<button type="button" class="bkbtn bksm">' + esc(t("ui.choose")) +
               '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>' +
           "</div>" +
-          '<span class="bkcmeta">' + esc(t("ui.departs")) + " " +
-            esc(o.trip.times.join(" " + t("ui.or") + " ")) + " · " +
-            esc(t("ui.backBy")) + " " +
-            esc(endTimes(o.trip.times, o.v.minutes).join(" " + t("ui.or") + " ")) + " · " +
-            esc(t("ui.upTo", { n: state.catalogue.maxGuests })) + "</span>" +
         "</div>";
 
-      var choose = function () { select(o.tripId, o.varId); };
+      // Longest first, deliberately. It is the better trip to sell, and opening
+      // on the short one frames the long one as "the expensive one" instead of
+      // "the full one". Both prices stay visible either way, so nothing is hidden.
+      var chosen = 0;
+      for (var vi = 1; vi < g.variants.length; vi++) {
+        if (g.variants[vi].v.minutes > g.variants[chosen].v.minutes) chosen = vi;
+      }
+      function show(i) {
+        chosen = i;
+        $(".bkvar", card).innerHTML = variantBody(g.variants[i]);
+        var est = fxOnly(g.variants[i].v.amount);
+        $(".bkfx", card).innerHTML = est ? "\u2248 " + esc(est) : "";
+        $$(".bkseg", card).forEach(function (b, k) {
+          b.classList.toggle("on", k === i);
+          b.setAttribute("aria-selected", String(k === i));
+        });
+        $$(".bkcimg", card).forEach(function (im, k) { im.classList.toggle("on", k === i); });
+      }
+      $$(".bkseg", card).forEach(function (b) {
+        b.addEventListener("click", function () { show(+b.dataset.i); });
+      });
+      show(chosen);
+
+      var choose = function () {
+        var o = g.variants[chosen];
+        select(o.tripId, o.varId);
+      };
       $(".bksm", card).addEventListener("click", choose);
       $(".bkcpic", card) && $(".bkcpic", card).addEventListener("click", choose);
       wrap.appendChild(card);

@@ -155,6 +155,46 @@
   font-family:'Space Mono',monospace;font-size:.92rem;font-weight:700;letter-spacing:.04em;
   color:var(--on-photo)}
 
+/* ------------------------------------------------------- the length switch
+   Four cards became two. The two lengths of a trip are a switch at the top of
+   its card instead of two cards a full screen apart: both prices are visible
+   at once, choosing is a tap, and the page stopped being four near-identical
+   blocks in a row. Transparent on purpose — it should read as part of the card,
+   not as a form control dropped into it. */
+.bksegs{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;
+  margin:14px 0 6px;padding:5px;border-radius:100px;
+  background:rgba(var(--edge-rgb),.04);border:1px solid var(--hair-strong)}
+.bkseg{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  padding:10px 10px;border:0;border-radius:100px;background:transparent;color:var(--muted);
+  font:inherit;cursor:pointer;transition:background .25s,color .25s,box-shadow .25s}
+.bkseg b{font-family:'Space Mono',monospace;font-size:1.02rem;font-weight:700;letter-spacing:.02em}
+.bkseg em{font-style:normal;font-family:'Playfair Display',Georgia,serif;font-size:.92rem}
+.bkseg:not(.on):hover{color:var(--paper);background:rgba(var(--edge-rgb),.06)}
+.bkseg.on{background:var(--teal);color:var(--on-accent);
+  box-shadow:0 6px 18px rgba(var(--teal-rgb),.28)}
+.bkseg:focus-visible{outline:2px solid var(--gold-soft);outline-offset:2px}
+/* one conversion line for the selected length, rather than a price twice */
+.bkfx{min-height:1.1em;margin:0 0 12px;color:var(--muted);font-size:.78rem;
+  font-family:'Space Mono',monospace;letter-spacing:.04em;text-align:center}
+
+/* The two trips must not read as the same block twice. Each gets its own
+   accent: the water for the day trip, the brand gold for the sunset. Nothing
+   else in the palette moves. */
+.bkcard[data-trip="day-trip"]{--acc:118,196,186}
+.bkcard[data-trip="sunset"]{--acc:var(--teal-rgb)}
+.bkcard{--acc:var(--teal-rgb)}
+.bkcard::before{content:"";display:block;height:3px;background:rgb(var(--acc));opacity:.85}
+.bkcard .bkck{color:rgb(var(--acc))}
+.bkcard .bkcl svg{stroke:rgb(var(--acc))}
+.bkcard .bkrtp.turn{color:rgb(var(--acc))}
+.bkcard .bkseg.on{background:rgb(var(--acc));box-shadow:0 6px 18px rgba(var(--acc),.28)}
+.bkcard:hover{border-color:rgba(var(--acc),.45)}
+:root[data-theme="light"] .bkcard[data-trip="day-trip"]{--acc:26,124,114}
+
+/* Only one photo is shown at a time; the switch swaps it with the rest. */
+.bkcpic img{position:absolute;inset:0;opacity:0;transition:opacity .3s}
+.bkcpic img.on{opacity:1;position:relative}
+
 /* The duration, next to the price, because those are the two numbers a guest
    compares. The badge on the photo disappears entirely when a variant has no
    photo; this one never does. */
@@ -302,6 +342,18 @@
   .bkmapsvg{display:none}
   .bkrl{display:block}
   .bkmapbox{padding:20px}
+
+  /* The choice comes first on a phone. The coast map and the on-board section
+     sat between the hero and the trip cards, so you scrolled 1.9 screens of
+     reading before you could pick anything — on the one page whose entire job
+     is picking something. They are still here, just after the decision, where
+     they answer "what is it actually like" rather than delaying it. */
+  .bkwrap{display:flex;flex-direction:column}
+  .bksteps{order:1}
+  #bkloading{order:2}
+  #bkflow{order:3}
+  .bkmapbox{order:4;margin-top:34px}
+  .bkreassure{order:5}
 }
 @media(max-width:640px){
   /* clears the announcement bar plus the fixed nav */
