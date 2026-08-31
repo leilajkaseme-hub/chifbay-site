@@ -68,7 +68,51 @@
 .rq.compact{padding:20px 26px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
 .rq.compact .rq-stars{margin:0}
 .rq-photos{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px}
-.rq-photos img{width:96px;height:96px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.14)}
+.rq-photos img{width:96px;height:96px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,.14);
+  cursor:zoom-in;transition:transform .25s,border-color .25s}
+.rq-photos img:hover{transform:scale(1.04);border-color:rgba(var(--teal-rgb),.6)}
+
+/* The section had no heading of its own: past the hero you landed straight on
+   "5.0/5 · 55 verified reviews" and a wall of cards. On a tablet the hero is
+   one swipe, so that is what most people saw first. */
+.rvh{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4.4vw,2.9rem);
+  font-weight:400;margin:0 0 26px;line-height:1.15}
+
+/* ---------------------------------------------------------------- lightbox
+   One gallery across the whole page, so swiping moves between every guest's
+   photos, not only the ones inside a single card. */
+.rqlb{position:fixed;inset:0;z-index:10000;background:rgba(5,10,16,.96);
+  display:flex;align-items:center;justify-content:center;touch-action:none;
+  opacity:0;transition:opacity .22s;overscroll-behavior:contain}
+.rqlb.on{opacity:1}
+.rqlb[hidden]{display:none}
+.rqlb figure{margin:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  overflow:hidden}
+.rqlb img{max-width:100%;max-height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none;
+  transition:transform .25s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.rqlb.zoomed img{transition:none;cursor:grab}
+.rqlb .rqx,.rqlb .rqnav{position:absolute;border:1px solid rgba(255,255,255,.22);cursor:pointer;
+  background:rgba(12,20,28,.72);backdrop-filter:blur(8px);color:#fff;border-radius:100px;
+  display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
+.rqlb .rqx:hover,.rqlb .rqnav:hover{background:rgba(30,44,58,.9)}
+.rqlb .rqx{top:max(14px,env(safe-area-inset-top));right:14px;width:46px;height:46px;font-size:1.5rem;line-height:1}
+.rqlb .rqnav{top:50%;transform:translateY(-50%);width:46px;height:46px;font-size:1.4rem}
+.rqlb .rqprev{left:14px}
+.rqlb .rqnext{right:14px}
+.rqlb .rqnav[disabled]{opacity:.25;cursor:default}
+.rqcap{position:absolute;left:0;right:0;bottom:max(16px,env(safe-area-inset-bottom));
+  text-align:center;color:rgba(255,255,255,.86);font-size:.86rem;padding:0 70px;pointer-events:none;
+  text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.rqcap b{font-weight:600}
+.rqcap span{display:block;font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.14em;
+  color:rgba(255,255,255,.55);margin-top:5px}
+@media(max-width:560px){
+  .rqlb .rqnav{display:none}          /* swipe is the gesture on a phone */
+  .rqcap{padding:0 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .rqlb,.rqlb img,.rq-photos img{transition:none}
+}
 @media(max-width:560px){.rq-photos img{width:78px;height:78px}}
 </style>
   <script defer src="https://dashboard-pink-nine-58.vercel.app/t.js" data-store="chifbay"></script><script defer src="https://207.231.106.166.sslip.io/script.js" data-website-id="e98d1e8a-dbbd-4b75-82da-7729bd85863a"></script>
@@ -105,6 +149,8 @@
 
 <section class="pad">
   <div class="wrap">
+
+    <h2 class="rvh rv">Every review, word for word</h2>
 
     <div class="rq-badges rv">
 <!-- REVIEWS:BADGES -->
@@ -749,6 +795,212 @@
 
 <a class="wa" href="https://wa.me/351937200320" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
 
+<script>
+/* Review photo viewer.
+ *
+ * Guests post photos with their reviews and until now they were 96px
+ * thumbnails you could not open. This makes the whole page one gallery: tap
+ * any photo and swipe through every guest's pictures, not just the ones in
+ * that card.
+ *
+ * No library. Pointer Events cover mouse, touch and pen in one path, which is
+ * what makes pinch-zoom and swipe-to-close share the same few lines.
+ */
+(function () {
+  var thumbs = [].slice.call(document.querySelectorAll(".rq-photos img"));
+  if (!thumbs.length) return;
+
+  // Caption comes from the card the photo sits in, so a swipe always says
+  // whose picture you are looking at.
+  var shots = thumbs.map(function (im) {
+    var card = im.closest(".rq");
+    var who = card && card.querySelector(".who");
+    var src = card && card.querySelector(".src");
+    return { src: im.currentSrc || im.src, who: who ? who.textContent.trim() : "", src2: src ? src.textContent.trim() : "" };
+  });
+
+  var box = document.createElement("div");
+  box.className = "rqlb";
+  box.hidden = true;
+  box.setAttribute("role", "dialog");
+  box.setAttribute("aria-modal", "true");
+  box.setAttribute("aria-label", "Guest photo");
+  box.innerHTML =
+    '<figure><img alt=""></figure>' +
+    '<button class="rqx" type="button" aria-label="Close">\u00d7</button>' +
+    '<button class="rqnav rqprev" type="button" aria-label="Previous photo">\u2039</button>' +
+    '<button class="rqnav rqnext" type="button" aria-label="Next photo">\u203a</button>' +
+    '<figcaption class="rqcap"></figcaption>';
+  document.body.appendChild(box);
+
+  var img = box.querySelector("img"),
+      cap = box.querySelector(".rqcap"),
+      prevB = box.querySelector(".rqprev"),
+      nextB = box.querySelector(".rqnext");
+
+  var i = 0, scale = 1, tx = 0, ty = 0, opener = null;
+
+  /* max-width cannot make a picture bigger, only smaller, so the size is
+   * computed. Scale to fit the screen, capped at twice the real pixels. */
+  function fit() {
+    if (!img.naturalWidth) return;
+    var k = Math.min(
+      (innerWidth * 0.94) / img.naturalWidth,
+      (innerHeight * 0.86) / img.naturalHeight,
+      2
+    );
+    img.style.width = Math.round(img.naturalWidth * k) + "px";
+    img.style.height = Math.round(img.naturalHeight * k) + "px";
+  }
+  addEventListener("resize", function () { if (!box.hidden) fit(); });
+
+  function apply() {
+    img.style.transform = "translate(" + tx + "px," + ty + "px) scale(" + scale + ")";
+    box.classList.toggle("zoomed", scale > 1.01);
+  }
+  function reset() { scale = 1; tx = 0; ty = 0; apply(); }
+
+  function show(n) {
+    i = (n + shots.length) % shots.length;
+    var s = shots[i];
+    img.src = s.src;
+    img.alt = s.who ? "Photo from " + s.who + "'s review" : "Guest photo";
+    cap.innerHTML = "<b>" + s.who + "</b><span>" + s.src2 +
+      " \u00b7 " + (i + 1) + " / " + shots.length + "</span>";
+    prevB.disabled = nextB.disabled = shots.length < 2;
+    /* Some guest photos are small — Google's own review thumbnails were only
+     * 300x225 until the scraper started asking for a bigger rendition, and old
+     * ones may still be. Let a picture grow to fill the screen, but never past
+     * twice its real size: a smeared photo looks worse than a modest one. */
+    img.onload = fit;
+    reset();
+    // Preload the neighbours so a swipe never lands on a blank frame.
+    [shots[(i + 1) % shots.length], shots[(i - 1 + shots.length) % shots.length]]
+      .forEach(function (o) { var p = new Image(); p.src = o.src; });
+  }
+
+  function open(n, from) {
+    opener = from || null;
+    box.hidden = false;
+    document.body.style.overflow = "hidden";
+    show(n);
+    requestAnimationFrame(function () { box.classList.add("on"); });
+    box.querySelector(".rqx").focus();
+  }
+  function close() {
+    box.classList.remove("on");
+    document.body.style.overflow = "";
+    setTimeout(function () { box.hidden = true; img.src = ""; }, 220);
+    if (opener) opener.focus();
+  }
+
+  thumbs.forEach(function (im, n) {
+    im.addEventListener("click", function () { open(n, im); });
+  });
+  box.querySelector(".rqx").addEventListener("click", close);
+  prevB.addEventListener("click", function (e) { e.stopPropagation(); show(i - 1); });
+  nextB.addEventListener("click", function (e) { e.stopPropagation(); show(i + 1); });
+
+  // Tapping the backdrop closes; tapping the picture itself must not.
+  box.addEventListener("click", function (e) {
+    if (e.target === box || e.target.tagName === "FIGURE") close();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (box.hidden) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowRight") show(i + 1);
+    else if (e.key === "ArrowLeft") show(i - 1);
+    else if (e.key === "0") reset();
+  });
+
+  // Double click / double tap toggles zoom, centred on where you tapped.
+  function toggleZoom(cx, cy) {
+    if (scale > 1.01) { reset(); return; }
+    var r = img.getBoundingClientRect();
+    scale = 2.5;
+    tx = (r.left + r.width / 2 - cx) * (scale - 1) / scale;
+    ty = (r.top + r.height / 2 - cy) * (scale - 1) / scale;
+    apply();
+  }
+  img.addEventListener("dblclick", function (e) { toggleZoom(e.clientX, e.clientY); });
+
+  box.addEventListener("wheel", function (e) {
+    e.preventDefault();
+    scale = Math.min(5, Math.max(1, scale * (e.deltaY < 0 ? 1.12 : 0.89)));
+    if (scale === 1) { tx = ty = 0; }
+    apply();
+  }, { passive: false });
+
+  /* One pointer: swipe (or pan when zoomed). Two: pinch. */
+  var pts = {}, start = null, lastTap = 0;
+
+  box.addEventListener("pointerdown", function (e) {
+    if (e.target.closest(".rqx,.rqnav")) return;
+    box.setPointerCapture && box.setPointerCapture(e.pointerId);
+    pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+    var n = Object.keys(pts);
+    if (n.length === 1) {
+      start = { x: e.clientX, y: e.clientY, tx: tx, ty: ty, t: Date.now(), moved: 0 };
+      var now = Date.now();
+      if (now - lastTap < 320) toggleZoom(e.clientX, e.clientY);
+      lastTap = now;
+    } else if (n.length === 2) {
+      start = { d: dist(), scale: scale };
+    }
+  });
+
+  function dist() {
+    var k = Object.keys(pts);
+    if (k.length < 2) return 0;
+    var a = pts[k[0]], b = pts[k[1]];
+    return Math.hypot(a.x - b.x, a.y - b.y);
+  }
+
+  box.addEventListener("pointermove", function (e) {
+    if (!pts[e.pointerId]) return;
+    var prev = pts[e.pointerId];
+    pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+    var n = Object.keys(pts).length;
+
+    if (n >= 2 && start && start.d) {
+      scale = Math.min(5, Math.max(1, start.scale * (dist() / start.d)));
+      if (scale === 1) { tx = ty = 0; }
+      apply();
+      return;
+    }
+    if (n === 1 && start) {
+      var dx = e.clientX - start.x, dy = e.clientY - start.y;
+      start.moved = Math.max(start.moved, Math.abs(dx), Math.abs(dy));
+      if (scale > 1.01) {            // zoomed: drag to pan
+        tx = start.tx + dx; ty = start.ty + dy; apply();
+      } else {                        // not zoomed: drag the frame for feedback
+        img.style.transform = "translate(" + dx * 0.6 + "px," + dy * 0.6 + "px)";
+        box.style.opacity = String(Math.max(0.35, 1 - Math.abs(dy) / 520));
+      }
+    }
+    void prev;
+  });
+
+  function release(e) {
+    if (!pts[e.pointerId]) return;
+    delete pts[e.pointerId];
+    if (Object.keys(pts).length) { start = { d: dist(), scale: scale }; return; }
+    box.style.opacity = "";
+    if (!start || scale > 1.01) { start = null; return; }
+
+    var dx = e.clientX - start.x, dy = e.clientY - start.y;
+    var quick = Date.now() - start.t < 450;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) show(i + (dx < 0 ? 1 : -1));
+    else if (dy > 110 && quick) close();          // swipe down to dismiss
+    else if (start.moved < 8) { /* a tap on the picture: leave it open */ apply(); }
+    else apply();
+    start = null;
+  }
+  box.addEventListener("pointerup", release);
+  box.addEventListener("pointercancel", release);
+})();
+</script>
 <script src="peak.js"></script>
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>

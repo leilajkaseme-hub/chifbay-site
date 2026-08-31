@@ -39,12 +39,33 @@ function relativeToIsoDate(rel, now) {
   return new Date(now.getTime() - n * msPer[unit]).toISOString().slice(0, 10);
 }
 
+/* Google paints the review list from a CSS background-image sized for that
+ * list — w300-h225. Downloading it verbatim gave 300x225 files, which are fine
+ * as the 96px thumbnails on the page and useless the moment someone opens one
+ * full screen. The same asset serves a larger rendition if you ask for one. */
+function bigger(url) {
+  return url
+    .replace(/\/w\d+-h\d+[^/]*(?=\/|$)/, "/w1600-h1600-k-no")
+    .replace(/=w\d+-h\d+[^&]*/, "=w1600-h1600-k-no");
+}
+
+/* No existsSync short-circuit any more. It is a few dozen small files, and
+ * re-fetching every run is what lets photos already saved at 300px heal
+ * themselves instead of staying thumbnails forever. The file is only ever
+ * overwritten by a response that actually arrived, so a refusal leaves the
+ * copy already on disk untouched. */
 async function downloadPhoto(url, destPath) {
-  if (existsSync(destPath)) return true;
-  const res = await fetch(url);
-  if (!res.ok) return false;
-  writeFileSync(destPath, Buffer.from(await res.arrayBuffer()));
-  return true;
+  for (const candidate of [bigger(url), url]) {
+    try {
+      const res = await fetch(candidate);
+      if (!res.ok) continue;
+      const buf = Buffer.from(await res.arrayBuffer());
+      if (!buf.length) continue;
+      writeFileSync(destPath, buf);
+      return true;
+    } catch { /* try the next candidate */ }
+  }
+  return existsSync(destPath);
 }
 
 async function main() {
