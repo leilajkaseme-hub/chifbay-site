@@ -144,7 +144,19 @@ BUILD_LOG="$(mktemp)"
   || fail "build-reviews.mjs failed — see launchd-err.log"
 NEW_COUNT="$(grep -o 'NEW_REVIEW_COUNT=.*' "$BUILD_LOG" | cut -d= -f2 || true)"
 NEW_SUMMARY="$(grep -o 'NEW_REVIEW_SUMMARY=.*' "$BUILD_LOG" | cut -d= -f2- || true)"
+MISMATCH="$(grep -o 'REVIEW_COUNT_MISMATCH=.*' "$BUILD_LOG" | cut -d= -f2- || true)"
 rm -f "$BUILD_LOG"
+
+# A page still claiming a different review count is not cosmetic: every page
+# declares the same business @id, so contradictory counts are what gets a rich
+# result dropped. It drifted silently twice (2026-07-26, 2026-08-31) because
+# nothing checked and nothing said anything. Now it says something.
+if [ -n "$MISMATCH" ]; then
+  curl -s --max-time 20 \
+    -H "Title: Chifbay: a page disagrees on the review count" \
+    -H "Priority: default" -H "Tags: warning,boat" \
+    -d "$MISMATCH" "$NTFY_ALERTS" >/dev/null 2>&1 || true
+fi
 
 # Everything scraped and built cleanly — that is a successful run whether or
 # not it produced a diff, so stamp the heartbeat before the early exit.
