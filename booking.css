@@ -187,7 +187,14 @@
    its own full-width line, and it looks the same in every currency. */
 .bkcfoot{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;
   gap:10px 14px;flex-wrap:wrap}
-.bkcfoot .bksm{flex:1 0 100%;justify-content:center;margin-top:4px}
+/* Desktop only. Under 760px the footer is already flex-direction:column, and
+   there `flex-basis:100%` means 100% of the HEIGHT — it turned the CTA into a
+   352x131 pill with a 100px radius that overflowed the card. It shipped that
+   way and was live on every phone for a day. The mobile rules further down
+   already do the right thing with width:100%. */
+@media(min-width:761px){
+  .bkcfoot .bksm{flex:1 0 100%;justify-content:center;margin-top:4px}
+}
 .bkprice{font-family:'Playfair Display',Georgia,serif;font-size:1.85rem;display:flex;
   align-items:baseline;gap:8px;line-height:1}
 .bkprice em{font-style:normal;font-size:.62rem;color:var(--muted);letter-spacing:.12em;
