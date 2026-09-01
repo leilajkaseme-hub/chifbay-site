@@ -51,6 +51,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { stripMetadata } from "../lib/strip-metadata.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const IG_AUTO = path.resolve(HERE, "..");
@@ -195,8 +196,22 @@ async function download(token, file, dest) {
   if (!res.ok) {
     throw new Error(`download ${file.name} ${res.status}`);
   }
-  const buf = Buffer.from(await res.arrayBuffer());
-  if (!buf.length) throw new Error(`${file.name} downloaded as 0 bytes`);
+  const raw = Buffer.from(await res.arrayBuffer());
+  if (!raw.length) throw new Error(`${file.name} downloaded as 0 bytes`);
+
+  // Strip metadata on the way in, so nothing personal ever lands in the repo.
+  // This repo is public. One photo already arrived carrying GPS coordinates, a
+  // name and a capture date; five carried the phone model; twenty two carried
+  // AI provenance. Doing it here rather than at posting time means the clean
+  // copy is what gets committed, not just what gets published.
+  //
+  // Lossless: metadata blocks are cut out, the compressed image is untouched,
+  // and the colour profile is deliberately kept so the picture still renders
+  // the way it was shot.
+  const buf = stripMetadata(raw);
+  if (buf.length !== raw.length) {
+    console.log(`    stripped ${raw.length - buf.length} bytes of metadata`);
+  }
   fs.writeFileSync(dest, buf);
   return buf.length;
 }

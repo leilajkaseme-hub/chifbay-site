@@ -1,0 +1,44 @@
+{
+  "id": "20260901092814-24db",
+  "kind": "feed",
+  "created": "2026-09-01T09:28:25.420Z",
+  "source": "library",
+  "origin": "social-drive/d53eb8cd-cbe3-484a-bdb3-d67143ce61aa-1Bjm9_zz.jpg",
+  "image": "ig/20260901092814-24db-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260901092814-24db-1.jpg",
+  "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164",
+  "slides": [
+    {
+      "origin": "social-drive/d53eb8cd-cbe3-484a-bdb3-d67143ce61aa-1Bjm9_zz.jpg",
+      "image": "ig/20260901092814-24db-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092814-24db-1.jpg",
+      "sha256": "991245f9a6bf616e8443592e4f9b16edf96671fd7b77ef98d55386b0f190c164"
+    },
+    {
+      "origin": "social-drive/d54b6395-4de1-4555-bec9-87bc97b69e04-11sqh_Wd.jpg",
+      "image": "ig/20260901092814-24db-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092814-24db-2.jpg",
+      "sha256": "c6b5e1c59eb807b8f67a69d3f0a0e656a0a8fac2b7da62b33460c389d10a3009"
+    },
+    {
+      "origin": "social-drive/db2e5ab2-ff7e-4c79-be70-0a795c626230-1ZN6aZ80.jpg",
+      "image": "ig/20260901092814-24db-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092814-24db-3.jpg",
+      "sha256": "b1a7f9f9533ccb6d30beb6c4230cf84dc1b19dd830175e5406f3974d1f33682d"
+    }
+  ],
+  "plan_index": 1,
+  "plan_cover": "social-drive/d53eb8cd-cbe3-484a-bdb3-d67143ce61aa-1Bjm9_zz.jpg",
+  "palette": "golden",
+  "angle": "onboard",
+  "caption": "Madeira wine and a cheese board, laid out right on deck.\nSmall touches like this make the crossing feel like more than a boat ride.\nKarnic R8S, private boat, skipper included, five guests maximum.\nDetails and dates on chifbay.com",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#seaday",
+    "#atlanticocean",
+    "#islandlife"
+  ],
+  "rendered_caption": "Madeira wine and a cheese board, laid out right on deck.\nSmall touches like this make the crossing feel like more than a boat ride.\nKarnic R8S, private boat, skipper included, five guests maximum.\nDetails and dates on chifbay.com\n\n#portugal #madeiraportugal #seaday #atlanticocean #islandlife",
+  "writer": "claude"
+}

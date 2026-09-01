@@ -1,0 +1,52 @@
+{
+  "id": "20260901092839-987c",
+  "kind": "feed",
+  "created": "2026-09-01T09:29:01.079Z",
+  "source": "library",
+  "origin": "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
+  "image": "ig/20260901092839-987c-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260901092839-987c-1.jpg",
+  "sha256": "5a96b60bbe9443c000d638a9e987da4ef10f3b4d87538c7770c530e873a0b184",
+  "slides": [
+    {
+      "origin": "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
+      "image": "ig/20260901092839-987c-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092839-987c-1.jpg",
+      "sha256": "5a96b60bbe9443c000d638a9e987da4ef10f3b4d87538c7770c530e873a0b184"
+    },
+    {
+      "origin": "social-drive/img-1750-1aJpTiay.jpg",
+      "image": "ig/20260901092839-987c-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092839-987c-2.jpg",
+      "sha256": "19a4709a45c7ca8792ee6069bc8d548452cc614b23135ba42144372c8aed90b0"
+    },
+    {
+      "origin": "social-drive/124-1HaSrnmE.png",
+      "image": "ig/20260901092839-987c-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092839-987c-3.jpg",
+      "sha256": "fca5809e3ad03f0af1627cdffbec592fbe93ba3d4b9942f9c4325c1fb9897a94"
+    },
+    {
+      "origin": "social-drive/008-1KqJChSW.jpg",
+      "image": "ig/20260901092839-987c-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092839-987c-4.jpg",
+      "sha256": "08fab3846ae44ec8040ed24f39e3a6ff682bc95bc7e16a891925a48825c222e6"
+    }
+  ],
+  "plan_index": 3,
+  "plan_cover": "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
+  "palette": "neutral",
+  "angle": "onboard",
+  "caption": "Two guests, one long conversation, our skipper minding the course just behind them.\nNothing scheduled for the next hour, just the boat easing along the coast.\nKarnic R8S, private trips from Funchal marina, skipper included, five guests maximum.\nLink in bio if this is the pace of Madeira you're after.",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#boattrip",
+    "#atlanticocean",
+    "#islandlife",
+    "#boatlife",
+    "#visitportugal"
+  ],
+  "rendered_caption": "Two guests, one long conversation, our skipper minding the course just behind them.\nNothing scheduled for the next hour, just the boat easing along the coast.\nKarnic R8S, private trips from Funchal marina, skipper included, five guests maximum.\nLink in bio if this is the pace of Madeira you're after.\n\n#funchal #visitmadeira #boattrip #atlanticocean #islandlife #boatlife #visitportugal",
+  "writer": "claude"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "20260901092914-5251",
+  "kind": "feed",
+  "created": "2026-09-01T09:29:33.470Z",
+  "source": "library",
+  "origin": "social-drive/008-1KqJChSW.jpg",
+  "image": "ig/20260901092914-5251-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260901092914-5251-1.jpg",
+  "sha256": "08fab3846ae44ec8040ed24f39e3a6ff682bc95bc7e16a891925a48825c222e6",
+  "slides": [
+    {
+      "origin": "social-drive/008-1KqJChSW.jpg",
+      "image": "ig/20260901092914-5251-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092914-5251-1.jpg",
+      "sha256": "08fab3846ae44ec8040ed24f39e3a6ff682bc95bc7e16a891925a48825c222e6"
+    },
+    {
+      "origin": "social-drive/080-1Vf8N_aV.png",
+      "image": "ig/20260901092914-5251-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092914-5251-2.jpg",
+      "sha256": "2ea2e726473077e7b314a133d9f5d6bbd19a3d396dadcd1d6d5b4667c1a2c3e9"
+    },
+    {
+      "origin": "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+      "image": "ig/20260901092914-5251-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092914-5251-3.jpg",
+      "sha256": "eb431b5f5651a61f73b071008cf9897e7bf5343c94f61b78fec031e41b2a5a08"
+    },
+    {
+      "origin": "social-drive/001-12M0Xk9l.jpg",
+      "image": "ig/20260901092914-5251-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092914-5251-4.jpg",
+      "sha256": "01ddb31b8d33ef11fbf4824a3ff75cb2e77522e8859381e439f9195c8badf036"
+    }
+  ],
+  "plan_index": 5,
+  "plan_cover": "social-drive/008-1KqJChSW.jpg",
+  "palette": "neutral",
+  "angle": "onboard",
+  "caption": "Straw hat, bare feet, hand on the wheel for a bit of the ride.\nThe sun sitting low ahead of us, sea calm enough to just stand there and steer.\nKarnic R8S, private boat, skipper included, five guests maximum.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#boattour",
+    "#boatlife",
+    "#dayonaboat"
+  ],
+  "rendered_caption": "Straw hat, bare feet, hand on the wheel for a bit of the ride.\nThe sun sitting low ahead of us, sea calm enough to just stand there and steer.\nKarnic R8S, private boat, skipper included, five guests maximum.\nBook direct on chifbay.com\n\n#madeiraisland #madeira #boattour #boatlife #dayonaboat",
+  "writer": "claude"
+}

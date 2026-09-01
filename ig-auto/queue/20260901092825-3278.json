@@ -1,0 +1,51 @@
+{
+  "id": "20260901092825-3278",
+  "kind": "feed",
+  "created": "2026-09-01T09:28:38.998Z",
+  "source": "library",
+  "origin": "social-drive/d54b6395-4de1-4555-bec9-87bc97b69e04-11sqh_Wd.jpg",
+  "image": "ig/20260901092825-3278-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260901092825-3278-1.jpg",
+  "sha256": "c6b5e1c59eb807b8f67a69d3f0a0e656a0a8fac2b7da62b33460c389d10a3009",
+  "slides": [
+    {
+      "origin": "social-drive/d54b6395-4de1-4555-bec9-87bc97b69e04-11sqh_Wd.jpg",
+      "image": "ig/20260901092825-3278-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092825-3278-1.jpg",
+      "sha256": "c6b5e1c59eb807b8f67a69d3f0a0e656a0a8fac2b7da62b33460c389d10a3009"
+    },
+    {
+      "origin": "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
+      "image": "ig/20260901092825-3278-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092825-3278-2.jpg",
+      "sha256": "5a96b60bbe9443c000d638a9e987da4ef10f3b4d87538c7770c530e873a0b184"
+    },
+    {
+      "origin": "social-drive/008-1KqJChSW.jpg",
+      "image": "ig/20260901092825-3278-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092825-3278-3.jpg",
+      "sha256": "08fab3846ae44ec8040ed24f39e3a6ff682bc95bc7e16a891925a48825c222e6"
+    },
+    {
+      "origin": "social-drive/img-1750-1aJpTiay.jpg",
+      "image": "ig/20260901092825-3278-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260901092825-3278-4.jpg",
+      "sha256": "19a4709a45c7ca8792ee6069bc8d548452cc614b23135ba42144372c8aed90b0"
+    }
+  ],
+  "plan_index": 2,
+  "plan_cover": "social-drive/d54b6395-4de1-4555-bec9-87bc97b69e04-11sqh_Wd.jpg",
+  "palette": "soft",
+  "angle": "onboard",
+  "caption": "Poncha, Madeira wine, olives, cheese, chorizo — laid out on deck before we've even left the marina.\nSmall bites, no rush, the water already that colour.\nKarnic R8S, private boat, skipper included, five guests maximum.\nSend us a message for availability.",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#privateboattour",
+    "#dayonaboat",
+    "#boatlife"
+  ],
+  "rendered_caption": "Poncha, Madeira wine, olives, cheese, chorizo — laid out on deck before we've even left the marina.\nSmall bites, no rush, the water already that colour.\nKarnic R8S, private boat, skipper included, five guests maximum.\nSend us a message for availability.\n\n#madeira #madeiraisland #boattour #privateboattour #dayonaboat #boatlife",
+  "writer": "claude"
+}
