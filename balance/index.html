@@ -10,7 +10,8 @@
 
      TO REUSE THIS FOR ANOTHER BOOKING, three things must change together or
      the page will show one figure and charge another:
-       1. the three numbers in .sum below (total, already paid, left to pay)
+       1. the four numbers in .sum below (normal price, price held, already
+          paid, left to pay) — and they must still add up
        2. the "Pay the EUR N balance" wording on the button
        3. the Stripe Payment Link in the button's href — a NEW link for the new
           amount, created in the Stripe dashboard. The amount lives in the
@@ -42,6 +43,8 @@
   .sum .row:last-child{border-bottom:0}
   .sum .row span{color:var(--paper-dim);font-size:.95rem}
   .sum .row b{font-family:'Space Mono',monospace;font-weight:700;font-size:1rem;white-space:nowrap}
+  .sum .was span,.sum .was b{color:var(--muted)}
+  .sum .was b{text-decoration:line-through;text-decoration-thickness:1px}
   .sum .paid b{color:var(--muted)}
   .sum .due{background:rgba(var(--teal-rgb),.09)}
   .sum .due span{color:var(--paper);font-weight:500}
@@ -89,14 +92,15 @@
   <span class="kick">Chifbay · Funchal, Madeira</span>
   <h1>There is a balance left on your booking</h1>
 
-  <p class="lead">Thank you for booking with us. Your date is held and nothing about your trip changes. There is one thing we have to raise before you come aboard, and we would rather say it plainly now than let you find out at the pontoon.</p>
+  <p class="lead">Thank you for booking with us. Your date is held and nothing about your trip changes. There is one thing we would rather say plainly now than let you discover at the pontoon.</p>
 
-  <p class="lead">Your reservation went through GetYourGuide at <strong>€190</strong>. That price was wrong on the listing — ours to get right, and we did not. The trip you booked is <strong>€450 for the whole boat</strong>, for your group however many of you come.</p>
+  <p class="lead">The trip you booked is <strong>€600</strong> — that is the whole boat, to your group alone, and it is what it costs every other day. Your reservation went through GetYourGuide at <strong>€190</strong>, because the price on that listing was wrong. Ours to get right, and we did not.</p>
 
-  <p class="lead">The error is ours, not yours, and we are asking rather than charging. What is below is the difference and nothing else: no fee, no surcharge, and no change to what you booked.</p>
+  <p class="lead">So we are not asking you for the difference. <strong>We are holding your trip at €450</strong> — €150 under the normal price, because the mistake was ours and you should not carry all of it. €190 is already paid, which leaves €260.</p>
 
   <div class="sum">
-    <div class="row"><span>Private sunset cruise · whole boat</span><b>€450</b></div>
+    <div class="row was"><span>Normal price · the whole boat, your group alone</span><b>€600</b></div>
+    <div class="row"><span>Your price, held for this booking</span><b>€450</b></div>
     <div class="row paid"><span>Already paid on GetYourGuide</span><b>− €190</b></div>
     <div class="row due"><span>Left to pay</span><b>€260</b></div>
   </div>
@@ -110,13 +114,12 @@
   <div class="inc">
     <h2>What the €450 covers</h2>
     <ul>
-      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>The whole boat, yours alone</strong> — never shared with another group, whoever else is on the water that evening.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>The whole boat, yours alone</strong> — never shared with another group, whoever else is on the water that day.</span></li>
       <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Our <strong>2026 Karnic R8S</strong> — 9 m, Mercury V8 300 hp, cushioned seating and a swim platform.</span></li>
       <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Two Chifbay skippers</strong> on board, always — one at the helm, one looking after your group.</span></li>
       <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Local wine, poncha, beer, soft drinks and snacks</strong> — included, no extra charge.</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Golden hour under <strong>Cabo Girão</strong>, 580 metres of cliff straight out of the sea.</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Drone footage of your trip</strong>, filmed on the day and sent to you afterwards.</span></li>
-      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>A <strong>bathroom on board</strong>, and an open-throttle run back into a lit-up Funchal.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>The drone goes up over Cabo Girão</strong> — 580 metres of cliff straight out of the sea, and the footage is yours.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>A <strong>bathroom on board</strong>, and the whole west coast within 18 km of Funchal.</span></li>
     </ul>
   </div>
 
@@ -124,7 +127,7 @@
     <strong>Not what you expected?</strong> Say so and we will sort it out — nothing is charged automatically and your date stays held while we talk.
     Message us on <a href="https://wa.me/351937200320">WhatsApp (+351 937 200 320)</a>
     or write to <a href="mailto:hello@chifbay.com">hello@chifbay.com</a>.
-    If you would rather not go ahead at €450, tell us and we will cancel and refund the €190 in full.
+    If €450 is not what you want to spend, tell us and we will cancel and refund the €190 in full, with no hard feelings.
   </div>
 </main>
 
