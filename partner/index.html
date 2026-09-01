@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Parceiro Chifbay</title>
+<style>
+  :root{
+    --bg:#f6f8fa; --card:#fff; --ink:#0d1b23; --soft:#5c6f7a; --line:#dfe6ea;
+    --accent:#0a6d94; --good:#0b7a52; --bad:#a3341f; --shadow:0 1px 2px rgba(13,27,35,.06),0 4px 16px rgba(13,27,35,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0b1720; --card:#122531; --ink:#e9f2f7; --soft:#93a9b5; --line:#1e3947;
+           --accent:#4bb8e0; --good:#3fbc8b; --bad:#e2745a; --shadow:none }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  .wrap{max-width:640px;margin:0 auto;padding:20px 16px 56px}
+  header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  h1{font-size:1.35rem;margin:0;letter-spacing:-.01em}
+  .sub{color:var(--soft);font-size:.85rem;margin:2px 0 18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+        padding:16px;margin-bottom:14px;box-shadow:var(--shadow)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+  .kpi .n{font-size:1.7rem;font-weight:650;letter-spacing:-.02em;line-height:1.1}
+  .kpi .l{color:var(--soft);font-size:.78rem;margin-top:3px}
+  .kpi.hero .n{color:var(--accent)}
+  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);
+     margin:22px 0 8px;font-weight:650}
+  table{width:100%;border-collapse:collapse;font-size:.9rem}
+  th{text-align:left;font-weight:600;color:var(--soft);font-size:.75rem;
+     text-transform:uppercase;letter-spacing:.05em;padding:0 0 8px}
+  td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+  td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:.7rem;padding:1px 7px;border-radius:20px;
+       border:1px solid var(--line);color:var(--soft);white-space:nowrap}
+  .tag.ref{color:var(--bad);border-color:var(--bad)}
+  .neg{color:var(--bad)}
+  .link{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  code{background:var(--bg);border:1px solid var(--line);border-radius:7px;
+       padding:5px 9px;font-size:.85rem;word-break:break-all}
+  button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);
+         border-radius:9px;padding:7px 13px;cursor:pointer}
+  button:active{transform:translateY(1px)}
+  .foot{color:var(--soft);font-size:.78rem;margin-top:8px}
+  .empty{text-align:center;padding:26px 10px;color:var(--soft)}
+  .empty strong{display:block;color:var(--ink);font-size:1.02rem;margin-bottom:5px}
+  .err{border-color:var(--bad)}
+  .spin{opacity:.45}
+</style>
+</head><body>
+<div class="wrap" id="app"><p class="sub">A carregar…</p></div>
+
+<script>
+(function () {
+  "use strict";
+  var API = "https://chifbay-booking-api.chifandcopt.workers.dev/v1/partner";
+  var app = document.getElementById("app");
+  var token = new URLSearchParams(location.search).get("k") || "";
+  var data = null, fetchedAt = 0, timer = null;
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function eur(cents) {
+    return (Math.round(cents || 0) / 100).toLocaleString("pt-PT",
+      { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+  }
+  function monthName(m) {
+    var p = String(m).split("-");
+    var d = new Date(Date.UTC(+p[0], +p[1] - 1, 1));
+    return d.toLocaleDateString("pt-PT", { month: "long", year: "numeric", timeZone: "UTC" });
+  }
+  function ago(ms) {
+    var s = Math.max(0, Math.round((Date.now() - ms) / 1000));
+    if (s < 60) return "há " + s + " segundo" + (s === 1 ? "" : "s");
+    var m = Math.round(s / 60);
+    if (m < 60) return "há " + m + " minuto" + (m === 1 ? "" : "s");
+    var h = Math.round(m / 60);
+    return "há " + h + " hora" + (h === 1 ? "" : "s");
+  }
+
+  function thisMonth(d) {
+    var now = new Date();
+    var k = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0");
+    var prevD = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    var pk = prevD.getFullYear() + "-" + String(prevD.getMonth() + 1).padStart(2, "0");
+    var byMonth = {};
+    (d.months || []).forEach(function (m) { byMonth[m.month] = m; });
+    var zero = { visits: 0, sales: 0, refunds: 0, gross: 0, commission: 0 };
+    return { cur: byMonth[k] || zero, prev: byMonth[pk] || zero, curKey: k, prevKey: pk };
+  }
+
+  function render() {
+    var d = data, t = d.totals, m = thisMonth(d);
+    var rows = (d.recent || []).map(function (r) {
+      var ref = r.state === "refunded" || r.state === "cancelled";
+      return '<tr><td>' + esc(r.date || "") +
+        (ref ? ' <span class="tag ref">' + (r.state === "refunded" ? "reembolsado" : "cancelado") + "</span>" : "") +
+        '</td><td class="r">' + (r.guests || "") +
+        '</td><td class="r">' + eur(r.amount) +
+        '</td><td class="r' + (ref ? " neg" : "") + '">' +
+        (ref ? "0" : eur(r.commission)) + "</td></tr>";
+    }).join("");
+
+    var monthRows = (d.months || []).map(function (x) {
+      return "<tr><td>" + esc(monthName(x.month)) +
+        '</td><td class="r">' + x.visits +
+        '</td><td class="r">' + x.sales + (x.refunds ? ' <span class="neg">(' + x.refunds + ")</span>" : "") +
+        '</td><td class="r">' + eur(x.commission) + "</td></tr>";
+    }).join("");
+
+    app.innerHTML =
+      '<header><h1>' + esc(d.partner) + "</h1>" +
+      '<button id="rf">Atualizar</button></header>' +
+      '<p class="sub">Comissão de ' + Math.round(d.rate * 100) + "% · atualizado <span id=\"ago\">" + ago(fetchedAt) + "</span></p>" +
+
+      '<div class="grid">' +
+        '<div class="kpi hero"><div class="n">' + eur(t.commission) + '</div><div class="l">comissão acumulada</div></div>' +
+        '<div class="kpi"><div class="n">' + t.sales + '</div><div class="l">reservas confirmadas</div></div>' +
+        '<div class="kpi"><div class="n">' + t.visits + '</div><div class="l">visitas ao vosso link</div></div>' +
+        '<div class="kpi"><div class="n">' + eur(t.gross) + '</div><div class="l">valor das reservas</div></div>' +
+      "</div>" +
+      '<p class="foot">As visitas aparecem em cerca de um minuto. ' +
+        (t.refunds ? t.refunds + " reserva(s) reembolsada(s), já descontada(s)." : "") + "</p>" +
+
+      '<h2>Este mês e o anterior</h2><div class="card"><table>' +
+        "<tr><th></th><th class=\"r\">visitas</th><th class=\"r\">reservas</th><th class=\"r\">comissão</th></tr>" +
+        "<tr><td>" + esc(monthName(m.curKey)) + '</td><td class="r">' + m.cur.visits +
+          '</td><td class="r">' + m.cur.sales + '</td><td class="r">' + eur(m.cur.commission) + "</td></tr>" +
+        "<tr><td>" + esc(monthName(m.prevKey)) + '</td><td class="r">' + m.prev.visits +
+          '</td><td class="r">' + m.prev.sales + '</td><td class="r">' + eur(m.prev.commission) + "</td></tr>" +
+      "</table></div>" +
+
+      "<h2>Reservas</h2><div class=\"card\">" +
+        (rows
+          ? '<table><tr><th>data</th><th class="r">pax</th><th class="r">valor</th><th class="r">comissão</th></tr>' + rows + "</table>"
+          : '<div class="empty"><strong>Sem reservas ainda.</strong>O vosso link teve ' + t.visits +
+            " visita" + (t.visits === 1 ? "" : "s") + ".</div>") +
+      "</div>" +
+
+      (monthRows ? "<h2>Por mês</h2><div class=\"card\"><table>" +
+        '<tr><th>mês</th><th class="r">visitas</th><th class="r">reservas</th><th class="r">comissão</th></tr>' +
+        monthRows + "</table></div>" : "") +
+
+      '<h2>O vosso link</h2><div class="card"><div class="link"><code>' + esc(d.link) + "</code>" +
+        '<button id="cp">Copiar</button></div>' +
+        '<p class="foot">' + esc(d.note) + "</p></div>";
+
+    document.getElementById("rf").onclick = function () { load(true); };
+    var cp = document.getElementById("cp");
+    if (cp) cp.onclick = function () {
+      navigator.clipboard && navigator.clipboard.writeText(d.link);
+      cp.textContent = "Copiado";
+      setTimeout(function () { cp.textContent = "Copiar"; }, 1600);
+    };
+  }
+
+  function tick() {
+    var el = document.getElementById("ago");
+    if (el && fetchedAt) el.textContent = ago(fetchedAt);
+  }
+
+  function fail(msg, detail) {
+    app.innerHTML = '<div class="card err"><div class="empty"><strong>' + esc(msg) + "</strong>" +
+      esc(detail || "") + "</div></div>";
+  }
+
+  function load(manual) {
+    if (!token) return fail("Link inválido.", "Falta o código de acesso.");
+    if (manual) app.classList.add("spin");
+    fetch(API + "?k=" + encodeURIComponent(token), { cache: "no-store" })
+      .then(function (r) {
+        if (r.status === 404) { fail("Link inválido.", "Este link não corresponde a nenhum parceiro."); return null; }
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (j) {
+        if (!j) return;
+        data = j; fetchedAt = Date.now();
+        app.classList.remove("spin");
+        render();
+      })
+      .catch(function () {
+        app.classList.remove("spin");
+        // Keep the last good numbers on screen rather than blanking the page:
+        // a concierge glancing at this on a phone with one bar should not lose
+        // what they were reading.
+        if (data) { var el = document.getElementById("ago");
+                    if (el) el.textContent = "sem ligação, a tentar de novo"; }
+        else fail("Sem ligação.", "Não foi possível carregar. Tente atualizar.");
+      });
+  }
+
+  load(false);
+  setInterval(tick, 1000);
+  setInterval(function () { load(false); }, 120000);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) load(false);
+  });
+})();
+</script>
+</body></html>
