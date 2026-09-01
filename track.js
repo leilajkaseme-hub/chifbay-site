@@ -355,6 +355,16 @@
   }
   window.cbTrack = fire;
 
+  // Who sent this visitor, for the booking to send on with the order.
+  // A partner gets their own link, chifbay.com/?utm_source=casa-vista-azul,
+  // and utm_source is what turns a booking into a commission that can be
+  // proved. Returns a copy: nothing outside may edit the attribution.
+  window.cbAttr = function () {
+    var out = {};
+    for (var k in ATTR) { if (Object.prototype.hasOwnProperty.call(ATTR, k)) out[k] = ATTR[k]; }
+    return out;
+  };
+
   // Read-only, for the Wix snippet: it needs the Google Ads id and the
   // conversion label, and must not carry its own copy of them.
   window.cbCfg = {
@@ -391,14 +401,21 @@
     // id has to ride in the links or it dies on the next page. Once the
     // visitor accepts, the cookie takes over and this stops.
     if (storedConsent() === "granted") return;
-    var hasClickId = CLICK_IDS.some(function (k) { return !!ATTR[k]; });
-    if (!hasClickId) return;
+    // utm_source counts here as much as a click id. A partner hands out
+    // chifbay.com/?utm_source=casa-vista-azul, and that tag is the only proof
+    // the booking owes them a commission. It used to be dropped the moment the
+    // guest clicked through without accepting cookies, which is most guests.
+    // Carrying it in the link stores nothing on the device, so it needs no
+    // consent, exactly the argument already made for click ids.
+    var CARRY = CLICK_IDS.concat(["utm_source", "utm_medium", "utm_campaign"]);
+    var hasTag = CARRY.some(function (k) { return !!ATTR[k]; });
+    if (!hasTag) return;
 
     var all = document.querySelectorAll('a[href]');
     for (var j = 0; j < all.length; j++) {
       var href = all[j].getAttribute("href") || "";
       if (/^(#|mailto:|tel:|javascript:)/i.test(href)) continue;
-      var internal = withAttr(href, CLICK_IDS, location.hostname);
+      var internal = withAttr(href, CARRY, location.hostname);
       if (internal) all[j].setAttribute("href", internal);
     }
   }

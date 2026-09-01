@@ -700,6 +700,13 @@
         name: $("#bkname").value,
         email: $("#bkemail").value,
         phone: fullPhone(),
+        // Where this guest came from, so a booking can be tied to the partner
+        // who sent it. Wrapped because attribution must never be able to stop
+        // a payment: if track.js is blocked this is simply absent.
+        attribution: (function () {
+          try { return window.cbAttr ? window.cbAttr() : null; }
+          catch (e) { return null; }
+        })(),
         // Only ever set when the URL carries ?test=<token>. The Worker checks
         // it against a secret; an invalid or missing one simply charges the
         // normal price, so this is harmless to leave in.
