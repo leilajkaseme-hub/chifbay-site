@@ -1,0 +1,44 @@
+{
+  "name": "Madeira boat tour prices 2026",
+  "description": "Advertised prices for every bookable Madeira boat trip listed on GetYourGuide, measured 2026-08-11, split into per-person shared trips and whole-boat private charters.",
+  "surveyDate": "2026-08-11",
+  "source": "GetYourGuide public listings, Madeira (Funchal, Calheta, Machico, Caniço, Caniçal, Porto Moniz, Câmara de Lobos, Porto Santo)",
+  "currency": "EUR",
+  "method": "Listings were captured from public GetYourGuide category and search pages. Land tours were excluded by title. A listing counts as whole-boat if it advertises itself as private, exclusive, a charter or a yacht; everything else is treated as a per-person seat price. Prices are the advertised 'from' price and exclude platform booking fees.",
+  "totalBoatListings": 58,
+  "shared": {
+    "unit": "per person",
+    "listings": 34,
+    "min": 19,
+    "p25": 40,
+    "median": 58.5,
+    "p75": 79,
+    "max": 450,
+    "reviewsTotal": 33514,
+    "reviewsMedian": 201,
+    "zeroReview": 0,
+    "ratingMedian": 4.6,
+    "rated": 29
+  },
+  "private": {
+    "unit": "whole boat",
+    "listings": 24,
+    "min": 150,
+    "p25": 380,
+    "median": 537,
+    "p75": 750,
+    "max": 3500,
+    "reviewsTotal": 906,
+    "reviewsMedian": 1,
+    "zeroReview": 9,
+    "ratingMedian": 4.9,
+    "rated": 6
+  },
+  "listingsPricedBetween90And150": 3,
+  "europeComparison": {
+    "sharedListings": 354,
+    "cities": 183,
+    "medianPerPerson": 55
+  },
+  "licence": "CC BY 4.0 — free to reuse with a link to https://chifbay.com/posts/madeira-boat-tour-prices-2026.html"
+}

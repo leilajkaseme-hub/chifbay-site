@@ -65,7 +65,7 @@ for (const page of PAGES) {
   const miss = [];
   for (const page of PAGES) {
     const h = fs.readFileSync(path.join(ROOT, lang, page), "utf8");
-    for (const probe of ["Up to 5", "the whole boat", "Book 2h", "Day Trip", "Sunset Trip"])
+    for (const probe of ["Up to 7", "the whole boat", "Book 2h", "Day Trip", "Sunset Trip"])
       if (h.includes(probe)) miss.push(`${page}: "${probe}"`);
   }
   if (miss.length) console.warn(`  ! untranslated in ${lang}:\n    ` + miss.join("\n    "));

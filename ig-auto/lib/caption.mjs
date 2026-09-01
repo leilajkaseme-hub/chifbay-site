@@ -91,7 +91,7 @@ export function violations(text) {
   const bad = [];
   const t = text.toLowerCase();
   if (/(?:€|£|\$|\beur\b|\busd\b)\s*\d|\d+\s*(?:€|£|\$|eur\b|usd\b)/i.test(text)) bad.push("mentions a price");
-  if (/\b(?:six|seven|eight|nine|ten|[6-9]|1\d)\s+(?:guests|people|passengers)\b/i.test(text)) bad.push("more than 5 guests");
+  if (/\b(?:six|seven|eight|nine|ten|[6-9]|1\d)\s+(?:guests|people|passengers)\b/i.test(text)) bad.push("more than 7 guests");
   if (/guarantee|guaranteed/i.test(t)) bad.push("guarantees something");
   if (/cheapest|best price|lowest price/i.test(t)) bad.push("price claim");
   if (/#/.test(text)) bad.push("hashtags inside the caption body");
