@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Chifbay</title>
+<link rel="canonical" href="https://chifbay.com/experiences.html">
+<meta http-equiv="refresh" content="0;url=/experiences.html?utm_source=casa-velha">
+<style>
+  :root { color-scheme: light dark }
+  body { margin:0; min-height:100vh; display:grid; place-items:center;
+         font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+         background:#0b1f2a; color:#eaf2f6 }
+  a { color:#7fd4ff }
+  .b { text-align:center; padding:2rem }
+</style>
+</head><body>
+<div class="b">
+  <p>Chifbay</p>
+  <p><a href="/experiences.html?utm_source=casa-velha">Continue to the trips</a></p>
+</div>
+<script>
+(function () {
+  var slug = "casa-velha";
+  // Fire and forget. A blocked beacon must never delay the guest, and a guest
+  // who arrives is worth more than the record that they did.
+  try {
+    var body = JSON.stringify({ slug: slug, path: location.pathname });
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon("https://chifbay-booking-api.chifandcopt.workers.dev/v1/visit",
+        new Blob([body], { type: "application/json" }));
+    } else {
+      fetch("https://chifbay-booking-api.chifandcopt.workers.dev/v1/visit",
+        { method: "POST", body: body, keepalive: true,
+          headers: { "Content-Type": "application/json" } });
+    }
+  } catch (e) {}
+  location.replace("/experiences.html?utm_source=" + encodeURIComponent(slug));
+})();
+</script>
+</body></html>
