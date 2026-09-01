@@ -63,13 +63,19 @@ const page = (slug, name) => `<!doctype html>
   // who arrives is worth more than the record that they did.
   try {
     var body = JSON.stringify({ slug: slug, path: location.pathname });
+    // text/plain, not application/json, and this is the whole reason the
+    // first version recorded nothing. application/json is not a CORS simple
+    // content type, so the browser wants a preflight, and sendBeacon cannot
+    // perform one. The beacon was dropped silently, with no error anywhere:
+    // every partner would have seen zero visits for ever while the page
+    // looked perfectly healthy. The Worker parses the text itself.
     if (navigator.sendBeacon) {
       navigator.sendBeacon(${JSON.stringify(API + "/v1/visit")},
-        new Blob([body], { type: "application/json" }));
+        new Blob([body], { type: "text/plain;charset=UTF-8" }));
     } else {
       fetch(${JSON.stringify(API + "/v1/visit")},
-        { method: "POST", body: body, keepalive: true,
-          headers: { "Content-Type": "application/json" } });
+        { method: "POST", body: body, keepalive: true, mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" } });
     }
   } catch (e) {}
   location.replace(${JSON.stringify(TARGET + "?utm_source=")} + encodeURIComponent(slug));
