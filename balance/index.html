@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Your booking balance — Chifbay</title>
+<meta name="description" content="Settle the remaining balance on your Chifbay private boat trip."/>
+<!-- One guest, one amount, noindex. Nothing here should be indexed or shared.
+
+     TO REUSE THIS FOR ANOTHER BOOKING, three things must change together or
+     the page will show one figure and charge another:
+       1. the three numbers in .sum below (total, already paid, left to pay)
+       2. the "Pay the EUR N balance" wording on the button
+       3. the Stripe Payment Link in the button's href — a NEW link for the new
+          amount, created in the Stripe dashboard. The amount lives in the
+          link, never in this page and never in a query string, so nothing a
+          visitor can edit changes what is charged.
+     Also check the inclusions still describe the trip that was actually
+     booked; this copy is written for the private sunset cruise. -->
+<meta name="robots" content="noindex,nofollow"/>
+<link rel="icon" href="../assets/favicon.ico"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../peak.css"/>
+<style>
+  .bal{max-width:660px;margin:0 auto;padding:120px 20px 90px}
+  .bal .kick{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--teal);display:block;margin-bottom:16px}
+  .bal h1{font-family:'Playfair Display',Georgia,serif;font-weight:400;line-height:1.12;
+    font-size:clamp(2rem,6vw,3rem);margin:0 0 20px}
+  .bal .lead{color:var(--paper-dim);font-size:1.02rem;line-height:1.75;margin:0 0 14px;font-weight:300}
+
+  /* The sum, laid out so it cannot be misread. This is the whole point of the
+     page: a guest who thought they had paid in full is being asked for more,
+     so every number has to be visible at once and add up on the page. */
+  .sum{margin:34px 0 30px;border:1px solid var(--hair-strong);border-radius:var(--radius,16px);
+    overflow:hidden}
+  .sum .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+    padding:16px 20px;border-bottom:1px solid var(--hair)}
+  .sum .row:last-child{border-bottom:0}
+  .sum .row span{color:var(--paper-dim);font-size:.95rem}
+  .sum .row b{font-family:'Space Mono',monospace;font-weight:700;font-size:1rem;white-space:nowrap}
+  .sum .paid b{color:var(--muted)}
+  .sum .due{background:rgba(var(--teal-rgb),.09)}
+  .sum .due span{color:var(--paper);font-weight:500}
+  .sum .due b{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:1.9rem;
+    color:var(--teal)}
+
+  .pay{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    padding:18px 24px;border-radius:100px;background:var(--teal);color:var(--on-accent);
+    font-weight:600;font-size:1.02rem;text-decoration:none;
+    transition:transform .2s,box-shadow .2s}
+  .pay:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(var(--teal-rgb),.34)}
+  .pay svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round}
+  .safe{color:var(--muted);font-size:.82rem;line-height:1.7;margin:16px 0 0;text-align:center}
+
+  .inc{margin:44px 0 0;padding-top:30px;border-top:1px solid var(--hair)}
+  .inc h2{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:1.45rem;margin:0 0 18px}
+  .inc ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+  .inc li{display:flex;gap:12px;align-items:flex-start;color:var(--paper-dim);
+    font-size:.95rem;line-height:1.6}
+  .inc svg{width:16px;height:16px;flex-shrink:0;margin-top:4px;fill:none;stroke:var(--teal);
+    stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .help{margin:40px 0 0;padding:20px 22px;border-radius:var(--radius,16px);
+    background:rgba(var(--edge-rgb),.04);border:1px solid var(--hair);
+    color:var(--paper-dim);font-size:.92rem;line-height:1.7}
+  .help a{color:var(--teal)}
+  /* peak.js drops a fixed language switcher into the bottom-left corner. This
+     page is one guest, one language, and on a phone that pill lands straight
+     on top of the pay button — the only thing the page exists to be tapped. */
+  .langsel{display:none!important}
+
+  @media(max-width:560px){
+    .bal{padding:96px 18px 70px}
+    .sum .row{padding:14px 16px}
+  }
+</style>
+</head>
+<body class="atlas">
+
+<nav id="nav"><div class="wrap ni">
+  <a class="logo" href="/"><img decoding="async" src="../assets/logo-white.png" alt="Chifbay — private boat tours in Madeira" width="150" height="42"/></a>
+</div></nav>
+
+<main class="bal">
+  <span class="kick">Chifbay · Funchal, Madeira</span>
+  <h1>There is a balance left on your booking</h1>
+
+  <p class="lead">Thank you for booking with us. Your date is held and nothing about your trip changes. There is one thing we have to raise before you come aboard, and we would rather say it plainly now than let you find out at the pontoon.</p>
+
+  <p class="lead">Your reservation went through GetYourGuide at <strong>€190</strong>. That price was wrong on the listing — ours to get right, and we did not. The trip you booked is <strong>€450 for the whole boat</strong>, for your group however many of you come.</p>
+
+  <p class="lead">The error is ours, not yours, and we are asking rather than charging. What is below is the difference and nothing else: no fee, no surcharge, and no change to what you booked.</p>
+
+  <div class="sum">
+    <div class="row"><span>Private sunset cruise · whole boat</span><b>€450</b></div>
+    <div class="row paid"><span>Already paid on GetYourGuide</span><b>− €190</b></div>
+    <div class="row due"><span>Left to pay</span><b>€260</b></div>
+  </div>
+
+  <a class="pay" id="paybtn" href="https://buy.stripe.com/7sY28sd0d5D0cv47fmaMU01" rel="noopener">
+    Pay the €260 balance
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <p class="safe">Card, Apple Pay, MB WAY and more. The payment is handled by Stripe — your card details never reach us and are never stored on this site.</p>
+
+  <div class="inc">
+    <h2>What the €450 covers</h2>
+    <ul>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>The whole boat, yours alone</strong> — never shared with another group, whoever else is on the water that evening.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Our <strong>2026 Karnic R8S</strong> — 9 m, Mercury V8 300 hp, cushioned seating and a swim platform.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Two Chifbay skippers</strong> on board, always — one at the helm, one looking after your group.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Local wine, poncha, beer, soft drinks and snacks</strong> — included, no extra charge.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Golden hour under <strong>Cabo Girão</strong>, 580 metres of cliff straight out of the sea.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Drone footage of your trip</strong>, filmed on the day and sent to you afterwards.</span></li>
+      <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>A <strong>bathroom on board</strong>, and an open-throttle run back into a lit-up Funchal.</span></li>
+    </ul>
+  </div>
+
+  <div class="help">
+    <strong>Not what you expected?</strong> Say so and we will sort it out — nothing is charged automatically and your date stays held while we talk.
+    Message us on <a href="https://wa.me/351937200320">WhatsApp (+351 937 200 320)</a>
+    or write to <a href="mailto:hello@chifbay.com">hello@chifbay.com</a>.
+    If you would rather not go ahead at €450, tell us and we will cancel and refund the €190 in full.
+  </div>
+</main>
+
+<script src="../peak.js"></script>
+<script>
+/* The link is a fixed-amount Stripe Payment Link, so the price cannot be
+   altered from this page — no query parameter, nothing in the markup that a
+   visitor could edit into a different figure. */
+(function () {
+  var b = document.getElementById("paybtn");
+  if (b) b.addEventListener("click", function () { b.style.opacity = ".7"; });
+})();
+</script>
+</body>
+</html>
