@@ -156,7 +156,15 @@ h1 em,h2 em,h3 em,h4 em{font-family:'DM Serif Display',Georgia,serif;font-style:
   transition:transform .3s,opacity .2s;border-radius:2px}
 @media(max-width:860px){
   .navtoggle{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;position:relative;z-index:210}
-  .nl{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:rgba(var(--ink-rgb),.98);flex-direction:column;justify-content:center;align-items:flex-start;gap:30px;padding:54px;transform:translateX(100%);transition:transform .4s cubic-bezier(.15,.8,.15,1);font-size:1.15rem;border-left:1px solid var(--hair);will-change:transform;z-index:200;overflow-y:auto;overscroll-behavior:contain}
+  .nl{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:rgba(var(--ink-rgb),.98);flex-direction:column;justify-content:flex-start;align-items:flex-start;gap:30px;padding:54px;transform:translateX(100%);transition:transform .4s cubic-bezier(.15,.8,.15,1);font-size:1.15rem;border-left:1px solid var(--hair);will-change:transform;z-index:200;overflow-y:auto;overscroll-behavior:contain}
+  /* Centred by auto margins rather than justify-content:center. Centring a
+     flex column that overflows pushes the first item to a negative offset, and
+     scrollTop cannot go below zero - with the language list open on a 664px
+     screen the "Home" link sat at -86px and could not be reached at all. Auto
+     margins collapse to zero when there is no spare room, so the drawer centres
+     when it fits and scrolls properly when it does not. */
+  .nl > :first-child{margin-top:auto}
+  .nl > :last-child{margin-bottom:auto}
   .nl.open{transform:none}
   .nl a{color:var(--paper)}
   /* hamburger morphs to a close (X) while the drawer is open */
@@ -778,19 +786,23 @@ body:has(.annc) #nav{top:36px}
   /* No "book" button on the page you are already booking from. */
   #nav .nc[href^="#"]{display:none}
 
-  /* Stacked above the WhatsApp button on the right, not alone in the opposite
-     corner. --wa-size is whatever the WhatsApp circle measures on this skin. */
-  .langsel{position:fixed;right:22px;left:auto;
-    bottom:calc(22px + var(--wa-size,54px) + 12px);z-index:90;margin:0}
-  .langbtn{width:54px;height:54px;min-height:0;padding:0;border-radius:50%;
-    justify-content:center;background:var(--teal);border:1px solid var(--teal);
-    color:var(--on-accent);font-weight:700;font-size:.74rem;letter-spacing:.04em;
-    box-shadow:0 10px 28px rgba(var(--shadow-rgb),.4);transition:transform .2s}
-  .langbtn:hover{transform:scale(1.07);background:var(--teal);color:var(--on-accent)}
-  /* a circle has room for one thing: the flag of the language you are in */
-  .langbtn .langcode,.langbtn .langcaret,.langbtn .langglobe{display:none}
-  .langbtn .langflag{font-size:1.45rem;line-height:1}
-  .langmenu{top:auto;bottom:calc(100% + 12px);right:0;left:auto;min-width:160px}
+  /* In the drawer, styled like the links around it. It used to float over the
+     hero as a teal circle; Theo wanted it with the rest of the navigation.
+     peak.js puts the node here, these rules undo everything the circle needed. */
+  .langsel{position:static;margin:0 !important;width:100%}
+  .langbtn{width:100%;height:auto;min-height:0;padding:0;border:0;border-radius:0;
+    background:none;box-shadow:none;color:var(--paper);font-family:inherit;
+    font-size:1.15rem;font-weight:500;letter-spacing:0;justify-content:flex-start;gap:10px}
+  .langbtn:hover{background:none;border:0;color:var(--teal);transform:none}
+  .langbtn .langcode,.langbtn .langcaret{display:inline}
+  .langbtn .langcaret{font-size:.78em;opacity:.55}
+  .langbtn .langflag{font-size:1.3rem;line-height:1}
+  /* The list opens in place and pushes the drawer, instead of hanging off the
+     button as a floating card - there is nowhere for a card to hang inside a
+     320px panel. */
+  .langmenu{position:static;inset:auto;min-width:0;width:100%;margin-top:12px;
+    padding:0;background:none;border:0;border-radius:0;backdrop-filter:none;gap:2px}
+  .langmenu a{padding:9px 0;font-size:1rem}
 }
 
 

@@ -95,6 +95,31 @@
   }
   buildLangsel();
 
+  /* On a phone the switcher belongs in the slide-out menu, with the other
+     navigation, not floating over the hero. The "book" pill solves the same
+     problem with a clone, but that will not work here: peak.js finds this
+     control with querySelector(".langsel") to wire its open/close, and a second
+     copy would leave that wired to the wrong one. So the single node moves
+     between the top bar and the drawer, and moves back if the window grows (a
+     tablet turned landscape, a resized desktop window).
+     This replaces an earlier block that moved the same node out to <body> so it
+     could float; that is gone, and with it the reason it had to leave #nav. */
+  (function(){
+    var ls = document.querySelector(".langsel");
+    var drawer = document.querySelector(".nl");
+    if(!ls || !drawer) return;
+    var home = ls.parentNode, after = ls.nextSibling;
+    var mq = matchMedia("(max-width:860px)");
+    function place(){
+      if(mq.matches){ if(ls.parentNode !== drawer) drawer.appendChild(ls); }
+      else if(ls.parentNode !== home){ home.insertBefore(ls, after); }
+      ls.classList.remove("open");
+    }
+    place();
+    if(mq.addEventListener) mq.addEventListener("change", place);
+    else if(mq.addListener) mq.addListener(place);
+  })();
+
   function langOf(href){var s=(href||"").split("/").filter(Boolean);return LL.indexOf(s[0])>=0?s[0]:"en";}
   function pageFile(){var f=location.pathname.split("/").pop();return f||"index.html";}
   var p=location.pathname.split("/").filter(Boolean);
@@ -140,7 +165,15 @@
   }
 
   var ls=document.querySelector(".langsel"), btn=ls&&ls.querySelector(".langbtn");
-  if(btn){ btn.addEventListener("click",function(e){e.stopPropagation();ls.classList.toggle("open");});
+  if(btn){ btn.addEventListener("click",function(e){
+      e.stopPropagation();
+      var opened = ls.classList.toggle("open");
+      /* In the drawer the list opens downward and, on a short screen, below the
+         fold. The drawer scrolls, but nothing tells you to. Bring it into view. */
+      if(opened && ls.closest(".nl")){
+        setTimeout(function(){ ls.scrollIntoView({block:"nearest",behavior:"smooth"}); },0);
+      }
+    });
     document.addEventListener("click",function(){ls.classList.remove("open");}); }
   fetch("/i18n-langs.json").then(function(r){return r.json();}).then(function(av){
     menu.forEach(function(a){ var l=langOf(a.getAttribute("href")); if(av.indexOf(l)<0){ a.style.opacity=".35"; a.style.pointerEvents="none"; } });
@@ -162,23 +195,3 @@
   }).catch(function(){});
 })();
 
-/* The language picker becomes a floating button on phones, mirroring the
-   WhatsApp one. It cannot stay inside #nav to do that: #nav carries
-   backdrop-filter once scrolled, which makes it the containing block for its
-   position:fixed descendants — the same trap documented for the mobile drawer
-   in peak.css. The button would then sit 22px from the bottom of the NAV BAR
-   instead of the screen. So it moves out to <body> while it floats, and goes
-   back to its place in the bar on desktop. */
-(function(){
-  var ls=document.querySelector('.langsel');
-  if(!ls||!window.matchMedia) return;
-  var home=ls.parentNode, next=ls.nextSibling;
-  var mq=window.matchMedia('(max-width:860px)');
-  function place(){
-    if(mq.matches){ if(ls.parentNode!==document.body) document.body.appendChild(ls); }
-    else if(ls.parentNode===document.body && home){ home.insertBefore(ls,next); }
-  }
-  place();
-  if(mq.addEventListener) mq.addEventListener('change',place);
-  else if(mq.addListener) mq.addListener(place);
-})();
