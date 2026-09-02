@@ -109,6 +109,14 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 /* over a photograph, a fixed light edge (see peak.css for the reasoning) */
 .atlas .hero .btn-g,.atlas .bleed .btn-g,.atlas .reserve .btn-g,.atlas .ctas .btn-g{
   border-color:rgba(234,241,244,.28);color:var(--on-photo)}
+/* The hero is the one place a ghost button sits on bare, moving footage. On a
+   sunlit rock frame a transparent pill with a 28% border is invisible, so it
+   carries its own thin backdrop — enough to read on any frame, not so much
+   that it competes with the gold primary. The other three keep their scrims. */
+.atlas .hero-v .btn-g{background:rgba(10,18,22,.3);backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);border-color:rgba(234,241,244,.5)}
+.atlas .hero-v .btn-g:hover{background:rgba(10,18,22,.45);
+  border-color:rgba(234,241,244,.75)}
 .atlas .hero .btn-g:hover,.atlas .bleed .btn-g:hover,.atlas .reserve .btn-g:hover,
 .atlas .ctas .btn-g:hover{border-color:rgba(234,241,244,.6)}
 .atlas .btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.5}
@@ -121,7 +129,30 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 .atlas .hero-media{position:absolute;inset:0;overflow:hidden;z-index:0}
 .atlas .hero-media .hbg,.atlas .hero-media .hvid{position:absolute;inset:-4% 0;width:100%;height:108%;
   will-change:transform;transform:translateZ(0)}
-.atlas .hov{background:linear-gradient(to bottom,rgba(var(--scrim-rgb),.76) 0%,rgba(var(--scrim-rgb),.56) 30%,rgba(var(--scrim-rgb),.82) 66%,var(--ink) 100%)}
+/* The scrim used to sit at .76 over the whole frame, which is most of a new
+   hero clip thrown away. It is gone: the video now plays clean and the veil
+   only appears in the last fifth, where the hero has to melt into the page —
+   without that ramp there is a hard horizontal seam at the fold.
+   Legibility moves to a shadow on the text itself (below), which costs the
+   picture nothing. */
+.atlas .hero-v .hov{background:linear-gradient(to bottom,
+  rgba(var(--scrim-rgb),0) 0%,
+  rgba(var(--scrim-rgb),0) 56%,
+  rgba(var(--scrim-rgb),.42) 82%,
+  var(--ink) 100%)}
+
+/* White text now sits on bare footage that swings from dark cliff to bright
+   turquoise, so each line carries its own contrast instead of borrowing it
+   from a sheet over the whole video. */
+.atlas .hero-v .hsub,.atlas .hero-v .hbadge,.atlas .hero-v .hcue,.atlas .hero-v .tour-meta{
+  text-shadow:0 1px 3px rgba(0,0,0,.6),0 3px 22px rgba(0,0,0,.55)}
+/* The sheet was doing this contrast work too. The subtitle goes near-white and
+   the kicker brightens, because the shadow alone was not enough on the pale
+   frames. The title gets a tighter, harder shadow than the soft glow the photo
+   heroes use — a 50px glow disappears against sunlit rock. */
+.atlas .hero-v .hsub{color:rgba(255,255,255,.95)}
+.atlas .hero-v .hbadge{color:var(--gold-soft-p)}
+.atlas .hero-v .hbadge::before{background:var(--gold-soft-p);opacity:.85}
 .atlas .hc{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;
   height:100%;padding-bottom:min(11vh,120px)}
 .atlas .hbadge{background:transparent;border:0;padding:0;margin-bottom:30px;
@@ -130,6 +161,7 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 .atlas .hbadge::before{content:"";width:34px;height:1px;background:var(--gold-p);opacity:.7;animation:none}
 .atlas .hero h1{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:clamp(2.9rem,7.4vw,6.6rem);
   line-height:1.02;max-width:15ch;margin:0 0 30px;text-shadow:0 6px 50px rgba(var(--scrim-rgb),.5);font-weight:900;letter-spacing:-.035em}
+.atlas .hero-v h1{text-shadow:0 1px 3px rgba(0,0,0,.55),0 3px 26px rgba(0,0,0,.55)}
 .atlas .hero h1 em{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-weight:400;color:var(--gold-soft-p);-webkit-text-fill-color:currentColor;background:none}
 .atlas .hsub{max-width:46ch;color:rgba(234,241,244,.82);font-weight:300;
   font-size:clamp(.98rem,1.4vw,1.14rem);line-height:1.7;margin-bottom:36px}
@@ -657,4 +689,26 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
   .atlas .nl .nc-drawer{background:var(--gold);color:var(--on-accent)}
   .atlas .nc:hover{background:var(--gold-soft);border-color:var(--gold-soft);color:var(--on-accent)}
   .atlas #nav.sc .nc{color:var(--on-accent)}
+}
+
+/* The hero video on a phone. This was a full-width copy stack over the clip:
+   kicker, title, four lines of subtitle, two stacked buttons and the figures
+   row came to 310px of a 664px screen, so the video read as a texture behind
+   text rather than as the picture. Nothing is removed — the subtitle keeps its
+   first two lines, the buttons sit side by side, the spacing tightens.
+   Measured on an iPhone 13: ~150px of video handed back.
+   Width-only on purpose. This first lived in the short-screen query
+   (max-width:600px and max-height:700px), which a 430x932 phone never matches,
+   so the phones with the most room got the fix and the rest got nothing. */
+@media(max-width:700px){
+  .atlas .hero-v .hsub{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+    overflow:hidden;margin-bottom:16px}
+  .atlas .hero-v .hact{display:flex;gap:10px;flex-wrap:nowrap}
+  .atlas .hero-v .hact .btn{flex:1 1 0;min-width:0;padding-left:10px;padding-right:10px;
+    font-size:.7rem;letter-spacing:.01em;white-space:nowrap}
+  .atlas .hero-v .hact .btn svg{display:none}
+  .atlas .hero-v .tour-meta{margin-top:16px;padding-top:10px}
+  .atlas .hero-v .tour-meta .tm{padding:8px 16px 8px 0}
+  .atlas .hero-v .tour-meta .k{font-size:.54rem;letter-spacing:.14em}
+  .atlas .hero-v .tour-meta .v{font-size:1rem;margin-top:2px}
 }
