@@ -23,7 +23,12 @@
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="peak.css"/>
 <link rel="stylesheet" href="atlas.css"/>
-<link rel="preload" as="image" href="assets/hero-poster.jpg"/>
+<!-- The poster is the LCP element, so it is preloaded — but only the one
+     this screen will actually use. Without the media conditions a phone
+     fetched the 250 KB landscape poster in full and then painted the
+     vertical one. peak.css already switches --hero at the same 820px. -->
+<link rel="preload" as="image" href="assets/hero-poster.jpg" media="(min-width:821px)"/>
+<link rel="preload" as="image" href="assets/hero-mobile-poster.jpg" media="(max-width:820px)"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":["LocalBusiness","TouristAttraction"],"@id":"https://chifbay.com/#business","name":"Chifbay","description":"Private boat tours from Funchal, Madeira — Cabo Girão, swimming and paddle at Fajã dos Padres and sunset runs along the west coast, aboard a private boat for up to 7 guests.","url":"https://chifbay.com","email":"hello@chifbay.com","telephone":"+351937200320","image":"https://chifbay.com/assets/hero.jpg","priceRange":"€€€","currenciesAccepted":"EUR","knowsLanguage":["en","fr","de","pt","es","it"],"address":{"@type":"PostalAddress","streetAddress":"Marina do Funchal","addressLocality":"Funchal","addressRegion":"Madeira","postalCode":"9000-055","addressCountry":"PT"},"geo":{"@type":"GeoCoordinates","latitude":32.6442,"longitude":-16.9165},"areaServed":[{"@type":"Place","name":"Funchal"},{"@type":"Place","name":"Madeira"},{"@type":"Place","name":"Câmara de Lobos"},{"@type":"Place","name":"Cabo Girão"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"21:00"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Private boat tours in Madeira","itemListElement":[{"@type":"Offer","name":"Day Trip 2h30 - Ribeira Brava","price":"500","priceCurrency":"EUR","url":"https://chifbay.com/hidden-coves-half-day.html"},{"@type":"Offer","name":"Day Trip 3h - Ponta do Sol with video","price":"600","priceCurrency":"EUR","url":"https://chifbay.com/hidden-coves-half-day.html"},{"@type":"Offer","name":"Sunset Trip 2h - Cabo Girao","price":"400","priceCurrency":"EUR","url":"https://chifbay.com/sunset-cruise.html"},{"@type":"Offer","name":"Sunset Trip 2h30 - Ribeira Brava","price":"500","priceCurrency":"EUR","url":"https://chifbay.com/sunset-cruise.html"}]},"hasMap":"https://www.google.com/maps/search/?api=1&query=Marina+do+Funchal%2C+Funchal%2C+Madeira","sameAs":["https://www.instagram.com/chifbay","https://www.facebook.com/profile.php?id=61593099213659","https://www.tiktok.com/@chifbay","https://www.google.com/maps?cid=11229657632154885978","https://www.tripadvisor.com/Attraction_Review-g189167-d34387047.html"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"56"},"review":[{"@type":"Review","author":{"@type":"Person","name":"Conny"},"datePublished":"2026-06-20","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"We had an absolutely amazing day on the boat. The friendly, professional crew, the delicious snacks and drinks, the relaxing swim — everything was perfect.","publisher":{"@type":"Organization","name":"GetYourGuide"}},{"@type":"Review","author":{"@type":"Person","name":"Thomas"},"datePublished":"2026-06-08","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Hugo and Paco were a great pair — highly recommend to anyone visiting the island. A great trip from start to finish.","publisher":{"@type":"Organization","name":"GetYourGuide"}},{"@type":"Review","author":{"@type":"Person","name":"Franziska"},"datePublished":"2026-06-01","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Sehr empfehlenswert! Father and son, incredibly helpful and dedicated to a beautiful day at sea. Many languages, and the tour shaped to us.","publisher":{"@type":"Organization","name":"GetYourGuide"}}]}
 </script>
@@ -65,29 +70,50 @@
 <header class="hero">
   <div class="hero-media">
     <div class="hbg" role="img" aria-label="A private Chifbay boat off the south coast of Madeira at golden hour"></div>
-    <video class="hvid" autoplay muted loop playsinline preload="metadata" poster="/assets/hero-poster.jpg" aria-hidden="true">
-      <source src="/assets/hero.webm" type="video/webm">
-      <source src="/assets/hero.mp4" type="video/mp4">
-    </video>
+    <video class="hvid" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+      data-mp4="/assets/hero.mp4" data-poster="/assets/hero-poster.jpg"
+      data-mp4-sm="/assets/hero-mobile.mp4" data-poster-sm="/assets/hero-mobile-poster.jpg"></video>
 <script>
-/* Hero 720p pour les téléphones.
-   Les sources desktop restent dans le HTML : sans JS la vidéo fonctionne
-   toujours. Ce script les bascule vers la variante 720p quand le viewport est
-   petit, avant que le navigateur n'ait engagé le téléchargement complet.
-   Gain mesuré : 7,0/9,3 Mo -> 3,4/3,3 Mo, soit ~-60% sur le LCP mobile. */
-(function(){
-  if (window.innerWidth > 820) return;
-  var s = document.currentScript, v = s && s.previousElementSibling;
+/* The hero clip, chosen before the browser fetches anything.
+ *
+ * The source and the poster used to sit in the HTML pointing at the desktop
+ * files, with a script that rewrote them for phones afterwards. The preload
+ * scanner is faster than that script: measured on an iPhone 13 profile, a
+ * phone fetched the 250 KB desktop poster in full and opened the 4 MB desktop
+ * clip before the swap landed, then threw both away.
+ *
+ * So nothing is in the markup and the script decides first. There is no no-JS
+ * regression: .hbg sits under the video and already carries the hero photo as
+ * a CSS background, which is exactly what a visitor without JS should see.
+ *
+ * A visitor who asks for reduced motion gets that same still and no download.
+ */
+(function () {
+  var v = document.currentScript.previousElementSibling;
   while (v && v.tagName !== 'VIDEO') v = v.previousElementSibling;
   if (!v) return;
-  var swapped = false;
-  v.querySelectorAll('source').forEach(function(src){
-    var u = src.getAttribute('src') || '';
-    if (u.indexOf('/hero.') !== -1) { src.setAttribute('src', u.replace('/hero.', '/hero-mobile.')); swapped = true; }
-  });
-  // The mobile clip is genuinely vertical, so the landscape poster would flash
-  // a mis-cropped frame before it paints — swap the poster with the sources.
-  if (swapped) { v.setAttribute('poster', '/assets/hero-mobile-poster.jpg'); v.load(); }
+
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      v.removeAttribute('autoplay');
+      v.poster = v.getAttribute('data-poster');
+      return;
+    }
+  } catch (e) { /* no matchMedia: carry on and play */ }
+
+  var sm = window.innerWidth <= 820;
+  v.poster = v.getAttribute(sm ? 'data-poster-sm' : 'data-poster');
+  var s = document.createElement('source');
+  s.type = 'video/mp4';
+  s.src = v.getAttribute(sm ? 'data-mp4-sm' : 'data-mp4');
+  v.appendChild(s);
+  v.load();
+
+  // Muted autoplay is allowed everywhere, but iOS Low Power Mode refuses it
+  // anyway. play() rejects there, and an unhandled rejection is a console
+  // error on every such visit — catch it and let the poster stand.
+  var r = v.play();
+  if (r && r.catch) r.catch(function () {});
 })();
 </script>
   </div>
