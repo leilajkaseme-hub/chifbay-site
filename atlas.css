@@ -135,6 +135,13 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
    without that ramp there is a hard horizontal seam at the fold.
    Legibility moves to a shadow on the text itself (below), which costs the
    picture nothing. */
+/* .hero is 100svh — the height with the browser bars showing. Once Safari
+   collapses its bars the window gets taller, the hero does not, and the next
+   section shows under it: that is the band of video below the copy with a hard
+   line across it. dvh tracks the height actually on screen, so the copy really
+   does sit on the bottom edge. svh stays as the fallback for browsers without
+   dvh. Only the video hero — the photo heroes are fine as they are. */
+.atlas .hero-v{height:100svh;height:100dvh}
 .atlas .hero-v .hov{background:linear-gradient(to bottom,
   rgba(var(--scrim-rgb),0) 0%,
   rgba(var(--scrim-rgb),0) 56%,
@@ -353,6 +360,7 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 /* ============================================================
    WHATSAPP — quieter floating control
    ============================================================ */
+.atlas{--wa-size:50px}
 .atlas .wa{width:50px;height:50px;background:rgba(var(--ink-rgb),.72);backdrop-filter:blur(8px);
   border:1px solid var(--line-2);box-shadow:0 8px 24px rgba(var(--shadow-rgb),.28)}
 .atlas .wa svg{fill:var(--gold);width:23px;height:23px}
@@ -703,7 +711,12 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 @media(max-width:700px){
   .atlas .hero-v .hsub{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
     overflow:hidden;margin-bottom:16px}
-  .atlas .hero-v .hact{display:flex;gap:10px;flex-wrap:nowrap}
+  /* The language and WhatsApp circles are fixed to the bottom-right, and the
+     copy now reaches down into them. Only this row runs that far right, so only
+     this row gives up the gutter: 50px circle + 12px of air. The figures row
+     below ends well clear of it and keeps the full width. */
+  .atlas .hero-v .hact{display:flex;gap:10px;flex-wrap:nowrap;
+    padding-right:calc(var(--wa-size,50px) + 12px)}
   .atlas .hero-v .hact .btn{flex:1 1 0;min-width:0;padding-left:10px;padding-right:10px;
     font-size:.7rem;letter-spacing:.01em;white-space:nowrap;
     /* .btn is an inline-flex with no justify-content, which is flex-start. That
@@ -724,4 +737,16 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
   .atlas .hero-v .tour-meta .tm{padding:8px 16px 8px 0}
   .atlas .hero-v .tour-meta .k{font-size:.54rem;letter-spacing:.14em}
   .atlas .hero-v .tour-meta .v{font-size:1rem;margin-top:2px}
+  /* Theo: one line, and drop what will not fit. Four items need 433px of the
+     350px a 390px phone has, so the departure point goes - it is repeated in
+     the booking section, the footer and the map. The other three fit in 287px. */
+  .atlas .hero-v .tour-meta{flex-wrap:nowrap}
+  .atlas .hero-v .tour-meta .tm-drop{display:none}
+  .atlas .hero-v .hc{padding-bottom:12px}
+}
+/* On a 390px phone the CTA pill still ends 4px short of the language circle.
+   Rather than shrink the labels, the two circles move 8px closer to the edge on
+   the narrowest screens - it costs nothing and buys the clearance. */
+@media(max-width:400px){
+  .atlas .langsel,.atlas .wa{right:14px}
 }
