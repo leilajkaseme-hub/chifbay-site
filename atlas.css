@@ -705,7 +705,20 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
     overflow:hidden;margin-bottom:16px}
   .atlas .hero-v .hact{display:flex;gap:10px;flex-wrap:nowrap}
   .atlas .hero-v .hact .btn{flex:1 1 0;min-width:0;padding-left:10px;padding-right:10px;
-    font-size:.7rem;letter-spacing:.01em;white-space:nowrap}
+    font-size:.7rem;letter-spacing:.01em;white-space:nowrap;
+    /* .btn is an inline-flex with no justify-content, which is flex-start. That
+       is invisible while the pill hugs its label, and wrong the moment flex:1
+       stretches it — the text sticks to the left edge. */
+    justify-content:center}
+  /* The mobile rule above at max-width:600px centres the hero block vertically,
+     so the copy sat across the middle of the frame and hid the part of the clip
+     worth seeing. It drops to the bottom instead, which clears the whole top of
+     the video. */
+  .atlas .hero-v .hc{justify-content:flex-end;padding-top:88px;padding-bottom:3vh}
+  /* While the cookie bar is up it would sit on top of the price row, so the
+     hero lifts by the height the bar publishes. It falls back to 0 if track.js
+     never runs. */
+  .atlas.has-consent-bar .hero-v .hc{padding-bottom:calc(3vh + var(--consent-h,0px))}
   .atlas .hero-v .hact .btn svg{display:none}
   .atlas .hero-v .tour-meta{margin-top:16px;padding-top:10px}
   .atlas .hero-v .tour-meta .tm{padding:8px 16px 8px 0}

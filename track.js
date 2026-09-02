@@ -311,10 +311,10 @@
       return b;
     }
 
-    btns.appendChild(button(t[2], false, function () { setConsent("denied"); bar.remove(); }));
+    btns.appendChild(button(t[2], false, function () { setConsent("denied"); dismissBanner(bar); }));
     btns.appendChild(button(t[1], true, function () {
       setConsent("granted");
-      bar.remove();
+      dismissBanner(bar);
       // The first PageView ran before consent, so send it now. Not on the
       // booking site — the pixel there is Wix's and it sends its own.
       if (window.fbq && !ON_BOOKING) fbq("track", "PageView");
@@ -323,6 +323,39 @@
     bar.appendChild(text);
     bar.appendChild(btns);
     document.body.appendChild(bar);
+    markBanner(bar);
+  }
+
+  /* The banner is fixed to the bottom of the window, and the home page hero now
+     puts its own copy right down there. Nothing on the page knew the banner was
+     up, so on a phone it covered the price row for every first-time visitor —
+     exactly the people who see it. It publishes its height instead, and the
+     hero lifts by that much for as long as it is showing. The height is read,
+     not guessed, because the banner wraps to two or three lines on a narrow
+     screen. */
+  function markBanner(bar) {
+    var root = document.documentElement;
+    root.classList.add("has-consent-bar");
+    var measure = function () {
+      // 16 is the banner's own gap from the bottom edge.
+      root.style.setProperty("--consent-h", Math.round(bar.getBoundingClientRect().height + 16) + "px");
+    };
+    measure();
+    if (window.ResizeObserver) {
+      bar._ro = new ResizeObserver(measure);
+      bar._ro.observe(bar);
+    }
+    bar._onResize = measure;
+    window.addEventListener("resize", measure);
+  }
+
+  function dismissBanner(bar) {
+    if (bar._ro) { bar._ro.disconnect(); bar._ro = null; }
+    if (bar._onResize) { window.removeEventListener("resize", bar._onResize); bar._onResize = null; }
+    bar.remove();
+    var root = document.documentElement;
+    root.classList.remove("has-consent-bar");
+    root.style.removeProperty("--consent-h");
   }
 
   // Let the privacy page offer "change my choice".
@@ -332,7 +365,7 @@
     reopen: function () {
       writeCookie(CONSENT_COOKIE, "", -1);
       var old = document.getElementById("cb-consent");
-      if (old) old.remove();
+      if (old) dismissBanner(old);
       buildBanner();
     }
   };
