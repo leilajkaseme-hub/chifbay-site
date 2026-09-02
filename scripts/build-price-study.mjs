@@ -211,7 +211,7 @@ const BODY = `
 
       <h2>What is included, and what usually is not</h2>
       <p>The advertised price is rarely the final price. Across these listings the common extras are drinks, snacks, photos or video, hotel pickup, and the platform's own booking fee. Two boats at the same headline price can differ by €50 or more once you add them.</p>
-      <p>When you compare, ask three questions: is this per person or for the boat, how many other people will be aboard, and what is not in the price. On a <a href="../experiences.html">private Chifbay trip</a> the answer is the whole boat for up to 7 guests, nobody else aboard, with local wine, poncha, beer, soft drinks and snacks already in the price — ${fmt(400)} for the 2-hour sunset and ${fmt(500)} for the 2h30 day trip, both below the ${fmt(P.median)} private median.</p>
+      <p>When you compare, ask three questions: is this per person or for the boat, how many other people will be aboard, and what is not in the price. On a <a href="../experiences.html">private Chifbay trip</a> the answer is the whole boat for up to 5 guests, nobody else aboard, with local wine, poncha, beer, soft drinks and snacks already in the price — ${fmt(400)} for the 2-hour sunset and ${fmt(500)} for the 2h30 day trip, both below the ${fmt(P.median)} private median.</p>
 
       <h2>Is Madeira cheap compared to the rest of Europe?</h2>
       <p>No. The same survey covered <strong>${EU.listings} shared boat listings across ${EU.cities} European towns and cities</strong>, measured the same way. The European median is <strong>${fmt(EU.median)} per person</strong>. Madeira's is <strong>${fmt(S.median)}</strong> — slightly above it.</p>
@@ -356,7 +356,7 @@ ${BODY}
     <div class="artcta rv">
       <div class="eyebrow gold" style="justify-content:center;margin-bottom:12px">Your group only</div>
       <h3>A private boat, below the private median</h3>
-      <p>${fmt(400)} for the 2-hour sunset, ${fmt(500)} for the 2h30 day trip — the whole boat, up to 7 guests, drinks and snacks included.</p>
+      <p>${fmt(400)} for the 2-hour sunset, ${fmt(500)} for the 2h30 day trip — the whole boat, up to 5 guests, drinks and snacks included.</p>
       <a class="btn btn-p btn-lg" href="../experiences.html">Explore the experiences →</a>
       <p style="margin-top:14px;font-size:.9rem"><a href="../hidden-coves-half-day.html" style="color:var(--teal)">Day Trip</a> · <a href="../sunset-cruise.html" style="color:var(--teal)">Sunset Trip</a></p>
     </div>

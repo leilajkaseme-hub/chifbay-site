@@ -177,7 +177,7 @@ You are given a complete HTML document. Return the EXACT same HTML with ONLY the
 STRICT RULES — breaking any one of these makes the output useless:
 - Never modify a tag, attribute name, class, id, href, src, inline style, or any <script> code.
 - In JSON-LD, translate string VALUES only (headline, description, name, FAQ question and answer text, alt). Never touch keys, "@type", "@context", URLs, or dates.
-- Never translate or alter: "Chifbay"; place names (Funchal, Madeira, Cabo Girão, Câmara de Lobos, Fajã dos Padres, Ponta do Sol, Ribeira Brava, Marina do Funchal, Desertas, Pico do Arieiro, Seixal, Garajau, Machico, Santana); "poncha", "espetada", "Nikita", "levada"; boat words "Karnic", "Mercury"; any price, number, unit or time (€400, 2h30, 18:30, 580 m, 7 guests); phone numbers; emails; URLs; "@chifbay".
+- Never translate or alter: "Chifbay"; place names (Funchal, Madeira, Cabo Girão, Câmara de Lobos, Fajã dos Padres, Ponta do Sol, Ribeira Brava, Marina do Funchal, Desertas, Pico do Arieiro, Seixal, Garajau, Machico, Santana); "poncha", "espetada", "Nikita", "levada"; boat words "Karnic", "Mercury"; any price, number, unit or time (€400, 2h30, 18:30, 580 m, 5 guests); phone numbers; emails; URLs; "@chifbay".
 - Keep every <link>, <meta>, <script> and HTML comment in place, in the same order.
 - Output ONLY the complete HTML document. No preamble, no explanation, no code fences.`;
 

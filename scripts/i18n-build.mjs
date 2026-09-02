@@ -39,7 +39,7 @@ SEO (important): make it genuinely search-friendly in ${langName}. Localize the 
 
 You are given a full HTML document. Return the EXACT same HTML, translating ONLY the human-readable text. STRICT RULES:
 - Do NOT modify any tag, attribute name, class, id, href, src, inline style, <script> code, or JSON-LD keys/@type. Translate JSON-LD string VALUES only (headline, name, description, and FAQ question/answer text).
-- Do NOT translate or alter: "Chifbay"; place names (Funchal, Madeira, Cabo Girão, Câmara de Lobos, Ponta do Sol, Marina do Funchal, Ribeira Brava, Atlantic, Karnic, Mercury, Pico do Arieiro, Seixal); "poncha", "Moët"; any price/number/unit/time (€400, €500, €600, 2h30, 18:00, 10:00–13:00, 9m, 300hp, 7 guests, 580m); phone numbers; emails; URLs; the language names inside .langmenu (English, Français, Deutsch, Português, Español, Italiano); "@chifbay".
+- Do NOT translate or alter: "Chifbay"; place names (Funchal, Madeira, Cabo Girão, Câmara de Lobos, Ponta do Sol, Marina do Funchal, Ribeira Brava, Atlantic, Karnic, Mercury, Pico do Arieiro, Seixal); "poncha", "Moët"; any price/number/unit/time (€400, €500, €600, 2h30, 18:00, 10:00–13:00, 9m, 300hp, 5 guests, 580m); phone numbers; emails; URLs; the language names inside .langmenu (English, Français, Deutsch, Português, Español, Italiano); "@chifbay".
 - Keep every hreflang/alternate/canonical link, the language-switcher block, all <script> blocks and HTML comments EXACTLY as they are.
 - Output ONLY the complete HTML document — no preamble, no code fences.`;
 

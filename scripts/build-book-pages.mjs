@@ -37,7 +37,7 @@ const PAGES = [
     desc: "Book a private boat trip from Funchal, Madeira. Day trips from €500, sunset trips from €400. Live calendar, pay by card, no third-party site.",
     schema: {
       name: "Private Boat Trip - Funchal, Madeira",
-      description: "Private boat charter from Funchal, Madeira. Day trip with swimming and paddle from EUR 500, sunset trip from EUR 400. The whole boat for up to 7 guests.",
+      description: "Private boat charter from Funchal, Madeira. Day trip with swimming and paddle from EUR 500, sunset trip from EUR 400. The whole boat for up to 5 guests.",
       image: "assets/exp-coastal.jpg",
       low: "400", high: "600", count: "4",
       offers: [
@@ -60,7 +60,7 @@ const PAGES = [
     desc: "Book the private day trip from Funchal, Madeira. 2h30 to Ribeira Brava €500 or 3h to Ponta do Sol with video €600. Swimming, paddle, drone. Live calendar.",
     schema: {
       name: "Private Day Boat Trip - Madeira",
-      description: "Private day boat trip from Funchal, Madeira. Camara de Lobos, Cabo Girao with drone, swimming and paddle at Faja dos Padres, on to Ribeira Brava or Ponta do Sol. The whole boat for up to 7 guests.",
+      description: "Private day boat trip from Funchal, Madeira. Camara de Lobos, Cabo Girao with drone, swimming and paddle at Faja dos Padres, on to Ribeira Brava or Ponta do Sol. The whole boat for up to 5 guests.",
       image: "assets/exp-coves.jpg",
       low: "500", high: "600", count: "2",
       offers: [
@@ -81,7 +81,7 @@ const PAGES = [
     desc: "Book the private sunset trip from Funchal, Madeira. Departs 18:30 — 2h to Cabo Girão €400 or 2h30 to Ribeira Brava €500. Live calendar, pay by card.",
     schema: {
       name: "Private Sunset Boat Trip - Madeira",
-      description: "Private sunset boat trip from Funchal, Madeira. Departs 18:30 - 2h to Cabo Girao, or 2h30 on to Ribeira Brava. Drone footage, drinks and food aboard, the whole boat for up to 7 guests.",
+      description: "Private sunset boat trip from Funchal, Madeira. Departs 18:30 - 2h to Cabo Girao, or 2h30 on to Ribeira Brava. Drone footage, drinks and food aboard, the whole boat for up to 5 guests.",
       image: "assets/exp-sunset.jpg",
       low: "400", high: "500", count: "2",
       offers: [
