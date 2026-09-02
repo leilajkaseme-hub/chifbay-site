@@ -1,0 +1,52 @@
+{
+  "id": "20260902090931-dc04",
+  "kind": "feed",
+  "created": "2026-09-02T09:10:03.616Z",
+  "source": "library",
+  "origin": "social-drive/001-12M0Xk9l.jpg",
+  "image": "ig/20260902090931-dc04-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260902090931-dc04-1.jpg",
+  "sha256": "01ddb31b8d33ef11fbf4824a3ff75cb2e77522e8859381e439f9195c8badf036",
+  "slides": [
+    {
+      "origin": "social-drive/001-12M0Xk9l.jpg",
+      "image": "ig/20260902090931-dc04-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090931-dc04-1.jpg",
+      "sha256": "01ddb31b8d33ef11fbf4824a3ff75cb2e77522e8859381e439f9195c8badf036"
+    },
+    {
+      "origin": "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+      "image": "ig/20260902090931-dc04-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090931-dc04-2.jpg",
+      "sha256": "6c501e1c36bf0853ff3671dda746ccd01f1bbcb4b3d8d5d8ac7a5736afc81bd9"
+    },
+    {
+      "origin": "social-drive/005-1J0OAZtR.png",
+      "image": "ig/20260902090931-dc04-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090931-dc04-3.jpg",
+      "sha256": "6417860314cdaf73e16cb4d2a9c89e4f9419081d0248f338f3ff674483cfbe66"
+    },
+    {
+      "origin": "social-drive/img-1723-1ssTv61g.jpg",
+      "image": "ig/20260902090931-dc04-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090931-dc04-4.jpg",
+      "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6"
+    }
+  ],
+  "plan_index": 9,
+  "plan_cover": "social-drive/001-12M0Xk9l.jpg",
+  "palette": "azure",
+  "angle": "sunset",
+  "caption": "The colour comes in fast right after the sun drops, then fades just as quick.\nWe slowed down for a minute just to sit in it, wake still spreading out behind us.\nFive guests max on board, water this calm most evenings.\nchifbay.com has our open dates.",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#boattrip",
+    "#atlanticocean",
+    "#sunsetlovers",
+    "#goldenhour",
+    "#slowtravel"
+  ],
+  "rendered_caption": "The colour comes in fast right after the sun drops, then fades just as quick.\nWe slowed down for a minute just to sit in it, wake still spreading out behind us.\nFive guests max on board, water this calm most evenings.\nchifbay.com has our open dates.\n\n#funchal #visitmadeira #boattrip #atlanticocean #sunsetlovers #goldenhour #slowtravel",
+  "writer": "claude"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "20260902090918-7c82",
+  "kind": "feed",
+  "created": "2026-09-02T09:09:31.725Z",
+  "source": "library",
+  "origin": "social-drive/186-1tkpZn7A.png",
+  "image": "ig/20260902090918-7c82-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260902090918-7c82-1.jpg",
+  "sha256": "20ba7c4f59e75040ecfdb71f1650923da4ae986d94e38e89999d13bb448b6b14",
+  "slides": [
+    {
+      "origin": "social-drive/186-1tkpZn7A.png",
+      "image": "ig/20260902090918-7c82-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090918-7c82-1.jpg",
+      "sha256": "20ba7c4f59e75040ecfdb71f1650923da4ae986d94e38e89999d13bb448b6b14"
+    },
+    {
+      "origin": "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+      "image": "ig/20260902090918-7c82-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090918-7c82-2.jpg",
+      "sha256": "a93dae57138b7d3e7812cf76285f9b236dc7c3ad02072f5fe5758ac546fc3767"
+    },
+    {
+      "origin": "social-drive/011-1XvEEVBm.png",
+      "image": "ig/20260902090918-7c82-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090918-7c82-3.jpg",
+      "sha256": "c121a3838349c45f0fcacf688671f9a98fbbce508acff180728783cbefe603e2"
+    },
+    {
+      "origin": "social-drive/008-1KqJChSW.jpg",
+      "image": "ig/20260902090918-7c82-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090918-7c82-4.jpg",
+      "sha256": "08fab3846ae44ec8040ed24f39e3a6ff682bc95bc7e16a891925a48825c222e6"
+    }
+  ],
+  "plan_index": 8,
+  "plan_cover": "social-drive/186-1tkpZn7A.png",
+  "palette": "neutral",
+  "angle": "openocean",
+  "caption": "Full throttle out of Funchal, wake carving out white behind us.\nOur two on board settled at the back table, letting the boat do the work.\nKarnic R8S, private boat, skipper included, five guests maximum.\nWe keep it to five guests. Ask us about your dates.",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#privateboattour",
+    "#bluewater",
+    "#oceanview"
+  ],
+  "rendered_caption": "Full throttle out of Funchal, wake carving out white behind us.\nOur two on board settled at the back table, letting the boat do the work.\nKarnic R8S, private boat, skipper included, five guests maximum.\nWe keep it to five guests. Ask us about your dates.\n\n#madeira #madeiraisland #boattour #privateboattour #bluewater #oceanview",
+  "writer": "claude"
+}

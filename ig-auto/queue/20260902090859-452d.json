@@ -1,0 +1,50 @@
+{
+  "id": "20260902090859-452d",
+  "kind": "feed",
+  "created": "2026-09-02T09:09:18.925Z",
+  "source": "library",
+  "origin": "social-drive/124-1HaSrnmE.png",
+  "image": "ig/20260902090859-452d-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260902090859-452d-1.jpg",
+  "sha256": "fca5809e3ad03f0af1627cdffbec592fbe93ba3d4b9942f9c4325c1fb9897a94",
+  "slides": [
+    {
+      "origin": "social-drive/124-1HaSrnmE.png",
+      "image": "ig/20260902090859-452d-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090859-452d-1.jpg",
+      "sha256": "fca5809e3ad03f0af1627cdffbec592fbe93ba3d4b9942f9c4325c1fb9897a94"
+    },
+    {
+      "origin": "social-drive/011-1XvEEVBm.png",
+      "image": "ig/20260902090859-452d-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090859-452d-2.jpg",
+      "sha256": "c121a3838349c45f0fcacf688671f9a98fbbce508acff180728783cbefe603e2"
+    },
+    {
+      "origin": "social-drive/151-1oJrb1L_.png",
+      "image": "ig/20260902090859-452d-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090859-452d-3.jpg",
+      "sha256": "1d88bed81a0dd774588c327bca4d88f55e215a5fb36e55a3abf6fb912f6447d4"
+    },
+    {
+      "origin": "social-drive/img-1723-1ssTv61g.jpg",
+      "image": "ig/20260902090859-452d-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260902090859-452d-4.jpg",
+      "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6"
+    }
+  ],
+  "plan_index": 7,
+  "plan_cover": "social-drive/124-1HaSrnmE.png",
+  "palette": "neutral",
+  "angle": "marina",
+  "caption": "From above, our boat sits quiet on its line, a sailboat moored just beside it.\nDeep blue water, a bit of blossom blurring the edge of the frame.\nKarnic R8S, private boat, skipper included, five guests maximum.\nchifbay.com for open dates.",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#seaday",
+    "#boatlife",
+    "#funchalmarina"
+  ],
+  "rendered_caption": "From above, our boat sits quiet on its line, a sailboat moored just beside it.\nDeep blue water, a bit of blossom blurring the edge of the frame.\nKarnic R8S, private boat, skipper included, five guests maximum.\nchifbay.com for open dates.\n\n#portugal #madeiraportugal #seaday #boatlife #funchalmarina",
+  "writer": "claude"
+}
