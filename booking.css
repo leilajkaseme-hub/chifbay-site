@@ -14,8 +14,8 @@
 .bkhero .bkhov{position:absolute;inset:0;
   background:linear-gradient(to bottom,rgba(var(--scrim-rgb),.72) 0%,rgba(var(--scrim-rgb),.42) 38%,rgba(var(--scrim-rgb),.86) 78%,var(--ink) 100%)}
 .bkhc{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 32px 42px}
-.bkhc h1{font-size:clamp(2.3rem,5.4vw,4rem);margin:14px 0 16px}
-.bkhc h1 em{font-family:'DM Sans','Inter',system-ui,sans-serif;font-style:normal;font-weight:700;background:linear-gradient(130deg,#e0be7a,#f0c96a);
+.bkhc h1{font-size:clamp(2.3rem,5.4vw,4rem);margin:14px 0 16px;font-weight:900}
+.bkhc h1 em{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-weight:400;background:linear-gradient(130deg,#e0be7a,#f0c96a);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .bkhc p{max-width:56ch;color:var(--on-photo-dim);font-weight:300;font-size:clamp(.92rem,1.4vw,1.05rem);
   line-height:1.75;margin:0}
@@ -38,7 +38,7 @@
 .bkstep.on{display:block;animation:bkin .35s ease both}
 @keyframes bkin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .bkh{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:clamp(1.6rem,3.2vw,2.3rem);
-  margin:0 0 6px;font-weight:400;letter-spacing:-.02em}
+  margin:0 0 6px;font-weight:700;letter-spacing:-.02em}
 .bksub{color:var(--muted);margin:0 0 26px;font-size:.94rem}
 
 /* the display-currency picker, sitting beside the step-1 heading */

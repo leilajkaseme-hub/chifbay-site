@@ -1,6 +1,7 @@
 /* ============================================================
    Chifbay — shared design system (peak)
-   Satoshi (titles) + DM Sans Bold (accents) + Inter (text) + Space Mono
+   Satoshi heavy (titles) + DM Serif Display Italic (accents) + Inter (text)
+   + Space Mono
    · navy #050f18 + gold
    ============================================================ */
 /* ------------------------------------------------------------------
@@ -94,13 +95,19 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--
 h1,h2,h3,h4,p,li,a,span,div{overflow-wrap:anywhere}
 ::selection{background:var(--teal);color:var(--on-accent)}
 img{max-width:100%;display:block}
-h1,h2,h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.08;letter-spacing:-.02em;font-weight:400;}
-/* Titles are Satoshi. The accented word inside a title is DM Sans Bold and
-   never italic — Satoshi has no true italic, so an <em> would otherwise be
-   faked by the browser slanting the upright, which looks like a rendering
-   fault rather than emphasis. Declared once here so any heading anywhere
-   inherits it. */
-h1 em,h2 em,h3 em,h4 em{font-family:'DM Sans','Inter',system-ui,sans-serif;font-style:normal;font-weight:700}
+/* 700 is the base. Satoshi has no 800: Fontshare serves 300/400/500/700/900
+   and quietly ignores anything else, so "extra bold" is 700 or 900 and nothing
+   between. The big display headings take 900 just below; everything smaller
+   stays at 700, because 900 at 1.2rem closes the counters and reads as a blur
+   rather than as weight. */
+h1,h2,h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.06;letter-spacing:-.028em;font-weight:700;}
+/* Titles are Satoshi, heavy. The accented word inside a title is DM Serif
+   Display Italic — a real drawn italic from a serif, which is the contrast
+   the design is after: heavy geometric sans against a light serif italic.
+   Satoshi itself has no italic, so the emphasis has to come from a different
+   family or not at all. Declared once here so any heading anywhere inherits
+   it. */
+h1 em,h2 em,h3 em,h4 em{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-weight:400}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 @media(max-width:600px){.wrap{padding:0 18px}}
 .eyebrow{font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:12px;}
@@ -217,9 +224,9 @@ html.nav-open #nav{
 .hbg,.cbg,.ctabg{transform:translateZ(0);backface-visibility:hidden}
 .hbadge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--photo-accent);animation:p 2s infinite;}
 @keyframes p{0%,100%{opacity:1}50%{opacity:.35}}
-.hero h1{font-size:clamp(3rem,8vw,7.5rem);font-weight:400;max-width:14ch;margin:0 0 26px;text-shadow:0 4px 60px rgba(var(--scrim-rgb),.5);}
+.hero h1{font-size:clamp(3rem,8vw,7.5rem);font-weight:900;letter-spacing:-.035em;max-width:14ch;margin:0 0 26px;text-shadow:0 4px 60px rgba(var(--scrim-rgb),.5);}
 .hero.sub h1{font-size:clamp(2.6rem,6.5vw,5.4rem)}
-.hero h1 em{font-family:'DM Sans','Inter',system-ui,sans-serif;font-style:normal;font-weight:700;background:linear-gradient(130deg,#e0be7a,#f0c96a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero h1 em{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-weight:400;background:linear-gradient(130deg,#e0be7a,#f0c96a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hsub{max-width:50ch;color:var(--on-photo-dim);font-size:clamp(.93rem,1.5vw,1.1rem);font-weight:300;margin-bottom:34px;line-height:1.78;}
 .hact{display:flex;gap:14px;flex-wrap:wrap}
 .hfoot{position:absolute;bottom:26px;right:30px;z-index:2;text-align:right;}
@@ -263,7 +270,7 @@ section{position:relative}.pad{padding:clamp(72px,11vh,140px) 0}.pad-sm{padding:
 .exc:hover .pb{transform:scale(1.05)}
 .excb{padding:32px}
 .exck{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--photo-accent)}
-.exc h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.9rem;font-weight:500;color:var(--on-photo);margin:10px 0 10px}
+.exc h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.9rem;font-weight:700;color:var(--on-photo);margin:10px 0 10px}
 .exc p{color:var(--on-photo-dim);font-size:.94rem;line-height:1.65;margin-bottom:20px;max-width:46ch}
 .exmore{display:inline-flex;align-items:center;gap:9px;font-family:'Space Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#050f18;background:var(--photo-accent);padding:11px 20px;border-radius:var(--radius-pill);font-weight:700;text-decoration:none;transition:gap .25s,box-shadow .25s}
 .exc:hover .exmore{gap:14px;box-shadow:0 10px 26px rgba(var(--teal-rgb),.32)}
@@ -275,7 +282,7 @@ section{position:relative}.pad{padding:clamp(72px,11vh,140px) 0}.pad-sm{padding:
 .sr{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:var(--radius);overflow:hidden;margin-top:44px;}
 @media(max-width:600px){.sr{grid-template-columns:1fr}}
 .st{padding:34px 24px;background:rgba(var(--mid-rgb),.55);text-align:center;}
-.sn{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:500;background:linear-gradient(130deg,var(--teal),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:6px;}
+.sn{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;background:linear-gradient(130deg,var(--teal),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:6px;}
 .sl{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);}
 
 /* INCLUDED */
@@ -306,7 +313,7 @@ section{position:relative}.pad{padding:clamp(72px,11vh,140px) 0}.pad-sm{padding:
 .cc2{border-radius:var(--radius);padding:34px;border:1px solid var(--hair);}
 .cc2.win{background:linear-gradient(145deg,rgba(var(--teal-rgb),.08),rgba(var(--mid-rgb),.6));border-color:rgba(var(--teal-rgb),.24);}
 .cc2.lose{background:rgba(var(--mid-rgb),.3);}
-.cc2 h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.15rem;font-weight:500;margin-bottom:20px;display:flex;align-items:center;gap:9px;}
+.cc2 h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:9px;}
 .cc2 ul{list-style:none}
 .cc2 li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--hair);font-size:.92rem;color:var(--muted);line-height:1.6;}
 .cc2 li:last-child{border-bottom:none}
@@ -349,7 +356,7 @@ details[open] .fi{transform:rotate(45deg);background:rgba(var(--teal-rgb),.1)}
 .ccard{padding:36px;border:1px solid var(--hair);border-radius:var(--radius);background:rgba(var(--mid-rgb),.4);transition:border-color .3s,background .3s}
 .ccard:hover{border-color:rgba(var(--teal-rgb),.3);background:rgba(var(--mid-rgb),.6)}
 .ccard .ico2{font-size:1.5rem;margin-bottom:16px}
-.ccard h3{font-size:1.25rem;margin-bottom:8px;font-weight:500}
+.ccard h3{font-size:1.25rem;margin-bottom:8px;font-weight:700}
 .ccard a,.ccard p{color:var(--muted);text-decoration:none;font-size:.95rem;display:block;transition:color .2s}
 .ccard a:hover{color:var(--teal)}
 
@@ -445,13 +452,13 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
 .bcard .bimg{aspect-ratio:16/10;background-size:cover;background-position:center;filter:saturate(.95)}
 .bcard .bbody{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .bcat{font-family:"Space Mono",monospace;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
-.bcard h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.35rem;font-weight:500;color:var(--paper);line-height:1.2}
+.bcard h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.35rem;font-weight:700;color:var(--paper);line-height:1.2}
 .bcard p{color:var(--muted);font-size:.92rem;line-height:1.6;flex:1}
 .bmeta{font-family:"Space Mono",monospace;font-size:.6rem;letter-spacing:.1em;color:var(--muted);opacity:.7}
 .article{max-width:760px;margin:0 auto}
 .article .lede{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.4rem;line-height:1.5;color:var(--paper-dim);margin-bottom:34px;font-style:italic}
-.article h2{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.9rem;font-weight:500;margin:40px 0 14px;letter-spacing:-.01em}
-.article h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.4rem;font-weight:500;margin:28px 0 10px}
+.article h2{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.9rem;font-weight:700;margin:40px 0 14px;letter-spacing:-.01em}
+.article h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.4rem;font-weight:700;margin:28px 0 10px}
 .article p{color:var(--paper-dim);font-size:1.05rem;line-height:1.85;margin-bottom:18px}
 .article a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .article ul,.article ol{color:var(--paper-dim);font-size:1.05rem;line-height:1.8;margin:0 0 20px 22px}
@@ -460,7 +467,7 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
 .article blockquote{border-left:2px solid var(--teal);padding:6px 0 6px 22px;margin:24px 0;font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-style:italic;font-size:1.25rem;color:var(--paper)}
 .artmeta{display:flex;gap:18px;flex-wrap:wrap;font-family:"Space Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:18px}
 .artcta{max-width:760px;margin:48px auto 0;padding:34px;border:1px solid rgba(var(--teal-rgb),.25);border-radius:var(--radius-lg);background:linear-gradient(145deg,rgba(var(--teal-rgb),.07),rgba(var(--mid-rgb),.5));text-align:center}
-.artcta h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.6rem;font-weight:500;margin-bottom:10px}
+.artcta h3{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.6rem;font-weight:700;margin-bottom:10px}
 .artcta p{color:var(--paper-dim);margin-bottom:20px}
 
 /* ---------- LANGUAGE SWITCHER ----------
