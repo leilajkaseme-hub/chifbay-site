@@ -7,5 +7,11 @@
   "angle": "wildlife",
   "image": "ig/20260901092934-0d68.jpg",
   "url": "https://www.chifbay.com/ig/20260901092934-0d68.jpg",
-  "sha256": "32eb1e52afaf12040c3a60eb99751090838c2d9b8f08f2e6c9cce9d6a2694764"
+  "sha256": "32eb1e52afaf12040c3a60eb99751090838c2d9b8f08f2e6c9cce9d6a2694764",
+  "posted_at": "2026-09-02T20:29:54.650Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "18080257397327319",
+    "confirmed": true
+  }
 }
