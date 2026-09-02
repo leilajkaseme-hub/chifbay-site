@@ -15,7 +15,7 @@
   background:linear-gradient(to bottom,rgba(var(--scrim-rgb),.72) 0%,rgba(var(--scrim-rgb),.42) 38%,rgba(var(--scrim-rgb),.86) 78%,var(--ink) 100%)}
 .bkhc{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 32px 42px}
 .bkhc h1{font-size:clamp(2.3rem,5.4vw,4rem);margin:14px 0 16px}
-.bkhc h1 em{font-style:italic;background:linear-gradient(130deg,#e0be7a,#f0c96a);
+.bkhc h1 em{font-family:'DM Sans','Inter',system-ui,sans-serif;font-style:normal;font-weight:700;background:linear-gradient(130deg,#e0be7a,#f0c96a);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .bkhc p{max-width:56ch;color:var(--on-photo-dim);font-weight:300;font-size:clamp(.92rem,1.4vw,1.05rem);
   line-height:1.75;margin:0}
@@ -37,7 +37,7 @@
 .bkstep{display:none}
 .bkstep.on{display:block;animation:bkin .35s ease both}
 @keyframes bkin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.bkh{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,3.2vw,2.3rem);
+.bkh{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:clamp(1.6rem,3.2vw,2.3rem);
   margin:0 0 6px;font-weight:400;letter-spacing:-.02em}
 .bksub{color:var(--muted);margin:0 0 26px;font-size:.94rem}
 
@@ -168,7 +168,7 @@
   padding:10px 10px;border:0;border-radius:100px;background:transparent;color:var(--muted);
   font:inherit;cursor:pointer;transition:background .25s,color .25s,box-shadow .25s}
 .bkseg b{font-family:'Space Mono',monospace;font-size:1.02rem;font-weight:700;letter-spacing:.02em}
-.bkseg em{font-style:normal;font-family:'Playfair Display',Georgia,serif;font-size:.92rem}
+.bkseg em{font-style:normal;font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:.92rem}
 .bkseg:not(.on):hover{color:var(--paper);background:rgba(var(--edge-rgb),.06)}
 .bkseg.on{background:var(--teal);color:var(--on-accent);
   box-shadow:0 6px 18px rgba(var(--teal-rgb),.28)}
@@ -199,7 +199,7 @@
    compares. The badge on the photo disappears entirely when a variant has no
    photo; this one never does. */
 .bkcdurb{display:flex;flex-direction:column;gap:2px;line-height:1.1;text-align:right}
-.bkcdurb b{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:400}
+.bkcdurb b{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.5rem;font-weight:400}
 .bkcdurb em{font-style:normal;font-size:.62rem;color:var(--muted);letter-spacing:.12em;
   text-transform:uppercase;font-family:'Space Mono',monospace}
 .bkcbody{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
@@ -235,7 +235,7 @@
 @media(min-width:761px){
   .bkcfoot .bksm{flex:1 0 100%;justify-content:center;margin-top:4px}
 }
-.bkprice{font-family:'Playfair Display',Georgia,serif;font-size:1.85rem;display:flex;
+.bkprice{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.85rem;display:flex;
   align-items:baseline;gap:8px;line-height:1}
 .bkprice em{font-style:normal;font-size:.62rem;color:var(--muted);letter-spacing:.12em;
   text-transform:uppercase;font-family:'Space Mono',monospace}
@@ -261,7 +261,7 @@
 .bkpicked{display:flex;align-items:center;gap:18px;padding:14px 18px;border-radius:var(--radius);
   background:rgba(var(--teal-rgb),.06);border:1px solid rgba(var(--teal-rgb),.24);margin-bottom:26px}
 .bkpicked img{width:74px;height:56px;object-fit:cover;border-radius:9px;flex-shrink:0}
-.bkpicked strong{display:block;font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;
+.bkpicked strong{display:block;font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.15rem;
   font-weight:400;margin-top:3px}
 .bkpicked .bkpm{display:block;color:var(--muted);font-size:.8rem;font-family:'Space Mono',monospace;
   margin-top:3px}
@@ -269,7 +269,7 @@
 
 /* ------------------------------------------------------------- calendar */
 .bkcalhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.bkcalhead strong{font-family:'Playfair Display',Georgia,serif;font-size:1.18rem;font-weight:400;
+.bkcalhead strong{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.18rem;font-weight:400;
   text-transform:capitalize}
 .bknav{width:38px;height:38px;border-radius:50%;background:rgba(var(--edge-rgb),.05);
   border:1px solid var(--hair-strong);color:var(--paper);font-size:1.1rem;cursor:pointer;
@@ -299,10 +299,10 @@
 /* ------------------------------------------------------------- the form */
 .bksumbox{padding:20px 22px;border-radius:var(--radius);background:rgba(var(--teal-rgb),.07);
   border:1px solid rgba(var(--teal-rgb),.28);display:grid;gap:5px;margin-bottom:26px}
-.bksumbox strong{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:400}
+.bksumbox strong{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.2rem;font-weight:400}
 .bksumbox span{font-size:.88rem;color:var(--paper-dim)}
 .bksumbox span b{color:var(--paper);font-weight:600}
-.bksumprice{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem!important;
+.bksumprice{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.6rem!important;
   color:var(--teal)!important;margin-top:6px}
 .bkfields{display:grid;gap:16px;grid-template-columns:1fr 1fr;max-width:720px}
 .bkfield{display:flex;flex-direction:column;gap:7px}
