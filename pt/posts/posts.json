@@ -1,5 +1,28 @@
 [
   {
+    "slug": "top-10-marine-animals-madeira",
+    "title": "Os 10 Animais Marinhos que Pode Ver nas Águas da Madeira (E Quando)",
+    "category": "Top 10",
+    "date": "2026-09-02",
+    "description": "Que animais marinhos se veem mesmo ao largo da Madeira? Um guia 2026 com os dez seres marinhos mais fascinantes — das baleias-piloto residentes às tartarugas-comuns — e a melhor altura para ver cada um.",
+    "heroImage": "assets/journal/top-10-marine-animals-madeira-hero.jpg",
+    "heroAlt": "Top 10 Marine Animals You Can See in Madeira's Waters (And When) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "marine animals Madeira",
+      "Madeira sea life",
+      "pilot whales Madeira",
+      "dolphins Madeira boat trip",
+      "loggerhead turtles Madeira",
+      "monk seals Desertas Islands",
+      "sperm whales Madeira",
+      "manta rays Madeira",
+      "wildlife boat trip Funchal",
+      "things to do in Madeira nature"
+    ],
+    "lang": "pt"
+  },
+  {
     "slug": "festa-nossa-senhora-da-piedade-canical-2026",
     "title": "Festa de Nossa Senhora da Piedade 2026: a festa marítima dos pescadores do Caniçal",
     "category": "What's On",
@@ -364,6 +387,29 @@
       "Madeira sea safety",
       "SIMplifica trail safety",
       "Madeira travel guide"
+    ],
+    "lang": "pt"
+  },
+  {
+    "slug": "picado-madeira-guide",
+    "title": "O Que É o Picado? O Prato de Carne com Alho da Madeira Para Partilhar, Explicado",
+    "category": "Food & Drink",
+    "date": "2026-08-15",
+    "description": "O que é o picado na Madeira? Guia prático sobre o prato de carne aos cubos com alho e vinho — como se faz e onde comê-lo no Funchal e em Câmara de Lobos.",
+    "heroImage": "assets/journal/picado-madeira-guide-hero.jpg",
+    "heroAlt": "What Is Picado? Madeira's Garlic Beef Sharing Dish, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is picado",
+      "picado Madeira",
+      "picado recipe",
+      "Madeira garlic beef dish",
+      "picado vs espetada",
+      "Camara de Lobos food",
+      "Madeira tasca food",
+      "Madeira sharing plates",
+      "Madeira petiscos",
+      "Madeira food guide"
     ],
     "lang": "pt"
   }

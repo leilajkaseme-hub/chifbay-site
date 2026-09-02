@@ -1,5 +1,28 @@
 [
   {
+    "slug": "top-10-marine-animals-madeira",
+    "title": "Top 10 Meerestiere, die Sie in Madeiras Gewässern sehen können (und wann)",
+    "category": "Top 10",
+    "date": "2026-09-02",
+    "description": "Welche Meerestiere sieht man wirklich vor Madeira? Ranking 2026 der zehn spannendsten Meeresbewohner – von Grindwalen bis zu Karettschildkröten.",
+    "heroImage": "assets/journal/top-10-marine-animals-madeira-hero.jpg",
+    "heroAlt": "Top 10 Marine Animals You Can See in Madeira's Waters (And When) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "marine animals Madeira",
+      "Madeira sea life",
+      "pilot whales Madeira",
+      "dolphins Madeira boat trip",
+      "loggerhead turtles Madeira",
+      "monk seals Desertas Islands",
+      "sperm whales Madeira",
+      "manta rays Madeira",
+      "wildlife boat trip Funchal",
+      "things to do in Madeira nature"
+    ],
+    "lang": "de"
+  },
+  {
     "slug": "festa-nossa-senhora-da-piedade-canical-2026",
     "title": "Festa de Nossa Senhora da Piedade 2026: Caniçals Fischerfest auf dem Meer",
     "category": "What's On",
@@ -364,6 +387,29 @@
       "Madeira sea safety",
       "SIMplifica trail safety",
       "Madeira travel guide"
+    ],
+    "lang": "de"
+  },
+  {
+    "slug": "picado-madeira-guide",
+    "title": "Was ist Picado? Madeiras Rinderpfanne mit Knoblauch zum Teilen",
+    "category": "Food & Drink",
+    "date": "2026-08-15",
+    "description": "Was ist Picado auf Madeira? Gewürfeltes Rindfleisch in Knoblauch-Weißwein-Sauce, seine Herkunft und wo man es in Funchal und Câmara de Lobos isst.",
+    "heroImage": "assets/journal/picado-madeira-guide-hero.jpg",
+    "heroAlt": "What Is Picado? Madeira's Garlic Beef Sharing Dish, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is picado",
+      "picado Madeira",
+      "picado recipe",
+      "Madeira garlic beef dish",
+      "picado vs espetada",
+      "Camara de Lobos food",
+      "Madeira tasca food",
+      "Madeira sharing plates",
+      "Madeira petiscos",
+      "Madeira food guide"
     ],
     "lang": "de"
   }
