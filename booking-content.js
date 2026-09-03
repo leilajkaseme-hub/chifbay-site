@@ -174,6 +174,7 @@ window.CHIFBAY_CONTENT = (function () {
     "ui.hoursShort":  "h",
     "ui.minsShort":   "min",
     "ui.currency":    "Show prices in",
+    "ui.dayClosed":   "That day is not open for booking. The calendar has been refreshed.",
   };
 
   var LANGS = {
@@ -194,6 +195,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.back":      "Retour",
       "ui.pay":       "Payer et confirmer",
       "ui.currency":  "Afficher les prix en",
+      "ui.dayClosed": "Cette date n'est pas ouverte à la réservation. Le calendrier a été mis à jour.",
     },
     de: {
       "stop.funchal": "Ablegen",
@@ -212,6 +214,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.back":      "Zurück",
       "ui.pay":       "Bezahlen und buchen",
       "ui.currency":  "Preise anzeigen in",
+      "ui.dayClosed": "Dieser Tag ist nicht buchbar. Der Kalender wurde aktualisiert.",
     },
     pt: {
       "stop.funchal": "Partida",
@@ -230,6 +233,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.back":      "Voltar",
       "ui.pay":       "Pagar e confirmar",
       "ui.currency":  "Mostrar preços em",
+      "ui.dayClosed": "Esse dia não está disponível para reserva. O calendário foi atualizado.",
     },
     es: {
       "stop.funchal": "Salida",
@@ -248,6 +252,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.back":      "Volver",
       "ui.pay":       "Pagar y confirmar",
       "ui.currency":  "Mostrar precios en",
+      "ui.dayClosed": "Ese día no está disponible para reservar. El calendario se ha actualizado.",
     },
     it: {
       "stop.funchal": "Partenza",
@@ -266,6 +271,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.back":      "Indietro",
       "ui.pay":       "Paga e conferma",
       "ui.currency":  "Mostra i prezzi in",
+      "ui.dayClosed": "Quel giorno non è prenotabile. Il calendario è stato aggiornato.",
     },
   };
 

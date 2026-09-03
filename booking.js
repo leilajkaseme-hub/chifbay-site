@@ -545,7 +545,7 @@
         "&variant=" + encodeURIComponent(state.variant) +
         "&from=" + from + "&to=" + to)
       .then(function (res) {
-        state.availability = res.days || {};
+        state.availability = applyClosures(res.days || {}, state.trip);
         renderCalendar();
       })
       .catch(function (e) {
@@ -554,6 +554,30 @@
           '<a href="' + CFG.WA + '">' + esc(t("ui.whatsapp")) + "</a>") + "</p>";
         say(e.message, "err");
       });
+  }
+
+  /* Days we have closed ourselves, removed from whatever the API offered.
+     The API is still the authority on everything else: a day it does not send
+     never appears here, closure rule or not. Dates are YYYY-MM-DD, so plain
+     string comparison orders them correctly. */
+  function isClosed(date, tripId) {
+    var rules = window.CHIFBAY_CLOSED || [];
+    for (var i = 0; i < rules.length; i++) {
+      var r = rules[i];
+      if (!r || !r.from || !r.to) continue;
+      if (date < r.from || date > r.to) continue;
+      if (r.trips === "all") return true;
+      if (r.trips && r.trips.indexOf && r.trips.indexOf(tripId) >= 0) return true;
+    }
+    return false;
+  }
+
+  function applyClosures(days, tripId) {
+    var out = {};
+    Object.keys(days).forEach(function (d) {
+      if (!isClosed(d, tripId)) out[d] = days[d];
+    });
+    return out;
   }
 
   function renderCalendar() {
@@ -684,6 +708,14 @@
   function startPayment(e) {
     e.preventDefault();
     say("");
+    /* Second gate. The calendar never offers a closed day, but the date is held
+       in state and a stale page - opened before a closure was published, or left
+       open across a deploy - could still carry one into the payment. */
+    if (isClosed(state.date, state.trip)) {
+      say(t("ui.dayClosed"), "err");
+      loadAvailability();
+      return;
+    }
     var btn = $("#bkpay");
     btn.disabled = true;
     btn.textContent = t("ui.holding");
