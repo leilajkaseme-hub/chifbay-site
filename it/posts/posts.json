@@ -1,5 +1,28 @@
 [
   {
+    "slug": "aguardente-de-cana-madeira-rum-guide",
+    "title": "Cos'è l'Aguardente de Cana? Il Rum di Canna da Zucchero di Madeira Spiegato",
+    "category": "Food & Drink",
+    "date": "2026-09-03",
+    "description": "Cos'è l'aguardente de cana? Guida al distillato di canna da zucchero di Madeira: base della poncha, IGP, e lo storico mulino di Porto da Cruz.",
+    "heroImage": "assets/journal/aguardente-de-cana-madeira-rum-guide-hero.jpg",
+    "heroAlt": "What Is Aguardente de Cana? Madeira's Sugarcane Rum, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "aguardente de cana",
+      "what is aguardente de cana",
+      "Madeira rum",
+      "Rum da Madeira",
+      "Engenhos do Norte Porto da Cruz",
+      "William Hinton rum",
+      "Madeira sugarcane spirit",
+      "rum agricola Madeira",
+      "poncha ingredient",
+      "Madeira food guide"
+    ],
+    "lang": "it"
+  },
+  {
     "slug": "top-10-marine-animals-madeira",
     "title": "I 10 Animali Marini che Puoi Vedere nelle Acque di Madeira (e Quando)",
     "category": "Top 10",
@@ -387,6 +410,29 @@
       "Madeira sea safety",
       "SIMplifica trail safety",
       "Madeira travel guide"
+    ],
+    "lang": "it"
+  },
+  {
+    "slug": "picado-madeira-guide",
+    "title": "Cos'è il Picado? Il Piatto di Manzo all'Aglio da Condividere di Madeira, Spiegato",
+    "category": "Food & Drink",
+    "date": "2026-08-15",
+    "description": "Cos'è il picado a Madeira? Guida pratica al piatto di manzo a cubetti con aglio e vino, le sue origini e dove gustarlo a Funchal e Câmara de Lobos.",
+    "heroImage": "assets/journal/picado-madeira-guide-hero.jpg",
+    "heroAlt": "What Is Picado? Madeira's Garlic Beef Sharing Dish, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is picado",
+      "picado Madeira",
+      "picado recipe",
+      "Madeira garlic beef dish",
+      "picado vs espetada",
+      "Camara de Lobos food",
+      "Madeira tasca food",
+      "Madeira sharing plates",
+      "Madeira petiscos",
+      "Madeira food guide"
     ],
     "lang": "it"
   }
