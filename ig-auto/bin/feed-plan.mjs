@@ -14,8 +14,8 @@ import sharp from "sharp";
 import { libraryFiles } from "../lib/image.mjs";
 import { measure, family } from "../lib/palette.mjs";
 import { applyGrade, gradeFor } from "../lib/grade.mjs";
-import { buildCarousels, dedupeLibrary, rows, worstJump, worstSwipe } from "../lib/feedplan.mjs";
-import { config, ROOT, sha256 } from "../lib/queue.mjs";
+import { buildCarousels, dedupeLibrary, gridState, rows, worstJump, worstSwipe } from "../lib/feedplan.mjs";
+import { config, kindOf, listQueue, recentPosts, ROOT, sha256 } from "../lib/queue.mjs";
 
 const args = new Set(process.argv.slice(2));
 const SLIDES = config.carousel_slides ?? 4;
@@ -52,8 +52,22 @@ async function measureAll() {
   return out;
 }
 
-function report(order) {
-  const { worst, where } = worstJump(order);
+function report(order, placed = []) {
+  // The join matters more than anything inside the plan. A replan can be
+  // flawless on its own and still put a sunset directly above yesterday's blue
+  // hour, so the already-posted tail is measured as part of the run.
+  const grid = [...placed.map((p) => ({ cover: p, slides: [p] })), ...order];
+  const { worst, where } = worstJump(grid);
+
+  if (placed.length && order.length) {
+    const step = Math.abs(placed[placed.length - 1].b - order[0].cover.b);
+    console.log(`\nstep from the grid into the new plan: ${step.toFixed(1)}`);
+    console.log(`  ${placed[placed.length - 1].origin} -> ${order[0].cover.origin}`);
+    console.log(step < 25
+      ? "  the new photos carry on from where the feed already is"
+      : "  THE JOIN IS VISIBLE — the plan turns around here, look at the preview");
+  }
+
   console.log(`\n${order.length} posts planned, ${SLIDES} photos each\n`);
   rows(order).forEach((row, i) => {
     const line = row
@@ -61,7 +75,7 @@ function report(order) {
       .join("  |  ");
     console.log(`  row ${String(i + 1).padStart(2)}  ${line}`);
   });
-  const { worstHue, whereHue, pairs, medianHue, p90Hue } = worstJump(order);
+  const { worstHue, whereHue, pairs, medianHue, p90Hue } = worstJump(grid);
   console.log(`\nWARM-COLD step between touching squares, over ${pairs} pairs`);
   console.log(`  median ${medianHue.toFixed(1)}   9 in 10 under ${p90Hue.toFixed(1)}   worst ${worstHue.toFixed(1)}`);
   console.log(`  (the full library spans 98 points, so these are small steps)`);
@@ -110,16 +124,48 @@ async function preview(order, count = 18) {
 
 const all = await measureAll();
 const { photos, dropped } = dedupeLibrary(all);
-const carousels = buildCarousels(photos, { slides: SLIDES });
+
+// A replan RESUMES. Covers already posted or queued are spent for ever, and the
+// new posts have to carry on from the colour showing at the top of the grid.
+//
+// This is the whole reason adding photos used to be dangerous. The old plan was
+// built from scratch every time, always warm end first, so a sunset added today
+// took position 0 and would have gone out directly above the blue-hour post
+// from yesterday. --fresh is the old behaviour, kept for starting over.
+const fresh = args.has("--fresh");
+const grid = fresh ? { spent: new Set(), tail: [], startIndex: 0 } : gridState({
+  posted: recentPosts(1000).filter((p) => kindOf(p) === "feed"),
+  queued: listQueue("feed"),
+});
+
+const byOrigin = new Map(photos.map((p) => [p.origin, p]));
+// A cover whose file has since been deleted simply drops out of the tail; it
+// cannot be measured, and guessing its colour would be worse than one fewer
+// neighbour to check against.
+const placed = grid.tail.map((o) => byOrigin.get(o)).filter(Boolean);
+const coverPool = photos.filter((p) => !grid.spent.has(p.origin));
+
+const carousels = buildCarousels(photos, {
+  slides: SLIDES, covers: coverPool, placed, startIndex: grid.startIndex,
+});
 const order = carousels;   // buildCarousels already returns them in posting order
 
 if (dropped.length) {
   console.log(`\n${dropped.length} duplicate photo(s) ignored — the library holds them twice:`);
   for (const d of dropped) console.log(`  ${d.dropped}\n    same picture as ${d.kept}`);
 }
-console.log(`\n${photos.length} unique photos -> ${carousels.length} carousels of up to ${SLIDES}`);
+console.log(`\n${photos.length} unique photos in the library`);
+if (fresh) {
+  console.log(`planning ALL of them from scratch (--fresh)`);
+} else {
+  console.log(`${grid.spent.size} already used as a cover — posted or waiting in the queue`);
+  console.log(`${coverPool.length} left -> ${carousels.length} new carousels of up to ${SLIDES}`);
+  console.log(placed.length
+    ? `resuming from ${placed[placed.length - 1].origin} (b ${placed[placed.length - 1].b.toFixed(0)})`
+    : `nothing on the grid yet — starting at the warm end`);
+}
 
-if (args.has("--report") || args.size === 0) report(order);
+if (args.has("--report") || args.size === 0) report(order, placed);
 if (args.has("--preview")) await preview(order);
 
 // --slides N renders one post's photos in a row, which is the only way to check
@@ -156,8 +202,11 @@ if (args.has("--write")) {
   writeFileSync(PLAN, JSON.stringify({
     built: new Date().toISOString(),
     slides: SLIDES,
-    posts: order.map((c, i) => ({
-      plan_index: i,
+    // plan_index carries on from the posts already out or waiting. Restarting
+    // it at 0 would make every new post sort in FRONT of the queue, and the
+    // grid would go out in the wrong order.
+    posts: order.map((c) => ({
+      plan_index: c.index,
       family: c.family,
       warmth: Number(c.warmth.toFixed(2)),
       cover: c.cover.origin,

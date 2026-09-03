@@ -1,0 +1,52 @@
+{
+  "id": "20260903204650-5863",
+  "kind": "feed",
+  "created": "2026-09-03T20:47:08.637Z",
+  "source": "library",
+  "origin": "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+  "image": "ig/20260903204650-5863-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260903204650-5863-1.jpg",
+  "sha256": "a93dae57138b7d3e7812cf76285f9b236dc7c3ad02072f5fe5758ac546fc3767",
+  "slides": [
+    {
+      "origin": "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+      "image": "ig/20260903204650-5863-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260903204650-5863-1.jpg",
+      "sha256": "a93dae57138b7d3e7812cf76285f9b236dc7c3ad02072f5fe5758ac546fc3767"
+    },
+    {
+      "origin": "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+      "image": "ig/20260903204650-5863-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260903204650-5863-2.jpg",
+      "sha256": "6c501e1c36bf0853ff3671dda746ccd01f1bbcb4b3d8d5d8ac7a5736afc81bd9"
+    },
+    {
+      "origin": "social-drive/img-1723-1ssTv61g.jpg",
+      "image": "ig/20260903204650-5863-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260903204650-5863-3.jpg",
+      "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6"
+    },
+    {
+      "origin": "social-drive/080-1Vf8N_aV.png",
+      "image": "ig/20260903204650-5863-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260903204650-5863-4.jpg",
+      "sha256": "2ea2e726473077e7b314a133d9f5d6bbd19a3d396dadcd1d6d5b4667c1a2c3e9"
+    }
+  ],
+  "plan_index": 17,
+  "plan_cover": "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+  "palette": "azure",
+  "angle": "onboard",
+  "caption": "Wine poured, sunglasses on, feet up on the cushions.\nOur guests settled in at the back and barely moved for the next half hour.\nCloudy start today, coastline sliding by behind them, water calm the whole way.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#seaday",
+    "#boatlife",
+    "#islandlife",
+    "#travelportugal",
+    "#slowtravel"
+  ],
+  "rendered_caption": "Wine poured, sunglasses on, feet up on the cushions.\nOur guests settled in at the back and barely moved for the next half hour.\nCloudy start today, coastline sliding by behind them, water calm the whole way.\nBook direct on chifbay.com\n\n#portugal #madeiraportugal #seaday #boatlife #islandlife #travelportugal #slowtravel",
+  "writer": "claude"
+}

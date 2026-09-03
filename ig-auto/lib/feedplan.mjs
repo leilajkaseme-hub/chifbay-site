@@ -144,11 +144,56 @@ export function dedupeLibrary(photos) {
  * what a visitor can already see: the post before it, and the post directly
  * above it, which is three back because the grid is three wide.
  */
-export function orderCovers(photos, { perRow = 3 } = {}) {
+export function orderCovers(photos, { perRow = 3, placed = [] } = {}) {
   const striking = (p) => p.chroma * 0.7 + p.contrast * 0.5;
-  const pool = [...photos].sort((a, b) => (b.b - a.b) || (striking(b) - striking(a)));
 
-  const out = [];
+  // WHERE THE GRID ALREADY IS
+  //
+  // A fresh plan starts at the warm end because nothing is on the grid yet. A
+  // REPLAN cannot: by then the feed has drifted some way down the warm-to-cold
+  // line, and starting over would put a sunset directly above the blue-hour
+  // photo that went out yesterday. That is the single worst thing this file
+  // exists to prevent, and it is exactly what adding photos used to trigger.
+  //
+  // So the pass resumes. `placed` is the tail of the grid — the newest covers,
+  // oldest first — and everything is measured from the last of them.
+  const anchor = placed.length ? placed[placed.length - 1] : null;
+
+  const warmToCold = (a, b) => (b.b - a.b) || (striking(b) - striking(a));
+  const coldToWarm = (a, b) => (a.b - b.b) || (striking(b) - striking(a));
+
+  let pool;
+  if (!anchor) {
+    pool = [...photos].sort(warmToCold);
+  } else {
+    // AHEAD is everything the drift can still reach going down the line. The
+    // cutoff is one allowed step ABOVE the anchor, not the anchor itself: a
+    // photo two points warmer than yesterday's post is the perfect next post,
+    // and an exact split banished it to the far end of the plan — measured, a
+    // single new sunset landed between two blue-hour squares, 73 points from
+    // both. One step of slack costs nothing and fixes that whole class.
+    const ahead = photos.filter((p) => p.b <= anchor.b + MAX_HUE_JUMP).sort(warmToCold);
+    const behind = photos.filter((p) => p.b > anchor.b + MAX_HUE_JUMP).sort(coldToWarm);
+
+    // Anything genuinely warmer than the drift can only be reached by going
+    // back up, and WHERE that happens decides how bad it looks.
+    //
+    // Enough of them to fill rows: they become a real return leg. The pass runs
+    // down to the cold end, turns, and climbs — no seam, because the turn is at
+    // the bottom where the two legs meet at the same colour. This is what the
+    // original "wave" could not do, and it works now only because the pool
+    // refills between legs instead of holding photos back.
+    //
+    // Too few to fill a row: there is no leg, only a spike. At the end it sits
+    // surrounded by cold on every side; at the FRONT it touches the grid once
+    // and then the plan descends away from it. One bad pair beats three.
+    pool = behind.length >= perRow ? [...ahead, ...behind] : [...behind, ...ahead];
+  }
+
+  // The grid tail is seeded into `out` so the first new post is judged against
+  // the real squares it will sit next to, then stripped off before returning.
+  const out = [...placed];
+  const keep = placed.length;
   const skips = new Map();   // origin -> how many times it has been passed over
 
   while (pool.length) {
@@ -251,7 +296,7 @@ export function orderCovers(photos, { perRow = 3 } = {}) {
     });
     out.push(pool.splice(bestAt, 1)[0]);
   }
-  return out;
+  return out.slice(keep);
 }
 
 /**
@@ -262,8 +307,22 @@ export function orderCovers(photos, { perRow = 3 } = {}) {
  * break the palette either — but rewarded for differing in light, because four
  * near-identical sunsets is a boring swipe and reads as padding.
  */
-export function buildCarousels(photos, { slides = 4 } = {}) {
-  const covers = orderCovers(photos);
+/**
+ * @param photos      every photo that may appear as a SLIDE — the whole library.
+ * @param covers      the subset still eligible to be a COVER. Covers are used
+ *                    once and for ever, so on a replan this is the library
+ *                    minus everything already posted or queued. Slides carry no
+ *                    such rule, which is why the two lists are separate.
+ * @param placed      the tail of the grid, oldest first, so a replan resumes
+ *                    from the colour that is already showing.
+ * @param startIndex  the first post number to hand out. Posting order is by
+ *                    plan_index, so a replan must carry on counting or its
+ *                    posts sort in front of the ones already waiting.
+ */
+export function buildCarousels(photos, {
+  slides = 4, covers: coverPool = null, placed = [], startIndex = 0,
+} = {}) {
+  const covers = orderCovers(coverPool ?? photos, { placed });
   const lastUsed = new Map();   // origin -> index of the post that last used it
   const out = [];
 
@@ -295,6 +354,7 @@ export function buildCarousels(photos, { slides = 4 } = {}) {
       slides: chain,
       warmth: cover.b,
       family: family(cover),
+      index: startIndex + index,
     });
   });
 
@@ -337,6 +397,38 @@ function fillPost({ cover, near, slides, floor, wall, index, lastUsed }) {
       used.add(best.origin);
   }
   return { chain, used };
+}
+
+/**
+ * What is already on the grid, or on its way there.
+ *
+ * Kept pure — it takes the two lists rather than reading the ledger — so the
+ * tests can drive it without a filesystem.
+ *
+ * @param posted  feed posts that went out, ANY order (sorted here by time).
+ * @param queued  feed posts built and waiting, ANY order (sorted by plan_index).
+ * @returns spent      cover origins that must never be a cover again.
+ *          tail       the last `perRow` cover origins, oldest first — the
+ *                     squares a new post will physically touch.
+ *          startIndex the next post number to hand out.
+ */
+export function gridState({ posted = [], queued = [], perRow = 3 } = {}) {
+  const coverOf = (p) => p.plan_cover ?? p.origin;
+
+  // Posts leave the queue in plan_index order, so the grid reads: everything
+  // already out (oldest first), then everything still waiting (in plan order).
+  const sequence = [
+    ...[...posted].sort((a, b) => String(a.at).localeCompare(String(b.at))),
+    ...[...queued].sort((a, b) => (a.plan_index ?? 0) - (b.plan_index ?? 0)),
+  ];
+
+  const indices = sequence.map((p) => p.plan_index).filter((n) => Number.isFinite(n));
+
+  return {
+    spent: new Set(sequence.map(coverOf).filter(Boolean)),
+    tail: sequence.slice(-perRow).map(coverOf).filter(Boolean),
+    startIndex: indices.length ? Math.max(...indices) + 1 : 0,
+  };
 }
 
 /** How the plan will look as rows of three, for the report. */

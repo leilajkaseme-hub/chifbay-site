@@ -6,12 +6,13 @@
   "story_queue_target": 10,
   "story_queue_low_alert": 4,
   "post_jitter_minutes": 90,
-  "_comment_mix": "AI is OFF by default. 87 real photos is months of feed, and a generated picture invites a caption that claims a moment which never happened. Raise ai above 0 only if you accept that trade.",
+  "_comment_mix": "AI is OFF by default. 80+ real photos is months of feed, and a generated picture invites a caption that claims a moment which never happened. Raise ai above 0 only if you accept that trade.",
   "image_source_mix": {
     "library": 1,
     "ai": 0
   },
   "ai_provider": "pollinations",
+  "_comment_library": "Add new photos to site/social/. Every folder here MUST be inside this git repo, because the plan and the posting both run on GitHub Actions, which only ever sees what was pushed. Two folders outside it (../klook-photos, ../clickandboat-sunset-photos) used to be listed and cost the account 5 photos: the local preview planned 78 posts, CI planned 73, and nobody could see the difference. bin/check-library.mjs now fails if a dir here escapes the repo.",
   "library_dirs": [
     "social-drive"
   ],
@@ -27,7 +28,7 @@
   "_comment_ig_user_id": "Not a secret, just the Instagram Business Account id. Filled in by the whoami workflow. The IG_USER_ID env var overrides it.",
   "ig_user_id": "17841473755961444",
   "transport": "graph",
-  "_comment_heartbeat": "Elapsed HOURS, not calendar days. GitHub cron drifts badly here \u2014 a post scheduled 10:00 UTC went out at 23:46, and a 21:00 heartbeat ran at 00:22 \u2014 and a calendar-day rule flips on that drift and cries wolf. Widest real gap between two good posts is 33.3h, so 40 is the tightest honest limit. max_days is only the fallback when a post has no ledger timestamp.",
+  "_comment_heartbeat": "Elapsed HOURS, not calendar days. GitHub cron drifts badly here — a post scheduled 10:00 UTC went out at 23:46, and a 21:00 heartbeat ran at 00:22 — and a calendar-day rule flips on that drift and cries wolf. Widest real gap between two good posts is 33.3h, so 40 is the tightest honest limit. max_days is only the fallback when a post has no ledger timestamp.",
   "heartbeat_max_hours_since_post": 40,
   "heartbeat_max_days_since_post": 0,
   "ntfy": {
@@ -35,5 +36,11 @@
     "inbox": "https://ntfy.sh/futurx-inbox-544024878e"
   },
   "carousel_slides": 4,
-  "colour_run_rows": 5
+  "colour_run_rows": 5,
+  "exclude": [
+    "social-drive/db2e5ab2-ff7e-4c79-be70-0a795c626230-1ZN6aZ80.jpg",
+    "social-drive/d53eb8cd-cbe3-484a-bdb3-d67143ce61aa-1Bjm9_zz.jpg",
+    "social-drive/d54b6395-4de1-4555-bec9-87bc97b69e04-11sqh_Wd.jpg"
+  ],
+  "_comment_exclude": "Origins the library must never serve. Set by hand. The Drive sync only ever adds files, so deleting a photo from social-drive is undone by the next sync; this list is what actually holds. Delete it from Drive too if it should never come back."
 }

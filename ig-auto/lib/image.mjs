@@ -36,15 +36,29 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // --- real photos -----------------------------------------------------------
 
-/** Every usable source photo, as { path, origin } with origin repo-relative. */
+/**
+ * Every usable source photo, as { path, origin } with origin repo-relative.
+ *
+ * config.exclude is applied HERE, in the one place every caller goes through:
+ * the grid planner, the story picker, the status page and the library check.
+ * Filtering in the planner alone would have let stories keep serving a photo
+ * the feed had been told to drop.
+ *
+ * Deleting the file instead does not work. The Drive sync only ever adds, so
+ * anything removed from social-drive is back the next morning. The list is the
+ * only thing that holds while the photo is still in the Drive folder.
+ */
 export function libraryFiles() {
+  const banned = new Set(config.exclude ?? []);
   const out = [];
   for (const dir of config.library_dirs) {
     const abs = join(SITE_ROOT, dir);
     if (!existsSync(abs)) continue;
     for (const f of readdirSync(abs)) {
       if (!IMAGE_RE.test(f)) continue;
-      out.push({ path: join(abs, f), origin: relative(SITE_ROOT, join(abs, f)) });
+      const origin = relative(SITE_ROOT, join(abs, f));
+      if (banned.has(origin)) continue;
+      out.push({ path: join(abs, f), origin });
     }
   }
   return out.sort((a, b) => a.origin.localeCompare(b.origin));

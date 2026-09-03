@@ -63,9 +63,19 @@ async function buildPlanned({ hashes, cooldown, context }) {
   const plan = readPlan();
   if (!plan) return null;
 
+  // A cover is spent by a feed post AND by a story. A story is the whole
+  // picture, not a supporting slide, so serving it again as the face of a
+  // carousel a few days later is the repeat a viewer actually notices.
+  // 005-1J0OAZtR.png was queued as both on 3 September, which is how this was
+  // found. Supporting slides stay reusable; that is what makes 38 photos into
+  // 38 posts instead of 10.
   const done = new Set([
     ...listQueue("feed").map((i) => i.plan_cover),
-    ...recentPosts(400).filter((p) => kindOf(p) === "feed").map((p) => p.plan_cover),
+    ...listQueue("feed").map((i) => i.origin),
+    ...listQueue("story").map((i) => i.origin),
+    ...recentPosts(400)
+      .filter((p) => kindOf(p) === "feed" || kindOf(p) === "story")
+      .flatMap((p) => [p.plan_cover, p.origin]),
   ].filter(Boolean));
 
   // Only "has this cover already been used as a cover" may skip a post.
