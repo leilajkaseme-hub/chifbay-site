@@ -86,34 +86,54 @@
  * regression: .hbg sits under the video and already carries the hero photo as
  * a CSS background, which is exactly what a visitor without JS should see.
  *
- * A visitor who asks for reduced motion gets that same still and no download.
+ * A visitor who asks for reduced motion gets that same still: the stylesheet
+ * hides .hvid outright under prefers-reduced-motion.
  */
 (function () {
   var v = document.currentScript.previousElementSibling;
   while (v && v.tagName !== 'VIDEO') v = v.previousElementSibling;
   if (!v) return;
 
-  try {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      v.removeAttribute('autoplay');
-      v.poster = v.getAttribute('data-poster');
-      return;
-    }
-  } catch (e) { /* no matchMedia: carry on and play */ }
-
   var sm = window.innerWidth <= 820;
-  v.poster = v.getAttribute(sm ? 'data-poster-sm' : 'data-poster');
-  var s = document.createElement('source');
-  s.type = 'video/mp4';
-  s.src = v.getAttribute(sm ? 'data-mp4-sm' : 'data-mp4');
-  v.appendChild(s);
+
+  /* v.src, not an appended <source>. iOS re-arms autoplay reliably when the
+     src is set on the element itself; appending a <source> child and calling
+     load() is the pattern that leaves the hero frozen on a real iPhone while
+     every desktop browser and every emulator plays it happily. */
+  v.muted = true;                 // the property, not only the attribute: some iOS builds check it
+  v.setAttribute('webkit-playsinline', '');
+  v.src = v.getAttribute(sm ? 'data-mp4-sm' : 'data-mp4');
   v.load();
 
-  // Muted autoplay is allowed everywhere, but iOS Low Power Mode refuses it
-  // anyway. play() rejects there, and an unhandled rejection is a console
-  // error on every such visit — catch it and let the poster stand.
-  var r = v.play();
-  if (r && r.catch) r.catch(function () {});
+  /* No poster attribute, on purpose. .hbg sits under the video carrying the
+     same still as a CSS background, so a poster only ever duplicated it, and a
+     <video> showing a poster and not playing is exactly the surface iOS draws
+     its round start-playback button on. */
+
+  /* iOS refuses muted autoplay in Low Power Mode and in Low Data Mode, and
+     play() simply rejects. The old code called play() once and swallowed the
+     rejection, so the hero stayed frozen with nothing in the console. Retry on
+     every moment the browser may allow it, including the first gesture, which
+     iOS always accepts. */
+  var playing = false;
+  function go() {
+    if (playing || !v.paused) return;
+    var r = v.play();
+    if (r && r.then) r.then(function () { playing = true; }, function () {});
+  }
+  v.addEventListener('playing', function () { playing = true; release(); });
+  ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough'].forEach(function (e) {
+    v.addEventListener(e, go);
+  });
+
+  var GESTURES = ['touchstart', 'touchend', 'pointerdown', 'click', 'keydown', 'scroll'];
+  function onGesture() { go(); }
+  function release() { GESTURES.forEach(function (e) { removeEventListener(e, onGesture); }); }
+  GESTURES.forEach(function (e) { addEventListener(e, onGesture, { passive: true }); });
+
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) go(); });
+
+  go();
 })();
 </script>
   </div>

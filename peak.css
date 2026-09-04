@@ -221,6 +221,15 @@ html.nav-open #nav{
 .hero.sub{height:76svh;min-height:540px}
 .hbg{position:absolute;inset:0;background-image:var(--hero);background-size:cover;background-position:center;transform:scale(1.07);animation:hz 18s ease-out forwards;}
 .hvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+/* Safari draws a round start-playback button over any <video> that is not
+   playing, and it is native chrome, so controls=false does not remove it and
+   no headless browser renders it. On a real iPhone in Low Power Mode that
+   button was the whole hero. These three pseudo-elements are the only way to
+   take it off. */
+.hvid::-webkit-media-controls-start-playback-button,
+.hvid::-webkit-media-controls-play-button,
+.hvid::-webkit-media-controls{display:none!important;-webkit-appearance:none;appearance:none;}
+.hvid::-webkit-media-controls-panel{display:none!important;}
 /* Le --hero (poster CSS derrière la vidéo) est en 16:9 : sur mobile la vidéo
    est verticale, donc on bascule aussi ce fond, sinon un cadrage paysage
    apparaît une fraction de seconde avant que la vidéo ne peigne. */
