@@ -68,7 +68,7 @@
 <header class="hero hero-v">
   <div class="hero-media">
     <div class="hbg" role="img" aria-label="Una barca privata Chifbay al largo della costa sud di Madeira nell'ora dorata"></div>
-    <video class="hvid" autoplay muted loop playsinline preload="auto" aria-hidden="true"
+    <video id="heroVid" class="hvid" autoplay muted loop playsinline preload="auto" aria-hidden="true"
       data-mp4="/assets/hero.mp4" data-poster="/assets/hero-poster.jpg"
       data-mp4-sm="/assets/hero-mobile.mp4" data-poster-sm="/assets/hero-mobile-poster.jpg"></video>
 <script>
@@ -88,11 +88,21 @@
  * hides .hvid outright under prefers-reduced-motion.
  */
 (function () {
-  var v = document.currentScript.previousElementSibling;
-  while (v && v.tagName !== 'VIDEO') v = v.previousElementSibling;
+  /* getElementById, not currentScript.previousElementSibling. The old walk
+     depended on this script staying immediately after the element; an id does
+     not, and it still works if anything reorders the markup. */
+  var v = document.getElementById('heroVid');
   if (!v) return;
 
-  var sm = window.innerWidth <= 820;
+  function src() { return v.getAttribute(window.innerWidth <= 820 ? 'data-mp4-sm' : 'data-mp4'); }
+
+  /* Last-resort net: if anything above threw before the src was set, the video
+     has no source at all and can never play. This runs late and fixes that.
+     The source lives only in the script so a phone never fetches the 4 MB
+     desktop file, which is why it has to be belt and braces. */
+  addEventListener('load', function () {
+    if (!v.getAttribute('src')) { try { v.src = src(); v.load(); v.play().catch(function(){}); } catch (e) {} }
+  });
 
   /* v.src, not an appended <source>. iOS re-arms autoplay reliably when the
      src is set on the element itself; appending a <source> child and calling
@@ -100,7 +110,7 @@
      every desktop browser and every emulator plays it happily. */
   v.muted = true;                 // the property, not only the attribute: some iOS builds check it
   v.setAttribute('webkit-playsinline', '');
-  v.src = v.getAttribute(sm ? 'data-mp4-sm' : 'data-mp4');
+  v.src = src();
   v.load();
 
   /* No poster attribute, on purpose. .hbg sits under the video carrying the
