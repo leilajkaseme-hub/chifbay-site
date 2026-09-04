@@ -1,0 +1,51 @@
+{
+  "id": "20260904085731-755e",
+  "kind": "feed",
+  "created": "2026-09-04T08:57:46.201Z",
+  "source": "library",
+  "origin": "social-drive/img-1749-1YfEdP2d.jpg",
+  "image": "ig/20260904085731-755e-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260904085731-755e-1.jpg",
+  "sha256": "60cf4d9e67c06b09473f7ba480003bd68f579614c3ed9d814f1d74058c857778",
+  "slides": [
+    {
+      "origin": "social-drive/img-1749-1YfEdP2d.jpg",
+      "image": "ig/20260904085731-755e-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085731-755e-1.jpg",
+      "sha256": "60cf4d9e67c06b09473f7ba480003bd68f579614c3ed9d814f1d74058c857778"
+    },
+    {
+      "origin": "social-drive/img-1594-1Szgf8Sm.jpg",
+      "image": "ig/20260904085731-755e-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085731-755e-2.jpg",
+      "sha256": "c40e6cc52e908a2dd357c803faac00d046a2592592f74a9cc830e9a0856a0a53"
+    },
+    {
+      "origin": "social-drive/img-1750-1aJpTiay.jpg",
+      "image": "ig/20260904085731-755e-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085731-755e-3.jpg",
+      "sha256": "19a4709a45c7ca8792ee6069bc8d548452cc614b23135ba42144372c8aed90b0"
+    },
+    {
+      "origin": "social-drive/img-1723-1ssTv61g.jpg",
+      "image": "ig/20260904085731-755e-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085731-755e-4.jpg",
+      "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6"
+    }
+  ],
+  "plan_index": 17,
+  "plan_cover": "social-drive/img-1749-1YfEdP2d.jpg",
+  "palette": "verdant",
+  "angle": "cliffs",
+  "caption": "A little pebble cove tucked under the cliff, no road in, no crowd.\nWe cut the engine here so you can just look at it for a minute.\nOne of the quiet stops on our Hidden Coves run.\nWhatsApp us to check a date.",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#boattour",
+    "#boatlife",
+    "#seacliffs",
+    "#coastline"
+  ],
+  "rendered_caption": "A little pebble cove tucked under the cliff, no road in, no crowd.\nWe cut the engine here so you can just look at it for a minute.\nOne of the quiet stops on our Hidden Coves run.\nWhatsApp us to check a date.\n\n#madeiraisland #madeira #boattour #boatlife #seacliffs #coastline",
+  "writer": "claude"
+}

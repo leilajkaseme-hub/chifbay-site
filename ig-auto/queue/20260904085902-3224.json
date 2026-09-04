@@ -1,0 +1,52 @@
+{
+  "id": "20260904085902-3224",
+  "kind": "feed",
+  "created": "2026-09-04T08:59:13.826Z",
+  "source": "library",
+  "origin": "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+  "image": "ig/20260904085902-3224-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260904085902-3224-1.jpg",
+  "sha256": "a93dae57138b7d3e7812cf76285f9b236dc7c3ad02072f5fe5758ac546fc3767",
+  "slides": [
+    {
+      "origin": "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+      "image": "ig/20260904085902-3224-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085902-3224-1.jpg",
+      "sha256": "a93dae57138b7d3e7812cf76285f9b236dc7c3ad02072f5fe5758ac546fc3767"
+    },
+    {
+      "origin": "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+      "image": "ig/20260904085902-3224-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085902-3224-2.jpg",
+      "sha256": "eb431b5f5651a61f73b071008cf9897e7bf5343c94f61b78fec031e41b2a5a08"
+    },
+    {
+      "origin": "social-drive/img-1723-1ssTv61g.jpg",
+      "image": "ig/20260904085902-3224-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085902-3224-3.jpg",
+      "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6"
+    },
+    {
+      "origin": "social-drive/img-1594-1Szgf8Sm.jpg",
+      "image": "ig/20260904085902-3224-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085902-3224-4.jpg",
+      "sha256": "c40e6cc52e908a2dd357c803faac00d046a2592592f74a9cc830e9a0856a0a53"
+    }
+  ],
+  "plan_index": 22,
+  "plan_cover": "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+  "palette": "azure",
+  "angle": "guests",
+  "caption": "She's got a glass of wine, he's got his eyes closed, nobody's in a hurry.\nRight behind them, Madeira's coastline just keeps going.\nThis is pretty much what a Coastal Discovery afternoon looks like.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#seaday",
+    "#privateboattour",
+    "#familytrip",
+    "#happyguests",
+    "#slowtravel"
+  ],
+  "rendered_caption": "She's got a glass of wine, he's got his eyes closed, nobody's in a hurry.\nRight behind them, Madeira's coastline just keeps going.\nThis is pretty much what a Coastal Discovery afternoon looks like.\nBook direct on chifbay.com\n\n#madeiraportugal #portugal #seaday #privateboattour #familytrip #happyguests #slowtravel",
+  "writer": "claude"
+}

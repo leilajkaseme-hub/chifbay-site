@@ -1,0 +1,44 @@
+{
+  "id": "20260904085813-f5ec",
+  "kind": "feed",
+  "created": "2026-09-04T08:58:34.686Z",
+  "source": "library",
+  "origin": "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+  "image": "ig/20260904085813-f5ec-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260904085813-f5ec-1.jpg",
+  "sha256": "6c501e1c36bf0853ff3671dda746ccd01f1bbcb4b3d8d5d8ac7a5736afc81bd9",
+  "slides": [
+    {
+      "origin": "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+      "image": "ig/20260904085813-f5ec-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085813-f5ec-1.jpg",
+      "sha256": "6c501e1c36bf0853ff3671dda746ccd01f1bbcb4b3d8d5d8ac7a5736afc81bd9"
+    },
+    {
+      "origin": "social-drive/0ea5869b-8a80-4b20-b1ed-f3cea198ca12-16h2Uj9A.png",
+      "image": "ig/20260904085813-f5ec-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085813-f5ec-2.jpg",
+      "sha256": "90a17b515ba54ddea8e90c94c00d6064538a259101a257f9a5ea9748108041c1"
+    },
+    {
+      "origin": "social-drive/img-1723-1ssTv61g.jpg",
+      "image": "ig/20260904085813-f5ec-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085813-f5ec-3.jpg",
+      "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6"
+    }
+  ],
+  "plan_index": 20,
+  "plan_cover": "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+  "palette": "azure",
+  "angle": "onboard",
+  "caption": "Our skipper keeps one eye on the water, the other on making sure everyone's settled.\nTwo guests, a small table between them, nothing to do but sit back.\nThat's really the whole plan out here.\nLink in bio if you want the quiet version of Madeira.",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boatlife",
+    "#boattour",
+    "#islandlife"
+  ],
+  "rendered_caption": "Our skipper keeps one eye on the water, the other on making sure everyone's settled.\nTwo guests, a small table between them, nothing to do but sit back.\nThat's really the whole plan out here.\nLink in bio if you want the quiet version of Madeira.\n\n#madeira #madeiraisland #boatlife #boattour #islandlife",
+  "writer": "claude"
+}

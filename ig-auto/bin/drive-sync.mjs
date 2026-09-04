@@ -64,6 +64,29 @@ const SITE = path.resolve(IG_AUTO, "..");
  *  GitHub Actions only ever sees what is committed. */
 const DEST = path.join(SITE, "social-drive");
 
+/** The 9:16 album. Theo keeps a stories subfolder inside PUBLISH; its crops are
+ *  the only thing stories are allowed to use, and the feed uses everything at
+ *  the root. Matched on the name containing "stor" so renaming it to "Stories"
+ *  or "stories 9x16" in Drive does not silently break the split. */
+const STORY_DEST = path.join(SITE, "story-9x16");
+const STORY_FOLDER = /stor/i;
+
+/** Mirror, not append.
+ *
+ *  This job used to only ever add. A photo pulled once stayed in the library
+ *  for ever, so removing it from Drive changed nothing and it kept coming round
+ *  in the feed. That is exactly what happened with the wine board and the sun
+ *  cream flat lay: taken out of PUBLISH, still posted.
+ *
+ *  So a file whose Drive id has left the folder is now deleted from the repo
+ *  copy. Nothing is ever deleted from Drive; the scope is still read only.
+ *
+ *  The guard matters more than the feature. files.list on a folder whose share
+ *  was revoked returns an empty list rather than an error, and an empty list
+ *  would wipe the whole library. So a run that wants to remove more than half
+ *  of what it holds refuses and says so, unless --prune-all is passed by hand. */
+const PRUNE_ALL = process.argv.includes("--prune-all");
+
 /** State stays with ig-auto: it is this job's bookkeeping, not site content. */
 const STATE = path.join(IG_AUTO, "drive-state.json");
 const CHECK = process.argv.includes("--check");
@@ -244,36 +267,63 @@ async function main() {
   const folder = await checkFolder(token, folderId);
   const files = await listFolder(token, folderId);
 
-  const images = files.filter((f) => IMAGE_MIME[f.mimeType]);
-  const others = files.filter((f) => !IMAGE_MIME[f.mimeType]);
-  const fresh = images.filter((f) => !state.pulled[f.id]);
+  const FOLDER_MIME = "application/vnd.google-apps.folder";
+  const subfolders = files.filter((f) => f.mimeType === FOLDER_MIME);
+  const storyFolder = subfolders.find((f) => STORY_FOLDER.test(f.name));
 
   console.log(`drive folder "${folder.name}" (${folderId}) is reachable`);
-  console.log(`drive folder: ${files.length} file(s), ${images.length} image(s), ${fresh.length} new`);
-  if (!files.length) {
+
+  // Everything at the root is feed material; the stories subfolder is the 9:16
+  // album. Two destinations, one pass, so a photo can never be in both.
+  const want = [];   // { file, dest, dir }
+  for (const f of files) {
+    if (IMAGE_MIME[f.mimeType]) want.push({ file: f, dir: "social-drive", root: DEST });
+    else if (f.mimeType !== FOLDER_MIME) {
+      console.log(`  skipped (not a still image): ${f.name} [${f.mimeType}]`);
+    }
+  }
+  if (storyFolder) {
+    const inStory = await listFolder(token, storyFolder.id);
+    for (const f of inStory) {
+      if (IMAGE_MIME[f.mimeType]) want.push({ file: f, dir: "story-9x16", root: STORY_DEST });
+    }
+    console.log(`stories subfolder "${storyFolder.name}": ${inStory.length} file(s)`);
+  } else {
+    console.log("no stories subfolder in PUBLISH — the 9:16 album is left as it is");
+  }
+
+  const fresh = want.filter((w) => !state.pulled[w.file.id]);
+  console.log(`drive: ${want.length} image(s) in scope, ${fresh.length} new`);
+  if (!want.length) {
     console.log("  the folder is genuinely empty — drop a photo in it to test the chain");
   }
-  for (const f of others) console.log(`  skipped (not a still image): ${f.name} [${f.mimeType}]`);
+
+  // Anything the folder no longer holds. Keyed on the Drive id, so renaming a
+  // photo in Drive is not a delete and a re-upload is not a duplicate.
+  const live = new Set(want.map((w) => w.file.id));
+  const gone = Object.entries(state.pulled).filter(([id]) => !live.has(id));
 
   if (CHECK) {
-    for (const f of fresh) console.log(`  would pull: ${f.name}`);
+    for (const w of fresh) console.log(`  would pull: ${w.file.name} -> ${w.dir}/`);
+    for (const [, v] of gone) console.log(`  would remove: ${v.dir ?? "social-drive"}/${v.name}`);
     return;
   }
 
   let pulled = 0;
-  for (const file of fresh) {
+  for (const { file, dir, root } of fresh) {
+    fs.mkdirSync(root, { recursive: true });
     const name = safeName(file, IMAGE_MIME[file.mimeType]);
-    const dest = path.join(DEST, name);
+    const dest = path.join(root, name);
     try {
       const bytes = await download(token, file, dest);
       state.pulled[file.id] = {
-        name, driveName: file.name, bytes,
+        name, dir, driveName: file.name, bytes,
         createdTime: file.createdTime,
         pulledAt: new Date().toISOString(),
       };
       saveState(state);           // after each file, so a crash cannot re-pull
       pulled++;
-      console.log(`  pulled ${file.name} -> ../social-drive/${name} (${bytes} bytes)`);
+      console.log(`  pulled ${file.name} -> ../${dir}/${name} (${bytes} bytes)`);
     } catch (err) {
       // One bad file must not cost the rest of the batch.
       console.log(`  FAILED ${file.name}: ${err.message}`);
@@ -281,11 +331,41 @@ async function main() {
     }
   }
 
-  console.log(`pulled ${pulled} new photo(s) into social-drive/`);
+  const removed = prune(state, gone);
+
+  console.log(`pulled ${pulled} new photo(s), removed ${removed}`);
   if (pulled) {
     registerLibraryDir();
     console.log("the 05:00 UTC top-up will queue them; they post the next day");
   }
+}
+
+/** Delete the repo copies of photos that have left the Drive folder. */
+function prune(state, gone) {
+  if (!gone.length) return 0;
+
+  const held = Object.keys(state.pulled).length;
+  if (!PRUNE_ALL && gone.length > held / 2) {
+    console.log(
+      `REFUSING to remove ${gone.length} of ${held} photos in one run.\n` +
+      `  A revoked share lists as an empty folder, which looks exactly like\n` +
+      `  this. Check the Drive folder, then run with --prune-all if it is real.`);
+    return 0;
+  }
+
+  let removed = 0;
+  for (const [id, v] of gone) {
+    const dir = v.dir ?? "social-drive";
+    const file = path.join(SITE, dir, v.name);
+    if (fs.existsSync(file)) {
+      fs.rmSync(file);
+      console.log(`  removed ${dir}/${v.name} — no longer in the Drive folder`);
+      removed++;
+    }
+    delete state.pulled[id];
+  }
+  saveState(state);
+  return removed;
 }
 
 /** Add social-drive to config.library_dirs, but only once a real photo is in

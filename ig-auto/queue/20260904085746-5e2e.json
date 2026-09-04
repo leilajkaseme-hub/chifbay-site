@@ -1,0 +1,52 @@
+{
+  "id": "20260904085746-5e2e",
+  "kind": "feed",
+  "created": "2026-09-04T08:57:59.371Z",
+  "source": "library",
+  "origin": "social-drive/img-1723-1ssTv61g.jpg",
+  "image": "ig/20260904085746-5e2e-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260904085746-5e2e-1.jpg",
+  "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6",
+  "slides": [
+    {
+      "origin": "social-drive/img-1723-1ssTv61g.jpg",
+      "image": "ig/20260904085746-5e2e-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085746-5e2e-1.jpg",
+      "sha256": "e53402dd7f4bc8b08731df7b40cc848fb5200a4a9907bad95c09a5f2e06b33e6"
+    },
+    {
+      "origin": "social-drive/4e27c9dc-14c6-4079-90e7-275d8e1274a9-1q9UTV1j.png",
+      "image": "ig/20260904085746-5e2e-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085746-5e2e-2.jpg",
+      "sha256": "df4dbbb084f5a6e9366a0b3a8ed060bbfd616f8a3ae2d97bd2278e659e9a8dc5"
+    },
+    {
+      "origin": "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+      "image": "ig/20260904085746-5e2e-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085746-5e2e-3.jpg",
+      "sha256": "eb431b5f5651a61f73b071008cf9897e7bf5343c94f61b78fec031e41b2a5a08"
+    },
+    {
+      "origin": "social-drive/img-1594-1Szgf8Sm.jpg",
+      "image": "ig/20260904085746-5e2e-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085746-5e2e-4.jpg",
+      "sha256": "c40e6cc52e908a2dd357c803faac00d046a2592592f74a9cc830e9a0856a0a53"
+    }
+  ],
+  "plan_index": 18,
+  "plan_cover": "social-drive/img-1723-1ssTv61g.jpg",
+  "palette": "deep",
+  "angle": "swimstop",
+  "caption": "The engine's off and someone's already in the water by the yellow buoy.\nEveryone else is still on deck, in no hurry to follow.\nKarnic R8S, private boat, skipper included, five guests maximum.\nDetails and dates on chifbay.com",
+  "hashtags": [
+    "#visitmadeira",
+    "#funchal",
+    "#atlanticocean",
+    "#boattrip",
+    "#swimming",
+    "#snorkelling",
+    "#islandhopping"
+  ],
+  "rendered_caption": "The engine's off and someone's already in the water by the yellow buoy.\nEveryone else is still on deck, in no hurry to follow.\nKarnic R8S, private boat, skipper included, five guests maximum.\nDetails and dates on chifbay.com\n\n#visitmadeira #funchal #atlanticocean #boattrip #swimming #snorkelling #islandhopping",
+  "writer": "claude"
+}

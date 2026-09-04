@@ -37,8 +37,24 @@ jobs:
         with:
           node-version: "22"
 
-      # No npm install on purpose: the tests use a fake Meta and Node's own
-      # assert, so nothing here can break because a package changed.
+      # No npm install for this one, on purpose: it uses a fake Meta and Node's
+      # own assert, so nothing here can break because a package changed. It runs
+      # first for the same reason.
       - name: Publishing rules still hold
         working-directory: ig-auto
         run: node test-publish.mjs
+
+      # This one does need the packages: it asks the real libraryFiles() what it
+      # would serve, and that pulls in sharp. Kept as its own step so a package
+      # problem can never be mistaken for a publishing fault.
+      - name: Install
+        working-directory: ig-auto
+        run: npm ci --no-audit --no-fund
+
+      # Which photos are allowed out. Guards the four faults that were live on
+      # the account: flat lays going out four days running, one of them twice,
+      # stories serving 9:16 crops of feed photos, and a photo removed from the
+      # Drive PUBLISH folder still posting because the sync only ever added.
+      - name: Photo rules still hold
+        working-directory: ig-auto
+        run: node test-library.mjs

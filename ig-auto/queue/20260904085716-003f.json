@@ -1,0 +1,50 @@
+{
+  "id": "20260904085716-003f",
+  "kind": "feed",
+  "created": "2026-09-04T08:57:31.045Z",
+  "source": "library",
+  "origin": "social-drive/img-1750-1aJpTiay.jpg",
+  "image": "ig/20260904085716-003f-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260904085716-003f-1.jpg",
+  "sha256": "19a4709a45c7ca8792ee6069bc8d548452cc614b23135ba42144372c8aed90b0",
+  "slides": [
+    {
+      "origin": "social-drive/img-1750-1aJpTiay.jpg",
+      "image": "ig/20260904085716-003f-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085716-003f-1.jpg",
+      "sha256": "19a4709a45c7ca8792ee6069bc8d548452cc614b23135ba42144372c8aed90b0"
+    },
+    {
+      "origin": "social-drive/img-1594-1Szgf8Sm.jpg",
+      "image": "ig/20260904085716-003f-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085716-003f-2.jpg",
+      "sha256": "c40e6cc52e908a2dd357c803faac00d046a2592592f74a9cc830e9a0856a0a53"
+    },
+    {
+      "origin": "social-drive/img-1749-1YfEdP2d.jpg",
+      "image": "ig/20260904085716-003f-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085716-003f-3.jpg",
+      "sha256": "60cf4d9e67c06b09473f7ba480003bd68f579614c3ed9d814f1d74058c857778"
+    },
+    {
+      "origin": "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+      "image": "ig/20260904085716-003f-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085716-003f-4.jpg",
+      "sha256": "6c501e1c36bf0853ff3671dda746ccd01f1bbcb4b3d8d5d8ac7a5736afc81bd9"
+    }
+  ],
+  "plan_index": 16,
+  "plan_cover": "social-drive/img-1750-1aJpTiay.jpg",
+  "palette": "verdant",
+  "angle": "swimstop",
+  "caption": "You can count every rock before you even get in.\nThis is the kind of water that makes people stop talking mid-sentence.\nKarnic R8S, private boat, skipper included, five guests maximum.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#seaday",
+    "#privateboattour",
+    "#clearwater"
+  ],
+  "rendered_caption": "You can count every rock before you even get in.\nThis is the kind of water that makes people stop talking mid-sentence.\nKarnic R8S, private boat, skipper included, five guests maximum.\nBook direct on chifbay.com\n\n#madeiraportugal #portugal #seaday #privateboattour #clearwater",
+  "writer": "claude"
+}

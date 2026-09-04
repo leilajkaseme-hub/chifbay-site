@@ -1,0 +1,53 @@
+{
+  "id": "20260904085759-4cc6",
+  "kind": "feed",
+  "created": "2026-09-04T08:58:13.889Z",
+  "source": "library",
+  "origin": "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+  "image": "ig/20260904085759-4cc6-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260904085759-4cc6-1.jpg",
+  "sha256": "eb431b5f5651a61f73b071008cf9897e7bf5343c94f61b78fec031e41b2a5a08",
+  "slides": [
+    {
+      "origin": "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+      "image": "ig/20260904085759-4cc6-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085759-4cc6-1.jpg",
+      "sha256": "eb431b5f5651a61f73b071008cf9897e7bf5343c94f61b78fec031e41b2a5a08"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260904085759-4cc6-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085759-4cc6-2.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/img-1625-1-tsA9M2.jpg",
+      "image": "ig/20260904085759-4cc6-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085759-4cc6-3.jpg",
+      "sha256": "aebb91407e4a085d956d15ac06beeaea09d198000683ea022333bd1eec1545f7"
+    },
+    {
+      "origin": "social-drive/4e27c9dc-14c6-4079-90e7-275d8e1274a9-1q9UTV1j.png",
+      "image": "ig/20260904085759-4cc6-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085759-4cc6-4.jpg",
+      "sha256": "df4dbbb084f5a6e9366a0b3a8ed060bbfd616f8a3ae2d97bd2278e659e9a8dc5"
+    }
+  ],
+  "plan_index": 19,
+  "plan_cover": "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+  "palette": "azure",
+  "angle": "onboard",
+  "caption": "Something made him laugh right as we passed under the cliffs.\nThat's the pace out here, nobody's watching the clock.\nKarnic R8S, private boat, skipper included, five guests maximum.\nSend us a message for availability.",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#privateboattour",
+    "#seaday",
+    "#dayonaboat",
+    "#islandlife",
+    "#madeiratravel",
+    "#travelportugal"
+  ],
+  "rendered_caption": "Something made him laugh right as we passed under the cliffs.\nThat's the pace out here, nobody's watching the clock.\nKarnic R8S, private boat, skipper included, five guests maximum.\nSend us a message for availability.\n\n#portugal #madeiraportugal #privateboattour #seaday #dayonaboat #islandlife #madeiratravel #travelportugal",
+  "writer": "claude"
+}

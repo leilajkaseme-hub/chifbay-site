@@ -48,20 +48,51 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * anything removed from social-drive is back the next morning. The list is the
  * only thing that holds while the photo is still in the Drive folder.
  */
-export function libraryFiles() {
+export function libraryFiles(kind = "feed") {
   const banned = new Set(config.exclude ?? []);
+  // Stories and the feed draw from different folders. The Drive PUBLISH folder
+  // has a stories subfolder holding 9:16 crops; everything at its root is feed
+  // material. Theo's rule, 4 September: "les stories, c'est l'album 9:16, et
+  // les posts, c'est toutes les autres photos". Before this, both surfaces drew
+  // from the same pool and a story was a 9:16 CROP of a feed photo, which is
+  // how the same picture kept coming round.
+  const dirs = kind === "story"
+    ? (config.story_dirs?.length ? config.story_dirs : config.library_dirs)
+    : config.library_dirs;
+
+  // The story album is made of 9:16 crops of photos that also sit in the feed
+  // folder under the same stem. Left alone, the same picture would go out as a
+  // story and again as a carousel cover. "Les posts, c'est toutes les autres
+  // photos qui ne sont pas en 9:16" — so a photo that has a 9:16 version is a
+  // story and nothing else.
+  const isStory = kind === "story";
+  const storyStems = isStory ? new Set() : new Set(
+    (config.story_dirs ?? []).flatMap((dir) => {
+      const abs = join(SITE_ROOT, dir);
+      return existsSync(abs)
+        ? readdirSync(abs).filter((f) => IMAGE_RE.test(f)).map(stem)
+        : [];
+    }));
+
   const out = [];
-  for (const dir of config.library_dirs) {
+  for (const dir of dirs) {
     const abs = join(SITE_ROOT, dir);
     if (!existsSync(abs)) continue;
     for (const f of readdirSync(abs)) {
       if (!IMAGE_RE.test(f)) continue;
       const origin = relative(SITE_ROOT, join(abs, f));
       if (banned.has(origin)) continue;
+      if (storyStems.has(stem(f))) continue;
       out.push({ path: join(abs, f), origin });
     }
   }
   return out.sort((a, b) => a.origin.localeCompare(b.origin));
+}
+
+/** Filename without its extension. The 9:16 crop keeps the original's stem, so
+ *  this is what ties a story back to the feed photo it was cut from. */
+function stem(f) {
+  return f.replace(/\.[^.]+$/, "").toLowerCase();
 }
 
 /**
@@ -69,8 +100,8 @@ export function libraryFiles() {
  * Returns null when the library is exhausted, which is a real state worth
  * reporting rather than papering over — the caller falls back to AI.
  */
-export function pickFromLibrary({ excludeOrigins, excludeHashes }) {
-  const candidates = libraryFiles().filter((f) => !excludeOrigins.has(f.origin));
+export function pickFromLibrary({ excludeOrigins, excludeHashes, kind = "feed" }) {
+  const candidates = libraryFiles(kind).filter((f) => !excludeOrigins.has(f.origin));
   // Shuffled by content hash of the path so the order is stable per file but
   // not alphabetical — no Math.random, so a re-run picks the same thing.
   const shuffled = candidates

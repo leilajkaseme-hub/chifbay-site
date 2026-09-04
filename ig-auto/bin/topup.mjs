@@ -154,7 +154,7 @@ async function buildOne({ hashes, cooldown, context, kind }) {
 
     let picked = null;
     if (wantLibrary) {
-      picked = pickFromLibrary({ excludeOrigins: cooldown, excludeHashes: hashes });
+      picked = pickFromLibrary({ excludeOrigins: cooldown, excludeHashes: hashes, kind });
     }
     if (!picked && angle.ai_prompt && config.image_source_mix.ai > 0) {
       try {

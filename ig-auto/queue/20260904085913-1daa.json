@@ -1,0 +1,52 @@
+{
+  "id": "20260904085913-1daa",
+  "kind": "feed",
+  "created": "2026-09-04T08:59:34.772Z",
+  "source": "library",
+  "origin": "social-drive/img-1625-1-tsA9M2.jpg",
+  "image": "ig/20260904085913-1daa-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260904085913-1daa-1.jpg",
+  "sha256": "aebb91407e4a085d956d15ac06beeaea09d198000683ea022333bd1eec1545f7",
+  "slides": [
+    {
+      "origin": "social-drive/img-1625-1-tsA9M2.jpg",
+      "image": "ig/20260904085913-1daa-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085913-1daa-1.jpg",
+      "sha256": "aebb91407e4a085d956d15ac06beeaea09d198000683ea022333bd1eec1545f7"
+    },
+    {
+      "origin": "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+      "image": "ig/20260904085913-1daa-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085913-1daa-2.jpg",
+      "sha256": "b39cb8629e9c94955bff5aa57dfacdc65b269e7b82a735b6721c7fd6305df5e5"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260904085913-1daa-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085913-1daa-3.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/0ea5869b-8a80-4b20-b1ed-f3cea198ca12-16h2Uj9A.png",
+      "image": "ig/20260904085913-1daa-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260904085913-1daa-4.jpg",
+      "sha256": "90a17b515ba54ddea8e90c94c00d6064538a259101a257f9a5ea9748108041c1"
+    }
+  ],
+  "plan_index": 23,
+  "plan_cover": "social-drive/img-1625-1-tsA9M2.jpg",
+  "palette": "deep",
+  "angle": "openocean",
+  "caption": "Full throttle out of Funchal marina, two clean lines of wake fanning out behind us.\nEveryone's found their spot on deck, riding it out in the sun.\nThis is the boat at full stretch, open water all around.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#boattour",
+    "#boatlife",
+    "#bluewater",
+    "#oceanview",
+    "#traveleurope"
+  ],
+  "rendered_caption": "Full throttle out of Funchal marina, two clean lines of wake fanning out behind us.\nEveryone's found their spot on deck, riding it out in the sun.\nThis is the boat at full stretch, open water all around.\nBook direct on chifbay.com\n\n#madeiraisland #madeira #boattour #boatlife #bluewater #oceanview #traveleurope",
+  "writer": "claude"
+}
