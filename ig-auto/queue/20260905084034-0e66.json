@@ -1,0 +1,46 @@
+{
+  "id": "20260905084034-0e66",
+  "kind": "feed",
+  "created": "2026-09-05T08:40:52.039Z",
+  "source": "library",
+  "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+  "image": "ig/20260905084034-0e66-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260905084034-0e66-1.jpg",
+  "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca",
+  "slides": [
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260905084034-0e66-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260905084034-0e66-1.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    },
+    {
+      "origin": "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
+      "image": "ig/20260905084034-0e66-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260905084034-0e66-2.jpg",
+      "sha256": "8a76969ab02f577d37a47280191e54165437bbd901ec68741d0075f61813760e"
+    },
+    {
+      "origin": "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
+      "image": "ig/20260905084034-0e66-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260905084034-0e66-3.jpg",
+      "sha256": "c25a754d49b2e66e2b50f528de3c5652861cbb90b78d08862a707c70a5f7882f"
+    }
+  ],
+  "plan_index": 27,
+  "plan_cover": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+  "palette": "azure",
+  "angle": "onboard",
+  "caption": "Bread, tomatoes, a little guacamole, glasses topped up while we're moving at a good clip.\nTwo guests, sunglasses on, coastline sliding by behind them.\nOur skipper's just getting us there, no fixed stops today.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#atlanticocean",
+    "#boatlife",
+    "#dayonaboat",
+    "#islandlife",
+    "#madeiratravel"
+  ],
+  "rendered_caption": "Bread, tomatoes, a little guacamole, glasses topped up while we're moving at a good clip.\nTwo guests, sunglasses on, coastline sliding by behind them.\nOur skipper's just getting us there, no fixed stops today.\nBook direct on chifbay.com\n\n#funchal #visitmadeira #atlanticocean #boatlife #dayonaboat #islandlife #madeiratravel",
+  "writer": "claude"
+}
