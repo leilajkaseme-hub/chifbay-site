@@ -7,5 +7,11 @@
   "angle": "sunset",
   "image": "ig/20260904085628-6859.jpg",
   "url": "https://www.chifbay.com/ig/20260904085628-6859.jpg",
-  "sha256": "20456429a7b989a154468f59142ace39ad8255dae87ba99745038fc0974ebf0a"
+  "sha256": "20456429a7b989a154468f59142ace39ad8255dae87ba99745038fc0974ebf0a",
+  "posted_at": "2026-09-06T20:10:47.997Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17990380857019220",
+    "confirmed": true
+  }
 }
