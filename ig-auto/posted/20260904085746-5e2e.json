@@ -48,5 +48,11 @@
     "#islandhopping"
   ],
   "rendered_caption": "The engine's off and someone's already in the water by the yellow buoy.\nEveryone else is still on deck, in no hurry to follow.\nKarnic R8S, private boat, skipper included, five guests maximum.\nDetails and dates on chifbay.com\n\n#visitmadeira #funchal #atlanticocean #boattrip #swimming #snorkelling #islandhopping",
-  "writer": "claude"
+  "writer": "claude",
+  "posted_at": "2026-09-07T15:54:42.429Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17961451584188181",
+    "confirmed": true
+  }
 }
