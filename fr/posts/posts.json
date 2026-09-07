@@ -1,5 +1,28 @@
 [
   {
+    "slug": "rocha-do-navio-madeira-guide",
+    "title": "Rocha do Navio, Madeira : téléphérique, randonnée et réserve naturelle (guide 2026)",
+    "category": "Nature",
+    "date": "2026-09-07",
+    "description": "Rocha do Navio vaut-il le détour ? Guide 2026 : téléphérique de Santana, randonnée alternative, réserve marine et ce qui vous attend en bas.",
+    "heroImage": "assets/journal/rocha-do-navio-madeira-guide-hero.jpg",
+    "heroAlt": "Rocha do Navio, Madeira: Cable Car, Hike & Nature Reserve Guide (2026) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Rocha do Navio Madeira",
+      "Rocha do Navio cable car",
+      "Santana Madeira nature reserve",
+      "Rocha do Navio hike",
+      "Reserva Natural da Rocha do Navio",
+      "Madeira marine nature reserve",
+      "Santana Madeira things to do",
+      "Rocha do Navio fajã",
+      "Madeira north coast nature",
+      "things to do in Madeira nature"
+    ],
+    "lang": "fr"
+  },
+  {
     "slug": "drone-footage-boat-trip-madeira",
     "title": "Vidéo drone en excursion bateau à Madère : ce qui est vraiment inclus",
     "category": "Experience",
@@ -548,6 +571,29 @@
       "Camara de Lobos boat trip",
       "espada fishing Madeira",
       "things to do in Madeira"
+    ],
+    "lang": "fr"
+  },
+  {
+    "slug": "top-10-sunset-spots-in-madeira",
+    "title": "Top 10 des spots pour le coucher de soleil à Madère (et comment en profiter)",
+    "category": "Top 10",
+    "date": "2026-08-12",
+    "description": "Où voir le plus beau coucher de soleil à Madère ? Le classement des dix meilleurs spots, du phare de Ponta do Pargo à l'heure dorée en bateau privé.",
+    "heroImage": "assets/journal/top-10-sunset-spots-in-madeira-hero.jpg",
+    "heroAlt": "Top 10 Sunset Spots in Madeira (And How to Watch Them) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "best sunset spots Madeira",
+      "where to watch sunset in Madeira",
+      "Ponta do Pargo sunset",
+      "Cabo Girao sunset",
+      "Camara de Lobos sunset",
+      "Ponta do Sol sunset",
+      "Madeira sunset viewpoints",
+      "sunset boat trip Madeira",
+      "Miradouro do Pinaculo",
+      "things to do in Madeira evening"
     ],
     "lang": "fr"
   },
