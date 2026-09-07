@@ -1,0 +1,52 @@
+{
+  "id": "20260907094751-bd60",
+  "kind": "feed",
+  "created": "2026-09-07T09:48:08.141Z",
+  "source": "library",
+  "origin": "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png",
+  "image": "ig/20260907094751-bd60-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260907094751-bd60-1.jpg",
+  "sha256": "373804957604531387ae26f089b2529a8a64013b3cd6f5241d8a818491ffe5b0",
+  "slides": [
+    {
+      "origin": "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png",
+      "image": "ig/20260907094751-bd60-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260907094751-bd60-1.jpg",
+      "sha256": "373804957604531387ae26f089b2529a8a64013b3cd6f5241d8a818491ffe5b0"
+    },
+    {
+      "origin": "social-drive/0ea5869b-8a80-4b20-b1ed-f3cea198ca12-16h2Uj9A.png",
+      "image": "ig/20260907094751-bd60-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260907094751-bd60-2.jpg",
+      "sha256": "90a17b515ba54ddea8e90c94c00d6064538a259101a257f9a5ea9748108041c1"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260907094751-bd60-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260907094751-bd60-3.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
+      "image": "ig/20260907094751-bd60-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260907094751-bd60-4.jpg",
+      "sha256": "c25a754d49b2e66e2b50f528de3c5652861cbb90b78d08862a707c70a5f7882f"
+    }
+  ],
+  "plan_index": 29,
+  "plan_cover": "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png",
+  "palette": "azure",
+  "angle": "onboard",
+  "caption": "Four on board today, a full spread laid out between them: cheese, tomatoes, guacamole, fruit.\nOur skipper's got the wheel, cutting a clean line through the blue.\nEveryone else just gets to sit back and eat.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#boattrip",
+    "#boattour",
+    "#islandlife",
+    "#dayonaboat",
+    "#traveleurope"
+  ],
+  "rendered_caption": "Four on board today, a full spread laid out between them: cheese, tomatoes, guacamole, fruit.\nOur skipper's got the wheel, cutting a clean line through the blue.\nEveryone else just gets to sit back and eat.\nBook direct on chifbay.com\n\n#madeiraisland #madeira #boattrip #boattour #islandlife #dayonaboat #traveleurope",
+  "writer": "claude"
+}
