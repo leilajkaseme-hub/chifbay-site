@@ -1,0 +1,52 @@
+{
+  "id": "20260908091131-0811",
+  "kind": "feed",
+  "created": "2026-09-08T09:11:42.000Z",
+  "source": "library",
+  "origin": "social-drive/img-1730-18oZmnbA.jpg",
+  "image": "ig/20260908091131-0811-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260908091131-0811-1.jpg",
+  "sha256": "b0b76e3c12bb7fb84ec85b7487f6888edbffc5fb20dd52d8ce694a239833c5ac",
+  "slides": [
+    {
+      "origin": "social-drive/img-1730-18oZmnbA.jpg",
+      "image": "ig/20260908091131-0811-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260908091131-0811-1.jpg",
+      "sha256": "b0b76e3c12bb7fb84ec85b7487f6888edbffc5fb20dd52d8ce694a239833c5ac"
+    },
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260908091131-0811-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260908091131-0811-2.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260908091131-0811-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260908091131-0811-3.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+      "image": "ig/20260908091131-0811-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260908091131-0811-4.jpg",
+      "sha256": "b39cb8629e9c94955bff5aa57dfacdc65b269e7b82a735b6721c7fd6305df5e5"
+    }
+  ],
+  "plan_index": 30,
+  "plan_cover": "social-drive/img-1730-18oZmnbA.jpg",
+  "palette": "azure",
+  "angle": "openocean",
+  "caption": "No coastline in sight here, just deep blue and the wake curling out behind us.\nThree on board today, taking it all in.\nSome days the open water is the whole point.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#visitmadeira",
+    "#funchal",
+    "#boatlife",
+    "#atlanticocean",
+    "#atlantic",
+    "#oceanview",
+    "#visitportugal"
+  ],
+  "rendered_caption": "No coastline in sight here, just deep blue and the wake curling out behind us.\nThree on board today, taking it all in.\nSome days the open water is the whole point.\nBook direct on chifbay.com\n\n#visitmadeira #funchal #boatlife #atlanticocean #atlantic #oceanview #visitportugal",
+  "writer": "claude"
+}
