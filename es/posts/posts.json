@@ -1,5 +1,28 @@
 [
   {
+    "slug": "top-10-souvenirs-madeira",
+    "title": "Los 10 mejores recuerdos que traer de Madeira (y dónde comprar los auténticos)",
+    "category": "Top 10",
+    "date": "2026-09-08",
+    "description": "¿Qué recuerdos son realmente de Madeira? Guía 2026 de los diez mejores: bordados, mimbre de Camacha, vino Madeira y más, y dónde comprar los auténticos.",
+    "heroImage": "assets/journal/top-10-souvenirs-madeira-hero.jpg",
+    "heroAlt": "Top 10 Souvenirs to Bring Home From Madeira (And Where to Buy the Real Thing) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Madeira souvenirs",
+      "what to buy in Madeira",
+      "Bordado Madeira embroidery",
+      "Camacha wickerwork",
+      "Madeira wine to buy",
+      "best souvenirs Madeira",
+      "Madeira gifts",
+      "things to bring home from Madeira",
+      "poncha kit Madeira",
+      "Madeira shopping guide"
+    ],
+    "lang": "es"
+  },
+  {
     "slug": "rocha-do-navio-madeira-guide",
     "title": "Rocha do Navio, Madeira: teleférico, ruta de senderismo y reserva natural (guía 2026)",
     "category": "Nature",
@@ -571,6 +594,29 @@
       "Camara de Lobos boat trip",
       "espada fishing Madeira",
       "things to do in Madeira"
+    ],
+    "lang": "es"
+  },
+  {
+    "slug": "top-10-sunset-spots-in-madeira",
+    "title": "Los 10 mejores lugares para ver la puesta de sol en Madeira (y cómo disfrutarla)",
+    "category": "Top 10",
+    "date": "2026-08-12",
+    "description": "¿Dónde ver la mejor puesta de sol en Madeira? Guía con los diez mejores rincones, del faro de Ponta do Pargo a la hora dorada en barco privado.",
+    "heroImage": "assets/journal/top-10-sunset-spots-in-madeira-hero.jpg",
+    "heroAlt": "Top 10 Sunset Spots in Madeira (And How to Watch Them) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "best sunset spots Madeira",
+      "where to watch sunset in Madeira",
+      "Ponta do Pargo sunset",
+      "Cabo Girao sunset",
+      "Camara de Lobos sunset",
+      "Ponta do Sol sunset",
+      "Madeira sunset viewpoints",
+      "sunset boat trip Madeira",
+      "Miradouro do Pinaculo",
+      "things to do in Madeira evening"
     ],
     "lang": "es"
   }
