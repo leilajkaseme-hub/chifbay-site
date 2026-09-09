@@ -1,0 +1,52 @@
+{
+  "id": "20260909091552-db5c",
+  "kind": "feed",
+  "created": "2026-09-09T09:16:05.450Z",
+  "source": "library",
+  "origin": "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+  "image": "ig/20260909091552-db5c-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260909091552-db5c-1.jpg",
+  "sha256": "bb95ade37349ef6040bfe1aa29b2799619ef82fd43dad80c281626b4316c7eb6",
+  "slides": [
+    {
+      "origin": "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+      "image": "ig/20260909091552-db5c-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260909091552-db5c-1.jpg",
+      "sha256": "bb95ade37349ef6040bfe1aa29b2799619ef82fd43dad80c281626b4316c7eb6"
+    },
+    {
+      "origin": "social-drive/img-1771-1yRbD64c.jpg",
+      "image": "ig/20260909091552-db5c-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260909091552-db5c-2.jpg",
+      "sha256": "da4a483cf1326035e47138d3c6d191998a17673a600bb2d1d6565adda5de7b6f"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260909091552-db5c-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260909091552-db5c-3.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+      "image": "ig/20260909091552-db5c-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260909091552-db5c-4.jpg",
+      "sha256": "b39cb8629e9c94955bff5aa57dfacdc65b269e7b82a735b6721c7fd6305df5e5"
+    }
+  ],
+  "plan_index": 31,
+  "plan_cover": "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+  "palette": "azure",
+  "angle": "skipper",
+  "caption": "Hand on the wheel, eyes on the water, our skipper gets us where we're going.\nBehind him, two guests are in no hurry at all, glasses filled, snacks spread out.\nThat's really the split on board: someone drives, everyone else just enjoys the ride.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#privateboattour",
+    "#seaday",
+    "#localbusiness",
+    "#skipper",
+    "#islandhopping"
+  ],
+  "rendered_caption": "Hand on the wheel, eyes on the water, our skipper gets us where we're going.\nBehind him, two guests are in no hurry at all, glasses filled, snacks spread out.\nThat's really the split on board: someone drives, everyone else just enjoys the ride.\nBook direct on chifbay.com\n\n#portugal #madeiraportugal #privateboattour #seaday #localbusiness #skipper #islandhopping",
+  "writer": "claude"
+}
