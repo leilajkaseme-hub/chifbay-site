@@ -1,0 +1,52 @@
+{
+  "id": "20260910091434-2ca9",
+  "kind": "feed",
+  "created": "2026-09-10T09:14:42.651Z",
+  "source": "library",
+  "origin": "social-drive/img-1739-1WRive46.jpg",
+  "image": "ig/20260910091434-2ca9-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260910091434-2ca9-1.jpg",
+  "sha256": "f54f81c9e897b0f3427aff5369b20a65ff61a50b41f1fe30a6077216d256217c",
+  "slides": [
+    {
+      "origin": "social-drive/img-1739-1WRive46.jpg",
+      "image": "ig/20260910091434-2ca9-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260910091434-2ca9-1.jpg",
+      "sha256": "f54f81c9e897b0f3427aff5369b20a65ff61a50b41f1fe30a6077216d256217c"
+    },
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260910091434-2ca9-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260910091434-2ca9-2.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260910091434-2ca9-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260910091434-2ca9-3.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+      "image": "ig/20260910091434-2ca9-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260910091434-2ca9-4.jpg",
+      "sha256": "397d77a59a151cc917671cd7ad51075008c57a65e21f42675ec19464a57c9ff8"
+    }
+  ],
+  "plan_index": 32,
+  "plan_cover": "social-drive/img-1739-1WRive46.jpg",
+  "palette": "azure",
+  "angle": "cliffs",
+  "caption": "Those sea cliffs behind us drop straight into the water, one of the sights you get on the Coastal Discovery run.\nOne guest at the wheel with our skipper, one relaxing at the back.\nMadeira's coastline does most of the talking on days like this.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#boattrip",
+    "#cabogirao",
+    "#coastline",
+    "#travelportugal"
+  ],
+  "rendered_caption": "Those sea cliffs behind us drop straight into the water, one of the sights you get on the Coastal Discovery run.\nOne guest at the wheel with our skipper, one relaxing at the back.\nMadeira's coastline does most of the talking on days like this.\nBook direct on chifbay.com\n\n#madeira #madeiraisland #boattour #boattrip #cabogirao #coastline #travelportugal",
+  "writer": "claude"
+}
