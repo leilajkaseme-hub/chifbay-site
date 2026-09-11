@@ -1,23 +1,7 @@
 {
-  "built": "2026-09-10T09:14:33.913Z",
+  "built": "2026-09-11T09:12:28.951Z",
   "slides": 4,
   "posts": [
-    {
-      "plan_index": 32,
-      "family": "azure",
-      "warmth": -34.19,
-      "cover": "social-drive/img-1739-1WRive46.jpg",
-      "slides": [
-        "social-drive/img-1739-1WRive46.jpg",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/img-1733-14WKP77C.jpg",
-        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
-      ],
-      "grade": {
-        "brightness": 1.007698917194523,
-        "saturation": 1
-      }
-    },
     {
       "plan_index": 33,
       "family": "azure",
@@ -26,8 +10,8 @@
       "slides": [
         "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png",
         "social-drive/0ea5869b-8a80-4b20-b1ed-f3cea198ca12-16h2Uj9A.png",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
-        "social-drive/img-1733-14WKP77C.jpg"
+        "social-drive/img-1733-14WKP77C.jpg",
+        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
       ],
       "grade": {
         "brightness": 1.019564183746273,
@@ -41,9 +25,9 @@
       "cover": "social-drive/img-1771-1yRbD64c.jpg",
       "slides": [
         "social-drive/img-1771-1yRbD64c.jpg",
-        "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
         "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
-        "social-drive/img-1733-14WKP77C.jpg"
+        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
       ],
       "grade": {
         "brightness": 1.0175093954941898,
@@ -89,8 +73,8 @@
       "cover": "social-drive/img-1772-1j3WDjgq.jpg",
       "slides": [
         "social-drive/img-1772-1j3WDjgq.jpg",
-        "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
         "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+        "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
         "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
       ],
       "grade": {
@@ -121,9 +105,9 @@
       "cover": "social-drive/img-1774-1P2G7Xqa.jpg",
       "slides": [
         "social-drive/img-1774-1P2G7Xqa.jpg",
-        "social-drive/img-1730-18oZmnbA.jpg",
+        "social-drive/img-1739-1WRive46.jpg",
         "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png"
+        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
       ],
       "grade": {
         "brightness": 0.9914920777487904,
@@ -153,7 +137,7 @@
       "cover": "social-drive/img-1743-1cZILKxw.jpg",
       "slides": [
         "social-drive/img-1743-1cZILKxw.jpg",
-        "social-drive/img-1739-1WRive46.jpg",
+        "social-drive/img-1730-18oZmnbA.jpg",
         "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png"
       ],
       "grade": {
