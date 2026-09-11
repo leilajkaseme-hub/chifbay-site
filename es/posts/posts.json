@@ -1,5 +1,28 @@
 [
   {
+    "slug": "madeira-in-winter-guide",
+    "title": "Madeira en invierno: el tiempo, qué hacer y si merece la pena un paseo en barco",
+    "category": "Guide",
+    "date": "2026-09-11",
+    "description": "¿Hace calor en Madeira en invierno? Guía práctica 2026: temperaturas, lluvia, luces de Navidad en Funchal, fuegos de Fin de Año y paseos en barco.",
+    "heroImage": "assets/journal/madeira-in-winter-guide-hero.jpg",
+    "heroAlt": "Madeira in Winter: Weather, What's On & Is a Boat Trip Worth It? — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Madeira in winter",
+      "Madeira winter weather",
+      "is Madeira warm in winter",
+      "Madeira weather December January February",
+      "Funchal Christmas lights",
+      "New Year fireworks Madeira",
+      "Madeira boat trip winter",
+      "best time to visit Madeira winter",
+      "Madeira sea temperature winter",
+      "Madeira travel guide"
+    ],
+    "lang": "es"
+  },
+  {
     "slug": "madeira-wine-festival-2026",
     "title": "Fiesta del Vino de Madeira 2026: vendimia, pisado de la uva y dónde verla",
     "category": "What's On",
@@ -686,6 +709,29 @@
       "Madeira rural festivals",
       "Madeira west coast guide",
       "Madeira events calendar"
+    ],
+    "lang": "es"
+  },
+  {
+    "slug": "madeira-with-kids-family-guide",
+    "title": "Madeira con Niños: La Guía Completa para Familias (2026)",
+    "category": "Guide",
+    "date": "2026-08-10",
+    "description": "¿Es Madeira buena para unas vacaciones en familia? Guía práctica 2026: mejores actividades, playas, paseos en barco y dónde alojarse con niños.",
+    "heroImage": "assets/journal/madeira-with-kids-family-guide-hero.jpg",
+    "heroAlt": "Madeira with Kids: The Complete Family Travel Guide (2026) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Madeira with kids",
+      "family holiday Madeira",
+      "Madeira family travel guide",
+      "things to do in Madeira with children",
+      "Madeira boat trip kids",
+      "Monte toboggan kids",
+      "family beaches Madeira",
+      "Madeira family activities",
+      "where to stay Madeira family",
+      "Madeira Portugal family holiday"
     ],
     "lang": "es"
   },
