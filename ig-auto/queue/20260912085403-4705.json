@@ -1,0 +1,52 @@
+{
+  "id": "20260912085403-4705",
+  "kind": "feed",
+  "created": "2026-09-12T08:54:15.227Z",
+  "source": "library",
+  "origin": "social-drive/img-1771-1yRbD64c.jpg",
+  "image": "ig/20260912085403-4705-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260912085403-4705-1.jpg",
+  "sha256": "da4a483cf1326035e47138d3c6d191998a17673a600bb2d1d6565adda5de7b6f",
+  "slides": [
+    {
+      "origin": "social-drive/img-1771-1yRbD64c.jpg",
+      "image": "ig/20260912085403-4705-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260912085403-4705-1.jpg",
+      "sha256": "da4a483cf1326035e47138d3c6d191998a17673a600bb2d1d6565adda5de7b6f"
+    },
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260912085403-4705-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260912085403-4705-2.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260912085403-4705-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260912085403-4705-3.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+      "image": "ig/20260912085403-4705-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260912085403-4705-4.jpg",
+      "sha256": "b39cb8629e9c94955bff5aa57dfacdc65b269e7b82a735b6721c7fd6305df5e5"
+    }
+  ],
+  "plan_index": 34,
+  "plan_cover": "social-drive/img-1771-1yRbD64c.jpg",
+  "palette": "azure",
+  "angle": "cliffs",
+  "caption": "Cabo Girão and the cliffs falling straight into the sea, seen from out on the water.\nNo boat traffic, no wind chop, just calm blue stretching toward Funchal.\nThis is the kind of view you get along the way on Coastal Discovery.\nSaímos de Funchal, a costa faz o resto.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#seaday",
+    "#privateboattour",
+    "#seacliffs",
+    "#coastline",
+    "#traveleurope"
+  ],
+  "rendered_caption": "Cabo Girão and the cliffs falling straight into the sea, seen from out on the water.\nNo boat traffic, no wind chop, just calm blue stretching toward Funchal.\nThis is the kind of view you get along the way on Coastal Discovery.\nSaímos de Funchal, a costa faz o resto.\nBook direct on chifbay.com\n\n#madeiraportugal #portugal #seaday #privateboattour #seacliffs #coastline #traveleurope",
+  "writer": "claude"
+}
