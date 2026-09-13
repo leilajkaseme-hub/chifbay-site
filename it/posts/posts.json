@@ -1,5 +1,28 @@
 [
   {
+    "slug": "queijada-da-madeira-cheese-pastry-guide",
+    "title": "Cos'è la queijada da Madeira? Il dolce di formaggio di capra dell'isola, spiegato",
+    "category": "Food & Drink",
+    "date": "2026-09-13",
+    "description": "Cos'è la queijada da Madeira: dolce di formaggio di capra dell'isola, come si prepara, differenze con le queijadas de Sintra e dove assaggiarla.",
+    "heroImage": "assets/journal/queijada-da-madeira-cheese-pastry-guide-hero.jpg",
+    "heroAlt": "What Is Queijada da Madeira? The Island's Goat-Cheese Pastry, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "queijada da Madeira",
+      "what is queijada da Madeira",
+      "Madeira cheese pastry",
+      "goat cheese tart Madeira",
+      "queijada vs queijadas de Sintra",
+      "Madeira traditional dessert",
+      "Madeira sweets guide",
+      "Mercado dos Lavradores pastries",
+      "Madeira pastry history",
+      "Madeira food guide"
+    ],
+    "lang": "it"
+  },
+  {
     "slug": "seasickness-boat-trip-madeira-guide",
     "title": "Mal di mare durante una gita in barca a Madeira: quanto è comune e come evitarlo?",
     "category": "Experience",
@@ -755,6 +778,29 @@
       "Madeira family activities",
       "where to stay Madeira family",
       "Madeira Portugal family holiday"
+    ],
+    "lang": "it"
+  },
+  {
+    "slug": "madeira-bananas-guide",
+    "title": "Banane di Madeira: Perché la Piccola Banana dell'Isola Ha un Sapore Diverso",
+    "category": "Food & Drink",
+    "date": "2026-08-09",
+    "description": "Perché le banane di Madeira sono più piccole e dolci? Guida alla Banana da Madeira IGP: dove nasce, dove assaggiarla e i terrazzamenti visti dal mare.",
+    "heroImage": "assets/journal/madeira-bananas-guide-hero.jpg",
+    "heroAlt": "Madeira Bananas: Why the Island's Small Banana Tastes Different — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "Madeira bananas",
+      "Banana da Madeira",
+      "Madeira banana PGI",
+      "why are Madeira bananas small",
+      "south coast banana terraces Madeira",
+      "Mercado dos Lavradores bananas",
+      "Camara de Lobos bananas",
+      "Madeira banana liqueur",
+      "Madeira food guide",
+      "things to do in Madeira"
     ],
     "lang": "it"
   },
