@@ -1,23 +1,7 @@
 {
-  "built": "2026-09-12T08:54:03.750Z",
+  "built": "2026-09-13T09:48:07.099Z",
   "slides": 4,
   "posts": [
-    {
-      "plan_index": 34,
-      "family": "azure",
-      "warmth": -34.72,
-      "cover": "social-drive/img-1771-1yRbD64c.jpg",
-      "slides": [
-        "social-drive/img-1771-1yRbD64c.jpg",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/img-1733-14WKP77C.jpg",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
-      ],
-      "grade": {
-        "brightness": 1.0175093954941898,
-        "saturation": 1
-      }
-    },
     {
       "plan_index": 35,
       "family": "deep",
@@ -41,9 +25,9 @@
       "cover": "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
       "slides": [
         "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
-        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png",
-        "social-drive/img-1582-1O3gly5F.png",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+        "social-drive/img-1582-1O3gly5F.png"
       ],
       "grade": {
         "brightness": 0.9995507362539812,
@@ -73,9 +57,9 @@
       "cover": "social-drive/a29d32a6-efa4-4f72-86be-997944b706f6-1iMgIZeK.jpg",
       "slides": [
         "social-drive/a29d32a6-efa4-4f72-86be-997944b706f6-1iMgIZeK.jpg",
-        "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
-        "social-drive/img-1733-14WKP77C.jpg"
+        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png",
+        "social-drive/img-1733-14WKP77C.jpg",
+        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
       ],
       "grade": {
         "brightness": 1.05,
@@ -90,7 +74,7 @@
       "slides": [
         "social-drive/img-1774-1P2G7Xqa.jpg",
         "social-drive/img-1739-1WRive46.jpg",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+        "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png",
         "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
       ],
       "grade": {
@@ -121,7 +105,7 @@
       "cover": "social-drive/img-1743-1cZILKxw.jpg",
       "slides": [
         "social-drive/img-1743-1cZILKxw.jpg",
-        "social-drive/img-1730-18oZmnbA.jpg",
+        "social-drive/img-1771-1yRbD64c.jpg",
         "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png"
       ],
       "grade": {
