@@ -1,23 +1,7 @@
 {
-  "built": "2026-09-13T09:48:07.099Z",
+  "built": "2026-09-14T10:10:00.856Z",
   "slides": 4,
   "posts": [
-    {
-      "plan_index": 35,
-      "family": "deep",
-      "warmth": -30.21,
-      "cover": "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
-      "slides": [
-        "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
-        "social-drive/img-1625-1-tsA9M2.jpg",
-        "social-drive/0ea5869b-8a80-4b20-b1ed-f3cea198ca12-16h2Uj9A.png",
-        "social-drive/img-1733-14WKP77C.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
     {
       "plan_index": 36,
       "family": "azure",
@@ -26,8 +10,8 @@
       "slides": [
         "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
         "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
-        "social-drive/img-1582-1O3gly5F.png"
+        "social-drive/img-1733-14WKP77C.jpg",
+        "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png"
       ],
       "grade": {
         "brightness": 0.9995507362539812,

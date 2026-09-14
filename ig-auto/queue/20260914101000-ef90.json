@@ -1,0 +1,52 @@
+{
+  "id": "20260914101000-ef90",
+  "kind": "feed",
+  "created": "2026-09-14T10:10:08.909Z",
+  "source": "library",
+  "origin": "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+  "image": "ig/20260914101000-ef90-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260914101000-ef90-1.jpg",
+  "sha256": "397d77a59a151cc917671cd7ad51075008c57a65e21f42675ec19464a57c9ff8",
+  "slides": [
+    {
+      "origin": "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+      "image": "ig/20260914101000-ef90-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260914101000-ef90-1.jpg",
+      "sha256": "397d77a59a151cc917671cd7ad51075008c57a65e21f42675ec19464a57c9ff8"
+    },
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260914101000-ef90-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260914101000-ef90-2.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260914101000-ef90-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260914101000-ef90-3.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
+      "image": "ig/20260914101000-ef90-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260914101000-ef90-4.jpg",
+      "sha256": "c25a754d49b2e66e2b50f528de3c5652861cbb90b78d08862a707c70a5f7882f"
+    }
+  ],
+  "plan_index": 36,
+  "plan_cover": "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+  "palette": "azure",
+  "angle": "guests",
+  "caption": "One guest up on the bow today, sunglasses on, taking a break from the wheel view.\nA sailboat crossing way out behind him, otherwise just open blue.\nThat front deck is a good spot to just sit and let the ride happen.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#visitmadeira",
+    "#funchal",
+    "#boatlife",
+    "#atlanticocean",
+    "#happyguests",
+    "#familytrip",
+    "#islandhopping"
+  ],
+  "rendered_caption": "One guest up on the bow today, sunglasses on, taking a break from the wheel view.\nA sailboat crossing way out behind him, otherwise just open blue.\nThat front deck is a good spot to just sit and let the ride happen.\nBook direct on chifbay.com\n\n#visitmadeira #funchal #boatlife #atlanticocean #happyguests #familytrip #islandhopping",
+  "writer": "claude"
+}
