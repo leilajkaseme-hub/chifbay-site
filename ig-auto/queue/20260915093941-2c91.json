@@ -1,0 +1,52 @@
+{
+  "id": "20260915093941-2c91",
+  "kind": "feed",
+  "created": "2026-09-15T09:39:50.916Z",
+  "source": "library",
+  "origin": "social-drive/img-1772-1j3WDjgq.jpg",
+  "image": "ig/20260915093941-2c91-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260915093941-2c91-1.jpg",
+  "sha256": "3abff027a85e1e655f387636f7a4e65952101296f2b0137693bc0e472ea42506",
+  "slides": [
+    {
+      "origin": "social-drive/img-1772-1j3WDjgq.jpg",
+      "image": "ig/20260915093941-2c91-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260915093941-2c91-1.jpg",
+      "sha256": "3abff027a85e1e655f387636f7a4e65952101296f2b0137693bc0e472ea42506"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260915093941-2c91-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260915093941-2c91-2.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    },
+    {
+      "origin": "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+      "image": "ig/20260915093941-2c91-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260915093941-2c91-3.jpg",
+      "sha256": "bb95ade37349ef6040bfe1aa29b2799619ef82fd43dad80c281626b4316c7eb6"
+    },
+    {
+      "origin": "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+      "image": "ig/20260915093941-2c91-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260915093941-2c91-4.jpg",
+      "sha256": "397d77a59a151cc917671cd7ad51075008c57a65e21f42675ec19464a57c9ff8"
+    }
+  ],
+  "plan_index": 37,
+  "plan_cover": "social-drive/img-1772-1j3WDjgq.jpg",
+  "palette": "azure",
+  "angle": "openocean",
+  "caption": "No coastline here, just our wake carving through the blue.\nWhite foam against that deep Atlantic colour, straight off the back of the boat.\nSome days the water itself is the whole show.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#privateboattour",
+    "#seaday",
+    "#bluewater",
+    "#oceanview",
+    "#travelportugal"
+  ],
+  "rendered_caption": "No coastline here, just our wake carving through the blue.\nWhite foam against that deep Atlantic colour, straight off the back of the boat.\nSome days the water itself is the whole show.\nBook direct on chifbay.com\n\n#portugal #madeiraportugal #privateboattour #seaday #bluewater #oceanview #travelportugal",
+  "writer": "claude"
+}
