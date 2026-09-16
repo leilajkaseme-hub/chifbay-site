@@ -1,0 +1,52 @@
+{
+  "id": "20260916093346-bd16",
+  "kind": "feed",
+  "created": "2026-09-16T09:33:58.242Z",
+  "source": "library",
+  "origin": "social-drive/a29d32a6-efa4-4f72-86be-997944b706f6-1iMgIZeK.jpg",
+  "image": "ig/20260916093346-bd16-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260916093346-bd16-1.jpg",
+  "sha256": "9b6825f8bde10c955d8fac0939cf97271cf2c9d99c6a82638d7167e517427540",
+  "slides": [
+    {
+      "origin": "social-drive/a29d32a6-efa4-4f72-86be-997944b706f6-1iMgIZeK.jpg",
+      "image": "ig/20260916093346-bd16-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260916093346-bd16-1.jpg",
+      "sha256": "9b6825f8bde10c955d8fac0939cf97271cf2c9d99c6a82638d7167e517427540"
+    },
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260916093346-bd16-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260916093346-bd16-2.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    },
+    {
+      "origin": "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+      "image": "ig/20260916093346-bd16-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260916093346-bd16-3.jpg",
+      "sha256": "b39cb8629e9c94955bff5aa57dfacdc65b269e7b82a735b6721c7fd6305df5e5"
+    },
+    {
+      "origin": "social-drive/img-1733-14WKP77C.jpg",
+      "image": "ig/20260916093346-bd16-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260916093346-bd16-4.jpg",
+      "sha256": "5f10c256797a68fc31e2438fec99c425ff9b095123ebc8a511c91abb84fa1fb8"
+    }
+  ],
+  "plan_index": 38,
+  "plan_cover": "social-drive/a29d32a6-efa4-4f72-86be-997944b706f6-1iMgIZeK.jpg",
+  "palette": "deep",
+  "angle": "wildlife",
+  "caption": "A turtle came up for air just off our bow, cliffs of Madeira behind it.\nWe cut the engine and let it drift on its own.\nNo chasing, just a quiet minute out on the water.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#boattrip",
+    "#marinelife",
+    "#seaturtle",
+    "#slowtravel"
+  ],
+  "rendered_caption": "A turtle came up for air just off our bow, cliffs of Madeira behind it.\nWe cut the engine and let it drift on its own.\nNo chasing, just a quiet minute out on the water.\nBook direct on chifbay.com\n\n#madeira #madeiraisland #boattour #boattrip #marinelife #seaturtle #slowtravel",
+  "writer": "claude"
+}
