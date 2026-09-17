@@ -1,0 +1,52 @@
+{
+  "id": "20260917094204-34ca",
+  "kind": "feed",
+  "created": "2026-09-17T09:42:20.167Z",
+  "source": "library",
+  "origin": "social-drive/img-1774-1P2G7Xqa.jpg",
+  "image": "ig/20260917094204-34ca-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260917094204-34ca-1.jpg",
+  "sha256": "0b8ee275e7de0d2e459a836216b44f67a6699b02ac05b8fb250abc0cb6cf43b5",
+  "slides": [
+    {
+      "origin": "social-drive/img-1774-1P2G7Xqa.jpg",
+      "image": "ig/20260917094204-34ca-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260917094204-34ca-1.jpg",
+      "sha256": "0b8ee275e7de0d2e459a836216b44f67a6699b02ac05b8fb250abc0cb6cf43b5"
+    },
+    {
+      "origin": "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
+      "image": "ig/20260917094204-34ca-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260917094204-34ca-2.jpg",
+      "sha256": "8a76969ab02f577d37a47280191e54165437bbd901ec68741d0075f61813760e"
+    },
+    {
+      "origin": "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
+      "image": "ig/20260917094204-34ca-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260917094204-34ca-3.jpg",
+      "sha256": "c25a754d49b2e66e2b50f528de3c5652861cbb90b78d08862a707c70a5f7882f"
+    },
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260917094204-34ca-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260917094204-34ca-4.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    }
+  ],
+  "plan_index": 39,
+  "plan_cover": "social-drive/img-1774-1P2G7Xqa.jpg",
+  "palette": "azure",
+  "angle": "openocean",
+  "caption": "A rare look at the whole boat, wake fanning out white on both sides.\nOur skipper up front, two guests stretched out at the back taking it easy.\nJust open blue all around, no land in this one.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#atlanticocean",
+    "#boatlife",
+    "#atlantic",
+    "#oceanview",
+    "#madeiratravel"
+  ],
+  "rendered_caption": "A rare look at the whole boat, wake fanning out white on both sides.\nOur skipper up front, two guests stretched out at the back taking it easy.\nJust open blue all around, no land in this one.\nBook direct on chifbay.com\n\n#funchal #visitmadeira #atlanticocean #boatlife #atlantic #oceanview #madeiratravel",
+  "writer": "claude"
+}
