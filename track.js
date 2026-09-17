@@ -40,7 +40,13 @@
     // Independent of consent: no personal data is stored on the visitor's
     // device, this only tells our own server about a click it was already
     // going to be billed for. See booking-api/worker.js's /v1/click.
-    CLICK_LOG_URL: "https://chifbay-booking-api.chifandcopt.workers.dev/v1/click"
+    CLICK_LOG_URL: "https://chifbay-booking-api.chifandcopt.workers.dev/v1/click",
+
+    // Page views for the Chifbay Portal. No cookie, nothing stored on the
+    // visitor's device, no IP kept: the server keeps a daily salted hash only.
+    // That is why it runs whatever the consent answer is, and why the portal
+    // sees every visitor while GA4 only sees the ones who accepted.
+    PAGEVIEW_URL: "https://chifbay-booking-api.chifandcopt.workers.dev/v1/pv"
   };
 
   // Price floor per tour, used as the event value so the ad platforms can
@@ -134,6 +140,31 @@
       }
       log("click logged", LANDING_PARAMS.gclid);
     } catch (e) { /* never let logging break the page */ }
+  })();
+
+  // One page view per load, for the portal. Theo's own visits are left out
+  // once he has opened any page with ?cbself=1 on this browser (and ?cbself=0
+  // counts him again). That flag is set by him, on his own device.
+  (function logPageView() {
+    if (!CFG.PAGEVIEW_URL) return;
+    try {
+      var qs = new URLSearchParams(location.search);
+      if (qs.get("cbself") === "1") localStorage.setItem("cb_self", "1");
+      if (qs.get("cbself") === "0") localStorage.removeItem("cb_self");
+      if (localStorage.getItem("cb_self") === "1") return;
+    } catch (e) { /* private mode: count the visit */ }
+    try {
+      var payload = JSON.stringify({
+        p: location.pathname,
+        r: document.referrer || "",
+        u: LANDING_PARAMS.utm_source || (LANDING_PARAMS.gclid ? "google ads" : "")
+      });
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(CFG.PAGEVIEW_URL, new Blob([payload], { type: "text/plain" }));
+      } else {
+        fetch(CFG.PAGEVIEW_URL, { method: "POST", mode: "no-cors", body: payload, keepalive: true });
+      }
+    } catch (e) { /* never let counting break the page */ }
   })();
 
   // This is an advertising cookie, so it is only written once the visitor has
