@@ -48,5 +48,11 @@
     "#traveleurope"
   ],
   "rendered_caption": "Four on board today, a full spread laid out between them: cheese, tomatoes, guacamole, fruit.\nOur skipper's got the wheel, cutting a clean line through the blue.\nEveryone else just gets to sit back and eat.\nBook direct on chifbay.com\n\n#madeiraisland #madeira #boattrip #boattour #islandlife #dayonaboat #traveleurope",
-  "writer": "claude"
+  "writer": "claude",
+  "posted_at": "2026-09-18T14:37:35.649Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17914506162263623",
+    "confirmed": true
+  }
 }
