@@ -1,0 +1,52 @@
+{
+  "id": "20260918091516-a56a",
+  "kind": "feed",
+  "created": "2026-09-18T09:15:27.929Z",
+  "source": "library",
+  "origin": "social-drive/img-1582-1O3gly5F.png",
+  "image": "ig/20260918091516-a56a-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260918091516-a56a-1.jpg",
+  "sha256": "31dcb3af515c6852e55b0e2b258fba150ae094a253705ba5b357c807e50f8a92",
+  "slides": [
+    {
+      "origin": "social-drive/img-1582-1O3gly5F.png",
+      "image": "ig/20260918091516-a56a-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260918091516-a56a-1.jpg",
+      "sha256": "31dcb3af515c6852e55b0e2b258fba150ae094a253705ba5b357c807e50f8a92"
+    },
+    {
+      "origin": "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+      "image": "ig/20260918091516-a56a-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260918091516-a56a-2.jpg",
+      "sha256": "ddafad916127b043bd89fd8e03407d354f2fc7a89ccb5fba05585e18a9991eca"
+    },
+    {
+      "origin": "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+      "image": "ig/20260918091516-a56a-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260918091516-a56a-3.jpg",
+      "sha256": "397d77a59a151cc917671cd7ad51075008c57a65e21f42675ec19464a57c9ff8"
+    },
+    {
+      "origin": "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+      "image": "ig/20260918091516-a56a-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260918091516-a56a-4.jpg",
+      "sha256": "b39cb8629e9c94955bff5aa57dfacdc65b269e7b82a735b6721c7fd6305df5e5"
+    }
+  ],
+  "plan_index": 40,
+  "plan_cover": "social-drive/img-1582-1O3gly5F.png",
+  "palette": "azure",
+  "angle": "onboard",
+  "caption": "Side-on shot of the boat underway, skipper at the wheel, two guests smiling at the back.\nOpen water, no coastline in view, just clean wake behind us.\nDays like this the boat does the work, we just steer.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#seaday",
+    "#privateboattour",
+    "#islandlife",
+    "#dayonaboat",
+    "#traveleurope"
+  ],
+  "rendered_caption": "Side-on shot of the boat underway, skipper at the wheel, two guests smiling at the back.\nOpen water, no coastline in view, just clean wake behind us.\nDays like this the boat does the work, we just steer.\nBook direct on chifbay.com\n\n#madeiraportugal #portugal #seaday #privateboattour #islandlife #dayonaboat #traveleurope",
+  "writer": "claude"
+}
