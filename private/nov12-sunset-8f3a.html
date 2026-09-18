@@ -108,6 +108,13 @@
         '<p class="sub">Thank you. Your date is booked and we will be in touch before the trip.</p></div>';
       return;
     }
+    // Un devis annule ou mis de cote: on le dit, et on laisse une porte ouverte.
+    if (q.state !== "open") {
+      app.innerHTML = '<div class="card"><h1>This booking is closed</h1>' +
+        '<p class="sub">Message us on WhatsApp and we will look at it with you: ' +
+        '<a href="https://wa.me/351937200320">+351 937 200 320</a></p></div>';
+      return;
+    }
     var when = prettyDay(q.date) + " · " + q.time + (q.endTime ? " to " + q.endTime : "");
     app.innerHTML =
       '<div class="eyebrow">Private charter</div>' +
