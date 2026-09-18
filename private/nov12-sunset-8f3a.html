@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
+<title>Chifbay · Your private trip</title>
+<link rel="icon" href="/assets/favicon.png">
+<style>
+  :root {
+    --bg: #050f18; --card: #0d2035; --card-2: #112a44;
+    --ink: #f0f5f4; --ink-2: #c3d2dc; --muted: #7a9aaa;
+    --line: rgba(255,255,255,.10); --gold: #c9a45c; --gold-hi: #dcb872;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding-inline: 18px; padding-block: 0 56px;
+  }
+  .wrap { max-width: 560px; margin: 0 auto; }
+  header { text-align: center; padding-block: 30px 6px; }
+  header img { height: 42px; width: auto; }
+  header .alt { font-weight: 800; letter-spacing: 4px; font-size: 20px; }
+  .eyebrow {
+    text-align: center; color: var(--gold); font-size: 11px; font-weight: 700;
+    letter-spacing: 2.4px; text-transform: uppercase; margin-top: 14px;
+  }
+  h1 { font-size: 26px; line-height: 1.25; text-align: center; margin: 8px 0 4px; }
+  .sub { text-align: center; color: var(--muted); margin: 0 0 22px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+  .row { display: flex; justify-content: space-between; gap: 14px; padding: 11px 0; border-top: 1px solid var(--line); }
+  .row:first-child { border-top: 0; }
+  .row span { color: var(--muted); }
+  .row b { text-align: right; overflow-wrap: anywhere; }
+  .price { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+  .price .amt { font-size: 34px; font-weight: 750; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .price .k { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .6px; }
+  .balance { color: var(--ink-2); font-size: 14.5px; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; }
+  ul.inc { list-style: none; padding: 0; margin: 10px 0 0; color: var(--ink-2); font-size: 15px; }
+  ul.inc li { padding: 5px 0 5px 22px; position: relative; }
+  ul.inc li::before { content: ""; position: absolute; left: 4px; top: 13px; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  label { display: block; font-size: 13px; color: var(--muted); margin: 12px 0 5px; }
+  input {
+    width: 100%; background: var(--bg); color: var(--ink); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px 13px; font: inherit;
+  }
+  input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+  button.pay {
+    width: 100%; margin-top: 18px; background: var(--gold); color: var(--bg); border: 0;
+    border-radius: 11px; padding: 16px; font: inherit; font-weight: 750; font-size: 17px; cursor: pointer;
+  }
+  button.pay:hover { background: var(--gold-hi); }
+  button.pay:disabled { opacity: .6; cursor: default; }
+  .note { color: var(--muted); font-size: 13px; text-align: center; margin-top: 12px; line-height: 1.5; }
+  .err { color: #f2b3ac; font-size: 14px; margin-top: 12px; min-height: 20px; }
+  .wa { display: block; text-align: center; margin-top: 18px; color: var(--ink-2); font-size: 14.5px; }
+  .wa a { color: var(--gold); }
+  .skel { color: var(--muted); text-align: center; padding: 40px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="/assets/logo-white.png" alt="CHIFBAY" width="118" height="42"
+         onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'alt',textContent:'CHIFBAY'}))">
+  </header>
+
+  <div id="app"><div class="skel">Loading your trip…</div></div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var API = "https://chifbay-booking-api.chifandcopt.workers.dev";
+  var ID = document.currentScript.dataset.quote || location.pathname.split("/").pop().replace(".html", "");
+  var app = document.getElementById("app");
+
+  function esc(v) {
+    return String(v == null ? "" : v).replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function money(cents, cur) {
+    try {
+      return new Intl.NumberFormat("en-GB", { style: "currency", currency: cur || "EUR",
+        maximumFractionDigits: cents % 100 ? 2 : 0 }).format(cents / 100);
+    } catch (e) { return (cents / 100) + " " + (cur || "EUR"); }
+  }
+  function prettyDay(d) {
+    var p = d.split("-");
+    return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])).toLocaleDateString("en-GB",
+      { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+  }
+
+  fetch(API + "/v1/quote?id=" + encodeURIComponent(ID))
+    .then(function (r) { if (!r.ok) throw new Error("gone"); return r.json(); })
+    .then(render)
+    .catch(function () {
+      app.innerHTML = '<div class="card"><p>This link is not valid any more.</p>' +
+        '<p class="note">Message us on WhatsApp and we will sort it out: ' +
+        '<a href="https://wa.me/351937200320">+351 937 200 320</a></p></div>';
+    });
+
+  function render(q) {
+    if (q.state === "paid") {
+      app.innerHTML = '<div class="card"><h1>Deposit received</h1>' +
+        '<p class="sub">Thank you. Your date is booked and we will be in touch before the trip.</p></div>';
+      return;
+    }
+    var when = prettyDay(q.date) + " · " + q.time + (q.endTime ? " to " + q.endTime : "");
+    app.innerHTML =
+      '<div class="eyebrow">Private charter</div>' +
+      "<h1>" + esc(q.label) + "</h1>" +
+      '<p class="sub">' + (q.guestName ? "Held for " + esc(q.guestName) + " · " : "") + "as agreed on WhatsApp</p>" +
+
+      '<div class="card">' +
+        '<div class="row"><span>Date</span><b>' + esc(prettyDay(q.date)) + "</b></div>" +
+        '<div class="row"><span>Time</span><b>' + esc(q.time) + (q.endTime ? " to " + esc(q.endTime) : "") +
+          "</b></div>" +
+        (q.guests ? '<div class="row"><span>Guests</span><b>' + esc(q.guests) + "</b></div>" : "") +
+        '<div class="row"><span>Meeting point</span><b>Marina do Funchal, Pontoon C</b></div>' +
+        (q.includes.length ? '<ul class="inc">' + q.includes.map(function (i) {
+          return "<li>" + esc(i) + "</li>";
+        }).join("") + "</ul>" : "") +
+      "</div>" +
+
+      '<div class="card">' +
+        '<div class="price"><span class="k">Deposit to pay now</span>' +
+          '<span class="amt">' + money(q.deposit, q.currency) + "</span></div>" +
+        (q.balanceNote ? '<div class="balance">' + esc(q.balanceNote) + "</div>" : "") +
+      "</div>" +
+
+      '<div class="card">' +
+        '<label for="n">Your name</label><input id="n" autocomplete="name" value="' + esc(q.guestName) + '">' +
+        '<label for="e">Email</label><input id="e" type="email" autocomplete="email" placeholder="you@example.com">' +
+        '<label for="p">Phone, WhatsApp works</label><input id="p" type="tel" autocomplete="tel" placeholder="+351 900 000 000">' +
+        '<button class="pay" id="go">Pay the deposit · ' + money(q.deposit, q.currency) + "</button>" +
+        '<div class="err" id="err" role="alert"></div>' +
+        '<p class="note">You pay by card on Stripe. The date is held for you as soon as the deposit goes through.</p>' +
+      "</div>" +
+
+      '<p class="wa">A question first? <a href="https://wa.me/351937200320">Message us on WhatsApp</a></p>';
+
+    document.getElementById("go").addEventListener("click", function () {
+      var btn = this, err = document.getElementById("err");
+      err.textContent = "";
+      btn.disabled = true;
+      btn.textContent = "Opening the payment page…";
+      fetch(API + "/v1/quote-checkout", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: ID,
+          name: document.getElementById("n").value,
+          email: document.getElementById("e").value,
+          phone: document.getElementById("p").value,
+        }),
+      })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (!res.ok || !res.j.url) throw new Error(res.j.error || "Could not open the payment page.");
+          location.href = res.j.url;
+        })
+        .catch(function (e) {
+          err.textContent = e.message;
+          btn.disabled = false;
+          btn.textContent = "Pay the deposit · " + money(q.deposit, q.currency);
+        });
+    });
+  }
+})();
+</script>
+</body>
+</html>
