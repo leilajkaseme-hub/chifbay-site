@@ -1,5 +1,28 @@
 [
   {
+    "slug": "lapas-madeira-guide",
+    "title": "¿Qué son las lapas? Las lapas a la brasa de Madeira, explicadas",
+    "category": "Food & Drink",
+    "date": "2026-09-19",
+    "description": "¿Qué son las lapas de Madeira? Guía práctica sobre las lapas a la brasa: cómo se cocinan, por qué su recolección está regulada y dónde comerlas.",
+    "heroImage": "assets/journal/lapas-madeira-guide-hero.jpg",
+    "heroAlt": "What Is Lapas? Madeira's Grilled Limpets, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is lapas Madeira",
+      "lapas Madeira limpets",
+      "grilled limpets Madeira",
+      "Madeira limpets recipe",
+      "lapas grelhadas Madeira",
+      "Camara de Lobos lapas",
+      "Madeira seafood starter",
+      "limpet fishing regulations Madeira",
+      "Madeira tasca food",
+      "Madeira food guide"
+    ],
+    "lang": "es"
+  },
+  {
     "slug": "day-trip-vs-sunset-cruise-madeira",
     "title": "Excursión de Día o Crucero al Atardecer: ¿qué excursión en barco por Madeira reservar?",
     "category": "Experience",
@@ -985,6 +1008,29 @@
       "Faja dos Padres photo",
       "Madeira drone photography",
       "things to do in Madeira"
+    ],
+    "lang": "es"
+  },
+  {
+    "slug": "funchal-city-day-2026",
+    "title": "Día de la Ciudad de Funchal 2026: fechas, actos y dónde ver las regatas en la bahía",
+    "category": "What's On",
+    "date": "2026-08-05",
+    "description": "El Día de la Ciudad de Funchal cae el 21 de agosto de 2026, 518.º aniversario de su carta fundacional. Qué ocurre y dónde ver las regatas.",
+    "heroImage": "assets/journal/funchal-city-day-2026-hero.jpg",
+    "heroAlt": "Funchal City Day 2026: Dates, Events & Where to Watch the Bay Races — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "Funchal City Day 2026",
+      "Dia da Cidade do Funchal",
+      "Funchal City Day dates",
+      "Funchal municipal holiday",
+      "Jose da Silva Saca sea race",
+      "Funchal Bay boat races",
+      "Funchal 518th anniversary",
+      "Avenida do Mar events",
+      "things to do in Madeira August 2026",
+      "Madeira events calendar"
     ],
     "lang": "es"
   },
