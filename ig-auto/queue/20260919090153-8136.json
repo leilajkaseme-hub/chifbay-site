@@ -1,0 +1,46 @@
+{
+  "id": "20260919090153-8136",
+  "kind": "feed",
+  "created": "2026-09-19T09:02:09.317Z",
+  "source": "library",
+  "origin": "social-drive/img-1743-1cZILKxw.jpg",
+  "image": "ig/20260919090153-8136-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260919090153-8136-1.jpg",
+  "sha256": "3d65a4d838e4d52cfd0f28eb1c6222f71ad18dae599d3a13019f143637d0a918",
+  "slides": [
+    {
+      "origin": "social-drive/img-1743-1cZILKxw.jpg",
+      "image": "ig/20260919090153-8136-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260919090153-8136-1.jpg",
+      "sha256": "3d65a4d838e4d52cfd0f28eb1c6222f71ad18dae599d3a13019f143637d0a918"
+    },
+    {
+      "origin": "social-drive/img-1739-1WRive46.jpg",
+      "image": "ig/20260919090153-8136-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260919090153-8136-2.jpg",
+      "sha256": "f54f81c9e897b0f3427aff5369b20a65ff61a50b41f1fe30a6077216d256217c"
+    },
+    {
+      "origin": "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+      "image": "ig/20260919090153-8136-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260919090153-8136-3.jpg",
+      "sha256": "bb95ade37349ef6040bfe1aa29b2799619ef82fd43dad80c281626b4316c7eb6"
+    }
+  ],
+  "plan_index": 41,
+  "plan_cover": "social-drive/img-1743-1cZILKxw.jpg",
+  "palette": "azure",
+  "angle": "openocean",
+  "caption": "Straight overhead this time, our boat carving a clean loop of white through the blue.\nSkipper holding steady up front, one of our guests stretched out at the back enjoying the ride.\nNot a scrap of coastline in this one, just deep Atlantic all the way out.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeiraisland",
+    "#madeira",
+    "#boattrip",
+    "#boattour",
+    "#bluewater",
+    "#oceanview",
+    "#visitportugal"
+  ],
+  "rendered_caption": "Straight overhead this time, our boat carving a clean loop of white through the blue.\nSkipper holding steady up front, one of our guests stretched out at the back enjoying the ride.\nNot a scrap of coastline in this one, just deep Atlantic all the way out.\nBook direct on chifbay.com\n\n#madeiraisland #madeira #boattrip #boattour #bluewater #oceanview #visitportugal",
+  "writer": "claude"
+}
