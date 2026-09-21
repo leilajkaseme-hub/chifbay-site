@@ -67,7 +67,12 @@ function localise(block, { url, lang, name, description }) {
     return o;
   };
   d = walk(d);
-  d.inLanguage = lang;
+  // `inLanguage` n existe que sur une oeuvre. Sur un fil d Ariane ou sur une
+  // entreprise, schema.org ne le connait pas et l audit compte une donnee
+  // invalide. Mesure le 21 septembre 2026, apres l avoir pose partout.
+  const OEUVRE = new Set(["WebPage", "WebSite", "Blog", "BlogPosting", "Article",
+                          "FAQPage", "CreativeWork", "CollectionPage", "AboutPage"]);
+  if ([].concat(d["@type"] || []).some((t) => OEUVRE.has(t))) d.inLanguage = lang;
 
   if (Array.isArray(d.itemListElement)) {
     const map = CRUMB[lang] || {};
