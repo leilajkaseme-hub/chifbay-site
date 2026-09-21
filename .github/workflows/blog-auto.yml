@@ -49,6 +49,25 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: node scripts/blog-local/gen-post-images.mjs
 
+      # L etape ci dessus ne peut pas echouer, par choix. Donc elle peut laisser
+      # un article qui montre une image qui n existe pas, et personne ne le voit:
+      # c est arrive cinq fois avant le 21 septembre 2026, trouve par un audit
+      # exterieur. Ce controle rend la panne bruyante sans bloquer la
+      # publication: l article part quand meme, mais le telephone sonne.
+      - name: Check every article image really exists
+        id: imgcheck
+        continue-on-error: true
+        run: node scripts/checks/verify-post-images.mjs
+
+      - name: Warn about a missing article image (ntfy)
+        if: steps.imgcheck.outcome == 'failure'
+        run: |
+          curl -s --max-time 20 \
+            -H "Title: CHIFBAY journal: a post image is missing" \
+            -H "Priority: default" -H "Tags: frame_photo,boat" \
+            -d "A published article points at an image that does not exist. Run: node scripts/checks/verify-post-images.mjs" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true
+
       - name: Commit & push
         run: |
           TITLE=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['title'])")

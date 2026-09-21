@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
+import { stripLogo } from "../checks/strip-pollinations-logo.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const POSTS_JSON = join(ROOT, "posts", "posts.json");
@@ -131,6 +132,10 @@ async function genAndVerify(prompt, width, height, outPath, maxAttempts = 3) {
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const buf = await genImage(`${prompt}${extra}`, width, height);
     writeFileSync(outPath, buf);
+    // Pollinations a arrete d honorer `nologo=true` sur l acces gratuit vers le
+    // 17 septembre 2026: sans ce recadrage, chaque photo du Journal part en
+    // ligne avec "pollinations.ai" ecrit en bas a droite. Mesure, pas suppose.
+    try { stripLogo(outPath); } catch (e) { console.log("  filigrane non retire:", String(e).slice(0, 120)); }
     const { pass, reason } = verifyImage(outPath, prompt);
     console.log(`  ${outPath.split("/").pop()} attempt ${attempt}: ${pass ? "PASS" : "FAIL"} — ${reason}`);
     if (pass) return true;
