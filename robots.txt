@@ -19,7 +19,14 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
 Sitemap: https://chifbay.com/sitemap.xml
+
