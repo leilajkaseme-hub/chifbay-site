@@ -1,0 +1,52 @@
+{
+  "id": "20260922093116-5d83",
+  "kind": "feed",
+  "created": "2026-09-22T09:31:24.895Z",
+  "source": "library",
+  "origin": "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
+  "image": "ig/20260922093116-5d83-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260922093116-5d83-1.jpg",
+  "sha256": "50bac1d1b65ff692b10c05bb43bbf3131f2cd0c2329bac9818cfbbf3046a7a85",
+  "slides": [
+    {
+      "origin": "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
+      "image": "ig/20260922093116-5d83-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093116-5d83-1.jpg",
+      "sha256": "50bac1d1b65ff692b10c05bb43bbf3131f2cd0c2329bac9818cfbbf3046a7a85"
+    },
+    {
+      "origin": "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+      "image": "ig/20260922093116-5d83-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093116-5d83-2.jpg",
+      "sha256": "ab4da187bb22f15a15b036538d2d2276dddd77297e423eb8b89030d5c94968cc"
+    },
+    {
+      "origin": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+      "image": "ig/20260922093116-5d83-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093116-5d83-3.jpg",
+      "sha256": "35ecb2a8a5003807e91ae042061f392801515e0fbee3630a8d97b0237d464a83"
+    },
+    {
+      "origin": "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
+      "image": "ig/20260922093116-5d83-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093116-5d83-4.jpg",
+      "sha256": "5a96b60bbe9443c000d638a9e987da4ef10f3b4d87538c7770c530e873a0b184"
+    }
+  ],
+  "plan_index": 43,
+  "plan_cover": "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
+  "palette": "neutral",
+  "angle": "dolphins",
+  "caption": "Wild dolphins alongside the boat. Respectful distance, never chasing.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#privateboattour",
+    "#seaday",
+    "#dolphinwatching",
+    "#marinelife",
+    "#travelportugal"
+  ],
+  "rendered_caption": "Wild dolphins alongside the boat. Respectful distance, never chasing.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com\n\n#portugal #madeiraportugal #privateboattour #seaday #dolphinwatching #marinelife #travelportugal",
+  "writer": "template"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "20260922093124-b51d",
+  "kind": "feed",
+  "created": "2026-09-22T09:31:31.804Z",
+  "source": "library",
+  "origin": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
+  "image": "ig/20260922093124-b51d-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260922093124-b51d-1.jpg",
+  "sha256": "49b6967eee63ff44dd61376f6f0582ccc2189339f666f22f9b8fcf632536d871",
+  "slides": [
+    {
+      "origin": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
+      "image": "ig/20260922093124-b51d-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093124-b51d-1.jpg",
+      "sha256": "49b6967eee63ff44dd61376f6f0582ccc2189339f666f22f9b8fcf632536d871"
+    },
+    {
+      "origin": "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
+      "image": "ig/20260922093124-b51d-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093124-b51d-2.jpg",
+      "sha256": "16e4429da9895c8fa608bda9b3e8bf439c3fdeb094ca6304f01e0c2897f6efa6"
+    },
+    {
+      "origin": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+      "image": "ig/20260922093124-b51d-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093124-b51d-3.jpg",
+      "sha256": "35ecb2a8a5003807e91ae042061f392801515e0fbee3630a8d97b0237d464a83"
+    },
+    {
+      "origin": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+      "image": "ig/20260922093124-b51d-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260922093124-b51d-4.jpg",
+      "sha256": "bdbdfd998cd42cf7de38996b954daf50f8e3e154aced5c7a5d56281e76925287"
+    }
+  ],
+  "plan_index": 44,
+  "plan_cover": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
+  "palette": "neutral",
+  "angle": "sunset",
+  "caption": "The sunset trip: the light going gold and pink over the Atlantic.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeira",
+    "#madeiraisland",
+    "#boattour",
+    "#boattrip",
+    "#sunsetcruise",
+    "#goldenhour",
+    "#slowtravel"
+  ],
+  "rendered_caption": "The sunset trip: the light going gold and pink over the Atlantic.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com\n\n#madeira #madeiraisland #boattour #boattrip #sunsetcruise #goldenhour #slowtravel",
+  "writer": "template"
+}
