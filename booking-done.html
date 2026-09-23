@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="peak.css"/>
-<script defer src="/track.js"></script>
+<link rel="stylesheet" href="peak.min.css"/>
+<script defer src="/track.min.js"></script>
 <style>
 .dnwrap{max-width:640px;margin:0 auto;padding:90px 20px 110px;text-align:center}
 .dnmark{width:74px;height:74px;border-radius:50%;margin:0 auto 26px;display:flex;align-items:center;
@@ -29,6 +29,24 @@
 .dnnext{margin-top:32px;font-size:14.5px;opacity:.62;line-height:1.7}
 .dnbtn{display:inline-block;margin-top:28px;padding:14px 32px;border-radius:100px;
   background:var(--teal,#e0be7a);color:var(--on-accent,#050f18);font-weight:600;text-decoration:none}
+  /* Le WhatsApp devient l action principale et garde la couleur de la marque,
+     reconnue sans avoir a lire. Le retour au site passe en lien discret. */
+  .dnwabox{margin-top:30px;padding:26px 22px 22px;border-radius:15px;
+  background:rgba(37,211,102,.07);border:1px solid rgba(37,211,102,.24)}
+  .dnwahead{margin:0 0 8px;font-size:18px;font-weight:650}
+  .dnwawhy{margin:0 0 20px;font-size:14.5px;opacity:.7;line-height:1.65}
+  .dnwa{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:17px 34px;border-radius:100px;background:#25d366;color:#052e16;
+  font-weight:700;font-size:17px;text-decoration:none;
+  box-shadow:0 8px 26px rgba(37,211,102,.28)}
+  .dnwa svg{width:22px;height:22px;flex:0 0 22px;fill:currentColor}
+  .dnwa:hover{filter:brightness(1.06)}
+  .dnwasmall{margin:14px 0 0;font-size:13px;opacity:.55}
+  /* Sur telephone le bouton prend toute la largeur: c est la cible la plus
+     facile a toucher, et le geste ne demande plus de viser. */
+  @media (max-width:520px){ .dnwa{display:flex;width:100%;padding:17px 18px} }
+  .dnback{display:inline-block;margin-top:18px;font-size:14.5px;opacity:.55;
+  color:inherit;text-decoration:underline}
 .dnsub a{color:var(--teal,#e0be7a)}
 .dntest{margin:0 0 18px;padding:10px 14px;border-radius:10px;font-size:13px;letter-spacing:.04em;
   background:rgba(212,84,84,.12);border:1px solid rgba(212,84,84,.45);color:#ffc9c9}
@@ -47,7 +65,7 @@
   </div>
 </main>
 
-<script src="/booking-config.js"></script>
+<script src="/booking-config.min.js"></script>
 <script>
 (function () {
   var id = new URLSearchParams(location.search).get("session_id");
@@ -112,6 +130,17 @@
         }
       } catch (e) { /* tracking must never break the confirmation */ }
 
+      // Le numero WhatsApp de Chifbay, celui deja affiche partout sur le site.
+      function waHref(bk, prettyDay) {
+        var bits = ["Hi Chifbay! I just booked a trip with you."];
+        var what = bk.label || bk.variant || "";
+        if (what) bits.push("Trip: " + what + ".");
+        if (prettyDay) bits.push("Date: " + prettyDay + (bk.time ? " at " + bk.time : "") + ".");
+        if (bk.guests) bits.push("Guests: " + bk.guests + ".");
+        if (bk.name) bits.push("Name: " + bk.name + ".");
+        return "https://wa.me/351937200320?text=" + encodeURIComponent(bits.join(" "));
+      }
+
       var d = b.date ? new Date(b.date + "T00:00:00Z")
         .toLocaleDateString("en", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
         : "";
@@ -129,9 +158,25 @@
           '<div class="dnrow"><span>Guests</span><span>' + esc(b.guests || "") + '</span></div>' +
           '<div class="dnrow"><span>Paid</span><span>€' + ((res.amount || 0) / 100).toFixed(0) + '</span></div>' +
         '</div>' +
+        '<div class="dnwabox">' +
+        '<p class="dnwahead">Say hello, and we will look after the rest</p>' +
+        '<p class="dnwawhy">A question, a birthday on board, someone who cannot swim, ' +
+        'a pickup we should know about? Write to us now and we will answer before your trip.</p>' +
+        '<a class="dnwa" href="' + waHref(b, d) + '" target="_blank" rel="noopener">' +
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1' +
+          '-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.6' +
+          '-1.6-1.9-.2-.3 0-.5.1-.6.1-.2.5-.6.7-.9.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.2-.5-.4-.5' +
+          '-.6-.5h-.6c-.2 0-.6.1-.9.4-.3.4-1.1 1.1-1.1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.5' +
+          '.7.3 1.3.5 1.7.6 1 .3 1.8.2 2.4.2.6-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.6-.5z' +
+          'M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.2-1.3c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5' +
+          ' 10-10S17.5 2 12 2z"/></svg>' +
+          'Message us on WhatsApp</a>' +
+        '<p class="dnwasmall">Your booking details are already written in the message. ' +
+        'Just press send.</p>' +
+        '</div>' +
         '<p class="dnnext">Please be at the pontoon 15 minutes early. Bring a towel, ' +
         'sunscreen and a light layer for the run back. Free cancellation up to 24 hours before.</p>' +
-        '<a class="dnbtn" href="/">Back to the site</a>';
+        '<div><a class="dnback" href="/">Back to the site</a></div>';
     })
     .catch(function () {
       body.innerHTML =
