@@ -1,0 +1,46 @@
+{
+  "id": "20260923093611-de4c",
+  "kind": "feed",
+  "created": "2026-09-23T09:36:20.588Z",
+  "source": "library",
+  "origin": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+  "image": "ig/20260923093611-de4c-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260923093611-de4c-1.jpg",
+  "sha256": "35ecb2a8a5003807e91ae042061f392801515e0fbee3630a8d97b0237d464a83",
+  "slides": [
+    {
+      "origin": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+      "image": "ig/20260923093611-de4c-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260923093611-de4c-1.jpg",
+      "sha256": "35ecb2a8a5003807e91ae042061f392801515e0fbee3630a8d97b0237d464a83"
+    },
+    {
+      "origin": "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
+      "image": "ig/20260923093611-de4c-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260923093611-de4c-2.jpg",
+      "sha256": "b3140757e2c9fbd98b8b7a9f5e7f5dd8965b7555c4a747f59ab0808275ef69c3"
+    },
+    {
+      "origin": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+      "image": "ig/20260923093611-de4c-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260923093611-de4c-3.jpg",
+      "sha256": "bdbdfd998cd42cf7de38996b954daf50f8e3e154aced5c7a5d56281e76925287"
+    }
+  ],
+  "plan_index": 45,
+  "plan_cover": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+  "palette": "neutral",
+  "angle": "marina",
+  "caption": "Leaving Funchal marina, the town falling away behind.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com",
+  "hashtags": [
+    "#funchal",
+    "#visitmadeira",
+    "#atlanticocean",
+    "#boatlife",
+    "#funchalmarina",
+    "#harbourlife",
+    "#madeiratravel"
+  ],
+  "rendered_caption": "Leaving Funchal marina, the town falling away behind.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com\n\n#funchal #visitmadeira #atlanticocean #boatlife #funchalmarina #harbourlife #madeiratravel",
+  "writer": "template"
+}
