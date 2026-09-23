@@ -302,7 +302,7 @@
     var t = T[lang] || T.en;
     // Absolute: this same file also runs on the Wix booking subdomain, which
     // has no privacy page of its own.
-    var privacyHref = "https://chifbay.com" + (lang === "en" ? "/privacy.html" : "/" + lang + "/privacy.html");
+    var privacyHref = "https://chifbay.com" + (lang === "en" ? "/privacy" : "/" + lang + "/privacy");
 
     var bar = document.createElement("div");
     bar.id = "cb-consent";

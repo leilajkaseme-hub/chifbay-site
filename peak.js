@@ -81,7 +81,7 @@
     });
     var items="";
     ["en"].concat(LL).forEach(function(l){
-      var href=alts[l] || (l==="en" ? "/" : "/"+l+"/index.html");
+      var href=alts[l] || (l==="en" ? "/" : "/"+l+"/");
       items+='<a href="'+href+'">'+NAMES[l]+"</a>";
     });
     var box=document.createElement("div");
@@ -121,7 +121,7 @@
   })();
 
   function langOf(href){var s=(href||"").split("/").filter(Boolean);return LL.indexOf(s[0])>=0?s[0]:"en";}
-  function pageFile(){var f=location.pathname.split("/").pop();return f||"index.html";}
+  function pageFile(){var f=location.pathname.split("/").pop()||"";return f.replace(/\.html$/,"");}
   var p=location.pathname.split("/").filter(Boolean);
   var lang=(LL.indexOf(p[0])>=0)?p[0]:"en";
   var cb=document.querySelector(".langcode"); if(cb) cb.textContent=lang.toUpperCase();
@@ -188,7 +188,8 @@
         // whose first visit ever lands there with a non-English browser
         // (a French ad click straight onto book-sunset.html, for instance).
         // One HEAD check, only on this first-ever visit, before committing.
-        var target="/"+nl+"/"+pageFile();
+        var pf=pageFile();
+        var target=pf ? "/"+nl+"/"+pf : "/"+nl+"/";
         fetch(target,{method:"HEAD"}).then(function(r){ if(r.ok) location.replace(target); }).catch(function(){});
       }
     }
