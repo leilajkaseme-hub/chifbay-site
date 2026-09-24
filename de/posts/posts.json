@@ -1,5 +1,28 @@
 [
   {
+    "slug": "top-10-rainy-day-activities-in-madeira",
+    "title": "Top 10 Aktivitäten bei Regen auf Madeira (Museen, Weinkeller & Indoor-Tipps)",
+    "category": "Top 10",
+    "date": "2026-09-24",
+    "description": "Es regnet auf Madeira — und jetzt? Die zehn besten Indoor-Aktivitäten der Insel, vom CR7 Museum bis zum 200 Jahre alten Weinkeller, mit Öffnungszeiten.",
+    "heroImage": "assets/journal/top-10-rainy-day-activities-in-madeira-hero.jpg",
+    "heroAlt": "Top 10 Rainy Day Activities in Madeira (Museums, Wine Lodges & Indoor Things to Do) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "rainy day activities Madeira",
+      "indoor things to do Madeira",
+      "what to do in Madeira when it rains",
+      "CR7 Museum Funchal",
+      "Blandy's Wine Lodge tour",
+      "Madeira Story Centre",
+      "Funchal museums",
+      "Colegio dos Jesuitas Funchal",
+      "things to do in Funchal rain",
+      "Madeira travel guide"
+    ],
+    "lang": "de"
+  },
+  {
     "slug": "madeira-in-spring-guide",
     "title": "Madeira im Frühling: Wetter, das Blumenfest & ist es die beste Reisezeit?",
     "category": "Guide",
@@ -1100,6 +1123,29 @@
       "Madeira cliffside cove",
       "Madeira private boat swim stop",
       "things to do in Madeira"
+    ],
+    "lang": "de"
+  },
+  {
+    "slug": "madeira-microclimates-weather-guide",
+    "title": "Madeiras Mikroklimata: Warum das Wetter nie an zwei Orten gleich ist",
+    "category": "Guide",
+    "date": "2026-08-03",
+    "description": "Warum ist es in Funchal sonnig, während es in Santana regnet? Ein Guide zu Madeiras Mikroklimata – wichtig für jede Bootstour.",
+    "heroImage": "assets/journal/madeira-microclimates-weather-guide-hero.jpg",
+    "heroAlt": "Madeira's Microclimates: Why the Weather Is Never the Same in Two Places — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Madeira weather",
+      "Madeira microclimate",
+      "does it rain a lot in Madeira",
+      "Madeira weather by coast",
+      "island of eternal spring",
+      "Madeira sea of clouds",
+      "Pico do Arieiro weather",
+      "best weather Madeira",
+      "Funchal weather",
+      "Madeira weather guide"
     ],
     "lang": "de"
   },
