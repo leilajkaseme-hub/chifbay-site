@@ -1,5 +1,28 @@
 [
   {
+    "slug": "why-does-madeira-have-black-sand",
+    "title": "Perché Madeira Ha la Sabbia Nera? Le Spiagge Vulcaniche dell'Isola, Spiegate",
+    "category": "Nature",
+    "date": "2026-09-25",
+    "description": "Madeira è vulcanica? Guida pratica alla sabbia nera: la spiaggia di Prainha, perché Calheta e Machico importano sabbia dorata, e come si è formata.",
+    "heroImage": "assets/journal/why-does-madeira-have-black-sand-hero.jpg",
+    "heroAlt": "Why Does Madeira Have Black Sand? The Island's Volcanic Beaches, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "why does Madeira have black sand",
+      "Madeira black sand beach",
+      "Prainha beach Madeira",
+      "is Madeira volcanic",
+      "Madeira volcanic origin",
+      "Calheta beach imported sand",
+      "Machico beach imported sand",
+      "Porto Moniz volcanic pools",
+      "black sand beach Portugal",
+      "Madeira geology guide"
+    ],
+    "lang": "it"
+  },
+  {
     "slug": "top-10-rainy-day-activities-in-madeira",
     "title": "Top 10 Attività al Coperto a Madeira in Caso di Pioggia (Musei, Cantine e Idee Indoor)",
     "category": "Top 10",
@@ -1123,6 +1146,29 @@
       "Madeira cliffside cove",
       "Madeira private boat swim stop",
       "things to do in Madeira"
+    ],
+    "lang": "it"
+  },
+  {
+    "slug": "madeira-microclimates-weather-guide",
+    "title": "I Microclimi di Madeira: Perché il Tempo Non È Mai lo Stesso in Due Posti",
+    "category": "Guide",
+    "date": "2026-08-03",
+    "description": "Sole a Funchal e pioggia a Santana lo stesso pomeriggio? Guida pratica ai microclimi di Madeira: cause, costa più affidabile e gita in barca.",
+    "heroImage": "assets/journal/madeira-microclimates-weather-guide-hero.jpg",
+    "heroAlt": "Madeira's Microclimates: Why the Weather Is Never the Same in Two Places — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Madeira weather",
+      "Madeira microclimate",
+      "does it rain a lot in Madeira",
+      "Madeira weather by coast",
+      "island of eternal spring",
+      "Madeira sea of clouds",
+      "Pico do Arieiro weather",
+      "best weather Madeira",
+      "Funchal weather",
+      "Madeira weather guide"
     ],
     "lang": "it"
   },

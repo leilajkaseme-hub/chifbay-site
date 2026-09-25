@@ -1,5 +1,28 @@
 [
   {
+    "slug": "why-does-madeira-have-black-sand",
+    "title": "Pourquoi Madère a-t-elle du sable noir ? Les plages volcaniques de l'île expliquées",
+    "category": "Nature",
+    "date": "2026-09-25",
+    "description": "Madère est-elle volcanique ? Le sable noir de l'île : la plage de Prainha, le sable doré importé à Calheta et Machico, et son origine.",
+    "heroImage": "assets/journal/why-does-madeira-have-black-sand-hero.jpg",
+    "heroAlt": "Why Does Madeira Have Black Sand? The Island's Volcanic Beaches, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "why does Madeira have black sand",
+      "Madeira black sand beach",
+      "Prainha beach Madeira",
+      "is Madeira volcanic",
+      "Madeira volcanic origin",
+      "Calheta beach imported sand",
+      "Machico beach imported sand",
+      "Porto Moniz volcanic pools",
+      "black sand beach Portugal",
+      "Madeira geology guide"
+    ],
+    "lang": "fr"
+  },
+  {
     "slug": "top-10-rainy-day-activities-in-madeira",
     "title": "Top 10 des activités à Madère quand il pleut (musées, cave à vin, sorties au sec)",
     "category": "Top 10",
@@ -1146,6 +1169,29 @@
       "best weather Madeira",
       "Funchal weather",
       "Madeira weather guide"
+    ],
+    "lang": "fr"
+  },
+  {
+    "slug": "bolo-de-mel-madeira",
+    "title": "Qu'est-ce que le bolo de mel ? Le gâteau au miel traditionnel de Madère expliqué",
+    "category": "Food & Drink",
+    "date": "2026-08-02",
+    "description": "Bolo de mel, plus ancien dessert de Madère : gâteau à la mélasse de canne, pas au miel, rompu à la main selon la tradition. Origine et bonnes adresses.",
+    "heroImage": "assets/journal/bolo-de-mel-madeira-hero.jpg",
+    "heroAlt": "What Is Bolo de Mel? Madeira's Traditional Honey Cake, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is bolo de mel",
+      "bolo de mel Madeira",
+      "Madeira honey cake",
+      "mel de cana",
+      "Madeira Christmas cake",
+      "Santa Clara Convent Funchal",
+      "Mercado dos Lavradores food",
+      "Madeira traditional dessert",
+      "bolo de mel recipe",
+      "Madeira food guide"
     ],
     "lang": "fr"
   },
