@@ -1,23 +1,7 @@
 {
-  "built": "2026-09-25T09:52:47.403Z",
+  "built": "2026-09-26T09:35:17.703Z",
   "slides": 4,
   "posts": [
-    {
-      "plan_index": 47,
-      "family": "soft",
-      "warmth": 13.74,
-      "cover": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-      "slides": [
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
     {
       "plan_index": 48,
       "family": "amber",
@@ -26,8 +10,8 @@
       "slides": [
         "social-drive/img-2317-1f9xGgIA.jpg",
         "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg"
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -100,21 +84,6 @@
     },
     {
       "plan_index": 53,
-      "family": "golden",
-      "warmth": 29.27,
-      "cover": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
-      "slides": [
-        "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg"
-      ],
-      "grade": {
-        "brightness": 1.003278234022973,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 54,
       "family": "neutral",
       "warmth": 4.74,
       "cover": "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
@@ -126,6 +95,21 @@
       ],
       "grade": {
         "brightness": 1.0036613826522585,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 54,
+      "family": "golden",
+      "warmth": 29.27,
+      "cover": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
+      "slides": [
+        "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg"
+      ],
+      "grade": {
+        "brightness": 1.003278234022973,
         "saturation": 1
       }
     },

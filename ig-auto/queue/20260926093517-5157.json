@@ -1,0 +1,52 @@
+{
+  "id": "20260926093517-5157",
+  "kind": "feed",
+  "created": "2026-09-26T09:35:33.992Z",
+  "source": "library",
+  "origin": "social-drive/img-2317-1f9xGgIA.jpg",
+  "image": "ig/20260926093517-5157-1.jpg",
+  "url": "https://www.chifbay.com/ig/20260926093517-5157-1.jpg",
+  "sha256": "3ade52f76f11894299f9ff4c17be28792d5adcb47f1d00b008b6e2d5bde36c59",
+  "slides": [
+    {
+      "origin": "social-drive/img-2317-1f9xGgIA.jpg",
+      "image": "ig/20260926093517-5157-1.jpg",
+      "url": "https://www.chifbay.com/ig/20260926093517-5157-1.jpg",
+      "sha256": "3ade52f76f11894299f9ff4c17be28792d5adcb47f1d00b008b6e2d5bde36c59"
+    },
+    {
+      "origin": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+      "image": "ig/20260926093517-5157-2.jpg",
+      "url": "https://www.chifbay.com/ig/20260926093517-5157-2.jpg",
+      "sha256": "bdbdfd998cd42cf7de38996b954daf50f8e3e154aced5c7a5d56281e76925287"
+    },
+    {
+      "origin": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+      "image": "ig/20260926093517-5157-3.jpg",
+      "url": "https://www.chifbay.com/ig/20260926093517-5157-3.jpg",
+      "sha256": "35ecb2a8a5003807e91ae042061f392801515e0fbee3630a8d97b0237d464a83"
+    },
+    {
+      "origin": "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+      "image": "ig/20260926093517-5157-4.jpg",
+      "url": "https://www.chifbay.com/ig/20260926093517-5157-4.jpg",
+      "sha256": "ab4da187bb22f15a15b036538d2d2276dddd77297e423eb8b89030d5c94968cc"
+    }
+  ],
+  "plan_index": 48,
+  "plan_cover": "social-drive/img-2317-1f9xGgIA.jpg",
+  "palette": "amber",
+  "angle": "sunset",
+  "caption": "Sun dropping behind the horizon, wake foaming white behind us.\nTwo of our guests just sitting quietly with it, no need to talk.\nSome evenings the sea does all the entertaining.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#visitmadeira",
+    "#funchal",
+    "#boatlife",
+    "#atlanticocean",
+    "#sunsetcruise",
+    "#goldenhour",
+    "#islandhopping"
+  ],
+  "rendered_caption": "Sun dropping behind the horizon, wake foaming white behind us.\nTwo of our guests just sitting quietly with it, no need to talk.\nSome evenings the sea does all the entertaining.\nBook direct on chifbay.com\n\n#visitmadeira #funchal #boatlife #atlanticocean #sunsetcruise #goldenhour #islandhopping",
+  "writer": "claude"
+}
