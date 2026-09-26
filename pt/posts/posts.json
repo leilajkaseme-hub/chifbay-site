@@ -1,5 +1,28 @@
 [
   {
+    "slug": "madeira-in-summer-guide",
+    "title": "Madeira no Verão: Tempo, Temperatura do Mar e a Melhor Altura para Visitar?",
+    "category": "Guide",
+    "date": "2026-09-26",
+    "description": "Faz calor na Madeira no verão? Guia prático 2026 de junho a agosto — temperaturas reais, mar, chuva, o que há para ver e se o verão vale a pena para um passeio de barco.",
+    "heroImage": "assets/journal/madeira-in-summer-guide-hero.jpg",
+    "heroAlt": "Madeira in Summer: Weather, Sea Temperature & Is It the Best Time to Visit? — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Madeira in summer",
+      "Madeira summer weather",
+      "is Madeira hot in summer",
+      "Madeira sea temperature July August",
+      "best time to visit Madeira",
+      "Madeira weather June July August",
+      "Madeira boat trip summer",
+      "does it rain in Madeira summer",
+      "Madeira peak season",
+      "Madeira travel guide"
+    ],
+    "lang": "pt"
+  },
+  {
     "slug": "why-does-madeira-have-black-sand",
     "title": "Porque É Que a Madeira Tem Areia Negra? As Praias Vulcânicas da Ilha, Explicadas",
     "category": "Nature",
@@ -1169,6 +1192,29 @@
       "best weather Madeira",
       "Funchal weather",
       "Madeira weather guide"
+    ],
+    "lang": "pt"
+  },
+  {
+    "slug": "bolo-de-mel-madeira",
+    "title": "O Que É o Bolo de Mel? O Doce Tradicional da Madeira, Explicado",
+    "category": "Food & Drink",
+    "date": "2026-08-02",
+    "description": "O bolo de mel é o doce mais antigo da Madeira — um bolo escuro e denso feito com mel de cana, não mel de abelha, e tradicionalmente partido à mão.",
+    "heroImage": "assets/journal/bolo-de-mel-madeira-hero.jpg",
+    "heroAlt": "What Is Bolo de Mel? Madeira's Traditional Honey Cake, Explained — Chifbay Journal",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is bolo de mel",
+      "bolo de mel Madeira",
+      "Madeira honey cake",
+      "mel de cana",
+      "Madeira Christmas cake",
+      "Santa Clara Convent Funchal",
+      "Mercado dos Lavradores food",
+      "Madeira traditional dessert",
+      "bolo de mel recipe",
+      "Madeira food guide"
     ],
     "lang": "pt"
   },
