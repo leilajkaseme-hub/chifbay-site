@@ -1,5 +1,28 @@
 [
   {
+    "slug": "dolphins-and-whales-in-madeira-guide",
+    "title": "Dauphins et baleines à Madeira : ce que vous verrez vraiment, et quand",
+    "category": "Experience",
+    "date": "2026-09-27",
+    "description": "Peut-on voir des dauphins et des baleines à Madeira ? Guide pratique 2026 : globicéphales et grands dauphins résidents, meilleurs mois pour voir les cachalots.",
+    "heroImage": "assets/journal/dolphins-and-whales-in-madeira-guide-hero.jpg",
+    "heroAlt": "Dolphins and Whales in Madeira: What You'll Actually See, and When — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "dolphins and whales in Madeira",
+      "whale watching Madeira",
+      "dolphin watching Madeira",
+      "best time to see whales Madeira",
+      "resident pilot whales Madeira",
+      "bottlenose dolphins Madeira",
+      "sperm whales Madeira season",
+      "Madeira boat trip dolphins",
+      "cetaceans Madeira",
+      "Madeira wildlife guide"
+    ],
+    "lang": "fr"
+  },
+  {
     "slug": "madeira-in-summer-guide",
     "title": "Madère en été : météo, température de la mer et meilleure saison pour visiter ?",
     "category": "Guide",
@@ -1215,6 +1238,29 @@
       "Madeira traditional dessert",
       "bolo de mel recipe",
       "Madeira food guide"
+    ],
+    "lang": "fr"
+  },
+  {
+    "slug": "curral-das-freiras-madeira-guide",
+    "title": "Curral das Freiras : le guide complet de la Vallée des Nonnes de Madeira",
+    "category": "Nature",
+    "date": "2026-08-01",
+    "description": "Curral das Freiras vaut-il le détour ? Guide du village-cratère de Madeira : belvédère d'Eira do Serrado, tunnel, châtaignes et accès depuis Funchal.",
+    "heroImage": "assets/journal/curral-das-freiras-madeira-guide-hero.jpg",
+    "heroAlt": "Curral das Freiras: The Complete Guide to Madeira's Nun's Valley — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "Curral das Freiras",
+      "Nun's Valley Madeira",
+      "Eira do Serrado viewpoint",
+      "Curral das Freiras chestnut festival",
+      "Curral das Freiras from Funchal",
+      "Vereda das Voltas",
+      "Madeira crater village",
+      "Festa da Castanha Madeira",
+      "PR12 Caminho Real da Encumeada",
+      "things to do in Madeira nature"
     ],
     "lang": "fr"
   },
