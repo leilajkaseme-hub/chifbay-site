@@ -25,7 +25,12 @@
     API: window.CHIFBAY_API || "https://chifbay-booking-api.chifandcopt.workers.dev",
     // Stripe publishable key. pk_test_... while testing, pk_live_... when live.
     PK: window.CHIFBAY_STRIPE_PK || "",
-    DAYS_AHEAD: 60,
+    // Doit valoir BOOK_MAX_DAYS du Worker (booking-api/catalog.js, 180).
+    // A 60, tout jour au dela de J+60 etait dessine grise et non cliquable,
+    // alors que l'API l'acceptait: le 28 septembre 2026, decembre et tout ce
+    // qui suit etaient fermes sur le site sans qu'aucune date ne le soit
+    // vraiment. Plus petit que le Worker = des ventes perdues en silence.
+    DAYS_AHEAD: 180,
     WA: "https://wa.me/351937200320",
   };
 
