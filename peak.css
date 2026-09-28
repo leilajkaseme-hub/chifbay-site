@@ -185,6 +185,18 @@ h1 em,h2 em,h3 em,h4 em{font-family:'DM Serif Display',Georgia,serif;font-style:
 .fsoc svg.fsline{fill:none;stroke:currentColor;stroke-width:1.7}
 .fsoc svg .fdot{fill:currentColor;stroke:none}
 @media(prefers-reduced-motion:reduce){.fsoc a{transition:none}.fsoc a:hover{transform:none}}
+/* The App Store block, under the social icons. The badge is Apple's own
+   artwork, localised, and is never recoloured or redrawn: Apple's marketing
+   rules forbid it. The site's look lives in the frame around it, the gold
+   eyebrow and the muted line, so it reads as ours without touching theirs.
+   Apple's black badge carries its own grey outline, so it holds on both the
+   dark and the light theme without a second version. */
+.fapp{margin-top:26px}
+.fapp p{color:var(--muted);font-size:.86rem;line-height:1.6;margin:10px 0 14px;max-width:36ch}
+.fapp .fappb{display:inline-block;line-height:0;border-radius:9px;transition:transform .2s,opacity .2s}
+.fapp .fappb:hover,.fapp .fappb:focus-visible{transform:translateY(-2px);opacity:.9}
+.fapp .fappb img{height:44px;width:auto;display:block}
+@media(prefers-reduced-motion:reduce){.fapp .fappb{transition:none}.fapp .fappb:hover{transform:none}}
 
 /* lock the page behind the open drawer so the background can't scroll —
    this is what removes the "jumpy/glitched" feel on the animated pages */
