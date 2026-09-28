@@ -543,7 +543,11 @@
   function loadAvailability() {
     var today = new Date();
     var from = ymd(new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())));
-    var to = addDays(from, CFG.DAYS_AHEAD);
+    // La fenetre vient du Worker (/v1/catalogue, bookMaxDays), la meme que
+    // celle qu'il applique. CFG.DAYS_AHEAD ne sert plus que de filet si un
+    // vieux catalogue en cache ne porte pas encore le champ.
+    var ahead = (state.catalogue && state.catalogue.bookMaxDays) || CFG.DAYS_AHEAD;
+    var to = addDays(from, ahead);
     state.month = from.slice(0, 8) + "01";
     $("#bkcal").innerHTML = '<p class="bkload">' + esc(t("ui.checking")) + "</p>";
     api("/v1/availability?trip=" + encodeURIComponent(state.trip) +
