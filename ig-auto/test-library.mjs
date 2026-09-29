@@ -95,10 +95,16 @@ test("prune keeps its hands off when more than half would go", () => {
 });
 
 // -------------------------------------------------------------- queue sanity
+// An empty queue is a normal state (it was emptied on 29 Sep 2026 to rebuild it
+// under the new rules), and git does not keep an empty folder.
+const queueFiles = () => {
+  const dir = join(HERE, "queue");
+  return existsSync(dir) ? readdirSync(dir).filter((x) => x.endsWith(".json")) : [];
+};
 test("nothing queued uses an excluded photo", () => {
   const banned = new Set(config.exclude ?? []);
   const dir = join(HERE, "queue");
-  for (const f of readdirSync(dir).filter((x) => x.endsWith(".json"))) {
+  for (const f of queueFiles()) {
     const item = JSON.parse(readFileSync(join(dir, f), "utf8"));
     const all = [item.origin, ...(item.slides ?? []).map((s) => s.origin)];
     for (const o of all) assert.ok(!banned.has(o), `${f} carries ${o}`);
@@ -108,7 +114,7 @@ test("nothing queued uses an excluded photo", () => {
 test("a photo is the cover of at most one queued post", () => {
   const dir = join(HERE, "queue");
   const seen = new Map();
-  for (const f of readdirSync(dir).filter((x) => x.endsWith(".json"))) {
+  for (const f of queueFiles()) {
     const item = JSON.parse(readFileSync(join(dir, f), "utf8"));
     const k = stem(item.origin);
     assert.ok(!seen.has(k), `${k} is the cover of both ${seen.get(k)} and ${f}`);
@@ -122,10 +128,10 @@ test("nothing in the story queue appears anywhere in the feed queue", () => {
   // passes while the same picture goes out as a story and as a carousel slide.
   // There were 32 of those the first time this ran.
   //
-  // Slides repeating between two POSTS is deliberate and not checked here: it
-  // is what makes 28 photos into 28 carousels instead of 7.
+  // Slides repeating between two posts is ruled out by slide_reuse_days in
+  // topup (lib/freshness.mjs), and tested in test-freshness.mjs.
   const dir = join(HERE, "queue");
-  const items = readdirSync(dir).filter((x) => x.endsWith(".json"))
+  const items = queueFiles()
     .map((f) => [f, JSON.parse(readFileSync(join(dir, f), "utf8"))]);
   const stories = new Set(items.filter(([, i]) => i.kind === "story").map(([, i]) => stem(i.origin)));
   for (const [f, i] of items) {
@@ -136,20 +142,26 @@ test("nothing in the story queue appears anywhere in the feed queue", () => {
   }
 });
 
-test("nothing queued has already gone out", () => {
-  const posted = new Set();
+test("nothing queued went out recently: 90 days for the feed, 21 for stories", () => {
+  // Stories reuse their 10-photo album on purpose (they vanish after a day);
+  // before this, the album ran dry on 13 September and stories stopped.
+  const last = new Map();   // "kind:origin" -> ms
   const led = join(HERE, "ledger.jsonl");
   if (existsSync(led)) {
     for (const line of readFileSync(led, "utf8").split("\n")) {
       if (!line.trim()) continue;
       const r = JSON.parse(line);
-      for (const o of [r.plan_cover, r.origin]) if (o) posted.add(o);
+      if (!r.ok) continue;
+      const t = Date.parse(r.at || "") || 0;
+      for (const o of [r.plan_cover, r.origin, ...(r.slides ?? [])]) if (o) last.set(`${r.kind ?? "feed"}:${o}`, t);
     }
   }
   const dir = join(HERE, "queue");
-  for (const f of readdirSync(dir).filter((x) => x.endsWith(".json"))) {
+  for (const f of queueFiles()) {
     const item = JSON.parse(readFileSync(join(dir, f), "utf8"));
-    assert.ok(!posted.has(item.origin), `${f} would repost ${item.origin}`);
+    const days = item.kind === "story" ? (config.story_reuse_days ?? 21) : (config.slide_reuse_days ?? 90);
+    const when = last.get(`${item.kind ?? "feed"}:${item.origin}`);
+    assert.ok(!when || Date.now() - when > days * 86_400_000, `${f} would repost ${item.origin} within ${days} days`);
   }
 });
 
