@@ -66,6 +66,11 @@ function notConfigured() {
  * angle-variety rule.
  */
 function chooseNext(queue) {
+  // Photos nobody has seen and Reels go before the colour plan: a new photo in
+  // the Drive folder should reach the account in days, not after the plan.
+  const urgent = queue.filter((i) => i.priority === 0);
+  if (urgent.length) return urgent.sort((a, b) => a.created.localeCompare(b.created))[0];
+
   const planned = queue.filter((i) => Number.isFinite(i.plan_index));
   if (planned.length) {
     return planned.sort((a, b) => a.plan_index - b.plan_index)[0];
@@ -163,6 +168,8 @@ async function main() {
     url: item.url,
     plan_cover: item.plan_cover,
     plan_index: item.plan_index,
+    media: item.media ?? "photo",
+    slides: (item.slides ?? []).map((s) => s.origin).filter(Boolean),
     ...result,
   });
   saveState({ [lastPostKey(KIND)]: today() });
@@ -173,7 +180,7 @@ async function main() {
     console.warn("transport did not confirm a media id — check the account by hand");
   }
   await inbox(
-    `Chifbay posted a ${KIND === "story" ? "story" : "photo"} to Instagram`,
+    `Chifbay posted a ${KIND === "story" ? "story" : item.media === "video" ? "Reel" : "photo"} to Instagram`,
     `${item.angle} · ${listQueue(KIND).length} left in the ${KIND} queue` +
       (KIND === "feed" ? `\n\n${item.caption.slice(0, 220)}` : ""),
   );

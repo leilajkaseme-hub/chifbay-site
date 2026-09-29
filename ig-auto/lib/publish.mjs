@@ -197,7 +197,20 @@ async function graph(item) {
   const urls = slideUrls(item);
 
   let container;
-  if (!isStory && urls.length > 1) {
+  if (item.media === "video") {
+    // A Reel, or a video story. Meta downloads and transcodes the file itself,
+    // which takes far longer than a photo, hence the ten-minute wait.
+    container = await graphCall(`/${user}/media`, {
+      video_url: urls[0],
+      access_token: token,
+      ...(isStory
+        ? { media_type: "STORIES" }
+        : { media_type: "REELS", caption: item.rendered_caption, share_to_feed: true,
+            ...(item.cover_url ? { cover_url: item.cover_url } : {}) }),
+    });
+    if (!container.id) throw new Error(`no video container id: ${JSON.stringify(container).slice(0, 200)}`);
+    await waitForContainer(container.id, token, { timeoutMs: 600_000, everyMs: 10_000 });
+  } else if (!isStory && urls.length > 1) {
     container = { id: await carouselContainer(user, token, urls, item.rendered_caption) };
   } else {
     container = await graphCall(`/${user}/media`, {

@@ -58,3 +58,9 @@ jobs:
       - name: Photo rules still hold
         working-directory: ig-auto
         run: node test-library.mjs
+
+      # Every photo in a post counts toward the no-repeat window, not only the
+      # cover; Reel clips never cross a cut or a colour glitch.
+      - name: Freshness and Reel rules still hold
+        working-directory: ig-auto
+        run: node test-freshness.mjs

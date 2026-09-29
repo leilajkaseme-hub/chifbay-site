@@ -53,6 +53,17 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { stripMetadata } from "../lib/strip-metadata.mjs";
 
+import os from "node:os";
+import { Readable } from "node:stream";
+import { pipeline } from "node:stream/promises";
+import { cutClips, hasFfmpeg, loadReels, saveReels } from "../lib/reels.mjs";
+
+/** Videos become Reels. Raw 360 files (.lrv/.insv) are dual fisheye and need a
+ *  person to frame them, so they are left alone; so is anything over 2.5 GB. */
+const VIDEO_RE = /^video\//;
+const RAW_360 = /\.(lrv|insv|insp)$/i;
+const MAX_VIDEO_BYTES = 2.5 * 1024 ** 3;
+
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const IG_AUTO = path.resolve(HERE, "..");
 const SITE = path.resolve(IG_AUTO, "..");
@@ -278,10 +289,20 @@ async function main() {
   const want = [];   // { file, dest, dir }
   for (const f of files) {
     if (IMAGE_MIME[f.mimeType]) want.push({ file: f, dir: "social-drive", root: DEST });
-    else if (f.mimeType !== FOLDER_MIME) {
-      console.log(`  skipped (not a still image): ${f.name} [${f.mimeType}]`);
+    else if (f.mimeType !== FOLDER_MIME && !VIDEO_RE.test(f.mimeType)) {
+      console.log(`  skipped (not a photo or a video): ${f.name} [${f.mimeType}]`);
     }
   }
+  // Videos: the root and every subfolder except the stories album. A video is
+  // cut into clips once, keyed on its Drive id, and never downloaded again.
+  const videos = files.filter((f) => VIDEO_RE.test(f.mimeType) && !RAW_360.test(f.name));
+  for (const sub of subfolders) {
+    if (storyFolder && sub.id === storyFolder.id) continue;
+    for (const f of await listFolder(token, sub.id)) {
+      if (VIDEO_RE.test(f.mimeType) && !RAW_360.test(f.name)) videos.push(f);
+    }
+  }
+
   if (storyFolder) {
     const inStory = await listFolder(token, storyFolder.id);
     for (const f of inStory) {
@@ -332,12 +353,59 @@ async function main() {
   }
 
   const removed = prune(state, gone);
+  const clips = await syncVideos(token, videos, state);
 
-  console.log(`pulled ${pulled} new photo(s), removed ${removed}`);
+  console.log(`pulled ${pulled} new photo(s), removed ${removed}, cut ${clips} new clip(s)`);
   if (pulled) {
     registerLibraryDir();
     console.log("the 05:00 UTC top-up will queue them; they post the next day");
   }
+}
+
+/**
+ * Cut each new video into clips. The video itself never enters the repo, only
+ * the clips do (8 seconds, silent, a few MB each). A crash mid-way is safe:
+ * state.videos is written after each video, so the next run resumes.
+ */
+async function syncVideos(token, videos, state) {
+  state.videos ??= {};
+  const reels = loadReels();
+  const known = new Set(reels.clips.map((c) => c.source));
+  const todo = videos.filter((v) => !state.videos[v.id] && !known.has(v.name));
+  if (!todo.length) return 0;
+  if (!hasFfmpeg()) {
+    console.log(`  ${todo.length} new video(s), but ffmpeg is not installed here — skipped`);
+    return 0;
+  }
+  let made = 0;
+  for (const v of todo) {
+    if (Number(v.size || 0) > MAX_VIDEO_BYTES) {
+      console.log(`  skipped video over 2.5 GB: ${v.name}`);
+      state.videos[v.id] = { name: v.name, skipped: "too big" };
+      saveState(state);
+      continue;
+    }
+    const tmp = path.join(os.tmpdir(), `drive-${v.id}${path.extname(v.name) || ".mp4"}`);
+    try {
+      const res = await fetch(
+        `https://www.googleapis.com/drive/v3/files/${v.id}?alt=media&supportsAllDrives=true`,
+        { headers: { authorization: `Bearer ${token}` } });
+      if (!res.ok || !res.body) throw new Error(`download ${res.status}`);
+      await pipeline(Readable.fromWeb(res.body), fs.createWriteStream(tmp));   // streamed: videos can be GBs
+      const cut = await cutClips(tmp, v.id.slice(0, 8));
+      for (const c of cut) reels.clips.push({ ...c, source: v.name, driveId: v.id, added: new Date().toISOString() });
+      saveReels(reels);
+      state.videos[v.id] = { name: v.name, clips: cut.length, at: new Date().toISOString() };
+      saveState(state);
+      made += cut.length;
+      console.log(`  video ${v.name}: ${cut.length} clip(s)`);
+    } catch (err) {
+      console.log(`  FAILED video ${v.name}: ${err.message}`);
+    } finally {
+      if (fs.existsSync(tmp)) fs.rmSync(tmp);
+    }
+  }
+  return made;
 }
 
 /** Delete the repo copies of photos that have left the Drive folder. */

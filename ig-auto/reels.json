@@ -1,0 +1,53 @@
+{
+  "clips": [
+    {
+      "clip": "ig/reel-aug13-26-1.mp4",
+      "cover": "ig/reel-aug13-26-1.jpg",
+      "start": 89.5,
+      "len": 6.3,
+      "score": 14.8,
+      "shape": "4:5",
+      "bytes": 7010295,
+      "source": "Video 1080P 13082026.mp4",
+      "added": "2026-09-29T21:08:05.925Z"
+    },
+    {
+      "clip": "ig/reel-aug13-26-2.mp4",
+      "cover": "ig/reel-aug13-26-2.jpg",
+      "start": 64.5,
+      "len": 6.3,
+      "score": 12,
+      "shape": "4:5",
+      "bytes": 7030145,
+      "source": "Video 1080P 13082026.mp4",
+      "added": "2026-09-29T21:08:05.929Z"
+    },
+    {
+      "clip": "ig/reel-aug13-26-3.mp4",
+      "cover": "ig/reel-aug13-26-3.jpg",
+      "start": 14,
+      "len": 8,
+      "score": 11.9,
+      "shape": "4:5",
+      "bytes": 8790056,
+      "source": "Video 1080P 13082026.mp4",
+      "added": "2026-09-29T21:08:05.929Z"
+    },
+    {
+      "clip": "ig/reel-aug13-26-4.mp4",
+      "cover": "ig/reel-aug13-26-4.jpg",
+      "start": 109,
+      "len": 8,
+      "score": 11.3,
+      "shape": "4:5",
+      "bytes": 6429770,
+      "source": "Video 1080P 13082026.mp4",
+      "added": "2026-09-29T21:08:05.929Z"
+    },
+    {
+      "source": "IMG_5394.MOV",
+      "clip": null,
+      "rejected": "only empty sea from the bow, checked by eye 29 Sep 2026"
+    }
+  ]
+}

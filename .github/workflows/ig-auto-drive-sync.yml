@@ -59,6 +59,11 @@ jobs:
         working-directory: ig-auto
         run: npm install --no-audit --no-fund
 
+      # Videos in the Drive folder are cut into Reels with ffmpeg.
+      - name: Install ffmpeg
+        if: steps.gate.outputs.ready == 'yes'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
       - name: Pull new photos
         if: steps.gate.outputs.ready == 'yes'
         working-directory: ig-auto
@@ -82,9 +87,9 @@ jobs:
             echo "no new photos — nothing to commit"
             exit 0
           fi
-          N=$(git status --porcelain social-drive | wc -l | tr -d ' ')
+          N=$(git status --porcelain social-drive ig | wc -l | tr -d ' ')
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "ig-auto: ${N} new photo(s) from the Drive publish folder"
+          git commit -m "ig-auto: ${N} new photo(s) or clip(s) from the Drive publish folder"
           scripts/ci-push.sh

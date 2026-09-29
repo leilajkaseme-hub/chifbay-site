@@ -1,10 +1,10 @@
 {
   "handle": "chifbay",
   "timezone": "Atlantic/Madeira",
-  "queue_target": 12,
-  "queue_low_alert": 5,
-  "story_queue_target": 10,
-  "story_queue_low_alert": 4,
+  "queue_target": 4,
+  "queue_low_alert": 2,
+  "story_queue_target": 4,
+  "story_queue_low_alert": 1,
   "post_jitter_minutes": 90,
   "_comment_mix": "AI is OFF by default. 80+ real photos is months of feed, and a generated picture invites a caption that claims a moment which never happened. Raise ai above 0 only if you accept that trade.",
   "image_source_mix": {
@@ -46,5 +46,8 @@
   "story_dirs": [
     "story-9x16"
   ],
-  "_comment_story_dirs": "Stories come from the 9:16 album, the feed from everything else. A photo that has a 9:16 crop is a story and never a post: the crop keeps the original's filename, so the feed pool skips any stem it finds here."
+  "_comment_story_dirs": "Stories come from the 9:16 album, the feed from everything else. A photo that has a 9:16 crop is a story and never a post: the crop keeps the original's filename, so the feed pool skips any stem it finds here.",
+  "_comment_freshness": "Queues hold 4 days, not 12: a photo dropped in Drive must reach the account within days. slide_reuse_days applies to EVERY photo in a post, cover or swipe; story_reuse_days lets the small 9:16 album come round (stories vanish after 24h). A Reel goes out every other feed post while clips last (lib/reels.mjs cuts them from Drive videos).",
+  "slide_reuse_days": 90,
+  "story_reuse_days": 21
 }

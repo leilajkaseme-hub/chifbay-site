@@ -490,6 +490,31 @@ await check("ci-push.sh is executable and only regenerates the feed plan", () =>
   }
 });
 
+// --- Reels and video stories ------------------------------------------------
+
+await check("a feed video goes out as a Reel with its caption and cover", async () => {
+  const calls = fakeMeta({ readyAfter: 0 });
+  const out = await publish({ kind: "feed", media: "video", url: "https://www.chifbay.com/ig/reel-a-1.mp4",
+    cover_url: "https://www.chifbay.com/ig/reel-a-1.jpg", rendered_caption: "boat" });
+  assert.equal(out.media_id, "MEDIA1");
+  const b = calls.bodies[0];
+  assert.equal(b.media_type, "REELS");
+  assert.equal(b.video_url, "https://www.chifbay.com/ig/reel-a-1.mp4");
+  assert.equal(b.caption, "boat");
+  assert.equal(b.share_to_feed, true);
+  assert.equal(b.cover_url, "https://www.chifbay.com/ig/reel-a-1.jpg");
+  assert.ok(!("image_url" in b), "a Reel must not send image_url");
+});
+
+await check("a video story goes out as STORIES with no caption", async () => {
+  const calls = fakeMeta({ readyAfter: 0 });
+  await publish({ kind: "story", media: "video", url: "https://www.chifbay.com/ig/reel-a-1.mp4", rendered_caption: "x" });
+  const b = calls.bodies[0];
+  assert.equal(b.media_type, "STORIES");
+  assert.equal(b.video_url, "https://www.chifbay.com/ig/reel-a-1.mp4");
+  assert.ok(!("caption" in b), "a story cannot carry a caption");
+});
+
 // ----------------------------------------------------------------------------
 
 if (failures.length) {

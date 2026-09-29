@@ -154,9 +154,14 @@ export function writeCaption({ imagePath, angleHint, recent, source = "library" 
         "morning', no 'right off our side', no guests, no first-person story.",
         "Write about the place or the feeling in general terms instead.",
       ]
-    : [
-        "This is a real photo from one of our trips.",
-      ];
+    : source === "video"
+      ? [
+          "This is one frame of a short real video from one of our trips; the",
+          "post is an 8 second Reel of that moment. Write for the video, keep it short.",
+        ]
+      : [
+          "This is a real photo from one of our trips.",
+        ];
 
   const prompt = [
     `Read the image at ${imagePath}, then write ONE Instagram caption for it.`,
