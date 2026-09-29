@@ -65,7 +65,7 @@
 
 <header class="hero sub">
   <div class="hero-media">
-    <div class="hbg" role="img" aria-label="Eau turquoise dans une crique secrète de la côte sud de Madère, vue depuis un bateau privé Chifbay" style="background-image:url('../assets/exp-coves.jpg')"></div>
+    <div class="hbg hbg-day" role="img" aria-label="Eau turquoise dans une crique secrète de la côte sud de Madère, vue depuis un bateau privé Chifbay"></div>
   </div>
   <div class="hov"></div>
   <div class="wrap-w hc">
@@ -216,6 +216,28 @@
   </div>
 </section>
 
+<!-- media-included -->
+<section class="chapter minc" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cl">Inclus</span></div>
+    <h2 class="display reveal" style="font-size:clamp(1.9rem,3.6vw,3.1rem);max-width:18ch">Vous repartez avec <em>toute la sortie</em> en images</h2>
+    <p class="minc-lead reveal d1">Rien à payer en plus, rien à préparer. Nous filmons et photographions la sortie et nous vous envoyons tout après.</p>
+    <div class="minc-grid">
+      <figure class="mi reveal" style="background:url('../assets/media/drone-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/drone-poster.jpg" data-src="../assets/media/drone.mp4"></video><figcaption><span class="mi-k">Inclus</span><b>Vidéo drone</b><span class="mi-d">Filmée du ciel, au dessus de Cabo Girão et des criques.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('../assets/media/insta360-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/insta360-poster.jpg" data-src="../assets/media/insta360.mp4"></video><figcaption><span class="mi-k">Inclus</span><b>Vidéo Insta360</b><span class="mi-d">Des images à 360° prises à bord, recadrées pour que vous soyez dans chaque plan.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('../assets/media/phone.jpg') center/cover"><img src="../assets/media/phone.jpg" alt="" loading="lazy" decoding="async"><figcaption><span class="mi-k">Inclus</span><b>Photos au téléphone</b><span class="mi-d">Des photos à bord pendant toute la sortie, envoyées après.</span></figcaption></figure>
+    </div>
+  </div>
+<script>
+(function(){var vs=document.querySelectorAll('.minc video[data-src]');if(!vs.length)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+function go(v){if(!v.src){v.src=v.getAttribute('data-src');}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+if(!('IntersectionObserver' in window)){vs.forEach(go);return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go(e.target);}else if(e.target.src){e.target.pause();}});},{rootMargin:'200px'});
+vs.forEach(function(v){io.observe(v);});})();
+</script>
+</section>
+<!-- /media-included -->
 <section class="reserve" id="reserve">
   <div class="im" style="background-image:url('../assets/exp-coves.jpg')"></div>
   <div class="ov"></div>

@@ -316,6 +316,28 @@
 </div>
 
 <!-- SIGNATURE MOMENT — Cabo Girão full-bleed + route -->
+<!-- media-included -->
+<section class="chapter minc" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cl">Incluído</span></div>
+    <h2 class="display reveal" style="font-size:clamp(1.9rem,3.6vw,3.1rem);max-width:18ch">Leva <em>o passeio inteiro</em> em imagens</h2>
+    <p class="minc-lead reveal d1">Sem custo extra e nada a preparar. Filmamos e fotografamos o passeio e enviamos tudo depois.</p>
+    <div class="minc-grid">
+      <figure class="mi reveal" style="background:url('../assets/media/drone-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/drone-poster.jpg" data-src="../assets/media/drone.mp4"></video><figcaption><span class="mi-k">Incluído</span><b>Vídeo de drone</b><span class="mi-d">Filmado do alto, sobre o Cabo Girão e as enseadas.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('../assets/media/insta360-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/insta360-poster.jpg" data-src="../assets/media/insta360.mp4"></video><figcaption><span class="mi-k">Incluído</span><b>Vídeo Insta360</b><span class="mi-d">Imagens a 360° a bordo, reenquadradas para estar em todos os planos.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('../assets/media/phone.jpg') center/cover"><img src="../assets/media/phone.jpg" alt="" loading="lazy" decoding="async"><figcaption><span class="mi-k">Incluído</span><b>Fotos no telemóvel</b><span class="mi-d">Fotos a bordo durante todo o passeio, enviadas depois.</span></figcaption></figure>
+    </div>
+  </div>
+<script>
+(function(){var vs=document.querySelectorAll('.minc video[data-src]');if(!vs.length)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+function go(v){if(!v.src){v.src=v.getAttribute('data-src');}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+if(!('IntersectionObserver' in window)){vs.forEach(go);return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go(e.target);}else if(e.target.src){e.target.pause();}});},{rootMargin:'200px'});
+vs.forEach(function(v){io.observe(v);});})();
+</script>
+</section>
+<!-- /media-included -->
 <section class="bleed">
   <div class="im" data-parallax="6" style="background-image:url('../assets/g-cliff-portrait.jpg')"></div>
   <div class="ov"></div>
@@ -373,9 +395,9 @@
     <h2 class="display reveal" data-mask style="font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:40px">A Madeira vista do mar</h2>
     <div class="gal reveal">
       <a href="experiences"><img loading="lazy" decoding="async" src="../assets/hero.jpg" alt="Um barco privado Chifbay a navegar ao largo do Funchal, Madeira, na hora dourada"></a>
-      <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/exp-coves.jpg" alt="Snorkeling numa enseada escondida turquesa na costa da Madeira"></a>
+      <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/exp-coves.jpg" alt="Vista de drone do barco Chifbay ancorado em água turquesa, duas convidadas no solário e uma num paddle"></a>
       <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/g-cliff-portrait.jpg" alt="A falésia do Cabo Girão erguendo-se 580 metros acima do Atlântico, Madeira"></a>
-      <a href="sunset-cruise"><img loading="lazy" decoding="async" src="../assets/exp-sunset.jpg" alt="Vinho ao pôr do sol a bordo de um barco privado na costa sul da Madeira"></a>
+      <a href="sunset-cruise"><img loading="lazy" decoding="async" src="../assets/exp-sunset.jpg" alt="Uma convidada no solário da proa do barco Chifbay ao pôr do sol, na costa sul da Madeira"></a>
       <a href="experiences"><img loading="lazy" decoding="async" src="../assets/dolphins.jpg" alt="Golfinhos selvagens a nadar junto a um barco privado Chifbay na Madeira"></a>
       <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/exp-coastal.jpg" alt="A vila piscatória de Câmara de Lobos vista do mar, Madeira"></a>
       <a href="experiences"><img loading="lazy" decoding="async" src="../assets/pool-turquoise.jpg" alt="Uma piscina natural vulcânica na costa da Madeira"></a>

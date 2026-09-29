@@ -49,6 +49,7 @@
     time: null,
     availability: {},
     month: null,       // first day of the month being shown, as YYYY-MM-01
+    prefill: null,     // validated app handoff, consumed after live availability
     checkout: null,    // the mounted Stripe embedded checkout
   };
 
@@ -550,11 +551,24 @@
     var to = addDays(from, ahead);
     state.month = from.slice(0, 8) + "01";
     $("#bkcal").innerHTML = '<p class="bkload">' + esc(t("ui.checking")) + "</p>";
+    var requestedTrip = state.trip, requestedVariant = state.variant;
     api("/v1/availability?trip=" + encodeURIComponent(state.trip) +
         "&variant=" + encodeURIComponent(state.variant) +
         "&from=" + from + "&to=" + to)
       .then(function (res) {
-        state.availability = applyClosures(res.days || {}, state.trip);
+        // An older request must not replace a newly selected trip's dates.
+        if (state.trip !== requestedTrip || state.variant !== requestedVariant) return;
+        state.availability = applyClosures(res.days || {}, requestedTrip);
+        var prefill = state.prefill;
+        state.prefill = null;
+        if (prefill && prefill.trip === state.trip && prefill.variant === state.variant) {
+          var slots = state.availability[prefill.date] || [];
+          if (slots.length) {
+            state.date = prefill.date;
+            state.month = prefill.date.slice(0, 8) + "01";
+            state.time = slots.indexOf(prefill.time) !== -1 ? prefill.time : null;
+          }
+        }
         renderCalendar();
       })
       .catch(function (e) {
@@ -875,11 +889,25 @@
         $("#bkloading").hidden = true;
         $("#bkflow").hidden = false;
 
-        // ?v=cabo-girao — came from a "Book 2h" button, so skip the picker.
-        var want = /[?&]v=([a-z0-9-]+)/i.exec(location.search);
-        if (want) {
-          var hit = offers().filter(function (o2) { return o2.varId === want[1].toLowerCase(); })[0];
-          if (hit) select(hit.tripId, hit.varId);
+        // Native app handoff and existing ?v= links share the live catalogue.
+        // URL values never override prices, capacity or available departures.
+        var params = new URLSearchParams(location.search);
+        var tripHint = params.get("trip");
+        var variantHint = params.get("variant") || params.get("v");
+        var hit = offers().filter(function (offer) {
+          return offer.varId === variantHint && (!tripHint || offer.tripId === tripHint);
+        })[0];
+        if (hit) {
+          var dateHint = params.get("date") || "";
+          var timeHint = params.get("time") || "";
+          var guestHint = Number(params.get("guests"));
+          if (Number.isInteger(guestHint) && guestHint >= 1 && guestHint <= cat.maxGuests) {
+            g.value = String(guestHint);
+          }
+          if (/^\d{4}-\d{2}-\d{2}$/.test(dateHint)) {
+            state.prefill = { trip: hit.tripId, variant: hit.varId, date: dateHint, time: timeHint };
+          }
+          select(hit.tripId, hit.varId);
         }
       })
       .catch(function () {

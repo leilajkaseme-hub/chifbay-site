@@ -1,0 +1,138 @@
+{
+ "version": 1,
+ "updated": "2026-09-29",
+ "photos": [
+  {
+   "src": "/assets/gallery/g01.jpg",
+   "thumb": "/assets/gallery/g01-t.jpg",
+   "w": 607,
+   "h": 1080
+  },
+  {
+   "src": "/assets/gallery/g02.jpg",
+   "thumb": "/assets/gallery/g02-t.jpg",
+   "w": 1080,
+   "h": 808
+  },
+  {
+   "src": "/assets/gallery/g03.jpg",
+   "thumb": "/assets/gallery/g03-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g04.jpg",
+   "thumb": "/assets/gallery/g04-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g05.jpg",
+   "thumb": "/assets/gallery/g05-t.jpg",
+   "w": 607,
+   "h": 1080
+  },
+  {
+   "src": "/assets/gallery/g06.jpg",
+   "thumb": "/assets/gallery/g06-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g07.jpg",
+   "thumb": "/assets/gallery/g07-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g08.jpg",
+   "thumb": "/assets/gallery/g08-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g09.jpg",
+   "thumb": "/assets/gallery/g09-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g10.jpg",
+   "thumb": "/assets/gallery/g10-t.jpg",
+   "w": 1080,
+   "h": 809
+  },
+  {
+   "src": "/assets/gallery/g11.jpg",
+   "thumb": "/assets/gallery/g11-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g12.jpg",
+   "thumb": "/assets/gallery/g12-t.jpg",
+   "w": 810,
+   "h": 1080
+  },
+  {
+   "src": "/assets/gallery/g13.jpg",
+   "thumb": "/assets/gallery/g13-t.jpg",
+   "w": 1080,
+   "h": 808
+  },
+  {
+   "src": "/assets/gallery/g14.jpg",
+   "thumb": "/assets/gallery/g14-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g15.jpg",
+   "thumb": "/assets/gallery/g15-t.jpg",
+   "w": 607,
+   "h": 1080
+  },
+  {
+   "src": "/assets/gallery/g16.jpg",
+   "thumb": "/assets/gallery/g16-t.jpg",
+   "w": 607,
+   "h": 1080
+  },
+  {
+   "src": "/assets/gallery/g17.jpg",
+   "thumb": "/assets/gallery/g17-t.jpg",
+   "w": 607,
+   "h": 1080
+  },
+  {
+   "src": "/assets/gallery/g18.jpg",
+   "thumb": "/assets/gallery/g18-t.jpg",
+   "w": 1080,
+   "h": 809
+  },
+  {
+   "src": "/assets/gallery/g19.jpg",
+   "thumb": "/assets/gallery/g19-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g20.jpg",
+   "thumb": "/assets/gallery/g20-t.jpg",
+   "w": 1080,
+   "h": 810
+  },
+  {
+   "src": "/assets/gallery/g21.jpg",
+   "thumb": "/assets/gallery/g21-t.jpg",
+   "w": 810,
+   "h": 1080
+  },
+  {
+   "src": "/assets/gallery/g22.jpg",
+   "thumb": "/assets/gallery/g22-t.jpg",
+   "w": 607,
+   "h": 1080
+  }
+ ]
+}

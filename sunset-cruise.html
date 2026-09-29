@@ -213,6 +213,28 @@
   </div>
 </section>
 
+<!-- media-included -->
+<section class="chapter minc" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cl">Included</span></div>
+    <h2 class="display reveal" style="font-size:clamp(1.9rem,3.6vw,3.1rem);max-width:18ch">You leave with <em>the whole trip</em> on film</h2>
+    <p class="minc-lead reveal d1">Nothing extra to pay and nothing to set up. We film and photograph the trip and send it all to you after.</p>
+    <div class="minc-grid">
+      <figure class="mi reveal" style="background:url('assets/media/drone-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="assets/media/drone-poster.jpg" data-src="assets/media/drone.mp4"></video><figcaption><span class="mi-k">Included</span><b>Drone video</b><span class="mi-d">Filmed from above, over Cabo Girão and the coves.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('assets/media/insta360-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="assets/media/insta360-poster.jpg" data-src="assets/media/insta360.mp4"></video><figcaption><span class="mi-k">Included</span><b>Insta360 video</b><span class="mi-d">360° footage from on board, reframed so you are in every shot.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('assets/media/phone.jpg') center/cover"><img src="assets/media/phone.jpg" alt="" loading="lazy" decoding="async"><figcaption><span class="mi-k">Included</span><b>Phone photos</b><span class="mi-d">Photos on board through the whole trip, sent to you after.</span></figcaption></figure>
+    </div>
+  </div>
+<script>
+(function(){var vs=document.querySelectorAll('.minc video[data-src]');if(!vs.length)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+function go(v){if(!v.src){v.src=v.getAttribute('data-src');}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+if(!('IntersectionObserver' in window)){vs.forEach(go);return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go(e.target);}else if(e.target.src){e.target.pause();}});},{rootMargin:'200px'});
+vs.forEach(function(v){io.observe(v);});})();
+</script>
+</section>
+<!-- /media-included -->
 <section class="reserve" id="reserve">
   <div class="im" style="background-image:url('assets/exp-sunset.jpg')"></div>
   <div class="ov"></div>

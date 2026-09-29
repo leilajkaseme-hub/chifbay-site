@@ -316,6 +316,28 @@
 </div>
 
 <!-- SIGNATURE MOMENT — Cabo Girão full-bleed + route -->
+<!-- media-included -->
+<section class="chapter minc" style="padding-top:0">
+  <div class="wrap-w">
+    <div class="chead reveal"><span class="cl">Inclus</span></div>
+    <h2 class="display reveal" style="font-size:clamp(1.9rem,3.6vw,3.1rem);max-width:18ch">Vous repartez avec <em>toute la sortie</em> en images</h2>
+    <p class="minc-lead reveal d1">Rien à payer en plus, rien à préparer. Nous filmons et photographions la sortie et nous vous envoyons tout après.</p>
+    <div class="minc-grid">
+      <figure class="mi reveal" style="background:url('../assets/media/drone-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/drone-poster.jpg" data-src="../assets/media/drone.mp4"></video><figcaption><span class="mi-k">Inclus</span><b>Vidéo drone</b><span class="mi-d">Filmée du ciel, au dessus de Cabo Girão et des criques.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('../assets/media/insta360-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/insta360-poster.jpg" data-src="../assets/media/insta360.mp4"></video><figcaption><span class="mi-k">Inclus</span><b>Vidéo Insta360</b><span class="mi-d">Des images à 360° prises à bord, recadrées pour que vous soyez dans chaque plan.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('../assets/media/phone.jpg') center/cover"><img src="../assets/media/phone.jpg" alt="" loading="lazy" decoding="async"><figcaption><span class="mi-k">Inclus</span><b>Photos au téléphone</b><span class="mi-d">Des photos à bord pendant toute la sortie, envoyées après.</span></figcaption></figure>
+    </div>
+  </div>
+<script>
+(function(){var vs=document.querySelectorAll('.minc video[data-src]');if(!vs.length)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+function go(v){if(!v.src){v.src=v.getAttribute('data-src');}var p=v.play();if(p&&p.catch)p.catch(function(){});}
+if(!('IntersectionObserver' in window)){vs.forEach(go);return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go(e.target);}else if(e.target.src){e.target.pause();}});},{rootMargin:'200px'});
+vs.forEach(function(v){io.observe(v);});})();
+</script>
+</section>
+<!-- /media-included -->
 <section class="bleed">
   <div class="im" data-parallax="6" style="background-image:url('../assets/g-cliff-portrait.jpg')"></div>
   <div class="ov"></div>
@@ -373,9 +395,9 @@
     <h2 class="display reveal" data-mask style="font-size:clamp(1.9rem,3.6vw,3rem);margin-bottom:40px">Madère vue de la mer</h2>
     <div class="gal reveal">
       <a href="experiences"><img loading="lazy" decoding="async" src="../assets/hero.jpg" alt="Un bateau privé Chifbay naviguant au large de Funchal, Madère, à l'heure dorée"></a>
-      <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/exp-coves.jpg" alt="Séance de snorkeling dans une crique turquoise cachée sur la côte de Madère"></a>
+      <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/exp-coves.jpg" alt="Vue drone du bateau Chifbay au mouillage dans une eau turquoise, deux invitées sur le bain de soleil et une sur un paddle"></a>
       <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/g-cliff-portrait.jpg" alt="La falaise de Cabo Girão s'élevant à 580 mètres au-dessus de l'Atlantique, Madère"></a>
-      <a href="sunset-cruise"><img loading="lazy" decoding="async" src="../assets/exp-sunset.jpg" alt="Un verre de vin au coucher du soleil à bord d'un bateau privé au large de la côte sud de Madère"></a>
+      <a href="sunset-cruise"><img loading="lazy" decoding="async" src="../assets/exp-sunset.jpg" alt="Une invitée sur le bain de soleil avant du bateau Chifbay au coucher du soleil, au large de la côte sud de Madère"></a>
       <a href="experiences"><img loading="lazy" decoding="async" src="../assets/dolphins.jpg" alt="Des dauphins sauvages nageant aux côtés d'un bateau privé Chifbay à Madère"></a>
       <a href="hidden-coves-half-day"><img loading="lazy" decoding="async" src="../assets/exp-coastal.jpg" alt="Le village de pêcheurs de Câmara de Lobos vu depuis la mer, Madère"></a>
       <a href="experiences"><img loading="lazy" decoding="async" src="../assets/pool-turquoise.jpg" alt="Une piscine naturelle volcanique sur le littoral de Madère"></a>
