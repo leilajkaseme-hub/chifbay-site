@@ -1,5 +1,26 @@
 [
   {
+    "slug": "laurisilva-forest-madeira-guide",
+    "title": "Forêt Laurisilva à Madère : randonnées et infos pratiques",
+    "category": "Nature",
+    "date": "2026-09-29",
+    "description": "La forêt Laurisilva de Madère, classée UNESCO : essences, meilleures randonnées le long des levadas, quand y aller et comment l'associer à une sortie en bateau.",
+    "heroImage": "assets/madeira-peaks.jpg",
+    "heroAlt": "Sunrise over the dramatic mountain peaks of Pico do Arieiro, Madeira",
+    "readingMinutes": 5,
+    "keywords": [
+      "Laurisilva Madeira",
+      "Madeira laurel forest",
+      "Madeira UNESCO forest",
+      "Laurisilva walks",
+      "Caldeirão Verde levada",
+      "Rabaçal 25 Fontes",
+      "Fanal forest Madeira",
+      "Madeira nature guide"
+    ],
+    "lang": "fr"
+  },
+  {
     "slug": "trans-madeira-2026-enduro-race-guide",
     "title": "Trans Madeira 2026 : la course d'enduro VTT en 6 jours à Madère",
     "category": "What's On",
@@ -1283,6 +1304,29 @@
       "Madeira crater village",
       "Festa da Castanha Madeira",
       "PR12 Caminho Real da Encumeada",
+      "things to do in Madeira nature"
+    ],
+    "lang": "fr"
+  },
+  {
+    "slug": "top-10-waterfalls-in-madeira",
+    "title": "Top 10 des cascades de Madère et comment y accéder",
+    "category": "Top 10",
+    "date": "2026-07-31",
+    "description": "Où voir les plus belles cascades de Madère, faut-il marcher des heures ? Le top 10 des cascades de l'île, de Risco et 25 Fontes à Cascata dos Anjos.",
+    "heroImage": "assets/journal/top-10-waterfalls-in-madeira-hero.jpg",
+    "heroAlt": "Top 10 Waterfalls in Madeira (And How to Reach Them) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "waterfalls in Madeira",
+      "best waterfalls Madeira",
+      "Risco Waterfall",
+      "25 Fontes Madeira",
+      "Caldeirao Verde waterfall",
+      "Veu da Noiva Madeira",
+      "Cascata dos Anjos",
+      "Madeira levada waterfalls",
+      "SIMplifica Madeira booking",
       "things to do in Madeira nature"
     ],
     "lang": "fr"

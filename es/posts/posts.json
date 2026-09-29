@@ -1,5 +1,26 @@
 [
   {
+    "slug": "laurisilva-forest-madeira-guide",
+    "title": "Laurisilva de Madeira: qué es y dónde hacer senderismo",
+    "category": "Nature",
+    "date": "2026-09-29",
+    "description": "¿Qué es la Laurisilva? Guía práctica del bosque de laurisilva de Madeira, Patrimonio de la UNESCO: flora, mejores rutas por levadas, cuándo ir y cómo combinarlo con el mar.",
+    "heroImage": "assets/madeira-peaks.jpg",
+    "heroAlt": "Sunrise over the dramatic mountain peaks of Pico do Arieiro, Madeira",
+    "readingMinutes": 5,
+    "keywords": [
+      "Laurisilva Madeira",
+      "Madeira laurel forest",
+      "Madeira UNESCO forest",
+      "Laurisilva walks",
+      "Caldeirão Verde levada",
+      "Rabaçal 25 Fontes",
+      "Fanal forest Madeira",
+      "Madeira nature guide"
+    ],
+    "lang": "es"
+  },
+  {
     "slug": "trans-madeira-2026-enduro-race-guide",
     "title": "Trans Madeira 2026: la carrera de enduro BTT de 6 días de la isla",
     "category": "What's On",

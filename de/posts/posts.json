@@ -1,5 +1,26 @@
 [
   {
+    "slug": "laurisilva-forest-madeira-guide",
+    "title": "Laurisilva Madeira: Was der Lorbeerwald ist und wo man ihn erwandert",
+    "category": "Nature",
+    "date": "2026-09-29",
+    "description": "Was ist die Laurisilva? Ratgeber zum UNESCO-Lorbeerwald auf Madeira: Pflanzen, schönste Levada-Wanderungen, beste Reisezeit und Tipps für Bootstour.",
+    "heroImage": "assets/madeira-peaks.jpg",
+    "heroAlt": "Sunrise over the dramatic mountain peaks of Pico do Arieiro, Madeira",
+    "readingMinutes": 5,
+    "keywords": [
+      "Laurisilva Madeira",
+      "Madeira laurel forest",
+      "Madeira UNESCO forest",
+      "Laurisilva walks",
+      "Caldeirão Verde levada",
+      "Rabaçal 25 Fontes",
+      "Fanal forest Madeira",
+      "Madeira nature guide"
+    ],
+    "lang": "de"
+  },
+  {
     "slug": "trans-madeira-2026-enduro-race-guide",
     "title": "Trans Madeira 2026: Das 6-tägige Enduro-Mountainbike-Rennen der Insel",
     "category": "What's On",
@@ -1283,6 +1304,29 @@
       "Madeira crater village",
       "Festa da Castanha Madeira",
       "PR12 Caminho Real da Encumeada",
+      "things to do in Madeira nature"
+    ],
+    "lang": "de"
+  },
+  {
+    "slug": "top-10-waterfalls-in-madeira",
+    "title": "Wasserfälle auf Madeira: Die 10 schönsten und wie man sie erreicht",
+    "category": "Top 10",
+    "date": "2026-07-31",
+    "description": "Wo liegen Madeiras schönste Wasserfälle – und muss man stundenlang wandern? Die zehn spektakulärsten Wasserfälle von Risco und 25 Fontes bis Cascata dos Anjos.",
+    "heroImage": "assets/journal/top-10-waterfalls-in-madeira-hero.jpg",
+    "heroAlt": "Top 10 Waterfalls in Madeira (And How to Reach Them) — Chifbay Journal",
+    "readingMinutes": 7,
+    "keywords": [
+      "waterfalls in Madeira",
+      "best waterfalls Madeira",
+      "Risco Waterfall",
+      "25 Fontes Madeira",
+      "Caldeirao Verde waterfall",
+      "Veu da Noiva Madeira",
+      "Cascata dos Anjos",
+      "Madeira levada waterfalls",
+      "SIMplifica Madeira booking",
       "things to do in Madeira nature"
     ],
     "lang": "de"
