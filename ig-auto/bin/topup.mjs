@@ -222,14 +222,17 @@ async function buildReel({ context, kind }) {
   if (!found) return null;
   const { reels, clip } = found;
   const id = newId();
+  // The apex host, not www: www answers 301 to chifbay.com, and Meta fetches a
+  // video_url without following redirects as reliably as it does for photos.
+  const base = config.public_base.replace("://www.", "://");
   const caption = kind === "feed"
     ? writeCaption({ imagePath: join(SITE_ROOT, clip.cover), angleHint: pickAngle(context), recent: context, source: "video" })
     : null;
   const item = {
     id, kind, media: "video", created: new Date().toISOString(), source: "video",
     origin: clip.clip, image: clip.clip,
-    url: `${config.public_base}/${clip.clip.split("/").pop()}`,
-    cover_url: `${config.public_base}/${clip.cover.split("/").pop()}`,
+    url: `${base}/${clip.clip.split("/").pop()}`,
+    cover_url: `${base}/${clip.cover.split("/").pop()}`,
     angle: caption ? caption.angle : "video", priority: 0,
     ...(caption ? { caption: caption.text, hashtags: caption.hashtags, rendered_caption: render(caption), writer: caption.writer } : {}),
   };
