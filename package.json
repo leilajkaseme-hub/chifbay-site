@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "check:seo": "node scripts/checks/verify-seo.mjs",
+    "test:seo": "node --test scripts/checks/post-url.test.mjs",
     "check:nav": "node scripts/check-nav.mjs"
   }
 }

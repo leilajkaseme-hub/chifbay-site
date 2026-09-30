@@ -50,6 +50,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { postUrl } from "./post-url.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const BASE = "https://chifbay.com";
@@ -115,7 +116,7 @@ function deepenPaths(html) {
 }
 
 function setDocMeta(html, lang, slug) {
-  const url = `${BASE}/${lang}/posts/${slug}.html`;
+  const url = postUrl(ROOT, slug, lang);
   const enUrl = `${BASE}/posts/${slug}.html`;
   let out = html.replace(/<html lang="[^"]*"/, `<html lang="${lang}"`);
 
@@ -133,8 +134,10 @@ function setDocMeta(html, lang, slug) {
     : out.replace(/<\/head>/, `<meta property="og:locale" content="${lang}"/>\n</head>`);
 
   // JSON-LD mainEntityOfPage still claims the English URL after translation
-  out = out.replace(new RegExp(escapeRe(`"mainEntityOfPage":"${enUrl}"`), "g"),
-    `"mainEntityOfPage":"${url}"`);
+  for (const source of [enUrl, enUrl.slice(0, -5)]) {
+    out = out.replace(new RegExp(escapeRe(`"mainEntityOfPage":"${source}"`), "g"),
+      `"mainEntityOfPage":"${url}"`);
+  }
 
   return out;
 }
@@ -144,13 +147,13 @@ const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 /** hreflang block covering English + every language that really has the file.
  *  Claiming a translation that does not exist is worse than claiming none. */
 function hreflangBlock(slug) {
-  const rows = [`<link rel="alternate" hreflang="en" href="${BASE}/posts/${slug}.html"/>`];
+  const rows = [`<link rel="alternate" hreflang="en" href="${postUrl(ROOT, slug)}"/>`];
   for (const lang of Object.keys(LANGS)) {
     if (fs.existsSync(path.join(ROOT, lang, "posts", `${slug}.html`))) {
-      rows.push(`<link rel="alternate" hreflang="${lang}" href="${BASE}/${lang}/posts/${slug}.html"/>`);
+      rows.push(`<link rel="alternate" hreflang="${lang}" href="${postUrl(ROOT, slug, lang)}"/>`);
     }
   }
-  rows.push(`<link rel="alternate" hreflang="x-default" href="${BASE}/posts/${slug}.html"/>`);
+  rows.push(`<link rel="alternate" hreflang="x-default" href="${postUrl(ROOT, slug)}"/>`);
   return rows.join("\n");
 }
 
@@ -266,7 +269,7 @@ function updateSitemap() {
     const dir = path.join(ROOT, lang, "posts");
     if (!fs.existsSync(dir)) continue;
     for (const f of fs.readdirSync(dir)) {
-      if (f.endsWith(".html")) urls.push(`${BASE}/${lang}/posts/${f}`);
+      if (f.endsWith(".html")) urls.push(postUrl(ROOT, f.slice(0, -5), lang));
     }
   }
   urls.sort();
