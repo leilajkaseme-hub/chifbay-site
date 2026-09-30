@@ -54,6 +54,18 @@
       "source": "IMG_5394.MOV",
       "clip": null,
       "rejected": "only empty sea from the bow, checked by eye 29 Sep 2026"
+    },
+    {
+      "clip": "ig/reel-1oOzCHix-1.mp4",
+      "cover": "ig/reel-1oOzCHix-1.jpg",
+      "start": 0.8,
+      "len": 6.8,
+      "score": 10.5,
+      "shape": "9:16",
+      "bytes": 5801038,
+      "source": "VIDEO-2026-09-20-12-51-19.mp4",
+      "driveId": "1oOzCHixg_EoECj_8xamd5_mFH_bdiiRZ",
+      "added": "2026-09-30T10:41:04.520Z"
     }
   ]
 }

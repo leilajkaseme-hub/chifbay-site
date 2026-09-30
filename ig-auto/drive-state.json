@@ -430,5 +430,41 @@
       "createdTime": "2026-09-23T18:13:29.262Z",
       "pulledAt": "2026-09-24T09:26:32.968Z"
     }
+  },
+  "videos": {
+    "1RMIiqmnYZGiOCT5vP_V2MR-amDZ9VvJr": {
+      "name": "VIDEO-2026-09-19-21-08-18.mp4",
+      "clips": 0,
+      "at": "2026-09-30T10:40:49.892Z"
+    },
+    "1e-Nx5-YMwlfCCm0wMNsdyMiNlYAyYFb4": {
+      "name": "VIDEO-2026-09-20-12-51-16.mp4",
+      "clips": 0,
+      "at": "2026-09-30T10:40:50.996Z"
+    },
+    "1oOzCHixg_EoECj_8xamd5_mFH_bdiiRZ": {
+      "name": "VIDEO-2026-09-20-12-51-19.mp4",
+      "clips": 1,
+      "at": "2026-09-30T10:41:04.520Z"
+    },
+    "1loLPxi5TKlr4riIPl4nNh7w4V23egIjh": {
+      "name": "VIDEO-2026-09-20-12-51-19.mp4",
+      "clips": 0,
+      "at": "2026-09-30T10:41:05.527Z"
+    },
+    "1gMGo-TgitWRFBhqLjujXw8x9GtV8OiA1": {
+      "name": "DJI_20260924185451_0079_D.MP4",
+      "clips": 0,
+      "at": "2026-09-30T10:41:09.098Z"
+    },
+    "1Qs5gLKLXNnBpStivKw6QTCpdTPpVLx2-": {
+      "name": "DJI_20260924185527_0080_D.MP4",
+      "skipped": "too big"
+    },
+    "1--mKE285UjrN9TD0hP7CTjr9W35Tsu4J": {
+      "name": "DJI_20260924185451_0079_D (1).MP4",
+      "clips": 0,
+      "at": "2026-09-30T10:41:11.745Z"
+    }
   }
 }
