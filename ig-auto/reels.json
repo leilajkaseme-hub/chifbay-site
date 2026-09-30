@@ -65,7 +65,10 @@
       "bytes": 5801038,
       "source": "VIDEO-2026-09-20-12-51-19.mp4",
       "driveId": "1oOzCHixg_EoECj_8xamd5_mFH_bdiiRZ",
-      "added": "2026-09-30T10:41:04.520Z"
+      "added": "2026-09-30T10:41:04.520Z",
+      "used": {
+        "story": 1790765214707
+      }
     }
   ]
 }
