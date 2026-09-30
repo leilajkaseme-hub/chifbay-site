@@ -1,5 +1,26 @@
 [
   {
+    "slug": "top-10-things-to-do-in-funchal",
+    "title": "Top 10 Things to Do in Funchal: A Local's Guide to Madeira's Capital",
+    "category": "Top 10",
+    "date": "2026-09-30",
+    "description": "The 10 best things to do in Funchal, Madeira — old town, Mercado dos Lavradores, Monte, cable car, the marina and a private boat trip along the south coast.",
+    "heroImage": "assets/hero.jpg",
+    "heroAlt": "A private Chifbay boat off the Funchal coast at golden hour",
+    "readingMinutes": 5,
+    "keywords": [
+      "things to do in Funchal",
+      "top 10 Funchal",
+      "Funchal attractions",
+      "Funchal old town",
+      "Mercado dos Lavradores",
+      "Monte cable car Funchal",
+      "Funchal boat trip",
+      "Funchal in one day",
+      "Madeira capital guide"
+    ]
+  },
+  {
     "slug": "laurisilva-forest-madeira-guide",
     "title": "Laurisilva Forest in Madeira: What It Is and Where to Walk It",
     "category": "Nature",
