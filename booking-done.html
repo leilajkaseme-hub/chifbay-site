@@ -93,11 +93,11 @@
 
       // The money event. Wix used to fire this; now it happens here.
       // Guarded by sessionStorage so a page refresh cannot count twice.
+      function trackPurchase() {
       try {
         // A test payment is a real charge but not a real sale. Keeping it out
         // of the reports matters more than counting it.
-        if (!res.test && !sessionStorage.getItem("cb_purchase_" + id)) {
-          sessionStorage.setItem("cb_purchase_" + id, "1");
+        if (!res.test && window.cbTrack && !sessionStorage.getItem("cb_purchase_" + id)) {
           var value = (res.amount || 0) / 100;
           if (window.cbTrack) {
             window.cbTrack("purchase", "Purchase", {
@@ -107,6 +107,7 @@
               item_name: b.label || b.variant || "",
             });
           }
+          sessionStorage.setItem("cb_purchase_" + id, "1");
           var cfg = window.cbCfg || {};
           if (window.gtag && cfg.googleAdsId && cfg.adsPurchaseLabel) {
             // Enhanced Conversions: gtag hashes this client-side before it
@@ -129,6 +130,12 @@
           }
         }
       } catch (e) { /* tracking must never break the confirmation */ }
+
+      }
+      // Deferred tracking scripts finish before DOMContentLoaded. A fast
+      // session response must not mark a purchase sent before they are ready.
+      if (window.cbTrack || document.readyState === "complete") trackPurchase();
+      else document.addEventListener("DOMContentLoaded", trackPurchase, { once: true });
 
       // Le numero WhatsApp de Chifbay, celui deja affiche partout sur le site.
       function waHref(bk, prettyDay) {
