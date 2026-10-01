@@ -331,7 +331,7 @@
           '<stop offset="0%" stop-color="#0a1b2c"/><stop offset="100%" stop-color="#050f18"/>' +
         "</linearGradient>" +
       "</defs>" +
-      '<rect x="0" y="86" width="900" height="158" fill="url(#bkmsea)"/>' +
+      '<rect class="bkmseabg" x="0" y="86" width="900" height="158" fill="url(#bkmsea)"/>' +
       // The mountains behind, then the coastline itself — both traced through
       // TERRAIN via the SAME mapX() as the stop markers, so the one peak in
       // the skyline always lands exactly over the Cabo Girão dot, whatever

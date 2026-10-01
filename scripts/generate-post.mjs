@@ -225,8 +225,9 @@ function renderPost(d, dateISO) {
 function addToSitemap(slug) {
   if (!fs.existsSync(SITEMAP)) return;
   let xml = fs.readFileSync(SITEMAP, "utf8");
-  const loc = `${BASE}/posts/${slug}.html`;
-  if (xml.includes(loc)) return;
+  // The page declares its canonical without ".html"; the sitemap must say the same.
+  const loc = `${BASE}/posts/${slug}`;
+  if (xml.includes(`<loc>${loc}</loc>`) || xml.includes(`<loc>${loc}.html</loc>`)) return;
   xml = xml.replace("</urlset>", `  <url><loc>${loc}</loc><changefreq>monthly</changefreq></url>\n</urlset>`);
   fs.writeFileSync(SITEMAP, xml);
 }

@@ -408,3 +408,16 @@ html.sbar-on #cb-consent{bottom:calc(84px + env(safe-area-inset-bottom))}
 :root[data-theme="light"] .bkmicon .eye{fill:#4e5e6d}
 :root[data-theme="light"] .bkms.on .bkmicon path{stroke:#104a7c}
 :root[data-theme="light"] .bkmaph{color:var(--teal)}
+:root[data-theme="light"] .bkmseabg{fill:#d3e2ec}
+:root[data-theme="light"] .bkms.on .bkmc{fill:#4e5e6d}
+:root[data-theme="light"] .bkms.turn .bkmc{fill:#104a7c}
+:root[data-theme="light"] .bkms.on .bkmicon .eye{fill:#104a7c}
+:root[data-theme="light"] .bkms.turn .bkmring{stroke:#104a7c}
+
+/* ---------------------------------------- phone menu, closed = not reachable
+   The closed drawer only slid off screen, so Tab walked through nine links
+   nobody could see. Hidden once the slide out ends; shown at once on open. */
+@media(max-width:860px){
+  .nl{visibility:hidden;transition:transform .4s cubic-bezier(.15,.8,.15,1),visibility 0s linear .4s}
+  .nl.open{visibility:visible;transition:transform .4s cubic-bezier(.15,.8,.15,1),visibility 0s}
+}
