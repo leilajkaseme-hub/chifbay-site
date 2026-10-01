@@ -22,7 +22,7 @@ const UNDO = process.argv.includes("--undo");
 
 // Nos fichiers seulement. `vendor/` est deja minifie par ses auteurs, et
 // `ig-auto/` ne part jamais dans une page.
-const FILES = ["peak.css", "atlas.css", "booking.css", "motion.css",
+const FILES = ["peak.css", "atlas.css", "booking.css", "motion.css", "tide.css", "tide.js",
                "peak.js", "atlas.js", "motion.js", "booking.js", "booking-content.js",
                "booking-config.js", "track.js", "fx.js", "map-home.js", "reviews-home.js"]
   .filter((f) => existsSync(join(SITE, f)));

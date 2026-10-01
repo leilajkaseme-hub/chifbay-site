@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contatti &amp; Prenotazioni | Chifbay · Gite in Barca Privata, Madeira</title>
@@ -35,6 +35,7 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Come prenoto una gita?","acceptedAnswer":{"@type":"Answer","text":"Prenota online tramite il nostro calendario delle disponibilità, oppure scrivici su WhatsApp / email con le tue date e quante persone siete e organizzeremo tutto direttamente."}},{"@type":"Question","name":"Da dove partono le gite?","acceptedAnswer":{"@type":"Answer","text":"Ogni gita Chifbay parte dalla Marina do Funchal, sulla costa sud di Madeira. Arrivate circa 15 minuti prima della partenza per sistemarvi e conoscere il vostro skipper."}},{"@type":"Question","name":"Quanti ospiti possono partecipare?","acceptedAnswer":{"@type":"Answer","text":"La barca ospita fino a 5 persone ed è riservata in esclusiva al vostro gruppo. Il prezzo è una tariffa fissa per la barca — ottimo valore per coppie, famiglie e piccoli gruppi."}},{"@type":"Question","name":"Qual è la politica sul meteo?","acceptedAnswer":{"@type":"Answer","text":"Per la vostra sicurezza e comodità le gite dipendono dalle condizioni meteo e possono essere riprogrammate. Monitoriamo le condizioni del mare e vi contattiamo in anticipo se qualcosa deve cambiare."}}]}
 </script>
 <meta name="apple-itunes-app" content="app-id=6811650007">
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -176,5 +177,6 @@
 <script src="../vendor/ScrollTrigger.min.js"></script>
 <script src="../vendor/lenis.min.js"></script>
 <script src="../motion.min.js"></script>
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

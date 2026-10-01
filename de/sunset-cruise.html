@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de" class="atlas">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Private Sonnenuntergangstour auf Madeira | Funchal - Chifbay</title>
@@ -42,6 +42,7 @@
   <script defer src="https://dashboard-pink-nine-58.vercel.app/t.js" data-store="chifbay"></script>
 <script defer src="/track.min.js"></script>
 <meta name="apple-itunes-app" content="app-id=6811650007">
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -63,7 +64,7 @@
   </div>
 </div></nav>
 
-<header class="hero sub">
+<header class="hero sub t-frame">
   <div class="hero-media">
     <div class="hbg" role="img" aria-label="Sonnenuntergang über dem Atlantik von einem privaten Chifbay-Boot bei Funchal, Madeira" style="background-image:url('../assets/exp-sunset.jpg')"></div>
   </div>
@@ -78,7 +79,7 @@
       <a class="btn btn-g btn-lg" href="https://wa.me/351937200320" target="_blank" rel="noopener">Skipper fragen</a>
     </div>
     <div class="tour-meta">
-      <div class="tm"><div class="k">Ab</div><div class="v"><span class="now">€400</span></div></div>
+      <div class="tm"><div class="k">Ab</div><div class="v"><span class="now" data-cb-price="sunset">€400</span></div></div>
       <div class="tm"><div class="k">Dauer</div><div class="v">2 oder 2,5 Std.</div></div>
       <div class="tm"><div class="k">Gäste</div><div class="v">Bis zu 5</div></div>
       <div class="tm"><div class="k">Abfahrt</div><div class="v">18:30 · Funchal</div></div>
@@ -186,6 +187,40 @@
   </div>
 </section>
 
+<!-- tide:route -->
+<section class="t-route chapter">
+  <div class="t-wrap">
+    <div class="chead reveal"><span class="cl">Die Route</span></div>
+    <h2 class="reveal">Eine Küste, westlich von Funchal</h2>
+    <p class="t-lead reveal d1">Jede Tour fährt dieselbe Küste, aus der Marina do Funchal nach Westen unter den Klippen entlang. Die Entfernungen sind echt, über das Meer.</p>
+    <div class="t-map" aria-hidden="true"></div>
+    <ol class="t-stops">
+      <li class="t-stop" data-id="funchal" data-km="0">
+        <figure><img src="../assets/marina.jpg" alt="Der Steg in der Marina do Funchal, wo die Chifbay Touren starten" loading="lazy" decoding="async" width="1600" height="1200"></figure>
+        <div class="t-sb"><span class="t-sn">01 · 0 km</span><h3>Marina do Funchal</h3><p>Treffpunkt mit dem Skipper am Steg, 15 Minuten vorher.</p></div>
+      </li>
+      <li class="t-stop" data-id="camara" data-km="6">
+        <figure><img src="../assets/gallery/g11.jpg" alt="Das Chifbay Boot an der Südküste Madeiras" loading="lazy" decoding="async" width="1080" height="810"></figure>
+        <div class="t-sb"><span class="t-sn">02 · 6 km</span><h3>Câmara de Lobos</h3><p>Der Fischerhafen, den Churchill malte, vom Wasser aus.</p></div>
+      </li>
+      <li class="t-stop" data-id="girao" data-km="9">
+        <figure><img src="../assets/gallery/g20.jpg" alt="Gäste auf dem Chifbay Boot unter den Klippen" loading="lazy" decoding="async" width="1080" height="810"></figure>
+        <div class="t-sb"><span class="t-sn">03 · 9 km</span><h3>Cabo Girão</h3><p>580 m Klippe direkt aus dem Meer. Hier fliegt die Drohne.</p></div>
+      </li>
+      <li class="t-stop" data-id="faja" data-km="11.5">
+        <figure><img src="../assets/gallery/g09.jpg" alt="Ein Gast schwimmt neben dem Chifbay Boot in klarem Wasser" loading="lazy" decoding="async" width="1080" height="810"></figure>
+        <div class="t-sb"><span class="t-sn">04 · 11.5 km</span><h3>Fajã dos Padres</h3><p>Die Bucht ohne Straße. Baden, springen, paddeln. Tagestour.</p></div>
+      </li>
+      <li class="t-stop" data-id="brava" data-km="14">
+        <figure><img src="../assets/gallery/g13.jpg" alt="Das Chifbay Boot vor Anker in türkisem Wasser" loading="lazy" decoding="async" width="1080" height="810"></figure>
+        <div class="t-sb"><span class="t-sn">05 · 14 km</span><h3>Ribeira Brava</h3><p>Hier wenden die 2,5 Std. Tagestour und der längere Sonnenuntergang.</p></div>
+      </li>
+    </ol>
+    <div class="t-legend"><span><b>Tagestour</b> bis Ribeira Brava, oder Ponta do Sol bei 3 Std.</span><span><b>Sonnenuntergang</b> bis Cabo Girão, oder Ribeira Brava</span></div>
+  </div>
+</section>
+<!-- /tide:route -->
+
 <section class="chapter" style="padding-top:0">
   <div class="wrap-w">
     <div class="chead reveal"><span class="cn">04</span><span class="cl">Der Abend, Stunde für Stunde</span></div>
@@ -223,7 +258,7 @@
     <p class="minc-lead reveal d1">Kein Aufpreis, nichts vorzubereiten. Wir filmen und fotografieren die Fahrt und schicken Ihnen danach alles.</p>
     <div class="minc-grid">
       <figure class="mi reveal" style="background:url('../assets/media/drone-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/drone-poster.jpg" data-src="../assets/media/drone.mp4"></video><figcaption><span class="mi-k">Inklusive</span><b>Drohnenvideo</b><span class="mi-d">Luftaufnahmen Ihres Boots unter Cabo Girão und in den Buchten.</span></figcaption></figure>
-      <figure class="mi reveal" style="background:url('../assets/media/insta360-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/insta360-poster.jpg" data-src="../assets/media/insta360.mp4"></video><figcaption><span class="mi-k">Inklusive</span><b>Insta360 Video</b><span class="mi-d">360° Aufnahmen an Bord, so zugeschnitten, dass Sie in jeder Szene sind.</span></figcaption></figure>
+      <figure class="mi reveal" style="background:url('../assets/media/insta360-poster.jpg') center/cover"><video muted loop playsinline preload="none" aria-hidden="true" poster="../assets/media/insta360-poster.jpg" data-src="../assets/media/insta360.mp4"></video><figcaption><span class="mi-k">3 Std. Tagestour</span><b>Insta360 Video</b><span class="mi-d">360° Aufnahmen an Bord, so zugeschnitten, dass Sie in jeder Szene sind.</span></figcaption></figure>
       <figure class="mi reveal" style="background:url('../assets/media/phone.jpg') center/cover"><img src="../assets/media/phone.jpg" alt="" loading="lazy" decoding="async"><figcaption><span class="mi-k">Inklusive</span><b>Fotoreportage an Bord</b><span class="mi-d">Spontane Aufnahmen Ihrer Gruppe während der ganzen Fahrt, danach zugeschickt.</span></figcaption></figure>
     </div>
   </div>
@@ -240,6 +275,7 @@ vs.forEach(function(v){io.observe(v);});})();
 <section class="reserve" id="reserve">
   <div class="im" style="background-image:url('../assets/exp-sunset.jpg')"></div>
   <div class="ov"></div>
+  <canvas class="t-caustic" aria-hidden="true"></canvas>
   <div class="wrap-w rc">
     <div class="lbl reveal">Marina do Funchal</div>
     <h2 class="reveal" data-mask>Fangen Sie <em>das Licht ein</em></h2>
@@ -301,5 +337,9 @@ vs.forEach(function(v){io.observe(v);});})();
 <a class="wa" href="https://wa.me/351937200320" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
 <script src="../peak.min.js"></script>
 <script src="../atlas.min.js"></script>
+<!-- tide:sbar -->
+<div class="t-sbar" role="region" aria-label="Datum wählen"><div><span class="t-sbar-k">Ab</span><span class="t-sbar-v" data-cb-price="sunset">€400</span></div><a class="btn" href="/book-sunset">Termine ansehen <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+<!-- /tide:sbar -->
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

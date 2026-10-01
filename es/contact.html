@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contacto y reservas | Chifbay · Paseos en barco privado, Madeira</title>
@@ -35,6 +35,7 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Cómo reservo un paseo?","acceptedAnswer":{"@type":"Answer","text":"Reserva online a través de nuestro calendario de disponibilidad, o escríbenos por WhatsApp / email con vuestras fechas y el tamaño del grupo y lo organizamos todo directamente."}},{"@type":"Question","name":"¿Desde dónde salen los paseos?","acceptedAnswer":{"@type":"Answer","text":"Todos los paseos de Chifbay salen desde la Marina do Funchal, en la costa sur de Madeira. Llegad unos 15 minutos antes de la salida para acomodaros y conocer a vuestro patrón."}},{"@type":"Question","name":"¿Cuántas personas pueden ir?","acceptedAnswer":{"@type":"Answer","text":"El barco admite hasta 5 personas y se reserva en exclusiva para vuestro grupo. El precio es una tarifa única por el barco: una gran relación calidad-precio para parejas, familias y grupos pequeños."}},{"@type":"Question","name":"¿Cuál es vuestra política con el tiempo?","acceptedAnswer":{"@type":"Answer","text":"Por vuestra seguridad y comodidad, los paseos dependen del tiempo y pueden reprogramarse. Vigilamos las condiciones del mar y os avisamos con antelación si algo tiene que cambiar."}}]}
 </script>
 <meta name="apple-itunes-app" content="app-id=6811650007">
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -176,5 +177,6 @@
 <script src="../vendor/ScrollTrigger.min.js"></script>
 <script src="../vendor/lenis.min.js"></script>
 <script src="../motion.min.js"></script>
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

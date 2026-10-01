@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Die Geschichte | Chifbay · Private Bootstouren, Madeira</title>
@@ -34,6 +34,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Chifbay", "url": "https://chifbay.com", "logo": "https://chifbay.com/assets/logo-white.png", "image": "https://chifbay.com/assets/hero.jpg", "email": "hello@chifbay.com", "telephone": "+351937200320", "sameAs": ["https://www.instagram.com/chifbay", "https://www.facebook.com/profile.php?id=61593099213659", "https://www.tiktok.com/@chifbay", "https://www.google.com/maps?cid=11229657632154885978", "https://www.tripadvisor.com/Attraction_Review-g189167-d34387047.html"], "address": {"@type": "PostalAddress", "streetAddress": "Marina do Funchal", "addressLocality": "Funchal", "addressRegion": "Madeira", "postalCode": "9000-055", "addressCountry": "PT"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://chifbay.com/de/"}, {"@type": "ListItem", "position": 2, "name": "Die Geschichte", "item": "https://chifbay.com/de/about.html"}]}</script>
 <meta name="apple-itunes-app" content="app-id=6811650007">
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -186,5 +187,6 @@
 <script src="../vendor/ScrollTrigger.min.js"></script>
 <script src="../vendor/lenis.min.js"></script>
 <script src="../motion.min.js"></script>
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

@@ -40,21 +40,27 @@
 
 /* THEME — light / dark.
    The <head> snippet has already put the right value on <html> before the
-   first paint. This only wires the footer control and remembers the choice. */
+   first paint. This only wires the footer control and remembers the choice.
+   Only a real click is stored, under "cb-theme2". The old key was written on
+   every page load, so it recorded the default rather than a choice, and it is
+   no longer read: that is how the new light default reaches past visitors. */
 (function(){
-  var KEY='cb-theme';
-  function current(){ return document.documentElement.getAttribute('data-theme')==='light'?'light':'dark'; }
-  function apply(t){
-    document.documentElement.setAttribute('data-theme',t);
-    try{ localStorage.setItem(KEY,t); }catch(e){}
+  var KEY='cb-theme2';
+  function current(){ return document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light'; }
+  function show(t){
     document.querySelectorAll('.themetog button').forEach(function(b){
       b.setAttribute('aria-pressed',String(b.dataset.theme===t));
     });
   }
+  function apply(t){
+    document.documentElement.setAttribute('data-theme',t);
+    try{ localStorage.setItem(KEY,t); }catch(e){}
+    show(t);
+  }
   document.querySelectorAll('.themetog button').forEach(function(b){
     b.addEventListener('click',function(){ apply(b.dataset.theme); });
   });
-  apply(current());
+  show(current());
 })();
 
 (function(){

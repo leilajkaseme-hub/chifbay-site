@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Booking confirmed | Chifbay</title>
@@ -52,6 +52,7 @@
   background:rgba(212,84,84,.12);border:1px solid rgba(212,84,84,.45);color:#ffc9c9}
 :root[data-theme="light"] .dntest{color:#8c1d1d;background:rgba(212,84,84,.1)}
 </style>
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -187,5 +188,6 @@
     });
 })();
 </script>
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

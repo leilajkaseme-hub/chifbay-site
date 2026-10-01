@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contact &amp; Réservation | Chifbay · Excursions en bateau privé, Madère</title>
@@ -35,6 +35,7 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Comment réserver une sortie ?","acceptedAnswer":{"@type":"Answer","text":"Réservez en ligne via notre calendrier de disponibilités, ou écrivez-nous sur WhatsApp / par e-mail avec vos dates et la taille de votre groupe, et nous organiserons tout directement."}},{"@type":"Question","name":"D'où partent les sorties ?","acceptedAnswer":{"@type":"Answer","text":"Chaque sortie Chifbay part de la Marina do Funchal, sur la côte sud de Madère. Présentez-vous environ 15 minutes avant le départ pour vous installer et faire connaissance avec votre skipper."}},{"@type":"Question","name":"Combien d'invités peuvent embarquer ?","acceptedAnswer":{"@type":"Answer","text":"Le bateau accueille jusqu'à 5 invités et est réservé exclusivement à votre groupe. Le prix est un tarif unique pour le bateau — un excellent rapport qualité-prix pour les couples, les familles et les petits groupes."}},{"@type":"Question","name":"Quelle est votre politique en cas de mauvais temps ?","acceptedAnswer":{"@type":"Answer","text":"Pour votre sécurité et votre confort, les sorties dépendent de la météo et peuvent être reportées. Nous surveillons les conditions de mer et vous contactons à l'avance si quelque chose doit changer."}}]}
 </script>
 <meta name="apple-itunes-app" content="app-id=6811650007">
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -176,5 +177,6 @@
 <script src="../vendor/ScrollTrigger.min.js"></script>
 <script src="../vendor/lenis.min.js"></script>
 <script src="../motion.min.js"></script>
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

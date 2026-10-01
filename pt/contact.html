@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contacto e Reservas | Chifbay · Passeios de Barco Privados, Madeira</title>
@@ -35,6 +35,7 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Como faço a reserva de um passeio?","acceptedAnswer":{"@type":"Answer","text":"Reserve online através do nosso calendário de disponibilidade, ou envie-nos mensagem por WhatsApp / email com as suas datas e o tamanho do grupo, que tratamos de tudo diretamente."}},{"@type":"Question","name":"De onde partem os passeios?","acceptedAnswer":{"@type":"Answer","text":"Todos os passeios da Chifbay partem da Marina do Funchal, na costa sul da Madeira. Chegue cerca de 15 minutos antes da partida para se instalar e conhecer o seu skipper."}},{"@type":"Question","name":"Quantas pessoas podem participar?","acceptedAnswer":{"@type":"Answer","text":"O barco leva até 5 pessoas e fica reservado exclusivamente para o seu grupo. O preço é um valor único pelo barco — excelente relação qualidade-preço para casais, famílias e pequenos grupos."}},{"@type":"Question","name":"Qual é a política em caso de mau tempo?","acceptedAnswer":{"@type":"Answer","text":"Para sua segurança e conforto, os passeios dependem das condições meteorológicas e podem ser reagendados. Acompanhamos as condições do mar e contactamo-lo com antecedência se algo precisar de mudar."}}]}
 </script>
 <meta name="apple-itunes-app" content="app-id=6811650007">
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -176,5 +177,6 @@
 <script src="../vendor/ScrollTrigger.min.js"></script>
 <script src="../vendor/lenis.min.js"></script>
 <script src="../motion.min.js"></script>
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

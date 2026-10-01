@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<script>/*theme*/(function(){try{var t=localStorage.getItem('cb-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Kontakt &amp; Buchung | Chifbay · Private Bootstouren, Madeira</title>
@@ -35,6 +35,7 @@
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie buche ich eine Tour?","acceptedAnswer":{"@type":"Answer","text":"Buchen Sie online über unseren Verfügbarkeitskalender oder schreiben Sie uns per WhatsApp / E-Mail mit Ihren Terminen und Ihrer Gruppengröße — wir organisieren dann alles direkt."}},{"@type":"Question","name":"Wo starten die Touren?","acceptedAnswer":{"@type":"Answer","text":"Jede Chifbay-Tour startet an der Marina do Funchal an Madeiras Südküste. Kommen Sie etwa 15 Minuten vor der Abfahrt an, um in Ruhe anzukommen und Ihren Skipper kennenzulernen."}},{"@type":"Question","name":"Wie viele Gäste können mitfahren?","acceptedAnswer":{"@type":"Answer","text":"Das Boot bietet Platz für bis zu 5 Gäste und ist exklusiv für Ihre Gruppe reserviert. Der Preis ist ein Festpreis für das Boot — ein tolles Angebot für Paare, Familien und kleine Gruppen."}},{"@type":"Question","name":"Wie ist Ihre Wetterregelung?","acceptedAnswer":{"@type":"Answer","text":"Zu Ihrer Sicherheit und Ihrem Komfort sind die Touren wetterabhängig und können verschoben werden. Wir beobachten die Seebedingungen und kontaktieren Sie rechtzeitig, falls sich etwas ändern muss."}}]}
 </script>
 <meta name="apple-itunes-app" content="app-id=6811650007">
+<link rel="stylesheet" href="/tide.min.css"/>
 </head>
 <body>
 
@@ -176,5 +177,6 @@
 <script src="../vendor/ScrollTrigger.min.js"></script>
 <script src="../vendor/lenis.min.js"></script>
 <script src="../motion.min.js"></script>
+<script src="/tide.min.js" defer></script>
 </body>
 </html>

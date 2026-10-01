@@ -16,15 +16,10 @@
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ignoreMobileResize:true});
 
-  /* ---------------- chrome ---------------- */
-  var logo=(document.querySelector('.logo img')||{}).src||'assets/logo-white.png';
-  document.body.insertAdjacentHTML('afterbegin',
-    '<div id="mload"><img class="mk" src="'+logo+'" alt=""><div class="bar"><i></i></div><div class="pc2">0%</div></div>');
-  document.body.insertAdjacentHTML('beforeend',
-    '<div id="mprog"></div><div id="mgrain"></div><div id="mcur"></div><div id="mring"></div>');
-
-  var load=document.getElementById('mload'), bar=load.querySelector('.bar i'), pct=load.querySelector('.pc2');
-  var prog=document.getElementById('mprog');
+  /* ---------------- chrome ----------------
+     The old loader (logo, bar, a percentage that counted up at random) and the
+     custom cursor are gone: tide.js owns the one page transition now, and its
+     percentage follows real progress. Native cursor, native scroll. */
 
   /* ---------------- titres : révélation mot à mot ----------------
      On marche l'arbre pour garder <em>, <strong> et <br> intacts. */
@@ -111,26 +106,16 @@
     });
   });
 
-  /* ---------------- loader ---------------- */
-  var p=0, done=false;
-  var tick=setInterval(function(){
-    p=Math.min(p+Math.random()*16,92);
-    bar.style.width=p+'%'; pct.textContent=Math.round(p)+'%';
-  },90);
-  function reveal(){
-    if(done) return; done=true; clearInterval(tick);
-    bar.style.width='100%'; pct.textContent='100%';
-    gsap.to(load,{clipPath:'inset(0 0 100% 0)',duration:1,ease:'power4.inOut',delay:.2,
-      onStart:function(){ setTimeout(heroIn,420); },
-      onComplete:function(){ html.classList.add('mo-done'); ScrollTrigger.refresh(); }});
-  }
+  /* ---------------- start ----------------
+     No loader any more. The hero animates in as soon as its photo is ready,
+     or after 600 ms, whichever comes first. */
+  var started=false;
+  function start(){ if(started) return; started=true; html.classList.add('mo-done'); heroIn(); ScrollTrigger.refresh(); }
   var hbg=document.querySelector('.hbg'), heroImg=new Image();
-  heroImg.onload=heroImg.onerror=function(){ setTimeout(reveal,200); };
+  heroImg.onload=heroImg.onerror=start;
   var bgUrl=hbg?getComputedStyle(hbg).backgroundImage.replace(/^url\(["']?/,'').replace(/["']?\)$/,''):'';
-  if(bgUrl && bgUrl!=='none') heroImg.src=bgUrl; else setTimeout(reveal,600);
-  setTimeout(reveal,4000);
-  // filet : quoi qu'il arrive (image lente, tween avalé), le hero doit être lisible.
-  setTimeout(function(){ html.classList.add('mo-done'); heroIn(); },6000);
+  if(bgUrl && bgUrl!=='none') heroImg.src=bgUrl;
+  setTimeout(start,600);
 
   /* ---------------- hero ---------------- */
   var heroShown=false;
@@ -227,37 +212,6 @@
     gsap.fromTo(el,{y:34,opacity:0},{y:0,opacity:1,duration:1,ease:'power3.out',delay:i*.1,
       scrollTrigger:{trigger:el.parentElement,start:'top 84%'}});
   });
-
-  /* ---------------- progression + nav ---------------- */
-  ScrollTrigger.create({trigger:document.body,start:'top top',end:'bottom bottom',
-    onUpdate:function(s){ prog.style.width=(s.progress*100).toFixed(2)+'%'; }});
-
-  /* ---------------- curseur + boutons magnétiques ---------------- */
-  if(fine){
-    html.classList.add('mo-cur');
-    var cur=document.getElementById('mcur'), ring=document.getElementById('mring');
-    var cx=innerWidth/2, cy=innerHeight/2, rx2=cx, ry2=cy;
-    addEventListener('pointermove',function(e){ cx=e.clientX; cy=e.clientY; html.classList.add('mo-cv'); },{passive:true});
-    document.addEventListener('mouseleave',function(){ html.classList.remove('mo-cv'); });
-    document.querySelectorAll('a,button,.exc,.te,.ii').forEach(function(el){
-      el.addEventListener('pointerenter',function(){ ring.classList.add('big'); });
-      el.addEventListener('pointerleave',function(){ ring.classList.remove('big'); });
-    });
-    gsap.ticker.add(function(){
-      rx2+=(cx-rx2)*.16; ry2+=(cy-ry2)*.16;
-      cur.style.transform='translate('+cx+'px,'+cy+'px)';
-      ring.style.transform='translate('+rx2+'px,'+ry2+'px)';
-    });
-    document.querySelectorAll('.btn, .nc').forEach(function(b){
-      var mx=gsap.quickTo(b,'x',{duration:.6,ease:'power3'});
-      var my=gsap.quickTo(b,'y',{duration:.6,ease:'power3'});
-      b.addEventListener('pointermove',function(e){
-        var r=b.getBoundingClientRect();
-        mx((e.clientX-r.left-r.width/2)*.25); my((e.clientY-r.top-r.height/2)*.4);
-      });
-      b.addEventListener('pointerleave',function(){ mx(0); my(0); });
-    });
-  }
 
   addEventListener('load',function(){ ScrollTrigger.refresh(); });
 })();
