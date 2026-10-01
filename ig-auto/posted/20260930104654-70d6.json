@@ -9,5 +9,11 @@
   "url": "https://chifbay.com/ig/reel-1oOzCHix-1.mp4",
   "cover_url": "https://chifbay.com/ig/reel-1oOzCHix-1.jpg",
   "angle": "video",
-  "priority": 0
+  "priority": 0,
+  "posted_at": "2026-10-01T00:01:26.596Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17904332220578911",
+    "confirmed": true
+  }
 }
