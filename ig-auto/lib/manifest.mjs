@@ -43,7 +43,8 @@ export function buildManifest() {
       video: video ? bare(q.url) : null,
       slides: video ? [] : slideUrls(q).map(bare),
       plan_index: Number.isFinite(q.plan_index) ? q.plan_index : null,
-      set: q.set ?? null, alt: q.alt ?? null,
+      set: q.set ?? null, alt: q.alt ?? null, title: q.title ?? null, template: q.template ?? null,
+      priority: q.priority ?? null,
       created: q.created,
     });
   }

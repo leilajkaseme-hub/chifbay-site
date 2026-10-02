@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T20:50:27.797Z",
+ "generated_at": "2026-10-02T20:55:23.362Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -285,6 +285,9 @@
     "A guest swims in the Atlantic and smiles at the camera.",
     "A guest wrapped in a white towel laughs on deck after the swim, the cliff behind her."
    ],
+   "title": "Your group's afternoon",
+   "template": null,
+   "priority": 0,
    "created": "2026-01-01T00:00:01.000Z"
   },
   {
@@ -317,6 +320,9 @@
     "Two guests at the back of the boat watch the last light over the wake.",
     "The sun just above the Atlantic, its light on the water, the coast in shadow."
    ],
+   "title": "Sunset together",
+   "template": null,
+   "priority": 0,
    "created": "2026-01-01T00:00:02.000Z"
   },
   {
@@ -333,6 +339,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": null,
+   "priority": null,
    "created": "2026-09-29T21:16:10.013Z"
   },
   {
@@ -349,6 +358,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": "day",
+   "priority": null,
    "created": "2026-09-29T22:00:00.000Z"
   },
   {
@@ -365,6 +377,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": null,
+   "priority": null,
    "created": "2026-09-30T10:46:54.704Z"
   },
   {
@@ -381,6 +396,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": "proof",
+   "priority": null,
    "created": "2026-09-30T12:00:00.000Z"
   },
   {
@@ -397,6 +415,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": null,
+   "priority": null,
    "created": "2026-10-01T11:13:23.884Z"
   },
   {
@@ -413,6 +434,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": "sunset",
+   "priority": null,
    "created": "2026-10-01T12:00:00.000Z"
   },
   {
@@ -429,6 +453,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": null,
+   "priority": null,
    "created": "2026-10-02T10:46:08.924Z"
   },
   {
@@ -445,6 +472,9 @@
    "plan_index": null,
    "set": null,
    "alt": null,
+   "title": null,
+   "template": "times",
+   "priority": null,
    "created": "2026-10-02T12:00:00.000Z"
   }
  ]
