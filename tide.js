@@ -699,46 +699,145 @@
     inView(f, function (on) { if (on) f.classList.add("open"); }, { rootMargin: "0px 0px -18% 0px" });
   });
 
-  /* ---------------------------------------- the boat between chapters
-     Home page only. A thin wake band before the media chapter and before the
-     route map; the boat crosses each band as it passes through the screen,
-     so it travels down the page and arrives at the map. The bands are their
-     own space: the boat never sits over text or a button. */
-  if (document.querySelector("header.hero.hero-v")) {
-    var hulls = '<path class="hull" d="M-12,-5.5 L7,-5.5 Q15,-2 16,0 Q15,2 7,5.5 L-12,5.5 Q-14,0 -12,-5.5Z"/>' +
-      '<rect class="deck" x="-6" y="-3" width="9" height="6" rx="1.5"/>';
-    ["section.minc", ".t-route"].forEach(function (sel, n) {
-      var target = document.querySelector(sel);
-      if (!target) return;
-      var band = document.createElement("div");
-      band.className = "t-wake" + (n ? " t-wake-in" : "");
-      band.setAttribute("aria-hidden", "true");
-      var W2 = 1200, Hh = 60;
-      // drawn from the east (right) to the west, the way the boat sails on the map
-      var wave = "M" + W2 + ",30 " + Array.apply(null, Array(12)).map(function (_, i) { return "q-50," + (i % 2 ? 14 : -14) + " -100,0"; }).join(" ");
-      band.innerHTML = '<svg viewBox="0 0 ' + W2 + " " + Hh + '" preserveAspectRatio="none"><path class="w-bg" d="' + wave + '"/>' +
-        '<path class="w-fg" d="' + wave + '"/></svg><svg class="w-boat" viewBox="-20 -10 40 20"><g transform="rotate(180)">' + hulls + "</g></svg>";
-      target.parentNode.insertBefore(band, target);
-      var fg = band.querySelector(".w-fg"), boatEl = band.querySelector(".w-boat");
-      var len = fg.getTotalLength();
-      fg.style.strokeDasharray = len;
-      function draw(k) {
-        fg.style.strokeDashoffset = (len * (1 - k)).toFixed(1);
-        var pt = fg.getPointAtLength(len * k), r = band.getBoundingClientRect();
-        boatEl.style.transform = "translate(" + (pt.x / W2 * r.width).toFixed(1) + "px," + (pt.y / Hh * r.height).toFixed(1) + "px)";
+  /* ---------------------------------------- the boat down the page
+     2 Oct audit: one boat sails from the end of the hero down to the
+     closing booking invitation, in the right page margin (the lane). Its
+     place follows scroll, so it keeps pace with the reader. Wherever
+     anything sits in the lane (text, photo, button, a strip that runs to
+     the edge) the boat and its wake are hidden for that stretch, so they
+     never cross content. Navy on light surfaces, white on dark ones.
+     Only on the story pages (home, experiences, trip pages), never on
+     booking or other functional pages. Reduced motion: no boat at all. */
+  (function () {
+    var hero = document.querySelector("header.hero");
+    if (REDUCE || !hero || !document.querySelector("header.hero-v, .t-route, .t-cmp")) return;
+    if (/\/(book|checkout|booking|practical|contact|terms|privacy)/.test(location.pathname)) return;
+    var NS = "http://www.w3.org/2000/svg", ROW = 8;
+    var layer = document.createElement("div");
+    layer.className = "t-voyage";
+    layer.setAttribute("aria-hidden", "true");
+    layer.innerHTML = '<svg class="v-trail"><defs><clipPath id="vclip"><rect x="0" y="0" width="100%" height="0"/></clipPath></defs>' +
+      '<g clip-path="url(#vclip)"></g></svg>' +
+      '<svg class="v-boat" viewBox="-8 -16 16 32"><path class="hull" d="M-5.5,-12 L-5.5,7 Q-2,15 0,16 Q2,15 5.5,7 L5.5,-12 Q0,-14 -5.5,-12Z"/>' +
+      '<rect class="deck" x="-3" y="-6" width="6" height="9" rx="1.5"/></svg>';
+    document.body.appendChild(layer);
+    var trail = layer.querySelector(".v-trail"), group = trail.querySelector("g"),
+      clip = trail.querySelector("rect"), boat = layer.querySelector(".v-boat");
+    var rows = [], y0 = 0, y1 = 0, cx = 0, amp = 0, ready = false;
+
+    function laneX(y) { return cx + amp * Math.sin(y / 260); }
+    function darkAt(el) {
+      for (var e = el; e && e !== document.documentElement; e = e.parentElement) {
+        if (e.dataset && e.dataset.surface) return e.dataset.surface === "dark";
+        var cs = getComputedStyle(e);
+        if (/url\(/.test(cs.backgroundImage)) return true;
+        var m = cs.backgroundColor.match(/[\d.]+/g);
+        if (m && (m[3] === undefined || +m[3] > 0.5)) return (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) < 128;
       }
-      if (REDUCE) { draw(1); return; }
-      var on = false;
-      inView(band, function (v) { on = v; if (v) runScroll(); });
-      onScroll(function () {
-        if (!on) return;
-        var r = band.getBoundingClientRect(), vh = innerHeight;
-        // enters at the bottom of the screen, done at 35% from the top
-        draw(Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.65))));
+      return false;
+    }
+    // every box that counts as content: text runs, media, controls, photo backgrounds
+    function contentRects(top, bottom) {
+      var out = [], sy = scrollY;
+      var push = function (r) { if (r.width > 1 && r.height > 1) out.push([r.left, r.right, r.top + sy, r.bottom + sy]); };
+      var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+        return n.nodeValue.trim() && !layer.contains(n) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; } });
+      var range = document.createRange(), n;
+      while ((n = w.nextNode())) {
+        var p = n.parentElement;
+        if (!p || p.closest("#nav, .wa, .t-sbar, #cb-consent, script, style, noscript")) continue;
+        range.selectNodeContents(n);
+        var rs = range.getClientRects();
+        for (var i = 0; i < rs.length; i++) push(rs[i]);
+      }
+      document.querySelectorAll("img, video, picture, iframe, canvas, button, input, select, textarea, a, svg, [style*='url('], .t-map, .chip, .pill").forEach(function (el) {
+        if (layer.contains(el) || el.closest("#nav, .wa, .t-sbar, #cb-consent")) return;
+        var cs = getComputedStyle(el);
+        if (cs.visibility === "hidden" || cs.display === "none" || +cs.opacity === 0) return;
+        push(el.getBoundingClientRect());
       });
-      draw(0);
-    });
-  }
+      // a strip that runs past the screen edge (reviews marquee, chip rows) moves
+      // or scrolls sideways: it blocks the lane for its whole height
+      var vw = document.documentElement.clientWidth;
+      out = out.map(function (r) { return (r[1] > vw + 1 || r[0] < -1) ? [0, vw, r[2], r[3]] : r; });
+      return out.filter(function (r) { return r[3] > top && r[2] < bottom; });
+    }
+
+    function measure() {
+      var docW = document.documentElement.clientWidth, sy = scrollY;
+      var phone = docW < 600;
+      cx = docW - (phone ? 8 : 16);
+      amp = phone ? 1 : 5;
+      var half = (phone ? 3.8 : 5.5) + amp + (phone ? 1 : 1.5);   // beam plus sway plus a breath of clearance
+      var hb = hero.getBoundingClientRect();
+      y0 = hb.bottom + sy + 40;
+      var end = document.querySelector("section.reserve") || document.querySelector("footer");
+      y1 = end ? end.getBoundingClientRect().top + sy + Math.min(end.offsetHeight * 0.45, 260) : y0;
+      if (end && end.matches("footer")) y1 = end.getBoundingClientRect().top + sy - 20;
+      var rects = contentRects(y0, y1), x0 = cx - half, x1 = cx + half;
+      rects = rects.filter(function (r) { return r[1] > x0 && r[0] < x1; });
+      rows = [];
+      for (var y = y0; y < y1; y += ROW) {
+        var free = true;
+        for (var i = 0; i < rects.length; i++) if (rects[i][2] < y + ROW + 14 && rects[i][3] > y - 14) { free = false; break; }
+        rows.push({ y: y, free: free, dark: false });
+      }
+      // surface colour, sampled per row from the element under the lane
+      var probeX = Math.min(docW - 2, cx);
+      layer.style.display = "none";
+      rows.forEach(function (r) {
+        if (!r.free) return;
+        var vy = r.y - sy;
+        if (vy >= 0 && vy < innerHeight) { var el = document.elementFromPoint(probeX, vy); r.dark = el ? darkAt(el) : false; }
+        else r.dark = null;
+      });
+      layer.style.display = "";
+      // rows off screen: take the surface from the section that spans them
+      var secs = Array.prototype.slice.call(document.querySelectorAll("body > section, main > section, body > header, body > footer")).map(function (s) {
+        var b = s.getBoundingClientRect(); return { top: b.top + sy, bot: b.bottom + sy, dark: darkAt(s) };
+      });
+      rows.forEach(function (r) {
+        if (r.dark !== null) return;
+        for (var i = 0; i < secs.length; i++) if (r.y >= secs[i].top && r.y < secs[i].bot) { r.dark = secs[i].dark; return; }
+        r.dark = false;
+      });
+      // wake segments: break wherever the lane is taken or the surface changes
+      var h = document.documentElement.scrollHeight;
+      layer.style.height = Math.min(h, y1 + 40) + "px";
+      trail.setAttribute("width", docW); trail.setAttribute("height", Math.min(h, y1 + 40));
+      group.innerHTML = "";
+      var d = "", dark = null;
+      function flush() { if (d) { var pth = document.createElementNS(NS, "path"); pth.setAttribute("d", d); if (dark) pth.setAttribute("class", "dk"); group.appendChild(pth); } d = ""; }
+      rows.forEach(function (r) {
+        if (!r.free) { flush(); return; }
+        if (dark !== r.dark) { flush(); dark = r.dark; }
+        d += (d ? " L" : "M") + laneX(r.y).toFixed(1) + "," + r.y.toFixed(0);
+      });
+      flush();
+      ready = rows.length > 0;
+      place();
+    }
+
+    function place() {
+      if (!ready) return;
+      var by = Math.max(y0, Math.min(y1, scrollY + innerHeight * 0.55));
+      clip.setAttribute("height", Math.max(0, by - 14));
+      var r = rows[Math.min(rows.length - 1, Math.max(0, Math.floor((by - y0) / ROW)))];
+      var tilt = Math.cos(by / 260) * amp / 260 * 57.3;   // follow the sway
+      boat.style.transform = "translate(" + laneX(by).toFixed(1) + "px," + by.toFixed(1) + "px) rotate(" + (-tilt).toFixed(1) + "deg)";
+      boat.classList.toggle("dk", !!r.dark);
+      boat.classList.toggle("hide", !r.free || by <= y0 + 1);
+    }
+
+    var mt = 0;
+    function remeasure() { clearTimeout(mt); mt = setTimeout(measure, 120); }
+    onScroll(place);
+    addEventListener("resize", remeasure);
+    addEventListener("load", remeasure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(remeasure);
+    if (window.ResizeObserver) new ResizeObserver(remeasure).observe(document.body);
+    measure();
+  })();
 
   /* ---------------------------------------- phone menu: keyboard focus
      Open: focus moves to the first link. Escape or the button closes it and

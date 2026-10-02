@@ -507,17 +507,19 @@ section.minc .mi:nth-child(3){transition-delay:.22s}
   section.minc .mi:not(:first-child){min-height:0;aspect-ratio:16/11}}
 section.minc .chead,section.minc .chead *{color:rgba(240,245,244,.72)!important}
 
-/* ---------------------------------------- wake bands: the boat between chapters */
-.t-wake{position:relative;height:60px;margin:clamp(10px,3vh,30px) 32px;pointer-events:none}
-.t-wake svg:first-child{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.t-wake .w-bg{fill:none;stroke:rgba(16,74,124,.18);stroke-width:1.5;stroke-dasharray:2 8;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.t-wake .w-fg{fill:none;stroke:#104a7c;stroke-width:2;stroke-linecap:round}
-.t-wake .w-boat{position:absolute;left:0;top:0;width:44px;height:22px;margin:-11px 0 0 -22px;overflow:visible;will-change:transform}
-.t-wake .w-boat .hull{fill:#0b1b29;stroke:#fff;stroke-width:1.2}
-.t-wake .w-boat .deck{fill:#f7f5f1}
-:root[data-theme="dark"] .t-wake .w-fg{stroke:#e0be7a}
-:root[data-theme="dark"] .t-wake .w-boat .hull{fill:#e0be7a;stroke:#0b1b29}
-@media(max-width:760px){.t-wake{height:40px;margin:8px 16px}.t-wake .w-boat{width:34px;height:17px;margin:-8px 0 0 -17px}}
+/* ---------------------------------------- the boat down the page (tide.js) */
+.t-voyage{position:absolute;left:0;top:0;width:100%;z-index:80;pointer-events:none;overflow:hidden;contain:layout paint}
+.t-voyage .v-trail{position:absolute;left:0;top:0;overflow:hidden}
+.t-voyage .v-trail path{fill:none;stroke:rgba(16,74,124,.45);stroke-width:1.5;stroke-dasharray:1 6;stroke-linecap:round}
+.t-voyage .v-trail path.dk{stroke:rgba(255,255,255,.55)}
+.t-voyage .v-boat{position:absolute;left:0;top:0;width:16px;height:32px;margin:-16px 0 0 -8px;overflow:visible;will-change:transform;transition:opacity .25s}
+.t-voyage .v-boat .hull{fill:#104a7c;stroke:#f7f5f1;stroke-width:1}
+.t-voyage .v-boat .deck{fill:#f7f5f1}
+.t-voyage .v-boat.dk .hull{fill:#fff;stroke:#0b1b29}
+.t-voyage .v-boat.dk .deck{fill:#0b1b29}
+.t-voyage .v-boat.hide{opacity:0}
+@media(max-width:599px){.t-voyage .v-boat{width:11px;height:22px;margin:-11px 0 0 -5.5px}}
+@media print{.t-voyage{display:none}}
 
 /* ---------------------------------------- Journal: plan your trip + topics */
 .bfeat{margin:0 0 46px}
@@ -637,3 +639,21 @@ a.bcard:hover h3{color:#104a7c}
   .t-mapcap{left:10px;bottom:10px;font-size:.8rem}
   .t-mapctl{right:8px;top:8px}
 }
+
+/* closing band, 2 Oct audit: our boat under the cliffs, light kept. The shade
+   sits behind the words only, not over the whole photo */
+.atlas .reserve .im,.reserve .im{background-position:50% 72%}
+.atlas .reserve .ov,.reserve .ov{background:
+  radial-gradient(ellipse 62% 58% at 50% 50%,rgba(var(--scrim-rgb),.66),rgba(var(--scrim-rgb),.3) 70%,rgba(var(--scrim-rgb),.18)),
+  linear-gradient(to bottom,rgba(var(--scrim-rgb),.08),rgba(var(--scrim-rgb),.3))}
+@media(max-width:700px){.atlas .reserve .ov,.reserve .ov{background:
+  radial-gradient(ellipse 120% 62% at 50% 50%,rgba(var(--scrim-rgb),.7),rgba(var(--scrim-rgb),.32) 80%),
+  linear-gradient(to bottom,rgba(var(--scrim-rgb),.1),rgba(var(--scrim-rgb),.35))}
+  .atlas .reserve .im,.reserve .im{background-position:42% 80%}}
+/* Instagram block: says it is a chosen selection */
+.atlas .ignote,.ignote{margin:0 0 12px;max-width:52ch;color:var(--mist);font-size:.95rem;line-height:1.55}
+@media(max-width:700px){
+  .atlas .reserve,.reserve{min-height:94svh;align-items:flex-start}
+  .atlas .reserve .rc,.reserve .rc{padding:52px 20px 0}
+}
+.reserve .alt a[href^="tel:"]{white-space:nowrap}
