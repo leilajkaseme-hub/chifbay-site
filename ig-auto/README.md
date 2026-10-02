@@ -427,3 +427,19 @@ IG_TRANSPORT=dry-run IG_NO_JITTER=1 IG_KIND=story node bin/post.mjs
 - **Location tag.** The API accepts a `location_id` on feed posts. Tagging
   Funchal helps local discovery. Needs the Page ID for the location.
 - **Alt text.** Supported by the API, not wired up yet.
+
+## Approval (since 2 Oct 2026)
+
+Nothing posts without Theo's OK. `config.require_approval` is true: `bin/post.mjs` asks
+`GET /v1/ig/approvals` on the booking Worker and only posts an item that is approved and due
+(its day is today or earlier, Madeira time). If the list cannot be read, nothing posts.
+
+- He decides on https://chifbay-booking-api.chifandcopt.workers.dev/portal/instagram
+- `lib/manifest.mjs` writes `manifest.json` (public at chifbay.com/ig-auto/manifest.json): every
+  candidate, rebuilt by top-up and after each post. Top-up drops what he turned down.
+- **Reels are not posted by code.** They come from `stores/chifbay/reels` (`reels-plan.json`);
+  `bin/reel-due.mjs` (`ig-auto-reel.yml`, 16:30 UTC) sends the due Reel to his phone until he marks
+  it posted. `auto_feed_reels: false` keeps the old silent 6 s clips out of the feed.
+- `bin/insights.mjs` (`ig-auto-insights.yml`, daily 06:15 UTC) reads the account and every post,
+  keeps it as a run artifact and sends it to the portal.
+- The heartbeat no longer alerts on a quiet feed, only on an approved post that missed its day.
