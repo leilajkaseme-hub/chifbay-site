@@ -81,5 +81,5 @@ test('the sunset trip departs at 18:30, as the booking catalogue says', () => {
 
 test('no single 3 hour window for both day trip lengths', () => {
   // the 2h30 is back at 12:30 / 16:30: "10–13 · 14–17" only fits the 3h
-  assert.deepEqual(hits(/10\s?[–—-]\s?13\s?·\s?14\s?[–—-]\s?17|10:00\s?[–—-]\s?13:00 or 14:00\s?[–—-]\s?17:00/g), []);
+  assert.deepEqual(hits(/10\s?[–—-]\s?13\s?·\s?14\s?[–—-]\s?17|10:00\s?[–—-]\s?13:00|14:00\s?[–—-]\s?17:00/g), []);
 });
