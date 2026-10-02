@@ -332,7 +332,11 @@
       '<text class="area sea-t" x="40" y="' + (H - 30) + '">ATLANTIC</text>' +
       '<g class="north" transform="translate(56,56)"><circle r="16"/><path d="M0,-11 L5,4 L0,1 L-5,4Z"/><text y="-22">N</text></g>' +
       '<g class="scale" transform="translate(250,' + (H - 30) + ')"><path d="M0,0 H' + bar.toFixed(1) + '"/><path d="M0,-5 V0 M' + bar.toFixed(1) + ',-5 V0"/><text x="' + (bar / 2).toFixed(1) + '" y="-9">2 km</text></g>' +
-      '<path class="sea-bg" d="' + d + '"/><path class="sea-fg" d="' + d + '"/>' + marks + "</svg>";
+      '<path class="sea-bg" d="' + d + '"/><path class="sea-fg" d="' + d + '"/>' + marks +
+      // the boat, seen from above, bow pointing along +x; rotated to the course
+      '<g class="t-boat"><g class="t-boat-r"><path class="wake" d="M-26,0 L-12,-3 L-12,3Z"/>' +
+      '<path class="hull" d="M-12,-5.5 L7,-5.5 Q15,-2 16,0 Q15,2 7,5.5 L-12,5.5 Q-14,0 -12,-5.5Z"/>' +
+      '<rect class="deck" x="-6" y="-3" width="9" height="6" rx="1.5"/></g></g>' + "</svg>";
     var fg = host.querySelector(".sea-fg");
     var L = fg.getTotalLength();
     // where along the path each pin sits, as a share of the length
@@ -346,14 +350,80 @@
     });
     fg.style.strokeDasharray = L;
     var pins = $$(".t-pin", host);
+    var boat = host.querySelector(".t-boat"), boatR = host.querySelector(".t-boat-r");
+    // how far along the coast the chosen trip goes (share of the full line)
+    var lim = 1, last = 0;
     function paint(k) {
-      fg.style.strokeDashoffset = (L * (1 - k)).toFixed(1);
+      if (k === undefined) k = last;
+      last = k;
+      var reach = k * lim;
+      fg.style.strokeDashoffset = (L * (1 - reach)).toFixed(1);
       at.forEach(function (v, j) {
-        var on = k >= v - 0.01;
-        pins[j].classList.toggle("on", on);
-        stops[j].classList.toggle("on", on);
+        var on = reach >= v - 0.01, out = v > lim + 0.01;
+        pins[j].classList.toggle("on", on && !out);
+        pins[j].classList.toggle("off", out);
+        stops[j].classList.toggle("on", on && !out);
+        stops[j].classList.toggle("off", out);
       });
+      // the boat rides the tip of the line and turns with the coast
+      var len = Math.max(0.5, L * reach), p = fg.getPointAtLength(len),
+        q = fg.getPointAtLength(Math.min(L, len + 2)), b = fg.getPointAtLength(Math.max(0, len - 2));
+      var ang = Math.atan2(q.y - b.y, q.x - b.x) * 180 / Math.PI;
+      boat.setAttribute("transform", "translate(" + p.x.toFixed(1) + "," + p.y.toFixed(1) + ")");
+      boatR.setAttribute("transform", "rotate(" + ang.toFixed(1) + ")");
+      boat.classList.toggle("moving", reach > 0.005 && reach < lim - 0.005);
+      // phones: the whole coast in 360 px is unreadable, so the map shows a
+      // window of it that follows the boat (no sideways scrolling to do)
+      var svg = host.firstChild, narrow = host.clientWidth < 600;
+      if (narrow) {
+        var vx = Math.max(0, Math.min(W - 520, p.x - 300));
+        svg.setAttribute("viewBox", vx.toFixed(1) + " 70 520 300");
+      } else if (svg.getAttribute("viewBox") !== "0 0 " + W + " " + H) svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     }
+    addEventListener("resize", function () { paint(); });
+
+    /* Trip picker (home page, where the map shows the whole coast): each
+       option draws only its own route and marks where it turns back. The
+       routes are the booking page's own (booking-content.js). */
+    if (stops.length >= 6) {
+      var lang = (root.lang || "en").slice(0, 2);
+      var TL = {
+        en: ["Whole coast", "Day 2h30", "Day 3h", "Sunset 2h", "Sunset 2h30", "Show the route of"],
+        fr: ["Toute la côte", "Jour 2h30", "Jour 3h", "Coucher de soleil 2h", "Coucher de soleil 2h30", "Voir l'itinéraire de"],
+        de: ["Ganze Küste", "Tag 2,5 Std.", "Tag 3 Std.", "Sonnenuntergang 2 Std.", "Sonnenuntergang 2,5 Std.", "Route anzeigen für"],
+        pt: ["Toda a costa", "Dia 2h30", "Dia 3h", "Pôr do sol 2h", "Pôr do sol 2h30", "Ver o percurso de"],
+        es: ["Toda la costa", "Día 2h30", "Día 3h", "Atardecer 2h", "Atardecer 2h30", "Ver la ruta de"],
+        it: ["Tutta la costa", "Giorno 2h30", "Giorno 3h", "Tramonto 2h", "Tramonto 2h30", "Mostra il percorso di"]
+      }[lang] || null;
+      var TURN = ["sol", "brava", "sol", "girao", "brava"];
+      if (TL) {
+        var ids = stops.map(function (s) { return s.getAttribute("data-id"); });
+        var pick = document.createElement("div");
+        pick.className = "t-trips";
+        pick.setAttribute("role", "group");
+        pick.setAttribute("aria-label", TL[5]);
+        pick.innerHTML = TURN.map(function (t, i) {
+          return '<button type="button" aria-pressed="' + (i === 0) + '" data-turn="' + t + '">' + TL[i] + "</button>";
+        }).join("");
+        host.parentNode.insertBefore(pick, host);
+        $$("button", pick).forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            $$("button", pick).forEach(function (x) { x.setAttribute("aria-pressed", String(x === btn)); });
+            var j = ids.indexOf(btn.getAttribute("data-turn"));
+            lim = j >= 0 ? at[j] : 1;
+            pins.forEach(function (pn, i) { pn.classList.toggle("turn", btn !== pick.firstChild && i === j); });
+            paint();
+          });
+        });
+      }
+    }
+    // a stop card in focus or under the pointer lights its pin
+    stops.forEach(function (st, j) {
+      st.tabIndex = 0;
+      var hl = function (on) { return function () { pins[j].classList.toggle("hl", on); }; };
+      st.addEventListener("mouseenter", hl(true)); st.addEventListener("mouseleave", hl(false));
+      st.addEventListener("focus", hl(true)); st.addEventListener("blur", hl(false));
+    });
     if (REDUCE) { paint(1); return; }
     var active = false;
     inView(sec, function (v) { active = v; if (v) runScroll(); });
@@ -564,4 +634,10 @@
       else if (v.dataset.auto && !v.dataset.hold) { delete v.dataset.auto; var r = v.play(); if (r && r.catch) r.catch(function () {}); }
     }, { rootMargin: "0px" });
   })();
+
+  /* ---------------------------------------- media chapter: tiles open in view */
+  $$("section.minc .mi").forEach(function (f) {
+    if (REDUCE) { f.classList.add("open"); return; }
+    inView(f, function (on) { if (on) f.classList.add("open"); }, { rootMargin: "0px 0px -18% 0px" });
+  });
 })();

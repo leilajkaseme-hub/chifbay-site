@@ -292,7 +292,8 @@ header.hero.sub:not(.t-frame) .hc{padding-top:120px}
 .t-map .t-pin.on .halo{transform:scale(1)}
 .t-map .t-pin.on .num{fill:#0b1b29;font-weight:700}
 .t-map .t-pin.on .sn{opacity:1}
-@media(max-width:760px){.t-map .t-pin .sn,.t-map .area{display:none}.t-map .t-pin .num{font-size:22px}}
+@media(max-width:760px){.t-map .area{display:none}.t-map .t-pin .num{font-size:15px}.t-map .t-pin .sn{font-size:17px;opacity:.55}}
+@media(max-width:599px){.t-map{aspect-ratio:520/300}.t-map .north,.t-map .scale{display:none}}
 .t-stops{list-style:none;margin:var(--t-gap) 0 0;padding:0;display:flex;flex-direction:row-reverse;gap:var(--t-gap)}
 .t-stops>li{flex:1 1 0;min-width:0}
 /* the map has west on the left, like every map; the cards follow it, so each
@@ -313,10 +314,11 @@ header.hero.sub:not(.t-frame) .hc{padding-top:120px}
 @media(max-width:1100px){.t-stops{flex-wrap:wrap-reverse}.t-stops>li{flex:1 1 30%}}
 @media(max-width:760px){
   .t-route .t-wrap{padding:0 16px}
-  .t-stops{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;
-    padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .t-stops::-webkit-scrollbar{display:none}
-  .t-stops>li{flex:0 0 72%}
+  /* two columns: every stop on screen, nothing to swipe sideways */
+  .t-stops{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .t-stop .t-sb{padding:10px 11px 12px}
+  .t-stop h3{font-size:.95rem}
+  .t-stop p{font-size:.78rem}
   .t-stop{scroll-snap-align:start;opacity:1;transform:none}
 }
 @media (prefers-reduced-motion: reduce){.t-stop,.t-stop img{transition:none;opacity:1;transform:none;filter:none}}
@@ -459,3 +461,48 @@ header.hero.hero-v{min-height:100svh}
 header.hero .hbadge{text-shadow:0 1px 10px rgba(5,15,24,.7)}
 .t-pcard a:not(.btn){color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .t-pcard a:not(.btn):hover{text-decoration-thickness:2px}
+
+/* ---------------------------------------- route: the boat, the trip picker */
+.t-map .t-boat .hull{fill:#0b1b29;stroke:#fff;stroke-width:1.2}
+.t-map .t-boat .deck{fill:#f7f5f1}
+.t-map .t-boat .wake{fill:rgba(255,255,255,.85);opacity:0;transition:opacity .3s}
+.t-map .t-boat.moving .wake{opacity:1}
+:root[data-theme="dark"] .t-map .t-boat .hull{fill:#e0be7a;stroke:#0b1b29}
+.t-map .t-pin.off{opacity:.28}
+.t-map .t-pin.turn .halo{fill:rgba(224,190,122,.35);transform:scale(1.25)}
+.t-map .t-pin.hl .halo{transform:scale(1.35)}
+.t-map .t-pin.hl .sn{opacity:1}
+.t-stop.off{opacity:.22;filter:grayscale(1)}
+.t-stop:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.t-trips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.t-trips button{font:inherit;font-size:.86rem;font-weight:500;padding:9px 16px;border-radius:999px;cursor:pointer;
+  border:1px solid rgba(var(--edge-rgb),.16);background:transparent;color:var(--paper);transition:background .2s,color .2s,border-color .2s}
+.t-trips button:hover{border-color:rgba(var(--edge-rgb),.4)}
+.t-trips button[aria-pressed="true"]{background:#104a7c;border-color:#104a7c;color:#fff}
+.t-trips button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media(max-width:560px){.t-trips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -16px 12px;padding:0 16px}
+  .t-trips::-webkit-scrollbar{display:none}.t-trips button{flex:0 0 auto}}
+
+/* ---------------------------------------- "Included": the dark media chapter
+   The one deep Atlantic section of the page (brief, 2 Oct 2026): the real
+   drone and Insta360 footage opens into view as the visitor reaches it. */
+section.minc{background:#0b1b29;color:#f0f5f4;padding:clamp(72px,11vh,130px) 0!important;margin:clamp(40px,7vh,90px) 0}
+section.minc h2,section.minc h2 em{color:#f0f5f4}
+section.minc h2 em{color:#e0be7a}
+section.minc .minc-lead{color:rgba(240,245,244,.72)}
+section.minc .chead .cl{color:rgba(240,245,244,.7)}
+section.minc .chead svg{stroke:rgba(240,245,244,.7)}
+section.minc .minc-grid{grid-template-columns:1.6fr 1fr;grid-template-rows:1fr 1fr;gap:16px}
+section.minc .mi:first-child{grid-row:span 2;aspect-ratio:auto;min-height:clamp(420px,62vh,700px)}
+section.minc .mi:not(:first-child){aspect-ratio:auto;min-height:clamp(200px,30vh,340px)}
+:root[data-theme="light"] section.minc .mi-k{color:#050f18}
+section.minc .mi{clip-path:inset(7% 7% 7% 7% round 28px);transform:scale(.96);
+  transition:clip-path 1.1s cubic-bezier(.2,.7,.1,1),transform 1.1s cubic-bezier(.2,.7,.1,1)}
+section.minc .mi.open{clip-path:inset(0 0 0 0 round 22px);transform:none}
+section.minc .mi:nth-child(2){transition-delay:.12s}
+section.minc .mi:nth-child(3){transition-delay:.22s}
+@media (prefers-reduced-motion: reduce){section.minc .mi{clip-path:none;transform:none;transition:none}}
+@media(max-width:760px){section.minc .minc-grid{grid-template-columns:1fr;grid-template-rows:auto}
+  section.minc .mi:first-child{grid-row:auto;min-height:0;aspect-ratio:4/5}
+  section.minc .mi:not(:first-child){min-height:0;aspect-ratio:16/11}}
+section.minc .chead,section.minc .chead *{color:rgba(240,245,244,.72)!important}

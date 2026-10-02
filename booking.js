@@ -561,12 +561,18 @@
         state.availability = applyClosures(res.days || {}, requestedTrip);
         var prefill = state.prefill;
         state.prefill = null;
+        state.near = null;
         if (prefill && prefill.trip === state.trip && prefill.variant === state.variant) {
           var slots = state.availability[prefill.date] || [];
           if (slots.length) {
             state.date = prefill.date;
             state.month = prefill.date.slice(0, 8) + "01";
             state.time = slots.indexOf(prefill.time) !== -1 ? prefill.time : null;
+          } else if (prefill.date) {
+            // the day asked for is taken: offer the closest free ones instead
+            // of silently showing another month
+            state.near = nearestOpen(prefill.date, 3);
+            state.month = prefill.date.slice(0, 8) + "01";
           }
         }
         renderCalendar();
@@ -603,6 +609,17 @@
     return out;
   }
 
+  // the n open days closest to dateStr (either side), oldest first
+  function nearestOpen(dateStr, n) {
+    var t0 = parseYmd(dateStr).getTime();
+    return Object.keys(state.availability).filter(function (k) { return (state.availability[k] || []).length; })
+      .sort(function (a, b) { return Math.abs(parseYmd(a) - t0) - Math.abs(parseYmd(b) - t0); })
+      .slice(0, n).sort();
+  }
+  function shortDate(k) {
+    return parseYmd(k).toLocaleDateString(locale(), { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+  }
+
   function renderCalendar() {
     var wrap = $("#bkcal");
     var first = parseYmd(state.month);
@@ -635,8 +652,32 @@
         : '<span class="bkday off">' + d + "</span>";
     }
     html += "</div>";
+
+    // Say why the grid is empty, and offer the way out. Loading and a
+    // technical failure have their own messages (ui.checking, ui.calFailed).
+    var open = Object.keys(state.availability).filter(function (k) { return (state.availability[k] || []).length; }).sort();
+    var jump = function (k) { return '<button type="button" class="bkjump" data-date="' + k + '">' + esc(shortDate(k)) + "</button>"; };
+    if (state.near && state.near.length) {
+      html += '<p class="bknote" role="status">' + esc(t("ui.taken")) + " " + state.near.map(jump).join(" ") + "</p>";
+    } else if (!open.length) {
+      html += '<p class="bknote" role="status">' + esc(t("ui.noneFree")).replace(esc(t("ui.whatsapp")),
+        '<a href="' + CFG.WA + '">' + esc(t("ui.whatsapp")) + "</a>") + "</p>";
+    } else if (!open.some(function (k) { return k.slice(0, 7) === state.month.slice(0, 7); })) {
+      var next = open.filter(function (k) { return k > state.month; })[0];
+      html += '<p class="bknote" role="status">' + esc(t("ui.monthEmpty")) + " " +
+        (next ? esc(t("ui.nextFree")) + " " + jump(next) : esc(t("ui.lastFree", { n: (state.catalogue && state.catalogue.bookMaxDays) || CFG.DAYS_AHEAD })) + " " + jump(open[open.length - 1])) + "</p>";
+    }
     wrap.innerHTML = html;
 
+    $$(".bkjump", wrap).forEach(function (b) {
+      b.addEventListener("click", function () {
+        state.date = b.dataset.date;
+        state.time = null;
+        state.near = null;
+        state.month = b.dataset.date.slice(0, 8) + "01";
+        renderCalendar();
+      });
+    });
     $$(".bknav", wrap).forEach(function (b) {
       b.addEventListener("click", function () {
         var f = parseYmd(state.month);
@@ -689,11 +730,29 @@
     return '<p class="bkhint bksun">' + esc(t("ui.sunsetAt", { t: sun })) + " " + esc(t(key)) + "</p>";
   }
 
+  /* The choice lives in the address bar too (replaceState: no extra history
+     step), so Back from the payment step, a reload or a shared link brings
+     the same trip, option, date, time and guests back. The page already
+     reads ?v=&date=&time=&guests= on load. Prices are never taken from it. */
+  function syncUrl() {
+    if (!window.history || !history.replaceState || !state.variant) return;
+    try {
+      var q = new URLSearchParams(location.search);
+      q.set("trip", state.trip); q.set("v", state.variant); q.delete("variant");
+      if (state.date) q.set("date", state.date); else q.delete("date");
+      if (state.time) q.set("time", state.time); else q.delete("time");
+      var g = $("#bkguests");
+      if (g && g.value) q.set("guests", g.value);
+      history.replaceState(history.state, "", location.pathname + "?" + q.toString() + location.hash);
+    } catch (e) {}
+  }
+
   function renderTimes() {
     var box = $("#bktimes");
     if (!state.date) {
       box.innerHTML = '<p class="bkhint">' + esc(t("ui.pickDay")) + "</p>";
       $("#bkto3").disabled = true;
+      syncUrl();
       return;
     }
     var times = state.availability[state.date] || [];
@@ -712,6 +771,7 @@
       });
     });
     $("#bkto3").disabled = !state.time;
+    syncUrl();
   }
 
   /* ---------------------------------------------------------- step 3 detail */
@@ -898,6 +958,7 @@
         renderTrips();
 
         var g = $("#bkguests");
+        if (g) g.addEventListener("change", syncUrl);
         for (var i = 1; i <= cat.maxGuests; i++) {
           var o = document.createElement("option");
           o.value = String(i);

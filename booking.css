@@ -381,3 +381,8 @@
 /* Light mode: pale red on pale pink is unreadable, so the warnings darken. */
 :root[data-theme="light"] .bktest,
 :root[data-theme="light"] .bkmsg.err{color:#8c1d1d;background:rgba(212,84,84,.1)}
+.bknote{margin:14px 0 0;font-size:.9rem;line-height:1.6;color:var(--muted)}
+.bkjump{font:inherit;font-size:.85rem;font-weight:600;margin:4px 4px 0 0;padding:6px 12px;border-radius:999px;cursor:pointer;
+  border:1px solid rgba(var(--edge-rgb),.2);background:transparent;color:var(--paper)}
+.bkjump:hover{border-color:var(--teal);color:var(--teal)}
+.bkjump:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
