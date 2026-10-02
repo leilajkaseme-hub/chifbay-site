@@ -6,7 +6,7 @@
    "kind": "reel",
    "format": "story",
    "product": "day",
-   "verdict": "new: one Day Trip in order, guests, place, swim, payoff, booking line",
+   "verdict": "Nouveau : un Day Trip dans l'ordre (invités, falaise, paddle, saut, le groupe sous la falaise), ligne pour réserver à la fin.",
    "test": false,
    "subject": "day trip story",
    "hook": "A Day Trip from Funchal",
@@ -25,10 +25,10 @@
    "cover": "https://chifbay.com/ig/reels/r15-daytrip.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r15-daytrip-cover.jpg",
    "colour": {
-    "hex": "#505756",
-    "hue": 169,
-    "light": 0.329,
-    "sat": 0.045
+    "hex": "#898d8c",
+    "hue": 163,
+    "light": 0.548,
+    "sat": 0.018
    },
    "version": "v2",
    "shots": [
@@ -131,11 +131,11 @@
     ]
    },
    "duration": 14.4,
-   "bytes": 15296794,
+   "bytes": 15275792,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:40:51"
+    "at": "2026-10-02T22:58:36"
    }
   },
   {
@@ -143,7 +143,7 @@
    "kind": "reel",
    "format": "action",
    "product": "day",
-   "verdict": "rework: starts right before the jump, splash inside 1.5 s, swimmers after",
+   "verdict": "Refait : commence juste avant le saut, l'éclaboussure à 1 s, puis les nageurs vus du drone.",
    "test": false,
    "subject": "jump",
    "hook": "Your Madeira swim stop",
@@ -229,7 +229,7 @@
    "kind": "reel",
    "format": "story",
    "product": "any",
-   "verdict": "rework: guests first (overhead orbit), then the boat leaving, booking line at the end",
+   "verdict": "Refait : les invités vus du dessus d'abord, puis le bateau qui part ; « drone si le vent le permet ».",
    "test": false,
    "subject": "drone video",
    "hook": "Your trip, filmed from above",
@@ -316,7 +316,7 @@
    "kind": "reel",
    "format": "action",
    "product": "sunset",
-   "verdict": "rework: shorter title, opens on the group, no empty horizon",
+   "verdict": "Refait : titre plus court, ouvre sur le groupe, coupé entre les fondus de la vidéo source.",
    "test": false,
    "subject": "sunset",
    "hook": "Madeira, just before sunset",
@@ -402,7 +402,7 @@
    "kind": "reel",
    "format": "action",
    "product": "day",
-   "verdict": "new: the paddle board moment, real sound",
+   "verdict": "Nouveau : trois sur un paddle qui tombent à l'eau, avec le vrai son.",
    "test": false,
    "subject": "paddle",
    "hook": "Swim. Paddle. Repeat.",
@@ -421,10 +421,10 @@
    "cover": "https://chifbay.com/ig/reels/r14-paddle.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r14-paddle-cover.jpg",
    "colour": {
-    "hex": "#6d7e73",
-    "hue": 139,
-    "light": 0.462,
-    "sat": 0.069
+    "hex": "#747d74",
+    "hue": 119,
+    "light": 0.475,
+    "sat": 0.039
    },
    "version": "v2",
    "shots": [
@@ -459,11 +459,11 @@
     ]
    },
    "duration": 6.32,
-   "bytes": 7229761,
+   "bytes": 7238844,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:42:10"
+    "at": "2026-10-02T22:58:50"
    }
   },
   {
@@ -471,7 +471,7 @@
    "kind": "reel",
    "format": "action",
    "product": "any",
-   "verdict": "rework: opens with the cliff and the terraces already in frame",
+   "verdict": "Refait : la falaise et les terrasses au soleil dès la première image, au ralenti (drone 60 i/s).",
    "test": false,
    "subject": "place",
    "hook": "Under Cabo Girão",
@@ -540,7 +540,7 @@
    "kind": "reel",
    "format": "split",
    "product": "day",
-   "verdict": "test only: three landscape shots stacked, compared against r01 and r15",
+   "verdict": "Test seulement : trois plans empilés, à comparer à r01 et r15. Hors rotation.",
    "test": true,
    "subject": "split test",
    "hook": "Swim. Cliffs. Clear water.",

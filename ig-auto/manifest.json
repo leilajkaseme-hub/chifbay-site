@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T20:55:23.362Z",
+ "generated_at": "2026-10-02T20:58:56.702Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -20,20 +20,20 @@
    "cover": "https://chifbay.com/ig/reels/r15-daytrip.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r15-daytrip-cover.jpg",
    "colour": {
-    "hex": "#505756",
-    "hue": 169,
-    "light": 0.329,
-    "sat": 0.045
+    "hex": "#898d8c",
+    "hue": 163,
+    "light": 0.548,
+    "sat": 0.018
    },
    "note": "",
    "format": "story",
-   "verdict": "new: one Day Trip in order, guests, place, swim, payoff, booking line",
+   "verdict": "Nouveau : un Day Trip dans l'ordre (invités, falaise, paddle, saut, le groupe sous la falaise), ligne pour réserver à la fin.",
    "test": false,
    "alt": "Guests toast on a boat, the cliff of Cabo Girão, friends on a paddle board, a jump into the sea, the boat and the group under the cliff.",
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:40:51"
+    "at": "2026-10-02T22:58:36"
    },
    "posted": false
   },
@@ -63,7 +63,7 @@
    },
    "note": "",
    "format": "action",
-   "verdict": "rework: starts right before the jump, splash inside 1.5 s, swimmers after",
+   "verdict": "Refait : commence juste avant le saut, l'éclaboussure à 1 s, puis les nageurs vus du drone.",
    "test": false,
    "alt": "A guest jumps off the back of a small boat into clear blue water below a cliff in Madeira, then swims with friends.",
    "checks": {
@@ -99,7 +99,7 @@
    },
    "note": "",
    "format": "story",
-   "verdict": "rework: guests first (overhead orbit), then the boat leaving, booking line at the end",
+   "verdict": "Refait : les invités vus du dessus d'abord, puis le bateau qui part ; « drone si le vent le permet ».",
    "test": false,
    "alt": "Overhead drone shot of guests on a small boat, then the boat heading out along the Madeira coast.",
    "checks": {
@@ -135,7 +135,7 @@
    },
    "note": "",
    "format": "action",
-   "verdict": "rework: shorter title, opens on the group, no empty horizon",
+   "verdict": "Refait : titre plus court, ouvre sur le groupe, coupé entre les fondus de la vidéo source.",
    "test": false,
    "alt": "Guests sit on the deck of a small boat as the sun goes down over the Atlantic off Madeira.",
    "checks": {
@@ -164,20 +164,20 @@
    "cover": "https://chifbay.com/ig/reels/r14-paddle.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r14-paddle-cover.jpg",
    "colour": {
-    "hex": "#6d7e73",
-    "hue": 139,
-    "light": 0.462,
-    "sat": 0.069
+    "hex": "#747d74",
+    "hue": 119,
+    "light": 0.475,
+    "sat": 0.039
    },
    "note": "",
    "format": "action",
-   "verdict": "new: the paddle board moment, real sound",
+   "verdict": "Nouveau : trois sur un paddle qui tombent à l'eau, avec le vrai son.",
    "test": false,
    "alt": "A group of friends tries to stand on a paddle board in the sea off Madeira and falls into the water.",
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:42:10"
+    "at": "2026-10-02T22:58:50"
    },
    "posted": false
   },
@@ -207,7 +207,7 @@
    },
    "note": "",
    "format": "action",
-   "verdict": "rework: opens with the cliff and the terraces already in frame",
+   "verdict": "Refait : la falaise et les terrasses au soleil dès la première image, au ralenti (drone 60 i/s).",
    "test": false,
    "alt": "Drone view along the sea cliff of Cabo Girão in Madeira, with small farm terraces at the bottom.",
    "checks": {
@@ -243,7 +243,7 @@
    },
    "note": "",
    "format": "split",
-   "verdict": "test only: three landscape shots stacked, compared against r01 and r15",
+   "verdict": "Test seulement : trois plans empilés, à comparer à r01 et r15. Hors rotation.",
    "test": true,
    "alt": "Three stacked clips: a jump into the sea, the Cabo Girao cliff, and turquoise water seen from above.",
    "checks": {
