@@ -452,7 +452,12 @@
     /* Trip picker (home page, where the map shows the whole coast): each
        option draws only its own route and marks where it turns back. The
        routes are the booking page's own (booking-content.js). */
-    if (stops.length >= 6) {
+    // which trips this map offers: the home page shows all of them, a trip
+    // page only its own two lengths (2 Oct audit), starting on the longer one,
+    // which is the full route the map first draws
+    var KIND = /\/sunset-cruise(\.html)?$/.test(location.pathname) ? [3, 4]
+      : /\/hidden-coves-half-day(\.html)?$/.test(location.pathname) ? [1, 2] : [0, 1, 2, 3, 4];
+    if (stops.length >= 6 || KIND.length === 2) {
       var TL = {
         en: ["Whole coast", "Day 2h30", "Day 3h", "Sunset 2h", "Sunset 2h30", "Show the route of"],
         fr: ["Toute la côte", "Jour 2h30", "Jour 3h", "Coucher de soleil 2h", "Coucher de soleil 2h30", "Voir l'itinéraire de"],
@@ -468,8 +473,9 @@
         pick.className = "t-trips";
         pick.setAttribute("role", "group");
         pick.setAttribute("aria-label", TL[5]);
-        pick.innerHTML = TURN.map(function (t, i) {
-          return '<button type="button" aria-pressed="' + (i === 0) + '" data-turn="' + t + '">' + TL[i] + "</button>";
+        pick.innerHTML = KIND.map(function (i, n) {
+          var on = KIND.length === 2 ? n === 1 : i === 0;
+          return '<button type="button" aria-pressed="' + on + '" data-turn="' + TURN[i] + '"' + (i === 0 ? " data-whole" : "") + ">" + TL[i] + "</button>";
         }).join("");
         host.parentNode.insertBefore(pick, host);
         $$("button", pick).forEach(function (btn) {
@@ -477,7 +483,7 @@
             $$("button", pick).forEach(function (x) { x.setAttribute("aria-pressed", String(x === btn)); });
             var j = ids.indexOf(btn.getAttribute("data-turn"));
             lim = j >= 0 ? at[j] : 1;
-            pins.forEach(function (pn, i) { pn.classList.toggle("turn", btn !== pick.firstChild && i === j); });
+            pins.forEach(function (pn, i) { pn.classList.toggle("turn", !btn.hasAttribute("data-whole") && i === j); });
             fit(true);
             restart();                                                  // the chosen route plays from the start
           });
