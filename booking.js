@@ -580,7 +580,11 @@
       .catch(function (e) {
         $("#bkcal").innerHTML = '<p class="bkload">' + esc(t("ui.calFailed")).replace(
           esc(t("ui.whatsapp")),
-          '<a href="' + CFG.WA + '">' + esc(t("ui.whatsapp")) + "</a>") + "</p>";
+          '<a href="' + CFG.WA + '">' + esc(t("ui.whatsapp")) + "</a>") + "</p>" +
+          // a passing network hiccup should not end the booking: try again in place
+          '<button type="button" class="btn btn-g bkretry">' + esc(t("ui.retry")) + "</button>";
+        var again = $("#bkcal").querySelector(".bkretry");
+        if (again) again.addEventListener("click", function () { say("", ""); loadAvailability(); });
         say(e.message, "err");
       });
   }

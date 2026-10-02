@@ -24,8 +24,8 @@
 <style>
 .rvw-wrap{max-width:640px;margin:0 auto}
 .rvw-wrap .ccard{text-align:center}
-.rvw-stars{display:flex;justify-content:center;gap:10px;margin:18px 0 6px}
-.rvw-stars button{background:none;border:none;cursor:pointer;font-size:2.6rem;line-height:1;padding:4px;color:rgba(255,255,255,.25);transition:transform .12s ease,color .12s ease}
+.rvw-stars{display:flex;justify-content:center;gap:clamp(2px,2vw,10px);margin:18px 0 6px;max-width:100%}
+.rvw-stars button{background:none;border:none;cursor:pointer;font-size:clamp(1.9rem,11vw,2.6rem);line-height:1;padding:4px;min-width:44px;flex:0 1 auto;color:rgba(255,255,255,.25);transition:transform .12s ease,color .12s ease}
 .rvw-stars button.on{color:#e3b264;text-shadow:0 0 22px rgba(227,178,100,.45)}
 .rvw-stars button:hover{transform:scale(1.18)}
 .rvw-hintline{font-size:.85rem;opacity:.6;margin-top:4px}

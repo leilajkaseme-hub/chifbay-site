@@ -456,7 +456,7 @@ header.hero.hero-v{min-height:100svh}
 .t-plist li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
 .t-plink{display:inline-block;margin-top:12px;font-weight:500}
 .t-pcta{margin-top:42px}
-@media(max-width:760px){.t-pgrid{grid-template-columns:1fr}.t-pwide{grid-column:auto}.t-pcard{padding:24px 20px}
+@media(max-width:760px){.t-pgrid{grid-template-columns:minmax(0,1fr)}.t-pcard{min-width:0;overflow-wrap:anywhere}.t-ptimes td{white-space:normal}.t-pwide{grid-column:auto}.t-pcard{padding:24px 20px}
   .t-ptimes th,.t-ptimes td{display:block;text-align:left;padding:4px 0}.t-ptimes tr{display:block;padding:10px 0;border-bottom:1px solid rgba(var(--edge-rgb),.09)}.t-ptimes th,.t-ptimes td{border:0}}
 header.hero .hbadge{text-shadow:0 1px 10px rgba(5,15,24,.7)}
 .t-pcard a:not(.btn){color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}

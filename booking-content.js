@@ -170,6 +170,7 @@ window.CHIFBAY_CONTENT = (function () {
     "ui.safe":        "Free cancellation up to 24 hours before departure. Your card details go straight to Stripe and are never seen by us or stored on this site.",
     "ui.notReachable": "The booking system is not reachable right now. Please message us on WhatsApp and we will hold your date.",
     "ui.calFailed":   "Could not load the calendar. Please message us on WhatsApp.",
+    "ui.retry":       "Try again",
     "ui.whatsapp":    "message us on WhatsApp",
     "ui.hoursShort":  "h",
     "ui.minsShort":   "min",
@@ -217,6 +218,8 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.noneFree": "Aucune date libre pour le moment. Écrivez-nous sur WhatsApp et nous en chercherons une.",
       "ui.taken": "Ce jour est déjà réservé. Les jours libres les plus proches :",
       "ui.whatsapp": "WhatsApp",
+      "ui.calFailed": "Impossible de charger le calendrier. Écrivez-nous sur WhatsApp.",
+      "ui.retry": "Réessayer",
     },
     de: {
       "stop.funchal": "Ablegen",
@@ -247,6 +250,8 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.noneFree": "Gerade kein freies Datum. Schreiben Sie uns auf WhatsApp, wir suchen eines.",
       "ui.taken": "Dieser Tag ist schon gebucht. Die nächsten freien Tage:",
       "ui.whatsapp": "WhatsApp",
+      "ui.calFailed": "Der Kalender konnte nicht geladen werden. Schreiben Sie uns auf WhatsApp.",
+      "ui.retry": "Erneut versuchen",
     },
     pt: {
       "stop.funchal": "Partida",
@@ -277,6 +282,8 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.noneFree": "Nenhuma data livre de momento. Escreva-nos no WhatsApp e procuramos uma.",
       "ui.taken": "Esse dia já está reservado. Os dias livres mais próximos:",
       "ui.whatsapp": "WhatsApp",
+      "ui.calFailed": "Não foi possível carregar o calendário. Escreva-nos pelo WhatsApp.",
+      "ui.retry": "Tentar de novo",
     },
     es: {
       "stop.funchal": "Salida",
@@ -307,6 +314,8 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.noneFree": "Ahora no hay fechas libres. Escríbenos por WhatsApp y buscamos una.",
       "ui.taken": "Ese día ya está reservado. Los días libres más cercanos:",
       "ui.whatsapp": "WhatsApp",
+      "ui.calFailed": "No se pudo cargar el calendario. Escríbenos por WhatsApp.",
+      "ui.retry": "Reintentar",
     },
     it: {
       "stop.funchal": "Partenza",
@@ -337,6 +346,8 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.noneFree": "Al momento nessuna data libera. Scriveteci su WhatsApp e ne cerchiamo una.",
       "ui.taken": "Quel giorno è già prenotato. I giorni liberi più vicini:",
       "ui.whatsapp": "WhatsApp",
+      "ui.calFailed": "Impossibile caricare il calendario. Scrivici su WhatsApp.",
+      "ui.retry": "Riprova",
     },
   };
 
