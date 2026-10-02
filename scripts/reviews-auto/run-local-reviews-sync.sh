@@ -29,11 +29,27 @@ REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 NTFY_ALERTS="https://ntfy.sh/futurx-blog-alerts-544024878e"
 NTFY_INBOX="https://ntfy.sh/futurx-inbox-544024878e"
 
+# Every run reports to the booking server (/v1/ingest/reviews), success or
+# not. The external watchdog (apps/stores-watch) reads that report and sends
+# a Telegram alert when the job stops running OR keeps failing. Until
+# 2 Oct 2026 failures only went to an ntfy topic nobody read, and the push
+# failed on every run for a month while the heartbeat said "success".
+API="https://chifbay-booking-api.chifandcopt.workers.dev"
+OTA_TOKEN_FILE="$(cd "$SCRIPT_DIR/../../../../.." && pwd)/.credentials/chifbay-ota.token"
+STAGE="start"
+report() {   # report <ok:true|false> <published:true|false> [error]
+  [ -f "$OTA_TOKEN_FILE" ] || return 0
+  local summary
+  summary="$(node "$SCRIPT_DIR/run-summary.mjs" "${PUBLISH_DIR:-$REPO_DIR}" 2>/dev/null || echo '{}')"
+  curl -s --max-time 20 -X POST "$API/v1/ingest/reviews" -H "Content-Type: application/json" \
+    -d "{\"token\":\"$(tr -d '\n' < "$OTA_TOKEN_FILE")\",\"ok\":$1,\"published\":$2,\"stage\":\"$STAGE\",\"error\":$(printf '%s' "${3:-}" | node -e 'process.stdout.write(JSON.stringify(require("fs").readFileSync(0,"utf8").slice(0,300)))'),\"summary\":$summary}" >/dev/null 2>&1 || true
+}
 fail() {
   curl -s --max-time 20 \
     -H "Title: CHIFBAY reviews sync FAILED (local)" \
     -H "Priority: high" -H "Tags: rotating_light,boat" \
     -d "$1" "$NTFY_ALERTS" >/dev/null 2>&1 || true
+  report false false "$1"
   exit 1
 }
 
@@ -66,6 +82,7 @@ fi
 cd "$SCRIPT_DIR" || fail "reviews-auto dir missing"
 [ -d node_modules ] || npm install --no-audit --no-fund || fail "npm install failed"
 
+STAGE="fetch"
 node scrape-gyg.mjs || fail "scrape-gyg.mjs failed — see launchd-err.log"
 node scrape-google.mjs || fail "scrape-google.mjs failed — see launchd-err.log"
 
@@ -139,6 +156,8 @@ if [ -d "$REPO_DIR/assets/reviews" ]; then
   cp -R "$REPO_DIR/assets/reviews/." "$WT/assets/reviews/" || fail "copying review photos failed"
 fi
 
+PUBLISH_DIR="$WT"
+STAGE="build"
 BUILD_LOG="$(mktemp)"
 ( cd "$WT/scripts/reviews-auto" && node build-reviews.mjs ) | tee "$BUILD_LOG" \
   || fail "build-reviews.mjs failed — see launchd-err.log"
@@ -158,11 +177,8 @@ if [ -n "$MISMATCH" ]; then
     -d "$MISMATCH" "$NTFY_ALERTS" >/dev/null 2>&1 || true
 fi
 
-# Everything scraped and built cleanly — that is a successful run whether or
-# not it produced a diff, so stamp the heartbeat before the early exit.
-date +%s > "$HEARTBEAT"
-
 cd "$WT"
+STAGE="publish"
 
 # Stage ONLY what this pipeline produces. This used to be `git add -A`, which
 # meant any unrelated work-in-progress sitting in the repo got swept into the
@@ -182,8 +198,20 @@ REVIEW_PATHS=(
   scripts/reviews-auto/data
 )
 git add -- "${REVIEW_PATHS[@]}" 2>/dev/null || true
+# The build also rewrites the review count on the trip pages (9 pages on
+# 2 Oct 2026). Those were left unstaged, and ci-push.sh refuses to rebase a
+# tree with unstaged changes: every push failed from early September. This
+# worktree is a throwaway checkout of origin/main that only the build has
+# touched, so every tracked change in it is the build's own.
+git add -u
+# Anything still unstaged here would block the push again: say exactly what.
+if ! git diff --quiet; then
+  fail "build left unstaged changes: $(git diff --name-only | head -5 | tr '\n' ' ')"
+fi
 
 if git diff --cached --quiet; then
+  date +%s > "$HEARTBEAT"
+  report true false
   exit 0
 fi
 git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
@@ -193,6 +221,9 @@ git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.
 # scripts/ci-push.sh fetches, rebases, pushes and retries — a race with the
 # blog or Instagram jobs costs seconds instead of a failed run.
 "$WT/scripts/ci-push.sh" || fail "git push failed"
+# Success means published, not merely scraped.
+date +%s > "$HEARTBEAT"
+report true true
 
 if [ -n "${NEW_COUNT:-}" ] && [ "$NEW_COUNT" != "0" ]; then
   curl -s --max-time 20 \

@@ -125,6 +125,73 @@ function replaceBetween(html, startMarker, endMarker, inner) {
   return html.replace(re, `$1\n${inner}\n    $2`);
 }
 
+/* Clean and de-duplicate the review list (2 Oct 2026 audit).
+ *
+ * - The owner's reply is never the guest's text: a text that starts with
+ *   Google's "Response from the owner" moves to `reply`, and a review left
+ *   with no guest words is dropped (a rating-only review cannot be told apart
+ *   from parsing noise here, the same rule as scrape-google.mjs).
+ * - Google icon-font glyphs (private-use characters) are stripped.
+ * - Two entries are the same review only when platform, tour, author, country
+ *   AND exact date all match, and then either the texts are near identical
+ *   (kept once, the fuller one) or, on GetYourGuide, one is the English
+ *   version of the other (kept once: original text + `translation`). Anything
+ *   else stays separate: a shared first name alone is never a duplicate.
+ * Exported so test-reviews.mjs can run it on fixtures.
+ */
+const EN_WORDS = new Set("the and was were we very a to of with for is it our you great highly recommend amazing experience boat trip they this".split(" "));
+const norm = (s) => (s || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+function looksEnglish(s) {
+  const w = norm(s).split(" ").filter(Boolean);
+  if (!w.length) return false;
+  return w.filter((x) => EN_WORDS.has(x)).length / w.length > 0.12;
+}
+function overlap(a, b) {
+  const A = new Set(norm(a).split(" ")), B = new Set(norm(b).split(" "));
+  let i = 0; for (const x of A) if (B.has(x)) i++;
+  return i / Math.max(1, Math.min(A.size, B.size));
+}
+export function cleanAndDedupe(list, log = console.log) {
+  const out = [], dropped = [];
+  const cleaned = list.map((r) => {
+    let text = (r.text || "").replace(/[\ue000-\uf8ff]/g, "").replace(/\s+/g, " ").trim();
+    let reply = r.reply || null;
+    const m = text.match(/^Response from the owner\b.*$/i);
+    if (m) { reply = reply || text.replace(/^Response from the owner\s*(\S+\s+\S+\s+ago\s*)?/i, "").trim() || null; text = ""; }
+    return { ...r, text, reply };
+  });
+  const groups = new Map();
+  for (const r of cleaned) {
+    if (!r.text) { dropped.push(`${r.id} (no guest text)`); continue; }
+    const k = [r.source, r.tourId || "", (r.author || "").trim().toLowerCase(), (r.country || "").toLowerCase(), r.date].join("|");
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(r);
+  }
+  for (const g of groups.values()) {
+    const kept = [];
+    for (const r of g) {
+      const same = kept.findIndex((k) => overlap(k.text, r.text) >= 0.85);
+      if (same !== -1) {
+        if (r.text.length > kept[same].text.length) { dropped.push(`${kept[same].id} (same as ${r.id})`); kept[same] = r; }
+        else dropped.push(`${r.id} (same as ${kept[same].id})`);
+        continue;
+      }
+      const pair = r.source === "getyourguide"
+        ? kept.findIndex((k) => looksEnglish(k.text) !== looksEnglish(r.text)) : -1;
+      if (pair !== -1) {
+        const a = kept[pair], orig = looksEnglish(a.text) ? r : a, en = orig === a ? r : a;
+        kept[pair] = { ...orig, translation: en.text };
+        dropped.push(`${en.id} (English version of ${orig.id})`);
+        continue;
+      }
+      kept.push(r);
+    }
+    out.push(...kept);
+  }
+  if (dropped.length) log(`[build] removed ${dropped.length}: ${dropped.join("; ")}`);
+  return out;
+}
+
 async function main() {
   const gyg = readJsonIfExists(join(HERE, "data", "gyg-reviews.json"));
   const google = readJsonIfExists(join(HERE, "data", "google-reviews.json"));
@@ -161,9 +228,10 @@ async function main() {
   // Tripadvisor's Content API sometimes prepends its own UI label ("See all
   // N photos") to the review text — a scraping artifact, not part of what
   // the guest wrote. Strip it so it never reaches the page or JSON-LD.
-  const all = [...scraped, ...carried].map((r) => (
+  const merged = [...scraped, ...carried].map((r) => (
     r.text ? { ...r, text: r.text.replace(/^See all \d+ photos?\s*/i, "") } : r
   ));
+  const all = cleanAndDedupe(merged);
 
   if (carried.length) {
     console.log(
@@ -321,4 +389,4 @@ async function main() {
   }
 }
 
-main();
+if (process.argv[1] === fileURLToPath(import.meta.url)) main();

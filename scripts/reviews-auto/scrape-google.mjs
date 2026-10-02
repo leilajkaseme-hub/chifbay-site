@@ -223,12 +223,24 @@ async function main() {
       const relTime = lines[timeIdx];
       let start = timeIdx + 1;
       if (lines[start] === "NEW") start++;
-      const stopMarkers = ["Visited on", "Translated by Google", "Like"];
+      // The owner's answer sits in the same card. It must never be read as
+      // the guest's words (2 Oct 2026: a rating-only review was published
+      // with our own reply as its text). It goes to "reply" instead.
+      const stopMarkers = ["Visited on", "Translated by Google", "Like", "Share", "Response from the owner"];
       let end = lines.length;
       for (let i = start; i < lines.length; i++) {
         if (stopMarkers.some((m) => lines[i].startsWith(m))) { end = i; break; }
       }
-      const text = lines.slice(start, end).filter(Boolean).join(" ").trim();
+      // Google's icon font glyphs (thumbs up, share) land in the text as
+      // private-use characters: strip them.
+      const clean = (s) => s.replace(/[\ue000-\uf8ff]/g, "").replace(/\s+/g, " ").trim();
+      const text = clean(lines.slice(start, end).filter(Boolean).join(" "));
+      const ri = lines.findIndex((l) => l.startsWith("Response from the owner"));
+      let reply = null;
+      if (ri !== -1) {
+        const body = lines.slice(ri + 1).filter((l) => l && !/^(a|an|\d+)\s+(second|minute|hour|day|week|month|year)s?\s+ago$/i.test(l) && !/^(Like|Share)$/.test(l));
+        reply = clean(body.join(" ")) || null;
+      }
       if (!text) continue; // rating-only Google reviews aren't distinguishable from parsing noise here — skip rather than risk garbage
 
       const photoPaths = [];
@@ -252,7 +264,7 @@ async function main() {
         tourId: null,
         tourName: null,
         tourUrl: `https://www.google.com/maps/place/?q=place_id:${PLACE_ID}`,
-        reply: null,
+        reply,
       });
     }
 
