@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T15:53:00.387Z",
+ "generated_at": "2026-10-02T16:17:24.619Z",
  "items": [
   {
    "id": "r01-jump",
@@ -198,6 +198,106 @@
     "hue": 156,
     "light": 0.33,
     "sat": 0.092
+   },
+   "note": ""
+  },
+  {
+   "id": "r09-orbit",
+   "kind": "reel",
+   "media": "video",
+   "hook": "What booking the whole boat looks like",
+   "caption": "One boat, one group, open Atlantic all around. Private boat trips from Funchal marina, Madeira, skipper and drinks included.\n\nSend this to the one you would bring.\n\nchifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 8,
+   "video": "https://chifbay.com/ig/reels/r09-orbit.mp4",
+   "preview": "https://chifbay.com/ig/reels/r09-orbit-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r09-orbit.jpg",
+   "colour": {
+    "hex": "#70746c",
+    "hue": 93,
+    "light": 0.441,
+    "sat": 0.032
+   },
+   "note": ""
+  },
+  {
+   "id": "r10-cabogirao",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Under Cabo Girão, 580 m of cliff",
+   "caption": "Cabo Girão from the water, 580 m of rock straight above the sea. Every private trip from Funchal passes right under it.\n\nSave this for your Madeira trip.\n\nchifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 6.5,
+   "video": "https://chifbay.com/ig/reels/r10-cabogirao.mp4",
+   "preview": "https://chifbay.com/ig/reels/r10-cabogirao-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r10-cabogirao.jpg",
+   "colour": {
+    "hex": "#2d3e46",
+    "hue": 199,
+    "light": 0.228,
+    "sat": 0.217
+   },
+   "note": ""
+  },
+  {
+   "id": "r11-dronevideo",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Every trip comes with this drone video",
+   "caption": "Drone, Insta360 and photos on every private trip, so you can put the phone down and just enjoy it. Funchal, Madeira.\n\nTag who needs this video.\n\nchifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 6.4,
+   "video": "https://chifbay.com/ig/reels/r11-dronevideo.mp4",
+   "preview": "https://chifbay.com/ig/reels/r11-dronevideo-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r11-dronevideo.jpg",
+   "colour": {
+    "hex": "#566262",
+    "hue": 180,
+    "light": 0.363,
+    "sat": 0.063
+   },
+   "note": ""
+  },
+  {
+   "id": "r12-southcoast",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Madeira's south coast in one trip",
+   "caption": "From above, under the cliffs, out at sea. A private boat from Funchal shows you the south coast the way no road can.\n\nSend this to your travel buddy.\n\nchifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 5,
+   "video": "https://chifbay.com/ig/reels/r12-southcoast.mp4",
+   "preview": "https://chifbay.com/ig/reels/r12-southcoast-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r12-southcoast.jpg",
+   "colour": {
+    "hex": "#434d4e",
+    "hue": 187,
+    "light": 0.287,
+    "sat": 0.079
    },
    "note": ""
   },
