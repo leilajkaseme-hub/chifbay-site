@@ -175,6 +175,10 @@ window.CHIFBAY_CONTENT = (function () {
     "ui.minsShort":   "min",
     "ui.currency":    "Show prices in",
     "ui.dayClosed":   "That day is not open for booking. The calendar has been refreshed.",
+    "ui.sunsetAt": "Sunset that day: {t}.",
+    "ui.sunsetBefore": "The sun is already down when you leave, so this is an evening run under the lights of Funchal.",
+    "ui.sunsetDuring": "The sun sets during your trip.",
+    "ui.sunsetAfter": "The sun sets after you are back, so you sail in the late afternoon light.",
   };
 
   var LANGS = {
@@ -196,6 +200,10 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.pay":       "Payer et confirmer",
       "ui.currency":  "Afficher les prix en",
       "ui.dayClosed": "Cette date n'est pas ouverte à la réservation. Le calendrier a été mis à jour.",
+      "ui.sunsetAt": "Coucher du soleil ce jour-là : {t}.",
+      "ui.sunsetBefore": "Le soleil est déjà couché au départ : c'est une sortie du soir sous les lumières de Funchal.",
+      "ui.sunsetDuring": "Le soleil se couche pendant votre sortie.",
+      "ui.sunsetAfter": "Le soleil se couche après votre retour : vous naviguez dans la lumière de fin d'après-midi.",
     },
     de: {
       "stop.funchal": "Ablegen",
@@ -215,6 +223,10 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.pay":       "Bezahlen und buchen",
       "ui.currency":  "Preise anzeigen in",
       "ui.dayClosed": "Dieser Tag ist nicht buchbar. Der Kalender wurde aktualisiert.",
+      "ui.sunsetAt": "Sonnenuntergang an diesem Tag: {t}.",
+      "ui.sunsetBefore": "Die Sonne ist bei der Abfahrt schon untergegangen: eine Abendfahrt unter den Lichtern von Funchal.",
+      "ui.sunsetDuring": "Die Sonne geht während Ihrer Fahrt unter.",
+      "ui.sunsetAfter": "Die Sonne geht erst nach Ihrer Rückkehr unter: Sie fahren im Licht des späten Nachmittags.",
     },
     pt: {
       "stop.funchal": "Partida",
@@ -234,6 +246,10 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.pay":       "Pagar e confirmar",
       "ui.currency":  "Mostrar preços em",
       "ui.dayClosed": "Esse dia não está disponível para reserva. O calendário foi atualizado.",
+      "ui.sunsetAt": "Pôr do sol nesse dia: {t}.",
+      "ui.sunsetBefore": "O sol já se pôs à partida: é um passeio ao fim do dia com as luzes do Funchal.",
+      "ui.sunsetDuring": "O sol põe-se durante o seu passeio.",
+      "ui.sunsetAfter": "O sol põe-se depois do regresso: navega com a luz do fim da tarde.",
     },
     es: {
       "stop.funchal": "Salida",
@@ -253,6 +269,10 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.pay":       "Pagar y confirmar",
       "ui.currency":  "Mostrar precios en",
       "ui.dayClosed": "Ese día no está disponible para reservar. El calendario se ha actualizado.",
+      "ui.sunsetAt": "Puesta de sol ese día: {t}.",
+      "ui.sunsetBefore": "El sol ya se ha puesto a la salida: es un paseo nocturno bajo las luces de Funchal.",
+      "ui.sunsetDuring": "El sol se pone durante tu salida.",
+      "ui.sunsetAfter": "El sol se pone después de volver: navegas con la luz del final de la tarde.",
     },
     it: {
       "stop.funchal": "Partenza",
@@ -272,6 +292,10 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.pay":       "Paga e conferma",
       "ui.currency":  "Mostra i prezzi in",
       "ui.dayClosed": "Quel giorno non è prenotabile. Il calendario è stato aggiornato.",
+      "ui.sunsetAt": "Tramonto quel giorno: {t}.",
+      "ui.sunsetBefore": "Il sole è già tramontato alla partenza: è un giro serale sotto le luci di Funchal.",
+      "ui.sunsetDuring": "Il sole tramonta durante la tua uscita.",
+      "ui.sunsetAfter": "Il sole tramonta dopo il rientro: navighi nella luce del tardo pomeriggio.",
     },
   };
 

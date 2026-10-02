@@ -57,10 +57,14 @@ const block = (lang) => {
   var CAT=${JSON.stringify(c.cat)};
   var LOC=${JSON.stringify(c.loc)}, READ=${JSON.stringify(c.read)}, BADGE=${JSON.stringify(c.badge)};
   var list=document.getElementById('bloglist'), empty=document.getElementById('blogempty');
+  // The message only shows when there is truly nothing to read: the plain
+  // list below is already on the page for readers without JavaScript.
+  function showEmpty(){ if(document.querySelector('.blognojs li')) return; empty.textContent=empty.getAttribute('data-msg')||''; empty.hidden=false; }
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
   try{
     var posts=await (await fetch('/posts/posts.json?v='+Date.now())).json();
-    if(!posts.length){ empty.style.display='block'; return; }
+    posts=posts.filter(function(p,i,a){for(var j=0;j<i;j++)if(a[j].slug===p.slug)return false;return true;});
+    if(!posts.length){ showEmpty(); return; }
     list.innerHTML=posts.map(function(p){
       var d=new Date(p.date+'T00:00:00').toLocaleDateString(LOC,{day:'numeric',month:'short',year:'numeric'});
       var cat=CAT[p.category]||p.category;
@@ -71,7 +75,8 @@ const block = (lang) => {
         +'<h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'
         +'<span class="bmeta">'+d+' · '+(p.readingMinutes||5)+' '+esc(READ)+badge+'</span></div></a>';
     }).join('');
-  }catch(e){ empty.style.display='block'; }
+    var nojs=document.querySelector('.blognojs'); if(nojs&&list.querySelector('a')) nojs.hidden=true;
+  }catch(e){ showEmpty(); }
 })();
 </script>`;
 };

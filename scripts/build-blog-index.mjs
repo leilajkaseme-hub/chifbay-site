@@ -44,7 +44,11 @@ function titleOf(file, fallback) {
   } catch { return fallback; }
 }
 
-const posts = JSON.parse(readFileSync(join(SITE, "posts", "posts.json"), "utf-8"));
+// One card per article: posts.json is newest first, so the first entry of a
+// slug is the current one.
+const seenSlug = new Set();
+const posts = JSON.parse(readFileSync(join(SITE, "posts", "posts.json"), "utf-8"))
+  .filter((p) => !seenSlug.has(p.slug) && seenSlug.add(p.slug));
 let changed = 0;
 
 for (const [lang, cfg] of Object.entries(LANGS)) {

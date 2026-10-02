@@ -656,6 +656,39 @@
     renderTimes();
   }
 
+  // Sunset in Funchal for a "YYYY-MM-DD" date, as "HH:MM" Madeira time. NOAA almanac method, about 1 minute accurate.
+  function sunsetFunchal(dateStr) {
+    var p = dateStr.split("-").map(Number), lat = 32.6496, lon = -16.9086, rad = Math.PI / 180;
+    var start = Date.UTC(p[0], 0, 0), day = Math.round((Date.UTC(p[0], p[1] - 1, p[2]) - start) / 86400000);
+    var lngHour = lon / 15, t = day + (18 - lngHour) / 24;
+    var M = 0.9856 * t - 3.289;
+    var L = (M + 1.916 * Math.sin(M * rad) + 0.020 * Math.sin(2 * M * rad) + 282.634 + 360) % 360;
+    var RA = (Math.atan(0.91764 * Math.tan(L * rad)) / rad + 360) % 360;
+    RA = (RA + Math.floor(L / 90) * 90 - Math.floor(RA / 90) * 90) / 15;
+    var sinDec = 0.39782 * Math.sin(L * rad), cosDec = Math.cos(Math.asin(sinDec));
+    var cosH = (Math.cos(90.833 * rad) - sinDec * Math.sin(lat * rad)) / (cosDec * Math.cos(lat * rad));
+    if (cosH < -1 || cosH > 1) return "";
+    var H = Math.acos(cosH) / rad / 15;
+    var UT = ((H + RA - 0.06571 * t - 6.622 - lngHour) % 24 + 24) % 24;
+    var ms = Date.UTC(p[0], p[1] - 1, p[2]) + UT * 3600000;
+    return new Intl.DateTimeFormat("en-GB", { timeZone: "Atlantic/Madeira", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(new Date(ms));
+  }
+
+  // The sunset trip leaves at the same hour all year, and Funchal's sunset
+  // moves from about 18:05 (December) to 21:18 (June). Say what the chosen
+  // day really looks like instead of promising a sunset on every date.
+  function sunsetNote(times) {
+    if (state.trip !== "sunset" || !state.date) return "";
+    var sun = sunsetFunchal(state.date);
+    var v = state.catalogue && state.catalogue.trips[state.trip] && state.catalogue.trips[state.trip].variants[state.variant];
+    var dep = state.time || times[0];
+    if (!sun || !v || !dep) return "";
+    var mins = function (hm) { var a = hm.split(":"); return +a[0] * 60 + +a[1]; };
+    var s = mins(sun), d = mins(dep), back = d + v.minutes;
+    var key = s <= d ? "ui.sunsetBefore" : s >= back ? "ui.sunsetAfter" : "ui.sunsetDuring";
+    return '<p class="bkhint bksun">' + esc(t("ui.sunsetAt", { t: sun })) + " " + esc(t(key)) + "</p>";
+  }
+
   function renderTimes() {
     var box = $("#bktimes");
     if (!state.date) {
@@ -670,7 +703,7 @@
       html += '<button type="button" class="bktime' + (state.time === tm ? " sel" : "") +
         '" data-time="' + esc(tm) + '">' + esc(tm) + "</button>";
     });
-    html += "</div>";
+    html += "</div>" + sunsetNote(times);
     box.innerHTML = html;
     $$(".bktime", box).forEach(function (b) {
       b.addEventListener("click", function () {

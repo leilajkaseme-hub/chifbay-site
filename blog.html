@@ -71,7 +71,7 @@
 <section class="pad">
   <div class="wrap">
     <div id="bloglist" class="bloggrid"></div>
-    <p id="blogempty" class="center" style="display:none;color:var(--muted)">New stories are on the way — check back soon.</p>
+    <p id="blogempty" class="center" hidden style="color:var(--muted)" data-msg="New stories are on the way — check back soon."></p>
     <noscript>
   <ul class="blognojs" style="max-width:760px;margin:0 auto;padding:0 0 0 20px;color:var(--paper-dim)">
       <li><a href="/posts/madeira-in-spring-guide">Madeira in Spring: Weather, the Flower Festival &amp; Is It the Best Time to Visit?</a></li>
@@ -231,10 +231,14 @@
   var CAT={};
   var LOC="en-GB", READ="min read", BADGE=null;
   var list=document.getElementById('bloglist'), empty=document.getElementById('blogempty');
+  // The message only shows when there is truly nothing to read: the plain
+  // list below is already on the page for readers without JavaScript.
+  function showEmpty(){ if(document.querySelector('.blognojs li')) return; empty.textContent=empty.getAttribute('data-msg')||''; empty.hidden=false; }
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];}); }
   try{
     var posts=await (await fetch('/posts/posts.json?v='+Date.now())).json();
-    if(!posts.length){ empty.style.display='block'; return; }
+    posts=posts.filter(function(p,i,a){for(var j=0;j<i;j++)if(a[j].slug===p.slug)return false;return true;});
+    if(!posts.length){ showEmpty(); return; }
     list.innerHTML=posts.map(function(p){
       var d=new Date(p.date+'T00:00:00').toLocaleDateString(LOC,{day:'numeric',month:'short',year:'numeric'});
       var cat=CAT[p.category]||p.category;
@@ -245,7 +249,8 @@
         +'<h3>'+esc(p.title)+'</h3><p>'+esc(p.description)+'</p>'
         +'<span class="bmeta">'+d+' · '+(p.readingMinutes||5)+' '+esc(READ)+badge+'</span></div></a>';
     }).join('');
-  }catch(e){ empty.style.display='block'; }
+    var nojs=document.querySelector('.blognojs'); if(nojs&&list.querySelector('a')) nojs.hidden=true;
+  }catch(e){ showEmpty(); }
 })();
 </script>
 <script src="/tide.min.js" defer></script>

@@ -62,7 +62,7 @@ const SCHEMA = {
   }
 };
 
-const SYSTEM = `You are the writer and SEO strategist for Chifbay, a private boat-charter company in Madeira, Portugal, departing Marina do Funchal. Chifbay runs small private boat trips (the whole boat is yours, up to 5 guests). Two packs only: a DAY TRIP (2h30 €500 to Ribeira Brava, or 3h €600 to Ponta do Sol with a filmed video; slots 10:00-13:00 and 14:00-17:00) running Câmara de Lobos, Cabo Girão with drone, then swimming, jumping in and paddle at Fajã dos Padres; and a SUNSET TRIP departing 18:00 (2h €400 turning at Cabo Girão, or 2h30 €500 turning at Ribeira Brava) — same coast, no swimming, because the water is too cold that late. There is NO full-day trip. Never invent trips, durations or prices outside this list.
+const SYSTEM = `You are the writer and SEO strategist for Chifbay, a private boat-charter company in Madeira, Portugal, departing Marina do Funchal. Chifbay runs small private boat trips (the whole boat is yours, up to 5 guests). Two packs only: a DAY TRIP (2h30 €500 to Ribeira Brava, or 3h €600 continuing 30 minutes further west to Ponta do Sol; departures 10:00 and 14:00, back at 12:30/16:30 on the 2h30 and 13:00/17:00 on the 3h) running Câmara de Lobos, Cabo Girão with drone, then swimming, jumping in and paddle at Fajã dos Padres; and a SUNSET TRIP departing 18:30 year round (2h €400 turning at Cabo Girão, or 2h30 €500 turning at Ribeira Brava) — same coast, no swimming, because the water is too cold that late. EVERY trip includes drone footage, an Insta360 video and onboard photos. Free cancellation up to 24 hours before departure. Never promise golden hour or a sunset on every date: Funchal's sunset moves from about 18:05 in December to 21:18 in June. There is NO full-day trip. Never invent trips, durations or prices outside this list.
 
 Write a single, genuinely useful blog article about Madeira for the Chifbay Journal.
 
@@ -243,6 +243,9 @@ function addToSitemap(slug) {
   fs.writeFileSync(path.join(ROOT, "posts", `${slug}.html`), renderPost(d, dateISO));
 
   const heroImg = images.find(i => i.file === d.heroImage) || images[0];
+  // A rewritten article keeps its slug: drop the old entry first, or the
+  // Journal lists it twice (found 2 Oct 2026 on both 2026 festival guides).
+  for (let i = posts.length - 1; i >= 0; i--) if (posts[i].slug === slug) posts.splice(i, 1);
   posts.unshift({
     slug, title: d.title, category, date: dateISO,
     description: d.metaDescription, heroImage: heroImg.file, heroAlt: d.heroAlt || heroImg.alt,
