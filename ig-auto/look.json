@@ -5,5 +5,8 @@
   "hook_font": "DM Serif Display Italic",
   "label_font": "Satoshi Medium",
   "navy": "#050f18",
-  "gold": "#c9a45c"
+  "gold": "#c9a45c",
+  "grain_photo": 6,
+  "grain_video": 4,
+  "_comment_grain": "Film grain after the colour: 6 on photos, 4 on video (Instagram's compression smears more on video). Seen on the premium feeds (giannisboat.capri). Above 8 it reads as noise."
 }

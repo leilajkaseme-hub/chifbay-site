@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T16:17:24.619Z",
+ "generated_at": "2026-10-02T16:29:34.143Z",
  "items": [
   {
    "id": "r01-jump",
@@ -18,11 +18,12 @@
    "video": "https://chifbay.com/ig/reels/r01-jump.mp4",
    "preview": "https://chifbay.com/ig/reels/r01-jump-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r01-jump.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r01-jump-cover.jpg",
    "colour": {
-    "hex": "#5c5c5a",
-    "hue": 78,
+    "hex": "#5c5d59",
+    "hue": 82,
     "light": 0.359,
-    "sat": 0.013
+    "sat": 0.021
    },
    "note": ""
   },
@@ -43,11 +44,12 @@
    "video": "https://chifbay.com/ig/reels/r02-sunset.mp4",
    "preview": "https://chifbay.com/ig/reels/r02-sunset-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r02-sunset.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r02-sunset-cover.jpg",
    "colour": {
-    "hex": "#766f5f",
-    "hue": 43,
-    "light": 0.419,
-    "sat": 0.106
+    "hex": "#787260",
+    "hue": 46,
+    "light": 0.426,
+    "sat": 0.111
    },
    "note": ""
   },
@@ -68,11 +70,12 @@
    "video": "https://chifbay.com/ig/reels/r03-swim.mp4",
    "preview": "https://chifbay.com/ig/reels/r03-swim-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r03-swim.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r03-swim-cover.jpg",
    "colour": {
-    "hex": "#636561",
-    "hue": 93,
-    "light": 0.39,
-    "sat": 0.022
+    "hex": "#666862",
+    "hue": 84,
+    "light": 0.398,
+    "sat": 0.03
    },
    "note": ""
   },
@@ -93,11 +96,12 @@
    "video": "https://chifbay.com/ig/reels/r04-above.mp4",
    "preview": "https://chifbay.com/ig/reels/r04-above-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r04-above.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r04-above-cover.jpg",
    "colour": {
-    "hex": "#5b6b66",
-    "hue": 163,
-    "light": 0.391,
-    "sat": 0.08
+    "hex": "#5c6e68",
+    "hue": 159,
+    "light": 0.398,
+    "sat": 0.087
    },
    "note": ""
   },
@@ -118,11 +122,12 @@
    "video": "https://chifbay.com/ig/reels/r05-turquoise.mp4",
    "preview": "https://chifbay.com/ig/reels/r05-turquoise-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r05-turquoise.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r05-turquoise-cover.jpg",
    "colour": {
-    "hex": "#4f6669",
-    "hue": 186,
-    "light": 0.362,
-    "sat": 0.142
+    "hex": "#4d6667",
+    "hue": 183,
+    "light": 0.357,
+    "sat": 0.143
    },
    "note": ""
   },
@@ -143,11 +148,12 @@
    "video": "https://chifbay.com/ig/reels/r06-cliffs.mp4",
    "preview": "https://chifbay.com/ig/reels/r06-cliffs-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r06-cliffs.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r06-cliffs-cover.jpg",
    "colour": {
-    "hex": "#2d3437",
-    "hue": 199,
-    "light": 0.197,
-    "sat": 0.097
+    "hex": "#31383a",
+    "hue": 188,
+    "light": 0.211,
+    "sat": 0.082
    },
    "note": ""
   },
@@ -168,11 +174,12 @@
    "video": "https://chifbay.com/ig/reels/r07-three.mp4",
    "preview": "https://chifbay.com/ig/reels/r07-three-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r07-three.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r07-three-cover.jpg",
    "colour": {
-    "hex": "#595f5b",
-    "hue": 142,
-    "light": 0.363,
-    "sat": 0.033
+    "hex": "#585f5a",
+    "hue": 137,
+    "light": 0.361,
+    "sat": 0.04
    },
    "note": ""
   },
@@ -193,11 +200,12 @@
    "video": "https://chifbay.com/ig/reels/r08-coast.mp4",
    "preview": "https://chifbay.com/ig/reels/r08-coast-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r08-coast.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r08-coast-cover.jpg",
    "colour": {
-    "hex": "#4c5b55",
-    "hue": 156,
-    "light": 0.33,
-    "sat": 0.092
+    "hex": "#4d5d56",
+    "hue": 153,
+    "light": 0.335,
+    "sat": 0.099
    },
    "note": ""
   },
@@ -214,15 +222,16 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 8,
+   "duration": 9,
    "video": "https://chifbay.com/ig/reels/r09-orbit.mp4",
    "preview": "https://chifbay.com/ig/reels/r09-orbit-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r09-orbit.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r09-orbit-cover.jpg",
    "colour": {
-    "hex": "#70746c",
+    "hex": "#70756b",
     "hue": 93,
-    "light": 0.441,
-    "sat": 0.032
+    "light": 0.442,
+    "sat": 0.042
    },
    "note": ""
   },
@@ -239,15 +248,16 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 6.5,
+   "duration": 8,
    "video": "https://chifbay.com/ig/reels/r10-cabogirao.mp4",
    "preview": "https://chifbay.com/ig/reels/r10-cabogirao-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r10-cabogirao.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r10-cabogirao-cover.jpg",
    "colour": {
-    "hex": "#2d3e46",
-    "hue": 199,
-    "light": 0.228,
-    "sat": 0.217
+    "hex": "#293d45",
+    "hue": 197,
+    "light": 0.217,
+    "sat": 0.252
    },
    "note": ""
   },
@@ -264,15 +274,16 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 6.4,
+   "duration": 9.13,
    "video": "https://chifbay.com/ig/reels/r11-dronevideo.mp4",
    "preview": "https://chifbay.com/ig/reels/r11-dronevideo-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r11-dronevideo.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r11-dronevideo-cover.jpg",
    "colour": {
-    "hex": "#566262",
-    "hue": 180,
-    "light": 0.363,
-    "sat": 0.063
+    "hex": "#566462",
+    "hue": 170,
+    "light": 0.367,
+    "sat": 0.073
    },
    "note": ""
   },
@@ -289,15 +300,16 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 5,
+   "duration": 8.33,
    "video": "https://chifbay.com/ig/reels/r12-southcoast.mp4",
    "preview": "https://chifbay.com/ig/reels/r12-southcoast-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r12-southcoast.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r12-southcoast-cover.jpg",
    "colour": {
-    "hex": "#434d4e",
-    "hue": 187,
-    "light": 0.287,
-    "sat": 0.079
+    "hex": "#414c4b",
+    "hue": 178,
+    "light": 0.278,
+    "sat": 0.076
    },
    "note": ""
   },

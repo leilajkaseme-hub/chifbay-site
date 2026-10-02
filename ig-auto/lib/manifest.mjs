@@ -25,6 +25,7 @@ export function buildManifest() {
     id: r.id, kind: "reel", media: "video", hook: r.hook, caption: r.caption,
     hashtags: r.hashtags ?? [], duration: r.duration,
     video: bare(r.video), preview: bare(r.preview), cover: bare(r.cover),
+    clean_cover: bare(r.clean_cover ?? null),
     colour: r.colour ?? null, note: r.note ?? "",
   }));
   for (const q of listQueue()) {

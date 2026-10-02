@@ -13,13 +13,15 @@ import { ROOT } from "./queue.mjs";
 
 export const LOOK = JSON.parse(readFileSync(join(ROOT, "look.json"), "utf-8"));
 
-export function applyLook(jpeg) {
+const PHOTO_CHAIN = LOOK.ffmpeg + (LOOK.grain_photo ? `,noise=alls=${LOOK.grain_photo}:allf=u` : "");
+
+export function applyLook(jpeg, { grainOnly = false } = {}) {
   const dir = mkdtempSync(join(tmpdir(), "look-"));
   try {
     const src = join(dir, "in.jpg");
     const out = join(dir, "out.jpg");
     writeFileSync(src, jpeg);
-    execFileSync("ffmpeg", ["-nostdin", "-v", "error", "-y", "-i", src, "-vf", LOOK.ffmpeg,
+    execFileSync("ffmpeg", ["-nostdin", "-v", "error", "-y", "-i", src, "-vf", grainOnly ? `noise=alls=${LOOK.grain_photo}:allf=u` : PHOTO_CHAIN,
       "-q:v", "2", "-map_metadata", "-1", out], { stdio: ["ignore", "ignore", "pipe"] });
     return readFileSync(out);
   } catch (err) {
