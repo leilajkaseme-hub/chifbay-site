@@ -615,3 +615,25 @@ a.bcard:hover h3{color:#104a7c}
   .t-more{margin:2px 18px 6px!important}
   .t-more>summary{padding:10px 0 6px}
 }
+
+/* ---------------------------------------- route map: caption and controls */
+.t-map{position:relative}
+.t-mapcap{position:absolute;left:14px;bottom:14px;z-index:3;padding:7px 12px;border-radius:999px;font-size:.86rem;font-weight:600;
+  background:rgba(247,245,241,.92);color:#0b1b29;box-shadow:0 2px 10px rgba(5,15,24,.12);pointer-events:none}
+:root[data-theme="dark"] .t-mapcap{background:rgba(11,27,41,.9);color:#f0f5f4}
+.t-mapctl{position:absolute;right:12px;top:12px;z-index:3;display:flex;gap:6px}
+.t-mapctl button{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  border:1px solid rgba(11,27,41,.16);background:rgba(247,245,241,.92);color:#0b1b29}
+.t-mapctl button:hover{border-color:#104a7c;color:#104a7c}
+.t-mapctl button:focus-visible{outline:2px solid #104a7c;outline-offset:2px}
+.t-mapctl svg{width:15px;height:15px;fill:currentColor}
+:root[data-theme="dark"] .t-mapctl button{background:rgba(11,27,41,.9);color:#f0f5f4;border-color:rgba(255,255,255,.2)}
+@media (prefers-reduced-motion: reduce){.t-mapctl{display:none}}
+@media(max-width:599px){
+  .t-map .t-pin .sn{display:none}
+  .t-map .t-pin .num{font-size:calc(var(--u,2.4) * 14px)}
+  .t-map .t-pin .dot{transform:scale(calc(var(--u,2.4) * .67));transform-box:fill-box;transform-origin:center}
+  .t-map .t-boat{transform-box:fill-box}
+  .t-mapcap{left:10px;bottom:10px;font-size:.8rem}
+  .t-mapctl{right:8px;top:8px}
+}

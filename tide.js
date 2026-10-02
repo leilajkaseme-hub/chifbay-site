@@ -353,18 +353,28 @@
     var boat = host.querySelector(".t-boat"), boatR = host.querySelector(".t-boat-r");
     // how far along the coast the chosen trip goes (share of the full line)
     var lim = 1, last = 0;
+    var svg = host.firstChild;
+    var lang = (root.lang || "en").slice(0, 2);
+    var names = stops.map(function (s) { var h = s.querySelector("h3"); return h ? h.textContent : ""; });
+    // a caption names the stop the boat has reached: readable at any width,
+    // where pin labels would be too small on a phone
+    var cap = document.createElement("div");
+    cap.className = "t-mapcap"; cap.setAttribute("aria-hidden", "true");
+    host.appendChild(cap);
     function paint(k) {
       if (k === undefined) k = last;
       last = k;
-      var reach = k * lim;
+      var reach = k * lim, lastOn = 0;
       fg.style.strokeDashoffset = (L * (1 - reach)).toFixed(1);
       at.forEach(function (v, j) {
         var on = reach >= v - 0.01, out = v > lim + 0.01;
+        if (on && !out) lastOn = j;
         pins[j].classList.toggle("on", on && !out);
         pins[j].classList.toggle("off", out);
         stops[j].classList.toggle("on", on && !out);
         stops[j].classList.toggle("off", out);
       });
+      cap.textContent = String(lastOn + 1).padStart(2, "0") + " · " + names[lastOn];
       // the boat rides the tip of the line and turns with the coast
       var len = Math.max(0.5, L * reach), p = fg.getPointAtLength(len),
         q = fg.getPointAtLength(Math.min(L, len + 2)), b = fg.getPointAtLength(Math.max(0, len - 2));
@@ -372,21 +382,77 @@
       boat.setAttribute("transform", "translate(" + p.x.toFixed(1) + "," + p.y.toFixed(1) + ")");
       boatR.setAttribute("transform", "rotate(" + ang.toFixed(1) + ")");
       boat.classList.toggle("moving", reach > 0.005 && reach < lim - 0.005);
-      // phones: the whole coast in 360 px is unreadable, so the map shows a
-      // window of it that follows the boat (no sideways scrolling to do)
-      var svg = host.firstChild, narrow = host.clientWidth < 600;
-      if (narrow) {
-        var vx = Math.max(0, Math.min(W - 520, p.x - 300));
-        svg.setAttribute("viewBox", vx.toFixed(1) + " 70 520 300");
-      } else if (svg.getAttribute("viewBox") !== "0 0 " + W + " " + H) svg.setAttribute("viewBox", "0 0 " + W + " " + H);
     }
-    addEventListener("resize", function () { paint(); });
+
+    /* The view fits the WHOLE chosen route (2 Oct audit: the old phone view
+       followed the boat and slid away before Ponta do Sol). Computed once per
+       route and per size, never during playback. */
+    var view = [0, 0, W, H];
+    // map units per screen pixel: labels keep one size on screen whatever the zoom
+    function unit(vw) { host.style.setProperty("--u", (vw / Math.max(1, host.clientWidth)).toFixed(3)); }
+    function fit(animate) {
+      var asp = host.clientWidth / Math.max(1, host.clientHeight) || W / H;
+      var xs = [], ys = [];
+      for (var i = 0; i <= 40; i++) { var pt = fg.getPointAtLength(L * lim * i / 40); xs.push(pt.x); ys.push(pt.y); }
+      var pad = 70, x0 = Math.min.apply(null, xs) - pad, x1 = Math.max.apply(null, xs) + pad,
+        y0 = Math.min.apply(null, ys) - pad, y1 = Math.max.apply(null, ys) + pad + 30;
+      var w = Math.max(x1 - x0, 420), h = Math.max(y1 - y0, w / asp);
+      w = Math.max(w, h * asp);
+      var cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+      var to = [cx - w / 2, cy - h / 2, w, h];
+      if (!animate || REDUCE) { view = to; unit(to[2]); svg.setAttribute("viewBox", to.map(function (v) { return v.toFixed(1); }).join(" ")); return; }
+      var from = view.slice(), t0 = performance.now();
+      (function step(now) {
+        var e = Math.min(1, (now - t0) / 650), k = e < .5 ? 2 * e * e : 1 - Math.pow(-2 * e + 2, 2) / 2;
+        view = from.map(function (v, i) { return v + (to[i] - v) * k; });
+        unit(view[2]);
+        svg.setAttribute("viewBox", view.map(function (v) { return v.toFixed(1); }).join(" "));
+        if (e < 1) requestAnimationFrame(step);
+      })(t0);
+    }
+    var rz = 0;
+    addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { fit(false); }, 150); });
+
+    /* Playback on its own clock: starts when the map is well in view, pauses
+       off screen, holds the arrival, never resets by itself. Scrolling never
+       sets the progress. Replay and Pause are real buttons. */
+    var LB = { en: ["Pause the journey", "Play the journey", "Replay the journey"], fr: ["Mettre en pause", "Lancer le trajet", "Rejouer le trajet"],
+      de: ["Fahrt anhalten", "Fahrt abspielen", "Fahrt wiederholen"], pt: ["Pausar o percurso", "Reproduzir o percurso", "Repetir o percurso"],
+      es: ["Pausar la ruta", "Reproducir la ruta", "Repetir la ruta"], it: ["Metti in pausa", "Riproduci il percorso", "Ripeti il percorso"] }[lang] ||
+      ["Pause the journey", "Play the journey", "Replay the journey"];
+    var ctl = document.createElement("div");
+    ctl.className = "t-mapctl";
+    ctl.innerHTML = '<button type="button" class="t-mc-pp"></button><button type="button" class="t-mc-rp" aria-label="' + LB[2] + '" title="' + LB[2] + '">' +
+      '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.6-3.7M3 2.5v3h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+    host.appendChild(ctl);
+    var ppBtn = ctl.querySelector(".t-mc-pp"), rpBtn = ctl.querySelector(".t-mc-rp");
+    var prog = 0, playing = false, visible = false, userPaused = false, done = false, lastT = 0, raf = 0;
+    function dur() { return 8000 + 4000 * lim; }                       // 8 to 12 seconds
+    function drawBtn() {
+      var showPause = playing && !done;
+      ppBtn.setAttribute("aria-label", showPause ? LB[0] : LB[1]); ppBtn.title = ppBtn.getAttribute("aria-label");
+      ppBtn.innerHTML = showPause ? '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z"/></svg>'
+        : '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>';
+      ppBtn.hidden = done;
+    }
+    function tick(now) {
+      raf = 0;
+      if (!playing) return;
+      prog = Math.min(1, prog + (now - lastT) / dur()); lastT = now;
+      paint(prog);
+      if (prog >= 1) { playing = false; done = true; drawBtn(); return; }
+      raf = requestAnimationFrame(tick);
+    }
+    function play() { if (done || playing || !visible) { drawBtn(); return; } playing = true; lastT = performance.now(); drawBtn(); if (!raf) raf = requestAnimationFrame(tick); }
+    function pause() { playing = false; drawBtn(); }
+    function restart() { prog = 0; done = false; userPaused = false; paint(0); if (REDUCE) { prog = 1; done = true; paint(1); drawBtn(); return; } play(); }
+    ppBtn.addEventListener("click", function () { if (playing) { userPaused = true; pause(); } else { userPaused = false; play(); } });
+    rpBtn.addEventListener("click", restart);
 
     /* Trip picker (home page, where the map shows the whole coast): each
        option draws only its own route and marks where it turns back. The
        routes are the booking page's own (booking-content.js). */
     if (stops.length >= 6) {
-      var lang = (root.lang || "en").slice(0, 2);
       var TL = {
         en: ["Whole coast", "Day 2h30", "Day 3h", "Sunset 2h", "Sunset 2h30", "Show the route of"],
         fr: ["Toute la côte", "Jour 2h30", "Jour 3h", "Coucher de soleil 2h", "Coucher de soleil 2h30", "Voir l'itinéraire de"],
@@ -412,7 +478,8 @@
             var j = ids.indexOf(btn.getAttribute("data-turn"));
             lim = j >= 0 ? at[j] : 1;
             pins.forEach(function (pn, i) { pn.classList.toggle("turn", btn !== pick.firstChild && i === j); });
-            paint();
+            fit(true);
+            restart();                                                  // the chosen route plays from the start
           });
         });
       }
@@ -424,19 +491,10 @@
       st.addEventListener("mouseenter", hl(true)); st.addEventListener("mouseleave", hl(false));
       st.addEventListener("focus", hl(true)); st.addEventListener("blur", hl(false));
     });
-    if (REDUCE) { paint(1); return; }
-    var active = false;
-    inView(sec, function (v) { active = v; if (v) runScroll(); });
-    onScroll(function () {
-      if (!active) return;
-      var r = sec.getBoundingClientRect(), vh = innerHeight;
-      // 0 when the block's top meets the bottom of the screen, 1 when its
-      // bottom reaches 70% of the screen height
-      var k = (vh - r.top) / (r.height + vh * 0.3);
-      paint(Math.min(1, Math.max(0, k)));
-    });
-    paint(0);
-    runScroll();
+    fit(false);
+    if (REDUCE) { prog = 1; done = true; paint(1); drawBtn(); return; }
+    paint(0); drawBtn();
+    inView(host, function (v) { visible = v; if (v && !userPaused) play(); else if (!v) pause(); }, { threshold: 0.4 });
   });
 
   /* ======================================================= 4. LIVE PRICES
