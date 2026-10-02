@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-02T12:57:52.482Z",
+  "updatedAt": "2026-10-02T13:56:41.591Z",
   "aggregate": {
     "rating": 5,
     "count": 56
@@ -18,7 +18,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much for your kind review! We’re glad you chose to celebrate your birthday with us and enjoyed the sunset trip. Hope to see you on board again soon🤗 Chifbay⚓️ …",
+      "reply": {
+        "text": "Thank you so much for your kind review! We’re glad you chose to celebrate your birthday with us and enjoyed the sunset trip. Hope to see you on board again soon🤗 Chifbay⚓️ …"
+      },
       "translation": null
     },
     {
@@ -34,7 +36,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Alex, for your wonderful review and 5 stars! We’re delighted to hear that you had such a great time on board and enjoyed our friendly crew and brand new boat. And of course, there’s nothing better than your favorite music to set the mood while cruising 🎶 We hope to welcome you back on board soon for more unforgettable moments The Chifbay Team⚓️",
+      "reply": {
+        "text": "Thank you so much, Alex, for your wonderful review and 5 stars! We’re delighted to hear that you had such a great time on board and enjoyed our friendly crew and brand new boat. And of course, there’s nothing better than your favorite music to set the mood while cruising 🎶 We hope to welcome you back on board soon for more unforgettable moments The Chifbay Team⚓️"
+      },
       "translation": null
     },
     {
@@ -52,7 +56,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Carolina🤩 We’re delighted you enjoyed the experience and our team. Hope to welcome you back soon Chifbay Team⚓️ …",
+      "reply": {
+        "text": "Thank you so much, Carolina🤩 We’re delighted you enjoyed the experience and our team. Hope to welcome you back soon Chifbay Team⚓️ …"
+      },
       "translation": null
     },
     {
@@ -134,7 +140,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thanks Spencer 🤩 So glad you enjoyed the views and the whole experience. Hope to see you again. The Chifbay Team⚓️ …",
+      "reply": {
+        "text": "Thanks Spencer 🤩 So glad you enjoyed the views and the whole experience. Hope to see you again. The Chifbay Team⚓️ …"
+      },
       "translation": null
     },
     {
@@ -150,7 +158,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Rebecca for your wonderful review 🤩 It was truly a pleasure for us too, welcoming you on board and sharing that family moment with you. We’re delighted you fully enjoyed the afternoon at sea: the views, the food, the drinks, and the swimming. We hope to have the joy of welcoming you back soon🏝️ The Chifbay Team⚓️",
+      "reply": {
+        "text": "Thank you so much, Rebecca for your wonderful review 🤩 It was truly a pleasure for us too, welcoming you on board and sharing that family moment with you. We’re delighted you fully enjoyed the afternoon at sea: the views, the food, the drinks, and the swimming. We hope to have the joy of welcoming you back soon🏝️ The Chifbay Team⚓️"
+      },
       "translation": null
     },
     {
@@ -171,7 +181,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Enzo, for your message! 🤩 We're so glad to know you had a wonderful day with us. And the flying fish were a nice bonus, pretty cool! 😄 We hope to see you on board again someday. Chifbay⚓️ Translated by Google ・ See original (French)",
+      "reply": {
+        "text": "Thank you so much, Enzo, for your message! 🤩 We're so glad to know you had a wonderful day with us. And the flying fish were a nice bonus, pretty cool! 😄 We hope to see you on board again someday. Chifbay⚓️ Translated by Google ・ See original (French)"
+      },
       "translation": null
     },
     {
@@ -189,7 +201,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Julianne, for your lovely review! The pleasure was truly ours too. We really enjoyed having you on board and sharing this beautiful experience with you. Hope to welcome you again someday The Chifbay Team⚓️",
+      "reply": {
+        "text": "Thank you so much, Julianne, for your lovely review! The pleasure was truly ours too. We really enjoyed having you on board and sharing this beautiful experience with you. Hope to welcome you again someday The Chifbay Team⚓️"
+      },
       "translation": null
     },
     {
@@ -205,7 +219,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thanks Kyle🤩 Glad you enjoyed the boat, food and a good time with us. Hope to see you again. The Chifbay Team⚓️ …",
+      "reply": {
+        "text": "Thanks Kyle🤩 Glad you enjoyed the boat, food and a good time with us. Hope to see you again. The Chifbay Team⚓️ …"
+      },
       "translation": null
     },
     {
@@ -221,7 +237,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thanks Jack 🤩 It means a lot to us that Chifbay was such a special part of your trip. The Chifbay Team ⚓️ …",
+      "reply": {
+        "text": "Thanks Jack 🤩 It means a lot to us that Chifbay was such a special part of your trip. The Chifbay Team ⚓️ …"
+      },
       "translation": null
     },
     {
@@ -237,7 +255,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thanks Lisa 🤩 We re so happy you enjoyed the trip and had a great time with us. The Chifbay Team …",
+      "reply": {
+        "text": "Thanks Lisa 🤩 We re so happy you enjoyed the trip and had a great time with us. The Chifbay Team …"
+      },
       "translation": null
     },
     {
@@ -258,7 +278,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much Thomas. We’re really happy you enjoyed your time with us. It was a pleasure having you on board, and we hope to see you again. The Chifbay Team⚓️",
+      "reply": {
+        "text": "Thank you so much Thomas. We’re really happy you enjoyed your time with us. It was a pleasure having you on board, and we hope to see you again. The Chifbay Team⚓️"
+      },
       "translation": null
     },
     {
@@ -463,7 +485,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much Dalila, we're very happy to know you enjoyed the experience. Until next time! Chifbay team⚓️ Chifbay.com Translated by Google ・ See original (Portuguese)",
+      "reply": {
+        "text": "Thank you so much Dalila, we're very happy to know you enjoyed the experience. Until next time! Chifbay team⚓️ Chifbay.com Translated by Google ・ See original (Portuguese)"
+      },
       "translation": null
     },
     {
@@ -481,7 +505,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much Sara, we also loved having you with us. The sunset at sea is always beautiful, but it's the people, the smiles and the good energy on board that make the real difference. It was a huge pleasure to share this trip with you and we hope to see you again soon. The Chifbay Team⚓️ Translated by Google ・ See original (Portuguese)",
+      "reply": {
+        "text": "Thank you so much Sara, we also loved having you with us. The sunset at sea is always beautiful, but it's the people, the smiles and the good energy on board that make the real difference. It was a huge pleasure to share this trip with you and we hope to see you again soon. The Chifbay Team⚓️ Translated by Google ・ See original (Portuguese)"
+      },
       "translation": null
     },
     {
@@ -499,7 +525,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much Patricia, it was a pleasure to have you on board. We hope to see you again soon 🤩 Chifbay team ⚓️ Chifbay.com … Translated by Google ・ See original (Portuguese)",
+      "reply": {
+        "text": "Thank you so much Patricia, it was a pleasure to have you on board. We hope to see you again soon 🤩 Chifbay team ⚓️ Chifbay.com … Translated by Google ・ See original (Portuguese)"
+      },
       "translation": null
     },
     {
@@ -515,7 +543,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Remo,for this wonderful review! We truly enjoyed sharing this experience with youand your family. Your kind words mean a lot to us, and we hope to welcome you on board again during your next visit to Madeira! The Chifbay Team⚓️ Chifbay.com",
+      "reply": {
+        "text": "Thank you so much, Remo,for this wonderful review! We truly enjoyed sharing this experience with youand your family. Your kind words mean a lot to us, and we hope to welcome you on board again during your next visit to Madeira! The Chifbay Team⚓️ Chifbay.com"
+      },
       "translation": null
     },
     {
@@ -533,7 +563,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Jane 🤩 We’re so happy you enjoyed your time with us. It was a pleasure having you on board, and we’ll be sure to pass your kind words about the guacamole on to the skipper. We hope to welcome you back again soon. Chifbay team ⚓️ Chifbay.com",
+      "reply": {
+        "text": "Thank you so much, Jane 🤩 We’re so happy you enjoyed your time with us. It was a pleasure having you on board, and we’ll be sure to pass your kind words about the guacamole on to the skipper. We hope to welcome you back again soon. Chifbay team ⚓️ Chifbay.com"
+      },
       "translation": null
     },
     {
@@ -553,7 +585,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Sabrina, it means so much to us that you chose our boat for such a special moment. Congratulations on your engagement 🤗 We’re so happy to have been part of this beautiful memory, and hope to welcome you both back on board one day. The Chifbay team⚓️ Chifbay.com",
+      "reply": {
+        "text": "Sabrina, it means so much to us that you chose our boat for such a special moment. Congratulations on your engagement 🤗 We’re so happy to have been part of this beautiful memory, and hope to welcome you both back on board one day. The Chifbay team⚓️ Chifbay.com"
+      },
       "translation": null
     },
     {
@@ -572,7 +606,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Manon 🤩 We’re delighted you had such a wonderful time on board. Paco will be thrilled to hear your kind words. We hope to welcome you back for another amazing boat trip soon. The Chifbay Team⚓️ …",
+      "reply": {
+        "text": "Thank you so much, Manon 🤩 We’re delighted you had such a wonderful time on board. Paco will be thrilled to hear your kind words. We hope to welcome you back for another amazing boat trip soon. The Chifbay Team⚓️ …"
+      },
       "translation": null
     },
     {
@@ -588,7 +624,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you Avelino, it was a pleasure having you on board. Until the next adventure. The Chifbay team⚓️ Chifbay.com Translated by Google ・ See original (Portuguese)",
+      "reply": {
+        "text": "Thank you Avelino, it was a pleasure having you on board. Until the next adventure. The Chifbay team⚓️ Chifbay.com Translated by Google ・ See original (Portuguese)"
+      },
       "translation": null
     },
     {
@@ -604,7 +642,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much, Victor! 🤩 It's a pleasure to read your feedback. We're delighted you had such a great time on board, and we'll also cherish the memory of your laughter. We look forward to welcoming you back on board soon. Chifbay team ⚓️ Chifbay.com Translated by Google ・ See original (French)",
+      "reply": {
+        "text": "Thank you so much, Victor! 🤩 It's a pleasure to read your feedback. We're delighted you had such a great time on board, and we'll also cherish the memory of your laughter. We look forward to welcoming you back on board soon. Chifbay team ⚓️ Chifbay.com Translated by Google ・ See original (French)"
+      },
       "translation": null
     },
     {
@@ -620,7 +660,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much for your thoughtful words. We genuinely loved having you on board. It was a pleasure getting to discover your world, your music, and your creativity. Moments like these,out on the water, have a way of staying with you. We hope to welcome you back aboard The Chifbay one day⚓️",
+      "reply": {
+        "text": "Thank you so much for your thoughtful words. We genuinely loved having you on board. It was a pleasure getting to discover your world, your music, and your creativity. Moments like these,out on the water, have a way of staying with you. We hope to welcome you back aboard The Chifbay one day⚓️"
+      },
       "translation": null
     },
     {
@@ -639,7 +681,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Tank you so much, Rebecca, for this wonderful review. The whole Chifbay team was delighted to welcome you and your family on board. Knowing that you had such a great day means a lot to us. We hope to see you again for another aventure Chifbay team⚓️ Chifbay.com",
+      "reply": {
+        "text": "Tank you so much, Rebecca, for this wonderful review. The whole Chifbay team was delighted to welcome you and your family on board. Knowing that you had such a great day means a lot to us. We hope to see you again for another aventure Chifbay team⚓️ Chifbay.com"
+      },
       "translation": null
     },
     {
@@ -659,7 +703,9 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": "Thank you so much for your comment, Timoteo 🤩 It was also a pleasure to have you on board. We're glad to know you enjoyed the experience. Until next time Chifbay Team ⚓️ Translated by Google ・ See original (Portuguese)",
+      "reply": {
+        "text": "Thank you so much for your comment, Timoteo 🤩 It was also a pleasure to have you on board. We're glad to know you enjoyed the experience. Until next time Chifbay Team ⚓️ Translated by Google ・ See original (Portuguese)"
+      },
       "translation": null
     },
     {

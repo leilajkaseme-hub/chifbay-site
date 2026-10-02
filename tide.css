@@ -671,3 +671,76 @@ a.bcard:hover h3{color:#104a7c}
 .fbot .flegal a:hover{color:var(--paper);text-decoration:underline}
 @media(max-width:1100px){.fg.fg5{grid-template-columns:repeat(3,minmax(0,1fr))}.fg5 .fb2{grid-column:1/-1}.fg5 .fb2 p{max-width:60ch}}
 @media(max-width:620px){.fg.fg5{grid-template-columns:1fr 1fr;gap:30px 20px}.fg5 .fc-app .fappb img{height:40px}}
+
+/* ======================================== immersive home sections (2 Oct audit)
+   set-home-wide.mjs puts the classes on; .t-wide drops the 1500px cap so the
+   media reach the screen edges while text keeps its gutter. */
+.t-wide{--gut:32px}
+@media(max-width:600px){.t-wide{--gut:20px}}
+.atlas .t-wide .wrap-w,.t-wide .wrap-w{max-width:none}
+
+/* reviews: a full-width navy band, in both themes */
+.t-band-navy{background:#0b1b29;color:#f0f5f4;--rev-bg:#122b44;--g-line:rgba(255,255,255,.14);
+  padding-top:clamp(64px,8vw,112px)!important;padding-bottom:clamp(64px,8vw,112px)!important}
+:root .t-band-navy h2,:root .t-band-navy .display,:root[data-theme="light"] .atlas .t-band-navy h2{color:#f7f5f1}
+:root .t-band-navy .chead .cn,:root .t-band-navy .chead .cl,:root[data-theme="light"] .atlas .t-band-navy .chead .cn,:root[data-theme="light"] .atlas .t-band-navy .chead .cl,:root[data-theme="light"] .t-band-navy .chead .cn,:root[data-theme="light"] .t-band-navy .chead .cl{color:#e0be7a;opacity:1}
+:root[data-theme="light"] .atlas .t-band-navy .chead::after,.t-band-navy .chead::after{background:rgba(224,190,122,.3)}
+.t-band-navy #revsCount{color:rgba(240,245,244,.86);opacity:1!important}
+:root .t-band-navy .btn-g,:root[data-theme="light"] .t-band-navy .btn-g,:root[data-theme="light"] .atlas .t-band-navy .btn-g{color:#f7f5f1;border:1.5px solid rgba(255,255,255,.45);background:transparent}
+:root .t-band-navy .btn-g:hover,:root[data-theme="light"] .t-band-navy .btn-g:hover,:root[data-theme="light"] .atlas .t-band-navy .btn-g:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.t-band-navy .btn-g svg{stroke:currentColor}
+.t-band-navy a:focus-visible,.t-band-navy button:focus-visible{outline:2px solid #e0be7a;outline-offset:3px}
+
+/* one card design for every platform: no coloured frames or top bars, gold
+   stars, the platform as a small badge */
+.rev,.rq,.rev.src-getyourguide,.rev.src-tripadvisor,.rq.src-getyourguide,.rq.src-tripadvisor{border-color:var(--g-line)}
+.rev::after,.rq::after{display:none}
+.rev .st,.rq .rq-stars,.rev.src-google .st,.rev.src-getyourguide .st,.rev.src-tripadvisor .st,
+.rq.src-google .rq-stars,.rq.src-getyourguide .rq-stars,.rq.src-tripadvisor .rq-stars{color:#e0be7a}
+.rev .rv-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}
+.atlas .rev .rv-top .st,.rev .rv-top .st{margin:0}
+.rv-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 8px;border-radius:99px;
+  border:1px solid var(--g-line);font-size:.72rem;font-weight:500;color:var(--g-ink);white-space:nowrap}
+.rv-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--dot,#8AB4F8)}
+.rv-b-google{--dot:#8AB4F8}.rv-b-getyourguide{--dot:#FF7A5C}.rv-b-tripadvisor{--dot:#34E0A1}
+.atlas .rev .src,.rev .src,.rev.src-google .src,.rev.src-getyourguide .src,.rev.src-tripadvisor .src{color:var(--g-grey)}
+.rev .rv-more{align-self:flex-start;background:none;border:0;padding:8px 0;margin:2px 0 6px;min-height:24px;
+  color:#e0be7a;font:inherit;font-size:.86rem;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.atlas .rv-mq .rev.open q,.rev.open q{-webkit-line-clamp:unset;display:block}
+.rev .rv-orig{display:inline-block;margin-top:8px;padding:4px 0;color:var(--g-ink);font-size:.82rem;
+  text-decoration:underline;text-decoration-color:rgba(240,245,244,.35);text-underline-offset:3px}
+.rev .rv-orig:hover{text-decoration-color:currentColor}
+
+/* Previous / Pause / Next under the rail */
+.rv-ctl{display:flex;gap:10px;justify-content:center;margin-top:24px}
+.rv-ctl button{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:transparent;color:#f0f5f4;border:1px solid rgba(255,255,255,.3)}
+.rv-ctl button:hover{border-color:#fff}
+.rv-ctl svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rv-ctl .rv-pp svg{fill:currentColor;stroke:none}
+:root[data-theme="light"] .chapter:not(.t-band-navy) .rv-ctl button{color:#0b1b29;border-color:rgba(11,27,41,.3)}
+@media(prefers-reduced-motion:reduce){.rv-ctl{display:none}}
+
+/* gallery: a full-width editorial grid on wide screens, one strong photo
+   with a swipe and a counter on phones */
+.t-gal .gal{margin-inline:calc(-1 * var(--gut));gap:6px;grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:clamp(170px,19vw,340px);grid-auto-flow:dense}
+.t-gal .gal a{border-radius:0}
+.t-gal .gal img{height:100%;aspect-ratio:auto}
+.t-gal .gal a:nth-child(1){grid-column:span 2;grid-row:span 2}
+.t-gal .gal a:nth-child(6){grid-column:span 2}
+.gal-nav{display:none}
+@media(max-width:860px){
+  .t-gal .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;
+    padding-inline:var(--gut);scroll-padding-inline:var(--gut);scrollbar-width:none;overscroll-behavior-x:contain}
+  .t-gal .gal::-webkit-scrollbar{display:none}
+  .t-gal .gal a{flex:0 0 84%;scroll-snap-align:start;border-radius:14px}
+  .t-gal .gal img{aspect-ratio:4/5;height:auto}
+  .gal-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px}
+  .gal-nav .gn-n{font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.08em;color:var(--muted)}
+  .gal-nav .gn-b{display:flex;gap:10px}
+  .gal-nav button{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:transparent;
+    border:1px solid rgba(var(--edge-rgb,11,27,41),.3);color:inherit;cursor:pointer}
+  .gal-nav button[disabled]{opacity:.35;cursor:default}
+  .gal-nav svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+}

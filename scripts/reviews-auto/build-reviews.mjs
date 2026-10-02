@@ -99,8 +99,10 @@ function renderCard(r) {
   const photos = (r.photos && r.photos.length)
     ? `\n        <div class="rq-photos">${r.photos.map((p) => `<img src="${p}" loading="lazy" alt="Photo from ${escapeHtml(r.author)}'s review">`).join("")}</div>`
     : "";
-  const reply = r.reply
-    ? `\n        <div class="rq-reply"><span class="rt">Response from Chifbay</span>${escapeHtml(r.reply.text)}</div>`
+  // Google gives the reply as plain text, GetYourGuide as {text}
+  const replyText = typeof r.reply === "string" ? r.reply : r.reply && r.reply.text;
+  const reply = replyText
+    ? `\n        <div class="rq-reply"><span class="rt">Response from Chifbay</span>${escapeHtml(replyText)}</div>`
     : "";
   const tourLink = r.tourUrl && r.tourName
     ? `\n          <a href="${r.tourUrl}" target="_blank" rel="noopener">${escapeHtml(r.tourName)}</a>`
@@ -161,6 +163,8 @@ export function cleanAndDedupe(list, log = console.log) {
     let reply = r.reply || null;
     const m = text.match(/^Response from the owner\b.*$/i);
     if (m) { reply = reply || text.replace(/^Response from the owner\s*(\S+\s+\S+\s+ago\s*)?/i, "").trim() || null; text = ""; }
+    // one shape for every platform: {text}
+    if (typeof reply === "string") reply = reply.trim() ? { text: reply.trim() } : null;
     return { ...r, text, reply };
   });
   const groups = new Map();

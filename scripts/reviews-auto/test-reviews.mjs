@@ -46,3 +46,8 @@ test("the live dataset has no owner reply as text and no duplicate ids after cle
   assert.equal(new Set(out.map((x) => x.id)).size, out.length);
   assert.ok(out.every((x) => !/[-]/.test(x.text)));
 });
+
+test("an owner reply given as plain text becomes {text}", () => {
+  const [r] = cleanAndDedupe([{ id: "g1", source: "google", author: "A", date: "2026-09-01", text: "Lovely trip, thank you", reply: "Thank you for sailing with us" }], () => {});
+  assert.deepEqual(r.reply, { text: "Thank you for sailing with us" });
+});

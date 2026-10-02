@@ -839,6 +839,40 @@
     measure();
   })();
 
+  /* ---------------------------------------- phone gallery: counter and arrows
+     On phones the gallery is a swipe rail (tide.css .t-gal); the counter and
+     the two buttons make "there is more" obvious and give a non-swipe way. */
+  $$(".t-gal .gal").forEach(function (g) {
+    var tiles = g.children, n = tiles.length;
+    if (n < 2) return;
+    var nav = document.createElement("div");
+    nav.className = "gal-nav";
+    nav.innerHTML = '<span class="gn-n" aria-live="polite">1 / ' + n + '</span><span class="gn-b">' +
+      '<button type="button" class="gn-p" aria-label="' + (g.getAttribute("data-gal-prev") || "Previous photo") + '"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>' +
+      '<button type="button" class="gn-x" aria-label="' + (g.getAttribute("data-gal-next") || "Next photo") + '"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button></span>';
+    g.parentNode.insertBefore(nav, g.nextSibling);
+    var num = nav.querySelector(".gn-n"), prev = nav.querySelector(".gn-p"), next = nav.querySelector(".gn-x");
+    function at() {
+      var x = g.scrollLeft + 1, w = tiles[0].getBoundingClientRect().width + 10;
+      return Math.max(0, Math.min(n - 1, Math.round(x / w)));
+    }
+    function sync() {
+      var i = at(), end = g.scrollLeft + g.clientWidth >= g.scrollWidth - 4;
+      if (end) i = n - 1;
+      num.textContent = (i + 1) + " / " + n;
+      prev.disabled = i === 0; next.disabled = i === n - 1;
+    }
+    function go(d) {
+      var i = Math.max(0, Math.min(n - 1, at() + d));
+      g.scrollTo({ left: g.scrollLeft + tiles[i].getBoundingClientRect().left - g.getBoundingClientRect().left - parseFloat(getComputedStyle(g).paddingLeft || 0), behavior: REDUCE ? "auto" : "smooth" });
+    }
+    prev.addEventListener("click", function () { go(-1); });
+    next.addEventListener("click", function () { go(1); });
+    var st = 0;
+    g.addEventListener("scroll", function () { cancelAnimationFrame(st); st = requestAnimationFrame(sync); }, { passive: true });
+    sync();
+  });
+
   /* ---------------------------------------- phone menu: keyboard focus
      Open: focus moves to the first link. Escape or the button closes it and
      focus returns to the menu button (peak.js does the opening and locking). */

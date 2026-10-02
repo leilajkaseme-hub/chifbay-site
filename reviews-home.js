@@ -38,11 +38,25 @@
   var REVIEWS_WORD = wrap.getAttribute("data-reviews-word") || "reviews";
   var AVG_TEXT = wrap.getAttribute("data-average") || "★ average across {n} verified reviews";
 
-  function sourceLabel(s) {
-    var platform = s === "google" ? "Google"
-      : s === "tripadvisor" ? "Tripadvisor"
-      : "GetYourGuide";
-    return VERIFIED + " · " + platform;
+  var LANG = (document.documentElement.lang || "en").slice(0, 2);
+  var READ_ON = wrap.getAttribute("data-read-on") || "Read on {p}";
+  var MORE = wrap.getAttribute("data-more") || "Read more";
+  var LESS = wrap.getAttribute("data-less") || "Show less";
+  // the original of each review: the place page on Google, the trip page on
+  // GetYourGuide, our listing on Tripadvisor (its reviews carry no own link)
+  var TA_URL = "https://www.tripadvisor.com/Attraction_Review-g189167-d34387047.html";
+  function platform(s) {
+    return s === "google" ? "Google" : s === "tripadvisor" ? "Tripadvisor" : "GetYourGuide";
+  }
+  function original(r) {
+    if (r.source === "tripadvisor") return TA_URL;
+    return /^https:\/\//.test(r.tourUrl || "") ? r.tourUrl : "";
+  }
+  function when(d) {
+    var t = Date.parse(d || "");
+    if (!t) return "";
+    try { return new Date(t).toLocaleDateString(LANG, { month: "short", year: "numeric" }); }
+    catch (e) { return d.slice(0, 7); }
   }
   // Newest first. Reviews without a usable date sink to the bottom rather than
   // jumping to the top, which is what Date("") would do.
@@ -51,15 +65,29 @@
     return db - da;
   }
 
+  /* One card design for every platform (2 Oct 2026 audit): the platform is a
+     small badge, not a coloured frame. Date, rating, the full text (clamped,
+     with Read more) and a link to the original review. */
   function card(r, i, isClone) {
-    return '<figure class="rev reveal in src-' + esc(r.source || "") + '"' +
-      (isClone ? ' aria-hidden="true"' : ' role="listitem"') +
-      ' data-rv="' + i + '">' +
-      '<div class="st">' + stars(r.rating) + "</div>" +
-      "<q>" + esc(r.text.length > 260 ? r.text.slice(0, 257) + "…" : r.text) + "</q>" +
+    var n = Math.max(0, Math.min(5, Math.round(+r.rating || 5)));
+    var url = original(r), src = esc(r.source || "getyourguide"), p = platform(r.source);
+    return '<figure class="rev reveal in src-' + src + '"' +
+      (isClone ? ' aria-hidden="true" inert' : ' role="listitem"') + ' data-rv="' + i + '">' +
+      '<div class="rv-top"><span class="st" role="img" aria-label="' + n + '/5">' + stars(n) + "</span>" +
+      '<span class="rv-badge rv-b-' + src + '">' + p + "</span></div>" +
+      "<q>" + esc(r.text) + "</q>" +
+      '<button type="button" class="rv-more" hidden>' + esc(MORE) + "</button>" +
       '<figcaption><div class="who">' + esc(r.author) + "</div>" +
-      '<div class="src">' + sourceLabel(r.source) + "</div></figcaption>" +
-      "</figure>";
+      '<div class="src">' + esc(VERIFIED) + (when(r.date) ? " · " + esc(when(r.date)) : "") + "</div>" +
+      (url ? '<a class="rv-orig" href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(READ_ON.replace("{p}", p)) + " ↗</a>" : "") +
+      "</figcaption></figure>";
+  }
+  // Read more only where the clamp actually cuts the text
+  function moreButtons(root) {
+    Array.prototype.forEach.call(root.querySelectorAll(".rev:not([aria-hidden]) .rv-more"), function (b) {
+      var q = b.previousElementSibling;
+      b.hidden = !(q && q.scrollHeight > q.clientHeight + 2) && !b.parentNode.classList.contains("open");
+    });
   }
 
   /* Drives the rail: one step every DWELL ms, pausing while a visitor is
@@ -71,7 +99,7 @@
     var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
     if (!track || (reduce && reduce.matches)) return;
 
-    var i = 0, timer = null, held = false;
+    var i = 0, timer = null, held = false, paused = false;
 
     // measured, not recomputed from the CSS formula — one source of truth
     function stepPx() {
@@ -102,9 +130,46 @@
       track.classList.remove("rv-jump");
     });
 
-    function start() { if (!timer && !held) timer = setInterval(function () { go(i + 1); }, DWELL); }
+    function start() { if (!timer && !held && !paused) timer = setInterval(function () { go(i + 1); }, DWELL); }
     function stop() { clearInterval(timer); timer = null; }
     function hold(on) { held = on; if (on) stop(); else start(); }
+
+    // Previous / Pause / Next: the rail never moves without a way to stop it
+    var ctl = root.querySelector(".rv-ctl");
+    if (ctl) {
+      var pp = ctl.querySelector(".rv-pp");
+      var PAUSE = pp.getAttribute("data-pause"), PLAY = pp.getAttribute("data-play");
+      function setPP() {
+        pp.setAttribute("aria-pressed", paused ? "true" : "false");
+        pp.setAttribute("aria-label", paused ? PLAY : PAUSE);
+        pp.innerHTML = paused ? '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>'
+          : '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z"/></svg>';
+      }
+      pp.addEventListener("click", function () { paused = !paused; setPP(); if (paused) stop(); else start(); });
+      ctl.querySelector(".rv-prev").addEventListener("click", function () { stop(); step(-1); start(); });
+      ctl.querySelector(".rv-next").addEventListener("click", function () { stop(); step(1); start(); });
+      setPP();
+    }
+    function step(by) {
+      var next = i + by;
+      if (next < 0) {
+        track.classList.add("rv-jump");
+        i = count; paint(); void track.offsetHeight;
+        track.classList.remove("rv-jump");
+        next = count - 1;
+      }
+      go(next);
+    }
+    root.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest(".rv-more");
+      if (!b) return;
+      var f = b.parentNode, open = f.classList.toggle("open");
+      b.textContent = open ? LESS : MORE;
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) { paused = true; stop(); if (ctl) setPPext(); }
+    });
+    function setPPext() { var pp = ctl.querySelector(".rv-pp"); pp.setAttribute("aria-pressed", "true"); pp.setAttribute("aria-label", pp.getAttribute("data-play"));
+      pp.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>'; }
 
     // let people read: hovering, focusing or touching it holds the rail
     root.addEventListener("mouseenter", function () { hold(true); });
@@ -168,11 +233,12 @@
         paint();
         void track.offsetHeight;
         track.classList.remove("rv-jump");
+        moreButtons(root);
       }, 150);
     });
 
     // first paint after layout has settled, or the width measures as 0
-    requestAnimationFrame(function () { requestAnimationFrame(function () { paint(); start(); }); });
+    requestAnimationFrame(function () { requestAnimationFrame(function () { paint(); moreButtons(root); start(); }); });
   }
 
   fetch("/reviews.json", { cache: "no-store" })
@@ -202,6 +268,11 @@
           '<div class="rv-track" role="list" aria-label="' + label + '">' +
             lead + cards + clones +
           "</div>" +
+        "</div>" +
+        '<div class="rv-ctl">' +
+          '<button type="button" class="rv-prev" aria-label="' + esc(wrap.getAttribute("data-prev") || "Previous reviews") + '"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>' +
+          '<button type="button" class="rv-pp" data-pause="' + esc(wrap.getAttribute("data-pause") || "Pause reviews") + '" data-play="' + esc(wrap.getAttribute("data-play") || "Play reviews") + '"></button>' +
+          '<button type="button" class="rv-next" aria-label="' + esc(wrap.getAttribute("data-next") || "Next reviews") + '"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>' +
         "</div>";
 
       ride(wrap, top.length);
