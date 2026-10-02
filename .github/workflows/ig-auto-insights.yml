@@ -9,7 +9,7 @@ on:
     - cron: "15 6 * * *"   # daily, so the trend exists before anyone asks for it
 
 permissions:
-  contents: read
+  contents: write
 
 defaults:
   run:
@@ -43,6 +43,19 @@ jobs:
             -H "Authorization: Bearer $IG_SYNC_SECRET" -H "Content-Type: application/json" \
             --data-binary @ig-auto/insights.json \
             https://chifbay-booking-api.chifandcopt.workers.dev/v1/ig/insights
+
+      - name: Freeze 24 h and 7 day readings
+        working-directory: ig-auto
+        run: node bin/measures.mjs insights.json
+
+      - name: Commit the readings
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ig-auto/measures.json
+          if git diff --staged --quiet; then echo "no new reading"; exit 0; fi
+          git commit -m "Instagram: 24 h and 7 day readings $(date -u +%Y-%m-%d)"
+          scripts/ci-push.sh
 
       - name: Keep the result
         uses: actions/upload-artifact@v4

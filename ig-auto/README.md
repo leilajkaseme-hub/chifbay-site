@@ -471,7 +471,10 @@ posts: `node bin/regrade.mjs` (rebuilds from the originals, keeps captions). No 
 - `lib/manifest.mjs` writes `manifest.json` (public at chifbay.com/ig-auto/manifest.json): every
   candidate with its checks and verdict, rebuilt by top-up and after each post.
 - `bin/insights.mjs` (`ig-auto-insights.yml`, daily 06:15 UTC) reads the account and every post,
-  keeps it as a run artifact and sends it to the portal.
+  keeps it as a run artifact and sends it to the portal. Then `bin/measures.mjs` freezes each post's
+  numbers once between 24 and 72 hours (`h24`) and once between 7 and 14 days (`d7`), with the real
+  age of the reading, in `measures.json` (committed, public). Compare posts on these, never on the
+  live totals of posts of different ages. Views and reach (unique accounts) stay separate.
 - The old daily "post this Reel yourself" reminder (`reel-due`) is gone: Reels go out by API.
 - Music from Instagram's library cannot be added by the API. Reels carry our own sound (the sea from
   the 360 camera, or the clip's own wind and voices).
