@@ -78,3 +78,8 @@ test('the sunset trip departs at 18:30, as the booking catalogue says', () => {
   const bad = hits(/(sunset|pôr do sol|coucher (?:du|de) soleil|Sonnenuntergang|atardecer|tramonto)[^.]{0,80}?\b18:00\b|\b18:00\b[^.]{0,60}?(sunset|pôr do sol|Sonnenuntergang|atardecer|tramonto)/gi);
   assert.deepEqual(bad, []);
 });
+
+test('no single 3 hour window for both day trip lengths', () => {
+  // the 2h30 is back at 12:30 / 16:30: "10–13 · 14–17" only fits the 3h
+  assert.deepEqual(hits(/10\s?[–—-]\s?13\s?·\s?14\s?[–—-]\s?17|10:00\s?[–—-]\s?13:00 or 14:00\s?[–—-]\s?17:00/g), []);
+});
