@@ -68,6 +68,10 @@ jobs:
             -d "A published article points at an image that does not exist. Run: node scripts/checks/verify-post-images.mjs" \
             https://ntfy.sh/futurx-blog-alerts-544024878e || true
 
+      # the Journal pages carry their cards in the HTML: add today's post
+      - name: Rebuild the Journal card lists
+        run: node scripts/build-blog-index.mjs
+
       - name: Commit & push
         run: |
           TITLE=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['title'])")

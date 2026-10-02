@@ -86,6 +86,8 @@ for (const [lang, cfg] of Object.entries(LANGS)) {
   const map = "var TR={" + rows.filter((r) => r.translated && lang !== "en")
     .map((r) => JSON.stringify(r.slug) + ":1").join(",") + "};\n  ";
   if (lang !== "en") {
+    // one map only: earlier runs stacked a new line every time
+    html = html.replace(/\n  var TR=\{[^}]*\};(?=\n)/g, "");
     html = html.replace(/\n  var list=document\.getElementById\('bloglist'\)/,
       "\n  " + map + "var list=document.getElementById('bloglist')");
     html = html.replace(
@@ -95,6 +97,40 @@ for (const [lang, cfg] of Object.entries(LANGS)) {
       /'<a class="bcard" href="\/posts\/'\+encodeURIComponent\(p\.slug\)\+'\.html"'\+\(BADGE\?' hreflang="en"':''\)\+'>'/,
       `'<a class="bcard" href="'+(TR[p.slug]?'/${cfg.dir}/posts/':'/posts/')+encodeURIComponent(p.slug)+'.html"'+((BADGE&&!TR[p.slug])?' hreflang="en"':'')+'>'`);
   }
+
+  // The cards themselves, written into the page (2 Oct 2026 audit: the grid
+  // was empty until posts.json arrived). Same markup, labels, date format and
+  // links as the page's own script, which then only redraws when posts.json
+  // holds something newer than this build.
+  const cfgJs = (re, d) => { const m = html.match(re); return m ? m[1] : d; };
+  let CAT = {};
+  try { CAT = JSON.parse(cfgJs(/var CAT=(\{[^;]*\});/, "{}")); } catch { CAT = {}; }
+  const LOC = cfgJs(/var LOC="([^"]+)"/, "en-GB"), READ = cfgJs(/READ="([^"]+)"/, "min read");
+  const tr = new Set(rows.filter((r) => r.translated && lang !== "en").map((r) => r.slug));
+  const cards = posts.map((p) => {
+    const d = new Date(p.date + "T00:00:00").toLocaleDateString(LOC, { day: "numeric", month: "short", year: "numeric" });
+    const local = tr.has(p.slug), en = lang !== "en" && !local;
+    const href = (local ? `/${cfg.dir}/posts/` : "/posts/") + encodeURIComponent(p.slug) + ".html";
+    return `<a class="bcard" data-s="${esc(p.slug)}" href="${href}"${en ? ' hreflang="en"' : ""}>` +
+      `<div class="bimg" style="background-image:url('/${esc(p.heroImage)}')"></div>` +
+      `<div class="bbody"><span class="bcat">${esc(CAT[p.category] || p.category)}</span>` +
+      `<h3>${esc(p.title)}</h3><p>${esc(p.description)}</p>` +
+      `<span class="bmeta">${d} · ${p.readingMinutes || 5} ${esc(READ)}${en && cfg.badge ? ` <span class="blang">${esc(cfg.badge)}</span>` : ""}</span></div></a>`;
+  }).join("\n");
+  html = html.replace(/<div id="bloglist" class="bloggrid">(?:<!--cards-->[\s\S]*?<!--\/cards-->)?<\/div>/,
+    `<div id="bloglist" class="bloggrid"><!--cards-->\n${cards}\n<!--/cards--></div>`);
+  // the page script: no "nothing yet" message over real cards, no redraw when
+  // the build is current, and the topic filter reads the live list
+  html = html.replace("function showEmpty(){ if(document.querySelector('.blognojs li')) return;",
+    "function showEmpty(){ if(document.querySelector('.blognojs li')||list.querySelector('a.bcard')) return;");
+  if (!html.includes("var have=")) html = html.replace("    list.innerHTML=posts.map(function(p){",
+    "    var have=[].map.call(list.querySelectorAll('a.bcard'),function(a){return a.getAttribute('data-s');}).join(',');\n" +
+    "    if(have&&have===posts.map(function(p){return p.slug;}).join(',')) return;\n" +
+    "    list.innerHTML=posts.map(function(p){");
+  html = html.replace(`'<a class="bcard" href="'+`, `'<a class="bcard" data-s="'+esc(p.slug)+'" href="'+`)
+    .replace(`'<a class="bcard" href="/posts/'+`, `'<a class="bcard" data-s="'+esc(p.slug)+'" href="/posts/'+`);
+  html = html.replace("cards.forEach(function(card){var k=(card.querySelector('.bcat')||{}).textContent||''; card.hidden=!!c&&k!==c;});",
+    "[].forEach.call(list.querySelectorAll('a.bcard'),function(card){var k=(card.querySelector('.bcat')||{}).textContent||''; card.hidden=!!c&&k!==c;});");
 
   if (html !== before) { writeFileSync(page, html); changed++; }
   const n = rows.filter((r) => r.translated).length;
