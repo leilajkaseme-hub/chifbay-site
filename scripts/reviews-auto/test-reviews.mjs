@@ -15,6 +15,12 @@ test("icon glyphs are stripped", () => {
   const out = cleanAndDedupe([{ id: "g2", source: "google", author: "Kyle", date: "2026-08-01", text: "Brand new boat " }], quiet);
   assert.equal(out[0].text, "Brand new boat");
 });
+test("Google trip details are not guest text", () => {
+  const a = cleanAndDedupe([{ id: "g3", source: "google", author: "J", date: "2026-09-01", text: "Tour duration 2–3 hr" }], quiet);
+  assert.equal(a.length, 0);
+  const b = cleanAndDedupe([{ id: "g4", source: "google", author: "C", date: "2026-09-01", text: "Amazing! Highly recommended. … Tour duration 2–3 hr" }], quiet);
+  assert.equal(b[0].text, "Amazing! Highly recommended.");
+});
 test("GetYourGuide original + English version become one review with a translation", () => {
   const out = cleanAndDedupe([r({ id: "a", text: "Une expérience absolument magique, tout était parfait" }), r({ id: "b", text: "An absolutely magical experience, everything was perfect and we loved the boat" })], quiet);
   assert.equal(out.length, 1);

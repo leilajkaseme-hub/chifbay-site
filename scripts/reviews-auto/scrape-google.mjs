@@ -226,7 +226,8 @@ async function main() {
       // The owner's answer sits in the same card. It must never be read as
       // the guest's words (2 Oct 2026: a rating-only review was published
       // with our own reply as its text). It goes to "reply" instead.
-      const stopMarkers = ["Visited on", "Translated by Google", "Like", "Share", "Response from the owner"];
+      const stopMarkers = ["Visited on", "Translated by Google", "Like", "Share", "Response from the owner",
+        "Tour duration", "Group size", "Price per person", "Trip type", "Travel group", "Highlights"];
       let end = lines.length;
       for (let i = start; i < lines.length; i++) {
         if (stopMarkers.some((m) => lines[i].startsWith(m))) { end = i; break; }

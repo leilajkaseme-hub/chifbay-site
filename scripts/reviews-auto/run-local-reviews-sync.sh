@@ -44,6 +44,22 @@ report() {   # report <ok:true|false> <published:true|false> [error]
   curl -s --max-time 20 -X POST "$API/v1/ingest/reviews" -H "Content-Type: application/json" \
     -d "{\"token\":\"$(tr -d '\n' < "$OTA_TOKEN_FILE")\",\"ok\":$1,\"published\":$2,\"stage\":\"$STAGE\",\"error\":$(printf '%s' "${3:-}" | node -e 'process.stdout.write(JSON.stringify(require("fs").readFileSync(0,"utf8").slice(0,300)))'),\"summary\":$summary}" >/dev/null 2>&1 || true
 }
+# After a publish, bring this checkout up to date without ever discarding
+# work: only files the scrapers write are touched, and only when origin/main
+# holds the exact same bytes. Anything else in the checkout stays as it is.
+sync_local() {
+  ( cd "$REPO_DIR" || exit 0
+    git fetch --quiet origin main || exit 0
+    [ "$(git branch --show-current)" = "main" ] || exit 0
+    git status --porcelain -- scripts/reviews-auto/data assets/reviews | sed 's/^...//' | while read -r f; do
+      [ -f "$f" ] || continue
+      if git show "origin/main:$f" 2>/dev/null | cmp -s - "$f"; then
+        if git ls-files --error-unmatch "$f" >/dev/null 2>&1; then git checkout --quiet -- "$f"; else rm -f "$f"; fi
+      fi
+    done
+    git merge --ff-only --quiet origin/main >/dev/null 2>&1 || true
+  ) || true
+}
 fail() {
   curl -s --max-time 20 \
     -H "Title: CHIFBAY reviews sync FAILED (local)" \
@@ -212,6 +228,7 @@ fi
 if git diff --cached --quiet; then
   date +%s > "$HEARTBEAT"
   report true false
+  sync_local
   exit 0
 fi
 git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
@@ -224,6 +241,7 @@ git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.
 # Success means published, not merely scraped.
 date +%s > "$HEARTBEAT"
 report true true
+sync_local
 
 if [ -n "${NEW_COUNT:-}" ] && [ "$NEW_COUNT" != "0" ]; then
   curl -s --max-time 20 \

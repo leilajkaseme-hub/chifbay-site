@@ -155,6 +155,9 @@ export function cleanAndDedupe(list, log = console.log) {
   const out = [], dropped = [];
   const cleaned = list.map((r) => {
     let text = (r.text || "").replace(/[\ue000-\uf8ff]/g, "").replace(/\s+/g, " ").trim();
+    // Google's trip details under a review ("Tour duration 2–3 hr", "Group
+    // size", ...) are not the guest's words.
+    if (r.source === "google") text = text.replace(/\s*…?\s*\b(Tour duration|Group size|Price per person|Trip type|Travel group|Highlights|Visited on)\b.*$/i, "").trim();
     let reply = r.reply || null;
     const m = text.match(/^Response from the owner\b.*$/i);
     if (m) { reply = reply || text.replace(/^Response from the owner\s*(\S+\s+\S+\s+ago\s*)?/i, "").trim() || null; text = ""; }
@@ -258,7 +261,9 @@ async function main() {
 
   for (const r of all) await translateIfNeeded(r, prevById);
 
-  all.sort((a, b) => (a.date < b.date ? 1 : -1));
+  // newest first; same day ordered by id, so a run with nothing new writes
+  // byte-identical files and makes no commit
+  all.sort((a, b) => (a.date === b.date ? (a.id < b.id ? -1 : a.id > b.id ? 1 : 0) : a.date < b.date ? 1 : -1));
 
   const newOnes = all.filter((r) => !prevById.has(r.id));
   const ratingSum = all.reduce((s, r) => s + (r.rating || 0), 0);

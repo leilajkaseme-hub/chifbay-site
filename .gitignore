@@ -1,0 +1,3 @@
+
+# local heartbeat of the review job, rewritten on every run
+scripts/reviews-auto/data/last-success.txt
