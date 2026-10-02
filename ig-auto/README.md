@@ -451,8 +451,8 @@ in (and the other way round). Never filler: with nothing qualified the run posts
   (unless `allow_test_reels`), not vetoed, not posted (the ledger is the record). Plan order = order
   of publishing. Published by the API as a REELS container with the clean cover as `cover_url`.
 - A carousel or story in `queue/`: not vetoed, not pinned to a later day. Curated sets
-  (`curated.json`, `bin/curate.mjs`) go first; story templates (`stores/chifbay/reels/make_stories.py`)
-  sit between photo stories.
+  (`curated.json`, `bin/curate.mjs`) go first; story templates (`stores/chifbay/reels/make_stories.py`,
+  handmade look: 1 or 2 short lines in white boxes plus one small "link in bio" tag) sit between photo stories.
 
 **Published once**: the lock is taken atomically (`wx`), the daily guard holds, every media URL
 and the cover are checked live before Instagram is called, and before any retry the robot asks

@@ -10,7 +10,6 @@
    "test": false,
    "subject": "day trip story",
    "hook": "A Day Trip from Funchal",
-   "support": "",
    "caption": "Two and a half or three hours from Funchal: Câmara de Lobos, Cabo Girão, then the swim and paddle stop at Fajã dos Padres. Photos and the video of your trip included.\n\nFree cancellation up to 24 hours before. Booking link in bio.",
    "hashtags": [
     "#madeira",
@@ -124,18 +123,18 @@
      "A Day Trip from Funchal"
     ],
     "box": [
-     90,
+     113,
      300,
-     990,
-     402
+     880,
+     418
     ]
    },
    "duration": 14.4,
-   "bytes": 15275792,
+   "bytes": 15269898,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:58:36"
+    "at": "2026-10-03T00:21:16"
    }
   },
   {
@@ -147,7 +146,6 @@
    "test": false,
    "subject": "jump",
    "hook": "Your Madeira swim stop",
-   "support": "",
    "caption": "The swim stop on our Day Trip: engine off under the cliffs at Fajã dos Padres, warm Atlantic water and paddle boards on board. Just your group, no other guests.\n\nDay Trip from Funchal marina, 10:00 or 14:00, sea conditions allowing.\n\nSend this to the one who jumps first. Booking link in bio.",
    "hashtags": [
     "#madeira",
@@ -210,18 +208,18 @@
      "Your Madeira swim stop"
     ],
     "box": [
-     90,
+     116,
      300,
-     990,
-     402
+     876,
+     418
     ]
    },
    "duration": 6.2,
-   "bytes": 7083441,
+   "bytes": 7099019,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:41:05"
+    "at": "2026-10-03T00:18:35"
    }
   },
   {
@@ -233,7 +231,6 @@
    "test": false,
    "subject": "drone video",
    "hook": "Your trip, filmed from above",
-   "support": "",
    "caption": "Every guest leaves with photos and a 360 video of their trip, plus a drone video when the wind lets us fly. No phone in your hand all afternoon.\n\nPrivate boat trips from Funchal marina. Booking link in bio.",
    "hashtags": [
     "#madeira",
@@ -293,22 +290,21 @@
    "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
    "words": {
     "hook_lines": [
-     "Your trip, filmed",
-     "from above"
+     "Your trip, filmed from above"
     ],
     "box": [
-     90,
+     70,
      300,
-     990,
-     494
+     949,
+     422
     ]
    },
    "duration": 12.23,
-   "bytes": 13039899,
+   "bytes": 13153314,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:41:42"
+    "at": "2026-10-03T00:19:16"
    }
   },
   {
@@ -320,7 +316,6 @@
    "test": false,
    "subject": "sunset",
    "hook": "Madeira, just before sunset",
-   "support": "Just your group on board",
    "caption": "Leaving Funchal at 18:30, sun dropping toward the Atlantic, the coast turning gold. Drinks and food on deck, just your group on board. Our Sunset Trip runs west to Cabo Girão, or on to Ribeira Brava.\n\nTag who you would bring. Booking link in bio.",
    "hashtags": [
     "#madeira",
@@ -383,18 +378,18 @@
      "Madeira, just before sunset"
     ],
     "box": [
-     90,
+     73,
      300,
-     990,
-     482
+     919,
+     420
     ]
    },
    "duration": 9.5,
-   "bytes": 10360642,
+   "bytes": 10348348,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:41:58"
+    "at": "2026-10-03T00:19:33"
    }
   },
   {
@@ -406,7 +401,6 @@
    "test": false,
    "subject": "paddle",
    "hook": "Swim. Paddle. Repeat.",
-   "support": "",
    "caption": "Paddle boards are on board for the swim stop of our Day Trip at Fajã dos Padres. Falling in is part of it.\n\nDay Trip from Funchal marina, sea conditions allowing. Booking link in bio.",
    "hashtags": [
     "#madeira",
@@ -452,18 +446,18 @@
      "Swim. Paddle. Repeat."
     ],
     "box": [
-     90,
+     139,
      300,
-     990,
-     402
+     853,
+     416
     ]
    },
    "duration": 6.32,
-   "bytes": 7238844,
+   "bytes": 7174547,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:58:50"
+    "at": "2026-10-03T00:19:45"
    }
   },
   {
@@ -474,8 +468,7 @@
    "verdict": "Refait : la falaise et les terrasses au soleil dès la première image, au ralenti (drone 60 i/s).",
    "test": false,
    "subject": "place",
-   "hook": "Under Cabo Girão",
-   "support": "580 m of cliff above the sea",
+   "hook": "Under Cabo Girão, 580 m",
    "caption": "Cabo Girão, 580 m of cliff straight above the sea, seen from the water. Every Chifbay trip from Funchal goes there, Day Trip and Sunset Trip.\n\nSave this for your Madeira trip. Booking link in bio.",
    "hashtags": [
     "#madeira",
@@ -518,21 +511,21 @@
    "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
    "words": {
     "hook_lines": [
-     "Under Cabo Girão"
+     "Under Cabo Girão, 580 m"
     ],
     "box": [
-     90,
+     87,
      260,
-     990,
-     442
+     906,
+     380
     ]
    },
    "duration": 6.2,
-   "bytes": 6895032,
+   "bytes": 6877655,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:42:26"
+    "at": "2026-10-03T00:20:02"
    }
   },
   {
@@ -544,7 +537,6 @@
    "test": true,
    "subject": "split test",
    "hook": "Swim. Cliffs. Clear water.",
-   "support": "",
    "caption": "Three moments from our Day Trip along Madeira's south coast: the swim stop, Cabo Girão and the clear water at Fajã dos Padres.\n\nDay Trip from Funchal marina. Booking link in bio.",
    "hashtags": [
     "#madeira",
@@ -624,18 +616,18 @@
      "Swim. Cliffs. Clear water."
     ],
     "box": [
-     90,
-     140,
-     990,
-     242
+     100,
+     270,
+     893,
+     388
     ]
    },
    "duration": 6.0,
-   "bytes": 6780342,
+   "bytes": 6749031,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-02T22:42:51"
+    "at": "2026-10-03T00:20:27"
    }
   }
  ]
