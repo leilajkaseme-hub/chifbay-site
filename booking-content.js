@@ -82,7 +82,7 @@ window.CHIFBAY_CONTENT = (function () {
     "blurb.day-trip/ribeira-brava":
       "C\u00e2mara de Lobos, the drone at Cabo Gir\u00e3o, swim and paddle at Faj\u00e3 dos Padres.",
     "blurb.day-trip/ponta-do-sol":
-      "The long day trip: everything in To Ribeira Brava, then on to Ponta do Sol, with a filmed video of your day.",
+      "The long day trip: everything in To Ribeira Brava, then 30 minutes further west to Ponta do Sol.",
     "blurb.sunset/cabo-girao":
       "The west coast as the light turns, drinks and food on deck, the drone at Cabo Gir\u00e3o.",
     "blurb.sunset/ribeira-brava":
@@ -91,16 +91,16 @@ window.CHIFBAY_CONTENT = (function () {
     // what you actually do, per option
     "hl.day-trip/ribeira-brava": [
       "Swim, jump in and paddle at Fajã dos Padres",
-      "The drone goes up over Cabo Girão — footage is yours",
+      "Drone and Insta360 video of your day, plus photos",
       "Drinks and food served on board",
     ],
     "hl.day-trip/ponta-do-sol": [
       "Everything in the To Ribeira Brava trip, then 30 minutes further west",
-      "A filmed, edited video of your day",
-      "Ponta do Sol — the furthest west we run",
+      "Drone and Insta360 video of your day, plus photos",
+      "Ponta do Sol, the furthest west we run",
     ],
     "hl.sunset/cabo-girao": [
-      "Golden hour under 580 metres of cliff",
+      "Evening light under 580 metres of cliff",
       "Drinks and food served on deck, engine off",
       "Open-throttle run back into a lit-up Funchal",
     ],

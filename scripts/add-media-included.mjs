@@ -3,9 +3,9 @@
  * trip pages, in every language: drone video, Insta360 video and phone photos,
  * each shown with the real footage from a trip.
  *
- * The Insta360 tile is labelled with the trip that includes it, not
- * "Included": the booking API sells the filmed video only with the 3h day
- * trip (variant ponta-do-sol), and this block must not promise more.
+ * All three tiles say "Included": the owner confirmed on 2 Oct 2026 that the
+ * Insta360 video comes with every trip, not only the 3h day trip. The booking
+ * API publishes the same list (includedMedia in /v1/catalogue).
  *
  *   node scripts/add-media-included.mjs           dry run
  *   node scripts/add-media-included.mjs --write   apply
@@ -30,32 +30,32 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
 
 const T = {
-  en: { i360k: "3h day trip", k: "Included", h: "You leave with <em>the whole trip</em> on film",
+  en: { i360k: "Included", k: "Included", h: "You leave with <em>the whole trip</em> on film",
         p: "Nothing extra to pay and nothing to set up. We film and photograph the trip and send it all to you after.",
         drone: ["Drone video", "Aerial shots of your boat under Cabo Girão and in the coves."],
         i360: ["Insta360 video", "360° footage from on board, reframed so you are in every shot."],
         phone: ["Onboard photography", "Candid shots of your group through the whole trip, sent to you after."] },
-  fr: { i360k: "Sortie de 3h", k: "Inclus", h: "Vous repartez avec <em>toute la sortie</em> en images",
+  fr: { i360k: "Inclus", k: "Inclus", h: "Vous repartez avec <em>toute la sortie</em> en images",
         p: "Rien à payer en plus, rien à préparer. Nous filmons et photographions la sortie et nous vous envoyons tout après.",
         drone: ["Vidéo drone", "Des images aériennes de votre bateau sous Cabo Girão et dans les criques."],
         i360: ["Vidéo Insta360", "Des images à 360° prises à bord, recadrées pour que vous soyez dans chaque plan."],
         phone: ["Reportage photo à bord", "Des photos prises sur le vif pendant toute la sortie, envoyées après."] },
-  de: { i360k: "3 Std. Tagestour", k: "Inklusive", h: "Sie nehmen <em>die ganze Fahrt</em> mit nach Hause",
+  de: { i360k: "Inklusive", k: "Inklusive", h: "Sie nehmen <em>die ganze Fahrt</em> mit nach Hause",
         p: "Kein Aufpreis, nichts vorzubereiten. Wir filmen und fotografieren die Fahrt und schicken Ihnen danach alles.",
         drone: ["Drohnenvideo", "Luftaufnahmen Ihres Boots unter Cabo Girão und in den Buchten."],
         i360: ["Insta360 Video", "360° Aufnahmen an Bord, so zugeschnitten, dass Sie in jeder Szene sind."],
         phone: ["Fotoreportage an Bord", "Spontane Aufnahmen Ihrer Gruppe während der ganzen Fahrt, danach zugeschickt."] },
-  pt: { i360k: "Passeio de 3h", k: "Incluído", h: "Leva <em>o passeio inteiro</em> em imagens",
+  pt: { i360k: "Incluído", k: "Incluído", h: "Leva <em>o passeio inteiro</em> em imagens",
         p: "Sem custo extra e nada a preparar. Filmamos e fotografamos o passeio e enviamos tudo depois.",
         drone: ["Vídeo de drone", "Imagens aéreas do seu barco sob o Cabo Girão e nas enseadas."],
         i360: ["Vídeo Insta360", "Imagens a 360° a bordo, reenquadradas para estar em todos os planos."],
         phone: ["Reportagem fotográfica a bordo", "Fotos espontâneas do seu grupo durante todo o passeio, enviadas depois."] },
-  es: { i360k: "Salida de 3h", k: "Incluido", h: "Te llevas <em>toda la salida</em> en imágenes",
+  es: { i360k: "Incluido", k: "Incluido", h: "Te llevas <em>toda la salida</em> en imágenes",
         p: "Sin coste extra y nada que preparar. Filmamos y fotografiamos la salida y te lo enviamos todo después.",
         drone: ["Vídeo con dron", "Imágenes aéreas de tu barco bajo Cabo Girão y en las calas."],
         i360: ["Vídeo Insta360", "Imágenes 360° a bordo, reencuadradas para que salgas en cada plano."],
         phone: ["Reportaje fotográfico a bordo", "Fotos espontáneas de tu grupo durante toda la salida, enviadas después."] },
-  it: { i360k: "Uscita di 3h", k: "Incluso", h: "Porti a casa <em>tutta l'uscita</em> in video",
+  it: { i360k: "Incluso", k: "Incluso", h: "Porti a casa <em>tutta l'uscita</em> in video",
         p: "Nessun costo extra e niente da preparare. Filmiamo e fotografiamo l'uscita e ti mandiamo tutto dopo.",
         drone: ["Video con drone", "Riprese aeree della tua barca sotto Cabo Girão e nelle calette."],
         i360: ["Video Insta360", "Riprese a 360° a bordo, reinquadrate perché tu sia in ogni scena."],
