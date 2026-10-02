@@ -696,4 +696,15 @@
       was = open;
     }).observe(nl, { attributes: true, attributeFilter: ["class"] });
   })();
+
+  /* ---------------------------------------- trip cards: details open on wide screens */
+  (function () {
+    var ds = $$(".t-more");
+    if (!ds.length || !window.matchMedia) return;
+    var mq = matchMedia("(min-width:761px)");
+    var set = function () { ds.forEach(function (d) { if (mq.matches) d.open = true; else if (!d.dataset.user) d.open = false; }); };
+    ds.forEach(function (d) { d.querySelector("summary").addEventListener("click", function () { d.dataset.user = "1"; }); });
+    set();
+    if (mq.addEventListener) mq.addEventListener("change", set);
+  })();
 })();

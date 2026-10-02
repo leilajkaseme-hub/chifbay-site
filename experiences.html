@@ -99,32 +99,41 @@
     <article class="t-card" data-mood="day">
       <a class="t-card-media" href="hidden-coves-half-day" tabindex="-1" aria-hidden="true"><img src="assets/exp-coves-wide.jpg" alt="Drone view of the Chifbay boat at anchor in turquoise water off Madeira" loading="lazy" decoding="async" width="1600" height="1000">
         <div class="t-card-title"><span class="t-n">01 · Day</span><h3>The Day Trip</h3></div></a>
-      <ul class="t-rows">
+      <p class="t-card-lede">Swim and paddle in clear water at Fajã dos Padres, in the midday light.</p>
+      <ul class="t-rows t-rows-key">
         <li><span class="k">From</span><span class="v"><b data-cb-price="day-trip">€500</b> <small>per boat, up to 5 guests</small></span></li>
         <li><span class="k">Duration</span><span class="v" data-cb-dur="day-trip">2h30 / 3h</span></li>
-        <li><span class="k">Departs</span><span class="v" data-cb-times="day-trip">10:00 · 14:00</span></li>
-        <li><span class="k">The light</span><span class="v">Midday sun, water you can see the bottom of</span></li>
-        <li><span class="k">Swimming</span><span class="v">Yes, at Fajã dos Padres. Paddle boards on board</span></li>
-        <li><span class="k">Furthest point</span><span class="v">Ribeira Brava, or Ponta do Sol on the 3h</span></li>
-        <li><span class="k">On film</span><span class="v">Drone, Insta360 video and photos, every trip</span></li>
       </ul>
       <div class="t-card-cta"><a class="btn btn-p" href="/book-day">Choose a date <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="hidden-coves-half-day">See the trip</a></div>
+      <details class="t-more"><summary>Trip details</summary>
+        <ul class="t-rows">
+          <li><span class="k">Departs</span><span class="v" data-cb-times="day-trip">10:00 · 14:00</span></li>
+          <li><span class="k">The light</span><span class="v">Midday sun, water you can see the bottom of</span></li>
+          <li><span class="k">Swimming</span><span class="v">Yes, at Fajã dos Padres. Paddle boards on board</span></li>
+          <li><span class="k">Furthest point</span><span class="v">Ribeira Brava, or Ponta do Sol on the 3h</span></li>
+        </ul>
+      </details>
     </article>
     <article class="t-card" data-mood="sunset">
       <a class="t-card-media" href="sunset-cruise" tabindex="-1" aria-hidden="true"><img src="assets/exp-sunset.jpg" alt="A guest on the bow of the Chifbay boat at sunset off Madeira" loading="lazy" decoding="async" width="1600" height="1000">
         <div class="t-card-title"><span class="t-n">02 · Sunset</span><h3>The Sunset Trip</h3></div></a>
-      <ul class="t-rows">
+      <p class="t-card-lede">The coast in the evening light, drinks on deck, back to a lit-up Funchal.</p>
+      <ul class="t-rows t-rows-key">
         <li><span class="k">From</span><span class="v"><b data-cb-price="sunset">€400</b> <small>per boat, up to 5 guests</small></span></li>
         <li><span class="k">Duration</span><span class="v" data-cb-dur="sunset">2h / 2h30</span></li>
-        <li><span class="k">Departs</span><span class="v" data-cb-times="sunset">18:30</span></li>
-        <li><span class="k">The light</span><span class="v">Evening light. The sunset time for your date shows when you book</span></li>
-        <li><span class="k">Swimming</span><span class="v">No. A cruising trip, drinks and food on deck</span></li>
-        <li><span class="k">Furthest point</span><span class="v">Cabo Girão, or Ribeira Brava on the 2h30</span></li>
-        <li><span class="k">On film</span><span class="v">Drone, Insta360 video and photos, every trip</span></li>
       </ul>
       <div class="t-card-cta"><a class="btn btn-p" href="/book-sunset">Choose a date <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn-g" href="sunset-cruise">See the trip</a></div>
+      <details class="t-more"><summary>Trip details</summary>
+        <ul class="t-rows">
+          <li><span class="k">Departs</span><span class="v" data-cb-times="sunset">18:30</span></li>
+          <li><span class="k">The light</span><span class="v">Evening light. The sunset time for your date shows when you book</span></li>
+          <li><span class="k">Swimming</span><span class="v">No. A cruising trip, drinks and food on deck</span></li>
+          <li><span class="k">Furthest point</span><span class="v">Cabo Girão, or Ribeira Brava on the 2h30</span></li>
+        </ul>
+      </details>
     </article>
     </div>
+    <p class="t-cmp-common">Every trip includes the whole boat for up to 5 guests, two skippers, drinks and snacks, drone and Insta360 video and photos.</p>
 <!-- /tide:compare -->
     <div class="rv" style="max-width:640px;margin:26px auto 0;text-align:center">
       <p style="color:var(--paper);font-size:.95rem;margin-bottom:8px">
@@ -245,6 +254,9 @@ vs.forEach(function(v){io.observe(v);});})();
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="vendor/lenis.min.js"></script>
 <script src="motion.min.js"></script>
+<!-- tide:sbar -->
+<div class="t-sbar" role="region" aria-label="Choose a date"><div><span class="t-sbar-k">From</span><span class="t-sbar-v" data-cb-price="min">€400</span></div><a class="btn" href="/book">Book now <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+<!-- /tide:sbar -->
 <script src="/tide.min.js" defer></script>
 </body>
 </html>

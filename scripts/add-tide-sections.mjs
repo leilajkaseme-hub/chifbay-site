@@ -36,8 +36,8 @@ const T = {
   en: {
     k: { from: "From", dur: "Duration", dep: "Departs", light: "The light", swim: "Swimming", far: "Furthest point", film: "On film" },
     perBoat: "per boat, up to 5 guests",
-    day: { n: "01 · Day", h: "The Day Trip", light: "Midday sun, water you can see the bottom of", swim: "Yes, at Fajã dos Padres. Paddle boards on board", far: "Ribeira Brava, or Ponta do Sol on the 3h", film: "Drone, Insta360 video and photos, every trip", alt: "Drone view of the Chifbay boat at anchor in turquoise water off Madeira" },
-    sun: { n: "02 · Sunset", h: "The Sunset Trip", light: "Evening light. The sunset time for your date shows when you book", swim: "No. A cruising trip, drinks and food on deck", far: "Cabo Girão, or Ribeira Brava on the 2h30", film: "Drone, Insta360 video and photos, every trip", alt: "A guest on the bow of the Chifbay boat at sunset off Madeira" },
+    day: { lede: "Swim and paddle in clear water at Fajã dos Padres, in the midday light.", n: "01 · Day", h: "The Day Trip", light: "Midday sun, water you can see the bottom of", swim: "Yes, at Fajã dos Padres. Paddle boards on board", far: "Ribeira Brava, or Ponta do Sol on the 3h", film: "Drone, Insta360 video and photos, every trip", alt: "Drone view of the Chifbay boat at anchor in turquoise water off Madeira" },
+    sun: { lede: "The coast in the evening light, drinks on deck, back to a lit-up Funchal.", n: "02 · Sunset", h: "The Sunset Trip", light: "Evening light. The sunset time for your date shows when you book", swim: "No. A cruising trip, drinks and food on deck", far: "Cabo Girão, or Ribeira Brava on the 2h30", film: "Drone, Insta360 video and photos, every trip", alt: "A guest on the bow of the Chifbay boat at sunset off Madeira" },
     dates: "Choose a date", see: "See the trip",
     note: "Same boat, same crew, never shared with another group. Every price is for the whole boat. <a href=\"/terms\">Cancellation terms</a>.",
     cmpLabel: "Compare the day trip and the sunset trip",
@@ -55,13 +55,14 @@ const T = {
       notes: [["Mercury V8, 300 hp", "Quick between coves, smooth on the run home."], ["Swim platform", "Straight into the water at Fajã dos Padres, with paddle boards on board."], ["Table under the shade", "Where drinks and food are served. Local wine, poncha, beer, soft drinks, snacks."], ["The helm", "Your licensed local skipper, who reads the coast every morning."], ["Bow sun pads", "Two wide pads up front for the sunny stretches."]],
       specs: ["2026 Karnic R8S", "9 m", "Up to 5 guests", "Bathroom on board"],
       alt: "Drone photo from above of the Chifbay boat, a 2026 Karnic R8S, at anchor in turquoise water with a paddle board behind it", pt: "Point" },
+    common: "Every trip includes the whole boat for up to 5 guests, two skippers, drinks and snacks, drone and Insta360 video and photos.", more: "Trip details",
     sbar: { k: "From", btn: "Book now" },
   },
   fr: {
     k: { from: "À partir de", dur: "Durée", dep: "Départ", light: "La lumière", swim: "Baignade", far: "Le plus loin", film: "En images" },
     perBoat: "par bateau, jusqu'à 5 personnes",
-    day: { n: "01 · Jour", h: "La sortie de jour", light: "Soleil de midi, une eau où l'on voit le fond", swim: "Oui, à Fajã dos Padres. Paddles à bord", far: "Ribeira Brava, ou Ponta do Sol en 3h", film: "Drone, vidéo Insta360 et photos, à chaque sortie", alt: "Vue de drone du bateau Chifbay au mouillage dans une eau turquoise à Madère" },
-    sun: { n: "02 · Coucher de soleil", h: "La sortie coucher de soleil", light: "Lumière du soir. L'heure du coucher de soleil de votre date s'affiche à la réservation", swim: "Non. Une balade, boissons et en-cas sur le pont", far: "Cabo Girão, ou Ribeira Brava en 2h30", film: "Drone, vidéo Insta360 et photos, à chaque sortie", alt: "Une invitée à la proue du bateau Chifbay au coucher du soleil à Madère" },
+    day: { lede: "Baignade et paddle dans l'eau claire de Fajã dos Padres, en pleine journée.", n: "01 · Jour", h: "La sortie de jour", light: "Soleil de midi, une eau où l'on voit le fond", swim: "Oui, à Fajã dos Padres. Paddles à bord", far: "Ribeira Brava, ou Ponta do Sol en 3h", film: "Drone, vidéo Insta360 et photos, à chaque sortie", alt: "Vue de drone du bateau Chifbay au mouillage dans une eau turquoise à Madère" },
+    sun: { lede: "La côte dans la lumière du soir, un verre sur le pont, retour vers Funchal illuminée.", n: "02 · Coucher de soleil", h: "La sortie coucher de soleil", light: "Lumière du soir. L'heure du coucher de soleil de votre date s'affiche à la réservation", swim: "Non. Une balade, boissons et en-cas sur le pont", far: "Cabo Girão, ou Ribeira Brava en 2h30", film: "Drone, vidéo Insta360 et photos, à chaque sortie", alt: "Une invitée à la proue du bateau Chifbay au coucher du soleil à Madère" },
     dates: "Choisir une date", see: "Voir la sortie",
     note: "Le même bateau, le même équipage, jamais partagé avec un autre groupe. Chaque prix est pour le bateau entier. <a href=\"/terms\">Conditions d'annulation</a>.",
     cmpLabel: "Comparer la sortie de jour et la sortie coucher de soleil",
@@ -79,13 +80,14 @@ const T = {
       notes: [["Mercury V8, 300 ch", "Rapide entre les criques, confortable au retour."], ["Plateforme de bain", "Directement dans l'eau à Fajã dos Padres, avec des paddles à bord."], ["Table à l'ombre", "Là où l'on sert boissons et en-cas. Vin local, poncha, bière, softs."], ["Le poste de pilotage", "Votre skipper local et diplômé, qui lit la côte chaque matin."], ["Bains de soleil à l'avant", "Deux grands matelas pour les moments au soleil."]],
       specs: ["Karnic R8S 2026", "9 m", "Jusqu'à 5 personnes", "Toilettes à bord"],
       alt: "Photo de drone vue du dessus du bateau Chifbay, un Karnic R8S 2026, au mouillage dans une eau turquoise avec un paddle derrière", pt: "Point" },
+    common: "Chaque sortie comprend tout le bateau pour 5 personnes max., deux skippers, boissons et en-cas, vidéo drone et Insta360 et photos.", more: "Détails de la sortie",
     sbar: { k: "À partir de", btn: "Réserver" },
   },
   de: {
     k: { from: "Ab", dur: "Dauer", dep: "Abfahrt", light: "Das Licht", swim: "Baden", far: "Am weitesten", film: "Im Film" },
     perBoat: "pro Boot, bis zu 5 Gäste",
-    day: { n: "01 · Tag", h: "Die Tagestour", light: "Mittagssonne, Wasser bis auf den Grund klar", swim: "Ja, in Fajã dos Padres. Paddleboards an Bord", far: "Ribeira Brava, oder Ponta do Sol bei 3 Std.", film: "Drohne, Insta360 Video und Fotos, bei jeder Fahrt", alt: "Drohnenblick auf das Chifbay Boot vor Anker in türkisem Wasser vor Madeira" },
-    sun: { n: "02 · Sonnenuntergang", h: "Die Sonnenuntergangstour", light: "Abendlicht. Die Sonnenuntergangszeit für Ihr Datum steht bei der Buchung", swim: "Nein. Eine Genussfahrt, Getränke und Snacks an Deck", far: "Cabo Girão, oder Ribeira Brava bei 2,5 Std.", film: "Drohne, Insta360 Video und Fotos, bei jeder Fahrt", alt: "Ein Gast am Bug des Chifbay Boots bei Sonnenuntergang vor Madeira" },
+    day: { lede: "Baden und Paddeln im klaren Wasser der Fajã dos Padres, mitten am Tag.", n: "01 · Tag", h: "Die Tagestour", light: "Mittagssonne, Wasser bis auf den Grund klar", swim: "Ja, in Fajã dos Padres. Paddleboards an Bord", far: "Ribeira Brava, oder Ponta do Sol bei 3 Std.", film: "Drohne, Insta360 Video und Fotos, bei jeder Fahrt", alt: "Drohnenblick auf das Chifbay Boot vor Anker in türkisem Wasser vor Madeira" },
+    sun: { lede: "Die Küste im Abendlicht, Getränke an Deck, zurück ins beleuchtete Funchal.", n: "02 · Sonnenuntergang", h: "Die Sonnenuntergangstour", light: "Abendlicht. Die Sonnenuntergangszeit für Ihr Datum steht bei der Buchung", swim: "Nein. Eine Genussfahrt, Getränke und Snacks an Deck", far: "Cabo Girão, oder Ribeira Brava bei 2,5 Std.", film: "Drohne, Insta360 Video und Fotos, bei jeder Fahrt", alt: "Ein Gast am Bug des Chifbay Boots bei Sonnenuntergang vor Madeira" },
     dates: "Datum wählen", see: "Zur Tour",
     note: "Dasselbe Boot, dieselbe Crew, nie mit einer anderen Gruppe geteilt. Jeder Preis gilt für das ganze Boot. <a href=\"/terms\">Stornobedingungen</a>.",
     cmpLabel: "Tagestour und Sonnenuntergangstour vergleichen",
@@ -103,13 +105,14 @@ const T = {
       notes: [["Mercury V8, 300 PS", "Schnell zwischen den Buchten, ruhig auf der Rückfahrt."], ["Badeplattform", "Direkt ins Wasser in Fajã dos Padres, Paddleboards an Bord."], ["Tisch im Schatten", "Hier gibt es Getränke und Snacks. Lokaler Wein, Poncha, Bier, Softdrinks."], ["Der Steuerstand", "Ihr lizenzierter Skipper von hier, der jeden Morgen die Küste liest."], ["Sonnenpolster am Bug", "Zwei breite Polster vorne für die sonnigen Strecken."]],
       specs: ["Karnic R8S 2026", "9 m", "Bis zu 5 Gäste", "Toilette an Bord"],
       alt: "Drohnenfoto von oben auf das Chifbay Boot, eine Karnic R8S 2026, vor Anker in türkisem Wasser mit einem Paddleboard dahinter", pt: "Punkt" },
+    common: "Jede Fahrt umfasst das ganze Boot für bis zu 5 Gäste, zwei Skipper, Getränke und Snacks, Drohnen und Insta360 Video und Fotos.", more: "Details zur Fahrt",
     sbar: { k: "Ab", btn: "Jetzt buchen" },
   },
   pt: {
     k: { from: "Desde", dur: "Duração", dep: "Partida", light: "A luz", swim: "Banho", far: "Ponto mais longe", film: "Em vídeo" },
     perBoat: "por barco, até 5 pessoas",
-    day: { n: "01 · Dia", h: "O passeio de dia", light: "Sol do meio dia, água onde se vê o fundo", swim: "Sim, na Fajã dos Padres. Pranchas de paddle a bordo", far: "Ribeira Brava, ou Ponta do Sol no de 3h", film: "Drone, vídeo Insta360 e fotos, em todos os passeios", alt: "Vista de drone do barco Chifbay ancorado em água turquesa na Madeira" },
-    sun: { n: "02 · Pôr do sol", h: "O passeio ao pôr do sol", light: "Luz do fim do dia. A hora do pôr do sol da sua data aparece na reserva", swim: "Não. Um passeio, bebidas e petiscos no convés", far: "Cabo Girão, ou Ribeira Brava no de 2h30", film: "Drone, vídeo Insta360 e fotos, em todos os passeios", alt: "Uma convidada na proa do barco Chifbay ao pôr do sol na Madeira" },
+    day: { lede: "Banho e paddle na água clara da Fajã dos Padres, em pleno dia.", n: "01 · Dia", h: "O passeio de dia", light: "Sol do meio dia, água onde se vê o fundo", swim: "Sim, na Fajã dos Padres. Pranchas de paddle a bordo", far: "Ribeira Brava, ou Ponta do Sol no de 3h", film: "Drone, vídeo Insta360 e fotos, em todos os passeios", alt: "Vista de drone do barco Chifbay ancorado em água turquesa na Madeira" },
+    sun: { lede: "A costa com a luz do fim do dia, bebidas no convés, regresso a um Funchal iluminado.", n: "02 · Pôr do sol", h: "O passeio ao pôr do sol", light: "Luz do fim do dia. A hora do pôr do sol da sua data aparece na reserva", swim: "Não. Um passeio, bebidas e petiscos no convés", far: "Cabo Girão, ou Ribeira Brava no de 2h30", film: "Drone, vídeo Insta360 e fotos, em todos os passeios", alt: "Uma convidada na proa do barco Chifbay ao pôr do sol na Madeira" },
     dates: "Escolher data", see: "Ver o passeio",
     note: "O mesmo barco, a mesma tripulação, nunca partilhado com outro grupo. Cada preço é para o barco inteiro. <a href=\"/terms\">Condições de cancelamento</a>.",
     cmpLabel: "Comparar o passeio de dia e o passeio ao pôr do sol",
@@ -127,13 +130,14 @@ const T = {
       notes: [["Mercury V8, 300 cv", "Rápido entre enseadas, suave no regresso."], ["Plataforma de banho", "Direto para a água na Fajã dos Padres, com pranchas de paddle a bordo."], ["Mesa à sombra", "Onde se servem bebidas e petiscos. Vinho local, poncha, cerveja, refrigerantes."], ["O leme", "O seu skipper local e certificado, que lê a costa todas as manhãs."], ["Solários na proa", "Dois colchões largos à frente para os troços ao sol."]],
       specs: ["Karnic R8S 2026", "9 m", "Até 5 pessoas", "Casa de banho a bordo"],
       alt: "Foto de drone vista de cima do barco Chifbay, um Karnic R8S 2026, ancorado em água turquesa com uma prancha de paddle atrás", pt: "Ponto" },
+    common: "Todos os passeios incluem o barco inteiro para até 5 pessoas, dois skippers, bebidas e petiscos, vídeo de drone e Insta360 e fotos.", more: "Detalhes do passeio",
     sbar: { k: "Desde", btn: "Reservar" },
   },
   es: {
     k: { from: "Desde", dur: "Duración", dep: "Salida", light: "La luz", swim: "Baño", far: "Punto más lejano", film: "En vídeo" },
     perBoat: "por barco, hasta 5 personas",
-    day: { n: "01 · Día", h: "La salida de día", light: "Sol de mediodía, agua en la que se ve el fondo", swim: "Sí, en Fajã dos Padres. Tablas de paddle a bordo", far: "Ribeira Brava, o Ponta do Sol en la de 3h", film: "Dron, vídeo Insta360 y fotos, en cada salida", alt: "Vista de dron del barco Chifbay fondeado en agua turquesa en Madeira" },
-    sun: { n: "02 · Atardecer", h: "La salida al atardecer", light: "Luz de la tarde. La hora de la puesta de sol de tu fecha aparece al reservar", swim: "No. Un paseo, bebidas y picoteo en cubierta", far: "Cabo Girão, o Ribeira Brava en la de 2h30", film: "Dron, vídeo Insta360 y fotos, en cada salida", alt: "Una invitada en la proa del barco Chifbay al atardecer en Madeira" },
+    day: { lede: "Baño y paddle en el agua clara de Fajã dos Padres, en pleno día.", n: "01 · Día", h: "La salida de día", light: "Sol de mediodía, agua en la que se ve el fondo", swim: "Sí, en Fajã dos Padres. Tablas de paddle a bordo", far: "Ribeira Brava, o Ponta do Sol en la de 3h", film: "Dron, vídeo Insta360 y fotos, en cada salida", alt: "Vista de dron del barco Chifbay fondeado en agua turquesa en Madeira" },
+    sun: { lede: "La costa con la luz de la tarde, bebidas en cubierta, vuelta a un Funchal iluminado.", n: "02 · Atardecer", h: "La salida al atardecer", light: "Luz de la tarde. La hora de la puesta de sol de tu fecha aparece al reservar", swim: "No. Un paseo, bebidas y picoteo en cubierta", far: "Cabo Girão, o Ribeira Brava en la de 2h30", film: "Dron, vídeo Insta360 y fotos, en cada salida", alt: "Una invitada en la proa del barco Chifbay al atardecer en Madeira" },
     dates: "Elegir fecha", see: "Ver la salida",
     note: "El mismo barco, la misma tripulación, nunca compartido con otro grupo. Cada precio es por el barco entero. <a href=\"/terms\">Condiciones de cancelación</a>.",
     cmpLabel: "Comparar la salida de día y la salida al atardecer",
@@ -151,13 +155,14 @@ const T = {
       notes: [["Mercury V8, 300 CV", "Rápido entre calas, suave a la vuelta."], ["Plataforma de baño", "Directo al agua en Fajã dos Padres, con tablas de paddle a bordo."], ["Mesa a la sombra", "Donde se sirven bebidas y picoteo. Vino local, poncha, cerveza, refrescos."], ["El timón", "Tu patrón local con licencia, que lee la costa cada mañana."], ["Solárium en proa", "Dos colchonetas anchas delante para los tramos al sol."]],
       specs: ["Karnic R8S 2026", "9 m", "Hasta 5 personas", "Baño a bordo"],
       alt: "Foto de dron desde arriba del barco Chifbay, un Karnic R8S 2026, fondeado en agua turquesa con una tabla de paddle detrás", pt: "Punto" },
+    common: "Cada salida incluye todo el barco para hasta 5 personas, dos patrones, bebidas y picoteo, vídeo de dron e Insta360 y fotos.", more: "Detalles de la salida",
     sbar: { k: "Desde", btn: "Reservar" },
   },
   it: {
     k: { from: "Da", dur: "Durata", dep: "Partenza", light: "La luce", swim: "Bagno", far: "Punto più lontano", film: "In video" },
     perBoat: "a barca, fino a 5 persone",
-    day: { n: "01 · Giorno", h: "L'uscita di giorno", light: "Sole di mezzogiorno, acqua in cui si vede il fondo", swim: "Sì, a Fajã dos Padres. Tavole da paddle a bordo", far: "Ribeira Brava, o Ponta do Sol con le 3h", film: "Drone, video Insta360 e foto, in ogni uscita", alt: "Vista dal drone della barca Chifbay all'ancora in acqua turchese a Madeira" },
-    sun: { n: "02 · Tramonto", h: "L'uscita al tramonto", light: "Luce della sera. L'orario del tramonto per la tua data compare alla prenotazione", swim: "No. Un giro in barca, drink e stuzzichini in coperta", far: "Cabo Girão, o Ribeira Brava con le 2h30", film: "Drone, video Insta360 e foto, in ogni uscita", alt: "Un'ospite a prua della barca Chifbay al tramonto a Madeira" },
+    day: { lede: "Bagno e paddle nell'acqua limpida di Fajã dos Padres, in pieno giorno.", n: "01 · Giorno", h: "L'uscita di giorno", light: "Sole di mezzogiorno, acqua in cui si vede il fondo", swim: "Sì, a Fajã dos Padres. Tavole da paddle a bordo", far: "Ribeira Brava, o Ponta do Sol con le 3h", film: "Drone, video Insta360 e foto, in ogni uscita", alt: "Vista dal drone della barca Chifbay all'ancora in acqua turchese a Madeira" },
+    sun: { lede: "La costa nella luce della sera, drink in coperta, rientro verso Funchal illuminata.", n: "02 · Tramonto", h: "L'uscita al tramonto", light: "Luce della sera. L'orario del tramonto per la tua data compare alla prenotazione", swim: "No. Un giro in barca, drink e stuzzichini in coperta", far: "Cabo Girão, o Ribeira Brava con le 2h30", film: "Drone, video Insta360 e foto, in ogni uscita", alt: "Un'ospite a prua della barca Chifbay al tramonto a Madeira" },
     dates: "Scegli una data", see: "Vedi l'uscita",
     note: "La stessa barca, lo stesso equipaggio, mai condivisa con un altro gruppo. Ogni prezzo è per la barca intera. <a href=\"/terms\">Condizioni di cancellazione</a>.",
     cmpLabel: "Confronta l'uscita di giorno e l'uscita al tramonto",
@@ -175,6 +180,7 @@ const T = {
       notes: [["Mercury V8, 300 CV", "Veloce tra le calette, morbido al ritorno."], ["Piattaforma bagno", "Dritti in acqua a Fajã dos Padres, con tavole da paddle a bordo."], ["Tavolo all'ombra", "Dove si servono drink e stuzzichini. Vino locale, poncha, birra, bibite."], ["Il timone", "Il tuo skipper locale con licenza, che legge la costa ogni mattina."], ["Prendisole a prua", "Due materassini larghi davanti per i tratti al sole."]],
       specs: ["Karnic R8S 2026", "9 m", "Fino a 5 persone", "Bagno a bordo"],
       alt: "Foto dal drone dall'alto della barca Chifbay, un Karnic R8S 2026, all'ancora in acqua turchese con una tavola da paddle dietro", pt: "Punto" },
+    common: "Ogni uscita include tutta la barca fino a 5 ospiti, due skipper, drink e stuzzichini, video con drone e Insta360 e foto.", more: "Dettagli dell'uscita",
     sbar: { k: "Da", btn: "Prenota" },
   },
 };
@@ -200,33 +206,43 @@ function upsert(h, name, html, first) {
 }
 
 function compare(t, P, gridOnly) {
+  // Compact on phones (2 Oct audit: the old card was 878 px tall with the date
+  // button under seven rows): the decision first, details on demand, the
+  // common inclusions once under the pair. Wide screens open the details, so
+  // the side by side comparison stays whole (tide.js).
   const card = (key, trip, img, book, page, mood) => {
     const c = t[key];
     return `    <article class="t-card" data-mood="${mood}">
       <a class="t-card-media" href="${P}${page}" tabindex="-1" aria-hidden="true"><img src="${P}${img}" alt="${c.alt}" loading="lazy" decoding="async" width="1600" height="1000">
         <div class="t-card-title"><span class="t-n">${c.n}</span><h3>${c.h}</h3></div></a>
-      <ul class="t-rows">
+      <p class="t-card-lede">${c.lede}</p>
+      <ul class="t-rows t-rows-key">
         <li><span class="k">${t.k.from}</span><span class="v"><b data-cb-price="${trip}">${trip === "sunset" ? "€400" : "€500"}</b> <small>${t.perBoat}</small></span></li>
         <li><span class="k">${t.k.dur}</span><span class="v" data-cb-dur="${trip}">${trip === "sunset" ? "2h / 2h30" : "2h30 / 3h"}</span></li>
-        <li><span class="k">${t.k.dep}</span><span class="v" data-cb-times="${trip}">${trip === "sunset" ? "18:30" : "10:00 · 14:00"}</span></li>
-        <li><span class="k">${t.k.light}</span><span class="v">${c.light}</span></li>
-        <li><span class="k">${t.k.swim}</span><span class="v">${c.swim}</span></li>
-        <li><span class="k">${t.k.far}</span><span class="v">${c.far}</span></li>
-        <li><span class="k">${t.k.film}</span><span class="v">${c.film}</span></li>
       </ul>
-      <div class="t-card-cta"><a class="btn btn-p" href="${book}">${t.dates} ${ARROW}</a><a class="btn btn-g" href="${P}${page}">${t.see}</a></div>
+      <div class="t-card-cta"><a class="btn btn-p" href="${book}${t.q || ""}">${t.dates} ${ARROW}</a><a class="btn btn-g" href="${P}${page}">${t.see}</a></div>
+      <details class="t-more"><summary>${t.more}</summary>
+        <ul class="t-rows">
+          <li><span class="k">${t.k.dep}</span><span class="v" data-cb-times="${trip}">${trip === "sunset" ? "18:30" : "10:00 · 14:00"}</span></li>
+          <li><span class="k">${t.k.light}</span><span class="v">${c.light}</span></li>
+          <li><span class="k">${t.k.swim}</span><span class="v">${c.swim}</span></li>
+          <li><span class="k">${t.k.far}</span><span class="v">${c.far}</span></li>
+        </ul>
+      </details>
     </article>`;
   };
   if (gridOnly) return block("compare", `<div class="t-cmp-grid" role="group" aria-label="${t.cmpLabel}">
 ${card("day", "day-trip", "assets/exp-coves-wide.jpg", "/book-day", "hidden-coves-half-day", "day")}
 ${card("sun", "sunset", "assets/exp-sunset.jpg", "/book-sunset", "sunset-cruise", "sunset")}
-    </div>`);
+    </div>
+    <p class="t-cmp-common">${t.common}</p>`);
   return block("compare", `<section class="t-cmp" style="padding-top:8px" aria-label="${t.cmpLabel}">
   <div class="t-wrap">
   <div class="t-cmp-grid">
 ${card("day", "day-trip", "assets/exp-coves-wide.jpg", "/book-day", "hidden-coves-half-day", "day")}
 ${card("sun", "sunset", "assets/exp-sunset.jpg", "/book-sunset", "sunset-cruise", "sunset")}
   </div>
+  <p class="t-cmp-common">${t.common}</p>
   <p class="t-cmp-note">${t.note}</p>
   </div>
 </section>`);
@@ -288,7 +304,8 @@ function edit(rel, fn) {
   if (!fs.existsSync(file)) { problems.push(rel + ": missing"); return; }
   const before = fs.readFileSync(file, "utf8");
   const code = (before.match(/<html[^>]*\slang="([a-z]{2})/i) || [, "en"])[1];
-  const t = T[code] || T.en;
+  // q: the booking pages are English with ?lang=, so links carry the language
+  const t = { ...(T[code] || T.en), q: code === "en" ? "" : `?lang=${code}` };
   const P = rel.includes("/") ? "../" : "";
   let h = fn(before, t, P, rel);
   if (h !== before) { changed++; if (WRITE) fs.writeFileSync(file, h); }

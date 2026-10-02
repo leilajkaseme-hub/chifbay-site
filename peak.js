@@ -160,7 +160,7 @@
   /* "Book your boat" is far too wide for a pill sitting next to a centred
      logo, so on phones it shortens to one word. The copy in the drawer, and
      the desktop bar, keep the full wording. */
-  var SHORT={en:"Book",fr:"Réserver",de:"Buchen",pt:"Reservar",es:"Reservar",it:"Prenota"};
+  var SHORT={en:"Book now",fr:"Réserver",de:"Buchen",pt:"Reservar",es:"Reservar",it:"Prenota"};
   var nc=document.querySelector("#nav .nc");
   if(nc&&window.matchMedia){
     var full=nc.textContent.trim(), mqs=window.matchMedia("(max-width:860px)");

@@ -565,3 +565,53 @@ a.bcard:hover h3{color:#104a7c}
 }
 /* the hero sentence is short enough to show whole on a phone: no clamp, no "…" */
 .atlas .hero-v .hsub,header.hero .hsub{-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important}
+
+/* ---------------------------------------- phone sub-page heroes: readable text
+   A soft local shade behind the heading and intro only (contrast audit,
+   2 Oct: About 2.5, Reviews 1.5, Practical 3.7 against the bright photo),
+   not a darker veil over the whole picture. */
+@media(max-width:760px){
+  header.hero.sub .hc{position:relative;z-index:2;isolation:isolate}
+  header.hero.sub .hc::before{content:"";position:absolute;left:-16px;right:-16px;top:-36px;bottom:-28px;z-index:-1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(5,15,24,0) 0%,rgba(5,15,24,.52) 22%,rgba(5,15,24,.6) 70%,rgba(5,15,24,0) 100%)}
+}
+
+/* ---------------------------------------- trip cards: decision first (2 Oct audit) */
+.t-card-lede{margin:16px 20px 2px;font-size:.98rem;line-height:1.5;color:var(--paper)}
+.t-rows-key{margin-top:6px!important}
+.t-more{margin:4px 20px 18px;border-top:1px solid rgba(var(--edge-rgb),.09)}
+.t-more>summary{cursor:pointer;list-style:none;padding:14px 0 6px;font-weight:600;font-size:.92rem;color:#104a7c;display:flex;align-items:center;gap:8px}
+.t-more>summary::-webkit-details-marker{display:none}
+.t-more>summary::after{content:"+";font-size:1.1rem;line-height:1}
+.t-more[open]>summary::after{content:"–"}
+.t-more>summary:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+.t-more .t-rows{margin:0!important;padding:0!important}
+:root[data-theme="dark"] .t-more>summary{color:#e0be7a}
+.t-cmp-common{margin:18px 0 0;font-size:.92rem;line-height:1.6;color:var(--muted);max-width:80ch}
+/* wide screens: the full comparison, details shown, no toggle */
+@media(min-width:761px){.t-more>summary{display:none}.t-more{border-top:0;margin-top:0}}
+@media(max-width:760px){
+  .t-card .t-card-media img{aspect-ratio:16/9;object-fit:cover}
+  .t-card .t-card-cta{flex-direction:row;gap:8px;margin:14px 20px 0!important}
+  .t-card .t-card-cta .btn{flex:1 1 auto;justify-content:center;padding:12px 14px;font-size:.88rem}
+  .t-card .t-n{text-shadow:0 1px 8px rgba(5,15,24,.8)}
+}
+@media(max-width:760px){
+  .t-cmp-grid{grid-template-columns:1fr!important;gap:16px!important}
+  .t-card .t-rows-key{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin:10px 20px 0!important;padding:0!important}
+  .t-card .t-rows-key li{border:0!important;padding:6px 0!important;display:block}
+  .t-card .t-rows-key .k{display:block;margin-bottom:2px}
+  .t-card-lede{margin:14px 20px 0;font-size:.95rem}
+}
+@media(max-width:760px){
+  .t-card .t-card-media{aspect-ratio:16/9!important;height:auto!important;min-height:0!important;max-height:none!important}
+  .t-card .t-card-media img{width:100%;height:100%!important;aspect-ratio:auto}
+}
+@media(max-width:760px){
+  .t-card .t-card-media{aspect-ratio:2.2/1!important}
+  .t-card-lede{margin:12px 18px 0!important}
+  .t-card .t-rows-key{margin:6px 18px 0!important}
+  .t-card .t-card-cta{margin:10px 18px 0!important}
+  .t-more{margin:2px 18px 6px!important}
+  .t-more>summary{padding:10px 0 6px}
+}
