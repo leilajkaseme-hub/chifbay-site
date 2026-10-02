@@ -303,14 +303,15 @@
     if (!msgEl.value.trim()) { msgEl.focus(); return; }
     $('rvwSend').disabled = true; $('rvwSend').textContent = 'Sending…';
     var payload = JSON.stringify({
-      type: 'contact', store: 'chifbay',
+      type: 'contact', store: 'chifbay', strict: true,
       name: f.elements.name.value.trim(),
       email: f.elements.email.value.trim(),
       message: 'PRIVATE FEEDBACK ' + rating + '★ (review page)\n\n' + msgEl.value.trim()
     });
     // text/plain keeps the request preflight-free; the gateway parses raw JSON.
     fetch(GW, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: payload })
-      .then(function(r){ return r.json(); })
+      // only say "it reached the skipper's phone" when the gateway says so
+      .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j || !j.ok) throw new Error('not delivered'); }); })
       .then(function(){ $('rvwSad').className = 'rvw-panel'; $('rvwDone').className = 'rvw-panel show'; })
       .catch(function(){
         // Never dead-end an unhappy guest: fall back to WhatsApp with the text.
