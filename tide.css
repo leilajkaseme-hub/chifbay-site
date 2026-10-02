@@ -535,3 +535,33 @@ section.minc .chead,section.minc .chead *{color:rgba(240,245,244,.72)!important}
 a.bcard{color:var(--paper);text-decoration:none}
 a.bcard h3{color:var(--paper)}
 a.bcard:hover h3{color:#104a7c}
+
+/* ---------------------------------------- phone menu drawer (2 Oct audit, P0)
+   The drawer has its own surface, independent of the header-over-video state:
+   the hero rule that paints menu links white (with a shadow) also reached the
+   open drawer and left white links on ivory. Top aligned, scrolls on short
+   screens, body font for the language switch. */
+@media(max-width:860px){
+  .nl{justify-content:flex-start!important;gap:2px!important;padding:104px 30px 40px!important;overflow-y:auto}
+  .nl > :first-child{margin-top:0!important}
+  .nl > :last-child{margin-bottom:0!important}
+  :root[data-theme="light"] .nl{background:#f7f5f1!important}
+  :root[data-theme="dark"] .nl{background:#0b1b29!important}
+  #nav .nl a,#nav:not(.sc) .nl a,#nav.sc .nl a{color:var(--paper)!important;text-shadow:none!important;
+    font-family:'Satoshi','Inter',system-ui,sans-serif;font-size:1.2rem;font-weight:500;padding:12px 0;display:block;width:100%}
+  #nav .nl a.active{color:#104a7c!important}
+  :root[data-theme="dark"] #nav .nl a.active{color:#e0be7a!important}
+  #nav .nl a::after{display:none}
+  .nl .nc-drawer{margin-top:22px;width:auto!important;display:inline-flex!important;color:#fff!important;background:#104a7c!important}
+  .langsel,.langsel *,.langbtn,.langmenu a{font-family:'Inter',system-ui,sans-serif!important;letter-spacing:normal!important;text-transform:none!important}
+  .nl .langsel{margin-top:18px}
+  /* the header button: readable words, not a tiny uppercase tag */
+  #nav .nc{font-size:.8rem;padding:9px 16px;letter-spacing:0;text-transform:none}
+}
+@media(max-width:860px){
+  #nav .nl a.nc-drawer{color:#fff!important;padding:14px 28px!important;width:auto!important;display:inline-flex!important;
+    font-size:1rem;font-weight:700;border-radius:999px;margin-top:24px}
+  .nl .langsel{margin-top:26px!important}
+}
+/* the hero sentence is short enough to show whole on a phone: no clamp, no "…" */
+.atlas .hero-v .hsub,header.hero .hsub{-webkit-line-clamp:unset!important;display:block!important;overflow:visible!important}

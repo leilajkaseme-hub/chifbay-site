@@ -681,4 +681,19 @@
       draw(0);
     });
   }
+
+  /* ---------------------------------------- phone menu: keyboard focus
+     Open: focus moves to the first link. Escape or the button closes it and
+     focus returns to the menu button (peak.js does the opening and locking). */
+  (function () {
+    var tog = document.querySelector(".navtoggle"), nl = document.querySelector(".nl");
+    if (!tog || !nl) return;
+    var was = false;
+    new MutationObserver(function () {
+      var open = nl.classList.contains("open");
+      if (open && !was) { var a = nl.querySelector("a"); if (a) setTimeout(function () { a.focus({ preventScroll: true }); }, 60); }
+      if (!open && was && nl.contains(document.activeElement)) tog.focus({ preventScroll: true });
+      was = open;
+    }).observe(nl, { attributes: true, attributeFilter: ["class"] });
+  })();
 })();

@@ -83,3 +83,16 @@ test('no single 3 hour window for both day trip lengths', () => {
   // the 2h30 is back at 12:30 / 16:30: "10–13 · 14–17" only fits the 3h
   assert.deepEqual(hits(/10\s?[–—-]\s?13\s?·\s?14\s?[–—-]\s?17|10:00\s?[–—-]\s?13:00|14:00\s?[–—-]\s?17:00/g), []);
 });
+
+test('sales pages do not promise a golden hour (the 18:30 departure misses it much of the year)', () => {
+  const PAGES = ['index', 'experiences', 'sunset-cruise', 'hidden-coves-half-day', 'private-boat-tour-madeira'];
+  const bad = [];
+  for (const l of ['', 'fr/', 'de/', 'pt/', 'es/', 'it/']) for (const p of PAGES) {
+    const f = path.join(ROOT, `${l}${p}.html`);
+    if (!fs.existsSync(f)) continue;
+    const t = fs.readFileSync(f, 'utf8').replace(/(alt|aria-label)="[^"]*"/g, '').replace(/<[^>]+>/g, ' ');
+    const m = t.match(/golden hour|heure dorée|goldene[nr]? Stunde|hora dourada|hora dorada|ora d.oro|ora dorata/i);
+    if (m) bad.push(`${l}${p}: ${m[0]}`);
+  }
+  assert.deepEqual(bad, []);
+});

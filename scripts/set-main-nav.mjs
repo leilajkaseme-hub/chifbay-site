@@ -15,18 +15,21 @@ import { fileURLToPath } from "node:url";
 const SITE = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
 const SKIP = new Set(["node_modules", ".git", "ig", "social", "social-drive", "scripts", "zz-test", "vendor"]);
+// 2 Oct 2026, second brief: reviews come back into the menu, and the header
+// button is the same "Book now" on every page, to the booking calendar.
 const L = {
-  en: ["Experiences", "Boat &amp; Crew", "Practical info", "Journal"],
-  fr: ["Expériences", "Bateau &amp; équipage", "Infos pratiques", "Journal"],
-  de: ["Erlebnisse", "Boot &amp; Crew", "Praktische Infos", "Journal"],
-  pt: ["Experiências", "Barco e tripulação", "Informações", "Diário"],
-  es: ["Experiencias", "Barco y tripulación", "Información", "Diario"],
-  it: ["Esperienze", "Barca ed equipaggio", "Informazioni", "Diario"],
+  en: ["Experiences", "Boat &amp; Crew", "Practical info", "Our reviews", "Leave a review", "Journal", "Book now"],
+  fr: ["Expériences", "Bateau &amp; équipage", "Infos pratiques", "Nos avis", "Laisser un avis", "Journal", "Réserver"],
+  de: ["Erlebnisse", "Boot &amp; Crew", "Praktische Infos", "Bewertungen", "Bewertung schreiben", "Journal", "Jetzt buchen"],
+  pt: ["Experiências", "Barco e tripulação", "Informações", "Avaliações", "Deixar avaliação", "Diário", "Reservar"],
+  es: ["Experiencias", "Barco y tripulación", "Información", "Opiniones", "Dejar una opinión", "Diario", "Reservar"],
+  it: ["Esperienze", "Barca ed equipaggio", "Informazioni", "Recensioni", "Lascia una recensione", "Diario", "Prenota"],
 };
 const SECTION = (file) =>
   /(^|\/)(experiences|hidden-coves-half-day|sunset-cruise|book|book-day|book-sunset)\.html$/.test(file) ? 0 :
   /(^|\/)about\.html$/.test(file) ? 1 : /(^|\/)practical\.html$/.test(file) ? 2 :
-  /(^|\/)(blog\.html|posts\/)/.test(file) ? 3 : -1;
+  /(^|\/)reviews\.html$/.test(file) ? 3 : /(^|\/)review\.html$/.test(file) ? 4 :
+  /(^|\/)(blog\.html|posts\/)/.test(file) ? 5 : -1;
 
 const files = [];
 (function walk(dir) {
@@ -52,11 +55,18 @@ for (const rel of files) {
   // translated articles (/fr/posts/x) to the ENGLISH pages (../../experiences)
   const root = lang === "en" ? "/" : `/${lang}/`;
   const active = SECTION(rel);
-  const links = [`${root}experiences`, `${root}about`, `${root}practical`, `${root}blog`].map((u, i) =>
+  // reviews pages exist in English only (/reviews, /review)
+  const links = [`${root}experiences`, `${root}about`, `${root}practical`, "/reviews", "/review", `${root}blog`].map((u, i) =>
     `    <a href="${u}"${i === active ? ' class="active" aria-current="page"' : ""}>${lab[i]}</a>`).join("\n");
   const indent = m[1] || "\n  ";
   const next = `${indent}<nav class="nl">\n${links}\n  </nav>`;
-  if (next !== block) { changed++; if (WRITE) writeFileSync(join(SITE, rel), h.replace(block, next)); }
+  let out = h.replace(block, next);
+  // the header button: same words everywhere, to the calendar in this language;
+  // the booking pages keep their own in-page anchor (hidden there on phones)
+  const book = lang === "en" ? "/book" : `/book?lang=${lang}`;
+  out = out.replace(/<a class="nc" href="([^"]*)">[^<]*<\/a>/, (all, href) =>
+    `<a class="nc" href="${href === "#bkbox" ? "#bkbox" : book}">${lab[6]}</a>`);
+  if (out !== h) { changed++; if (WRITE) writeFileSync(join(SITE, rel), out); }
 }
 console.log(`${WRITE ? "WRITTEN" : "DRY RUN (add --write)"}: ${changed} page(s); skipped (no standard links): ${skipped.length}`);
 if (skipped.length) console.log(skipped.slice(0, 20).join("\n"));
