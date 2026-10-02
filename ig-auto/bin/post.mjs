@@ -21,6 +21,7 @@ import {
 import { assertImageIsLive, publish, slideUrls } from "../lib/publish.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
 import { dueApproved, readApprovals } from "../lib/approval.mjs";
+import { writeManifest } from "../lib/manifest.mjs";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -194,6 +195,7 @@ async function main() {
     ...result,
   });
   saveState({ [lastPostKey(KIND)]: today() });
+  writeManifest();
 
   console.log(`POSTED=true`);
   console.log(`MEDIA_ID=${result.media_id ?? ""}`);

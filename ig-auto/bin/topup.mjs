@@ -13,7 +13,7 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import {
-  config, brand, ensureDirs, listQueue, newId, originsOnCooldown,
+  config, brand, dropItem, ensureDirs, listQueue, newId, originsOnCooldown,
   postedHashes, publicDir, recentPosts, ROOT, sha256, SITE_ROOT, withLock,
   writeItem, kindOf,
 } from "../lib/queue.mjs";
@@ -23,6 +23,8 @@ import { pickAngle, render, writeCaption } from "../lib/caption.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
 import { usage, usedWithin, freshFirst } from "../lib/freshness.mjs";
 import { loadReels, saveReels, exists as fileExists } from "../lib/reels.mjs";
+import { writeManifest } from "../lib/manifest.mjs";
+import { readPlan as readPortalPlan } from "../lib/approval.mjs";
 
 // How long a photo stays out of the feed after being shown, cover OR slide.
 const SLIDE_REUSE_DAYS = config.slide_reuse_days ?? 90;
@@ -324,6 +326,20 @@ async function buildOne({ hashes, cooldown, context, kind }) {
 async function main() {
   ensureDirs();
 
+  // What Theo turned down on the portal leaves the queue, so a fresh one can
+  // take its place. If the list cannot be read, nothing is dropped.
+  try {
+    const { skipped } = await readPortalPlan();
+    for (const q of listQueue()) {
+      if (skipped.has(q.id)) {
+        dropItem(q.id);
+        console.log(`- ${q.kind ?? "feed"} ${q.id}: turned down on the portal`);
+      }
+    }
+  } catch (err) {
+    console.warn(`could not read the portal's list, nothing dropped: ${err.message}`);
+  }
+
   const hashes = postedHashes();
   // Cooldown covers what has been posted AND what is already waiting, otherwise
   // the same photo gets used for a feed post and a story a few days apart.
@@ -361,7 +377,10 @@ async function main() {
         // Stories: the 9:16 album, then a video clip once the album is spent.
         let item = null;
         if (kind === "feed") {
-          if (!lastFeedWasReel()) item = await buildReel({ context, kind });
+          // The old silent 6 s clips stay out of the feed since 2 Oct 2026:
+          // Reels are now edited by hand (stores/chifbay/reels) and posted by
+          // Theo from his phone with a song.
+          if (config.auto_feed_reels !== false && !lastFeedWasReel()) item = await buildReel({ context, kind });
           item = item || await buildFresh({ hashes, cooldown, context })
             || await buildPlanned({ hashes, cooldown, context })
             || await buildOne({ hashes, cooldown, context, kind });
@@ -382,6 +401,9 @@ async function main() {
     summary.push(`${kind} ${total}/${target} (+${built})`);
     if (total <= low) problems.push(`only ${total} ${kind} post(s) left`);
   }
+
+  const manifest = writeManifest();
+  console.log(`manifest: ${manifest.items.length} candidate(s) for the portal`);
 
   const built = summary.join(", ");
   console.log(`BUILT=${built}`);

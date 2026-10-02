@@ -1,9 +1,9 @@
 {
   "handle": "chifbay",
   "timezone": "Atlantic/Madeira",
-  "queue_target": 4,
+  "queue_target": 6,
   "queue_low_alert": 2,
-  "story_queue_target": 4,
+  "story_queue_target": 7,
   "story_queue_low_alert": 1,
   "post_jitter_minutes": 90,
   "_comment_mix": "AI is OFF by default. 80+ real photos is months of feed, and a generated picture invites a caption that claims a moment which never happened. Raise ai above 0 only if you accept that trade.",
@@ -52,5 +52,7 @@
   "story_reuse_days": 21,
   "_comment_approval": "Since 2 Oct 2026 nothing posts without Theo's approval. He approves on the portal (/portal/instagram); post.mjs only takes items that are approved and due, and posts nothing when the list cannot be read.",
   "require_approval": true,
-  "approvals_url": "https://chifbay-booking-api.chifandcopt.workers.dev/v1/ig/approvals"
+  "approvals_url": "https://chifbay-booking-api.chifandcopt.workers.dev/v1/ig/approvals",
+  "_comment_reels": "Reels are edited by hand from client footage (stores/chifbay/reels/make.py -> reels-plan.json) and posted by Theo from his phone with a trending song. auto_feed_reels false keeps the old silent 6 s clips out of the feed queue.",
+  "auto_feed_reels": false
 }

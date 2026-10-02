@@ -23,6 +23,19 @@ export async function readApprovals() {
   return new Map(body.items.map((x) => [x.id, x]));
 }
 
+/** The whole list: approved (Map), skipped and posted ids (Sets). */
+export async function readPlan() {
+  const res = await fetch(APPROVALS_URL, { signal: AbortSignal.timeout(30_000) });
+  if (!res.ok) throw new Error(`approvals answered HTTP ${res.status}`);
+  const body = await res.json();
+  if (!Array.isArray(body?.items)) throw new Error("approvals answer has no items list");
+  return {
+    approved: new Map(body.items.map((x) => [x.id, x])),
+    skipped: new Set(body.skipped ?? []),
+    posted: new Set(body.posted ?? []),
+  };
+}
+
 /** Items of the queue that are approved and due, earliest day first. */
 export function dueApproved(queue, approvals, day = today()) {
   return queue
