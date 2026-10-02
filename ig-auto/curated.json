@@ -1,0 +1,32 @@
+{
+ "_comment": "Hand-picked carousels, written as sales posts (audit of 2 Oct 2026). bin/curate.mjs turns each set into a queue item, graded once from the originals, in this order, ahead of the colour plan. One shoot per set, a different point of view on every slide. Alt text is per photo and plain. Facts checked against booking-api/catalog.js. No dashes.",
+ "sets": [
+  {
+   "set": "A-group-afternoon",
+   "title": "Your group's afternoon",
+   "slides": [
+    {"origin": "social-iphone/IMG_2797.jpg", "alt": "Two friends laugh and raise their glasses on the back of a boat in the wind."},
+    {"origin": "social-iphone/IMG_2806.jpg", "alt": "Two friends at the table on the deck, snacks and drinks, the Chifbay.com sunshade above them and the wake behind."},
+    {"origin": "social-iphone/IMG_2877.jpg", "alt": "Two guests sit on a paddle board below the cliffs and the small houses of Fajã dos Padres."},
+    {"origin": "social-iphone/IMG_2845.jpg", "alt": "Three friends on one paddle board in the sea, laughing."},
+    {"origin": "social-iphone/IMG_2861.jpg", "alt": "A guest swims in the Atlantic and smiles at the camera."},
+    {"origin": "social-iphone/IMG_2850.jpg", "alt": "A guest wrapped in a white towel laughs on deck after the swim, the cliff behind her."}
+   ],
+   "caption": "Your group's afternoon on the water.\n\nA toast as we leave Funchal, Cabo Girão from the sea, then the swim stop at Fajã dos Padres with paddle boards in the water. Just your group on board, no other guests.\n\nThe Day Trip: 2h30 or 3h, at 10:00 or 14:00, photos and the video of your trip included. Free cancellation up to 24 hours before.\n\nWhich slide is your group? Booking link in bio.",
+   "hashtags": ["#madeira", "#funchal", "#madeiraisland", "#boattrip", "#visitmadeira"]
+  },
+  {
+   "set": "B-sunset-together",
+   "title": "Sunset together",
+   "slides": [
+    {"origin": "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg", "alt": "A group of friends smile around the table on deck as the sun sets behind the Chifbay.com sunshade."},
+    {"origin": "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg", "alt": "Guests sit under the sunshade with the low sun shining over the sea."},
+    {"origin": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg", "alt": "A guest looks out at the sun setting over the Madeira coast."},
+    {"origin": "social-drive/img-2317-1f9xGgIA.jpg", "alt": "Two guests at the back of the boat watch the last light over the wake."},
+    {"origin": "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg", "alt": "The sun just above the Atlantic, its light on the water, the coast in shadow."}
+   ],
+   "caption": "Sunset together, on a boat that is only yours.\n\nWe leave Funchal marina at 18:30 and follow the coast west as the light goes gold. Drinks and food on deck, just your group on board, the drone at Cabo Girão when the wind allows.\n\nThe Sunset Trip: 2h to Cabo Girão, or 2h30 to Ribeira Brava and back into a lit up Funchal.\n\nTag who you would watch it with. Booking link in bio.",
+   "hashtags": ["#madeira", "#funchal", "#madeiraisland", "#boattrip", "#madeirasunset"]
+  }
+ ]
+}

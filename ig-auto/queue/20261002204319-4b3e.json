@@ -1,0 +1,70 @@
+{
+  "id": "20261002204319-4b3e",
+  "kind": "feed",
+  "set": "B-sunset-together",
+  "title": "Sunset together",
+  "source": "curated",
+  "angle": "guests",
+  "created": "2026-01-01T00:00:02.000Z",
+  "priority": 0,
+  "fresh": true,
+  "look": "atlantic-v2",
+  "origin": "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+  "image": "ig/20261002204319-4b3e-1.jpg",
+  "url": "https://www.chifbay.com/ig/20261002204319-4b3e-1.jpg",
+  "sha256": "d9396e5c0aeb2fcd536d86fba6ab35e1dbaa59021c6b75a59f5e424e8701278b",
+  "slides": [
+    {
+      "origin": "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+      "alt": "A group of friends smile around the table on deck as the sun sets behind the Chifbay.com sunshade.",
+      "image": "ig/20261002204319-4b3e-1.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204319-4b3e-1.jpg",
+      "sha256": "d9396e5c0aeb2fcd536d86fba6ab35e1dbaa59021c6b75a59f5e424e8701278b"
+    },
+    {
+      "origin": "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
+      "alt": "Guests sit under the sunshade with the low sun shining over the sea.",
+      "image": "ig/20261002204319-4b3e-2.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204319-4b3e-2.jpg",
+      "sha256": "b2a61cc28ff7927d0bed72310360986e5d8585303f43dd38047274122331bb14"
+    },
+    {
+      "origin": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
+      "alt": "A guest looks out at the sun setting over the Madeira coast.",
+      "image": "ig/20261002204319-4b3e-3.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204319-4b3e-3.jpg",
+      "sha256": "98bf03f781dec09777fbd5e29f68f6a6d5e4305ef45078c97f2f993f5ef0ef7a"
+    },
+    {
+      "origin": "social-drive/img-2317-1f9xGgIA.jpg",
+      "alt": "Two guests at the back of the boat watch the last light over the wake.",
+      "image": "ig/20261002204319-4b3e-4.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204319-4b3e-4.jpg",
+      "sha256": "159b25e5795e4fa475ca3b23a808f6d02cf51842c1ec31c91fbce6c5b1efc429"
+    },
+    {
+      "origin": "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
+      "alt": "The sun just above the Atlantic, its light on the water, the coast in shadow.",
+      "image": "ig/20261002204319-4b3e-5.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204319-4b3e-5.jpg",
+      "sha256": "8f8d72a3358f9a458b2e5160997fc4743baf9a946d07b97a1cd9984b04a05993"
+    }
+  ],
+  "alt": [
+    "A group of friends smile around the table on deck as the sun sets behind the Chifbay.com sunshade.",
+    "Guests sit under the sunshade with the low sun shining over the sea.",
+    "A guest looks out at the sun setting over the Madeira coast.",
+    "Two guests at the back of the boat watch the last light over the wake.",
+    "The sun just above the Atlantic, its light on the water, the coast in shadow."
+  ],
+  "caption": "Sunset together, on a boat that is only yours.\n\nWe leave Funchal marina at 18:30 and follow the coast west as the light goes gold. Drinks and food on deck, just your group on board, the drone at Cabo Girão when the wind allows.\n\nThe Sunset Trip: 2h to Cabo Girão, or 2h30 to Ribeira Brava and back into a lit up Funchal.\n\nTag who you would watch it with. Booking link in bio.",
+  "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#madeirasunset"
+  ],
+  "rendered_caption": "Sunset together, on a boat that is only yours.\n\nWe leave Funchal marina at 18:30 and follow the coast west as the light goes gold. Drinks and food on deck, just your group on board, the drone at Cabo Girão when the wind allows.\n\nThe Sunset Trip: 2h to Cabo Girão, or 2h30 to Ribeira Brava and back into a lit up Funchal.\n\nTag who you would watch it with. Booking link in bio.\n\n#madeira #funchal #madeiraisland #boattrip #madeirasunset",
+  "writer": "claude"
+}

@@ -44,6 +44,10 @@ jobs:
         working-directory: ig-auto
         run: node test-publish.mjs
 
+      - name: Autonomous robot still holds (pause, veto, publish once)
+        working-directory: ig-auto
+        run: node test-auto.mjs
+
       # This one does need the packages: it asks the real libraryFiles() what it
       # would serve, and that pulls in sharp. Kept as its own step so a package
       # problem can never be mistaken for a publishing fault.

@@ -12,6 +12,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT, listQueue } from "./queue.mjs";
 import { slideUrls } from "./publish.mjs";
+import { postedIds } from "./autopilot.mjs";
 
 const PLAN = join(ROOT, "reels-plan.json");
 const OUT = join(ROOT, "manifest.json");
@@ -21,12 +22,15 @@ const bare = (u) => (u ? String(u).replace("://www.chifbay.com/", "://chifbay.co
 
 export function buildManifest() {
   const reels = existsSync(PLAN) ? JSON.parse(readFileSync(PLAN, "utf-8")).reels ?? [] : [];
+  const posted = postedIds();
   const items = reels.map((r) => ({
     id: r.id, kind: "reel", media: "video", hook: r.hook, caption: r.caption,
     hashtags: r.hashtags ?? [], duration: r.duration,
     video: bare(r.video), preview: bare(r.preview), cover: bare(r.cover),
     clean_cover: bare(r.clean_cover ?? null),
     colour: r.colour ?? null, note: r.note ?? "",
+    format: r.format ?? null, verdict: r.verdict ?? "", test: !!r.test, alt: r.alt ?? "",
+    checks: r.checks ?? null, posted: posted.has(r.id),
   }));
   for (const q of listQueue()) {
     const kind = (q.kind ?? "feed") === "story" ? "story" : "feed";
@@ -39,6 +43,7 @@ export function buildManifest() {
       video: video ? bare(q.url) : null,
       slides: video ? [] : slideUrls(q).map(bare),
       plan_index: Number.isFinite(q.plan_index) ? q.plan_index : null,
+      set: q.set ?? null, alt: q.alt ?? null,
       created: q.created,
     });
   }

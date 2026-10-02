@@ -1,10 +1,17 @@
 {
+ "version": "v2",
  "reels": [
   {
-   "id": "r01-jump",
+   "id": "r15-daytrip",
    "kind": "reel",
-   "hook": "Your boat. Your rules.",
-   "caption": "Engine off, warm water, and nobody else on board. Private boat trips from Funchal marina, Madeira: swim stop, drinks and a drone video of your day included.\n\nSend this to the one who jumps first.\n\nBook at chifbay.com",
+   "format": "story",
+   "product": "day",
+   "verdict": "new: one Day Trip in order, guests, place, swim, payoff, booking line",
+   "test": false,
+   "subject": "day trip story",
+   "hook": "A Day Trip from Funchal",
+   "support": "",
+   "caption": "Two and a half or three hours from Funchal: Câmara de Lobos, Cabo Girão, then the swim and paddle stop at Fajã dos Padres. Photos and the video of your trip included.\n\nFree cancellation up to 24 hours before. Booking link in bio.",
    "hashtags": [
     "#madeira",
     "#funchal",
@@ -12,28 +19,309 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 8.6,
-   "bytes": 7159587,
-   "video": "https://www.chifbay.com/ig/reels/r01-jump.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r01-jump-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r01-jump.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r01-jump-cover.jpg",
+   "alt": "Guests toast on a boat, the cliff of Cabo Girão, friends on a paddle board, a jump into the sea, the boat and the group under the cliff.",
+   "video": "https://chifbay.com/ig/reels/r15-daytrip.mp4",
+   "preview": "https://chifbay.com/ig/reels/r15-daytrip-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r15-daytrip.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r15-daytrip-cover.jpg",
    "colour": {
-    "hex": "#5c5d59",
-    "hue": 82,
-    "light": 0.359,
-    "sat": 0.021
+    "hex": "#505756",
+    "hue": 169,
+    "light": 0.329,
+    "sat": 0.045
    },
-   "sources": [
-    "aug13"
+   "version": "v2",
+   "shots": [
+    {
+     "src": "ip2809",
+     "file": "IMG_2809.MOV",
+     "in": 0.3,
+     "out": 2.7,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "overcast",
+     "exposure": -0.04,
+     "light": {
+      "L50": 68.3,
+      "chroma": 4.8,
+      "hiB": -4.0
+     },
+     "seconds": 2.4,
+     "what": "guests toast, faces visible"
+    },
+    {
+     "src": "0080",
+     "file": "DJI_20260924185527_0080_D.MP4",
+     "in": 157.2,
+     "out": 159.0,
+     "speed": 0.6,
+     "source_fps": 59.94,
+     "grade": "overcast",
+     "exposure": 0.032,
+     "light": {
+      "L50": 38.6,
+      "chroma": 5.9,
+      "hiB": 0.2
+     },
+     "seconds": 3.0,
+     "what": "Cabo Girao shore"
+    },
+    {
+     "src": "ip2832",
+     "file": "IMG_2832.MOV",
+     "in": 1.0,
+     "out": 4.0,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.04,
+     "light": {
+      "L50": 53.4,
+      "chroma": 10.6,
+      "hiB": -3.5
+     },
+     "seconds": 3.0,
+     "what": "paddle board, falls in"
+    },
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 10.8,
+     "out": 13.4,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "overcast",
+     "exposure": 0.04,
+     "light": {
+      "L50": 37.1,
+      "chroma": 6.2,
+      "hiB": -1.1
+     },
+     "seconds": 2.6,
+     "what": "jump"
+    },
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 53.3,
+     "out": 56.7,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "overcast",
+     "exposure": 0.04,
+     "light": {
+      "L50": 35.9,
+      "chroma": 7.0,
+      "hiB": -3.4
+     },
+     "seconds": 3.4,
+     "what": "the boat and the group under the cliff"
+    }
    ],
-   "note": ""
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "words": {
+    "hook_lines": [
+     "A Day Trip from Funchal"
+    ],
+    "box": [
+     90,
+     300,
+     990,
+     402
+    ]
+   },
+   "duration": 14.4,
+   "bytes": 15296794,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-02T22:40:51"
+   }
+  },
+  {
+   "id": "r01-jump",
+   "kind": "reel",
+   "format": "action",
+   "product": "day",
+   "verdict": "rework: starts right before the jump, splash inside 1.5 s, swimmers after",
+   "test": false,
+   "subject": "jump",
+   "hook": "Your Madeira swim stop",
+   "support": "",
+   "caption": "The swim stop on our Day Trip: engine off under the cliffs at Fajã dos Padres, warm Atlantic water and paddle boards on board. Just your group, no other guests.\n\nDay Trip from Funchal marina, 10:00 or 14:00, sea conditions allowing.\n\nSend this to the one who jumps first. Booking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A guest jumps off the back of a small boat into clear blue water below a cliff in Madeira, then swims with friends.",
+   "video": "https://chifbay.com/ig/reels/r01-jump.mp4",
+   "preview": "https://chifbay.com/ig/reels/r01-jump-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r01-jump.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r01-jump-cover.jpg",
+   "colour": {
+    "hex": "#757772",
+    "hue": 89,
+    "light": 0.459,
+    "sat": 0.02
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 10.8,
+     "out": 13.4,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "overcast",
+     "exposure": 0.04,
+     "light": {
+      "L50": 37.1,
+      "chroma": 6.2,
+      "hiB": -1.1
+     },
+     "seconds": 2.6,
+     "what": "jump off the stern, splash (source dissolve starts 13.5)"
+    },
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 14.0,
+     "out": 17.6,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": 0.003,
+     "light": {
+      "L50": 44.4,
+      "chroma": 11.7,
+      "hiB": -2.0
+     },
+     "seconds": 3.6,
+     "what": "swimmers in the water, drone"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "words": {
+    "hook_lines": [
+     "Your Madeira swim stop"
+    ],
+    "box": [
+     90,
+     300,
+     990,
+     402
+    ]
+   },
+   "duration": 6.2,
+   "bytes": 7083441,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-02T22:41:05"
+   }
+  },
+  {
+   "id": "r11-filmed",
+   "kind": "reel",
+   "format": "story",
+   "product": "any",
+   "verdict": "rework: guests first (overhead orbit), then the boat leaving, booking line at the end",
+   "test": false,
+   "subject": "drone video",
+   "hook": "Your trip, filmed from above",
+   "support": "",
+   "caption": "Every guest leaves with photos and a 360 video of their trip, plus a drone video when the wind lets us fly. No phone in your hand all afternoon.\n\nPrivate boat trips from Funchal marina. Booking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "Overhead drone shot of guests on a small boat, then the boat heading out along the Madeira coast.",
+   "video": "https://chifbay.com/ig/reels/r11-filmed.mp4",
+   "preview": "https://chifbay.com/ig/reels/r11-filmed-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r11-filmed.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r11-filmed-cover.jpg",
+   "colour": {
+    "hex": "#797f7a",
+    "hue": 133,
+    "light": 0.489,
+    "sat": 0.024
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "0080",
+     "file": "DJI_20260924185527_0080_D.MP4",
+     "in": 18.0,
+     "out": 21.0,
+     "speed": 0.5,
+     "source_fps": 59.94,
+     "grade": "overcast",
+     "exposure": 0.027,
+     "light": {
+      "L50": 39.7,
+      "chroma": 8.1,
+      "hiB": 3.3
+     },
+     "seconds": 6.0,
+     "what": "overhead orbit, guests on deck (boat leaves the crop after 21)"
+    },
+    {
+     "src": "0080",
+     "file": "DJI_20260924185527_0080_D.MP4",
+     "in": 201.0,
+     "out": 206.3,
+     "speed": 0.85,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": 0.04,
+     "light": {
+      "L50": 31.0,
+      "chroma": 9.6,
+      "hiB": 0.1
+     },
+     "seconds": 6.24,
+     "what": "boat with crew enters the frame"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "words": {
+    "hook_lines": [
+     "Your trip, filmed",
+     "from above"
+    ],
+    "box": [
+     90,
+     300,
+     990,
+     494
+    ]
+   },
+   "duration": 12.23,
+   "bytes": 13039899,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-02T22:41:42"
+   }
   },
   {
    "id": "r02-sunset",
    "kind": "reel",
-   "hook": "POV: sunset in Madeira and the boat is all yours",
-   "caption": "Funchal behind us, the sun dropping into the Atlantic, just your group on board. Private sunset trip in Madeira, drinks included.\n\nTag who you would bring.\n\nchifbay.com",
+   "format": "action",
+   "product": "sunset",
+   "verdict": "rework: shorter title, opens on the group, no empty horizon",
+   "test": false,
+   "subject": "sunset",
+   "hook": "Madeira, just before sunset",
+   "support": "Just your group on board",
+   "caption": "Leaving Funchal at 18:30, sun dropping toward the Atlantic, the coast turning gold. Drinks and food on deck, just your group on board. Our Sunset Trip runs west to Cabo Girão, or on to Ribeira Brava.\n\nTag who you would bring. Booking link in bio.",
    "hashtags": [
     "#madeira",
     "#funchal",
@@ -41,28 +329,85 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 9.0,
-   "bytes": 7527561,
-   "video": "https://www.chifbay.com/ig/reels/r02-sunset.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r02-sunset-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r02-sunset.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r02-sunset-cover.jpg",
+   "alt": "Guests sit on the deck of a small boat as the sun goes down over the Atlantic off Madeira.",
+   "video": "https://chifbay.com/ig/reels/r02-sunset.mp4",
+   "preview": "https://chifbay.com/ig/reels/r02-sunset-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r02-sunset.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r02-sunset-cover.jpg",
    "colour": {
-    "hex": "#787260",
-    "hue": 46,
-    "light": 0.426,
-    "sat": 0.111
+    "hex": "#6b685c",
+    "hue": 47,
+    "light": 0.393,
+    "sat": 0.072
    },
-   "sources": [
-    "aug13"
+   "version": "v2",
+   "shots": [
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 101.0,
+     "out": 105.5,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "golden",
+     "exposure": -0.023,
+     "light": {
+      "L50": 49.6,
+      "chroma": 10.5,
+      "hiB": 22.0
+     },
+     "seconds": 4.5,
+     "what": "sunset run, guests on deck (source dissolves at 100.6, 105.9, 111.9)"
+    },
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 106.4,
+     "out": 111.4,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "golden",
+     "exposure": -0.016,
+     "light": {
+      "L50": 48.3,
+      "chroma": 10.9,
+      "hiB": 23.7
+     },
+     "seconds": 5.0,
+     "what": "sun on the horizon, guests toast"
+    }
    ],
-   "note": ""
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "words": {
+    "hook_lines": [
+     "Madeira, just before sunset"
+    ],
+    "box": [
+     90,
+     300,
+     990,
+     482
+    ]
+   },
+   "duration": 9.5,
+   "bytes": 10360642,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-02T22:41:58"
+   }
   },
   {
-   "id": "r03-swim",
+   "id": "r14-paddle",
    "kind": "reel",
-   "hook": "This is your swim stop in Madeira",
-   "caption": "Under the cliffs of the south coast, clear water, no crowd. Every private trip from Funchal stops for a swim.\n\nSend this to your travel buddy.\n\nchifbay.com",
+   "format": "action",
+   "product": "day",
+   "verdict": "new: the paddle board moment, real sound",
+   "test": false,
+   "subject": "paddle",
+   "hook": "Swim. Paddle. Repeat.",
+   "support": "",
+   "caption": "Paddle boards are on board for the swim stop of our Day Trip at Fajã dos Padres. Falling in is part of it.\n\nDay Trip from Funchal marina, sea conditions allowing. Booking link in bio.",
    "hashtags": [
     "#madeira",
     "#funchal",
@@ -70,203 +415,68 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 8.2,
-   "bytes": 6902291,
-   "video": "https://www.chifbay.com/ig/reels/r03-swim.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r03-swim-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r03-swim.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r03-swim-cover.jpg",
+   "alt": "A group of friends tries to stand on a paddle board in the sea off Madeira and falls into the water.",
+   "video": "https://chifbay.com/ig/reels/r14-paddle.mp4",
+   "preview": "https://chifbay.com/ig/reels/r14-paddle-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r14-paddle.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r14-paddle-cover.jpg",
    "colour": {
-    "hex": "#666862",
-    "hue": 84,
-    "light": 0.398,
-    "sat": 0.03
+    "hex": "#6d7e73",
+    "hue": 139,
+    "light": 0.462,
+    "sat": 0.069
    },
-   "sources": [
-    "aug13"
+   "version": "v2",
+   "shots": [
+    {
+     "src": "ip2832",
+     "file": "IMG_2832.MOV",
+     "in": 0.0,
+     "out": 6.3,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.039,
+     "light": {
+      "L50": 52.8,
+      "chroma": 10.6,
+      "hiB": -3.4
+     },
+     "seconds": 6.3,
+     "what": "group on a paddle board, falls in"
+    }
    ],
-   "note": ""
-  },
-  {
-   "id": "r04-above",
-   "kind": "reel",
-   "hook": "Private boat. No crowds. Madeira.",
-   "caption": "One boat, one group, the whole Atlantic around you. Private boat tours from Funchal, Madeira, with a skipper, drinks and fuel included.\n\nSave this for your Madeira trip.\n\nchifbay.com",
-   "hashtags": [
-    "#madeira",
-    "#funchal",
-    "#madeiraisland",
-    "#boattrip",
-    "#visitmadeira"
-   ],
-   "duration": 5.4,
-   "bytes": 4538689,
-   "video": "https://www.chifbay.com/ig/reels/r04-above.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r04-above-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r04-above.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r04-above-cover.jpg",
-   "colour": {
-    "hex": "#5c6e68",
-    "hue": 159,
-    "light": 0.398,
-    "sat": 0.087
+   "sound": "Own clip sound (our iPhone footage of the trip)",
+   "words": {
+    "hook_lines": [
+     "Swim. Paddle. Repeat."
+    ],
+    "box": [
+     90,
+     300,
+     990,
+     402
+    ]
    },
-   "sources": [
-    "0079"
-   ],
-   "note": ""
-  },
-  {
-   "id": "r05-turquoise",
-   "kind": "reel",
-   "hook": "Yes, the water in Madeira is this colour",
-   "caption": "No filter, just the south coast of Madeira on a calm afternoon. Private boat trips from Funchal marina.\n\nWho are you taking?\n\nchifbay.com",
-   "hashtags": [
-    "#madeira",
-    "#funchal",
-    "#madeiraisland",
-    "#boattrip",
-    "#visitmadeira"
-   ],
-   "duration": 6.2,
-   "bytes": 5320717,
-   "video": "https://www.chifbay.com/ig/reels/r05-turquoise.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r05-turquoise-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r05-turquoise.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r05-turquoise-cover.jpg",
-   "colour": {
-    "hex": "#4d6667",
-    "hue": 183,
-    "light": 0.357,
-    "sat": 0.143
-   },
-   "sources": [
-    "aug13"
-   ],
-   "note": ""
-  },
-  {
-   "id": "r06-cliffs",
-   "kind": "reel",
-   "hook": "Madeira looks different from the sea",
-   "caption": "Cliffs you cannot see from any road. A private boat from Funchal takes you right underneath them.\n\nSave this for your trip.\n\nchifbay.com",
-   "hashtags": [
-    "#madeira",
-    "#funchal",
-    "#madeiraisland",
-    "#boattrip",
-    "#visitmadeira"
-   ],
-   "duration": 6.0,
-   "bytes": 5172246,
-   "video": "https://www.chifbay.com/ig/reels/r06-cliffs.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r06-cliffs-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r06-cliffs.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r06-cliffs-cover.jpg",
-   "colour": {
-    "hex": "#31383a",
-    "hue": 188,
-    "light": 0.211,
-    "sat": 0.082
-   },
-   "sources": [
-    "aug13"
-   ],
-   "note": ""
-  },
-  {
-   "id": "r07-three",
-   "kind": "reel",
-   "hook": "One boat. One day. All yours.",
-   "caption": "A swim stop, open water, then the run home at sunset. One private boat from Funchal marina, Madeira, just your group on board.\n\nSend this to the one you would bring.\n\nchifbay.com",
-   "hashtags": [
-    "#madeira",
-    "#funchal",
-    "#madeiraisland",
-    "#boattrip",
-    "#visitmadeira"
-   ],
-   "duration": 5.0,
-   "bytes": 4387114,
-   "video": "https://www.chifbay.com/ig/reels/r07-three.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r07-three-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r07-three.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r07-three-cover.jpg",
-   "colour": {
-    "hex": "#585f5a",
-    "hue": 137,
-    "light": 0.361,
-    "sat": 0.04
-   },
-   "sources": [
-    "aug13"
-   ],
-   "note": ""
-  },
-  {
-   "id": "r08-coast",
-   "kind": "reel",
-   "hook": "Madeira, from the water",
-   "caption": "Above the boat, under the cliffs, in the water. The south coast of Madeira the way only a boat shows it. Private trips from Funchal.\n\nSave this for your trip.\n\nchifbay.com",
-   "hashtags": [
-    "#madeira",
-    "#funchal",
-    "#madeiraisland",
-    "#boattrip",
-    "#visitmadeira"
-   ],
-   "duration": 4.6,
-   "bytes": 4010134,
-   "video": "https://www.chifbay.com/ig/reels/r08-coast.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r08-coast-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r08-coast.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r08-coast-cover.jpg",
-   "colour": {
-    "hex": "#4d5d56",
-    "hue": 153,
-    "light": 0.335,
-    "sat": 0.099
-   },
-   "sources": [
-    "0079",
-    "aug13"
-   ],
-   "note": ""
-  },
-  {
-   "id": "r09-orbit",
-   "kind": "reel",
-   "hook": "What booking the whole boat looks like",
-   "caption": "One boat, one group, open Atlantic all around. Private boat trips from Funchal marina, Madeira, skipper and drinks included.\n\nSend this to the one you would bring.\n\nchifbay.com",
-   "hashtags": [
-    "#madeira",
-    "#funchal",
-    "#madeiraisland",
-    "#boattrip",
-    "#visitmadeira"
-   ],
-   "duration": 9.0,
-   "bytes": 7449501,
-   "video": "https://www.chifbay.com/ig/reels/r09-orbit.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r09-orbit-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r09-orbit.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r09-orbit-cover.jpg",
-   "colour": {
-    "hex": "#70756b",
-    "hue": 93,
-    "light": 0.442,
-    "sat": 0.042
-   },
-   "sources": [
-    "0080"
-   ],
-   "note": ""
+   "duration": 6.32,
+   "bytes": 7229761,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-02T22:42:10"
+   }
   },
   {
    "id": "r10-cabogirao",
    "kind": "reel",
-   "hook": "Under Cabo Girão, 580 m of cliff",
-   "caption": "Cabo Girão from the water, 580 m of rock straight above the sea. Every private trip from Funchal passes right under it.\n\nSave this for your Madeira trip.\n\nchifbay.com",
+   "format": "action",
+   "product": "any",
+   "verdict": "rework: opens with the cliff and the terraces already in frame",
+   "test": false,
+   "subject": "place",
+   "hook": "Under Cabo Girão",
+   "support": "580 m of cliff above the sea",
+   "caption": "Cabo Girão, 580 m of cliff straight above the sea, seen from the water. Every Chifbay trip from Funchal goes there, Day Trip and Sunset Trip.\n\nSave this for your Madeira trip. Booking link in bio.",
    "hashtags": [
     "#madeira",
     "#funchal",
@@ -274,28 +484,68 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 8.0,
-   "bytes": 6420720,
-   "video": "https://www.chifbay.com/ig/reels/r10-cabogirao.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r10-cabogirao-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r10-cabogirao.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r10-cabogirao-cover.jpg",
+   "alt": "Drone view along the sea cliff of Cabo Girão in Madeira, with small farm terraces at the bottom.",
+   "video": "https://chifbay.com/ig/reels/r10-cabogirao.mp4",
+   "preview": "https://chifbay.com/ig/reels/r10-cabogirao-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r10-cabogirao.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r10-cabogirao-cover.jpg",
    "colour": {
-    "hex": "#293d45",
-    "hue": 197,
-    "light": 0.217,
-    "sat": 0.252
+    "hex": "#55544e",
+    "hue": 57,
+    "light": 0.321,
+    "sat": 0.04
    },
-   "sources": [
-    "0080"
+   "version": "v2",
+   "shots": [
+    {
+     "src": "0080",
+     "file": "DJI_20260924185527_0080_D.MP4",
+     "in": 156.8,
+     "out": 159.9,
+     "speed": 0.5,
+     "source_fps": 59.94,
+     "grade": "overcast",
+     "exposure": 0.037,
+     "light": {
+      "L50": 37.6,
+      "chroma": 5.8,
+      "hiB": 0.4
+     },
+     "seconds": 6.2,
+     "what": "drone over the shore of Cabo Girao, terraces in sun (backlit and dark after 159.9)"
+    }
    ],
-   "note": ""
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "words": {
+    "hook_lines": [
+     "Under Cabo Girão"
+    ],
+    "box": [
+     90,
+     260,
+     990,
+     442
+    ]
+   },
+   "duration": 6.2,
+   "bytes": 6895032,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-02T22:42:26"
+   }
   },
   {
-   "id": "r11-dronevideo",
+   "id": "r16-split",
    "kind": "reel",
-   "hook": "Every trip comes with this drone video",
-   "caption": "Drone, Insta360 and photos on every private trip, so you can put the phone down and just enjoy it. Funchal, Madeira.\n\nTag who needs this video.\n\nchifbay.com",
+   "format": "split",
+   "product": "day",
+   "verdict": "test only: three landscape shots stacked, compared against r01 and r15",
+   "test": true,
+   "subject": "split test",
+   "hook": "Swim. Cliffs. Clear water.",
+   "support": "",
+   "caption": "Three moments from our Day Trip along Madeira's south coast: the swim stop, Cabo Girão and the clear water at Fajã dos Padres.\n\nDay Trip from Funchal marina. Booking link in bio.",
    "hashtags": [
     "#madeira",
     "#funchal",
@@ -303,51 +553,90 @@
     "#boattrip",
     "#visitmadeira"
    ],
-   "duration": 9.13,
-   "bytes": 7480993,
-   "video": "https://www.chifbay.com/ig/reels/r11-dronevideo.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r11-dronevideo-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r11-dronevideo.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r11-dronevideo-cover.jpg",
+   "alt": "Three stacked clips: a jump into the sea, the Cabo Girao cliff, and turquoise water seen from above.",
+   "video": "https://chifbay.com/ig/reels/r16-split.mp4",
+   "preview": "https://chifbay.com/ig/reels/r16-split-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r16-split.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r16-split-cover.jpg",
    "colour": {
-    "hex": "#566462",
-    "hue": 170,
-    "light": 0.367,
-    "sat": 0.073
+    "hex": "#5b6864",
+    "hue": 164,
+    "light": 0.385,
+    "sat": 0.062
    },
-   "sources": [
-    "0080"
+   "version": "v2",
+   "shots": [
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 53.5,
+     "out": 59.7,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "overcast",
+     "exposure": 0.04,
+     "light": {
+      "L50": 35.5,
+      "chroma": 6.9,
+      "hiB": -4.1
+     },
+     "seconds": 6.2,
+     "what": "the group on the boat, then a jump"
+    },
+    {
+     "src": "0080",
+     "file": "DJI_20260924185527_0080_D.MP4",
+     "in": 156.8,
+     "out": 159.9,
+     "speed": 0.5,
+     "source_fps": 59.94,
+     "grade": "overcast",
+     "exposure": 0.037,
+     "light": {
+      "L50": 37.6,
+      "chroma": 5.8,
+      "hiB": 0.4
+     },
+     "seconds": 6.2,
+     "what": "Cabo Girao shore"
+    },
+    {
+     "src": "aug13",
+     "file": "Video 1080P 13082026.mp4",
+     "in": 90.0,
+     "out": 96.0,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": 0.013,
+     "light": {
+      "L50": 42.4,
+      "chroma": 11.9,
+      "hiB": -2.2
+     },
+     "seconds": 6.0,
+     "what": "turquoise water from the drone"
+    }
    ],
-   "note": ""
-  },
-  {
-   "id": "r12-southcoast",
-   "kind": "reel",
-   "hook": "Madeira's south coast in one trip",
-   "caption": "From above, under the cliffs, out at sea. A private boat from Funchal shows you the south coast the way no road can.\n\nSend this to your travel buddy.\n\nchifbay.com",
-   "hashtags": [
-    "#madeira",
-    "#funchal",
-    "#madeiraisland",
-    "#boattrip",
-    "#visitmadeira"
-   ],
-   "duration": 8.33,
-   "bytes": 6083367,
-   "video": "https://www.chifbay.com/ig/reels/r12-southcoast.mp4",
-   "preview": "https://www.chifbay.com/ig/reels/r12-southcoast-p.mp4",
-   "cover": "https://www.chifbay.com/ig/reels/r12-southcoast.jpg",
-   "clean_cover": "https://www.chifbay.com/ig/reels/r12-southcoast-cover.jpg",
-   "colour": {
-    "hex": "#414c4b",
-    "hue": 178,
-    "light": 0.278,
-    "sat": 0.076
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "words": {
+    "hook_lines": [
+     "Swim. Cliffs. Clear water."
+    ],
+    "box": [
+     90,
+     140,
+     990,
+     242
+    ]
    },
-   "sources": [
-    "0080"
-   ],
-   "note": ""
+   "duration": 6.0,
+   "bytes": 6780342,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-02T22:42:51"
+   }
   }
  ]
 }

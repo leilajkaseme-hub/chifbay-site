@@ -14,7 +14,8 @@
   "ai_provider": "pollinations",
   "_comment_library": "Add new photos to site/social/. Every folder here MUST be inside this git repo, because the plan and the posting both run on GitHub Actions, which only ever sees what was pushed. Two folders outside it (../klook-photos, ../clickandboat-sunset-photos) used to be listed and cost the account 5 photos: the local preview planned 78 posts, CI planned 73, and nobody could see the difference. bin/check-library.mjs now fails if a dir here escapes the repo.",
   "library_dirs": [
-    "social-drive"
+    "social-drive",
+    "social-iphone"
   ],
   "library_reuse_days": 120,
   "public_dir": "ig",
@@ -28,8 +29,8 @@
   "_comment_ig_user_id": "Not a secret, just the Instagram Business Account id. Filled in by the whoami workflow. The IG_USER_ID env var overrides it.",
   "ig_user_id": "17841473755961444",
   "transport": "graph",
-  "_comment_heartbeat": "Elapsed HOURS, not calendar days. GitHub cron drifts badly here — a post scheduled 10:00 UTC went out at 23:46, and a 21:00 heartbeat ran at 00:22 — and a calendar-day rule flips on that drift and cries wolf. Widest real gap between two good posts is 33.3h, so 40 is the tightest honest limit. max_days is only the fallback when a post has no ledger timestamp.",
-  "heartbeat_max_hours_since_post": 40,
+  "_comment_heartbeat": "Elapsed HOURS, not calendar days. GitHub cron drifts badly here — a post scheduled 10:00 UTC went out at 23:46, and a 21:00 heartbeat ran at 00:22 — and a calendar-day rule flips on that drift and cries wolf. Widest real gap between two good posts is 33.3h, so 40 is the tightest honest limit. max_days is only the fallback when a post has no ledger timestamp. Since 2 Oct 2026 Sunday is a rest day for the feed, so the feed limit is 58 h (Saturday morning to Monday evening); stories still post daily, 40 h.",
+  "heartbeat_max_hours_since_post": 58,
   "heartbeat_max_days_since_post": 0,
   "ntfy": {
     "alerts": "https://ntfy.sh/futurx-blog-alerts-544024878e",
@@ -50,9 +51,21 @@
   "_comment_freshness": "Queues hold 4 days, not 12: a photo dropped in Drive must reach the account within days. slide_reuse_days applies to EVERY photo in a post, cover or swipe; story_reuse_days lets the small 9:16 album come round (stories vanish after 24h). A Reel goes out every other feed post while clips last (lib/reels.mjs cuts them from Drive videos).",
   "slide_reuse_days": 90,
   "story_reuse_days": 21,
-  "_comment_approval": "Since 2 Oct 2026 nothing posts without Theo's approval. He approves on the portal (/portal/instagram); post.mjs only takes items that are approved and due, and posts nothing when the list cannot be read.",
-  "require_approval": true,
+  "_comment_approval": "Since the audit of 2 Oct 2026 the account runs on its own: require_approval false. A post goes out when it passed its checks (Reels: make.py validate(); photos: the top-up checks). Theo keeps a veto ('skipped' on the portal or the board), can pin a post to a day ('approved'), and has an emergency pause (portal button, board, or a PAUSE file in ig-auto). Nothing posts when the pause and veto list cannot be read.",
+  "require_approval": false,
   "approvals_url": "https://chifbay-booking-api.chifandcopt.workers.dev/v1/ig/approvals",
-  "_comment_reels": "Reels are edited by hand from client footage (stores/chifbay/reels/make.py -> reels-plan.json) and posted by Theo from his phone with a trending song. auto_feed_reels false keeps the old silent 6 s clips out of the feed queue.",
-  "auto_feed_reels": false
+  "_comment_reels": "Reels are cut on the Mac from client footage (stores/chifbay/reels/make.py -> reels-plan.json, with checks) and published by the robot through the API, with the clean cover as cover_url and our own sound (sea or the clip's own). Test formats (split) stay out of the rotation unless allow_test_reels is true. auto_feed_reels false keeps the old silent 6 s clips out of the queue.",
+  "auto_feed_reels": false,
+  "_comment_week": "Feed post by weekday, Madeira time: 4 Reels and 2 carousels a week, Sunday off. A qualified post of the other kind may stand in; filler never does.",
+  "week": {
+    "mon": "reel",
+    "tue": "carousel",
+    "wed": "reel",
+    "thu": "reel",
+    "fri": "carousel",
+    "sat": "reel",
+    "sun": "rest"
+  },
+  "allow_test_reels": false,
+  "heartbeat_max_hours_since_story": 40
 }

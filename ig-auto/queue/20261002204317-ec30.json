@@ -1,0 +1,78 @@
+{
+  "id": "20261002204317-ec30",
+  "kind": "feed",
+  "set": "A-group-afternoon",
+  "title": "Your group's afternoon",
+  "source": "curated",
+  "angle": "guests",
+  "created": "2026-01-01T00:00:01.000Z",
+  "priority": 0,
+  "fresh": true,
+  "look": "atlantic-v2",
+  "origin": "social-iphone/IMG_2797.jpg",
+  "image": "ig/20261002204317-ec30-1.jpg",
+  "url": "https://www.chifbay.com/ig/20261002204317-ec30-1.jpg",
+  "sha256": "7fd5dbd638eb62af4c8a34654681a2da78ee84543b25c72b3b45ab739d5a2742",
+  "slides": [
+    {
+      "origin": "social-iphone/IMG_2797.jpg",
+      "alt": "Two friends laugh and raise their glasses on the back of a boat in the wind.",
+      "image": "ig/20261002204317-ec30-1.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204317-ec30-1.jpg",
+      "sha256": "7fd5dbd638eb62af4c8a34654681a2da78ee84543b25c72b3b45ab739d5a2742"
+    },
+    {
+      "origin": "social-iphone/IMG_2806.jpg",
+      "alt": "Two friends at the table on the deck, snacks and drinks, the Chifbay.com sunshade above them and the wake behind.",
+      "image": "ig/20261002204317-ec30-2.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204317-ec30-2.jpg",
+      "sha256": "81711ea3410ea3a455c41e6264b2d252b9d878c7b970a68eab57be71c4bea823"
+    },
+    {
+      "origin": "social-iphone/IMG_2877.jpg",
+      "alt": "Two guests sit on a paddle board below the cliffs and the small houses of Fajã dos Padres.",
+      "image": "ig/20261002204317-ec30-3.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204317-ec30-3.jpg",
+      "sha256": "6dda15dc71b98d1a2e06a0babee3213aece69767911ae06bb2c5ee1cca7acefd"
+    },
+    {
+      "origin": "social-iphone/IMG_2845.jpg",
+      "alt": "Three friends on one paddle board in the sea, laughing.",
+      "image": "ig/20261002204317-ec30-4.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204317-ec30-4.jpg",
+      "sha256": "9bfdbef2f935175e39e1d34e1e25b54b6eef3b20a65d97a889899718b362812f"
+    },
+    {
+      "origin": "social-iphone/IMG_2861.jpg",
+      "alt": "A guest swims in the Atlantic and smiles at the camera.",
+      "image": "ig/20261002204317-ec30-5.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204317-ec30-5.jpg",
+      "sha256": "50607f26843f87a7093fafb425d7fe65a724c984c94dce1f0c022117e4b6d3b4"
+    },
+    {
+      "origin": "social-iphone/IMG_2850.jpg",
+      "alt": "A guest wrapped in a white towel laughs on deck after the swim, the cliff behind her.",
+      "image": "ig/20261002204317-ec30-6.jpg",
+      "url": "https://www.chifbay.com/ig/20261002204317-ec30-6.jpg",
+      "sha256": "8539248ba95027a2ecacb323338c38040852c83505307efee30b8826e55092cb"
+    }
+  ],
+  "alt": [
+    "Two friends laugh and raise their glasses on the back of a boat in the wind.",
+    "Two friends at the table on the deck, snacks and drinks, the Chifbay.com sunshade above them and the wake behind.",
+    "Two guests sit on a paddle board below the cliffs and the small houses of Fajã dos Padres.",
+    "Three friends on one paddle board in the sea, laughing.",
+    "A guest swims in the Atlantic and smiles at the camera.",
+    "A guest wrapped in a white towel laughs on deck after the swim, the cliff behind her."
+  ],
+  "caption": "Your group's afternoon on the water.\n\nA toast as we leave Funchal, Cabo Girão from the sea, then the swim stop at Fajã dos Padres with paddle boards in the water. Just your group on board, no other guests.\n\nThe Day Trip: 2h30 or 3h, at 10:00 or 14:00, photos and the video of your trip included. Free cancellation up to 24 hours before.\n\nWhich slide is your group? Booking link in bio.",
+  "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+  ],
+  "rendered_caption": "Your group's afternoon on the water.\n\nA toast as we leave Funchal, Cabo Girão from the sea, then the swim stop at Fajã dos Padres with paddle boards in the water. Just your group on board, no other guests.\n\nThe Day Trip: 2h30 or 3h, at 10:00 or 14:00, photos and the video of your trip included. Free cancellation up to 24 hours before.\n\nWhich slide is your group? Booking link in bio.\n\n#madeira #funchal #madeiraisland #boattrip #visitmadeira",
+  "writer": "claude"
+}

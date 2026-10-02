@@ -92,7 +92,7 @@ async function graphCall(path, body, method = "POST") {
   return json;
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms) => new Promise((r) => setTimeout(r, process.env.IG_TEST_FAST === "1" ? 1 : ms));
 
 /**
  * Wait for Meta to finish downloading the image into the container.
@@ -150,16 +150,32 @@ export function slideUrls(item) {
  * They are the same size request repeated, and firing ten at a Graph endpoint
  * that is already rate limited is how you turn a post into a 429.
  */
-async function carouselContainer(user, token, urls, caption) {
+/**
+ * A container, with alt text when we have it. Instagram added alt_text for
+ * images in 2025; if this account or API version refuses the field, the post
+ * goes out without it rather than not at all.
+ */
+async function imageContainer(user, body, alt) {
+  if (!alt) return graphCall(`/${user}/media`, body);
+  try {
+    return await graphCall(`/${user}/media`, { ...body, alt_text: alt.slice(0, 1000) });
+  } catch (err) {
+    if (!/alt_text/i.test(err.message)) throw err;
+    console.warn(`alt text refused (${err.message.slice(0, 120)}), posting without it`);
+    return graphCall(`/${user}/media`, body);
+  }
+}
+
+async function carouselContainer(user, token, urls, caption, alts = []) {
   if (urls.length > 10) throw new Error(`a carousel takes at most 10 photos, got ${urls.length}`);
 
   const children = [];
   for (const [i, image_url] of urls.entries()) {
-    const child = await graphCall(`/${user}/media`, {
+    const child = await imageContainer(user, {
       image_url,
       is_carousel_item: true,
       access_token: token,
-    });
+    }, alts[i]);
     if (!child.id) throw new Error(`no container id for slide ${i + 1}: ${JSON.stringify(child).slice(0, 200)}`);
     await waitForContainer(child.id, token);
     children.push(child.id);
@@ -211,13 +227,13 @@ async function graph(item) {
     if (!container.id) throw new Error(`no video container id: ${JSON.stringify(container).slice(0, 200)}`);
     await waitForContainer(container.id, token, { timeoutMs: 600_000, everyMs: 10_000 });
   } else if (!isStory && urls.length > 1) {
-    container = { id: await carouselContainer(user, token, urls, item.rendered_caption) };
+    container = { id: await carouselContainer(user, token, urls, item.rendered_caption, (item.slides ?? []).map((x) => x.alt)) };
   } else {
-    container = await graphCall(`/${user}/media`, {
+    container = await imageContainer(user, {
       image_url: urls[0],
       access_token: token,
       ...(isStory ? { media_type: "STORIES" } : { caption: item.rendered_caption }),
-    });
+    }, isStory ? null : item.slides?.[0]?.alt);
     if (!container.id) throw new Error(`no container id: ${JSON.stringify(container).slice(0, 200)}`);
     await waitForContainer(container.id, token);
   }
@@ -240,6 +256,40 @@ async function graph(item) {
   if (!out) throw lastErr;
   if (!out.id) throw new Error(`no media id: ${JSON.stringify(out).slice(0, 200)}`);
   return { transport: "graph", media_id: out.id, confirmed: true };
+}
+
+/**
+ * Ask Instagram what the post really is, after publishing. A media id alone
+ * proves Meta accepted the call; the permalink proves the post exists.
+ */
+export async function verifyMedia(mediaId) {
+  if ((process.env.IG_TRANSPORT || config.transport) !== "graph") return null;
+  const token = process.env.IG_ACCESS_TOKEN;
+  const m = await graphCall(`/${mediaId}`, { fields: "id,permalink,media_type,timestamp", access_token: token }, "GET");
+  if (!m.id) throw new Error(`media ${mediaId} not found after publishing`);
+  return { permalink: m.permalink ?? null, media_type: m.media_type ?? null, timestamp: m.timestamp ?? null };
+}
+
+/**
+ * Did this post already go out? Used before every retry: when media_publish
+ * times out, Instagram may have published anyway, and a blind retry is how an
+ * account ends up with the same Reel twice. Feed posts are matched on the
+ * start of the caption, stories on time (a story has no caption).
+ */
+export async function findRecentPost(item, sinceMs) {
+  if ((process.env.IG_TRANSPORT || config.transport) !== "graph") return null;
+  const user = process.env.IG_USER_ID || config.ig_user_id;
+  const token = process.env.IG_ACCESS_TOKEN;
+  const after = (t) => Date.parse(t) >= sinceMs - 120_000;
+  if (item.kind === "story") {
+    const s = await graphCall(`/${user}/stories`, { fields: "id,timestamp", access_token: token }, "GET");
+    const hit = (s.data ?? []).find((x) => x.timestamp && after(x.timestamp));
+    return hit ? hit.id : null;
+  }
+  const head = String(item.rendered_caption ?? "").slice(0, 80);
+  const m = await graphCall(`/${user}/media`, { fields: "id,caption,timestamp", limit: "8", access_token: token }, "GET");
+  const hit = (m.data ?? []).find((x) => x.timestamp && after(x.timestamp) && head && String(x.caption ?? "").startsWith(head));
+  return hit ? hit.id : null;
 }
 
 async function dryRun(item) {
@@ -268,7 +318,7 @@ export async function assertImageIsLive(url) {
       const res = await fetch(url, { method: "HEAD", signal: AbortSignal.timeout(20_000) });
       if (res.ok) return true;
     } catch { /* transient — retry below */ }
-    if (attempt < 5) await new Promise((r) => setTimeout(r, 15_000 * attempt));
+    if (attempt < 5) await sleep(15_000 * attempt);
   }
   throw new Error(`image is not reachable at ${url} — refusing to post`);
 }

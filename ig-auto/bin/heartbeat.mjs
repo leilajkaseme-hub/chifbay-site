@@ -17,6 +17,7 @@
 import { config, kindOf, lastPostKey, listQueue, readLedger, state, today } from "../lib/queue.mjs";
 import { alert } from "../lib/notify.mjs";
 import { readApprovals } from "../lib/approval.mjs";
+import { postedIds, qualifiedReels, readControls, readReelPlan } from "../lib/autopilot.mjs";
 
 const DAY = 86_400_000;
 const HOUR = 3_600_000;
@@ -70,6 +71,22 @@ if (gated) {
   }
 }
 
+// Autonomous mode: a paused account is quiet on purpose, and the feed counts
+// Reels waiting in reels-plan.json as well as the photo queue.
+let ctl = null;
+if (!gated) {
+  try {
+    ctl = await readControls();
+    if (ctl.paused) console.log(`PAUSED: ${ctl.reason || "no reason given"}`);
+  } catch (err) {
+    problems.push(`the pause and veto list could not be read (${err.message}), so nothing can post`);
+  }
+}
+const reelsLeft = ctl ? qualifiedReels(readReelPlan(), ctl, postedIds(ledger)).length : 0;
+const hoursFor = (kind) => kind === "story"
+  ? config.heartbeat_max_hours_since_story ?? maxHours
+  : maxHours;
+
 console.log(`transport   ${config.transport}`);
 
 for (const [kind, target, low] of [
@@ -77,6 +94,7 @@ for (const [kind, target, low] of [
   ["story", config.story_queue_target, config.story_queue_low_alert],
 ]) {
   const queue = listQueue(kind);
+  const waiting = queue.length + (kind === "feed" ? reelsLeft : 0);
   const last = st[lastPostKey(kind)] ?? null;
   const daysSince = last
     ? Math.floor((Date.parse(`${today()}T00:00:00Z`) - Date.parse(`${last}T00:00:00Z`)) / DAY)
@@ -93,23 +111,25 @@ for (const [kind, target, low] of [
     if (overdue.length) {
       problems.push(`${overdue.length} approved ${kind} post(s) are past their day and did not go out`);
     }
+  } else if (ctl?.paused) {
+    // Paused by Theo: silence is the expected result, not a fault.
   } else if (!last) {
     // Not an alert on a fresh install — there is genuinely nothing to report.
     console.log(`            nothing posted yet — run the ${kind} workflow once to start`);
   } else if (at !== null) {
     const hours = Math.floor((Date.now() - at) / HOUR);
-    if (hours > maxHours) {
-      problems.push(`no ${kind} post for ${hours} hours (limit ${maxHours})`);
+    if (hours > hoursFor(kind)) {
+      problems.push(`no ${kind} post for ${hours} hours (limit ${hoursFor(kind)})`);
     }
   } else if (daysSince > maxDays) {
     // No ledger entry to time — fall back to the coarse calendar check.
     problems.push(`no ${kind} post for ${daysSince} days`);
   }
 
-  if (queue.length === 0) {
+  if (waiting === 0) {
     problems.push(`the ${kind} queue is empty — the next run has nothing to send`);
-  } else if (queue.length <= low) {
-    problems.push(`only ${queue.length} ${kind} post(s) left in the queue`);
+  } else if (waiting <= low) {
+    problems.push(`only ${waiting} ${kind} post(s) left to send`);
   }
 
   // A post that went out but was never confirmed means the transport answered

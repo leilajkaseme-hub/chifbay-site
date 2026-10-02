@@ -47,6 +47,7 @@ export function ensureDirs() {
 
 /** Calendar date in the island's timezone, as YYYY-MM-DD. */
 export function today(tz = config.timezone) {
+  if (process.env.IG_TODAY) return process.env.IG_TODAY; // tests only
   return new Intl.DateTimeFormat("en-CA", { timeZone: tz }).format(new Date());
 }
 
@@ -168,11 +169,18 @@ export function alreadyPostedToday(kind = "feed") {
  * rather than a live one, so a killed job cannot block the queue forever.
  */
 export async function withLock(fn) {
-  if (existsSync(LOCK)) {
+  // "wx" creates the file only if it does not exist, in one step: two runs
+  // started at the same second cannot both pass, which a check-then-write can.
+  const take = () => writeFileSync(LOCK, JSON.stringify({ at: Date.now(), pid: process.pid }), { flag: "wx" });
+  try {
+    take();
+  } catch (err) {
+    if (err.code !== "EEXIST") throw err;
     const age = Date.now() - (readJson(LOCK, {})?.at ?? 0);
     if (age < 3_600_000) throw new Error("another run holds the lock — exiting");
+    rmSync(LOCK, { force: true });
+    take();
   }
-  writeFileSync(LOCK, JSON.stringify({ at: Date.now(), pid: process.pid }));
   // `await fn()` rather than `return fn()` — with a bare return the finally
   // block would drop the lock while the async work was still running.
   try { return await fn(); } finally { if (existsSync(LOCK)) rmSync(LOCK); }

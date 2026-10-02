@@ -422,24 +422,56 @@ IG_TRANSPORT=dry-run IG_NO_JITTER=1 IG_KIND=story node bin/post.mjs
 
 ## Not done yet
 
-- **Reels.** The queue format would carry a video fine, but nothing generates
-  video yet. Images daily, video later.
 - **Location tag.** The API accepts a `location_id` on feed posts. Tagging
   Funchal helps local discovery. Needs the Page ID for the location.
-- **Alt text.** Supported by the API, not wired up yet.
+- **Alt text.** Sent as `alt_text` on photos and carousel slides that have one (curated sets).
+  If Instagram refuses the field, the post goes out without it (`imageContainer()` in publish.mjs).
 
-## Approval (since 2 Oct 2026)
+## Autonomous publishing (since the audit of 2 Oct 2026)
 
-Nothing posts without Theo's OK. `config.require_approval` is true: `bin/post.mjs` asks
-`GET /v1/ig/approvals` on the booking Worker and only posts an item that is approved and due
-(its day is today or earlier, Madeira time). If the list cannot be read, nothing posts.
+The robot publishes on its own. `config.require_approval` is false; Theo keeps three controls,
+all read in ONE call (`GET /v1/ig/approvals` on the booking Worker) before every post:
 
-- He decides on https://chifbay-booking-api.chifandcopt.workers.dev/portal/instagram
+- **Emergency pause**: the button on https://chifbay-booking-api.chifandcopt.workers.dev/portal/instagram
+  (or the board, newest wins, or a file `ig-auto/PAUSE` in the repo). Paused = nothing posts, not
+  even stories. The heartbeat stays quiet while paused.
+- **Veto**: "skipped" on the portal or the board. That post never goes out; top-up replaces it.
+- **Pin**: "approved" with a day. That post waits for its day and goes first that day.
+
+If that call fails, nothing posts and an alert says so (fails closed).
+
+**The week** (`config.week`, Madeira time): Reels Mon, Wed, Thu, Sat; carousels Tue, Fri; Sunday
+no feed post. A story every day. On a Reel day with no qualified Reel a qualified carousel may stand
+in (and the other way round). Never filler: with nothing qualified the run posts nothing and alerts.
+
+**What "qualified" means** (`lib/autopilot.mjs`):
+- A Reel from `reels-plan.json` (built on the Mac by `stores/chifbay/reels/make.py`): its checks
+  passed (`checks.ok`: decode, size, duration for its format, sound, no black or frozen frames, no
+  green holes, clean cover, caption rules), built by the current plan version, not a test format
+  (unless `allow_test_reels`), not vetoed, not posted (the ledger is the record). Plan order = order
+  of publishing. Published by the API as a REELS container with the clean cover as `cover_url`.
+- A carousel or story in `queue/`: not vetoed, not pinned to a later day. Curated sets
+  (`curated.json`, `bin/curate.mjs`) go first; story templates (`stores/chifbay/reels/make_stories.py`)
+  sit between photo stories.
+
+**Published once**: the lock is taken atomically (`wx`), the daily guard holds, every media URL
+and the cover are checked live before Instagram is called, and before any retry the robot asks
+Instagram whether the last try went out after all (`findRecentPost()`): a timeout after publish
+never makes a second post. An expired token is not retried. After publishing, the post is read
+back (`verifyMedia()`) and its permalink goes in the ledger.
+
+**Tests**: `node test-auto.mjs` runs the real `bin/post.mjs` against a fake Instagram (pause, PAUSE
+file, unreadable controls, veto, failed checks, empty, rest day, timeout after publish, token
+expiry, dead media, refused file, two workers at once, restart, missed-job heartbeat). In CI.
+
+**Look**: `look.json` presets (daylight, golden, overcast), chosen per photo by measuring it
+(`lib/look.mjs`), applied ONCE to the original after the leveller. To change the look of queued
+posts: `node bin/regrade.mjs` (rebuilds from the originals, keeps captions). No grain.
+
 - `lib/manifest.mjs` writes `manifest.json` (public at chifbay.com/ig-auto/manifest.json): every
-  candidate, rebuilt by top-up and after each post. Top-up drops what he turned down.
-- **Reels are not posted by code.** They come from `stores/chifbay/reels` (`reels-plan.json`);
-  `bin/reel-due.mjs` (`ig-auto-reel.yml`, 16:30 UTC) sends the due Reel to his phone until he marks
-  it posted. `auto_feed_reels: false` keeps the old silent 6 s clips out of the feed.
+  candidate with its checks and verdict, rebuilt by top-up and after each post.
 - `bin/insights.mjs` (`ig-auto-insights.yml`, daily 06:15 UTC) reads the account and every post,
   keeps it as a run artifact and sends it to the portal.
-- The heartbeat no longer alerts on a quiet feed, only on an approved post that missed its day.
+- The old daily "post this Reel yourself" reminder (`reel-due`) is gone: Reels go out by API.
+- Music from Instagram's library cannot be added by the API. Reels carry our own sound (the sea from
+  the 360 camera, or the clip's own wind and voices).

@@ -22,7 +22,7 @@ import { applyGrade } from "../lib/grade.mjs";
 import { applyLook } from "../lib/look.mjs";
 import { pickAngle, render, writeCaption } from "../lib/caption.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
-import { usage, usedWithin, freshFirst } from "../lib/freshness.mjs";
+import { originsOf, usage, usedWithin, freshFirst } from "../lib/freshness.mjs";
 import { loadReels, saveReels, exists as fileExists } from "../lib/reels.mjs";
 import { writeManifest } from "../lib/manifest.mjs";
 import { readPlan as readPortalPlan } from "../lib/approval.mjs";
@@ -97,7 +97,10 @@ async function buildPlanned({ hashes, cooldown, context }) {
   // — that is the whole reason 78 photos make 78 posts instead of 20 — and
   // skipping plan entries also puts holes in an order that was chosen so the
   // grid reads correctly.
-  const next = plan.posts.find((p) => !done.has(p.cover));
+  // A cover already showing in the queue (as any slide) waits: two queued
+  // carousels with the same sunset is the repetition the 2 Oct audit found.
+  const inQueue = new Set(listQueue().flatMap(originsOf));
+  const next = plan.posts.find((p) => !done.has(p.cover) && !inQueue.has(p.cover));
   if (!next) return null;
 
   // Every photo in the post counts, not only the cover: supporting slides that
@@ -114,7 +117,7 @@ async function buildPlanned({ hashes, cooldown, context }) {
     // Graded first, then cropped. Grading measures the whole picture, so doing
     // it after a 4:5 crop would read a different photo from the one the plan
     // measured, and the grid would drift away from the preview.
-    const buf = applyLook(await normalise(await applyGrade(abs), "feed"));
+    const buf = await applyLook(await normalise(await applyGrade(abs), "feed"));
     const file = `${id}-${i + 1}.jpg`;
     writeFileSync(join(publicDir, file), buf);
     slides.push({
@@ -165,7 +168,7 @@ async function writeSlides(id, origins) {
   for (const [i, origin] of origins.entries()) {
     const abs = join(SITE_ROOT, origin);
     if (!existsSync(abs)) continue;
-    const buf = applyLook(await normalise(await applyGrade(abs), "feed"));
+    const buf = await applyLook(await normalise(await applyGrade(abs), "feed"));
     const file = `${id}-${i + 1}.jpg`;
     writeFileSync(join(publicDir, file), buf);
     slides.push({ origin, image: `${config.public_dir}/${file}`, url: `${config.public_base}/${file}`, sha256: sha256(buf) });
@@ -281,7 +284,7 @@ async function buildOne({ hashes, cooldown, context, kind }) {
     // Graded first, then cropped, so the house look is measured from the whole
     // picture. Stories never appear in the grid, but they are the same brand on
     // the same day and looking like a different account would be odd.
-    const buf = applyLook(await normalise(await applyGrade(picked.buf), kind));
+    const buf = await applyLook(await normalise(await applyGrade(picked.buf), kind));
     const hash = sha256(buf);
     if (hashes.has(hash)) continue; // already published this exact picture
     hashes.add(hash);

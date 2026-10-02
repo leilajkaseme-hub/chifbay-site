@@ -18,12 +18,14 @@ import {
   alreadyPostedToday, appendLedger, config, ensureDirs, kindOf, lastPostKey,
   listQueue, markPosted, recentPosts, saveState, today, withLock,
 } from "../lib/queue.mjs";
-import { assertImageIsLive, publish, slideUrls } from "../lib/publish.mjs";
+import { assertImageIsLive, findRecentPost, publish, slideUrls, verifyMedia } from "../lib/publish.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
 import { dueApproved, readApprovals } from "../lib/approval.mjs";
+import { pickFeed, postedIds, readControls, readReelPlan, slotFor } from "../lib/autopilot.mjs";
 import { writeManifest } from "../lib/manifest.mjs";
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// IG_TEST_FAST is for test-auto.mjs only: same code path, no real waiting.
+const sleep = (ms) => new Promise((r) => setTimeout(r, process.env.IG_TEST_FAST === "1" ? 1 : ms));
 
 const KIND = process.env.IG_KIND === "story" ? "story" : "feed";
 
@@ -104,17 +106,10 @@ async function main() {
   }
 
   const queue = listQueue(KIND);
-  if (!queue.length) {
-    await alert(
-      `CHIFBAY Instagram ${KIND} queue is EMPTY`,
-      `Nothing was posted today because the ${KIND} queue ran dry. Run the top-up workflow.`,
-    );
-    throw new Error(`${KIND} queue is empty — nothing to post`);
-  }
-
-  // Theo's rule since 2 Oct 2026: nothing posts without his approval.
   let item;
   if (config.require_approval !== false) {
+    // The old gated mode: only items Theo approved, on their day.
+    if (!queue.length) throw new Error(`${KIND} queue is empty — nothing to post`);
     let approvals;
     try {
       approvals = await readApprovals();
@@ -131,7 +126,43 @@ async function main() {
     }
     item = due[0];
   } else {
-    item = chooseNext(queue);
+    // Autonomous since the audit of 2 Oct 2026: pause and vetoes, then the week.
+    let ctl;
+    try {
+      ctl = await readControls();
+    } catch (err) {
+      // Fails closed. Says so loudly, because a silent stop looks like a quiet day.
+      await alert(`CHIFBAY Instagram ${KIND} held`, `The pause and veto list could not be read (${err.message}), so nothing was posted.`);
+      console.log(`not posting: pause and vetoes unreadable (${err.message})`);
+      console.log("POSTED=false");
+      return;
+    }
+    if (ctl.paused) {
+      console.log(`not posting: PAUSED (${ctl.reason || "no reason given"})`);
+      console.log("POSTED=false");
+      return;
+    }
+    const posted = postedIds();
+    if (KIND === "story") {
+      item = chooseNext(queue.filter((i) => !ctl.skipped.has(i.id) && !posted.has(i.id)));
+      if (!item) {
+        await alert("CHIFBAY Instagram story queue is EMPTY", "No story qualified today. Run the top-up workflow.");
+        console.log("POSTED=false");
+        return;
+      }
+    } else {
+      const pick = pickFeed({ plan: readReelPlan(), queue, ctl, posted, chooseQueued: chooseNext });
+      if (!pick.item) {
+        console.log(`not posting: ${pick.why}`);
+        if (slotFor() !== "rest") {
+          await alert("CHIFBAY Instagram: nothing qualified", `${pick.why}. No filler was posted. Add footage or run the top-up.`);
+        }
+        console.log("POSTED=false");
+        return;
+      }
+      item = pick.item;
+      if (pick.stand_in) console.log(`no qualified ${pick.slot} today, a qualified ${item.media === "video" ? "Reel" : "carousel"} stands in`);
+    }
   }
   console.log(`posting ${KIND} ${item.id} [${item.angle}] from ${item.origin}`);
 
@@ -151,8 +182,12 @@ async function main() {
       // and gives up on the whole post if one URL is dead, so finding that here
       // costs one HEAD request and saves the post.
       for (const url of slideUrls(item)) await assertImageIsLive(url);
+      if (item.cover_url) await assertImageIsLive(item.cover_url);
     }
 
+    // Published once, never twice: before every retry, ask Instagram whether
+    // the last attempt went out after all (a timeout can hide a success).
+    const startedAt = Date.now();
     let lastErr;
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
@@ -161,6 +196,13 @@ async function main() {
       } catch (err) {
         lastErr = err;
         console.warn(`publish attempt ${attempt} failed: ${err.message}`);
+        const already = await findRecentPost(item, startedAt).catch(() => null);
+        if (already) {
+          console.warn(`it went out anyway as ${already}: not retrying`);
+          result = { transport: "graph", media_id: already, confirmed: true, recovered: true };
+          break;
+        }
+        if (/code 190\b|OAuthException|token/i.test(err.message)) break; // a dead token does not heal in a minute
         if (attempt < 3) await sleep(60_000 * attempt);
       }
     }
@@ -176,7 +218,17 @@ async function main() {
     throw err;
   }
 
-  markPosted(item, result);
+  // Read it back: the permalink is the proof the post exists.
+  try {
+    const seen = result.media_id ? await verifyMedia(result.media_id) : null;
+    if (seen) Object.assign(result, seen);
+  } catch (err) {
+    result.unverified = String(err.message ?? err);
+    await alert(`CHIFBAY Instagram ${KIND} posted but not verified`, `${item.id} as ${result.media_id}: ${result.unverified}`);
+  }
+
+  // A Reel lives in reels-plan.json, not in queue/: the ledger is its record.
+  if (item.source !== "reel") markPosted(item, result);
   appendLedger({
     ok: true,
     kind: KIND,
@@ -191,6 +243,7 @@ async function main() {
     plan_cover: item.plan_cover,
     plan_index: item.plan_index,
     media: item.media ?? "photo",
+    cover_url: item.cover_url,
     slides: (item.slides ?? []).map((s) => s.origin).filter(Boolean),
     ...result,
   });
