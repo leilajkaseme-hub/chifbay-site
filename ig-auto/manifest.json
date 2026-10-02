@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T22:21:33.022Z",
+ "generated_at": "2026-10-02T23:17:01.912Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -20,10 +20,10 @@
    "cover": "https://chifbay.com/ig/reels/r15-daytrip.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r15-daytrip-cover.jpg",
    "colour": {
-    "hex": "#898d8c",
-    "hue": 163,
-    "light": 0.548,
-    "sat": 0.018
+    "hex": "#84867f",
+    "hue": 78,
+    "light": 0.513,
+    "sat": 0.028
    },
    "note": "",
    "format": "story",
@@ -33,7 +33,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T00:21:16"
+    "at": "2026-10-03T01:14:35"
    },
    "posted": false
   },
@@ -56,10 +56,10 @@
    "cover": "https://chifbay.com/ig/reels/r01-jump.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r01-jump-cover.jpg",
    "colour": {
-    "hex": "#757772",
-    "hue": 89,
-    "light": 0.459,
-    "sat": 0.02
+    "hex": "#536165",
+    "hue": 196,
+    "light": 0.364,
+    "sat": 0.1
    },
    "note": "",
    "format": "action",
@@ -69,7 +69,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T00:18:35"
+    "at": "2026-10-03T01:14:50"
    },
    "posted": false
   },
@@ -92,10 +92,10 @@
    "cover": "https://chifbay.com/ig/reels/r11-filmed.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r11-filmed-cover.jpg",
    "colour": {
-    "hex": "#797f7a",
-    "hue": 133,
-    "light": 0.489,
-    "sat": 0.024
+    "hex": "#436477",
+    "hue": 202,
+    "light": 0.368,
+    "sat": 0.278
    },
    "note": "",
    "format": "story",
@@ -105,7 +105,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T00:19:16"
+    "at": "2026-10-03T01:15:30"
    },
    "posted": false
   },
@@ -128,10 +128,10 @@
    "cover": "https://chifbay.com/ig/reels/r02-sunset.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r02-sunset-cover.jpg",
    "colour": {
-    "hex": "#6b685c",
-    "hue": 47,
-    "light": 0.393,
-    "sat": 0.072
+    "hex": "#7e7060",
+    "hue": 32,
+    "light": 0.437,
+    "sat": 0.135
    },
    "note": "",
    "format": "action",
@@ -141,7 +141,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T00:19:33"
+    "at": "2026-10-03T01:15:47"
    },
    "posted": false
   },
@@ -164,10 +164,10 @@
    "cover": "https://chifbay.com/ig/reels/r14-paddle.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r14-paddle-cover.jpg",
    "colour": {
-    "hex": "#747d74",
-    "hue": 119,
-    "light": 0.475,
-    "sat": 0.039
+    "hex": "#5b7c87",
+    "hue": 195,
+    "light": 0.445,
+    "sat": 0.192
    },
    "note": "",
    "format": "action",
@@ -177,7 +177,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T00:19:45"
+    "at": "2026-10-03T01:16:00"
    },
    "posted": false
   },
@@ -200,10 +200,10 @@
    "cover": "https://chifbay.com/ig/reels/r10-cabogirao.jpg",
    "clean_cover": "https://chifbay.com/ig/reels/r10-cabogirao-cover.jpg",
    "colour": {
-    "hex": "#55544e",
-    "hue": 57,
-    "light": 0.321,
-    "sat": 0.04
+    "hex": "#4a5b5d",
+    "hue": 184,
+    "light": 0.329,
+    "sat": 0.111
    },
    "note": "",
    "format": "action",
@@ -213,7 +213,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T00:20:02"
+    "at": "2026-10-03T01:16:18"
    },
    "posted": false
   },
@@ -249,7 +249,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T00:20:27"
+    "at": "2026-10-03T01:16:44"
    },
    "posted": false
   },
