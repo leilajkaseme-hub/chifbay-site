@@ -1,0 +1,16 @@
+import { chromium } from "playwright";
+const b = await chromium.launch();
+const p = await b.newPage({viewport:{width:1440,height:900}});
+let bytes=0, n=0; const par={};
+p.on("response", async r=>{ try{ const h=r.headers()["content-length"]; const t=(r.request().resourceType());
+  const s=h?parseInt(h):0; bytes+=s; n++; par[t]=(par[t]||0)+s; }catch{} });
+const t0=Date.now();
+await p.goto("https://chifbay.com/",{waitUntil:"load"});
+const load=Date.now()-t0;
+const m = await p.evaluate(()=>{const t=performance.getEntriesByType("navigation")[0]||{};
+  return {dcl:Math.round(t.domContentLoadedEventEnd||0), load:Math.round(t.loadEventEnd||0), ttfb:Math.round(t.responseStart||0)};});
+await p.waitForTimeout(2500);
+console.log(`  requetes: ${n}   poids annonce: ${(bytes/1048576).toFixed(2)} Mo`);
+console.log("  par type:", Object.entries(par).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>`${k} ${(v/1024).toFixed(0)}ko`).join("  "));
+console.log(`  TTFB ${m.ttfb}ms   DOM pret ${m.dcl}ms   charge ${m.load}ms`);
+await b.close();

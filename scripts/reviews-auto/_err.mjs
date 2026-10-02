@@ -1,0 +1,15 @@
+import { chromium } from "playwright";
+const b = await chromium.launch();
+const p = await b.newPage({viewport:{width:1280,height:1000}});
+const errs=[], reqs=[];
+p.on("console",m=>{if(m.type()==="error")errs.push(m.text().slice(0,160));});
+p.on("pageerror",e=>errs.push("PAGEERROR: "+e.message.slice(0,160)));
+p.on("requestfailed",r=>{if(r.url().includes("/v1/"))reqs.push("ECHEC "+r.url().slice(0,90)+" :: "+(r.failure()||{}).errorText);});
+p.on("response",r=>{if(r.url().includes("/v1/"))reqs.push(r.status()+" "+r.url().slice(0,100));});
+await p.goto("http://localhost:8798/book-sunset.html?v=cabo-girao",{waitUntil:"networkidle"});
+await p.waitForTimeout(5000);
+const cal = await p.evaluate(()=>{const c=document.querySelector("#bkcal");return c?c.innerHTML.slice(0,220):"absent";});
+console.log("appels:", reqs.length?reqs:"aucun");
+console.log("erreurs:", errs.length?errs:"aucune");
+console.log("calendrier:", cal);
+await b.close();
