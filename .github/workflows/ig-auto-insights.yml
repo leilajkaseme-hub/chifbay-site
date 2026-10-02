@@ -1,0 +1,41 @@
+name: Chifbay Instagram — insights
+
+# Reads how the account is doing (reach, followers, every post's numbers) and
+# keeps the result as a run artifact. Read only: it never posts and never pushes.
+# Download: gh run download <run id> -R leilajkaseme-hub/chifbay-site -n ig-insights
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "15 6 * * *"   # daily, so the trend exists before anyone asks for it
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Read the insights
+        working-directory: ig-auto
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node bin/insights.mjs > insights.json
+
+      - name: Keep the result
+        uses: actions/upload-artifact@v4
+        with:
+          name: ig-insights
+          path: ig-auto/insights.json
+          retention-days: 90
