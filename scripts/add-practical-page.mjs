@@ -26,7 +26,7 @@ const LANGS = ["en", "fr", "de", "pt", "es", "it"];
 const T = {
   en: {
     title: "Practical information · Chifbay private boat trips, Funchal",
-    desc: "Where to meet, departure and return times, what is on board, what to bring, weather and cancellation for a Chifbay private boat trip from Marina do Funchal.",
+    desc: "Meeting point, departure and return times, what is on board and what to bring for a Chifbay private boat trip from Marina do Funchal.",
     crumb: "Practical information", badge: "Before you go", h1: "Practical <em>information</em>",
     sub: "Where to meet, when you leave and come back, what is on board and what to bring.",
     meetK: "Meeting point", meetH: "Marina do Funchal, pontoon side",
@@ -46,7 +46,7 @@ const T = {
   },
   fr: {
     title: "Infos pratiques · Chifbay, bateau privé à Funchal",
-    desc: "Point de rendez vous, horaires de départ et de retour, ce qui est à bord, quoi apporter, météo et annulation pour une sortie en bateau privé Chifbay depuis la Marina do Funchal.",
+    desc: "Point de rendez vous, horaires, ce qui est à bord et quoi apporter pour une sortie en bateau privé Chifbay depuis la Marina do Funchal.",
     crumb: "Infos pratiques", badge: "Avant de partir", h1: "Infos <em>pratiques</em>",
     sub: "Où se retrouver, à quelle heure on part et on rentre, ce qu'il y a à bord et quoi apporter.",
     meetK: "Point de rendez vous", meetH: "Marina do Funchal, côté ponton",
@@ -66,7 +66,7 @@ const T = {
   },
   de: {
     title: "Praktische Infos · Chifbay Privatboot ab Funchal",
-    desc: "Treffpunkt, Abfahrts und Rückkehrzeiten, was an Bord ist, was Sie mitbringen sollten, Wetter und Stornierung für eine Chifbay Privatbootstour ab der Marina do Funchal.",
+    desc: "Treffpunkt, Abfahrt und Rückkehr, was an Bord ist und was Sie mitbringen für eine private Chifbay Bootstour ab der Marina do Funchal.",
     crumb: "Praktische Infos", badge: "Vor der Fahrt", h1: "Praktische <em>Infos</em>",
     sub: "Wo wir uns treffen, wann es losgeht und zurückkommt, was an Bord ist und was Sie mitbringen.",
     meetK: "Treffpunkt", meetH: "Marina do Funchal, am Steg",
@@ -86,7 +86,7 @@ const T = {
   },
   pt: {
     title: "Informações práticas · Chifbay barco privado no Funchal",
-    desc: "Ponto de encontro, horas de partida e regresso, o que há a bordo, o que levar, meteorologia e cancelamento de um passeio de barco privado Chifbay a partir da Marina do Funchal.",
+    desc: "Ponto de encontro, horários, o que há a bordo e o que levar num passeio de barco privado Chifbay a partir da Marina do Funchal.",
     crumb: "Informações práticas", badge: "Antes de ir", h1: "Informações <em>práticas</em>",
     sub: "Onde nos encontramos, a que horas parte e regressa, o que há a bordo e o que levar.",
     meetK: "Ponto de encontro", meetH: "Marina do Funchal, junto ao pontão",
@@ -106,7 +106,7 @@ const T = {
   },
   es: {
     title: "Información práctica · Chifbay barco privado en Funchal",
-    desc: "Punto de encuentro, horas de salida y regreso, qué hay a bordo, qué llevar, tiempo y cancelación de una salida en barco privado Chifbay desde la Marina do Funchal.",
+    desc: "Punto de encuentro, horarios, qué hay a bordo y qué llevar en una salida en barco privado Chifbay desde la Marina do Funchal.",
     crumb: "Información práctica", badge: "Antes de salir", h1: "Información <em>práctica</em>",
     sub: "Dónde quedamos, a qué hora sales y vuelves, qué hay a bordo y qué llevar.",
     meetK: "Punto de encuentro", meetH: "Marina do Funchal, junto al pantalán",
@@ -126,7 +126,7 @@ const T = {
   },
   it: {
     title: "Informazioni pratiche · Chifbay barca privata a Funchal",
-    desc: "Punto d'incontro, orari di partenza e rientro, cosa c'è a bordo, cosa portare, meteo e cancellazione per un'uscita in barca privata Chifbay dalla Marina do Funchal.",
+    desc: "Punto d'incontro, orari, cosa c'è a bordo e cosa portare per un'uscita in barca privata Chifbay dalla Marina do Funchal.",
     crumb: "Informazioni pratiche", badge: "Prima di partire", h1: "Informazioni <em>pratiche</em>",
     sub: "Dove ci troviamo, a che ora si parte e si rientra, cosa c'è a bordo e cosa portare.",
     meetK: "Punto d'incontro", meetH: "Marina do Funchal, lato pontile",
