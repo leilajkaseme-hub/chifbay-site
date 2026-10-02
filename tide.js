@@ -640,4 +640,45 @@
     if (REDUCE) { f.classList.add("open"); return; }
     inView(f, function (on) { if (on) f.classList.add("open"); }, { rootMargin: "0px 0px -18% 0px" });
   });
+
+  /* ---------------------------------------- the boat between chapters
+     Home page only. A thin wake band before the media chapter and before the
+     route map; the boat crosses each band as it passes through the screen,
+     so it travels down the page and arrives at the map. The bands are their
+     own space: the boat never sits over text or a button. */
+  if (document.querySelector("header.hero.hero-v")) {
+    var hulls = '<path class="hull" d="M-12,-5.5 L7,-5.5 Q15,-2 16,0 Q15,2 7,5.5 L-12,5.5 Q-14,0 -12,-5.5Z"/>' +
+      '<rect class="deck" x="-6" y="-3" width="9" height="6" rx="1.5"/>';
+    ["section.minc", ".t-route"].forEach(function (sel, n) {
+      var target = document.querySelector(sel);
+      if (!target) return;
+      var band = document.createElement("div");
+      band.className = "t-wake" + (n ? " t-wake-in" : "");
+      band.setAttribute("aria-hidden", "true");
+      var W2 = 1200, Hh = 60;
+      // drawn from the east (right) to the west, the way the boat sails on the map
+      var wave = "M" + W2 + ",30 " + Array.apply(null, Array(12)).map(function (_, i) { return "q-50," + (i % 2 ? 14 : -14) + " -100,0"; }).join(" ");
+      band.innerHTML = '<svg viewBox="0 0 ' + W2 + " " + Hh + '" preserveAspectRatio="none"><path class="w-bg" d="' + wave + '"/>' +
+        '<path class="w-fg" d="' + wave + '"/></svg><svg class="w-boat" viewBox="-20 -10 40 20"><g transform="rotate(180)">' + hulls + "</g></svg>";
+      target.parentNode.insertBefore(band, target);
+      var fg = band.querySelector(".w-fg"), boatEl = band.querySelector(".w-boat");
+      var len = fg.getTotalLength();
+      fg.style.strokeDasharray = len;
+      function draw(k) {
+        fg.style.strokeDashoffset = (len * (1 - k)).toFixed(1);
+        var pt = fg.getPointAtLength(len * k), r = band.getBoundingClientRect();
+        boatEl.style.transform = "translate(" + (pt.x / W2 * r.width).toFixed(1) + "px," + (pt.y / Hh * r.height).toFixed(1) + "px)";
+      }
+      if (REDUCE) { draw(1); return; }
+      var on = false;
+      inView(band, function (v) { on = v; if (v) runScroll(); });
+      onScroll(function () {
+        if (!on) return;
+        var r = band.getBoundingClientRect(), vh = innerHeight;
+        // enters at the bottom of the screen, done at 35% from the top
+        draw(Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.65))));
+      });
+      draw(0);
+    });
+  }
 })();

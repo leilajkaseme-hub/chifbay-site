@@ -747,6 +747,23 @@
     } catch (e) {}
   }
 
+  /* Proof next to the decision: the real rating and count from the site's own
+     review file (reviews.json, rebuilt from Google, GetYourGuide and
+     Tripadvisor). Nothing shows if the file cannot be read. */
+  function showProof() {
+    var host = document.querySelector(".bkhc");
+    if (!host || host.querySelector(".bkproof") || !window.fetch) return;
+    fetch("/reviews.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+      var a = d && d.aggregate;
+      if (!a || !a.count) return;
+      var el = document.createElement("a");
+      el.className = "bkproof";
+      el.href = "/reviews";
+      el.innerHTML = '<span aria-hidden="true">★★★★★</span> ' + esc(t("ui.proof", { r: Number(a.rating).toFixed(1), n: a.count }));
+      host.appendChild(el);
+    }).catch(function () {});
+  }
+
   function renderTimes() {
     var box = $("#bktimes");
     if (!state.date) {
@@ -985,6 +1002,7 @@
 
         // Native app handoff and existing ?v= links share the live catalogue.
         // URL values never override prices, capacity or available departures.
+        showProof();
         var params = new URLSearchParams(location.search);
         var tripHint = params.get("trip");
         var variantHint = params.get("variant") || params.get("v");

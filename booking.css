@@ -386,3 +386,6 @@
   border:1px solid rgba(var(--edge-rgb),.2);background:transparent;color:var(--paper)}
 .bkjump:hover{border-color:var(--teal);color:var(--teal)}
 .bkjump:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.bkproof{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:.88rem;color:rgba(255,255,255,.88);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
+.bkproof span{color:#e0be7a;letter-spacing:.08em}
+.bkproof:hover{border-color:#fff;color:#fff}

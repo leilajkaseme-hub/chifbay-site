@@ -506,3 +506,32 @@ section.minc .mi:nth-child(3){transition-delay:.22s}
   section.minc .mi:first-child{grid-row:auto;min-height:0;aspect-ratio:4/5}
   section.minc .mi:not(:first-child){min-height:0;aspect-ratio:16/11}}
 section.minc .chead,section.minc .chead *{color:rgba(240,245,244,.72)!important}
+
+/* ---------------------------------------- wake bands: the boat between chapters */
+.t-wake{position:relative;height:60px;margin:clamp(10px,3vh,30px) 32px;pointer-events:none}
+.t-wake svg:first-child{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.t-wake .w-bg{fill:none;stroke:rgba(16,74,124,.18);stroke-width:1.5;stroke-dasharray:2 8;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.t-wake .w-fg{fill:none;stroke:#104a7c;stroke-width:2;stroke-linecap:round}
+.t-wake .w-boat{position:absolute;left:0;top:0;width:44px;height:22px;margin:-11px 0 0 -22px;overflow:visible;will-change:transform}
+.t-wake .w-boat .hull{fill:#0b1b29;stroke:#fff;stroke-width:1.2}
+.t-wake .w-boat .deck{fill:#f7f5f1}
+:root[data-theme="dark"] .t-wake .w-fg{stroke:#e0be7a}
+:root[data-theme="dark"] .t-wake .w-boat .hull{fill:#e0be7a;stroke:#0b1b29}
+@media(max-width:760px){.t-wake{height:40px;margin:8px 16px}.t-wake .w-boat{width:34px;height:17px;margin:-8px 0 0 -17px}}
+
+/* ---------------------------------------- Journal: plan your trip + topics */
+.bfeat{margin:0 0 46px}
+.bfeat-h{font-size:clamp(1.4rem,2.6vw,2rem);margin:0 0 18px}
+.bfeat-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.bfeat-g .bcard{border-color:rgba(16,74,124,.25)}
+.bcats{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.bcats button{font:inherit;font-size:.86rem;font-weight:500;padding:8px 14px;border-radius:999px;cursor:pointer;
+  border:1px solid rgba(var(--edge-rgb),.16);background:transparent;color:var(--paper)}
+.bcats button span{opacity:.55;font-size:.78rem;margin-left:2px}
+.bcats button[aria-pressed="true"]{background:#104a7c;border-color:#104a7c;color:#fff}
+.bcats button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media(max-width:1000px){.bfeat-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.bfeat-g{grid-template-columns:1fr}}
+a.bcard{color:var(--paper);text-decoration:none}
+a.bcard h3{color:var(--paper)}
+a.bcard:hover h3{color:#104a7c}
