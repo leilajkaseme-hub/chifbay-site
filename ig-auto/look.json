@@ -1,0 +1,9 @@
+{
+  "_comment": "The Chifbay look, shared by every Reel (stores/chifbay/reels/make.py) and every photo the robot queues (lib/look.mjs). Measured 2 Oct 2026 against the boat accounts that grow (luxurychartermadeira, giannisboat.capri, frauscherboats): their highlights roll off softly and lean gold, their shadows lean navy, the blacks are slightly lifted like film. Ours were cold and clipped. Change it here only, then rebuild the Reels and let top-up regrade.",
+  "name": "Atlantic",
+  "ffmpeg": "colorbalance=rs=-0.06:gs=-0.03:bs=0.06:rm=0.015:gm=-0.01:bm=0.0:rh=0.08:gh=0.015:bh=-0.06,curves=all='0/0.035 0.25/0.225 0.6/0.615 1/0.92',eq=saturation=1.05",
+  "hook_font": "DM Serif Display Italic",
+  "label_font": "Satoshi Medium",
+  "navy": "#050f18",
+  "gold": "#c9a45c"
+}

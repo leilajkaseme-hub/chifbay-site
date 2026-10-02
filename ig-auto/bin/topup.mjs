@@ -19,6 +19,7 @@ import {
 } from "../lib/queue.mjs";
 import { generateAI, normalise, pickFromLibrary } from "../lib/image.mjs";
 import { applyGrade } from "../lib/grade.mjs";
+import { applyLook } from "../lib/look.mjs";
 import { pickAngle, render, writeCaption } from "../lib/caption.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
 import { usage, usedWithin, freshFirst } from "../lib/freshness.mjs";
@@ -113,7 +114,7 @@ async function buildPlanned({ hashes, cooldown, context }) {
     // Graded first, then cropped. Grading measures the whole picture, so doing
     // it after a 4:5 crop would read a different photo from the one the plan
     // measured, and the grid would drift away from the preview.
-    const buf = await normalise(await applyGrade(abs), "feed");
+    const buf = applyLook(await normalise(await applyGrade(abs), "feed"));
     const file = `${id}-${i + 1}.jpg`;
     writeFileSync(join(publicDir, file), buf);
     slides.push({
@@ -164,7 +165,7 @@ async function writeSlides(id, origins) {
   for (const [i, origin] of origins.entries()) {
     const abs = join(SITE_ROOT, origin);
     if (!existsSync(abs)) continue;
-    const buf = await normalise(await applyGrade(abs), "feed");
+    const buf = applyLook(await normalise(await applyGrade(abs), "feed"));
     const file = `${id}-${i + 1}.jpg`;
     writeFileSync(join(publicDir, file), buf);
     slides.push({ origin, image: `${config.public_dir}/${file}`, url: `${config.public_base}/${file}`, sha256: sha256(buf) });
@@ -280,7 +281,7 @@ async function buildOne({ hashes, cooldown, context, kind }) {
     // Graded first, then cropped, so the house look is measured from the whole
     // picture. Stories never appear in the grid, but they are the same brand on
     // the same day and looking like a different account would be odd.
-    const buf = await normalise(await applyGrade(picked.buf), kind);
+    const buf = applyLook(await normalise(await applyGrade(picked.buf), kind));
     const hash = sha256(buf);
     if (hashes.has(hash)) continue; // already published this exact picture
     hashes.add(hash);

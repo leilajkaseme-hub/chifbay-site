@@ -46,6 +46,10 @@ jobs:
 
       # Captions are written by Claude Code on the subscription OAuth token, the
       # same way blog-auto.yml does it — no Anthropic API key, no per-post cost.
+      # The Atlantic look (look.json) is applied with ffmpeg to every photo.
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
       - name: Install Claude Code
         run: npm install -g @anthropic-ai/claude-code
 

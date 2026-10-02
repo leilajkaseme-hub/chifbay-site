@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-02T15:00:16.398Z",
+ "generated_at": "2026-10-02T15:53:00.387Z",
  "items": [
   {
    "id": "r01-jump",
@@ -19,10 +19,10 @@
    "preview": "https://chifbay.com/ig/reels/r01-jump-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r01-jump.jpg",
    "colour": {
-    "hex": "#606266",
-    "hue": 219,
-    "light": 0.391,
-    "sat": 0.029
+    "hex": "#5c5c5a",
+    "hue": 78,
+    "light": 0.359,
+    "sat": 0.013
    },
    "note": ""
   },
@@ -44,10 +44,10 @@
    "preview": "https://chifbay.com/ig/reels/r02-sunset-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r02-sunset.jpg",
    "colour": {
-    "hex": "#847d76",
-    "hue": 32,
-    "light": 0.491,
-    "sat": 0.054
+    "hex": "#766f5f",
+    "hue": 43,
+    "light": 0.419,
+    "sat": 0.106
    },
    "note": ""
   },
@@ -69,10 +69,10 @@
    "preview": "https://chifbay.com/ig/reels/r03-swim-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r03-swim.jpg",
    "colour": {
-    "hex": "#6c7176",
-    "hue": 212,
-    "light": 0.445,
-    "sat": 0.044
+    "hex": "#636561",
+    "hue": 93,
+    "light": 0.39,
+    "sat": 0.022
    },
    "note": ""
   },
@@ -94,10 +94,10 @@
    "preview": "https://chifbay.com/ig/reels/r04-above-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r04-above.jpg",
    "colour": {
-    "hex": "#64777d",
-    "hue": 195,
-    "light": 0.443,
-    "sat": 0.113
+    "hex": "#5b6b66",
+    "hue": 163,
+    "light": 0.391,
+    "sat": 0.08
    },
    "note": ""
   },
@@ -119,10 +119,10 @@
    "preview": "https://chifbay.com/ig/reels/r05-turquoise-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r05-turquoise.jpg",
    "colour": {
-    "hex": "#526f78",
-    "hue": 194,
-    "light": 0.398,
-    "sat": 0.191
+    "hex": "#4f6669",
+    "hue": 186,
+    "light": 0.362,
+    "sat": 0.142
    },
    "note": ""
   },
@@ -144,10 +144,60 @@
    "preview": "https://chifbay.com/ig/reels/r06-cliffs-p.mp4",
    "cover": "https://chifbay.com/ig/reels/r06-cliffs.jpg",
    "colour": {
-    "hex": "#434647",
-    "hue": 193,
-    "light": 0.271,
-    "sat": 0.028
+    "hex": "#2d3437",
+    "hue": 199,
+    "light": 0.197,
+    "sat": 0.097
+   },
+   "note": ""
+  },
+  {
+   "id": "r07-three",
+   "kind": "reel",
+   "media": "video",
+   "hook": "One boat. One day. All yours.",
+   "caption": "A swim stop, open water, then the run home at sunset. One private boat from Funchal marina, Madeira, just your group on board.\n\nSend this to the one you would bring.\n\nchifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 5,
+   "video": "https://chifbay.com/ig/reels/r07-three.mp4",
+   "preview": "https://chifbay.com/ig/reels/r07-three-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r07-three.jpg",
+   "colour": {
+    "hex": "#595f5b",
+    "hue": 142,
+    "light": 0.363,
+    "sat": 0.033
+   },
+   "note": ""
+  },
+  {
+   "id": "r08-coast",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Madeira, from the water",
+   "caption": "Above the boat, under the cliffs, in the water. The south coast of Madeira the way only a boat shows it. Private trips from Funchal.\n\nSave this for your trip.\n\nchifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 4.6,
+   "video": "https://chifbay.com/ig/reels/r08-coast.mp4",
+   "preview": "https://chifbay.com/ig/reels/r08-coast-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r08-coast.jpg",
+   "colour": {
+    "hex": "#4c5b55",
+    "hue": 156,
+    "light": 0.33,
+    "sat": 0.092
    },
    "note": ""
   },
