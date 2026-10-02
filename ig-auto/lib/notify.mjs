@@ -6,12 +6,12 @@
 // that otherwise worked, and must never stop a post going out.
 import { config } from "./queue.mjs";
 
-async function send(topic, title, message, { priority = "default", tags = "boat" } = {}) {
+async function send(topic, title, message, { priority = "default", tags = "boat", extra = {} } = {}) {
   if (!topic) return;
   try {
     await fetch(topic, {
       method: "POST",
-      headers: { Title: title, Priority: priority, Tags: tags },
+      headers: { Title: title, Priority: priority, Tags: tags, ...extra },
       body: message,
       signal: AbortSignal.timeout(20_000),
     });
@@ -25,3 +25,10 @@ export const alert = (title, message) =>
 
 export const inbox = (title, message) =>
   send(config.ntfy.inbox, title, message, { priority: "default", tags: "camera,boat" });
+
+/** A job for Theo's phone: tapping it opens `click`, `attach` rides along. */
+export const task = (title, message, { click, attach } = {}) =>
+  send(config.ntfy.inbox, title, message, {
+    priority: "high", tags: "clapper,boat",
+    extra: { ...(click ? { Click: click } : {}), ...(attach ? { Attach: attach } : {}) },
+  });

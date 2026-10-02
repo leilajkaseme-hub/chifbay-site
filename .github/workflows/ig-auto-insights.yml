@@ -33,6 +33,17 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: node bin/insights.mjs > insights.json
 
+      # The portal's Instagram page shows these numbers. Only the Worker and
+      # this repo know IG_SYNC_SECRET; without it the Worker answers 404.
+      - name: Send them to the portal
+        env:
+          IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+        run: |
+          curl -sf --max-time 60 -X POST \
+            -H "Authorization: Bearer $IG_SYNC_SECRET" -H "Content-Type: application/json" \
+            --data-binary @ig-auto/insights.json \
+            https://chifbay-booking-api.chifandcopt.workers.dev/v1/ig/insights
+
       - name: Keep the result
         uses: actions/upload-artifact@v4
         with:
