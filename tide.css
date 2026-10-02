@@ -657,3 +657,17 @@ a.bcard:hover h3{color:#104a7c}
   .atlas .reserve .rc,.reserve .rc{padding:52px 20px 0}
 }
 .reserve .alt a[href^="tel:"]{white-space:nowrap}
+
+/* footer, 2 Oct audit: Brand · Book · Contact · Explore · App (set-footer.mjs) */
+.fg.fg5{grid-template-columns:minmax(220px,1.35fr) repeat(4,minmax(0,1fr));gap:36px 32px;align-items:start}
+.fg5 .fb2 p{max-width:34ch}
+.fg5 .fc .fsoc{margin-top:14px;flex-wrap:wrap}
+.fg5 .fc .fsoc a{display:inline-flex;margin:0}
+.fg5 .fc-app p{color:var(--muted);font-size:.86rem;line-height:1.6;margin:0 0 14px;max-width:28ch}
+.fg5 .fc-app .fappb{display:inline-block;line-height:0;margin:0}
+.fg5 .fc-app .fappb img{height:44px;width:auto;display:block}
+.fbot .flegal{display:flex;flex-wrap:wrap;gap:6px 18px;width:100%;margin-bottom:6px}
+.fbot .flegal a{color:var(--muted);font-size:.8rem;text-decoration:none}
+.fbot .flegal a:hover{color:var(--paper);text-decoration:underline}
+@media(max-width:1100px){.fg.fg5{grid-template-columns:repeat(3,minmax(0,1fr))}.fg5 .fb2{grid-column:1/-1}.fg5 .fb2 p{max-width:60ch}}
+@media(max-width:620px){.fg.fg5{grid-template-columns:1fr 1fr;gap:30px 20px}.fg5 .fc-app .fappb img{height:40px}}
