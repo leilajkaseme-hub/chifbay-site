@@ -96,7 +96,9 @@ async function main() {
   for (const tour of TOURS) {
     const page = await browser.newPage({ userAgent: UA });
     try {
-      await page.goto(tour.url, { waitUntil: "networkidle", timeout: 45000 });
+      // "networkidle" never settles on GetYourGuide on some runs (45 s timeouts on
+      // every tour, 2 Oct 2026): wait for the document, then for review cards.
+      await page.goto(tour.url, { waitUntil: "domcontentloaded", timeout: 60000 });
       // Wait for a review card to actually exist rather than trusting
       // networkidle plus a fixed sleep. Reviews are client-rendered, so on a
       // slower run they were not in the DOM yet and the tour silently yielded

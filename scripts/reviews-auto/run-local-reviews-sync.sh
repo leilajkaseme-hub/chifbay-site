@@ -99,8 +99,13 @@ cd "$SCRIPT_DIR" || fail "reviews-auto dir missing"
 [ -d node_modules ] || npm install --no-audit --no-fund || fail "npm install failed"
 
 STAGE="fetch"
-node scrape-gyg.mjs || fail "scrape-gyg.mjs failed — see launchd-err.log"
-node scrape-google.mjs || fail "scrape-google.mjs failed — see launchd-err.log"
+# One source failing must not block the others: its last scraped file stays,
+# and build-reviews.mjs carries its published reviews forward. The run is
+# still reported as failed (with the source named), so a source that stays
+# down raises the watchdog alert even while the others keep publishing.
+FETCH_ERR=""
+node scrape-gyg.mjs || FETCH_ERR="$FETCH_ERR getyourguide"
+node scrape-google.mjs || FETCH_ERR="$FETCH_ERR google"
 
 # Tripadvisor. Two routes, tried best-first:
 #
@@ -124,6 +129,10 @@ if [ -f "$SCRIPT_DIR/data/.tripadvisor-key" ] || [ -n "${TRIPADVISOR_API_KEY:-}"
 fi
 if [ "$TA_OK" -eq 0 ]; then
   if node scrape-tripadvisor-browser.mjs; then TA_OK=1; fi
+fi
+[ "$TA_OK" -eq 1 ] || FETCH_ERR="$FETCH_ERR tripadvisor"
+if [ "$FETCH_ERR" = " getyourguide google tripadvisor" ]; then
+  fail "every source failed to fetch:$FETCH_ERR"
 fi
 if [ "$TA_OK" -eq 0 ]; then
   curl -s --max-time 20 \
@@ -226,8 +235,8 @@ if ! git diff --quiet; then
 fi
 
 if git diff --cached --quiet; then
-  date +%s > "$HEARTBEAT"
-  report true false
+  [ -z "$FETCH_ERR" ] && date +%s > "$HEARTBEAT"
+  if [ -z "$FETCH_ERR" ]; then report true false; else report false false "fetch failed:$FETCH_ERR (others published)"; fi
   sync_local
   exit 0
 fi
@@ -239,8 +248,8 @@ git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.
 # blog or Instagram jobs costs seconds instead of a failed run.
 "$WT/scripts/ci-push.sh" || fail "git push failed"
 # Success means published, not merely scraped.
-date +%s > "$HEARTBEAT"
-report true true
+if [ -z "$FETCH_ERR" ]; then date +%s > "$HEARTBEAT"; report true true
+else report false true "fetch failed:$FETCH_ERR (others published)"; fi
 sync_local
 
 if [ -n "${NEW_COUNT:-}" ] && [ "$NEW_COUNT" != "0" ]; then
