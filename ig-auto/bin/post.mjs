@@ -20,6 +20,7 @@ import {
 } from "../lib/queue.mjs";
 import { assertImageIsLive, publish, slideUrls } from "../lib/publish.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
+import { dueApproved, readApprovals } from "../lib/approval.mjs";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -110,7 +111,27 @@ async function main() {
     throw new Error(`${KIND} queue is empty — nothing to post`);
   }
 
-  const item = chooseNext(queue);
+  // Theo's rule since 2 Oct 2026: nothing posts without his approval.
+  let item;
+  if (config.require_approval !== false) {
+    let approvals;
+    try {
+      approvals = await readApprovals();
+    } catch (err) {
+      console.log(`not posting: the approval list could not be read (${err.message})`);
+      console.log("POSTED=false");
+      return;
+    }
+    const due = dueApproved(queue, approvals);
+    if (!due.length) {
+      console.log(`no approved ${KIND} is due today (${queue.length} waiting for approval)`);
+      console.log("POSTED=false");
+      return;
+    }
+    item = due[0];
+  } else {
+    item = chooseNext(queue);
+  }
   console.log(`posting ${KIND} ${item.id} [${item.angle}] from ${item.origin}`);
 
   // Everything that can go wrong from here is handled the same way, because

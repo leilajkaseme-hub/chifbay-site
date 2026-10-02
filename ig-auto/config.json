@@ -49,5 +49,8 @@
   "_comment_story_dirs": "Stories come from the 9:16 album, the feed from everything else. A photo that has a 9:16 crop is a story and never a post: the crop keeps the original's filename, so the feed pool skips any stem it finds here.",
   "_comment_freshness": "Queues hold 4 days, not 12: a photo dropped in Drive must reach the account within days. slide_reuse_days applies to EVERY photo in a post, cover or swipe; story_reuse_days lets the small 9:16 album come round (stories vanish after 24h). A Reel goes out every other feed post while clips last (lib/reels.mjs cuts them from Drive videos).",
   "slide_reuse_days": 90,
-  "story_reuse_days": 21
+  "story_reuse_days": 21,
+  "_comment_approval": "Since 2 Oct 2026 nothing posts without Theo's approval. He approves on the portal (/portal/instagram); post.mjs only takes items that are approved and due, and posts nothing when the list cannot be read.",
+  "require_approval": true,
+  "approvals_url": "https://chifbay-booking-api.chifandcopt.workers.dev/v1/ig/approvals"
 }

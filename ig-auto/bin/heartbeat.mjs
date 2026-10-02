@@ -16,6 +16,7 @@
 // genuinely alive, today.
 import { config, kindOf, lastPostKey, listQueue, readLedger, state, today } from "../lib/queue.mjs";
 import { alert } from "../lib/notify.mjs";
+import { readApprovals } from "../lib/approval.mjs";
 
 const DAY = 86_400_000;
 const HOUR = 3_600_000;
@@ -57,6 +58,18 @@ const ok = ledger.filter((e) => e.ok);
 const st = state();
 const problems = [];
 
+// Since 2 Oct 2026 nothing posts without Theo's approval, so a quiet feed is
+// normal. What is NOT normal is an approved post whose day has passed.
+const gated = config.require_approval !== false;
+let approvals = null;
+if (gated) {
+  try {
+    approvals = await readApprovals();
+  } catch (err) {
+    problems.push(`the approval list could not be read (${err.message}), so nothing can post`);
+  }
+}
+
 console.log(`transport   ${config.transport}`);
 
 for (const [kind, target, low] of [
@@ -75,7 +88,12 @@ for (const [kind, target, low] of [
   );
 
   const at = lastOkAt(kind);
-  if (!last) {
+  if (gated) {
+    const overdue = queue.filter((i) => approvals?.get(i.id)?.day < today());
+    if (overdue.length) {
+      problems.push(`${overdue.length} approved ${kind} post(s) are past their day and did not go out`);
+    }
+  } else if (!last) {
     // Not an alert on a fresh install — there is genuinely nothing to report.
     console.log(`            nothing posted yet — run the ${kind} workflow once to start`);
   } else if (at !== null) {
