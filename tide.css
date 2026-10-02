@@ -421,3 +421,41 @@ html.sbar-on #cb-consent{bottom:calc(84px + env(safe-area-inset-bottom))}
   .nl{visibility:hidden;transition:transform .4s cubic-bezier(.15,.8,.15,1),visibility 0s linear .4s}
   .nl.open{visibility:visible;transition:transform .4s cubic-bezier(.15,.8,.15,1),visibility 0s}
 }
+
+/* ---------------------------------------- home hero: edge to edge
+   The owner's brief (2 Oct 2026): full screen video, no frame, no rounded
+   container. The frame opening on scroll is gone; the hero is borderless
+   from the first frame. */
+header.hero,.hero.t-frame{clip-path:none!important;--fi:0px;--fr:0px}
+header.hero.hero-v{min-height:100svh}
+.t-vid{position:absolute;z-index:6;right:32px;bottom:86px;width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;color:#fff;background:rgba(5,15,24,.38);
+  border:1px solid rgba(255,255,255,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  transition:background .2s,border-color .2s}
+.t-vid:hover{background:rgba(5,15,24,.6);border-color:#fff}
+.t-vid:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.t-vid svg{width:15px;height:15px;fill:currentColor}
+@media(max-width:560px){.t-vid{right:16px;bottom:auto;top:118px;width:40px;height:40px}}
+
+/* ---------------------------------------- practical information page */
+.t-pgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.t-pcard{background:rgba(var(--paper-rgb),.035);border:1px solid rgba(var(--edge-rgb),.08);border-radius:22px;padding:30px 30px 28px}
+.t-pcard h2{font-size:clamp(1.35rem,2.2vw,1.75rem);margin:8px 0 14px}
+.t-pcard p{color:var(--muted);line-height:1.7;margin:0 0 14px}
+.t-pwide{grid-column:span 2}
+.t-paddr{font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.04em}
+.t-ptimes{width:100%;border-collapse:collapse;margin:4px 0 14px}
+.t-ptimes th,.t-ptimes td{padding:13px 0;border-bottom:1px solid rgba(var(--edge-rgb),.09);text-align:left;font-weight:500}
+.t-ptimes td{font-family:'Space Mono',monospace;font-size:.92rem;text-align:right;white-space:nowrap}
+.t-pnote{font-size:.86rem}
+.t-plist{list-style:none;margin:0;padding:0}
+.t-plist li{position:relative;padding:9px 0 9px 26px;border-bottom:1px solid rgba(var(--edge-rgb),.07);line-height:1.5}
+.t-plist li:last-child{border-bottom:0}
+.t-plist li::before{content:"";position:absolute;left:2px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
+.t-plink{display:inline-block;margin-top:12px;font-weight:500}
+.t-pcta{margin-top:42px}
+@media(max-width:760px){.t-pgrid{grid-template-columns:1fr}.t-pwide{grid-column:auto}.t-pcard{padding:24px 20px}
+  .t-ptimes th,.t-ptimes td{display:block;text-align:left;padding:4px 0}.t-ptimes tr{display:block;padding:10px 0;border-bottom:1px solid rgba(var(--edge-rgb),.09)}.t-ptimes th,.t-ptimes td{border:0}}
+header.hero .hbadge{text-shadow:0 1px 10px rgba(5,15,24,.7)}
+.t-pcard a:not(.btn){color:var(--teal);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.t-pcard a:not(.btn):hover{text-decoration-thickness:2px}

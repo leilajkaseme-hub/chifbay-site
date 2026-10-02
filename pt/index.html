@@ -51,13 +51,10 @@
 <nav id="nav"><div class="wrap ni">
   <a class="logo" href="/pt/"><img decoding="async" src="../assets/logo-white.png" alt="Chifbay — passeios de barco privados na Madeira, Funchal"></a>
   <nav class="nl">
-    <a href="/pt/" class="active">Início</a>
-    <a href="experiences">Experiências</a>
-    <a href="about">A História</a>
-    <a href="blog">Diário</a>
-    <a href="contact">Contacto</a>
-    <a href="/reviews">Avaliações</a>
-    <a href="/review">Deixar avaliação</a>
+    <a href="/pt/experiences">Experiências</a>
+    <a href="/pt/about">Barco e tripulação</a>
+    <a href="/pt/practical">Informações</a>
+    <a href="/pt/blog">Diário</a>
   </nav>
   <div style="display:flex;align-items:center">
     <div class="langsel" style="margin-right:14px"><button class="langbtn" title="Language"><span aria-hidden="true">🌐</span> <span class="langcode">PT</span> <span aria-hidden="true">▾</span></button><div class="langmenu"><a href="/">English</a><a href="/fr/">Français</a><a href="/de/">Deutsch</a><a href="/pt/">Português</a><a href="/es/">Español</a><a href="/it/">Italiano</a></div></div>
@@ -126,9 +123,10 @@
      rejection, so the hero stayed frozen with nothing in the console. Retry on
      every moment the browser may allow it, including the first gesture, which
      iOS always accepts. */
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) v.dataset.hold = '1';
   var playing = false;
   function go() {
-    if (playing || !v.paused) return;
+    if (playing || !v.paused || v.dataset.hold) return;
     var r = v.play();
     if (r && r.then) r.then(function () { playing = true; }, function () {});
   }
@@ -154,7 +152,7 @@
     <h1 data-mask>O melhor <em>barco privado</em> da Madeira</h1>
     <p class="hsub">O seu barco, ao seu ritmo, com toda a costa sul só para si — enseadas secretas, grutas marinhas, o Cabo Girão e um fim de tarde no mar sem um único estranho a bordo.</p>
     <div class="hact">
-      <a class="btn btn-p btn-lg" href="experiences">Reserve o seu passeio
+      <a class="btn btn-p btn-lg" href="/book?lang=pt">Ver disponibilidade
         <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-g btn-lg" href="#exp">Explorar experiências</a>
     </div>

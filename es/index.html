@@ -51,13 +51,10 @@
 <nav id="nav"><div class="wrap ni">
   <a class="logo" href="/es/"><img decoding="async" src="../assets/logo-white.png" alt="Chifbay — paseos en barco privados en Madeira, Funchal"></a>
   <nav class="nl">
-    <a href="/es/" class="active">Inicio</a>
-    <a href="experiences">Experiencias</a>
-    <a href="about">La historia</a>
-    <a href="blog">Diario</a>
-    <a href="contact">Contacto</a>
-    <a href="/reviews">Opiniones</a>
-    <a href="/review">Dejar una opinión</a>
+    <a href="/es/experiences">Experiencias</a>
+    <a href="/es/about">Barco y tripulación</a>
+    <a href="/es/practical">Información</a>
+    <a href="/es/blog">Diario</a>
   </nav>
   <div style="display:flex;align-items:center">
     <div class="langsel" style="margin-right:14px"><button class="langbtn" title="Language"><span aria-hidden="true">🌐</span> <span class="langcode">ES</span> <span aria-hidden="true">▾</span></button><div class="langmenu"><a href="/">English</a><a href="/fr/">Français</a><a href="/de/">Deutsch</a><a href="/pt/">Português</a><a href="/es/">Español</a><a href="/it/">Italiano</a></div></div>
@@ -126,9 +123,10 @@
      rejection, so the hero stayed frozen with nothing in the console. Retry on
      every moment the browser may allow it, including the first gesture, which
      iOS always accepts. */
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) v.dataset.hold = '1';
   var playing = false;
   function go() {
-    if (playing || !v.paused) return;
+    if (playing || !v.paused || v.dataset.hold) return;
     var r = v.play();
     if (r && r.then) r.then(function () { playing = true; }, function () {});
   }
@@ -154,7 +152,7 @@
     <h1 data-mask>El <em>barco privado</em> más exclusivo de Madeira</h1>
     <p class="hsub">Vuestro propio barco, a vuestro ritmo, con toda la costa sur para vosotros solos — calas secretas, cuevas marinas, Cabo Girão y una tarde en el mar sin un solo desconocido a bordo.</p>
     <div class="hact">
-      <a class="btn btn-p btn-lg" href="experiences">Reserva tu viaje
+      <a class="btn btn-p btn-lg" href="/book?lang=es">Ver disponibilidad
         <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-g btn-lg" href="#exp">Descubre las experiencias</a>
     </div>

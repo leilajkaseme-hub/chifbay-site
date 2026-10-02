@@ -526,4 +526,42 @@
     notes.forEach(function (x, i) { x.addEventListener("mouseenter", function () { pick(i); }); });
     if (items.length) pick(0);
   });
+
+  /* ---------------------------------------- hero video: pause control
+     A visible button to stop the video (WCAG 2.2.2), the video never runs
+     off screen, and a visitor's pause is never undone: the inline loader
+     in the page checks data-hold before any retry. */
+  (function () {
+    var v = document.getElementById("heroVid");
+    var hero = v && v.closest("header");
+    if (!hero) return;
+    var lang = (document.documentElement.lang || "en").slice(0, 2);
+    var L = { en: ["Pause the video", "Play the video"], fr: ["Mettre la vidéo en pause", "Lire la vidéo"],
+      de: ["Video anhalten", "Video abspielen"], pt: ["Pausar o vídeo", "Reproduzir o vídeo"],
+      es: ["Pausar el vídeo", "Reproducir el vídeo"], it: ["Metti in pausa il video", "Riproduci il video"] }[lang] ||
+      ["Pause the video", "Play the video"];
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "t-vid";
+    function draw() {
+      var off = v.paused || v.dataset.hold;
+      b.setAttribute("aria-label", off ? L[1] : L[0]);
+      b.innerHTML = off
+        ? '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>'
+        : '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h3v11H4zM9 2.5h3v11H9z"/></svg>';
+    }
+    b.addEventListener("click", function () {
+      if (v.dataset.hold || v.paused) { delete v.dataset.hold; var r = v.play(); if (r && r.catch) r.catch(function () {}); }
+      else { v.dataset.hold = "1"; v.pause(); }
+      draw();
+    });
+    v.addEventListener("play", draw);
+    v.addEventListener("pause", draw);
+    hero.appendChild(b);
+    draw();
+    inView(hero, function (on) {
+      if (!on) { if (!v.paused) { v.dataset.auto = "1"; v.pause(); } }
+      else if (v.dataset.auto && !v.dataset.hold) { delete v.dataset.auto; var r = v.play(); if (r && r.catch) r.catch(function () {}); }
+    }, { rootMargin: "0px" });
+  })();
 })();
