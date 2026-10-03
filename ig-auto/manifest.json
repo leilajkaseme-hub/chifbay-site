@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-03T00:00:40.661Z",
+ "generated_at": "2026-10-03T10:07:31.479Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -457,6 +457,126 @@
    "template": "times",
    "priority": null,
    "created": "2026-10-02T12:00:00.000Z"
+  },
+  {
+   "id": "20261003100655-0ca4",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "The view from our bow, with the Madeira coast ahead.\nTerraced green hills, white houses and mountains behind, under a clear blue sky.\nThe water is a little choppy and deep blue, and we are in no hurry.\nMadeira vista do mar é outra coisa.\nBook direct on chifbay.com",
+   "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#privateboattour",
+    "#seaday",
+    "#dayonaboat",
+    "#islandlife",
+    "#travelportugal"
+   ],
+   "cover": "https://chifbay.com/ig/20261003100655-0ca4-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261003100655-0ca4-1.jpg",
+    "https://chifbay.com/ig/20261003100655-0ca4-2.jpg",
+    "https://chifbay.com/ig/20261003100655-0ca4-3.jpg",
+    "https://chifbay.com/ig/20261003100655-0ca4-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-03T10:07:05.577Z"
+  },
+  {
+   "id": "20261003100705-08c7",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Glasses up under the cliffs, a small table of snacks, and a group that is clearly in no hurry.\nThe rock face behind them runs red, brown and grey down to the dark blue water.\nThis is our boat, just your own people on board.\nSaúde a todos.\nBook direct on chifbay.com",
+   "hashtags": [
+    "#visitmadeira",
+    "#madeiraisland",
+    "#boattour",
+    "#atlanticocean",
+    "#familytrip",
+    "#happyguests",
+    "#slowtravel"
+   ],
+   "cover": "https://chifbay.com/ig/20261003100705-08c7-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261003100705-08c7-1.jpg",
+    "https://chifbay.com/ig/20261003100705-08c7-2.jpg",
+    "https://chifbay.com/ig/20261003100705-08c7-3.jpg",
+    "https://chifbay.com/ig/20261003100705-08c7-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-03T10:07:13.266Z"
+  },
+  {
+   "id": "20261003100713-6ac5",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Big smiles, pink drinks and a wooden table of crisps, parked below a wall of red and grey rock.\nThe sea is dark blue and a bit lively, and nobody minds.\nThat is the good kind of afternoon.\nQue dia bom.\nBook direct on chifbay.com",
+   "hashtags": [
+    "#funchal",
+    "#madeira",
+    "#boatlife",
+    "#boattrip",
+    "#dayonaboat",
+    "#happyguests",
+    "#madeiratravel"
+   ],
+   "cover": "https://chifbay.com/ig/20261003100713-6ac5-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261003100713-6ac5-1.jpg",
+    "https://chifbay.com/ig/20261003100713-6ac5-2.jpg",
+    "https://chifbay.com/ig/20261003100713-6ac5-3.jpg",
+    "https://chifbay.com/ig/20261003100713-6ac5-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-03T10:07:23.849Z"
+  },
+  {
+   "id": "20261003100723-2b35",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "A huge cliff face rising straight from the sea, streaked with rust, ochre and grey.\nAt its foot there is a small pebble beach and a low pink wall, and deep blue water in front.\nFrom the boat you see how big this coast really is.\nA costa é mesmo outra escala.\nBook direct on chifbay.com",
+   "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#seaday",
+    "#privateboattour",
+    "#cabogirao",
+    "#coastline",
+    "#traveleurope"
+   ],
+   "cover": "https://chifbay.com/ig/20261003100723-2b35-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261003100723-2b35-1.jpg",
+    "https://chifbay.com/ig/20261003100723-2b35-2.jpg",
+    "https://chifbay.com/ig/20261003100723-2b35-3.jpg",
+    "https://chifbay.com/ig/20261003100723-2b35-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-03T10:07:31.476Z"
   }
  ]
 }

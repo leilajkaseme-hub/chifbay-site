@@ -1,0 +1,51 @@
+{
+  "id": "20261003100705-08c7",
+  "kind": "feed",
+  "created": "2026-10-03T10:07:13.266Z",
+  "source": "library",
+  "origin": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1QcL3fdk.jpg",
+  "image": "ig/20261003100705-08c7-1.jpg",
+  "url": "https://www.chifbay.com/ig/20261003100705-08c7-1.jpg",
+  "sha256": "cd4013b5dc4efe6de13745de18dfb527424cdb2c11f87736d2aaf0346b6ec0e0",
+  "slides": [
+    {
+      "origin": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1QcL3fdk.jpg",
+      "image": "ig/20261003100705-08c7-1.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100705-08c7-1.jpg",
+      "sha256": "cd4013b5dc4efe6de13745de18dfb527424cdb2c11f87736d2aaf0346b6ec0e0"
+    },
+    {
+      "origin": "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
+      "image": "ig/20261003100705-08c7-2.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100705-08c7-2.jpg",
+      "sha256": "6714da9a2d1cfaea8c631a7d2883c122572b671c9e80cc53672593ed32f44f46"
+    },
+    {
+      "origin": "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cu_5d2q.jpg",
+      "image": "ig/20261003100705-08c7-3.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100705-08c7-3.jpg",
+      "sha256": "bd7e9c06a62c00d770b1a28bf97d661ddf93ddc23e2b1ccce2f16cd93e0c0701"
+    },
+    {
+      "origin": "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1ylOhL0o.jpg",
+      "image": "ig/20261003100705-08c7-4.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100705-08c7-4.jpg",
+      "sha256": "06cd4ec30e3600549ba92b1ad05c99e7713ec4caf2090916c36732ccaf886309"
+    }
+  ],
+  "angle": "guests",
+  "caption": "Glasses up under the cliffs, a small table of snacks, and a group that is clearly in no hurry.\nThe rock face behind them runs red, brown and grey down to the dark blue water.\nThis is our boat, just your own people on board.\nSaúde a todos.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#visitmadeira",
+    "#madeiraisland",
+    "#boattour",
+    "#atlanticocean",
+    "#familytrip",
+    "#happyguests",
+    "#slowtravel"
+  ],
+  "rendered_caption": "Glasses up under the cliffs, a small table of snacks, and a group that is clearly in no hurry.\nThe rock face behind them runs red, brown and grey down to the dark blue water.\nThis is our boat, just your own people on board.\nSaúde a todos.\nBook direct on chifbay.com\n\n#visitmadeira #madeiraisland #boattour #atlanticocean #familytrip #happyguests #slowtravel",
+  "writer": "claude",
+  "priority": 0,
+  "fresh": true
+}

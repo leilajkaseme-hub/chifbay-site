@@ -1,0 +1,51 @@
+{
+  "id": "20261003100655-0ca4",
+  "kind": "feed",
+  "created": "2026-10-03T10:07:05.577Z",
+  "source": "library",
+  "origin": "social-iphone/IMG_5393.jpg",
+  "image": "ig/20261003100655-0ca4-1.jpg",
+  "url": "https://www.chifbay.com/ig/20261003100655-0ca4-1.jpg",
+  "sha256": "676af68dc864d626f59b6cca72f7a586a7573abfd56910cc71a7c297951d4a87",
+  "slides": [
+    {
+      "origin": "social-iphone/IMG_5393.jpg",
+      "image": "ig/20261003100655-0ca4-1.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100655-0ca4-1.jpg",
+      "sha256": "676af68dc864d626f59b6cca72f7a586a7573abfd56910cc71a7c297951d4a87"
+    },
+    {
+      "origin": "social-iphone/IMG_5343.jpg",
+      "image": "ig/20261003100655-0ca4-2.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100655-0ca4-2.jpg",
+      "sha256": "b1c287e606b270d65ab1acb7180e2b382c61a70df2f1575a1792469f52ba4de6"
+    },
+    {
+      "origin": "social-iphone/IMG_2874.jpg",
+      "image": "ig/20261003100655-0ca4-3.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100655-0ca4-3.jpg",
+      "sha256": "3591b346e270194b3325eb4659603ac516f72886ae6e702fbf5f8426064c294d"
+    },
+    {
+      "origin": "social-iphone/IMG_2818.jpg",
+      "image": "ig/20261003100655-0ca4-4.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100655-0ca4-4.jpg",
+      "sha256": "1f464233c4b17b3c33d9e75c5c214bc04045db93d451f829e2d0d2951e24d264"
+    }
+  ],
+  "angle": "onboard",
+  "caption": "The view from our bow, with the Madeira coast ahead.\nTerraced green hills, white houses and mountains behind, under a clear blue sky.\nThe water is a little choppy and deep blue, and we are in no hurry.\nMadeira vista do mar é outra coisa.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#portugal",
+    "#madeiraportugal",
+    "#privateboattour",
+    "#seaday",
+    "#dayonaboat",
+    "#islandlife",
+    "#travelportugal"
+  ],
+  "rendered_caption": "The view from our bow, with the Madeira coast ahead.\nTerraced green hills, white houses and mountains behind, under a clear blue sky.\nThe water is a little choppy and deep blue, and we are in no hurry.\nMadeira vista do mar é outra coisa.\nBook direct on chifbay.com\n\n#portugal #madeiraportugal #privateboattour #seaday #dayonaboat #islandlife #travelportugal",
+  "writer": "claude",
+  "priority": 0,
+  "fresh": true
+}

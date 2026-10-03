@@ -1,0 +1,51 @@
+{
+  "id": "20261003100713-6ac5",
+  "kind": "feed",
+  "created": "2026-10-03T10:07:23.849Z",
+  "source": "library",
+  "origin": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1y6wbrc9.jpg",
+  "image": "ig/20261003100713-6ac5-1.jpg",
+  "url": "https://www.chifbay.com/ig/20261003100713-6ac5-1.jpg",
+  "sha256": "2e2dc7d3a8e663caa9673cec6385f752c31db2b063bc859db457fa3ece7ef5ee",
+  "slides": [
+    {
+      "origin": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1y6wbrc9.jpg",
+      "image": "ig/20261003100713-6ac5-1.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100713-6ac5-1.jpg",
+      "sha256": "2e2dc7d3a8e663caa9673cec6385f752c31db2b063bc859db457fa3ece7ef5ee"
+    },
+    {
+      "origin": "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
+      "image": "ig/20261003100713-6ac5-2.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100713-6ac5-2.jpg",
+      "sha256": "bd7e9c06a62c00d770b1a28bf97d661ddf93ddc23e2b1ccce2f16cd93e0c0701"
+    },
+    {
+      "origin": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+      "image": "ig/20261003100713-6ac5-3.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100713-6ac5-3.jpg",
+      "sha256": "cd4013b5dc4efe6de13745de18dfb527424cdb2c11f87736d2aaf0346b6ec0e0"
+    },
+    {
+      "origin": "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
+      "image": "ig/20261003100713-6ac5-4.jpg",
+      "url": "https://www.chifbay.com/ig/20261003100713-6ac5-4.jpg",
+      "sha256": "4c1937aaf4c5355d263c5f8626658daffb32c5f7b544bfd4ef0fda8ecb6a70b5"
+    }
+  ],
+  "angle": "guests",
+  "caption": "Big smiles, pink drinks and a wooden table of crisps, parked below a wall of red and grey rock.\nThe sea is dark blue and a bit lively, and nobody minds.\nThat is the good kind of afternoon.\nQue dia bom.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#funchal",
+    "#madeira",
+    "#boatlife",
+    "#boattrip",
+    "#dayonaboat",
+    "#happyguests",
+    "#madeiratravel"
+  ],
+  "rendered_caption": "Big smiles, pink drinks and a wooden table of crisps, parked below a wall of red and grey rock.\nThe sea is dark blue and a bit lively, and nobody minds.\nThat is the good kind of afternoon.\nQue dia bom.\nBook direct on chifbay.com\n\n#funchal #madeira #boatlife #boattrip #dayonaboat #happyguests #madeiratravel",
+  "writer": "claude",
+  "priority": 0,
+  "fresh": true
+}
