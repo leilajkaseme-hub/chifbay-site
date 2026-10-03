@@ -8,6 +8,20 @@
     "id": "20260929211548-b897",
     "format": null,
     "source": "library"
+   },
+   "h24": {
+    "at": "2026-10-03T11:37:43.619Z",
+    "age_hours": 42,
+    "reach": 16,
+    "views": 57,
+    "likes": 4,
+    "comments": 1,
+    "shares": 2,
+    "saved": 0,
+    "total_interactions": 7,
+    "follows": 1,
+    "profile_visits": 3,
+    "ig_reels_avg_watch_time": null
    }
   },
   "18117955217473621": {
@@ -649,5 +663,5 @@
    "ours": null
   }
  },
- "updated_at": "2026-10-02T15:07:54.424Z"
+ "updated_at": "2026-10-03T11:37:43.619Z"
 }
