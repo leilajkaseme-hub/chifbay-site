@@ -117,7 +117,7 @@
      "what": "the boat and the group under the cliff"
     }
    ],
-   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood day, assets/music/r15-daytrip.json)",
    "words": {
     "hook_lines": [
      "A Day Trip from Funchal"
@@ -130,11 +130,11 @@
     ]
    },
    "duration": 14.4,
-   "bytes": 15296296,
+   "bytes": 15359445,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:58:05"
+    "at": "2026-10-03T18:51:21"
    }
   },
   {
@@ -202,7 +202,7 @@
      "what": "swimmers in the water, drone"
     }
    ],
-   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood jump, assets/music/r01-jump.json)",
    "words": {
     "hook_lines": [
      "Your Madeira swim stop"
@@ -215,11 +215,11 @@
     ]
    },
    "duration": 6.2,
-   "bytes": 7084276,
+   "bytes": 7110026,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:58:22"
+    "at": "2026-10-03T18:51:47"
    }
   },
   {
@@ -287,7 +287,7 @@
      "what": "boat with crew enters the frame"
     }
    ],
-   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood aerial, assets/music/r11-filmed.json)",
    "words": {
     "hook_lines": [
      "Your trip, filmed from above"
@@ -300,11 +300,11 @@
     ]
    },
    "duration": 12.23,
-   "bytes": 13153068,
+   "bytes": 13172058,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:06"
+    "at": "2026-10-03T18:52:44"
    }
   },
   {
@@ -372,7 +372,7 @@
      "what": "sun on the horizon, guests toast"
     }
    ],
-   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood sunset, assets/music/r02-sunset.json)",
    "words": {
     "hook_lines": [
      "Madeira, just before sunset"
@@ -385,11 +385,11 @@
     ]
    },
    "duration": 9.5,
-   "bytes": 10351523,
+   "bytes": 10370550,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:25"
+    "at": "2026-10-03T18:53:08"
    }
   },
   {
@@ -440,7 +440,7 @@
      "what": "group on a paddle board, falls in"
     }
    ],
-   "sound": "Own clip sound (our iPhone footage of the trip)",
+   "sound": "Own clip sound (our iPhone footage of the trip) + music made for this Reel (Lyria, mood fun, assets/music/r14-paddle.json)",
    "words": {
     "hook_lines": [
      "Swim. Paddle. Repeat."
@@ -453,11 +453,11 @@
     ]
    },
    "duration": 6.32,
-   "bytes": 7110712,
+   "bytes": 7175570,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:39"
+    "at": "2026-10-03T18:53:26"
    }
   },
   {
@@ -508,7 +508,7 @@
      "what": "drone over the shore of Cabo Girao, terraces in sun (backlit and dark after 159.9)"
     }
    ],
-   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood cliffs, assets/music/r10-cabogirao.json)",
    "words": {
     "hook_lines": [
      "Under Cabo Girão, 580 m"
@@ -521,11 +521,11 @@
     ]
    },
    "duration": 6.2,
-   "bytes": 6851884,
+   "bytes": 6897045,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:57"
+    "at": "2026-10-03T18:53:49"
    }
   },
   {
@@ -610,7 +610,7 @@
      "what": "turquoise water from the drone"
     }
    ],
-   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020)",
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood day, assets/music/r16-split.json)",
    "words": {
     "hook_lines": [
      "Swim. Cliffs. Clear water."
@@ -623,11 +623,11 @@
     ]
    },
    "duration": 6.0,
-   "bytes": 6781232,
+   "bytes": 6787847,
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T02:00:26"
+    "at": "2026-10-03T18:54:23"
    }
   }
  ]

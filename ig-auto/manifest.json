@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-03T15:48:49.408Z",
+ "generated_at": "2026-10-03T16:54:41.015Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -33,7 +33,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:58:05"
+    "at": "2026-10-03T18:51:21"
    },
    "posted": true
   },
@@ -69,7 +69,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:58:22"
+    "at": "2026-10-03T18:51:47"
    },
    "posted": false
   },
@@ -105,7 +105,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:06"
+    "at": "2026-10-03T18:52:44"
    },
    "posted": false
   },
@@ -141,7 +141,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:25"
+    "at": "2026-10-03T18:53:08"
    },
    "posted": false
   },
@@ -177,7 +177,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:39"
+    "at": "2026-10-03T18:53:26"
    },
    "posted": false
   },
@@ -213,7 +213,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T01:59:57"
+    "at": "2026-10-03T18:53:49"
    },
    "posted": false
   },
@@ -249,7 +249,7 @@
    "checks": {
     "ok": true,
     "problems": [],
-    "at": "2026-10-03T02:00:26"
+    "at": "2026-10-03T18:54:23"
    },
    "posted": false
   },
