@@ -579,8 +579,17 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 /* the pre-consent face of the card: our own marina photo, dimmed, with the pin */
 .atlas .mapstub{position:absolute;inset:0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:16px;text-align:center;padding:28px;
+  background:linear-gradient(rgba(var(--scrim-rgb),.72),rgba(var(--scrim-rgb),.86)) var(--ink-2)}
+/* the photo only once the card nears the screen (tide.js adds .lzin), and as
+   WebP where the browser takes it: it was 331 KB loaded with the page */
+.atlas .mapstub.lzin,:root:not([data-theme]) .atlas .mapstub{
   background:linear-gradient(rgba(var(--scrim-rgb),.72),rgba(var(--scrim-rgb),.86)),
              url('/assets/marina.jpg') center/cover no-repeat}
+@supports (background-image:image-set(url("a.webp") type("image/webp"))){
+  .atlas .mapstub.lzin,:root:not([data-theme]) .atlas .mapstub{
+    background:linear-gradient(rgba(var(--scrim-rgb),.72),rgba(var(--scrim-rgb),.86)),
+               image-set(url('/assets/marina.webp') type('image/webp'),url('/assets/marina.jpg') type('image/jpeg')) center/cover no-repeat}
+}
 .atlas .mapstub .pin{width:38px;height:38px;stroke:var(--gold-p);fill:none;stroke-width:1.3;
   filter:drop-shadow(0 6px 14px rgba(var(--shadow-rgb),.45));animation:mpin 3.4s var(--ease) infinite}
 @keyframes mpin{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}

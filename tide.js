@@ -194,7 +194,7 @@
     shown = 85; target = 85;
     var b = tx.querySelector(".tx-pct b"); if (b) b.textContent = "85";
     setPct(90);
-    var hero = document.querySelector(".hero .hbg, .bkhero .bkhbg, .hero, main img, article img");
+    var hero = document.querySelector(".hero .hbg, .bkhero .bkhbg img, .hero, main img, article img");
     var src = null;
     if (hero) {
       if (hero.tagName === "IMG") src = hero.currentSrc || hero.src;
@@ -252,6 +252,26 @@
   function runScroll() { sraf = 0; scrollers.forEach(function (f) { f(); }); }
   addEventListener("scroll", function () { if (!sraf) sraf = requestAnimationFrame(runScroll); }, { passive: true });
   addEventListener("resize", function () { if (!sraf) sraf = requestAnimationFrame(runScroll); }, { passive: true });
+
+  /* ====================================================== 1b. LAZY PHOTOS
+     Photos below the first screen carry data-lzbg and their image in --bg
+     (scripts/lib/webp.mjs writes them). They load when they come within
+     600 px of the screen: before this, a phone downloaded every photo of the
+     page on arrival (6.2 MB on the home page, 4 Oct 2026). tide.css shows
+     them at once when JavaScript is off. The map card's photo (atlas.css
+     .mapstub) waits the same way. */
+  (function () {
+    var lz = $$("[data-lzbg], .mapstub");
+    if (!lz.length) return;
+    var show = function (el) { el.classList.add("lzin"); };
+    if (!("IntersectionObserver" in window)) { lz.forEach(show); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: "600px 600px" });
+    lz.forEach(function (el) { io.observe(el); });
+    // printing should show every photo
+    addEventListener("beforeprint", function () { lz.forEach(show); });
+  })();
 
   /* ========================================================= 2. HERO FRAME
      The hero sits inside a rounded frame on the white page. As the visitor

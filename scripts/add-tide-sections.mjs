@@ -26,6 +26,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { webpify } from "./lib/webp.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
@@ -307,7 +308,7 @@ function edit(rel, fn) {
   // q: the booking pages are English with ?lang=, so links carry the language
   const t = { ...(T[code] || T.en), q: code === "en" ? "" : `?lang=${code}` };
   const P = rel.includes("/") ? "../" : "";
-  let h = fn(before, t, P, rel);
+  let h = webpify(fn(before, t, P, rel), file);   // same photo markup as scripts/use-webp.mjs
   if (h !== before) { changed++; if (WRITE) fs.writeFileSync(file, h); }
 }
 function must(h, re, rel, what) { if (!re.test(h)) problems.push(`${rel}: no ${what}`); }

@@ -68,6 +68,15 @@ jobs:
             -d "A published article points at an image that does not exist. Run: node scripts/checks/verify-post-images.mjs" \
             https://ntfy.sh/futurx-blog-alerts-544024878e || true
 
+      # WebP copies of the new post's photos (scripts/make-webp.py), and the
+      # pages pointed at them. Best effort: without it the post keeps its JPEGs.
+      - name: WebP copies of the new photos
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet --user --break-system-packages pillow || python3 -m pip install --quiet --user pillow
+          python3 scripts/make-webp.py
+          node scripts/use-webp.mjs
+
       # the Journal pages carry their cards in the HTML: add today's post
       - name: Rebuild the Journal card lists
         run: node scripts/build-blog-index.mjs

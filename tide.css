@@ -744,3 +744,13 @@ a.bcard:hover h3{color:#104a7c}
   .gal-nav button[disabled]{opacity:.35;cursor:default}
   .gal-nav svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 }
+
+/* Lazy photos (data-lzbg, see tide.js 1b and scripts/lib/webp.mjs). The photo
+   is in --bg (JPEG) and --bgw (WebP image-set); !important because the inline
+   style keeps any other background value. No data-theme on <html> means the
+   head script did not run, so JavaScript is off: show the photo at once. */
+[data-lzbg].lzin,:root:not([data-theme]) [data-lzbg]{background-image:var(--bg)!important}
+@supports (background-image:image-set(url("a.webp") type("image/webp"))){
+  [data-lzbg].lzin,:root:not([data-theme]) [data-lzbg]{background-image:var(--bgw,var(--bg))!important}
+}
+picture{display:contents}

@@ -51,7 +51,7 @@ const block = (l) => `<!-- blognav -->
       var b=e.target.closest('button'); if(!b) return;
       [].forEach.call(bar.children,function(x){x.setAttribute('aria-pressed',String(x===b));});
       var c=b.getAttribute('data-c');
-      cards.forEach(function(card){var k=(card.querySelector('.bcat')||{}).textContent||''; card.hidden=!!c&&k!==c;});
+      [].forEach.call(list.querySelectorAll('a.bcard'),function(card){var k=(card.querySelector('.bcat')||{}).textContent||''; card.hidden=!!c&&k!==c;});
     });
   }
   if(list.querySelector('a.bcard')) build();

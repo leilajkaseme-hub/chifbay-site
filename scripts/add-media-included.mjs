@@ -25,6 +25,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { webpify } from "./lib/webp.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
@@ -119,6 +120,7 @@ for (const lang of LANGS) {
     if (at === -1) { missing.push(rel + " (no marker)"); continue; }
     const code = (html.match(/<html[^>]*\slang="([a-z]{2})/i) || [, "en"])[1].toLowerCase();
     html = html.slice(0, at) + block(T[code] ? code : "en", lang ? "../" : "") + html.slice(at);
+    html = webpify(html, file);   // same photo markup as scripts/use-webp.mjs
     if (html !== before) { changed++; if (WRITE) fs.writeFileSync(file, html); }
   }
 }

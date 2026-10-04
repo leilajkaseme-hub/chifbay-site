@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { webpify } from "./lib/webp.mjs";
 
 const SITE = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
@@ -233,6 +234,7 @@ for (const lang of LANGS) {
   if (a < 0 || b < 0) throw new Error(`${dir}contact.html: hero or footer not found`);
   h = h.slice(0, a) + main(t, lang) + "\n" + h.slice(b);
   h = h.replace(/(<nav class="nl">[\s\S]*?<\/nav>)/, (m) => m.replace(/ class="active"/g, ""));
+  h = webpify(h, join(SITE, `${dir}practical.html`));   // same photo markup as scripts/use-webp.mjs
   if (WRITE) writeFileSync(join(SITE, `${dir}practical.html`), h);
   n++;
 }

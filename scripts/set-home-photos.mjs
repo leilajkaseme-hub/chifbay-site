@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {webpify} from './lib/webp.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WRITE = process.argv.includes('--write');
@@ -68,6 +69,7 @@ for (const [lang, dir] of Object.entries(LANGS)) {
   if (!s.includes('class="ignote"'))
     sub(/(<h2 class="display" data-mask>[^<]*<\/h2>)(\s*<a class="ighandle")/, `$1\n          <p class="ignote">${t.note}</p>$2`, 'ig note');
 
+  s = webpify(s, file);   // same photo markup as scripts/use-webp.mjs
   if (s !== before) { changed++; if (WRITE) fs.writeFileSync(file, s); }
   console.log(`${dir || 'en/'}index.html: ${log.join(', ') || 'already done'}`);
 }

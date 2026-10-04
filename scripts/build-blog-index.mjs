@@ -20,6 +20,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { webpify } from "./lib/webp.mjs";
 
 const SITE = join(dirname(fileURLToPath(import.meta.url)), "..");
 const LANGS = {
@@ -132,6 +133,7 @@ for (const [lang, cfg] of Object.entries(LANGS)) {
   html = html.replace("cards.forEach(function(card){var k=(card.querySelector('.bcat')||{}).textContent||''; card.hidden=!!c&&k!==c;});",
     "[].forEach.call(list.querySelectorAll('a.bcard'),function(card){var k=(card.querySelector('.bcat')||{}).textContent||''; card.hidden=!!c&&k!==c;});");
 
+  html = webpify(html, page);   // same photo markup as scripts/use-webp.mjs
   if (html !== before) { writeFileSync(page, html); changed++; }
   const n = rows.filter((r) => r.translated).length;
   console.log(`${lang}: ${rows.length} articles listes, ${n} en ${lang}`);

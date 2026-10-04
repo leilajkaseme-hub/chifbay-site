@@ -246,6 +246,16 @@ html.nav-open #nav{
    est verticale, donc on bascule aussi ce fond, sinon un cadrage paysage
    apparaît une fraction de seconde avant que la vidéo ne peigne. */
 @media(max-width:820px){:root{--hero:url('/assets/hero-mobile-poster.jpg')}}
+/* WebP twins of the two photos still set from here (scripts/make-webp.py).
+   Inside @supports so a browser without image-set() type() keeps the JPEG:
+   a custom property that fails at computed time would blank the photo. */
+@supports (background-image:image-set(url("a.webp") type("image/webp"))){
+  :root{--hero:image-set(url('/assets/hero-poster.webp') type('image/webp'),url('/assets/hero-poster.jpg') type('image/jpeg'));
+    --cta:image-set(url('/assets/closing.webp') type('image/webp'),url('/assets/closing.jpg') type('image/jpeg'))}
+  /* the phone poster's WebP is no smaller: phones keep their JPEG */
+  @media(max-width:820px){:root{--hero:url('/assets/hero-mobile-poster.jpg')}}
+}
+picture{display:contents}
 @keyframes hz{to{transform:scale(1)}}
 .hov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(var(--scrim-rgb),.35) 0%,rgba(var(--scrim-rgb),.04) 32%,rgba(var(--scrim-rgb),.62) 68%,var(--ink) 100%);}
 .hc{position:relative;z-index:2;width:100%;padding-bottom:9vh}
@@ -894,5 +904,5 @@ body:has(.annc) #nav{top:36px}
 
 /* Day trip hero: the drone shot is top-down, so it is turned on its side for
    wide screens and kept upright on phones, where the slot is tall. */
-.hbg.hbg-day{background-image:url('/assets/exp-coves-wide.jpg')}
-@media(max-width:820px){.hbg.hbg-day{background-image:url('/assets/exp-coves.jpg')}}
+.hbg.hbg-day{background-image:url('/assets/exp-coves-wide.jpg');background-image:image-set(url('/assets/exp-coves-wide.webp') type('image/webp'),url('/assets/exp-coves-wide.jpg') type('image/jpeg'))}
+@media(max-width:820px){.hbg.hbg-day{background-image:url('/assets/exp-coves.jpg');background-image:image-set(url('/assets/exp-coves.webp') type('image/webp'),url('/assets/exp-coves.jpg') type('image/jpeg'))}}
