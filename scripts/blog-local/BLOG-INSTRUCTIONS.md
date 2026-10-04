@@ -7,11 +7,14 @@ Do NOT ask questions. Create exactly ONE post.
 ## Context
 Chifbay = premium PRIVATE BOAT CHARTERS from Marina do Funchal, Madeira (Portugal):
 the whole boat is yours (up to 5 guests). TWO packs only — there is no full-day trip:
-- **Day Trip** (`hidden-coves-half-day.html`), slots 10:00–13:00 and 14:00–17:00:
+- **Day Trip** (`hidden-coves-half-day.html`), departures 10:00 and 14:00, back at 12:30 or 16:30
+  on the 2h30 and 13:00 or 17:00 on the 3h (never write it as one 10:00 to 13:00 window):
   Câmara de Lobos → Cabo Girão + drone → Fajã dos Padres (swim, jump in, paddle) →
   Ribeira Brava (swim) → fast run back to Funchal. 2h30 €500, or 3h €600 continuing 30
   minutes further west to Ponta do Sol. Drone, Insta360 video and photos on every trip. Drinks and food aboard.
-- **Sunset Trip** (`sunset-cruise.html`), departs 18:30: same coast, no swimming (the
+- **Sunset Trip** (`sunset-cruise.html`), leaves 1 h 15 before that day's sunset, rounded down
+  to the quarter hour, so the light is right all year (about 16:45 in December, 20:00 in June;
+  never give it one fixed time): same coast, no swimming (the
   water is too cold that late). 2h €400 turning at Cabo Girão, or 2h30 €500 turning at
   Ribeira Brava. Drone, drinks and food aboard.
 Never invent trips, durations or prices outside this list. The blog ("Journal") posts
@@ -50,7 +53,8 @@ are in `/posts/` and are written in English.
    `{ "slug", "title", "category", "date" (today), "description", "heroImage", "heroAlt",
      "readingMinutes", "keywords": [6–10 phrases] }`  — keep the file valid JSON (2-space indent).
 9. Add to `sitemap.xml`, immediately before `</urlset>`:
-   `  <url><loc>https://chifbay.com/posts/<slug>.html</loc><changefreq>monthly</changefreq></url>`
+   `  <url><loc>https://chifbay.com/posts/<slug></loc><changefreq>monthly</changefreq></url>`
+   (no `.html`: the canonical URL of every post is without it, and the sitemap must match).
 
 ## Publish
 10. Do **NOT** commit or push. Leave the new files as they are — a later pipeline

@@ -523,6 +523,74 @@
     inView(host, function (v) { visible = v; if (v && !userPaused) play(); else if (!v) pause(); }, { threshold: 0.4 });
   });
 
+  /* Sunset trip departure, the owner's rule of 4 Oct 2026: 1 h 15 before that
+     day's sunset in Funchal, rounded down to the quarter hour. The sunset is
+     the NOAA solar calculator for lat 32.65 N, lon 16.9083 W, in
+     Atlantic/Madeira time: the same code as scripts/lib/sunset.mjs (keep the
+     copies in tide.js and booking.js in step with it). */
+  var SUN = (function () {
+    var LAT = 32.65, LON = -16.9083, R = Math.PI / 180;
+    var fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Atlantic/Madeira", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+    function utcMin(y, m, d) {
+      var t = 720;
+      for (var i = 0; i < 3; i++) {
+        var jd = Date.UTC(y, m - 1, d) / 864e5 + 2440587.5 + t / 1440, T = (jd - 2451545) / 36525;
+        var L0 = (280.46646 + T * (36000.76983 + T * 0.0003032)) % 360, M = 357.52911 + T * (35999.05029 - 0.0001537 * T);
+        var e = 0.016708634 - T * (0.000042037 + 0.0000001267 * T);
+        var C = Math.sin(M * R) * (1.914602 - T * (0.004817 + 0.000014 * T)) + Math.sin(2 * M * R) * (0.019993 - 0.000101 * T) + Math.sin(3 * M * R) * 0.000289;
+        var om = 125.04 - 1934.136 * T, lam = L0 + C - 0.00569 - 0.00478 * Math.sin(om * R);
+        var eps = 23 + (26 + (21.448 - T * (46.815 + T * (0.00059 - T * 0.001813))) / 60) / 60 + 0.00256 * Math.cos(om * R);
+        var dec = Math.asin(Math.sin(eps * R) * Math.sin(lam * R)) / R, yv = Math.pow(Math.tan(eps / 2 * R), 2);
+        var eq = 4 / R * (yv * Math.sin(2 * L0 * R) - 2 * e * Math.sin(M * R) + 4 * e * yv * Math.sin(M * R) * Math.cos(2 * L0 * R) -
+          0.5 * yv * yv * Math.sin(4 * L0 * R) - 1.25 * e * e * Math.sin(2 * M * R));
+        var ha = Math.acos(Math.cos(90.833 * R) / (Math.cos(LAT * R) * Math.cos(dec * R)) - Math.tan(LAT * R) * Math.tan(dec * R)) / R;
+        t = 720 - 4 * LON - eq + 4 * ha;
+      }
+      return t;
+    }
+    function at(date, lead) {
+      var p = date.split("-").map(Number);
+      return fmt.format(new Date(Date.UTC(p[0], p[1] - 1, p[2]) + (utcMin(p[0], p[1], p[2]) - lead) * 6e4));
+    }
+    return {
+      sunset: function (date) { return at(date, 0); },
+      departure: function (date) {
+        var x = at(date, 75).split(":").map(Number), q = x[0] * 60 + Math.floor(x[1] / 15) * 15;
+        return String(Math.floor(q / 60)).padStart(2, "0") + ":" + String(q % 60).padStart(2, "0");
+      },
+      today: function () {
+        return new Intl.DateTimeFormat("en-CA", { timeZone: "Atlantic/Madeira", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+      },
+      // GET /v1/sunset?from=&to= on the booking server, when it exists:
+      // { date: {sunset, departure} } in whatever wrapper it comes in
+      pick: function (res, date) {
+        if (!res) return null;
+        var d = res.days || res.dates || res;
+        if (Array.isArray(d)) { for (var i = 0; i < d.length; i++) if (d[i] && d[i].date === date) return d[i]; return null; }
+        return d[date] || null;
+      }
+    };
+  })();
+
+  /* ================================================ 4a. SUNSET DEPARTURE
+     The pages say "1 h 15 before sunset" in words; an element with
+     data-cb-sundep (hidden in the HTML, so no stale time is ever indexed)
+     gets today's real departure in its <b>, from the booking server when it
+     answers, worked out here when it does not. */
+  (function () {
+    var els = $$("[data-cb-sundep]");
+    if (!els.length) return;
+    var day = SUN.today();
+    var show = function (hm) {
+      els.forEach(function (el) { var b = el.querySelector("b") || el; b.textContent = hm; el.hidden = false; });
+    };
+    show(SUN.departure(day));
+    if (!window.fetch) return;
+    fetch(API + "/v1/sunset?from=" + day + "&to=" + day).then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (res) { var x = SUN.pick(res, day); if (x && /^\d\d:\d\d$/.test(x.departure)) show(x.departure); })
+      .catch(function () {});
+  })();
+
   /* ======================================================= 4. LIVE PRICES
      Any element with data-cb-price="<trip>/<variant>" (or "<trip>" for the
      lowest, or "min" for the lowest overall) gets the live amount from
@@ -550,6 +618,8 @@
         if (isFinite(a)) { el.textContent = fmt(a); el.classList.add("live"); }
       });
       $$("[data-cb-times]").forEach(function (el) {
+        // the sunset time moves every day: those pages use data-cb-sundep (4a)
+        if (el.getAttribute("data-cb-times") === "sunset") return;
         var t = cat.trips[el.getAttribute("data-cb-times")];
         if (t && t.times && t.times.length) el.textContent = t.times.join(" · ");
       });

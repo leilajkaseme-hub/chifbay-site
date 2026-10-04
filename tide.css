@@ -448,6 +448,9 @@ header.hero.hero-v{min-height:100svh}
 .t-paddr{font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.04em}
 .t-ptimes{width:100%;border-collapse:collapse;margin:4px 0 14px}
 .t-ptimes th,.t-ptimes td{padding:13px 0;border-bottom:1px solid rgba(var(--edge-rgb),.09);text-align:left;font-weight:500}
+.t-pmonths{list-style:none;margin:4px 0 14px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 28px}
+.t-pmonths li{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid rgba(var(--edge-rgb),.09);overflow-wrap:normal}
+.t-pmonths b{font-family:'Space Mono',monospace;font-size:.86rem;font-weight:500;white-space:nowrap}
 .t-ptimes td{font-family:'Space Mono',monospace;font-size:.92rem;text-align:right;white-space:nowrap}
 .t-pnote{font-size:.86rem}
 .t-plist{list-style:none;margin:0;padding:0}

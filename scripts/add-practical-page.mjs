@@ -18,6 +18,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { webpify } from "./lib/webp.mjs";
+import { departureRanges } from "./lib/sunset.mjs";
 
 const SITE = join(dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
@@ -33,8 +34,9 @@ const T = {
     meetK: "Meeting point", meetH: "Marina do Funchal, pontoon side",
     meetP: "Every trip leaves from Marina do Funchal, in the middle of the seafront. Your skipper meets you on the pontoon. Be there 15 minutes before departure.",
     maps: "Open in Google Maps",
-    timesK: "Times", timesH: "Departures and returns", timesNote: "All times are Funchal time. The sunset moves through the year, from about 18:05 in December to 21:15 in June: the booking page shows the sunset for the day you pick.",
-    rows: [["Day trip · 2h30", "10:00 → 12:30 or 14:00 → 16:30"], ["Day trip · 3h", "10:00 → 13:00 or 14:00 → 17:00"], ["Sunset trip · 2h", "18:30 → 20:30"], ["Sunset trip · 2h30", "18:30 → 21:00"]],
+    timesK: "Times", timesH: "Departures and returns", timesNote: "All times are Funchal time. The sunset trip leaves 1 h 15 before sunset, rounded down to the quarter hour, so the light is right all year: the booking page shows the exact time for the day you pick.",
+    monthK: "Sunset trip", monthH: "Departure times, month by month", monthTo: "to", monthNote: "Earliest and latest departure in each month, Funchal time. The time follows the sunset and the clock change at the end of March and October.",
+    rows: [["Day trip · 2h30", "10:00 → 12:30 or 14:00 → 16:30"], ["Day trip · 3h", "10:00 → 13:00 or 14:00 → 17:00"], ["Sunset trip · 2h", "1 h 15 before sunset, back 2 h later"], ["Sunset trip · 2h30", "1 h 15 before sunset, back 2 h 30 later"]],
     inK: "On board", inH: "Included in every trip",
     inc: ["The whole boat for your group, up to 5 guests", "Two local skippers", "Local wine, poncha, beer, soft drinks and snacks", "Drone footage, an Insta360 video and photos of your trip", "A bathroom on board", "Paddle boards and swimming on the day trip"],
     bringK: "What to bring", bringH: "Pack light",
@@ -53,8 +55,9 @@ const T = {
     meetK: "Point de rendez vous", meetH: "Marina do Funchal, côté ponton",
     meetP: "Toutes les sorties partent de la Marina do Funchal, au milieu du front de mer. Votre skipper vous attend sur le ponton. Présentez vous 15 minutes avant le départ.",
     maps: "Ouvrir dans Google Maps",
-    timesK: "Horaires", timesH: "Départs et retours", timesNote: "Toutes les heures sont celles de Funchal. Le coucher du soleil change au fil de l'année, d'environ 18:05 en décembre à 21:15 en juin : la page de réservation l'affiche pour le jour choisi.",
-    rows: [["Sortie de jour · 2h30", "10:00 → 12:30 ou 14:00 → 16:30"], ["Sortie de jour · 3h", "10:00 → 13:00 ou 14:00 → 17:00"], ["Coucher de soleil · 2h", "18:30 → 20:30"], ["Coucher de soleil · 2h30", "18:30 → 21:00"]],
+    timesK: "Horaires", timesH: "Départs et retours", timesNote: "Toutes les heures sont celles de Funchal. La sortie coucher de soleil part 1 h 15 avant le coucher du soleil, arrondi au quart d'heure inférieur, pour avoir la bonne lumière toute l'année : la page de réservation affiche l'heure exacte du jour choisi.",
+    monthK: "Coucher de soleil", monthH: "Heures de départ, mois par mois", monthTo: "à", monthNote: "Le départ le plus tôt et le plus tard de chaque mois, heure de Funchal. L'heure suit le coucher du soleil et le changement d'heure de fin mars et de fin octobre.",
+    rows: [["Sortie de jour · 2h30", "10:00 → 12:30 ou 14:00 → 16:30"], ["Sortie de jour · 3h", "10:00 → 13:00 ou 14:00 → 17:00"], ["Coucher de soleil · 2h", "1 h 15 avant le coucher du soleil, retour 2 h plus tard"], ["Coucher de soleil · 2h30", "1 h 15 avant le coucher du soleil, retour 2 h 30 plus tard"]],
     inK: "À bord", inH: "Compris dans chaque sortie",
     inc: ["Tout le bateau pour votre groupe, jusqu'à 5 personnes", "Deux skippers locaux", "Vin local, poncha, bière, sodas et en-cas", "Images de drone, une vidéo Insta360 et des photos de votre sortie", "Des toilettes à bord", "Paddles et baignade pendant la sortie de jour"],
     bringK: "Quoi apporter", bringH: "Voyagez léger",
@@ -73,8 +76,9 @@ const T = {
     meetK: "Treffpunkt", meetH: "Marina do Funchal, am Steg",
     meetP: "Jede Fahrt startet in der Marina do Funchal, mitten an der Uferpromenade. Ihr Skipper erwartet Sie am Steg. Seien Sie 15 Minuten vor der Abfahrt da.",
     maps: "In Google Maps öffnen",
-    timesK: "Zeiten", timesH: "Abfahrt und Rückkehr", timesNote: "Alle Zeiten sind Ortszeit Funchal. Der Sonnenuntergang wandert übers Jahr, von etwa 18:05 im Dezember bis 21:15 im Juni: die Buchungsseite zeigt ihn für Ihren Tag.",
-    rows: [["Tagestour · 2,5 Std.", "10:00 → 12:30 oder 14:00 → 16:30"], ["Tagestour · 3 Std.", "10:00 → 13:00 oder 14:00 → 17:00"], ["Sonnenuntergang · 2 Std.", "18:30 → 20:30"], ["Sonnenuntergang · 2,5 Std.", "18:30 → 21:00"]],
+    timesK: "Zeiten", timesH: "Abfahrt und Rückkehr", timesNote: "Alle Zeiten sind Ortszeit Funchal. Die Sonnenuntergangstour legt 1 Std. 15 Min. vor Sonnenuntergang ab, auf die Viertelstunde abgerundet, damit das Licht das ganze Jahr stimmt: die Buchungsseite zeigt die genaue Zeit für Ihren Tag.",
+    monthK: "Sonnenuntergang", monthH: "Abfahrtszeiten, Monat für Monat", monthTo: "bis", monthNote: "Früheste und späteste Abfahrt jedes Monats, Ortszeit Funchal. Die Zeit folgt dem Sonnenuntergang und der Zeitumstellung Ende März und Ende Oktober.",
+    rows: [["Tagestour · 2,5 Std.", "10:00 → 12:30 oder 14:00 → 16:30"], ["Tagestour · 3 Std.", "10:00 → 13:00 oder 14:00 → 17:00"], ["Sonnenuntergang · 2 Std.", "1 Std. 15 Min. vor Sonnenuntergang, zurück 2 Std. später"], ["Sonnenuntergang · 2,5 Std.", "1 Std. 15 Min. vor Sonnenuntergang, zurück 2,5 Std. später"]],
     inK: "An Bord", inH: "Bei jeder Fahrt inklusive",
     inc: ["Das ganze Boot für Ihre Gruppe, bis zu 5 Gäste", "Zwei einheimische Skipper", "Lokaler Wein, Poncha, Bier, Softdrinks und Snacks", "Drohnenaufnahmen, ein Insta360 Video und Fotos Ihrer Fahrt", "Eine Toilette an Bord", "Paddleboards und Baden auf der Tagestour"],
     bringK: "Mitbringen", bringH: "Leicht packen",
@@ -93,8 +97,9 @@ const T = {
     meetK: "Ponto de encontro", meetH: "Marina do Funchal, junto ao pontão",
     meetP: "Todos os passeios partem da Marina do Funchal, no centro da marginal. O seu skipper espera por si no pontão. Chegue 15 minutos antes da partida.",
     maps: "Abrir no Google Maps",
-    timesK: "Horários", timesH: "Partidas e regressos", timesNote: "Todas as horas são do Funchal. O pôr do sol muda ao longo do ano, de cerca das 18:05 em dezembro às 21:15 em junho: a página de reserva mostra-o para o dia escolhido.",
-    rows: [["Passeio de dia · 2h30", "10:00 → 12:30 ou 14:00 → 16:30"], ["Passeio de dia · 3h", "10:00 → 13:00 ou 14:00 → 17:00"], ["Pôr do sol · 2h", "18:30 → 20:30"], ["Pôr do sol · 2h30", "18:30 → 21:00"]],
+    timesK: "Horários", timesH: "Partidas e regressos", timesNote: "Todas as horas são do Funchal. O passeio ao pôr do sol parte 1 h 15 antes do pôr do sol, arredondado ao quarto de hora anterior, para a luz estar certa todo o ano: a página de reserva mostra a hora exata do dia escolhido.",
+    monthK: "Pôr do sol", monthH: "Horas de partida, mês a mês", monthTo: "a", monthNote: "A partida mais cedo e a mais tarde de cada mês, hora do Funchal. A hora segue o pôr do sol e a mudança de hora no fim de março e no fim de outubro.",
+    rows: [["Passeio de dia · 2h30", "10:00 → 12:30 ou 14:00 → 16:30"], ["Passeio de dia · 3h", "10:00 → 13:00 ou 14:00 → 17:00"], ["Pôr do sol · 2h", "1 h 15 antes do pôr do sol, regresso 2 h depois"], ["Pôr do sol · 2h30", "1 h 15 antes do pôr do sol, regresso 2 h 30 depois"]],
     inK: "A bordo", inH: "Incluído em todos os passeios",
     inc: ["O barco inteiro para o seu grupo, até 5 pessoas", "Dois skippers locais", "Vinho local, poncha, cerveja, refrigerantes e petiscos", "Imagens de drone, um vídeo Insta360 e fotos do seu passeio", "Casa de banho a bordo", "Pranchas de paddle e banhos no passeio de dia"],
     bringK: "O que levar", bringH: "Leve pouco",
@@ -113,8 +118,9 @@ const T = {
     meetK: "Punto de encuentro", meetH: "Marina do Funchal, junto al pantalán",
     meetP: "Todas las salidas parten de la Marina do Funchal, en pleno paseo marítimo. Tu patrón te espera en el pantalán. Llega 15 minutos antes de la salida.",
     maps: "Abrir en Google Maps",
-    timesK: "Horarios", timesH: "Salidas y regresos", timesNote: "Todas las horas son de Funchal. La puesta de sol cambia durante el año, de unas 18:05 en diciembre a las 21:15 en junio: la página de reserva la muestra para el día que elijas.",
-    rows: [["Salida de día · 2h30", "10:00 → 12:30 o 14:00 → 16:30"], ["Salida de día · 3h", "10:00 → 13:00 o 14:00 → 17:00"], ["Atardecer · 2h", "18:30 → 20:30"], ["Atardecer · 2h30", "18:30 → 21:00"]],
+    timesK: "Horarios", timesH: "Salidas y regresos", timesNote: "Todas las horas son de Funchal. La salida al atardecer sale 1 h 15 antes de la puesta de sol, redondeado al cuarto de hora anterior, para tener la buena luz todo el año: la página de reserva muestra la hora exacta del día que elijas.",
+    monthK: "Atardecer", monthH: "Horas de salida, mes a mes", monthTo: "a", monthNote: "La salida más temprana y la más tardía de cada mes, hora de Funchal. La hora sigue la puesta de sol y el cambio de hora de finales de marzo y de octubre.",
+    rows: [["Salida de día · 2h30", "10:00 → 12:30 o 14:00 → 16:30"], ["Salida de día · 3h", "10:00 → 13:00 o 14:00 → 17:00"], ["Atardecer · 2h", "1 h 15 antes de la puesta de sol, vuelta 2 h después"], ["Atardecer · 2h30", "1 h 15 antes de la puesta de sol, vuelta 2 h 30 después"]],
     inK: "A bordo", inH: "Incluido en cada salida",
     inc: ["Todo el barco para tu grupo, hasta 5 personas", "Dos patrones locales", "Vino local, poncha, cerveza, refrescos y picoteo", "Imágenes de dron, un vídeo Insta360 y fotos de tu salida", "Baño a bordo", "Tablas de paddle y baño en la salida de día"],
     bringK: "Qué llevar", bringH: "Viaja ligero",
@@ -133,8 +139,9 @@ const T = {
     meetK: "Punto d'incontro", meetH: "Marina do Funchal, lato pontile",
     meetP: "Ogni uscita parte dalla Marina do Funchal, in pieno lungomare. Il vostro skipper vi aspetta sul pontile. Arrivate 15 minuti prima della partenza.",
     maps: "Apri in Google Maps",
-    timesK: "Orari", timesH: "Partenze e rientri", timesNote: "Tutti gli orari sono di Funchal. Il tramonto cambia durante l'anno, da circa le 18:05 a dicembre alle 21:15 a giugno: la pagina di prenotazione lo mostra per il giorno scelto.",
-    rows: [["Uscita di giorno · 2h30", "10:00 → 12:30 o 14:00 → 16:30"], ["Uscita di giorno · 3h", "10:00 → 13:00 o 14:00 → 17:00"], ["Tramonto · 2h", "18:30 → 20:30"], ["Tramonto · 2h30", "18:30 → 21:00"]],
+    timesK: "Orari", timesH: "Partenze e rientri", timesNote: "Tutti gli orari sono di Funchal. L'uscita al tramonto parte 1 h 15 prima del tramonto, arrotondato al quarto d'ora inferiore, così la luce è giusta tutto l'anno: la pagina di prenotazione mostra l'orario esatto del giorno scelto.",
+    monthK: "Tramonto", monthH: "Orari di partenza, mese per mese", monthTo: "a", monthNote: "La partenza più presto e più tardi di ogni mese, ora di Funchal. L'orario segue il tramonto e il cambio dell'ora a fine marzo e a fine ottobre.",
+    rows: [["Uscita di giorno · 2h30", "10:00 → 12:30 o 14:00 → 16:30"], ["Uscita di giorno · 3h", "10:00 → 13:00 o 14:00 → 17:00"], ["Tramonto · 2h", "1 h 15 prima del tramonto, rientro 2 h dopo"], ["Tramonto · 2h30", "1 h 15 prima del tramonto, rientro 2 h 30 dopo"]],
     inK: "A bordo", inH: "Incluso in ogni uscita",
     inc: ["Tutta la barca per il vostro gruppo, fino a 5 ospiti", "Due skipper locali", "Vino locale, poncha, birra, bibite e stuzzichini", "Riprese con drone, un video Insta360 e foto della vostra uscita", "Un bagno a bordo", "Tavole da paddle e bagno nell'uscita di giorno"],
     bringK: "Cosa portare", bringH: "Viaggiate leggeri",
@@ -150,6 +157,20 @@ const T = {
 const esc = (s) => s.replace(/&(?!amp;|#)/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 const attr = (s) => esc(s).replace(/"/g, "&quot;");
 const li = (a) => a.map((x) => `<li>${esc(x)}</li>`).join("");
+
+// Sunset trip departures by month, from the rule in scripts/lib/sunset.mjs
+// (1 h 15 before sunset, rounded down to the quarter hour). A fixed year so a
+// second run writes the same page; the spread inside a month barely moves
+// from one year to the next.
+const MONTH_YEAR = 2027;
+function months(lang, t) {
+  const name = new Intl.DateTimeFormat(lang, { month: "long", timeZone: "UTC" });
+  return departureRanges(MONTH_YEAR).map(({ month, from, to }) => {
+    const m = name.format(new Date(Date.UTC(MONTH_YEAR, month - 1, 1)));
+    const label = m.charAt(0).toUpperCase() + m.slice(1);
+    return `<li><span>${esc(label)}</span><b>${from === to ? from : `${from} ${esc(t.monthTo)} ${to}`}</b></li>`;
+  }).join("");
+}
 
 function main(t, lang) {
   const book = lang === "en" ? "/book" : `/book?lang=${lang}`;
@@ -179,6 +200,12 @@ function main(t, lang) {
         <h2>${esc(t.timesH)}</h2>
         <table class="t-ptimes"><tbody>${t.rows.map(([a, b]) => `<tr><th scope="row">${esc(a)}</th><td>${esc(b)}</td></tr>`).join("")}</tbody></table>
         <p class="t-pnote">${esc(t.timesNote)}</p>
+      </article>
+      <article class="t-pcard t-pwide rv">
+        <div class="eyebrow">${esc(t.monthK)}</div>
+        <h2>${esc(t.monthH)}</h2>
+        <ul class="t-pmonths">${months(lang, t)}</ul>
+        <p class="t-pnote">${esc(t.monthNote)}</p>
       </article>
       <article class="t-pcard rv">
         <div class="eyebrow">${esc(t.inK)}</div>
@@ -233,7 +260,8 @@ for (const lang of LANGS) {
   const a = h.indexOf('<header class="hero sub'), b = h.indexOf("<footer");
   if (a < 0 || b < 0) throw new Error(`${dir}contact.html: hero or footer not found`);
   h = h.slice(0, a) + main(t, lang) + "\n" + h.slice(b);
-  h = h.replace(/(<nav class="nl">[\s\S]*?<\/nav>)/, (m) => m.replace(/ class="active"/g, ""));
+  h = h.replace(/(<nav class="nl">[\s\S]*?<\/nav>)/, (m) => m.replace(/ class="active"( aria-current="page")?/g, "")
+    .replace(/(<a href="\/(?:(?:fr|de|pt|es|it)\/)?practical")>/, '$1 class="active" aria-current="page">'));
   h = webpify(h, join(SITE, `${dir}practical.html`));   // same photo markup as scripts/use-webp.mjs
   if (WRITE) writeFileSync(join(SITE, `${dir}practical.html`), h);
   n++;

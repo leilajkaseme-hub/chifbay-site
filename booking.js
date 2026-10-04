@@ -51,6 +51,7 @@
     month: null,       // first day of the month being shown, as YYYY-MM-01
     prefill: null,     // validated app handoff, consumed after live availability
     checkout: null,    // the mounted Stripe embedded checkout
+    sun: null,         // /v1/sunset answer, when the server has it
   };
 
   /* ------------------------------------------------------------ small utils */
@@ -430,6 +431,17 @@
    * visible at once, choosing is a tap instead of a scroll, and the page holds
    * two clearly different products instead of four near-identical blocks.
    */
+  // "departs 10:00 or 14:00 · back 12:30 or 16:30". The sunset trip has no
+  // fixed hour: it says the rule, and today's time as an example.
+  function departsText(o) {
+    if (o.tripId === "sunset") {
+      var dep = SUN.departure(SUN.today());
+      return esc(t("ui.sunsetRule")) + " · " + esc(t("ui.sunsetToday", { t: dep, b: endTime(dep, o.v.minutes) }));
+    }
+    return esc(t("ui.departs")) + " " + esc(o.trip.times.join(" " + t("ui.or") + " ")) + " · " +
+      esc(t("ui.backBy")) + " " + esc(endTimes(o.trip.times, o.v.minutes).join(" " + t("ui.or") + " "));
+  }
+
   function variantBody(o) {
     var hls = (C && C.highlights(o.tripId, o.varId)) || [];
     return (
@@ -442,10 +454,7 @@
               esc(h) + "</li>";
           }).join("") + "</ul>"
         : "") +
-      '<span class="bkcmeta">' + esc(t("ui.departs")) + " " +
-        esc(o.trip.times.join(" " + t("ui.or") + " ")) + " · " +
-        esc(t("ui.backBy")) + " " +
-        esc(endTimes(o.trip.times, o.v.minutes).join(" " + t("ui.or") + " ")) + " · " +
+      '<span class="bkcmeta">' + departsText(o) + " · " +
         esc(t("ui.upTo", { n: state.catalogue.maxGuests })) + "</span>"
     );
   }
@@ -581,6 +590,11 @@
     state.month = from.slice(0, 8) + "01";
     $("#bkcal").innerHTML = '<p class="bkload">' + esc(t("ui.checking")) + "</p>";
     var requestedTrip = state.trip, requestedVariant = state.variant;
+    if (state.trip === "sunset" && !state.sun) {
+      api("/v1/sunset?from=" + from + "&to=" + to)
+        .then(function (res) { state.sun = res; if (state.date) renderTimes(); })
+        .catch(function () {});   // not deployed yet, or down: SUN works it out
+    }
     api("/v1/availability?trip=" + encodeURIComponent(state.trip) +
         "&variant=" + encodeURIComponent(state.variant) +
         "&from=" + from + "&to=" + to)
@@ -730,30 +744,63 @@
     renderTimes();
   }
 
-  // Sunset in Funchal for a "YYYY-MM-DD" date, as "HH:MM" Madeira time. NOAA almanac method, about 1 minute accurate.
-  function sunsetFunchal(dateStr) {
-    var p = dateStr.split("-").map(Number), lat = 32.6496, lon = -16.9086, rad = Math.PI / 180;
-    var start = Date.UTC(p[0], 0, 0), day = Math.round((Date.UTC(p[0], p[1] - 1, p[2]) - start) / 86400000);
-    var lngHour = lon / 15, t = day + (18 - lngHour) / 24;
-    var M = 0.9856 * t - 3.289;
-    var L = (M + 1.916 * Math.sin(M * rad) + 0.020 * Math.sin(2 * M * rad) + 282.634 + 360) % 360;
-    var RA = (Math.atan(0.91764 * Math.tan(L * rad)) / rad + 360) % 360;
-    RA = (RA + Math.floor(L / 90) * 90 - Math.floor(RA / 90) * 90) / 15;
-    var sinDec = 0.39782 * Math.sin(L * rad), cosDec = Math.cos(Math.asin(sinDec));
-    var cosH = (Math.cos(90.833 * rad) - sinDec * Math.sin(lat * rad)) / (cosDec * Math.cos(lat * rad));
-    if (cosH < -1 || cosH > 1) return "";
-    var H = Math.acos(cosH) / rad / 15;
-    var UT = ((H + RA - 0.06571 * t - 6.622 - lngHour) % 24 + 24) % 24;
-    var ms = Date.UTC(p[0], p[1] - 1, p[2]) + UT * 3600000;
-    return new Intl.DateTimeFormat("en-GB", { timeZone: "Atlantic/Madeira", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(new Date(ms));
-  }
+  /* Sunset trip departure, the owner's rule of 4 Oct 2026: 1 h 15 before that
+     day's sunset in Funchal, rounded down to the quarter hour. The sunset is
+     the NOAA solar calculator for lat 32.65 N, lon 16.9083 W, in
+     Atlantic/Madeira time: the same code as scripts/lib/sunset.mjs (keep the
+     copies in tide.js and booking.js in step with it). */
+  var SUN = (function () {
+    var LAT = 32.65, LON = -16.9083, R = Math.PI / 180;
+    var fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Atlantic/Madeira", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+    function utcMin(y, m, d) {
+      var t = 720;
+      for (var i = 0; i < 3; i++) {
+        var jd = Date.UTC(y, m - 1, d) / 864e5 + 2440587.5 + t / 1440, T = (jd - 2451545) / 36525;
+        var L0 = (280.46646 + T * (36000.76983 + T * 0.0003032)) % 360, M = 357.52911 + T * (35999.05029 - 0.0001537 * T);
+        var e = 0.016708634 - T * (0.000042037 + 0.0000001267 * T);
+        var C = Math.sin(M * R) * (1.914602 - T * (0.004817 + 0.000014 * T)) + Math.sin(2 * M * R) * (0.019993 - 0.000101 * T) + Math.sin(3 * M * R) * 0.000289;
+        var om = 125.04 - 1934.136 * T, lam = L0 + C - 0.00569 - 0.00478 * Math.sin(om * R);
+        var eps = 23 + (26 + (21.448 - T * (46.815 + T * (0.00059 - T * 0.001813))) / 60) / 60 + 0.00256 * Math.cos(om * R);
+        var dec = Math.asin(Math.sin(eps * R) * Math.sin(lam * R)) / R, yv = Math.pow(Math.tan(eps / 2 * R), 2);
+        var eq = 4 / R * (yv * Math.sin(2 * L0 * R) - 2 * e * Math.sin(M * R) + 4 * e * yv * Math.sin(M * R) * Math.cos(2 * L0 * R) -
+          0.5 * yv * yv * Math.sin(4 * L0 * R) - 1.25 * e * e * Math.sin(2 * M * R));
+        var ha = Math.acos(Math.cos(90.833 * R) / (Math.cos(LAT * R) * Math.cos(dec * R)) - Math.tan(LAT * R) * Math.tan(dec * R)) / R;
+        t = 720 - 4 * LON - eq + 4 * ha;
+      }
+      return t;
+    }
+    function at(date, lead) {
+      var p = date.split("-").map(Number);
+      return fmt.format(new Date(Date.UTC(p[0], p[1] - 1, p[2]) + (utcMin(p[0], p[1], p[2]) - lead) * 6e4));
+    }
+    return {
+      sunset: function (date) { return at(date, 0); },
+      departure: function (date) {
+        var x = at(date, 75).split(":").map(Number), q = x[0] * 60 + Math.floor(x[1] / 15) * 15;
+        return String(Math.floor(q / 60)).padStart(2, "0") + ":" + String(q % 60).padStart(2, "0");
+      },
+      today: function () {
+        return new Intl.DateTimeFormat("en-CA", { timeZone: "Atlantic/Madeira", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+      },
+      // GET /v1/sunset?from=&to= on the booking server, when it exists:
+      // { date: {sunset, departure} } in whatever wrapper it comes in
+      pick: function (res, date) {
+        if (!res) return null;
+        var d = res.days || res.dates || res;
+        if (Array.isArray(d)) { for (var i = 0; i < d.length; i++) if (d[i] && d[i].date === date) return d[i]; return null; }
+        return d[date] || null;
+      }
+    };
+  })();
 
-  // The sunset trip leaves at the same hour all year, and Funchal's sunset
-  // moves from about 18:05 (December) to 21:18 (June). Say what the chosen
-  // day really looks like instead of promising a sunset on every date.
+  // The sunset trip leaves 1 h 15 before sunset, so the time moves with the
+  // season (16:45 in December, 20:00 in June). The departure itself comes
+  // from /v1/availability; this line says when the sun sets that day, from
+  // /v1/sunset when the server has it, worked out here when it does not.
   function sunsetNote(times) {
     if (state.trip !== "sunset" || !state.date) return "";
-    var sun = sunsetFunchal(state.date);
+    var srv = SUN.pick(state.sun, state.date);
+    var sun = srv && /^\d\d:\d\d$/.test(srv.sunset) ? srv.sunset : SUN.sunset(state.date);
     var v = state.catalogue && state.catalogue.trips[state.trip] && state.catalogue.trips[state.trip].variants[state.variant];
     var dep = state.time || times[0];
     if (!sun || !v || !dep) return "";

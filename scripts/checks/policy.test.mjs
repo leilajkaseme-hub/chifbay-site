@@ -7,6 +7,9 @@
 //     filmed video came only with the 3 h day trip)
 //   - whole boat pricing from 400 EUR: for two people that is not "the same or
 //     less" than shared tour tickets
+// Owner rule of 4 Oct 2026:
+//   - the sunset trip leaves 1 h 15 before that day's sunset, rounded down to
+//     the quarter hour (scripts/lib/sunset.mjs): it has no fixed 18:30 any more
 // The booking API publishes the same cancellation window (cancelHours in
 // /v1/catalogue, CANCEL_HOURS in booking-api/catalog.js).
 import {test} from 'node:test';
@@ -14,6 +17,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {sunsetDeparture} from '../lib/sunset.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CANCEL_HOURS = 24;
@@ -74,9 +78,52 @@ test('no "same or less than a shared tour" price claim', () => {
   assert.deepEqual(bad, []);
 });
 
-test('the sunset trip departs at 18:30, as the booking catalogue says', () => {
+test('the sunset trip has no fixed 18:00 departure', () => {
   const bad = hits(/(sunset|pôr do sol|coucher (?:du|de) soleil|Sonnenuntergang|atardecer|tramonto)[^.]{0,80}?\b18:00\b|\b18:00\b[^.]{0,60}?(sunset|pôr do sol|Sonnenuntergang|atardecer|tramonto)/gi);
   assert.deepEqual(bad, []);
+});
+
+// The rule written out: "1 h 15" in five languages, "1 Std. 15 Min." in German.
+const RULE = /1\s?h\s?15|1 Std\. 15 Min\./;
+
+test('no sentence gives the sunset trip a fixed 18:30 (it leaves 1 h 15 before sunset)', () => {
+  // A sentence naming 18:30 must carry the rule with it. The month table of
+  // the practical page (ul.t-pmonths) is computed from the rule and skipped.
+  const bad = [];
+  for (const rel of files()) {
+    const html = fs.readFileSync(path.join(ROOT, rel), 'utf8').replace(/<ul class="t-pmonths">[\s\S]*?<\/ul>/g, ' ');
+    const t = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+    for (const sentence of t.split(/(?<=[.!?])\s|"\s*[,}\]]/)) {
+      if (/\b18[:h.]30\b/.test(sentence) && !RULE.test(sentence)) bad.push(`${rel}: …${sentence.trim().slice(0, 160)}…`);
+    }
+  }
+  assert.deepEqual(bad, []);
+});
+
+test('the sunset page and the practical page state the 1 h 15 rule in every language', () => {
+  const missing = [];
+  for (const l of ['', 'fr/', 'de/', 'pt/', 'es/', 'it/']) for (const p of ['sunset-cruise', 'practical']) {
+    if (!RULE.test(text(`${l}${p}.html`))) missing.push(`${l}${p}`);
+  }
+  assert.deepEqual(missing, []);
+});
+
+test('the departure rule gives the owner\'s reference times', () => {
+  assert.deepEqual(['2026-10-04', '2026-10-25', '2026-12-15', '2027-06-15'].map(sunsetDeparture),
+    ['18:30', '17:00', '16:45', '20:00']);
+});
+
+test('the browser copies of the rule (tide.js, booking.js) agree with scripts/lib/sunset.mjs', () => {
+  for (const f of ['tide.js', 'booking.js']) {
+    const src = fs.readFileSync(path.join(ROOT, f), 'utf8');
+    const a = src.indexOf('var SUN = (function () {'), b = src.indexOf('\n  })();\n', a);
+    assert.ok(a > 0 && b > a, `${f}: no SUN block`);
+    const SUN = new Function(src.slice(a, b + 8) + '\nreturn SUN;')();
+    for (let t = Date.UTC(2026, 0, 1); t < Date.UTC(2027, 0, 1); t += 864e5 * 3) {
+      const d = new Date(t).toISOString().slice(0, 10);
+      assert.equal(SUN.departure(d), sunsetDeparture(d), `${f} ${d}`);
+    }
+  }
 });
 
 test('no single 3 hour window for both day trip lengths', () => {
@@ -84,7 +131,7 @@ test('no single 3 hour window for both day trip lengths', () => {
   assert.deepEqual(hits(/10\s?[–—-]\s?13\s?·\s?14\s?[–—-]\s?17|10:00\s?[–—-]\s?13:00|14:00\s?[–—-]\s?17:00/g), []);
 });
 
-test('sales pages do not promise a golden hour (the 18:30 departure misses it much of the year)', () => {
+test('sales pages do not promise a golden hour (the clouds decide the colours)', () => {
   const PAGES = ['index', 'experiences', 'sunset-cruise', 'hidden-coves-half-day', 'private-boat-tour-madeira'];
   const bad = [];
   for (const l of ['', 'fr/', 'de/', 'pt/', 'es/', 'it/']) for (const p of PAGES) {

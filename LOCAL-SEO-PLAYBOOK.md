@@ -47,7 +47,7 @@ Add these two product listings under the **Products** tab in your Google Busines
 * **Price:** `€400.00 – €500.00`
 * **Button:** `Book Online` &rarr; `https://chifbay.com/book-sunset.html`
 * **Description:**
-  > Exclusive golden-hour cruise along Madeira's south-west coast. Departs 18:30 from Marina do Funchal. Watch the sunset beneath the 580m cliffs of Cabo Girão with chilled wine, homemade poncha, and local snacks on deck. Strictly private for your group (up to 5 guests). Includes 4K drone video. 2h (€400) or 2h30 (€500).
+  > Exclusive golden-hour cruise along Madeira's south-west coast. Departs from Marina do Funchal 1 h 15 before sunset. Watch the sunset beneath the 580m cliffs of Cabo Girão with chilled wine, homemade poncha, and local snacks on deck. Strictly private for your group (up to 5 guests). Includes 4K drone video. 2h (€400) or 2h30 (€500).
 
 ---
 
