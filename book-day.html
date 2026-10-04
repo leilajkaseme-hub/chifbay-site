@@ -24,7 +24,8 @@
 <link rel="stylesheet" href="peak.min.css"/>
 <link rel="stylesheet" href="motion.min.css"/>
 <link rel="stylesheet" href="booking.min.css"/>
-<link rel="preload" as="image" href="assets/exp-coves.jpg"/>
+<link rel="preload" as="image" type="image/webp" href="assets/exp-coves-wide-800.webp" media="(max-width:760px)" fetchpriority="high"/>
+<link rel="preload" as="image" type="image/webp" href="assets/exp-coves.webp" media="(min-width:761px)" fetchpriority="high"/>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Product","name":"Private Day Boat Trip - Madeira","description":"Private day boat trip from Funchal, Madeira. Camara de Lobos, Cabo Girao with drone, swimming and paddle at Faja dos Padres, on to Ribeira Brava or Ponta do Sol. The whole boat for up to 5 guests.","image":"https://chifbay.com/assets/exp-coves.jpg","brand":{"@id":"https://chifbay.com/#business"},"offers":{"@type":"AggregateOffer","url":"https://chifbay.com/book-day","lowPrice":"500","highPrice":"600","offerCount":"2","priceCurrency":"EUR","availability":"https://schema.org/InStock","offers":[{"@type":"Offer","name":"Day trip 2h30 - Ribeira Brava","price":"500","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://chifbay.com/book-day"},{"@type":"Offer","name":"Day trip 3h - Ponta do Sol with video","price":"600","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://chifbay.com/book-day"}]}}
 </script>
@@ -53,12 +54,13 @@
 <div class="annc"><span>Best price, direct — you are booking on chifbay.com</span></div>
 
 <header class="bkhero">
-  <div class="bkhbg" role="img" aria-label="Turquoise water and cliffs on a private Chifbay day trip, Madeira" style="background-image:url('assets/exp-coves.jpg')"></div>
+  <div class="bkhbg"><picture><source type="image/webp" media="(max-width:760px)" srcset="assets/exp-coves-wide-800.webp"><source type="image/webp" srcset="assets/exp-coves.webp"><img src="assets/exp-coves.jpg" alt="Turquoise water and cliffs on a private Chifbay day trip, Madeira" fetchpriority="high" decoding="async" width="941" height="1672"></picture></div>
   <div class="bkhov"></div>
   <div class="bkhc">
     <span class="bkkick">The Day Trip · Funchal, Madeira</span>
     <h1>Book the <em>day</em> trip</h1>
     <p>Câmara de Lobos, the drone up at Cabo Girão, then swimming and paddle in water you can see the bottom of. Two lengths — you choose how far west we go.</p>
+    <div class="bkproof-slot"></div>
   </div>
 </header>
 
@@ -76,7 +78,7 @@
        boat, skippers, bathroom, food. Same facts on all three pages — it's
        the same boat whichever trip is booked. -->
   <section class="bkreassure">
-    <div class="bkr-photo" role="img" aria-label="The two Chifbay skippers on board, in Chifbay uniform" style="background-image:url('assets/skippers.jpg')"></div>
+    <div class="bkr-photo" role="img" aria-label="The two Chifbay skippers on board, in Chifbay uniform" style="--bg:url('assets/skippers.jpg');--bgw:image-set(url('assets/skippers.webp') type('image/webp'),url('assets/skippers.jpg') type('image/jpeg'))" data-lzbg></div>
     <div class="bkr-body">
       <span class="bkr-kick">What to expect on board</span>
       <ul class="bkr-list">
@@ -86,7 +88,7 @@
         <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Local wine, poncha, beer, soft drinks and snacks</strong> — included, no extra charge.</span></li>
       </ul>
     </div>
-    <div class="bkr-photo" role="img" aria-label="Poncha, Madeira wine, beer and snacks served on the Chifbay boat" style="background-image:url('assets/why-catered.jpg')"></div>
+    <div class="bkr-photo" role="img" aria-label="Poncha, Madeira wine, beer and snacks served on the Chifbay boat" style="--bg:url('assets/why-catered.jpg');--bgw:image-set(url('assets/why-catered.webp') type('image/webp'),url('assets/why-catered.jpg') type('image/jpeg'))" data-lzbg></div>
   </section>
 
   <div class="bksteps">
@@ -224,7 +226,6 @@
 
 <a class="wa" href="https://wa.me/351937200320" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.523 5.26l-.999 3.648 3.965-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
 
-<script src="https://js.stripe.com/v3/"></script>
 <script src="/booking-config.min.js"></script>
 <script src="/booking-content.min.js"></script>
 <script src="/fx.min.js"></script>

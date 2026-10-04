@@ -11,6 +11,14 @@
   margin-top:0;padding-top:120px}
 .bkhero .bkhbg{position:absolute;inset:0;background-size:cover;background-position:center;
   transform:scale(1.04)}
+/* the header photo is a real <img> now (fetchpriority high, WebP, a phone
+   size): as a CSS background it was found late and came in at 13.5 s on a
+   slow phone (4 Oct 2026) */
+.bkhero .bkhbg img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+/* one line kept free for the reviews line (booking.js showProof), so the
+   header does not grow when it arrives */
+.bkproof-slot{min-height:40px}
+@media(max-width:640px){.bkproof-slot{min-height:66px}}   /* two lines on a phone */
 .bkhero .bkhov{position:absolute;inset:0;
   background:linear-gradient(to bottom,rgba(var(--scrim-rgb),.72) 0%,rgba(var(--scrim-rgb),.42) 38%,rgba(var(--scrim-rgb),.86) 78%,var(--ink) 100%)}
 .bkhc{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 32px 42px}
@@ -351,6 +359,18 @@
   .bkwrap{display:flex;flex-direction:column}
   .bksteps{order:1}
   #bkloading{order:2}
+  /* The trip cards arrive with the calendar, seconds after the page on a slow
+     phone. Their space is kept from the start, with a quiet outline of the
+     cards, so the map and the on-board section below never jump down
+     (layout shift 0.44 before this, 4 Oct 2026). Heights measured at 320 to
+     760 px: about 1850 to 1960 for the two trips, 940 to 1090 for one. */
+  #bkloading{min-height:1850px}
+  .bkwrap[data-trip] #bkloading{min-height:960px}
+  .bkwrap[data-trip] #bkloading::after{min-height:870px}
+  #bkloading::after{content:"";display:block;min-height:1760px;border-radius:var(--radius-lg);
+    background:linear-gradient(180deg,rgba(var(--edge-rgb),.05),rgba(var(--edge-rgb),.02));border:1px solid var(--hair)}
+  #bkloading.bkfail{min-height:0}
+  #bkloading.bkfail::after{display:none}
   #bkflow{order:3}
   .bkmapbox{order:4;margin-top:34px}
   .bkreassure{order:5}
@@ -387,5 +407,11 @@
 .bkjump:hover{border-color:var(--teal);color:var(--teal)}
 .bkjump:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 .bkproof{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:.88rem;color:rgba(255,255,255,.88);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
-.bkproof span{color:#e0be7a;letter-spacing:.08em}
+.bkproof span{color:#e0be7a;letter-spacing:.08em;white-space:nowrap}
 .bkproof:hover{border-color:#fff;color:#fff}
+
+/* The compact cookie bar of the booking pages (track.js) sits on the bottom
+   edge: the page keeps the same room at its foot so the last controls can
+   always be scrolled above it. */
+html.has-consent-bar .bkwrap{padding-bottom:calc(90px + var(--consent-h,0px))}
+html.has-consent-bar .wa{bottom:calc(22px + var(--consent-h,0px))}

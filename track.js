@@ -308,7 +308,20 @@
     bar.id = "cb-consent";
     bar.setAttribute("role", "dialog");
     bar.setAttribute("aria-label", t[0]);
-    bar.style.cssText = [
+    // On the booking pages the floating card covered the trip choice on a
+    // phone (4 Oct 2026). There it is a thin bar flush with the bottom edge,
+    // one line of text and two small buttons, and the page gets the same
+    // room at its foot (booking.css, has-consent-bar) so nothing stays under it.
+    var compact = !!document.getElementById("bkbox");
+    bar.style.cssText = compact ? [
+      "position:fixed", "left:0", "right:0", "bottom:0", "z-index:9999",
+      "padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))",
+      "background:rgba(12,16,20,.96)", "color:#f2f4f6",
+      "border-top:1px solid rgba(255,255,255,.14)",
+      "font:400 12.5px/1.35 Inter,system-ui,sans-serif",
+      "display:flex", "flex-wrap:nowrap", "gap:10px", "align-items:center",
+      "justify-content:center"
+    ].join(";") : [
       "position:fixed", "left:16px", "right:16px", "bottom:16px", "z-index:9999",
       "max-width:640px", "margin:0 auto", "padding:16px 18px",
       "background:rgba(12,16,20,.94)", "backdrop-filter:blur(10px)",
@@ -319,7 +332,7 @@
     ].join(";");
 
     var text = document.createElement("span");
-    text.style.cssText = "flex:1 1 240px";
+    text.style.cssText = compact ? "flex:1 1 auto;min-width:0;max-width:520px" : "flex:1 1 240px";
     text.appendChild(document.createTextNode(t[0] + " "));
     var link = document.createElement("a");
     link.href = privacyHref;
@@ -334,7 +347,8 @@
       var b = document.createElement("button");
       b.type = "button";
       b.textContent = label;
-      b.style.cssText = "cursor:pointer;border-radius:999px;padding:9px 18px;font:500 14px Inter,system-ui,sans-serif;" +
+      b.style.cssText = "cursor:pointer;border-radius:999px;font:500 " + (compact ? "13px" : "14px") + " Inter,system-ui,sans-serif;" +
+        (compact ? "padding:7px 12px;min-height:34px;" : "padding:9px 18px;") +
         (primary
           ? "background:#f2f4f6;color:#0c1014;border:0"
           : "background:transparent;color:#cfd6dd;border:1px solid rgba(255,255,255,.22)");

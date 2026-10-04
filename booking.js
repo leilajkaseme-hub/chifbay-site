@@ -111,6 +111,35 @@
 
   function pad(n) { return String(n).padStart(2, "0"); }
 
+  /* A photo from booking-content.js, as WebP with the JPEG as fallback.
+     scripts/make-webp.py writes <name>.webp and, for the big photos straight
+     under assets/, <name>-800.webp: the phone gets the small one. */
+  /* The card photos wait for the header photo. On a slow phone they arrived
+     with the calendar and shared the line with it, which pushed the largest
+     paint back by a second. Until the header photo is in, the addresses sit
+     in data-src / data-srcset and wakePhotos() puts them back. */
+  var heroImg = document.querySelector(".bkhbg img");
+  var heroIn = !heroImg || heroImg.complete;
+  function wakePhotos() {
+    heroIn = true;
+    $$("[data-srcset]").forEach(function (el) { el.srcset = el.getAttribute("data-srcset"); el.removeAttribute("data-srcset"); });
+    $$("img[data-src]").forEach(function (el) { el.src = el.getAttribute("data-src"); el.removeAttribute("data-src"); });
+  }
+  if (!heroIn) {
+    heroImg.addEventListener("load", wakePhotos, { once: true });
+    heroImg.addEventListener("error", wakePhotos, { once: true });
+    setTimeout(wakePhotos, 5000);   // never hold the cards back for long
+  }
+
+  function photo(src, attrs) {
+    var a = heroIn ? "" : "data-";
+    var img = "<img " + a + 'src="' + esc(src) + '"' + attrs + ">";
+    if (!/^assets\/[\w-]+\.jpe?g$/.test(src)) return img;
+    var b = esc(src.replace(/\.jpe?g$/, ""));
+    return '<picture><source type="image/webp" media="(max-width:760px)" ' + a + 'srcset="' + b + '-800.webp">' +
+      '<source type="image/webp" ' + a + 'srcset="' + b + '.webp">' + img + "</picture>";
+  }
+
   function ymd(d) {
     return d.getUTCFullYear() + "-" + pad(d.getUTCMonth() + 1) + "-" + pad(d.getUTCDate());
   }
@@ -444,9 +473,8 @@
       var pics = g.variants.map(function (o, i) {
         var c = C && C.variant(o.tripId, o.varId);
         if (!c || !c.photo) return "";
-        return '<img class="bkcimg" data-i="' + i + '" src="' +
-          esc(c.photo) + '" alt="' + esc(c.alt || o.v.name) +
-          '" loading="lazy" decoding="async" width="640" height="360">';
+        return photo(c.photo, ' class="bkcimg" data-i="' + i + '" alt="' + esc(c.alt || o.v.name) +
+          '" loading="lazy" decoding="async" width="640" height="360"');
       }).join("");
 
       // The switch carries BOTH numbers a guest compares. That is the whole
@@ -520,6 +548,7 @@
     renderPicked();
     loadAvailability();
     step(2);
+    loadStripe().catch(function () {});   // warm it up; startPayment retries
   }
 
   /* The little reminder of what they picked, above the calendar. */
@@ -530,7 +559,7 @@
     var v = trip.variants[state.variant];
     var c = C && C.variant(state.trip, state.variant);
     box.innerHTML =
-      (c && c.photo ? '<img src="' + esc(c.photo) + '" alt="" loading="lazy" decoding="async">' : "") +
+      (c && c.photo ? photo(c.photo, ' alt="" loading="lazy" decoding="async"') : "") +
       "<div><span class=\"bkck\">" + esc(trip.name) + "</span>" +
       "<strong>" + esc(v.name) + "</strong>" +
       "<span class=\"bkpm\">" + esc(dur(v.minutes)) + " · " + money(v.amount) + " · " +
@@ -757,6 +786,9 @@
   function showProof() {
     var host = document.querySelector(".bkhc");
     if (!host || host.querySelector(".bkproof") || !window.fetch) return;
+    // The page keeps a line free for it (.bkproof-slot), so the header does
+    // not grow and push the page down when the reviews arrive (CLS).
+    var slot = host.querySelector(".bkproof-slot");
     fetch("/reviews.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
       var a = d && d.aggregate;
       if (!a || !a.count) return;
@@ -764,7 +796,7 @@
       el.className = "bkproof";
       el.href = "/reviews";
       el.innerHTML = '<span aria-hidden="true">★★★★★</span> ' + esc(t("ui.proof", { r: Number(a.rating).toFixed(1), n: a.count }));
-      host.appendChild(el);
+      if (slot) slot.appendChild(el); else host.appendChild(el);
     }).catch(function () {});
   }
 
@@ -842,6 +874,25 @@
       '<span class="bksumprice">' + money(v.amount) + "</span>";
   }
 
+  /* Stripe's script is about 260 KB. It used to load with the page and took
+     bandwidth from the header photo on a slow phone (largest image at 13.5 s,
+     4 Oct 2026). It now loads once a trip is chosen, so it is ready long
+     before the payment step, and startPayment waits for it if it is not. */
+  var stripeLoading = null;
+  function loadStripe() {
+    if (window.Stripe) return Promise.resolve();
+    if (stripeLoading) return stripeLoading;
+    stripeLoading = new Promise(function (res, rej) {
+      var sc = document.createElement("script");
+      sc.src = "https://js.stripe.com/v3/";
+      sc.async = true;
+      sc.onload = function () { window.Stripe ? res() : rej(new Error(t("ui.notReachable"))); };
+      sc.onerror = function () { stripeLoading = null; sc.remove(); rej(new Error(t("ui.notReachable"))); };
+      document.head.appendChild(sc);
+    });
+    return stripeLoading;
+  }
+
   function startPayment(e) {
     e.preventDefault();
     say("");
@@ -894,7 +945,9 @@
           });
         }
         step(4);
-        return Stripe(CFG.PK).initEmbeddedCheckout({ clientSecret: res.clientSecret });
+        return loadStripe().then(function () {
+          return Stripe(CFG.PK).initEmbeddedCheckout({ clientSecret: res.clientSecret });
+        });
       })
       .then(function (checkout) {
         state.checkout = checkout;
@@ -1027,6 +1080,7 @@
         }
       })
       .catch(function () {
+        $("#bkloading").classList.add("bkfail");
         $("#bkloading").innerHTML =
           "<p>" + esc(t("ui.notReachable")).replace(
             esc(t("ui.whatsapp")),
