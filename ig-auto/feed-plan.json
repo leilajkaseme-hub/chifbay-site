@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-03T10:06:54.910Z",
+  "built": "2026-10-04T10:47:41.876Z",
   "slides": 4,
   "posts": [
     {
@@ -20,33 +20,33 @@
     },
     {
       "plan_index": 42,
-      "family": "neutral",
-      "warmth": 8.78,
-      "cover": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-      "slides": [
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-drive/img-2317-1f9xGgIA.jpg",
-        "social-iphone/IMG_2850.jpg",
-        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 43,
       "family": "amber",
       "warmth": 15.61,
       "cover": "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
       "slides": [
         "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg"
+        "social-iphone/IMG_2850.jpg",
+        "social-iphone/IMG_2836.jpg",
+        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg"
       ],
       "grade": {
         "brightness": 1.0328979268774476,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 43,
+      "family": "soft",
+      "warmth": 8.68,
+      "cover": "social-iphone/IMG_2850.jpg",
+      "slides": [
+        "social-iphone/IMG_2850.jpg",
+        "social-drive/img-2316-1y4ISNur.jpg",
+        "social-iphone/IMG_2845.jpg",
+        "social-iphone/IMG_2797.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0418972660531198,
         "saturation": 1
       }
     },
@@ -58,8 +58,8 @@
       "slides": [
         "social-iphone/IMG_2874.jpg",
         "social-drive/img-1750-1aJpTiay.jpg",
-        "social-drive/img-2316-1y4ISNur.jpg",
-        "social-iphone/IMG_2806.jpg"
+        "social-iphone/IMG_2806.jpg",
+        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png"
       ],
       "grade": {
         "brightness": 1.05,
@@ -69,61 +69,29 @@
     {
       "plan_index": 45,
       "family": "neutral",
-      "warmth": 6.68,
-      "cover": "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg",
+      "warmth": 8.78,
+      "cover": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
       "slides": [
-        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg",
-        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
-        "social-iphone/IMG_2877.jpg",
-        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png"
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-drive/img-2317-1f9xGgIA.jpg",
+        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg"
       ],
       "grade": {
-        "brightness": 1.014715450915574,
+        "brightness": 1.05,
         "saturation": 1
       }
     },
     {
       "plan_index": 46,
-      "family": "soft",
-      "warmth": 8.68,
-      "cover": "social-iphone/IMG_2850.jpg",
-      "slides": [
-        "social-iphone/IMG_2850.jpg",
-        "social-iphone/IMG_2797.jpg",
-        "social-iphone/IMG_2836.jpg",
-        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0418972660531198,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 47,
-      "family": "amber",
-      "warmth": 26.45,
-      "cover": "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
-      "slides": [
-        "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-iphone/IMG_2874.jpg",
-        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 48,
       "family": "neutral",
       "warmth": 6.61,
       "cover": "social-iphone/IMG_2877.jpg",
       "slides": [
         "social-iphone/IMG_2877.jpg",
-        "social-iphone/IMG_2845.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-iphone/IMG_2806.jpg"
+        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
+        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -131,22 +99,7 @@
       }
     },
     {
-      "plan_index": 49,
-      "family": "golden",
-      "warmth": 29.27,
-      "cover": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
-      "slides": [
-        "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg"
-      ],
-      "grade": {
-        "brightness": 1.003278234022973,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 50,
+      "plan_index": 47,
       "family": "neutral",
       "warmth": 5.48,
       "cover": "social-iphone/IMG_2836.jpg",
@@ -162,31 +115,15 @@
       }
     },
     {
-      "plan_index": 51,
-      "family": "golden",
-      "warmth": 21.2,
-      "cover": "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
-      "slides": [
-        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-iphone/IMG_2874.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9984225350949975,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 52,
+      "plan_index": 48,
       "family": "neutral",
       "warmth": 4.74,
       "cover": "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
       "slides": [
         "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
-        "social-drive/img-1750-1aJpTiay.jpg",
         "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg"
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-iphone/IMG_2877.jpg"
       ],
       "grade": {
         "brightness": 1.0036613826522585,
@@ -194,15 +131,15 @@
       }
     },
     {
-      "plan_index": 53,
+      "plan_index": 49,
       "family": "neutral",
       "warmth": 4.12,
       "cover": "social-drive/img-2316-1y4ISNur.jpg",
       "slides": [
         "social-drive/img-2316-1y4ISNur.jpg",
-        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
-        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg",
-        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg"
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-iphone/IMG_2874.jpg",
+        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -210,14 +147,14 @@
       }
     },
     {
-      "plan_index": 54,
+      "plan_index": 50,
       "family": "neutral",
       "warmth": 2.58,
       "cover": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
       "slides": [
         "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
         "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
-        "social-iphone/IMG_2850.jpg",
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
         "social-iphone/IMG_2836.jpg"
       ],
       "grade": {
@@ -226,13 +163,13 @@
       }
     },
     {
-      "plan_index": 55,
+      "plan_index": 51,
       "family": "neutral",
       "warmth": 0.79,
       "cover": "social-iphone/IMG_2845.jpg",
       "slides": [
         "social-iphone/IMG_2845.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-iphone/IMG_2850.jpg",
         "social-iphone/IMG_2797.jpg",
         "social-drive/img-2316-1y4ISNur.jpg"
       ],
@@ -242,7 +179,7 @@
       }
     },
     {
-      "plan_index": 56,
+      "plan_index": 52,
       "family": "neutral",
       "warmth": 0.28,
       "cover": "social-iphone/IMG_2806.jpg",
@@ -258,15 +195,15 @@
       }
     },
     {
-      "plan_index": 57,
+      "plan_index": 53,
       "family": "neutral",
       "warmth": 0.1,
       "cover": "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
       "slides": [
         "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
         "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
-        "social-iphone/IMG_2877.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg"
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-iphone/IMG_2877.jpg"
       ],
       "grade": {
         "brightness": 1.0335504205069383,
@@ -274,7 +211,7 @@
       }
     },
     {
-      "plan_index": 58,
+      "plan_index": 54,
       "family": "neutral",
       "warmth": -5.12,
       "cover": "social-iphone/IMG_2818.jpg",
@@ -290,23 +227,23 @@
       }
     },
     {
-      "plan_index": 59,
-      "family": "deep",
-      "warmth": -28.07,
-      "cover": "social-iphone/IMG_5393.jpg",
+      "plan_index": 55,
+      "family": "azure",
+      "warmth": -32.49,
+      "cover": "social-iphone/IMG_5343.jpg",
       "slides": [
-        "social-iphone/IMG_5393.jpg",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/img-1733-14WKP77C.jpg",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
+        "social-iphone/IMG_5343.jpg",
+        "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+        "social-drive/img-1733-14WKP77C.jpg"
       ],
       "grade": {
-        "brightness": 1.05,
+        "brightness": 1.02416759048019,
         "saturation": 1
       }
     },
     {
-      "plan_index": 60,
+      "plan_index": 56,
       "family": "azure",
       "warmth": -9.91,
       "cover": "social-iphone/IMG_2861.jpg",
@@ -321,29 +258,13 @@
       }
     },
     {
-      "plan_index": 61,
-      "family": "azure",
-      "warmth": -32.49,
-      "cover": "social-iphone/IMG_5343.jpg",
-      "slides": [
-        "social-iphone/IMG_5343.jpg",
-        "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
-        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
-        "social-drive/img-1582-1O3gly5F.png"
-      ],
-      "grade": {
-        "brightness": 1.02416759048019,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 62,
+      "plan_index": 57,
       "family": "azure",
       "warmth": -36.96,
       "cover": "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
       "slides": [
         "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
-        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png",
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
         "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
         "social-iphone/IMG_5343.jpg"
       ],
@@ -353,18 +274,65 @@
       }
     },
     {
-      "plan_index": 63,
+      "plan_index": 58,
       "family": "azure",
       "warmth": -48.41,
       "cover": "social-drive/img-1743-1cZILKxw.jpg",
       "slides": [
         "social-drive/img-1743-1cZILKxw.jpg",
         "social-drive/img-1739-1WRive46.jpg",
-        "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png"
+        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png"
       ],
       "grade": {
         "brightness": 0.9987465720429461,
         "saturation": 0.92
+      }
+    },
+    {
+      "plan_index": 59,
+      "family": "golden",
+      "warmth": 21.2,
+      "cover": "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
+      "slides": [
+        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-iphone/IMG_2874.jpg",
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9984225350949975,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 60,
+      "family": "golden",
+      "warmth": 29.27,
+      "cover": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
+      "slides": [
+        "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg"
+      ],
+      "grade": {
+        "brightness": 1.003278234022973,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 61,
+      "family": "amber",
+      "warmth": 26.45,
+      "cover": "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
+      "slides": [
+        "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
+        "social-iphone/IMG_2850.jpg",
+        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+        "social-iphone/IMG_2874.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
       }
     }
   ]
