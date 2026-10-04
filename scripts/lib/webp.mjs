@@ -19,6 +19,7 @@
 //   script: the photo moves into --bg / --bgw and data-lzbg, so it is not
 //   downloaded until tide.js sees it come near the screen. With JavaScript
 //   off (no data-theme on <html>) tide.css shows it at once.
+//   <link rel="preload" as="image" href="x.jpg"> -> the WebP, with type="image/webp"
 // og:image, JSON-LD, video posters and data-* attributes are never touched:
 // social networks and crawlers keep reading the JPEG.
 import fs from "node:fs";
@@ -116,9 +117,18 @@ function doBackgrounds(html, pageFile, lazyOk) {
 }
 
 // <script> and <template> bodies are code, not markup: kept out of the rewrite
+// <link rel="preload" as="image" href="x.jpg">: the page now shows x.webp, so
+// the preload must name it too, or the browser fetches the JPEG for nothing.
+function doPreloads(html, pageFile) {
+  return html.replace(/<link rel="preload" as="image" href="([^"]+)"([^>]*)>/g, (tag, href, rest) => {
+    const w = webpRef(href, pageFile);
+    return w ? `<link rel="preload" as="image" type="image/webp" href="${w}"${rest}>` : tag;
+  });
+}
+
 export function webpify(html, pageFile) {
   const stash = [];
   const work = html.replace(/<(script|template)\b[^>]*>[\s\S]*?<\/\1>/gi, (m) => `\u0000${stash.push(m) - 1}\u0000`);
   const lazyOk = /\/\*theme\*\//.test(html) && /tide(\.min)?\.js/.test(html);
-  return doBackgrounds(doImages(work, pageFile), pageFile, lazyOk).replace(/\u0000(\d+)\u0000/g, (_, i) => stash[i]);
+  return doPreloads(doBackgrounds(doImages(work, pageFile), pageFile, lazyOk), pageFile).replace(/\u0000(\d+)\u0000/g, (_, i) => stash[i]);
 }
