@@ -57,7 +57,7 @@ const T = {
       notes: [["Mercury V8, 300 hp", "Quick between coves, smooth on the run home."], ["Swim platform", "Straight into the water at Fajã dos Padres, with paddle boards on board."], ["Table under the shade", "Where drinks and food are served. Local wine, poncha, beer, soft drinks, snacks."], ["The helm", "Your licensed local skipper, who reads the coast every morning."], ["Bow sun pads", "Two wide pads up front for the sunny stretches."]],
       specs: ["2026 Karnic R8S", "9 m", "Up to 5 guests", "Bathroom on board"],
       alt: "Drone photo from above of the Chifbay boat, a 2026 Karnic R8S, at anchor in turquoise water with a paddle board behind it", pt: "Point" },
-    common: "Every trip includes the whole boat for up to 5 guests, two skippers, drinks and snacks, drone and Insta360 video and photos.", more: "Trip details",
+    common: "Every trip includes the whole boat for up to 5 guests, two skippers, food and drinks on board, Insta360 360° video, drone footage from above (weather allowing) and high quality camera photos.", more: "Trip details",
     sbar: { k: "From", btn: "Book now" },
   },
   fr: {
@@ -83,7 +83,7 @@ const T = {
       notes: [["Mercury V8, 300 ch", "Rapide entre les criques, confortable au retour."], ["Plateforme de bain", "Directement dans l'eau à Fajã dos Padres, avec des paddles à bord."], ["Table à l'ombre", "Là où l'on sert boissons et en-cas. Vin local, poncha, bière, softs."], ["Le poste de pilotage", "Votre skipper local et diplômé, qui lit la côte chaque matin."], ["Bains de soleil à l'avant", "Deux grands matelas pour les moments au soleil."]],
       specs: ["Karnic R8S 2026", "9 m", "Jusqu'à 5 personnes", "Toilettes à bord"],
       alt: "Photo de drone vue du dessus du bateau Chifbay, un Karnic R8S 2026, au mouillage dans une eau turquoise avec un paddle derrière", pt: "Point" },
-    common: "Chaque sortie comprend tout le bateau pour 5 personnes max., deux skippers, boissons et en-cas, vidéo drone et Insta360 et photos.", more: "Détails de la sortie",
+    common: "Chaque sortie comprend tout le bateau pour 5 personnes max., deux skippers, repas et boissons à bord, une vidéo 360° Insta360, des images de drone vues du ciel (si la météo le permet) et des photos de qualité prises à l'appareil.", more: "Détails de la sortie",
     sbar: { k: "À partir de", btn: "Réserver" },
   },
   de: {
@@ -109,7 +109,7 @@ const T = {
       notes: [["Mercury V8, 300 PS", "Schnell zwischen den Buchten, ruhig auf der Rückfahrt."], ["Badeplattform", "Direkt ins Wasser in Fajã dos Padres, Paddleboards an Bord."], ["Tisch im Schatten", "Hier gibt es Getränke und Snacks. Lokaler Wein, Poncha, Bier, Softdrinks."], ["Der Steuerstand", "Ihr lizenzierter Skipper von hier, der jeden Morgen die Küste liest."], ["Sonnenpolster am Bug", "Zwei breite Polster vorne für die sonnigen Strecken."]],
       specs: ["Karnic R8S 2026", "9 m", "Bis zu 5 Gäste", "Toilette an Bord"],
       alt: "Drohnenfoto von oben auf das Chifbay Boot, eine Karnic R8S 2026, vor Anker in türkisem Wasser mit einem Paddleboard dahinter", pt: "Punkt" },
-    common: "Jede Fahrt umfasst das ganze Boot für bis zu 5 Gäste, zwei Skipper, Getränke und Snacks, Drohnen und Insta360 Video und Fotos.", more: "Details zur Fahrt",
+    common: "Jede Fahrt umfasst das ganze Boot für bis zu 5 Gäste, zwei Skipper, Essen und Getränke an Bord, ein Insta360-360°-Video, Drohnenaufnahmen von oben (wenn das Wetter es erlaubt) und hochwertige Kamerafotos.", more: "Details zur Fahrt",
     sbar: { k: "Ab", btn: "Jetzt buchen" },
   },
   pt: {
@@ -135,7 +135,7 @@ const T = {
       notes: [["Mercury V8, 300 cv", "Rápido entre enseadas, suave no regresso."], ["Plataforma de banho", "Direto para a água na Fajã dos Padres, com pranchas de paddle a bordo."], ["Mesa à sombra", "Onde se servem bebidas e petiscos. Vinho local, poncha, cerveja, refrigerantes."], ["O leme", "O seu skipper local e certificado, que lê a costa todas as manhãs."], ["Solários na proa", "Dois colchões largos à frente para os troços ao sol."]],
       specs: ["Karnic R8S 2026", "9 m", "Até 5 pessoas", "Casa de banho a bordo"],
       alt: "Foto de drone vista de cima do barco Chifbay, um Karnic R8S 2026, ancorado em água turquesa com uma prancha de paddle atrás", pt: "Ponto" },
-    common: "Todos os passeios incluem o barco inteiro para até 5 pessoas, dois skippers, bebidas e petiscos, vídeo de drone e Insta360 e fotos.", more: "Detalhes do passeio",
+    common: "Todos os passeios incluem o barco inteiro para até 5 pessoas, dois skippers, comida e bebidas a bordo, um vídeo 360° Insta360, imagens de drone vistas de cima (se o tempo permitir) e fotos de qualidade tiradas com câmara.", more: "Detalhes do passeio",
     sbar: { k: "Desde", btn: "Reservar" },
   },
   es: {
@@ -161,7 +161,7 @@ const T = {
       notes: [["Mercury V8, 300 CV", "Rápido entre calas, suave a la vuelta."], ["Plataforma de baño", "Directo al agua en Fajã dos Padres, con tablas de paddle a bordo."], ["Mesa a la sombra", "Donde se sirven bebidas y picoteo. Vino local, poncha, cerveza, refrescos."], ["El timón", "Tu patrón local con licencia, que lee la costa cada mañana."], ["Solárium en proa", "Dos colchonetas anchas delante para los tramos al sol."]],
       specs: ["Karnic R8S 2026", "9 m", "Hasta 5 personas", "Baño a bordo"],
       alt: "Foto de dron desde arriba del barco Chifbay, un Karnic R8S 2026, fondeado en agua turquesa con una tabla de paddle detrás", pt: "Punto" },
-    common: "Cada salida incluye todo el barco para hasta 5 personas, dos patrones, bebidas y picoteo, vídeo de dron e Insta360 y fotos.", more: "Detalles de la salida",
+    common: "Cada salida incluye todo el barco para hasta 5 personas, dos patrones, comida y bebidas a bordo, un vídeo 360° Insta360, imágenes de dron desde arriba (si el tiempo lo permite) y fotos de calidad hechas con cámara.", more: "Detalles de la salida",
     sbar: { k: "Desde", btn: "Reservar" },
   },
   it: {
@@ -187,7 +187,7 @@ const T = {
       notes: [["Mercury V8, 300 CV", "Veloce tra le calette, morbido al ritorno."], ["Piattaforma bagno", "Dritti in acqua a Fajã dos Padres, con tavole da paddle a bordo."], ["Tavolo all'ombra", "Dove si servono drink e stuzzichini. Vino locale, poncha, birra, bibite."], ["Il timone", "Il tuo skipper locale con licenza, che legge la costa ogni mattina."], ["Prendisole a prua", "Due materassini larghi davanti per i tratti al sole."]],
       specs: ["Karnic R8S 2026", "9 m", "Fino a 5 persone", "Bagno a bordo"],
       alt: "Foto dal drone dall'alto della barca Chifbay, un Karnic R8S 2026, all'ancora in acqua turchese con una tavola da paddle dietro", pt: "Punto" },
-    common: "Ogni uscita include tutta la barca fino a 5 ospiti, due skipper, drink e stuzzichini, video con drone e Insta360 e foto.", more: "Dettagli dell'uscita",
+    common: "Ogni uscita include tutta la barca fino a 5 ospiti, due skipper, cibo e bevande a bordo, un video 360° Insta360, riprese con il drone dall'alto (meteo permettendo) e foto di qualità scattate con fotocamera.", more: "Dettagli dell'uscita",
     sbar: { k: "Da", btn: "Prenota" },
   },
 };

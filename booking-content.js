@@ -91,17 +91,18 @@ window.CHIFBAY_CONTENT = (function () {
     // what you actually do, per option
     "hl.day-trip/ribeira-brava": [
       "Swim, jump in and paddle at Fajã dos Padres",
-      "Drone and Insta360 video of your day, plus photos",
+      "Insta360 360° video, drone footage (weather allowing) and camera photos",
       "Drinks and food served on board",
     ],
     "hl.day-trip/ponta-do-sol": [
       "Everything in the To Ribeira Brava trip, then 30 minutes further west",
-      "Drone and Insta360 video of your day, plus photos",
+      "Insta360 360° video, drone footage (weather allowing) and camera photos",
       "Ponta do Sol, the furthest west we run",
     ],
     "hl.sunset/cabo-girao": [
       "Evening light under 580 metres of cliff",
       "Drinks and food served on deck, engine off",
+      "Insta360 360° video, drone footage (weather allowing) and camera photos",
       "Open-throttle run back into a lit-up Funchal",
     ],
     "hl.sunset/ribeira-brava": [
@@ -224,6 +225,11 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.whatsapp": "WhatsApp",
       "ui.calFailed": "Impossible de charger le calendrier. Écrivez-nous sur WhatsApp.",
       "ui.retry": "Réessayer",
+      // what you do, per option (English source: EN "hl.*")
+      "hl.day-trip/ribeira-brava": ["Baignade, saut et paddle à la Fajã dos Padres", "Vidéo 360° Insta360, images de drone (si la météo le permet) et photos à l'appareil", "Boissons et repas servis à bord"],
+      "hl.day-trip/ponta-do-sol": ["Tout le parcours jusqu'à Ribeira Brava, puis 30 minutes plus à l'ouest", "Vidéo 360° Insta360, images de drone (si la météo le permet) et photos à l'appareil", "Ponta do Sol, le point le plus à l'ouest"],
+      "hl.sunset/cabo-girao": ["La lumière du soir sous 580 mètres de falaise", "Boissons et repas servis sur le pont, moteur coupé", "Vidéo 360° Insta360, images de drone (si la météo le permet) et photos à l'appareil", "Retour plein gaz vers Funchal illuminée"],
+      "hl.sunset/ribeira-brava": ["Tout le parcours jusqu'au Cabo Girão", "Plus loin, après la Fajã dos Padres, jusqu'à Ribeira Brava", "Trente minutes de plus dans la plus belle lumière du jour"],
     },
     de: {
       "stop.funchal": "Ablegen",
@@ -258,6 +264,11 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.whatsapp": "WhatsApp",
       "ui.calFailed": "Der Kalender konnte nicht geladen werden. Schreiben Sie uns auf WhatsApp.",
       "ui.retry": "Erneut versuchen",
+      // what you do, per option (English source: EN "hl.*")
+      "hl.day-trip/ribeira-brava": ["Baden, Springen und Paddeln an der Fajã dos Padres", "Insta360-360°-Video, Drohnenaufnahmen (wenn das Wetter es erlaubt) und Kamerafotos", "Getränke und Essen an Bord"],
+      "hl.day-trip/ponta-do-sol": ["Alles aus der Fahrt bis Ribeira Brava, dann 30 Minuten weiter nach Westen", "Insta360-360°-Video, Drohnenaufnahmen (wenn das Wetter es erlaubt) und Kamerafotos", "Ponta do Sol, unser westlichster Punkt"],
+      "hl.sunset/cabo-girao": ["Abendlicht unter 580 Meter hohen Klippen", "Getränke und Essen an Deck, Motor aus", "Insta360-360°-Video, Drohnenaufnahmen (wenn das Wetter es erlaubt) und Kamerafotos", "Mit Vollgas zurück ins beleuchtete Funchal"],
+      "hl.sunset/ribeira-brava": ["Alles aus der Fahrt bis Cabo Girão", "Weiter an der Fajã dos Padres vorbei bis Ribeira Brava", "Dreißig Minuten mehr im schönsten Licht des Tages"],
     },
     pt: {
       "stop.funchal": "Partida",
@@ -292,6 +303,11 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.whatsapp": "WhatsApp",
       "ui.calFailed": "Não foi possível carregar o calendário. Escreva-nos pelo WhatsApp.",
       "ui.retry": "Tentar de novo",
+      // what you do, per option (English source: EN "hl.*")
+      "hl.day-trip/ribeira-brava": ["Banho, saltos e paddle na Fajã dos Padres", "Vídeo 360° Insta360, imagens de drone (se o tempo permitir) e fotos de câmara", "Bebidas e comida servidas a bordo"],
+      "hl.day-trip/ponta-do-sol": ["Tudo do passeio até à Ribeira Brava, e mais 30 minutos para oeste", "Vídeo 360° Insta360, imagens de drone (se o tempo permitir) e fotos de câmara", "Ponta do Sol, o ponto mais a oeste"],
+      "hl.sunset/cabo-girao": ["A luz do fim do dia sob 580 metros de falésia", "Bebidas e comida servidas no convés, motor desligado", "Vídeo 360° Insta360, imagens de drone (se o tempo permitir) e fotos de câmara", "Regresso a toda a velocidade até um Funchal iluminado"],
+      "hl.sunset/ribeira-brava": ["Tudo do passeio até ao Cabo Girão", "Mais além da Fajã dos Padres, até à Ribeira Brava", "Mais trinta minutos na melhor luz do dia"],
     },
     es: {
       "stop.funchal": "Salida",
@@ -326,6 +342,11 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.whatsapp": "WhatsApp",
       "ui.calFailed": "No se pudo cargar el calendario. Escríbenos por WhatsApp.",
       "ui.retry": "Reintentar",
+      // what you do, per option (English source: EN "hl.*")
+      "hl.day-trip/ribeira-brava": ["Baño, saltos y paddle en Fajã dos Padres", "Vídeo 360° Insta360, imágenes de dron (si el tiempo lo permite) y fotos con cámara", "Bebidas y comida servidas a bordo"],
+      "hl.day-trip/ponta-do-sol": ["Todo lo de la salida hasta Ribeira Brava, y 30 minutos más al oeste", "Vídeo 360° Insta360, imágenes de dron (si el tiempo lo permite) y fotos con cámara", "Ponta do Sol, el punto más al oeste"],
+      "hl.sunset/cabo-girao": ["La luz de la tarde bajo 580 metros de acantilado", "Bebidas y comida en cubierta, motor apagado", "Vídeo 360° Insta360, imágenes de dron (si el tiempo lo permite) y fotos con cámara", "Vuelta a todo gas hacia un Funchal iluminado"],
+      "hl.sunset/ribeira-brava": ["Todo lo de la salida hasta Cabo Girão", "Más allá de Fajã dos Padres, hasta Ribeira Brava", "Treinta minutos más con la mejor luz del día"],
     },
     it: {
       "stop.funchal": "Partenza",
@@ -360,6 +381,11 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.whatsapp": "WhatsApp",
       "ui.calFailed": "Impossibile caricare il calendario. Scrivici su WhatsApp.",
       "ui.retry": "Riprova",
+      // what you do, per option (English source: EN "hl.*")
+      "hl.day-trip/ribeira-brava": ["Bagno, tuffi e paddle alla Fajã dos Padres", "Video 360° Insta360, riprese con drone (meteo permettendo) e foto con fotocamera", "Bevande e cibo serviti a bordo"],
+      "hl.day-trip/ponta-do-sol": ["Tutto il percorso fino a Ribeira Brava, poi 30 minuti più a ovest", "Video 360° Insta360, riprese con drone (meteo permettendo) e foto con fotocamera", "Ponta do Sol, il punto più a ovest"],
+      "hl.sunset/cabo-girao": ["La luce della sera sotto 580 metri di falesia", "Bevande e cibo in coperta, motore spento", "Video 360° Insta360, riprese con drone (meteo permettendo) e foto con fotocamera", "Rientro a tutto gas verso Funchal illuminata"],
+      "hl.sunset/ribeira-brava": ["Tutto il percorso fino a Cabo Girão", "Oltre la Fajã dos Padres, fino a Ribeira Brava", "Trenta minuti in più nella luce più bella del giorno"],
     },
   };
 

@@ -7,7 +7,10 @@
 //     filmed video came only with the 3 h day trip)
 //   - whole boat pricing from 400 EUR: for two people that is not "the same or
 //     less" than shared tour tickets
-// Owner rule of 4 Oct 2026:
+// Owner facts of 4 Oct 2026:
+//   - included on every trip: Insta360 360 degree video, drone footage from
+//     above (weather allowing) and high quality photos taken with a real
+//     camera; food on board on both trips
 //   - the sunset trip leaves 1 h 15 before that day's sunset, rounded down to
 //     the quarter hour (scripts/lib/sunset.mjs): it has no fixed 18:30 any more
 // The booking API publishes the same cancellation window (cancelHours in
@@ -142,4 +145,18 @@ test('sales pages do not promise a golden hour (the clouds decide the colours)',
     if (m) bad.push(`${l}${p}: ${m[0]}`);
   }
   assert.deepEqual(bad, []);
+});
+
+test('the trip pages and the practical page name the three media and the food, in every language', () => {
+  const WEATHER = /weather allowing|si la météo le permet|wenn das Wetter es erlaubt|se o tempo permitir|si el tiempo lo permite|meteo permettendo/;
+  const CAMERA = /real camera|vrai appareil photo|echten Kamera|câmara a sério|cámara de verdad|vera fotocamera/;
+  const FOOD = /\b(food|repas|Essen|comida|cibo)\b/i;
+  const missing = [];
+  for (const l of ['', 'fr/', 'de/', 'pt/', 'es/', 'it/']) for (const p of ['sunset-cruise', 'hidden-coves-half-day', 'practical']) {
+    const t = text(`${l}${p}.html`);
+    for (const [name, re] of [['Insta360 360°', /Insta360[^.]{0,40}360°|360°[^.]{0,20}Insta360/], ['weather allowing', WEATHER], ['camera photos', CAMERA], ['food', FOOD]]) {
+      if (!re.test(t)) missing.push(`${l}${p}: ${name}`);
+    }
+  }
+  assert.deepEqual(missing, []);
 });

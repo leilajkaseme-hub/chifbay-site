@@ -11,12 +11,14 @@ the whole boat is yours (up to 5 guests). TWO packs only — there is no full-da
   on the 2h30 and 13:00 or 17:00 on the 3h (never write it as one 10:00 to 13:00 window):
   Câmara de Lobos → Cabo Girão + drone → Fajã dos Padres (swim, jump in, paddle) →
   Ribeira Brava (swim) → fast run back to Funchal. 2h30 €500, or 3h €600 continuing 30
-  minutes further west to Ponta do Sol. Drone, Insta360 video and photos on every trip. Drinks and food aboard.
+  minutes further west to Ponta do Sol. Drinks and food aboard.
 - **Sunset Trip** (`sunset-cruise.html`), leaves 1 h 15 before that day's sunset, rounded down
   to the quarter hour, so the light is right all year (about 16:45 in December, 20:00 in June;
   never give it one fixed time): same coast, no swimming (the
   water is too cold that late). 2h €400 turning at Cabo Girão, or 2h30 €500 turning at
-  Ribeira Brava. Drone, drinks and food aboard.
+  Ribeira Brava. Drinks and food aboard.
+- On EVERY trip, included: an Insta360 360° video, drone footage from above (weather
+  allowing) and high quality photos taken with a real camera. Food on board on both trips.
 Never invent trips, durations or prices outside this list. The blog ("Journal") posts
 are in `/posts/` and are written in English.
 

@@ -81,7 +81,7 @@ const PAGES = [
     desc: "Book the private sunset trip from Funchal, Madeira. Leaves 1 h 15 before sunset: 2h to Cabo Girão €400 or 2h30 to Ribeira Brava €500. Live calendar, pay by card.",
     schema: {
       name: "Private Sunset Boat Trip - Madeira",
-      description: "Private sunset boat trip from Funchal, Madeira. Leaves 1 h 15 before sunset, 2h to Cabo Girao, or 2h30 on to Ribeira Brava. Drone footage, drinks and food aboard, the whole boat for up to 5 guests.",
+      description: "Private sunset boat trip from Funchal, Madeira. Leaves 1 h 15 before sunset, 2h to Cabo Girao, or 2h30 on to Ribeira Brava. Insta360 360° video, drone footage (weather allowing), camera photos, drinks and food aboard, the whole boat for up to 5 guests.",
       image: "assets/exp-sunset.jpg",
       low: "400", high: "500", count: "2",
       offers: [
@@ -205,7 +205,8 @@ ${productSchema(p)}
         <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Our <strong>2026 Karnic R8S</strong> — 9m, Mercury V8 300hp, cushioned seating and a swim platform.</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Two Chifbay skippers</strong> on board, always — one at the helm, one looking after your group.</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Yes — there's a <strong>bathroom on board</strong>.</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Local wine, poncha, beer, soft drinks and snacks</strong> — included, no extra charge.</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Food on board, with local wine, poncha, beer and soft drinks</strong>: included on both trips, no extra charge.</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Insta360 360° video, drone footage from above</strong> (weather allowing) <strong>and high quality photos taken with a real camera</strong>, on every trip.</span></li>
       </ul>
     </div>
     <div class="bkr-photo" role="img" aria-label="Poncha, Madeira wine, beer and snacks served on the Chifbay boat" style="background-image:url('assets/why-catered.jpg')"></div>
