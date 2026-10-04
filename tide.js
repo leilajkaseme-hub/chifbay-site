@@ -548,9 +548,10 @@
       }
       return t;
     }
+    // sunset rounded to the nearest minute, like the booking server, then the lead
     function at(date, lead) {
       var p = date.split("-").map(Number);
-      return fmt.format(new Date(Date.UTC(p[0], p[1] - 1, p[2]) + (utcMin(p[0], p[1], p[2]) - lead) * 6e4));
+      return fmt.format(new Date(Date.UTC(p[0], p[1] - 1, p[2]) + (Math.round(utcMin(p[0], p[1], p[2])) - lead) * 6e4));
     }
     return {
       sunset: function (date) { return at(date, 0); },

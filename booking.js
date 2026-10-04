@@ -769,9 +769,10 @@
       }
       return t;
     }
+    // sunset rounded to the nearest minute, like the booking server, then the lead
     function at(date, lead) {
       var p = date.split("-").map(Number);
-      return fmt.format(new Date(Date.UTC(p[0], p[1] - 1, p[2]) + (utcMin(p[0], p[1], p[2]) - lead) * 6e4));
+      return fmt.format(new Date(Date.UTC(p[0], p[1] - 1, p[2]) + (Math.round(utcMin(p[0], p[1], p[2])) - lead) * 6e4));
     }
     return {
       sunset: function (date) { return at(date, 0); },
@@ -967,6 +968,9 @@
         name: $("#bkname").value,
         email: $("#bkemail").value,
         phone: fullPhone(),
+        // the language the page is shown in, so the booking and review emails
+        // reach the guest in it (the server falls back to English)
+        lang: locale(),
         // Where this guest came from, so a booking can be tied to the partner
         // who sent it. Wrapped because attribution must never be able to stop
         // a payment: if track.js is blocked this is simply absent.

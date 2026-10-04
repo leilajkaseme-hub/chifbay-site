@@ -44,16 +44,21 @@ const FMT = new Intl.DateTimeFormat("en-GB", { timeZone: "Atlantic/Madeira", hou
 const hm = (ms) => FMT.format(new Date(ms));
 const parse = (date) => date.split("-").map(Number);
 
+// sunset of that date as epoch ms, rounded to the nearest minute (the booking
+// server rounds the same way, and the departure is counted from this minute)
+function sunsetMs(date) {
+  const [y, m, d] = parse(date);
+  return Date.UTC(y, m - 1, d) + Math.round(sunsetUtcMinutes(y, m, d)) * 60000;
+}
+
 // "YYYY-MM-DD" -> sunset "HH:MM", Funchal time
 export function sunsetFunchal(date) {
-  const [y, m, d] = parse(date);
-  return hm(Date.UTC(y, m - 1, d) + sunsetUtcMinutes(y, m, d) * 60000);
+  return hm(sunsetMs(date));
 }
 
 // "YYYY-MM-DD" -> sunset trip departure "HH:MM", Funchal time
 export function sunsetDeparture(date) {
-  const [y, m, d] = parse(date);
-  const ms = Date.UTC(y, m - 1, d) + (sunsetUtcMinutes(y, m, d) - LEAD_MINUTES) * 60000;
+  const ms = sunsetMs(date) - LEAD_MINUTES * 60000;
   const [h, min] = hm(ms).split(":").map(Number);
   const q = h * 60 + Math.floor(min / 15) * 15;
   return String(Math.floor(q / 60)).padStart(2, "0") + ":" + String(q % 60).padStart(2, "0");
