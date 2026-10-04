@@ -44,7 +44,10 @@ are in `/posts/` and are written in English.
 7. Create `posts/<slug>.html` by COPYING THE EXACT STRUCTURE of
    `posts/top-10-things-to-do-in-madeira.html` (same `<head>`, nav, hero, `<article>`, footer,
    and the two JSON-LD blocks: `BlogPosting` + `FAQPage`). Then replace, consistently:
-   - `<title>`, meta description, canonical, og:title/description/image (all using the new slug/topic)
+   - `<title>`, meta description, canonical, og:title/description/image (all using the new slug/topic).
+     The `<title>` is at most 62 characters in total, main keyword first: keep " | Chifbay" only
+     if it fits (the `<h1>` and posts.json title can be longer). The meta description is 150 to
+     158 characters, selling point first. No em or en dashes in either.
    - hero `background-image` + the hero image, the category badge text, the `<h1>`, the date, the
      reading-minutes, the `.lede`, and the full `<article>` body
    - both JSON-LD blocks (headline/description/image/datePublished/dateModified = today, and the FAQ)

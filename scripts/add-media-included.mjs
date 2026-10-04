@@ -35,31 +35,37 @@ const T = {
         p: "Nothing extra to pay and nothing to set up. We film and photograph the trip and send it all to you after.",
         drone: ["Drone footage from above", "Aerial shots of your boat under Cabo Girão and in the coves, weather allowing."],
         i360: ["Insta360 360° video", "360° footage from on board, reframed so you are in every shot."],
+        phoneAlt: "Two guests at the back of the Chifbay boat watching the sun go down behind the cliffs of Madeira",
         phone: ["Camera photos", "High quality photos of your group taken with a real camera through the whole trip, sent to you after."] },
   fr: { i360k: "Inclus", k: "Inclus", h: "Vous repartez avec <em>toute la sortie</em> en images",
         p: "Rien à payer en plus, rien à préparer. Nous filmons et photographions la sortie et nous vous envoyons tout après.",
         drone: ["Images de drone vues du ciel", "Des images aériennes de votre bateau sous Cabo Girão et dans les criques, si la météo le permet."],
         i360: ["Vidéo 360° Insta360", "Des images à 360° prises à bord, recadrées pour que vous soyez dans chaque plan."],
+        phoneAlt: "Deux invités à l'arrière du bateau Chifbay regardent le soleil se coucher derrière les falaises de Madère",
         phone: ["Photos à l'appareil", "Des photos de qualité de votre groupe, prises avec un vrai appareil photo pendant toute la sortie, envoyées après."] },
   de: { i360k: "Inklusive", k: "Inklusive", h: "Sie nehmen <em>die ganze Fahrt</em> mit nach Hause",
         p: "Kein Aufpreis, nichts vorzubereiten. Wir filmen und fotografieren die Fahrt und schicken Ihnen danach alles.",
         drone: ["Drohnenaufnahmen von oben", "Luftaufnahmen Ihres Boots unter Cabo Girão und in den Buchten, wenn das Wetter es erlaubt."],
         i360: ["Insta360-360°-Video", "360° Aufnahmen an Bord, so zugeschnitten, dass Sie in jeder Szene sind."],
+        phoneAlt: "Zwei Gäste am Heck des Chifbay Boots sehen zu, wie die Sonne hinter den Klippen Madeiras untergeht",
         phone: ["Kamerafotos", "Hochwertige Fotos Ihrer Gruppe mit einer echten Kamera, während der ganzen Fahrt, danach zugeschickt."] },
   pt: { i360k: "Incluído", k: "Incluído", h: "Leva <em>o passeio inteiro</em> em imagens",
         p: "Sem custo extra e nada a preparar. Filmamos e fotografamos o passeio e enviamos tudo depois.",
         drone: ["Imagens de drone vistas de cima", "Imagens aéreas do seu barco sob o Cabo Girão e nas enseadas, se o tempo permitir."],
         i360: ["Vídeo 360° Insta360", "Imagens a 360° a bordo, reenquadradas para estar em todos os planos."],
+        phoneAlt: "Dois convidados na popa do barco Chifbay a ver o sol pôr-se atrás das falésias da Madeira",
         phone: ["Fotos de câmara", "Fotos de qualidade do seu grupo, tiradas com uma câmara a sério durante todo o passeio, enviadas depois."] },
   es: { i360k: "Incluido", k: "Incluido", h: "Te llevas <em>toda la salida</em> en imágenes",
         p: "Sin coste extra y nada que preparar. Filmamos y fotografiamos la salida y te lo enviamos todo después.",
         drone: ["Imágenes de dron desde arriba", "Imágenes aéreas de tu barco bajo Cabo Girão y en las calas, si el tiempo lo permite."],
         i360: ["Vídeo 360° Insta360", "Imágenes 360° a bordo, reencuadradas para que salgas en cada plano."],
+        phoneAlt: "Dos invitados en la popa del barco Chifbay miran cómo el sol se pone tras los acantilados de Madeira",
         phone: ["Fotos con cámara", "Fotos de calidad de tu grupo, hechas con una cámara de verdad durante toda la salida, enviadas después."] },
   it: { i360k: "Incluso", k: "Incluso", h: "Porti a casa <em>tutta l'uscita</em> in video",
         p: "Nessun costo extra e niente da preparare. Filmiamo e fotografiamo l'uscita e ti mandiamo tutto dopo.",
         drone: ["Riprese con il drone dall'alto", "Riprese aeree della tua barca sotto Cabo Girão e nelle calette, meteo permettendo."],
         i360: ["Video 360° Insta360", "Riprese a 360° a bordo, reinquadrate perché tu sia in ogni scena."],
+        phoneAlt: "Due ospiti a poppa della barca Chifbay guardano il sole tramontare dietro le scogliere di Madeira",
         phone: ["Foto con fotocamera", "Foto di qualità del tuo gruppo, scattate con una vera fotocamera per tutta l'uscita, inviate dopo."] },
 };
 
@@ -75,9 +81,9 @@ const LANGS = ["", "fr", "de", "pt", "es", "it"];
 const OLD = /[ \t]*<!-- media-included -->[\s\S]*?<!-- \/media-included -->\n?/g;
 
 function tile(prefix, kind, t, k) {
-  const [title, desc] = t;
+  const [title, desc] = t;   // t[2]: the photo's alt text (phone tile only)
   const media = kind === "phone"
-    ? `<img src="${prefix}assets/media/phone.jpg" alt="" loading="lazy" decoding="async">`
+    ? `<img src="${prefix}assets/media/phone.jpg" alt="${t[2]}" loading="lazy" decoding="async">`
     : `<video muted loop playsinline preload="none" aria-hidden="true" poster="${prefix}assets/media/${kind}-poster.jpg" data-src="${prefix}assets/media/${kind}.mp4"></video>`;
   const bg = kind === "phone" ? "phone.jpg" : `${kind}-poster.jpg`;
   return `      <figure class="mi reveal" style="background:url('${prefix}assets/media/${bg}') center/cover">${media}` +
@@ -93,7 +99,7 @@ function block(lang, prefix) {
     <h2 class="display reveal" style="font-size:clamp(1.9rem,3.6vw,3.1rem);max-width:18ch">${t.h}</h2>
     <p class="minc-lead reveal d1">${t.p}</p>
     <div class="minc-grid">
-${tile(prefix, "drone", t.drone, t.k)}${tile(prefix, "insta360", t.i360, t.i360k)}${tile(prefix, "phone", t.phone, t.k)}    </div>
+${tile(prefix, "drone", t.drone, t.k)}${tile(prefix, "insta360", t.i360, t.i360k)}${tile(prefix, "phone", [...t.phone, t.phoneAlt], t.k)}    </div>
   </div>
 <script>
 (function(){var vs=document.querySelectorAll('.minc video[data-src]');if(!vs.length)return;

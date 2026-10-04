@@ -78,7 +78,7 @@ const PAGES = [
     h1: "Book the <em>sunset</em> trip",
     lede: "The same west coast taken as the light turns. Drinks and food on deck, the drone over Cabo Girão, and the coast to your group alone.",
     title: "Book the Sunset Trip | Private Boat, Funchal Madeira — Chifbay",
-    desc: "Book the private sunset trip from Funchal, Madeira. Leaves 1 h 15 before sunset: 2h to Cabo Girão €400 or 2h30 to Ribeira Brava €500. Live calendar, pay by card.",
+    desc: "Book the private sunset trip from Funchal. Leaves 1 h 15 before sunset: 2h to Cabo Girão €400 or 2h30 to Ribeira Brava €500. Live calendar, pay by card.",
     schema: {
       name: "Private Sunset Boat Trip - Madeira",
       description: "Private sunset boat trip from Funchal, Madeira. Leaves 1 h 15 before sunset, 2h to Cabo Girao, or 2h30 on to Ribeira Brava. Insta360 360° video, drone footage (weather allowing), camera photos, drinks and food aboard, the whole boat for up to 5 guests.",

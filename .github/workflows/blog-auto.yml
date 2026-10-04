@@ -81,6 +81,10 @@ jobs:
       - name: Rebuild the Journal card lists
         run: node scripts/build-blog-index.mjs
 
+      # links to an article must use its canonical URL (no ".html")
+      - name: Point article links at their canonical URL
+        run: node scripts/fix-post-links.mjs
+
       - name: Commit & push
         run: |
           TITLE=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['title'])")

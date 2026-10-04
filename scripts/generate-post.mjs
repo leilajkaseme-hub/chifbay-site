@@ -47,9 +47,10 @@ const imageChoices = images.map(i => ({ file: i.file, alt: i.alt, tags: i.tags }
 
 const SCHEMA = {
   type: "object", additionalProperties: false,
-  required: ["title","slug","metaDescription","keywords","heroImage","heroAlt","lede","bodyHtml","faq","readingMinutes"],
+  required: ["title","seoTitle","slug","metaDescription","keywords","heroImage","heroAlt","lede","bodyHtml","faq","readingMinutes"],
   properties: {
     title: { type: "string" },
+    seoTitle: { type: "string" },
     slug: { type: "string" },
     metaDescription: { type: "string" },
     keywords: { type: "array", items: { type: "string" } },
@@ -73,7 +74,8 @@ RULES:
 - bodyHtml: clean semantic HTML only — <h2>, <h3>, <p>, <ul>/<li>, <strong>, <blockquote>, and <a>. NO <h1>, NO inline styles, NO <img>, NO markdown. 700–1100 words.
 - lede: one or two italic-worthy sentences that hook the reader (plain text, no tags).
 - slug: lowercase, hyphenated, <=70 chars, no dates.
-- metaDescription: <=155 chars, compelling, includes the main keyword.
+- seoTitle: the <title> for search results, at most 62 characters, main keyword first, no dashes (title can stay longer, it is the H1).
+- metaDescription: 150 to 158 chars, compelling, selling point first, includes the main keyword.
 - keywords: 6–10 realistic search phrases.
 - heroImage: choose the BEST-fitting file from the provided list (must match the article topic).
 - faq: 3–5 question/answer pairs that real travellers ask, answers 1–3 sentences, factual.
@@ -102,8 +104,18 @@ async function generate() {
   return JSON.parse(text);
 }
 
+// <title>: at most 62 characters (4 Oct 2026 SEO audit: 310 Journal titles
+// were cut off in search results). " | Chifbay" only when it fits.
+function seoTitle(d) {
+  const t = (d.seoTitle || d.title).trim();
+  if ((t + " | Chifbay").length <= 62) return t + " | Chifbay";
+  if (t.length <= 62) return t;
+  return t.slice(0, 62).replace(/\s+\S*$/, "").replace(/[\s,:;]+$/, "");
+}
+
 function renderPost(d, dateISO) {
-  const url = `${BASE}/posts/${d.slug}.html`;
+  // the canonical has no ".html", like every English article and the sitemap line
+  const url = `${BASE}/posts/${d.slug}`;
   const heroImg = images.find(i => i.file === d.heroImage) || images[0];
   const faqJson = d.faq.map(f => `{"@type":"Question","name":${jstr(f.q)},"acceptedAnswer":{"@type":"Answer","text":${jstr(f.a)}}}`).join(",");
   const faqHtml = d.faq.map(f => `<details class="rv"><summary>${esc(f.q)}<span class="fi">+</span></summary><p class="fb">${esc(f.a)}</p></details>`).join("\n      ");
@@ -114,7 +126,7 @@ function renderPost(d, dateISO) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>${esc(d.title)} | Chifbay</title>
+<title>${esc(seoTitle(d))}</title>
 <meta name="description" content="${esc(d.metaDescription)}">
 <meta name="keywords" content="${esc(d.keywords.join(", "))}">
 <link rel="canonical" href="${url}"/>

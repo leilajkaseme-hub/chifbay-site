@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { webpify } from "./lib/webp.mjs";
+import { postUrl } from "./post-url.mjs";
 
 const SITE = join(dirname(fileURLToPath(import.meta.url)), "..");
 const LANGS = {
@@ -37,13 +38,23 @@ const esc = (s) => String(s == null ? "" : s)
   .replace(/"/g, "&quot;").replace(/'/g, "&#x27;");
 
 // Le titre traduit est dans le fichier traduit: on le lit, on ne le devine pas.
+// og:title, not the <title>: since 4 Oct 2026 the <title> is cut to 62
+// characters for search results (scripts/shorten-meta.mjs), the card keeps
+// the article's full headline.
 function titleOf(file, fallback) {
   try {
-    const m = readFileSync(join(SITE, file), "utf-8").match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+    const html = readFileSync(join(SITE, file), "utf-8");
+    const og = html.match(/<meta property="og:title" content="([^"]*)"/i);
+    const m = og || html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
     if (!m) return fallback;
-    return m[1].replace(/\s*\|\s*Chifbay\s*$/i, "").replace(/&amp;/g, "&").trim() || fallback;
+    return m[1].replace(/<[^>]+>/g, "").replace(/\s*\|\s*Chifbay\s*$/i, "").replace(/\s+/g, " ")
+      .replace(/&amp;/g, "&").replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').trim() || fallback;
   } catch { return fallback; }
 }
+
+// The address each article declares as canonical (some translations keep
+// ".html", the English ones do not): links must use it, see fix-post-links.mjs.
+const canonPath = (slug, lang) => new URL(postUrl(SITE, slug, lang)).pathname;
 
 // One card per article: posts.json is newest first, so the first entry of a
 // slug is the current one.
@@ -59,7 +70,7 @@ for (const [lang, cfg] of Object.entries(LANGS)) {
   const rows = posts.map((p) => {
     const local = cfg.dir ? `${cfg.dir}/posts/${p.slug}.html` : `posts/${p.slug}.html`;
     const translated = existsSync(join(SITE, local));
-    const href = translated ? "/" + local : `/posts/${p.slug}.html`;
+    const href = translated ? canonPath(p.slug, cfg.dir) : canonPath(p.slug, "");
     const title = translated ? titleOf(local, p.title) : p.title;
     return { slug: p.slug, href, title, translated };
   });
@@ -84,8 +95,9 @@ for (const [lang, cfg] of Object.entries(LANGS)) {
 
   // Les cartes fabriquees en JavaScript doivent mener au meme endroit que la
   // liste ci dessus, sinon le robot et le visiteur voient deux sites.
+  // slug -> the translated article's canonical path
   const map = "var TR={" + rows.filter((r) => r.translated && lang !== "en")
-    .map((r) => JSON.stringify(r.slug) + ":1").join(",") + "};\n  ";
+    .map((r) => JSON.stringify(r.slug) + ":" + JSON.stringify(r.href)).join(",") + "};\n  ";
   if (lang !== "en") {
     // one map only: earlier runs stacked a new line every time
     html = html.replace(/\n  var TR=\{[^}]*\};(?=\n)/g, "");
@@ -94,9 +106,14 @@ for (const [lang, cfg] of Object.entries(LANGS)) {
     html = html.replace(
       /var badge=BADGE\?' <span class="blang">'\+esc\(BADGE\)\+'<\/span>':'';/,
       "var badge=(BADGE&&!TR[p.slug])?' <span class=\"blang\">'+esc(BADGE)+'</span>':'';");
+    // the card link: the translation's canonical path, else the English
+    // article's (no ".html": its canonical). Matches the first form of the
+    // line (blog-i18n.mjs) and the one earlier runs wrote.
     html = html.replace(
-      /'<a class="bcard" href="\/posts\/'\+encodeURIComponent\(p\.slug\)\+'\.html"'\+\(BADGE\?' hreflang="en"':''\)\+'>'/,
-      `'<a class="bcard" href="'+(TR[p.slug]?'/${cfg.dir}/posts/':'/posts/')+encodeURIComponent(p.slug)+'.html"'+((BADGE&&!TR[p.slug])?' hreflang="en"':'')+'>'`);
+      /'<a class="bcard"( data-s="'\+esc\(p\.slug\)\+'")? href="(?:\/posts\/'|'\+\(TR\[p\.slug\]\?'\/[a-z]{2}\/posts\/':'\/posts\/'\))\+encodeURIComponent\(p\.slug\)\+'\.html"'\+\(?\(?BADGE(?:&&!TR\[p\.slug\])?\)?\?' hreflang="en"':''\)\+'>'/,
+      (m, ds) => `'<a class="bcard"${ds || ""} href="'+(TR[p.slug]||('/posts/'+encodeURIComponent(p.slug)))+'"'+((BADGE&&!TR[p.slug])?' hreflang="en"':'')+'>'`);
+  } else {
+    html = html.replace(`href="/posts/'+encodeURIComponent(p.slug)+'.html"'`, `href="/posts/'+encodeURIComponent(p.slug)+'"'`);
   }
 
   // The cards themselves, written into the page (2 Oct 2026 audit: the grid
@@ -111,7 +128,7 @@ for (const [lang, cfg] of Object.entries(LANGS)) {
   const cards = posts.map((p) => {
     const d = new Date(p.date + "T00:00:00").toLocaleDateString(LOC, { day: "numeric", month: "short", year: "numeric" });
     const local = tr.has(p.slug), en = lang !== "en" && !local;
-    const href = (local ? `/${cfg.dir}/posts/` : "/posts/") + encodeURIComponent(p.slug) + ".html";
+    const href = canonPath(p.slug, local ? cfg.dir : "");
     return `<a class="bcard" data-s="${esc(p.slug)}" href="${href}"${en ? ' hreflang="en"' : ""}>` +
       `<div class="bimg" style="background-image:url('/${esc(p.heroImage)}')"></div>` +
       `<div class="bbody"><span class="bcat">${esc(CAT[p.category] || p.category)}</span>` +
