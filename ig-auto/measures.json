@@ -100,6 +100,20 @@
     "id": "20260915093941-2c91",
     "format": null,
     "source": "library"
+   },
+   "d7": {
+    "at": "2026-10-04T12:19:35.955Z",
+    "age_hours": 189,
+    "reach": 19,
+    "views": 78,
+    "likes": 2,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 3,
+    "follows": 0,
+    "profile_visits": 0,
+    "ig_reels_avg_watch_time": null
    }
   },
   "17972834358131530": {
@@ -661,7 +675,17 @@
    "permalink": "https://www.instagram.com/p/DZhJLyos7ZO/",
    "type": "photo",
    "ours": null
+  },
+  "18564161482075407": {
+   "posted_at": "2026-10-03T15:48:43+0000",
+   "permalink": "https://www.instagram.com/reel/DeCasVrlKVD/",
+   "type": "reel",
+   "ours": {
+    "id": "r15-daytrip",
+    "format": null,
+    "source": "reel"
+   }
   }
  },
- "updated_at": "2026-10-03T11:37:43.619Z"
+ "updated_at": "2026-10-04T12:19:35.955Z"
 }
