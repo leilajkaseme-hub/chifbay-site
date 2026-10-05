@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-05T11:53:42.329Z",
+ "generated_at": "2026-10-05T19:13:19.766Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -71,7 +71,7 @@
     "problems": [],
     "at": "2026-10-03T18:51:47"
    },
-   "posted": false
+   "posted": true
   },
   {
    "id": "r11-filmed",
