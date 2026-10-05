@@ -90,6 +90,20 @@
     "id": "20260916093346-bd16",
     "format": null,
     "source": "library"
+   },
+   "d7": {
+    "at": "2026-10-05T14:34:23.334Z",
+    "age_hours": 191,
+    "reach": 21,
+    "views": 72,
+    "likes": 4,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 5,
+    "follows": 0,
+    "profile_visits": 0,
+    "ig_reels_avg_watch_time": null
    }
   },
   "18070315274757602": {
@@ -684,8 +698,22 @@
     "id": "r15-daytrip",
     "format": null,
     "source": "reel"
+   },
+   "h24": {
+    "at": "2026-10-05T14:34:23.334Z",
+    "age_hours": 47,
+    "reach": 169,
+    "views": 231,
+    "likes": 6,
+    "comments": 0,
+    "shares": 1,
+    "saved": 0,
+    "total_interactions": 7,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 7479
    }
   }
  },
- "updated_at": "2026-10-04T12:19:35.955Z"
+ "updated_at": "2026-10-05T14:34:23.334Z"
 }
