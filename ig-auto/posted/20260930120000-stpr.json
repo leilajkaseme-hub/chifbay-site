@@ -9,5 +9,14 @@
   "image": "ig/stories/proof.jpg",
   "url": "https://www.chifbay.com/ig/stories/proof.jpg",
   "sha256": "8bff5562a75488c7dfe363b953759f6f3b1ea25d30db59f129ba843d69a05137",
-  "look": "atlantic-v2"
+  "look": "atlantic-v2",
+  "posted_at": "2026-10-06T00:25:47.907Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17862867891696517",
+    "confirmed": true,
+    "permalink": "https://www.instagram.com/stories/chifbay/4001586745225718438",
+    "media_type": "IMAGE",
+    "timestamp": "2026-10-06T00:25:44+0000"
+  }
 }
