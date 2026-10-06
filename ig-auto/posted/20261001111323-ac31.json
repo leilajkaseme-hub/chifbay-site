@@ -8,5 +8,14 @@
   "image": "ig/20261001111323-ac31.jpg",
   "url": "https://www.chifbay.com/ig/20261001111323-ac31.jpg",
   "sha256": "bff6a77d8f224820c4514d2941b63c4e90c6e91aa1c30bc77b9a6e5ac73beb0e",
-  "look": "atlantic-v2"
+  "look": "atlantic-v2",
+  "posted_at": "2026-10-06T23:55:19.556Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "17910935733487750",
+    "confirmed": true,
+    "permalink": "https://www.instagram.com/stories/chifbay/4002296145653574902",
+    "media_type": "IMAGE",
+    "timestamp": "2026-10-06T23:55:17+0000"
+  }
 }
