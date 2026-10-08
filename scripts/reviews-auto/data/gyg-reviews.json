@@ -18,6 +18,39 @@
     }
   },
   {
+    "id": "gyg-3a36c0eca6c2",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "GetYourGuide traveler",
+    "country": "United Kingdom",
+    "countryFlag": "🇬🇧",
+    "date": "2026-08-31",
+    "text": "",
+    "photos": [],
+    "tourId": "t1340940",
+    "tourName": "Yacht Cruise with Drinks",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+    "reply": null
+  },
+  {
+    "id": "gyg-449b2fd565b6",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "Hubert",
+    "country": "Germany",
+    "countryFlag": "🇩🇪",
+    "date": "2026-08-29",
+    "text": "As a family of five, we had an unforgettable excursion! We had several opportunities to swim in the bays, and we didn't want for anything! As skippers, father and son were a well-coordinated and courteous team. The snacks and drinks were very tasty. Highly recommended! One of our highlights from this vacation.",
+    "photos": [],
+    "tourId": "t1340940",
+    "tourName": "Yacht Cruise with Drinks",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+    "reply": {
+      "text": "Dear Hubert, Thank you so much for these lovely words. We are delighted that the whole family enjoyed the swimming stops and that our father and son skipper team made you feel so well looked after. It truly means a lot to hear you consider it one of the highlights of your holiday. We hope to welcome you all back on board again one day. Warm regards, The Chifbay Team",
+      "date": "2026-08-30"
+    }
+  },
+  {
     "id": "gyg-abec3e42a0e2",
     "source": "getyourguide",
     "rating": 5,
@@ -54,6 +87,21 @@
     }
   },
   {
+    "id": "gyg-df13d7cc9845",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "GetYourGuide traveler",
+    "country": "Switzerland",
+    "countryFlag": "🇨🇭",
+    "date": "2026-07-31",
+    "text": "We went on a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our holiday. The three of them were super well-coordinated, warm and professional at the same time. You immediately notice that passion and experience come together here. The excellent drinks, the delicious food and the fresh, perfectly ripe pineapple are particularly noteworthy – simply brilliant. The boat trip was sporty and fast, but always considerate and safe. Just the right balance between action and relaxation. There were 2–3 opportunities to swim – anyone who wanted to could get into the water, and everything was very straightforward. The toilet on board is also a real plus. We had a lot of fun the whole time and felt that we were in the best possible hands. It's clear to us: when we're back in Madeira, we'll definitely come back!",
+    "photos": [],
+    "tourId": "t1340940",
+    "tourName": "Yacht Cruise with Drinks",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+    "reply": null
+  },
+  {
     "id": "gyg-2ca56b8e8ef6",
     "source": "getyourguide",
     "rating": 5,
@@ -70,6 +118,21 @@
       "text": "Thank you so much, Rebecca, for your kind words! It was a real pleasure to welcome you and share this experience with you. We’re delighted that you enjoyed the food, drinks, and the time spent with our family. Your recommendation truly means a lot to us. We hope to see you again for another unforgettable sunset on the water! 😊",
       "date": "2026-07-28"
     }
+  },
+  {
+    "id": "gyg-96e35c1fc3e7",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "GetYourGuide traveler",
+    "country": "Germany",
+    "countryFlag": "🇩🇪",
+    "date": "2026-07-15",
+    "text": "",
+    "photos": [],
+    "tourId": "t1340940",
+    "tourName": "Yacht Cruise with Drinks",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+    "reply": null
   },
   {
     "id": "gyg-c67ba6a6777c",
@@ -127,6 +190,28 @@
     "reply": {
       "text": "Thank you, Thomas. Your words really mean a lot to us. Some days at sea stay with us too, and this was one of them. We’re grateful for the trust, the smiles and the beautiful moments shared together. From all of us at Chifbay, thank you again. We hope to see you back in Madeira.",
       "date": "2026-06-21"
+    }
+  },
+  {
+    "id": "gyg-e142c3e6773e",
+    "source": "getyourguide",
+    "rating": 5,
+    "author": "Franziska",
+    "country": "Germany",
+    "countryFlag": "🇩🇪",
+    "date": "2026-06-01",
+    "text": "Highly recommended! Father and son, super helpful and keen to ensure a pleasant stay at sea. Many languages are available. You can customise the tour, and you get a lot of information if you want. The freshly prepared drinks and snacks on site were great, very tasty. All in all, a great tour. Thank you very much.",
+    "photos": [
+      "assets/reviews/gyg/gyg-e142c3e6773e-1.jpg",
+      "assets/reviews/gyg/gyg-e142c3e6773e-2.jpg",
+      "assets/reviews/gyg/gyg-e142c3e6773e-3.jpg"
+    ],
+    "tourId": "t1340940",
+    "tourName": "Yacht Cruise with Drinks",
+    "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+    "reply": {
+      "text": "Wow, thank you for this amazing review Franziska! It was truly a pleasure having you on board. We’re so happy you enjoyed the fresh drinks and snacks, and that the tour felt personal and flexible for you. Father and son say a big thank you! Hope to see you again someday 😊🌊",
+      "date": "2026-06-02"
     }
   }
 ]
