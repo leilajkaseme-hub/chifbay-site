@@ -1,17 +1,17 @@
 {
-  "built": "2026-10-07T11:24:19.807Z",
+  "built": "2026-10-08T11:39:55.516Z",
   "slides": 4,
   "posts": [
     {
       "plan_index": 41,
       "family": "amber",
-      "warmth": 15.75,
-      "cover": "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg",
+      "warmth": 26.45,
+      "cover": "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
       "slides": [
-        "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg",
-        "social-drive/madeira-peaks-17moxrdy.jpg",
-        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
-        "social-iphone/IMG_2850.jpg"
+        "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
+        "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
+        "social-drive/06-bow-meal-topdown-1Uy7HP42.png",
+        "social-drive/exp-sunset-1IRsjD8S.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -21,1363 +21,21 @@
     {
       "plan_index": 42,
       "family": "amber",
-      "warmth": 15.61,
-      "cover": "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
+      "warmth": 17.49,
+      "cover": "social-drive/18-golden-hour-dining-1kmfUZsA.png",
       "slides": [
-        "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/why-catered-1pnWBGK5.jpg",
-        "social-iphone/IMG_2874.jpg"
+        "social-drive/18-golden-hour-dining-1kmfUZsA.png",
+        "social-iphone/IMG_2850.jpg",
+        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
+        "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg"
       ],
       "grade": {
-        "brightness": 1.0328979268774476,
+        "brightness": 1.05,
         "saturation": 1
       }
     },
     {
       "plan_index": 43,
-      "family": "amber",
-      "warmth": 15.02,
-      "cover": "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
-      "slides": [
-        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
-        "social-drive/img-2317-1f9xGgIA.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 44,
-      "family": "amber",
-      "warmth": 14.95,
-      "cover": "social-drive/madeira-peaks-17moxrdy.jpg",
-      "slides": [
-        "social-drive/madeira-peaks-17moxrdy.jpg",
-        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 45,
-      "family": "soft",
-      "warmth": 13.74,
-      "cover": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-      "slides": [
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
-        "social-drive/06-bow-meal-topdown-1Uy7HP42.png",
-        "social-drive/18-golden-hour-dining-1kmfUZsA.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 46,
-      "family": "amber",
-      "warmth": 17.49,
-      "cover": "social-drive/18-golden-hour-dining-1kmfUZsA.png",
-      "slides": [
-        "social-drive/18-golden-hour-dining-1kmfUZsA.png",
-        "social-drive/hero-15zh5Wpf.jpg",
-        "social-drive/exp-coastal-14FuEBde.webp"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 47,
-      "family": "amber",
-      "warmth": 15.25,
-      "cover": "social-drive/pool-turquoise-1Pn6gm-G.jpg",
-      "slides": [
-        "social-drive/pool-turquoise-1Pn6gm-G.jpg",
-        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
-        "social-drive/favicon-32-1hVkekzE.png",
-        "social-iphone/IMG_2877.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 48,
-      "family": "golden",
-      "warmth": 14.4,
-      "cover": "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
-      "slides": [
-        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
-        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
-        "social-iphone/IMG_2836.jpg",
-        "social-drive/img-2316-1y4ISNur.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9717455216536147,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 49,
-      "family": "soft",
-      "warmth": 10.16,
-      "cover": "social-iphone/IMG_2874.jpg",
-      "slides": [
-        "social-iphone/IMG_2874.jpg",
-        "social-drive/01-cove-jump-rear-quarter-17-GfMor.png",
-        "social-drive/img-1750-1aJpTiay.jpg",
-        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 50,
-      "family": "soft",
-      "warmth": 10.78,
-      "cover": "social-drive/why-catered-1pnWBGK5.jpg",
-      "slides": [
-        "social-drive/why-catered-1pnWBGK5.jpg",
-        "social-iphone/IMG_2806.jpg",
-        "social-drive/logo-white-1CUwpUz1.png",
-        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png"
-      ],
-      "grade": {
-        "brightness": 0.9690429377296907,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 51,
-      "family": "soft",
-      "warmth": 9.65,
-      "cover": "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
-      "slides": [
-        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
-        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
-        "social-drive/img-2317-1f9xGgIA.jpg",
-        "social-iphone/IMG_2850.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9600797770774238,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 52,
-      "family": "neutral",
-      "warmth": 8.78,
-      "cover": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-      "slides": [
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-drive/madeira-peaks-17moxrdy.jpg",
-        "social-drive/why-catered-1pnWBGK5.jpg",
-        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 53,
-      "family": "soft",
-      "warmth": 8.68,
-      "cover": "social-iphone/IMG_2850.jpg",
-      "slides": [
-        "social-iphone/IMG_2850.jpg",
-        "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png",
-        "social-iphone/IMG_2845.jpg",
-        "social-iphone/IMG_2797.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0418972660531198,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 54,
-      "family": "verdant",
-      "warmth": 7.81,
-      "cover": "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
-      "slides": [
-        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
-        "social-iphone/IMG_2818.jpg",
-        "social-drive/chifbay-ig-profile-1psAcc7T.jpg",
-        "social-drive/ponta-do-sol-1FZVWNeu.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0456869898377346,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 55,
-      "family": "neutral",
-      "warmth": 6.61,
-      "cover": "social-iphone/IMG_2877.jpg",
-      "slides": [
-        "social-iphone/IMG_2877.jpg",
-        "social-drive/deck-1YVV3HpB.jpg",
-        "social-drive/04-cove-aerial-1Sms0tUr.png",
-        "social-drive/logo-dark-1Hn8r76G.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 56,
-      "family": "verdant",
-      "warmth": 5.67,
-      "cover": "social-drive/01-cove-jump-rear-quarter-17-GfMor.png",
-      "slides": [
-        "social-drive/01-cove-jump-rear-quarter-17-GfMor.png",
-        "social-iphone/IMG_2874.jpg",
-        "social-iphone/IMG_2836.jpg",
-        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 57,
-      "family": "neutral",
-      "warmth": 5.48,
-      "cover": "social-iphone/IMG_2836.jpg",
-      "slides": [
-        "social-iphone/IMG_2836.jpg",
-        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
-        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
-        "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9869988062222995,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 58,
-      "family": "neutral",
-      "warmth": 4.74,
-      "cover": "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
-      "slides": [
-        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
-        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg",
-        "social-drive/04-helm-seats-detail-19jYRwIw.png",
-        "social-drive/img-1750-1aJpTiay.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0036613826522585,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 59,
-      "family": "neutral",
-      "warmth": 4.12,
-      "cover": "social-drive/img-2316-1y4ISNur.jpg",
-      "slides": [
-        "social-drive/img-2316-1y4ISNur.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg",
-        "social-drive/why-catered-1pnWBGK5.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 60,
-      "family": "neutral",
-      "warmth": 3.52,
-      "cover": "social-drive/favicon-32-1hVkekzE.png",
-      "slides": [
-        "social-drive/favicon-32-1hVkekzE.png",
-        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
-        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
-        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 61,
-      "family": "neutral",
-      "warmth": 2.58,
-      "cover": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
-      "slides": [
-        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
-        "social-drive/logo-white-1CUwpUz1.png",
-        "social-iphone/IMG_2845.jpg",
-        "social-iphone/IMG_2850.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0104590575666814,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 62,
-      "family": "neutral",
-      "warmth": 1.35,
-      "cover": "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png",
-      "slides": [
-        "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png",
-        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
-        "social-drive/10-funchal-arrival-poster-1dubtnJj.png",
-        "social-drive/chifbay-ig-profile-1psAcc7T.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0467539537543689,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 63,
-      "family": "neutral",
-      "warmth": 0.99,
-      "cover": "social-drive/logo-dark-1Hn8r76G.png",
-      "slides": [
-        "social-drive/logo-dark-1Hn8r76G.png",
-        "social-drive/04-cove-aerial-1Sms0tUr.png",
-        "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
-        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 64,
-      "family": "neutral",
-      "warmth": 0.95,
-      "cover": "social-drive/logo-white-1CUwpUz1.png",
-      "slides": [
-        "social-drive/logo-white-1CUwpUz1.png",
-        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
-        "social-iphone/IMG_2818.jpg",
-        "social-iphone/IMG_2806.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9901571088815776,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 65,
-      "family": "neutral",
-      "warmth": 0.79,
-      "cover": "social-iphone/IMG_2845.jpg",
-      "slides": [
-        "social-iphone/IMG_2845.jpg",
-        "social-drive/05-forward-helm-crew-1868gP4C.png",
-        "social-drive/deck-1YVV3HpB.jpg",
-        "social-drive/13-volcanic-cliff-face-1ef5zi14.png"
-      ],
-      "grade": {
-        "brightness": 1.0143056285735523,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 66,
-      "family": "neutral",
-      "warmth": 0.7,
-      "cover": "social-drive/chifbay-ig-profile-1psAcc7T.jpg",
-      "slides": [
-        "social-drive/chifbay-ig-profile-1psAcc7T.jpg",
-        "social-drive/funchal-goldenhour-1h7uieGY.jpg",
-        "social-drive/img-1750-1aJpTiay.jpg",
-        "social-drive/04-helm-seats-detail-19jYRwIw.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 67,
-      "family": "neutral",
-      "warmth": 0.28,
-      "cover": "social-iphone/IMG_2806.jpg",
-      "slides": [
-        "social-iphone/IMG_2806.jpg",
-        "social-drive/why-catered-1pnWBGK5.jpg",
-        "social-iphone/IMG_2877.jpg",
-        "social-iphone/IMG_2836.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0109004026974158,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 68,
-      "family": "neutral",
-      "warmth": 0.1,
-      "cover": "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
-      "slides": [
-        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
-        "social-drive/img-2316-1y4ISNur.jpg",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-iphone/IMG_2797.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0335504205069383,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 69,
-      "family": "verdant",
-      "warmth": -0.45,
-      "cover": "social-drive/09-topdown-cove-iloveimg-resized-1KGAlJPI.png",
-      "slides": [
-        "social-drive/09-topdown-cove-iloveimg-resized-1KGAlJPI.png",
-        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
-        "social-drive/img-1749-1YfEdP2d.jpg",
-        "social-drive/img-1750-1aJpTiay.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 70,
-      "family": "neutral",
-      "warmth": -0.61,
-      "cover": "social-drive/ponta-do-sol-1FZVWNeu.jpg",
-      "slides": [
-        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
-        "social-drive/favicon-32-1hVkekzE.png",
-        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg",
-        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 71,
-      "family": "verdant",
-      "warmth": -1.77,
-      "cover": "social-drive/04-cove-aerial-1Sms0tUr.png",
-      "slides": [
-        "social-drive/04-cove-aerial-1Sms0tUr.png",
-        "social-drive/chifbay-flyer-recto-1FuRDby5.png",
-        "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
-        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 72,
-      "family": "neutral",
-      "warmth": -2.45,
-      "cover": "social-drive/chifbay-flyer-recto-1FuRDby5.png",
-      "slides": [
-        "social-drive/chifbay-flyer-recto-1FuRDby5.png",
-        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
-        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
-        "social-drive/logo-white-1CUwpUz1.png"
-      ],
-      "grade": {
-        "brightness": 0.95,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 73,
-      "family": "neutral",
-      "warmth": -5.12,
-      "cover": "social-iphone/IMG_2818.jpg",
-      "slides": [
-        "social-iphone/IMG_2818.jpg",
-        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
-        "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
-        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png"
-      ],
-      "grade": {
-        "brightness": 1.0085367585909844,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 74,
-      "family": "neutral",
-      "warmth": -5.33,
-      "cover": "social-drive/deck-1YVV3HpB.jpg",
-      "slides": [
-        "social-drive/deck-1YVV3HpB.jpg",
-        "social-iphone/IMG_2861.jpg",
-        "social-drive/img-1723-1ssTv61g.jpg",
-        "social-drive/05-forward-helm-crew-1868gP4C.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 75,
-      "family": "neutral",
-      "warmth": -5.9,
-      "cover": "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
-      "slides": [
-        "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
-        "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
-        "social-drive/18-final-cockpit-angle-1B1kJuCs.png",
-        "social-drive/13-volcanic-cliff-face-1ef5zi14.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 76,
-      "family": "neutral",
-      "warmth": -5.91,
-      "cover": "social-drive/00-hero-banner-1920x500-1327Mahx.jpg",
-      "slides": [
-        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg",
-        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
-        "social-drive/04-helm-seats-detail-19jYRwIw.png",
-        "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 77,
-      "family": "neutral",
-      "warmth": -6.14,
-      "cover": "social-drive/04-helm-seats-detail-19jYRwIw.png",
-      "slides": [
-        "social-drive/04-helm-seats-detail-19jYRwIw.png",
-        "social-drive/10-funchal-arrival-poster-1dubtnJj.png",
-        "social-drive/img-1594-1Szgf8Sm.jpg",
-        "social-drive/14-snorkeler-split-level-1vCFMSav.png"
-      ],
-      "grade": {
-        "brightness": 1.00270522021624,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 78,
-      "family": "neutral",
-      "warmth": -7.14,
-      "cover": "social-drive/10-funchal-arrival-poster-1dubtnJj.png",
-      "slides": [
-        "social-drive/10-funchal-arrival-poster-1dubtnJj.png",
-        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
-        "social-drive/chifbay-ig-profile-1psAcc7T.jpg",
-        "social-drive/img-1750-1aJpTiay.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0203269962885388,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 79,
-      "family": "neutral",
-      "warmth": -7.85,
-      "cover": "social-drive/funchal-goldenhour-1h7uieGY.jpg",
-      "slides": [
-        "social-drive/funchal-goldenhour-1h7uieGY.jpg",
-        "social-drive/04-cove-aerial-1Sms0tUr.png",
-        "social-drive/logo-dark-1Hn8r76G.png",
-        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 80,
-      "family": "deep",
-      "warmth": -8.58,
-      "cover": "social-drive/14-snorkeler-split-level-1vCFMSav.png",
-      "slides": [
-        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
-        "social-drive/chifbay-flyer-recto-1FuRDby5.png",
-        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
-        "social-drive/why-yours-1-FTdvAP.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 81,
-      "family": "neutral",
-      "warmth": -8.77,
-      "cover": "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
-      "slides": [
-        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
-        "social-iphone/IMG_2806.jpg",
-        "social-iphone/IMG_2818.jpg",
-        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 82,
-      "family": "deep",
-      "warmth": -9.58,
-      "cover": "social-drive/05-forward-helm-crew-1868gP4C.png",
-      "slides": [
-        "social-drive/05-forward-helm-crew-1868gP4C.png",
-        "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
-        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
-        "social-drive/deck-1YVV3HpB.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 83,
-      "family": "azure",
-      "warmth": -8.34,
-      "cover": "social-drive/pool-seixal-1YlTkqPn.jpg",
-      "slides": [
-        "social-drive/pool-seixal-1YlTkqPn.jpg",
-        "social-drive/img-1723-1ssTv61g.jpg",
-        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
-        "social-drive/10-funchal-rear-2-iloveimg-resized-1NjFjwdl.png"
-      ],
-      "grade": {
-        "brightness": 1.0331950618657535,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 84,
-      "family": "azure",
-      "warmth": -9.91,
-      "cover": "social-iphone/IMG_2861.jpg",
-      "slides": [
-        "social-iphone/IMG_2861.jpg",
-        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
-        "social-drive/13-volcanic-cliff-face-1ef5zi14.png",
-        "social-drive/20-cockpit-walkway-interior-19Jfcipi.png"
-      ],
-      "grade": {
-        "brightness": 1.0008901811188768,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 85,
-      "family": "deep",
-      "warmth": -10.74,
-      "cover": "social-drive/13-volcanic-cliff-face-1ef5zi14.png",
-      "slides": [
-        "social-drive/13-volcanic-cliff-face-1ef5zi14.png",
-        "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
-        "social-drive/boat-action-1zDXCPZv.jpg",
-        "social-drive/g-cliff-portrait-1-Twqrxi.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 86,
-      "family": "deep",
-      "warmth": -11.49,
-      "cover": "social-drive/20-cockpit-walkway-interior-19Jfcipi.png",
-      "slides": [
-        "social-drive/20-cockpit-walkway-interior-19Jfcipi.png",
-        "social-drive/logo-white-1CUwpUz1.png",
-        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
-        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg"
-      ],
-      "grade": {
-        "brightness": 1.046989028011874,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 87,
-      "family": "deep",
-      "warmth": -12.4,
-      "cover": "social-drive/18-final-cockpit-angle-1B1kJuCs.png",
-      "slides": [
-        "social-drive/18-final-cockpit-angle-1B1kJuCs.png",
-        "social-drive/04-helm-seats-detail-19jYRwIw.png",
-        "social-drive/img-1594-1Szgf8Sm.jpg",
-        "social-drive/hero-mobile-poster-1X2fWMMq.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 88,
-      "family": "deep",
-      "warmth": -13.02,
-      "cover": "social-drive/why-yours-1-FTdvAP.jpg",
-      "slides": [
-        "social-drive/why-yours-1-FTdvAP.jpg",
-        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
-        "social-drive/deck-1YVV3HpB.jpg",
-        "social-drive/10-funchal-arrival-poster-1dubtnJj.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 89,
-      "family": "deep",
-      "warmth": -14.16,
-      "cover": "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
-      "slides": [
-        "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
-        "social-drive/07-dolphins-aerial-1OyjV9Ru.png",
-        "social-drive/img-1733-14WKP77C.jpg",
-        "social-drive/15-bow-coast-pov-1T26wPC0.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 90,
-      "family": "deep",
-      "warmth": -14.6,
-      "cover": "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
-      "slides": [
-        "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
-        "social-drive/05-forward-helm-crew-1868gP4C.png",
-        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
-        "social-drive/marina-1BQmrkv7.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 91,
-      "family": "azure",
-      "warmth": -14.68,
-      "cover": "social-drive/exp-coves-wide-1HosMHdq.webp",
-      "slides": [
-        "social-drive/exp-coves-wide-1HosMHdq.webp",
-        "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
-        "social-drive/exp-coves-1E_ECC7c.jpg",
-        "social-drive/08-docked-side-iloveimg-resized-1anYz9l6.png"
-      ],
-      "grade": {
-        "brightness": 1.0109937915019052,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 92,
-      "family": "azure",
-      "warmth": -14.78,
-      "cover": "social-drive/exp-coves-1E_ECC7c.jpg",
-      "slides": [
-        "social-drive/exp-coves-1E_ECC7c.jpg",
-        "social-drive/img-1749-1YfEdP2d.jpg",
-        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
-        "social-drive/exp-coves-wide-1HosMHdq.webp"
-      ],
-      "grade": {
-        "brightness": 1.0121195344722484,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 93,
-      "family": "deep",
-      "warmth": -15.01,
-      "cover": "social-drive/02-cliff-scale-side-16k6PmI_.png",
-      "slides": [
-        "social-drive/02-cliff-scale-side-16k6PmI_.png",
-        "social-drive/boat-action-1zDXCPZv.jpg",
-        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
-        "social-drive/17-head-on-marina-1t4BdU1k.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 94,
-      "family": "azure",
-      "warmth": -17.06,
-      "cover": "social-drive/10-funchal-rear-2-iloveimg-resized-1NjFjwdl.png",
-      "slides": [
-        "social-drive/10-funchal-rear-2-iloveimg-resized-1NjFjwdl.png",
-        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
-        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
-        "social-drive/pool-seixal-1YlTkqPn.jpg"
-      ],
-      "grade": {
-        "brightness": 1.010721159510133,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 95,
-      "family": "azure",
-      "warmth": -17.06,
-      "cover": "social-drive/marina-1BQmrkv7.jpg",
-      "slides": [
-        "social-drive/marina-1BQmrkv7.jpg",
-        "social-drive/exp-dolphin-1p6ii4M8.jpg",
-        "social-drive/img-1723-1ssTv61g.jpg",
-        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png"
-      ],
-      "grade": {
-        "brightness": 0.9848137409901098,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 96,
-      "family": "azure",
-      "warmth": -17.49,
-      "cover": "social-drive/12-marina-side-profile-iloveimg-resized-12E_S4ri.png",
-      "slides": [
-        "social-drive/12-marina-side-profile-iloveimg-resized-12E_S4ri.png",
-        "social-drive/img-1625-1-tsA9M2.jpg",
-        "social-drive/img-1594-1Szgf8Sm.jpg",
-        "social-drive/why-yours-1-FTdvAP.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0215985808420145,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 97,
-      "family": "azure",
-      "warmth": -17.79,
-      "cover": "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
-      "slides": [
-        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
-        "social-drive/18-final-cockpit-angle-1B1kJuCs.png",
-        "social-drive/deck-1YVV3HpB.jpg",
-        "social-drive/funchal-goldenhour-1h7uieGY.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0348858901659792,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 98,
-      "family": "azure",
-      "warmth": -17.91,
-      "cover": "social-drive/08-docked-side-iloveimg-resized-1anYz9l6.png",
-      "slides": [
-        "social-drive/08-docked-side-iloveimg-resized-1anYz9l6.png",
-        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
-        "social-drive/20-cockpit-walkway-interior-19Jfcipi.png",
-        "social-drive/13-volcanic-cliff-face-1ef5zi14.png"
-      ],
-      "grade": {
-        "brightness": 1.0139475197675767,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 99,
-      "family": "deep",
-      "warmth": -19.82,
-      "cover": "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
-      "slides": [
-        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
-        "social-drive/4e27c9dc-14c6-4079-90e7-275d8e1274a9-1q9UTV1j.png",
-        "social-drive/16-high-speed-action-1VVbUnha.png",
-        "social-drive/07-dolphins-aerial-1OyjV9Ru.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 100,
-      "family": "azure",
-      "warmth": -22.29,
-      "cover": "social-drive/17-head-on-marina-1t4BdU1k.png",
-      "slides": [
-        "social-drive/17-head-on-marina-1t4BdU1k.png",
-        "social-drive/15-bow-coast-pov-1T26wPC0.png",
-        "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
-        "social-drive/g-cliffs-1QYTsk5d.jpg"
-      ],
-      "grade": {
-        "brightness": 1.020568817025037,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 101,
-      "family": "azure",
-      "warmth": -22.52,
-      "cover": "social-drive/boat-action-1zDXCPZv.jpg",
-      "slides": [
-        "social-drive/boat-action-1zDXCPZv.jpg",
-        "social-drive/g-champagne-1aUkSNSh.webp",
-        "social-drive/hero-poster-1Y38NOzM.webp",
-        "social-drive/img-1733-14WKP77C.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0129106626314535,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 102,
-      "family": "azure",
-      "warmth": -23.95,
-      "cover": "social-drive/02-dolphins-guests-angle-b-1ldtr3gu.png",
-      "slides": [
-        "social-drive/02-dolphins-guests-angle-b-1ldtr3gu.png",
-        "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
-        "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
-        "social-drive/02-cliff-scale-side-16k6PmI_.png"
-      ],
-      "grade": {
-        "brightness": 1.0126615246281674,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 103,
-      "family": "deep",
-      "warmth": -24.23,
-      "cover": "social-drive/07-dolphins-aerial-1OyjV9Ru.png",
-      "slides": [
-        "social-drive/07-dolphins-aerial-1OyjV9Ru.png",
-        "social-drive/marina-1BQmrkv7.jpg",
-        "social-drive/img-1723-1ssTv61g.jpg",
-        "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 104,
-      "family": "deep",
-      "warmth": -24.02,
-      "cover": "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png",
-      "slides": [
-        "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
-        "social-iphone/IMG_5343.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 105,
-      "family": "deep",
-      "warmth": -24.66,
-      "cover": "social-drive/g-cliffs-1QYTsk5d.jpg",
-      "slides": [
-        "social-drive/g-cliffs-1QYTsk5d.jpg",
-        "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
-        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
-      ],
-      "grade": {
-        "brightness": 1.0436950544239638,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 106,
-      "family": "deep",
-      "warmth": -25.75,
-      "cover": "social-drive/15-bow-coast-pov-1T26wPC0.png",
-      "slides": [
-        "social-drive/15-bow-coast-pov-1T26wPC0.png",
-        "social-drive/img-1582-1O3gly5F.png",
-        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png",
-        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 107,
-      "family": "deep",
-      "warmth": -29.99,
-      "cover": "social-drive/01-dolphins-guests-angle-a-iloveimg-resi-1TNKSZn6.png",
-      "slides": [
-        "social-drive/01-dolphins-guests-angle-a-iloveimg-resi-1TNKSZn6.png",
-        "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png",
-        "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
-        "social-drive/16-high-speed-action-1VVbUnha.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 108,
-      "family": "azure",
-      "warmth": -30.78,
-      "cover": "social-drive/16-high-speed-action-1VVbUnha.png",
-      "slides": [
-        "social-drive/16-high-speed-action-1VVbUnha.png",
-        "social-drive/0ea5869b-8a80-4b20-b1ed-f3cea198ca12-16h2Uj9A.png",
-        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
-        "social-drive/img-1625-1-tsA9M2.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0069333169503987,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 109,
-      "family": "deep",
-      "warmth": -26.45,
-      "cover": "social-drive/exp-dolphin-1p6ii4M8.jpg",
-      "slides": [
-        "social-drive/exp-dolphin-1p6ii4M8.jpg",
-        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
-        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
-        "social-drive/g-cliff-portrait-1-Twqrxi.jpg"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 110,
-      "family": "azure",
-      "warmth": -31.41,
-      "cover": "social-drive/g-champagne-1aUkSNSh.webp",
-      "slides": [
-        "social-drive/g-champagne-1aUkSNSh.webp",
-        "social-drive/boat-action-1zDXCPZv.jpg",
-        "social-drive/hero-poster-1Y38NOzM.webp",
-        "social-drive/img-1733-14WKP77C.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0337866464532612,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 111,
-      "family": "azure",
-      "warmth": -31.66,
-      "cover": "social-drive/hero-poster-1Y38NOzM.webp",
-      "slides": [
-        "social-drive/hero-poster-1Y38NOzM.webp",
-        "social-drive/15-volcanic-headland-14dNf_YP.png",
-        "social-drive/g-champagne-1aUkSNSh.webp",
-        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png"
-      ],
-      "grade": {
-        "brightness": 1.007663786112028,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 112,
-      "family": "azure",
-      "warmth": -32.49,
-      "cover": "social-iphone/IMG_5343.jpg",
-      "slides": [
-        "social-iphone/IMG_5343.jpg",
-        "social-drive/16-cliff-waterline-passenger-view-13xWevyy.png",
-        "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png"
-      ],
-      "grade": {
-        "brightness": 1.02416759048019,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 113,
-      "family": "azure",
-      "warmth": -33.61,
-      "cover": "social-drive/img-1729-1JAFIJI0.jpg",
-      "slides": [
-        "social-drive/img-1729-1JAFIJI0.jpg",
-        "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
-        "social-drive/15-bow-coast-pov-1T26wPC0.png",
-        "social-drive/g-cliffs-1QYTsk5d.jpg"
-      ],
-      "grade": {
-        "brightness": 1.005339693789426,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 114,
-      "family": "azure",
-      "warmth": -36.55,
-      "cover": "social-drive/dolphins-1xF8MzG0.webp",
-      "slides": [
-        "social-drive/dolphins-1xF8MzG0.webp",
-        "social-drive/16-high-speed-action-1VVbUnha.png",
-        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
-        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
-      ],
-      "grade": {
-        "brightness": 0.9958610418225883,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 115,
-      "family": "azure",
-      "warmth": -38.37,
-      "cover": "social-drive/16-cliff-waterline-passenger-view-13xWevyy.png",
-      "slides": [
-        "social-drive/16-cliff-waterline-passenger-view-13xWevyy.png",
-        "social-iphone/IMG_5393.jpg",
-        "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
-        "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png"
-      ],
-      "grade": {
-        "brightness": 1.0110452778476762,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 116,
-      "family": "azure",
-      "warmth": -36.65,
-      "cover": "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
-      "slides": [
-        "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png",
-        "social-drive/16-high-speed-action-1VVbUnha.png"
-      ],
-      "grade": {
-        "brightness": 1.0280775390358161,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 117,
-      "family": "deep",
-      "warmth": -43.59,
-      "cover": "social-drive/15-volcanic-headland-14dNf_YP.png",
-      "slides": [
-        "social-drive/15-volcanic-headland-14dNf_YP.png",
-        "social-drive/img-1772-1j3WDjgq.jpg",
-        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png"
-      ],
-      "grade": {
-        "brightness": 1.0488598606390331,
-        "saturation": 0.9997241598510378
-      }
-    },
-    {
-      "plan_index": 118,
-      "family": "azure",
-      "warmth": -36.96,
-      "cover": "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
-      "slides": [
-        "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
-        "social-drive/4e27c9dc-14c6-4079-90e7-275d8e1274a9-1q9UTV1j.png",
-        "social-drive/16-high-speed-action-1VVbUnha.png"
-      ],
-      "grade": {
-        "brightness": 1.0292436359565433,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 119,
-      "family": "azure",
-      "warmth": -48.41,
-      "cover": "social-drive/img-1743-1cZILKxw.jpg",
-      "slides": [
-        "social-drive/img-1743-1cZILKxw.jpg",
-        "social-drive/img-1582-1O3gly5F.png",
-        "social-drive/15-volcanic-headland-14dNf_YP.png",
-        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png"
-      ],
-      "grade": {
-        "brightness": 0.9987465720429461,
-        "saturation": 0.92
-      }
-    },
-    {
-      "plan_index": 120,
-      "family": "amber",
-      "warmth": 19.55,
-      "cover": "social-drive/exp-sunset-1IRsjD8S.jpg",
-      "slides": [
-        "social-drive/exp-sunset-1IRsjD8S.jpg",
-        "social-iphone/IMG_2850.jpg",
-        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
-        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png"
-      ],
-      "grade": {
-        "brightness": 1.0255613390753306,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 121,
-      "family": "golden",
-      "warmth": 21.2,
-      "cover": "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
-      "slides": [
-        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
-        "social-iphone/IMG_2874.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9984225350949975,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 122,
-      "family": "amber",
-      "warmth": 21.02,
-      "cover": "social-drive/exp-coastal-14FuEBde.webp",
-      "slides": [
-        "social-drive/exp-coastal-14FuEBde.webp",
-        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
-        "social-drive/why-catered-1pnWBGK5.jpg",
-        "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg"
-      ],
-      "grade": {
-        "brightness": 1.01126630352024,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 123,
-      "family": "golden",
-      "warmth": 23.16,
-      "cover": "social-drive/06-bow-meal-topdown-1Uy7HP42.png",
-      "slides": [
-        "social-drive/06-bow-meal-topdown-1Uy7HP42.png",
-        "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
-        "social-drive/08-sunset-funchal-coastline-1k1ABbzj.jpg",
-        "social-drive/hero-15zh5Wpf.jpg"
-      ],
-      "grade": {
-        "brightness": 0.9784730851625157,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 124,
-      "family": "amber",
-      "warmth": 23.33,
-      "cover": "social-drive/06-sunset-cove-side-1pYddAwg.png",
-      "slides": [
-        "social-drive/06-sunset-cove-side-1pYddAwg.png",
-        "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/06-bow-meal-topdown-1Uy7HP42.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 125,
-      "family": "amber",
-      "warmth": 24.23,
-      "cover": "social-drive/charter-800-1LDT08LK.webp",
-      "slides": [
-        "social-drive/charter-800-1LDT08LK.webp",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg",
-        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 126,
-      "family": "amber",
-      "warmth": 25.65,
-      "cover": "social-drive/10-golden-cove-from-rocks-iloveimg-resiz-1M4fTz3l.png",
-      "slides": [
-        "social-drive/10-golden-cove-from-rocks-iloveimg-resiz-1M4fTz3l.png",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg",
-        "social-drive/06-bow-meal-topdown-1Uy7HP42.png"
-      ],
-      "grade": {
-        "brightness": 1.05,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 127,
       "family": "amber",
       "warmth": 26.44,
       "cover": "social-drive/07-sunset-couple-bow-1sD0fO15.png",
@@ -1393,7 +51,1366 @@
       }
     },
     {
+      "plan_index": 44,
+      "family": "golden",
+      "warmth": 23.16,
+      "cover": "social-drive/06-bow-meal-topdown-1Uy7HP42.png",
+      "slides": [
+        "social-drive/06-bow-meal-topdown-1Uy7HP42.png",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
+        "social-drive/madeira-peaks-17moxrdy.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9784730851625157,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 45,
+      "family": "golden",
+      "warmth": 21.2,
+      "cover": "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
+      "slides": [
+        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-drive/why-catered-1pnWBGK5.jpg",
+        "social-drive/exp-coastal-14FuEBde.webp"
+      ],
+      "grade": {
+        "brightness": 0.9984225350949975,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 46,
+      "family": "amber",
+      "warmth": 15.02,
+      "cover": "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
+      "slides": [
+        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
+        "social-drive/img-2317-1f9xGgIA.jpg",
+        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+        "social-iphone/IMG_2850.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 47,
+      "family": "amber",
+      "warmth": 25.65,
+      "cover": "social-drive/10-golden-cove-from-rocks-iloveimg-resiz-1M4fTz3l.png",
+      "slides": [
+        "social-drive/10-golden-cove-from-rocks-iloveimg-resiz-1M4fTz3l.png",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg",
+        "social-drive/06-bow-meal-topdown-1Uy7HP42.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 48,
+      "family": "amber",
+      "warmth": 25.1,
+      "cover": "social-drive/11-camara-de-lobos-golden-hour-1SVAz_0Y.png",
+      "slides": [
+        "social-drive/11-camara-de-lobos-golden-hour-1SVAz_0Y.png",
+        "social-drive/hero-15zh5Wpf.jpg",
+        "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
+        "social-drive/06-bow-meal-topdown-1Uy7HP42.png"
+      ],
+      "grade": {
+        "brightness": 1.0064409774757799,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 49,
+      "family": "amber",
+      "warmth": 15.61,
+      "cover": "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
+      "slides": [
+        "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-iphone/IMG_2874.jpg",
+        "social-drive/why-catered-1pnWBGK5.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0328979268774476,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 50,
+      "family": "amber",
+      "warmth": 24.23,
+      "cover": "social-drive/charter-800-1LDT08LK.webp",
+      "slides": [
+        "social-drive/charter-800-1LDT08LK.webp",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/09-crew-skippers-paco-hugo-1TZPEsKF.jpg",
+        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 51,
+      "family": "amber",
+      "warmth": 15.25,
+      "cover": "social-drive/pool-turquoise-1Pn6gm-G.jpg",
+      "slides": [
+        "social-drive/pool-turquoise-1Pn6gm-G.jpg",
+        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
+        "social-drive/favicon-32-1hVkekzE.png",
+        "social-iphone/IMG_2877.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 52,
+      "family": "amber",
+      "warmth": 23.33,
+      "cover": "social-drive/06-sunset-cove-side-1pYddAwg.png",
+      "slides": [
+        "social-drive/06-sunset-cove-side-1pYddAwg.png",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
+        "social-drive/06-bow-meal-topdown-1Uy7HP42.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 53,
+      "family": "amber",
+      "warmth": 14.95,
+      "cover": "social-drive/madeira-peaks-17moxrdy.jpg",
+      "slides": [
+        "social-drive/madeira-peaks-17moxrdy.jpg",
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-drive/why-catered-1pnWBGK5.jpg",
+        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 54,
+      "family": "amber",
+      "warmth": 21.02,
+      "cover": "social-drive/exp-coastal-14FuEBde.webp",
+      "slides": [
+        "social-drive/exp-coastal-14FuEBde.webp",
+        "social-iphone/IMG_2850.jpg",
+        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
+        "social-drive/why-catered-1pnWBGK5.jpg"
+      ],
+      "grade": {
+        "brightness": 1.01126630352024,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 55,
+      "family": "golden",
+      "warmth": 14.4,
+      "cover": "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
+      "slides": [
+        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
+        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
+        "social-iphone/IMG_2836.jpg",
+        "social-drive/img-2316-1y4ISNur.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9717455216536147,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 56,
+      "family": "amber",
+      "warmth": 19.55,
+      "cover": "social-drive/exp-sunset-1IRsjD8S.jpg",
+      "slides": [
+        "social-drive/exp-sunset-1IRsjD8S.jpg",
+        "social-iphone/IMG_2850.jpg",
+        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
+        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png"
+      ],
+      "grade": {
+        "brightness": 1.0255613390753306,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 57,
+      "family": "soft",
+      "warmth": 13.74,
+      "cover": "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+      "slides": [
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg",
+        "social-iphone/IMG_2874.jpg",
+        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 58,
+      "family": "soft",
+      "warmth": 10.16,
+      "cover": "social-iphone/IMG_2874.jpg",
+      "slides": [
+        "social-iphone/IMG_2874.jpg",
+        "social-drive/01-cove-jump-rear-quarter-17-GfMor.png",
+        "social-drive/img-1750-1aJpTiay.jpg",
+        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 59,
+      "family": "soft",
+      "warmth": 10.78,
+      "cover": "social-drive/why-catered-1pnWBGK5.jpg",
+      "slides": [
+        "social-drive/why-catered-1pnWBGK5.jpg",
+        "social-iphone/IMG_2806.jpg",
+        "social-iphone/IMG_2877.jpg",
+        "social-drive/logo-white-1CUwpUz1.png"
+      ],
+      "grade": {
+        "brightness": 0.9690429377296907,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 60,
+      "family": "soft",
+      "warmth": 9.65,
+      "cover": "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
+      "slides": [
+        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
+        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
+        "social-drive/img-2316-1y4ISNur.jpg",
+        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9600797770774238,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 61,
+      "family": "neutral",
+      "warmth": 8.78,
+      "cover": "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+      "slides": [
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-drive/madeira-peaks-17moxrdy.jpg",
+        "social-drive/why-catered-1pnWBGK5.jpg",
+        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 62,
+      "family": "soft",
+      "warmth": 8.68,
+      "cover": "social-iphone/IMG_2850.jpg",
+      "slides": [
+        "social-iphone/IMG_2850.jpg",
+        "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png",
+        "social-iphone/IMG_2845.jpg",
+        "social-drive/favicon-32-1hVkekzE.png"
+      ],
+      "grade": {
+        "brightness": 1.0418972660531198,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 63,
+      "family": "verdant",
+      "warmth": 7.81,
+      "cover": "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
+      "slides": [
+        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
+        "social-drive/pool-turquoise-1Pn6gm-G.jpg",
+        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
+        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0456869898377346,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 64,
+      "family": "neutral",
+      "warmth": 6.61,
+      "cover": "social-iphone/IMG_2877.jpg",
+      "slides": [
+        "social-iphone/IMG_2877.jpg",
+        "social-drive/deck-1YVV3HpB.jpg",
+        "social-drive/04-cove-aerial-1Sms0tUr.png",
+        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 65,
+      "family": "verdant",
+      "warmth": 5.67,
+      "cover": "social-drive/01-cove-jump-rear-quarter-17-GfMor.png",
+      "slides": [
+        "social-drive/01-cove-jump-rear-quarter-17-GfMor.png",
+        "social-iphone/IMG_2874.jpg",
+        "social-iphone/IMG_2836.jpg",
+        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 66,
+      "family": "neutral",
+      "warmth": 5.48,
+      "cover": "social-iphone/IMG_2836.jpg",
+      "slides": [
+        "social-iphone/IMG_2836.jpg",
+        "social-drive/b8ff4a50-2d13-4a3a-b7ef-4992ea4fccca-1Dwi8Kig.jpg",
+        "social-drive/13-onboard-drinks-snacks-1XSr4Xel.png",
+        "social-drive/23d41196-4d52-47db-8036-721be7aadf79-1cnzHmHQ.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9869988062222995,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 67,
+      "family": "neutral",
+      "warmth": 4.74,
+      "cover": "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
+      "slides": [
+        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
+        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg",
+        "social-drive/04-helm-seats-detail-19jYRwIw.png",
+        "social-drive/img-1750-1aJpTiay.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0036613826522585,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 68,
+      "family": "neutral",
+      "warmth": 4.12,
+      "cover": "social-drive/img-2316-1y4ISNur.jpg",
+      "slides": [
+        "social-drive/img-2316-1y4ISNur.jpg",
+        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
+        "social-drive/chifbay-flyer-verso-1cQKu4Qd.png",
+        "social-drive/why-catered-1pnWBGK5.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 69,
+      "family": "neutral",
+      "warmth": 3.52,
+      "cover": "social-drive/favicon-32-1hVkekzE.png",
+      "slides": [
+        "social-drive/favicon-32-1hVkekzE.png",
+        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
+        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png",
+        "social-drive/logo-dark-1Hn8r76G.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 70,
+      "family": "neutral",
+      "warmth": 2.58,
+      "cover": "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
+      "slides": [
+        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
+        "social-drive/logo-white-1CUwpUz1.png",
+        "social-iphone/IMG_2845.jpg",
+        "social-iphone/IMG_2850.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0104590575666814,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 71,
+      "family": "neutral",
+      "warmth": 1.35,
+      "cover": "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png",
+      "slides": [
+        "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png",
+        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
+        "social-drive/10-funchal-arrival-poster-1dubtnJj.png",
+        "social-drive/chifbay-ig-profile-1psAcc7T.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0467539537543689,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 72,
+      "family": "neutral",
+      "warmth": 0.99,
+      "cover": "social-drive/logo-dark-1Hn8r76G.png",
+      "slides": [
+        "social-drive/logo-dark-1Hn8r76G.png",
+        "social-drive/04-cove-aerial-1Sms0tUr.png",
+        "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
+        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 73,
+      "family": "neutral",
+      "warmth": 0.95,
+      "cover": "social-drive/logo-white-1CUwpUz1.png",
+      "slides": [
+        "social-drive/logo-white-1CUwpUz1.png",
+        "social-drive/08-feet-over-turquoise-water-1ywWOAh3.png",
+        "social-iphone/IMG_2818.jpg",
+        "social-iphone/IMG_2806.jpg"
+      ],
+      "grade": {
+        "brightness": 0.9901571088815776,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 74,
+      "family": "neutral",
+      "warmth": 0.79,
+      "cover": "social-iphone/IMG_2845.jpg",
+      "slides": [
+        "social-iphone/IMG_2845.jpg",
+        "social-drive/05-forward-helm-crew-1868gP4C.png",
+        "social-drive/deck-1YVV3HpB.jpg",
+        "social-drive/13-volcanic-cliff-face-1ef5zi14.png"
+      ],
+      "grade": {
+        "brightness": 1.0143056285735523,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 75,
+      "family": "neutral",
+      "warmth": 0.7,
+      "cover": "social-drive/chifbay-ig-profile-1psAcc7T.jpg",
+      "slides": [
+        "social-drive/chifbay-ig-profile-1psAcc7T.jpg",
+        "social-drive/funchal-goldenhour-1h7uieGY.jpg",
+        "social-drive/img-1750-1aJpTiay.jpg",
+        "social-drive/04-helm-seats-detail-19jYRwIw.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 76,
+      "family": "neutral",
+      "warmth": 0.28,
+      "cover": "social-iphone/IMG_2806.jpg",
+      "slides": [
+        "social-iphone/IMG_2806.jpg",
+        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
+        "social-iphone/IMG_2861.jpg",
+        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0109004026974158,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 77,
+      "family": "neutral",
+      "warmth": 0.1,
+      "cover": "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
+      "slides": [
+        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg",
+        "social-drive/img-2316-1y4ISNur.jpg",
+        "social-drive/photo-2026-09-20-12-51-16-10MgbZZj.jpg",
+        "social-drive/why-catered-1pnWBGK5.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0335504205069383,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 78,
+      "family": "verdant",
+      "warmth": -0.45,
+      "cover": "social-drive/09-topdown-cove-iloveimg-resized-1KGAlJPI.png",
+      "slides": [
+        "social-drive/09-topdown-cove-iloveimg-resized-1KGAlJPI.png",
+        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
+        "social-drive/img-1749-1YfEdP2d.jpg",
+        "social-drive/img-1750-1aJpTiay.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 79,
+      "family": "neutral",
+      "warmth": -0.61,
+      "cover": "social-drive/ponta-do-sol-1FZVWNeu.jpg",
+      "slides": [
+        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
+        "social-drive/favicon-32-1hVkekzE.png",
+        "social-drive/2612157b-ea60-43af-987c-43ba14303a56-1QfHehTv.jpg",
+        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 80,
+      "family": "verdant",
+      "warmth": -1.77,
+      "cover": "social-drive/04-cove-aerial-1Sms0tUr.png",
+      "slides": [
+        "social-drive/04-cove-aerial-1Sms0tUr.png",
+        "social-drive/chifbay-flyer-recto-1FuRDby5.png",
+        "social-iphone/IMG_2877.jpg",
+        "social-iphone/IMG_2797.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 81,
+      "family": "neutral",
+      "warmth": -2.45,
+      "cover": "social-drive/chifbay-flyer-recto-1FuRDby5.png",
+      "slides": [
+        "social-drive/chifbay-flyer-recto-1FuRDby5.png",
+        "social-drive/4bacc161-676b-402c-93cb-caa36799a2f7-1DPSUxEk.jpg",
+        "social-drive/logo-white-1CUwpUz1.png",
+        "social-iphone/IMG_2818.jpg"
+      ],
+      "grade": {
+        "brightness": 0.95,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 82,
+      "family": "neutral",
+      "warmth": -5.12,
+      "cover": "social-iphone/IMG_2818.jpg",
+      "slides": [
+        "social-iphone/IMG_2818.jpg",
+        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+        "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
+        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png"
+      ],
+      "grade": {
+        "brightness": 1.0085367585909844,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 83,
+      "family": "neutral",
+      "warmth": -5.33,
+      "cover": "social-drive/deck-1YVV3HpB.jpg",
+      "slides": [
+        "social-drive/deck-1YVV3HpB.jpg",
+        "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
+        "social-drive/img-1723-1ssTv61g.jpg",
+        "social-drive/05-forward-helm-crew-1868gP4C.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 84,
+      "family": "neutral",
+      "warmth": -5.9,
+      "cover": "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
+      "slides": [
+        "social-drive/hero-mobile-poster-1X2fWMMq.jpg",
+        "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
+        "social-drive/10-funchal-arrival-poster-1dubtnJj.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 85,
+      "family": "neutral",
+      "warmth": -5.91,
+      "cover": "social-drive/00-hero-banner-1920x500-1327Mahx.jpg",
+      "slides": [
+        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg",
+        "social-drive/1c08fd62-8a33-45f8-9a0d-4e462b3433e5-1RDbxyBT.jpg",
+        "social-drive/04-helm-seats-detail-19jYRwIw.png",
+        "social-drive/03-cockpit-lifestyle-iloveimg-resized-1n9d_DDr.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 86,
+      "family": "neutral",
+      "warmth": -6.14,
+      "cover": "social-drive/04-helm-seats-detail-19jYRwIw.png",
+      "slides": [
+        "social-drive/04-helm-seats-detail-19jYRwIw.png",
+        "social-drive/12-marina-side-profile-iloveimg-resized-12E_S4ri.png",
+        "social-drive/img-1594-1Szgf8Sm.jpg",
+        "social-drive/18-final-cockpit-angle-1B1kJuCs.png"
+      ],
+      "grade": {
+        "brightness": 1.00270522021624,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 87,
+      "family": "neutral",
+      "warmth": -7.14,
+      "cover": "social-drive/10-funchal-arrival-poster-1dubtnJj.png",
+      "slides": [
+        "social-drive/10-funchal-arrival-poster-1dubtnJj.png",
+        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
+        "social-drive/chifbay-ig-profile-1psAcc7T.jpg",
+        "social-drive/img-1750-1aJpTiay.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0203269962885388,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 88,
+      "family": "neutral",
+      "warmth": -7.85,
+      "cover": "social-drive/funchal-goldenhour-1h7uieGY.jpg",
+      "slides": [
+        "social-drive/funchal-goldenhour-1h7uieGY.jpg",
+        "social-drive/04-cove-aerial-1Sms0tUr.png",
+        "social-drive/logo-dark-1Hn8r76G.png",
+        "social-drive/3bd04982-13ce-48f4-8672-7790005fdce3-1mZTcryV.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 89,
+      "family": "deep",
+      "warmth": -8.58,
+      "cover": "social-drive/14-snorkeler-split-level-1vCFMSav.png",
+      "slides": [
+        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
+        "social-drive/chifbay-flyer-recto-1FuRDby5.png",
+        "social-drive/why-yours-1-FTdvAP.jpg",
+        "social-drive/20-cockpit-walkway-interior-19Jfcipi.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 90,
+      "family": "neutral",
+      "warmth": -8.77,
+      "cover": "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
+      "slides": [
+        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
+        "social-iphone/IMG_2806.jpg",
+        "social-iphone/IMG_2818.jpg",
+        "social-drive/7cd910fb-a980-4622-a2cd-aa7f1970c36d-1-AdLHW9.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 91,
+      "family": "deep",
+      "warmth": -9.58,
+      "cover": "social-drive/05-forward-helm-crew-1868gP4C.png",
+      "slides": [
+        "social-drive/05-forward-helm-crew-1868gP4C.png",
+        "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
+        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
+        "social-drive/deck-1YVV3HpB.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 92,
+      "family": "azure",
+      "warmth": -8.34,
+      "cover": "social-drive/pool-seixal-1YlTkqPn.jpg",
+      "slides": [
+        "social-drive/pool-seixal-1YlTkqPn.jpg",
+        "social-drive/img-1723-1ssTv61g.jpg",
+        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
+        "social-drive/10-funchal-rear-2-iloveimg-resized-1NjFjwdl.png"
+      ],
+      "grade": {
+        "brightness": 1.0331950618657535,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 93,
+      "family": "azure",
+      "warmth": -9.91,
+      "cover": "social-iphone/IMG_2861.jpg",
+      "slides": [
+        "social-iphone/IMG_2861.jpg",
+        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+        "social-drive/13-volcanic-cliff-face-1ef5zi14.png",
+        "social-drive/g-cliff-portrait-1-Twqrxi.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0008901811188768,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 94,
+      "family": "deep",
+      "warmth": -10.74,
+      "cover": "social-drive/13-volcanic-cliff-face-1ef5zi14.png",
+      "slides": [
+        "social-drive/13-volcanic-cliff-face-1ef5zi14.png",
+        "social-drive/d52b28b1-465f-43cc-bfdd-741495cb7433-1S8EFduZ.png",
+        "social-drive/boat-action-1zDXCPZv.jpg",
+        "social-drive/02-cliff-scale-side-16k6PmI_.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 95,
+      "family": "deep",
+      "warmth": -11.49,
+      "cover": "social-drive/20-cockpit-walkway-interior-19Jfcipi.png",
+      "slides": [
+        "social-drive/20-cockpit-walkway-interior-19Jfcipi.png",
+        "social-drive/logo-white-1CUwpUz1.png",
+        "social-drive/ponta-do-sol-1FZVWNeu.jpg",
+        "social-drive/00-hero-banner-1920x500-1327Mahx.jpg"
+      ],
+      "grade": {
+        "brightness": 1.046989028011874,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 96,
+      "family": "deep",
+      "warmth": -12.4,
+      "cover": "social-drive/18-final-cockpit-angle-1B1kJuCs.png",
+      "slides": [
+        "social-drive/18-final-cockpit-angle-1B1kJuCs.png",
+        "social-drive/04-helm-seats-detail-19jYRwIw.png",
+        "social-drive/img-1594-1Szgf8Sm.jpg",
+        "social-drive/hero-mobile-poster-1X2fWMMq.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 97,
+      "family": "deep",
+      "warmth": -13.02,
+      "cover": "social-drive/why-yours-1-FTdvAP.jpg",
+      "slides": [
+        "social-drive/why-yours-1-FTdvAP.jpg",
+        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
+        "social-drive/deck-1YVV3HpB.jpg",
+        "social-drive/10-funchal-arrival-poster-1dubtnJj.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 98,
+      "family": "deep",
+      "warmth": -14.16,
+      "cover": "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
+      "slides": [
+        "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
+        "social-drive/07-dolphins-aerial-1OyjV9Ru.png",
+        "social-drive/img-1733-14WKP77C.jpg",
+        "social-drive/15-bow-coast-pov-1T26wPC0.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 99,
+      "family": "deep",
+      "warmth": -14.6,
+      "cover": "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
+      "slides": [
+        "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
+        "social-drive/05-forward-helm-crew-1868gP4C.png",
+        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
+        "social-drive/marina-1BQmrkv7.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 100,
+      "family": "azure",
+      "warmth": -14.68,
+      "cover": "social-drive/exp-coves-wide-1HosMHdq.webp",
+      "slides": [
+        "social-drive/exp-coves-wide-1HosMHdq.webp",
+        "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+        "social-drive/exp-coves-1E_ECC7c.jpg",
+        "social-drive/08-docked-side-iloveimg-resized-1anYz9l6.png"
+      ],
+      "grade": {
+        "brightness": 1.0109937915019052,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 101,
+      "family": "azure",
+      "warmth": -14.78,
+      "cover": "social-drive/exp-coves-1E_ECC7c.jpg",
+      "slides": [
+        "social-drive/exp-coves-1E_ECC7c.jpg",
+        "social-drive/img-1749-1YfEdP2d.jpg",
+        "social-drive/14-snorkeler-split-level-1vCFMSav.png",
+        "social-drive/exp-coves-wide-1HosMHdq.webp"
+      ],
+      "grade": {
+        "brightness": 1.0121195344722484,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 102,
+      "family": "deep",
+      "warmth": -15.01,
+      "cover": "social-drive/02-cliff-scale-side-16k6PmI_.png",
+      "slides": [
+        "social-drive/02-cliff-scale-side-16k6PmI_.png",
+        "social-drive/boat-action-1zDXCPZv.jpg",
+        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
+        "social-drive/17-head-on-marina-1t4BdU1k.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 103,
+      "family": "azure",
+      "warmth": -17.06,
+      "cover": "social-drive/10-funchal-rear-2-iloveimg-resized-1NjFjwdl.png",
+      "slides": [
+        "social-drive/10-funchal-rear-2-iloveimg-resized-1NjFjwdl.png",
+        "social-drive/17-alternate-cockpit-interior-1oGcOUg2.png",
+        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+        "social-drive/pool-seixal-1YlTkqPn.jpg"
+      ],
+      "grade": {
+        "brightness": 1.010721159510133,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 104,
+      "family": "azure",
+      "warmth": -17.06,
+      "cover": "social-drive/marina-1BQmrkv7.jpg",
+      "slides": [
+        "social-drive/marina-1BQmrkv7.jpg",
+        "social-drive/exp-dolphin-1p6ii4M8.jpg",
+        "social-drive/img-1723-1ssTv61g.jpg",
+        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png"
+      ],
+      "grade": {
+        "brightness": 0.9848137409901098,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 105,
+      "family": "azure",
+      "warmth": -17.49,
+      "cover": "social-drive/12-marina-side-profile-iloveimg-resized-12E_S4ri.png",
+      "slides": [
+        "social-drive/12-marina-side-profile-iloveimg-resized-12E_S4ri.png",
+        "social-drive/img-1625-1-tsA9M2.jpg",
+        "social-drive/img-1594-1Szgf8Sm.jpg",
+        "social-drive/why-yours-1-FTdvAP.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0215985808420145,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 106,
+      "family": "azure",
+      "warmth": -17.79,
+      "cover": "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
+      "slides": [
+        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
+        "social-drive/18-final-cockpit-angle-1B1kJuCs.png",
+        "social-drive/deck-1YVV3HpB.jpg",
+        "social-drive/funchal-goldenhour-1h7uieGY.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0348858901659792,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 107,
+      "family": "azure",
+      "warmth": -17.91,
+      "cover": "social-drive/08-docked-side-iloveimg-resized-1anYz9l6.png",
+      "slides": [
+        "social-drive/08-docked-side-iloveimg-resized-1anYz9l6.png",
+        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+        "social-drive/20-cockpit-walkway-interior-19Jfcipi.png",
+        "social-drive/13-volcanic-cliff-face-1ef5zi14.png"
+      ],
+      "grade": {
+        "brightness": 1.0139475197675767,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 108,
+      "family": "deep",
+      "warmth": -19.82,
+      "cover": "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
+      "slides": [
+        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
+        "social-drive/4e27c9dc-14c6-4079-90e7-275d8e1274a9-1q9UTV1j.png",
+        "social-drive/16-high-speed-action-1VVbUnha.png",
+        "social-drive/07-dolphins-aerial-1OyjV9Ru.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 109,
+      "family": "azure",
+      "warmth": -22.29,
+      "cover": "social-drive/17-head-on-marina-1t4BdU1k.png",
+      "slides": [
+        "social-drive/17-head-on-marina-1t4BdU1k.png",
+        "social-drive/15-bow-coast-pov-1T26wPC0.png",
+        "social-drive/g-cliff-portrait-1-Twqrxi.jpg",
+        "social-drive/g-cliffs-1QYTsk5d.jpg"
+      ],
+      "grade": {
+        "brightness": 1.020568817025037,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 110,
+      "family": "azure",
+      "warmth": -22.52,
+      "cover": "social-drive/boat-action-1zDXCPZv.jpg",
+      "slides": [
+        "social-drive/boat-action-1zDXCPZv.jpg",
+        "social-drive/g-champagne-1aUkSNSh.webp",
+        "social-drive/hero-poster-1Y38NOzM.webp",
+        "social-drive/img-1733-14WKP77C.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0129106626314535,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 111,
+      "family": "azure",
+      "warmth": -23.95,
+      "cover": "social-drive/02-dolphins-guests-angle-b-1ldtr3gu.png",
+      "slides": [
+        "social-drive/02-dolphins-guests-angle-b-1ldtr3gu.png",
+        "social-drive/de841dd4-dba4-4271-aa46-ed49d7aacc7b-140tgxTM.png",
+        "social-drive/05-marina-rear-quarter-iloveimg-resized-15FtzlE5.png",
+        "social-drive/02-cliff-scale-side-16k6PmI_.png"
+      ],
+      "grade": {
+        "brightness": 1.0126615246281674,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 112,
+      "family": "deep",
+      "warmth": -24.23,
+      "cover": "social-drive/07-dolphins-aerial-1OyjV9Ru.png",
+      "slides": [
+        "social-drive/07-dolphins-aerial-1OyjV9Ru.png",
+        "social-drive/marina-1BQmrkv7.jpg",
+        "social-drive/img-1723-1ssTv61g.jpg",
+        "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 113,
+      "family": "deep",
+      "warmth": -24.02,
+      "cover": "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png",
+      "slides": [
+        "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png",
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+        "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
+        "social-iphone/IMG_5343.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 114,
+      "family": "deep",
+      "warmth": -24.66,
+      "cover": "social-drive/g-cliffs-1QYTsk5d.jpg",
+      "slides": [
+        "social-drive/g-cliffs-1QYTsk5d.jpg",
+        "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png",
+        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png"
+      ],
+      "grade": {
+        "brightness": 1.0436950544239638,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 115,
+      "family": "deep",
+      "warmth": -25.75,
+      "cover": "social-drive/15-bow-coast-pov-1T26wPC0.png",
+      "slides": [
+        "social-drive/15-bow-coast-pov-1T26wPC0.png",
+        "social-drive/img-1582-1O3gly5F.png",
+        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png",
+        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 116,
+      "family": "deep",
+      "warmth": -29.99,
+      "cover": "social-drive/01-dolphins-guests-angle-a-iloveimg-resi-1TNKSZn6.png",
+      "slides": [
+        "social-drive/01-dolphins-guests-angle-a-iloveimg-resi-1TNKSZn6.png",
+        "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png",
+        "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
+        "social-drive/16-high-speed-action-1VVbUnha.png"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 117,
+      "family": "azure",
+      "warmth": -30.78,
+      "cover": "social-drive/16-high-speed-action-1VVbUnha.png",
+      "slides": [
+        "social-drive/16-high-speed-action-1VVbUnha.png",
+        "social-drive/0ea5869b-8a80-4b20-b1ed-f3cea198ca12-16h2Uj9A.png",
+        "social-drive/09-skipper-binoculars-iloveimg-resized-1W5e28Eq.png",
+        "social-drive/img-1625-1-tsA9M2.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0069333169503987,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 118,
+      "family": "deep",
+      "warmth": -26.45,
+      "cover": "social-drive/exp-dolphin-1p6ii4M8.jpg",
+      "slides": [
+        "social-drive/exp-dolphin-1p6ii4M8.jpg",
+        "social-drive/00dd6f1a-e907-4b9d-b149-36b6ba8338b8-1xZK1y61.png",
+        "social-drive/08-guests-watching-dolphin-iloveimg-resi-16vNr0Ut.png",
+        "social-drive/g-cliff-portrait-1-Twqrxi.jpg"
+      ],
+      "grade": {
+        "brightness": 1.05,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 119,
+      "family": "azure",
+      "warmth": -31.41,
+      "cover": "social-drive/g-champagne-1aUkSNSh.webp",
+      "slides": [
+        "social-drive/g-champagne-1aUkSNSh.webp",
+        "social-drive/boat-action-1zDXCPZv.jpg",
+        "social-drive/hero-poster-1Y38NOzM.webp",
+        "social-drive/img-1733-14WKP77C.jpg"
+      ],
+      "grade": {
+        "brightness": 1.0337866464532612,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 120,
+      "family": "azure",
+      "warmth": -31.66,
+      "cover": "social-drive/hero-poster-1Y38NOzM.webp",
+      "slides": [
+        "social-drive/hero-poster-1Y38NOzM.webp",
+        "social-drive/15-volcanic-headland-14dNf_YP.png",
+        "social-drive/g-champagne-1aUkSNSh.webp",
+        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png"
+      ],
+      "grade": {
+        "brightness": 1.007663786112028,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 121,
+      "family": "azure",
+      "warmth": -32.49,
+      "cover": "social-iphone/IMG_5343.jpg",
+      "slides": [
+        "social-iphone/IMG_5343.jpg",
+        "social-drive/16-cliff-waterline-passenger-view-13xWevyy.png",
+        "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png"
+      ],
+      "grade": {
+        "brightness": 1.02416759048019,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 122,
+      "family": "azure",
+      "warmth": -33.61,
+      "cover": "social-drive/img-1729-1JAFIJI0.jpg",
+      "slides": [
+        "social-drive/img-1729-1JAFIJI0.jpg",
+        "social-drive/6c8d287d-8252-47df-9e43-131e98611b18-17JK8QGo.png",
+        "social-drive/15-bow-coast-pov-1T26wPC0.png",
+        "social-drive/g-cliffs-1QYTsk5d.jpg"
+      ],
+      "grade": {
+        "brightness": 1.005339693789426,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 123,
+      "family": "azure",
+      "warmth": -36.55,
+      "cover": "social-drive/dolphins-1xF8MzG0.webp",
+      "slides": [
+        "social-drive/dolphins-1xF8MzG0.webp",
+        "social-drive/16-high-speed-action-1VVbUnha.png",
+        "social-drive/40a04f65-6e65-4f0c-afbd-2721eec215b3-1FpbMIk0.png",
+        "social-drive/49006a45-f56e-4b6f-8d07-a77a1f9031cf-13PSuGOw.png"
+      ],
+      "grade": {
+        "brightness": 0.9958610418225883,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 124,
+      "family": "azure",
+      "warmth": -38.37,
+      "cover": "social-drive/16-cliff-waterline-passenger-view-13xWevyy.png",
+      "slides": [
+        "social-drive/16-cliff-waterline-passenger-view-13xWevyy.png",
+        "social-iphone/IMG_5393.jpg",
+        "social-drive/619e1514-f133-4585-9630-0cbb3449e6ab-1QaSygxt.png",
+        "social-drive/0efa0730-3874-4a0d-8a37-fb961bf1f2f1-1bDbB2Fh.png"
+      ],
+      "grade": {
+        "brightness": 1.0110452778476762,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 125,
+      "family": "azure",
+      "warmth": -36.65,
+      "cover": "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
+      "slides": [
+        "social-drive/19-dolphins-blue-water-aerial-1uol2TfC.png",
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+        "social-drive/03-funchal-transom-iloveimg-resized-12s-CVZE.png",
+        "social-drive/16-high-speed-action-1VVbUnha.png"
+      ],
+      "grade": {
+        "brightness": 1.0280775390358161,
+        "saturation": 1
+      }
+    },
+    {
+      "plan_index": 126,
+      "family": "deep",
+      "warmth": -43.59,
+      "cover": "social-drive/15-volcanic-headland-14dNf_YP.png",
+      "slides": [
+        "social-drive/15-volcanic-headland-14dNf_YP.png",
+        "social-drive/img-1772-1j3WDjgq.jpg",
+        "social-drive/1a634ad0-efd8-4801-a99c-6752f797b6bf-1XPOqbPg.png"
+      ],
+      "grade": {
+        "brightness": 1.0488598606390331,
+        "saturation": 0.9997241598510378
+      }
+    },
+    {
+      "plan_index": 127,
+      "family": "azure",
+      "warmth": -36.96,
+      "cover": "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
+      "slides": [
+        "social-drive/d366d945-c8fb-4419-a561-978a867244c7-1cuurKx6.jpg",
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png",
+        "social-drive/4e27c9dc-14c6-4079-90e7-275d8e1274a9-1q9UTV1j.png",
+        "social-drive/16-high-speed-action-1VVbUnha.png"
+      ],
+      "grade": {
+        "brightness": 1.0292436359565433,
+        "saturation": 1
+      }
+    },
+    {
       "plan_index": 128,
+      "family": "azure",
+      "warmth": -48.41,
+      "cover": "social-drive/img-1743-1cZILKxw.jpg",
+      "slides": [
+        "social-drive/img-1743-1cZILKxw.jpg",
+        "social-drive/img-1582-1O3gly5F.png",
+        "social-drive/15-volcanic-headland-14dNf_YP.png",
+        "social-drive/49c5cec8-3b52-4abd-b7ea-145a6f7916c1-1dpnyGi7.png"
+      ],
+      "grade": {
+        "brightness": 0.9987465720429461,
+        "saturation": 0.92
+      }
+    },
+    {
+      "plan_index": 129,
       "family": "amber",
       "warmth": 29.1,
       "cover": "social-drive/hero-15zh5Wpf.jpg",
@@ -1408,46 +1425,31 @@
       }
     },
     {
-      "plan_index": 129,
-      "family": "amber",
-      "warmth": 25.1,
-      "cover": "social-drive/11-camara-de-lobos-golden-hour-1SVAz_0Y.png",
-      "slides": [
-        "social-drive/11-camara-de-lobos-golden-hour-1SVAz_0Y.png",
-        "social-drive/11-chifbay-crew-portrait-1VhL90VG.png",
-        "social-drive/82e8dccb-6d57-4791-931f-636a223e9235-1azO-qIT.jpg",
-        "social-drive/madeira-peaks-17moxrdy.jpg"
-      ],
-      "grade": {
-        "brightness": 1.0064409774757799,
-        "saturation": 1
-      }
-    },
-    {
       "plan_index": 130,
-      "family": "amber",
-      "warmth": 29.96,
-      "cover": "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
+      "family": "golden",
+      "warmth": 29.27,
+      "cover": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
       "slides": [
+        "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
         "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
-        "social-drive/09-wide-bow-sunset-1jupEkSB.png",
-        "social-drive/05-wine-toast-sunset-1M03MGjW.png",
-        "social-drive/hero-15zh5Wpf.jpg"
+        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
+        "social-drive/exp-coastal-14FuEBde.webp"
       ],
       "grade": {
-        "brightness": 1.05,
+        "brightness": 1.003278234022973,
         "saturation": 1
       }
     },
     {
       "plan_index": 131,
       "family": "amber",
-      "warmth": 26.45,
-      "cover": "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
+      "warmth": 29.96,
+      "cover": "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
       "slides": [
-        "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
-        "social-drive/g-whale-1irOUYNx.jpg",
-        "social-drive/06-bow-meal-topdown-1Uy7HP42.png"
+        "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
+        "social-drive/09-wide-bow-sunset-1jupEkSB.png",
+        "social-drive/08-sunset-funchal-coastline-1k1ABbzj.jpg",
+        "social-drive/hero-15zh5Wpf.jpg"
       ],
       "grade": {
         "brightness": 1.05,
@@ -1462,7 +1464,7 @@
       "slides": [
         "social-drive/09-wide-bow-sunset-1jupEkSB.png",
         "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
-        "social-drive/08-sunset-funchal-coastline-1k1ABbzj.jpg",
+        "social-drive/10-golden-cove-from-rocks-iloveimg-resiz-1M4fTz3l.png",
         "social-drive/hero-15zh5Wpf.jpg"
       ],
       "grade": {
@@ -1472,22 +1474,6 @@
     },
     {
       "plan_index": 133,
-      "family": "golden",
-      "warmth": 29.27,
-      "cover": "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
-      "slides": [
-        "social-drive/0729bef5-e73b-4b4f-8cfa-23593eced87a-1_JALpPh.jpg",
-        "social-drive/12-skipper-sunset-helm-iloveimg-resized-1ZOVISdJ.png",
-        "social-drive/exp-coastal-14FuEBde.webp",
-        "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg"
-      ],
-      "grade": {
-        "brightness": 1.003278234022973,
-        "saturation": 1
-      }
-    },
-    {
-      "plan_index": 134,
       "family": "amber",
       "warmth": 33.23,
       "cover": "social-drive/g-whale-1irOUYNx.jpg",
@@ -1502,7 +1488,7 @@
       }
     },
     {
-      "plan_index": 135,
+      "plan_index": 134,
       "family": "amber",
       "warmth": 34.21,
       "cover": "social-drive/08-sunset-funchal-coastline-1k1ABbzj.jpg",
@@ -1518,14 +1504,14 @@
       }
     },
     {
-      "plan_index": 136,
+      "plan_index": 135,
       "family": "amber",
       "warmth": 40.82,
       "cover": "social-drive/07-couple-bow-silhouette-1ZKbipWf.png",
       "slides": [
         "social-drive/07-couple-bow-silhouette-1ZKbipWf.png",
-        "social-drive/09-wide-bow-sunset-1jupEkSB.png",
-        "social-drive/05-wine-toast-sunset-1M03MGjW.png"
+        "social-drive/05-wine-toast-sunset-1M03MGjW.png",
+        "social-drive/09-wide-bow-sunset-1jupEkSB.png"
       ],
       "grade": {
         "brightness": 1.05,
@@ -1533,7 +1519,7 @@
       }
     },
     {
-      "plan_index": 137,
+      "plan_index": 136,
       "family": "amber",
       "warmth": 38.64,
       "cover": "social-drive/05-wine-toast-sunset-1M03MGjW.png",
@@ -1548,7 +1534,7 @@
       }
     },
     {
-      "plan_index": 138,
+      "plan_index": 137,
       "family": "amber",
       "warmth": 41.97,
       "cover": "social-drive/04-whale-tail-golden-hour-1Oo2Ix75.png",
