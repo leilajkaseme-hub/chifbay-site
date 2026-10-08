@@ -46,6 +46,20 @@
     "follows": null,
     "profile_visits": null,
     "ig_reels_avg_watch_time": 11530
+   },
+   "d7": {
+    "at": "2026-10-08T13:27:24.611Z",
+    "age_hours": 189,
+    "reach": 31,
+    "views": 96,
+    "likes": 4,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 5,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 9292
    }
   },
   "17870250366643673": {
@@ -774,8 +788,32 @@
     "id": "20261002204317-ec30",
     "format": null,
     "source": "curated"
+   },
+   "h24": {
+    "at": "2026-10-08T13:27:24.611Z",
+    "age_hours": 44,
+    "reach": 23,
+    "views": 86,
+    "likes": 6,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 6,
+    "follows": 0,
+    "profile_visits": 1,
+    "ig_reels_avg_watch_time": null
+   }
+  },
+  "18131578556479830": {
+   "posted_at": "2026-10-07T18:34:58+0000",
+   "permalink": "https://www.instagram.com/reel/DeNA48Ijqtb/",
+   "type": "reel",
+   "ours": {
+    "id": "r11-filmed",
+    "format": null,
+    "source": "reel"
    }
   }
  },
- "updated_at": "2026-10-07T13:20:47.737Z"
+ "updated_at": "2026-10-08T13:27:24.611Z"
 }
