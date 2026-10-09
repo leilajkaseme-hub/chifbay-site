@@ -19,14 +19,12 @@ name: Google Business Profile — today's post, ready to paste
 # So this automates the part that is actually work — the words, the length, the
 # photo, the link — and leaves fifteen seconds of pasting.
 #
-# It runs after blog-auto SUCCEEDS rather than on a clock of its own, because
-# GitHub's cron drifts by hours here and a draft written before the article
-# exists would link to a 404.
+# blog-auto.yml starts it once the day's new article is live (since 9 Oct 2026
+# blog-auto runs five times a day, and only one of those runs publishes), not on
+# a clock of its own: GitHub's cron drifts by hours here and a draft written
+# before the article exists would link to a 404.
 
 on:
-  workflow_run:
-    workflows: ["Chifbay Journal — auto post (cloud, no API key)"]
-    types: [completed]
   workflow_dispatch: {}
 
 permissions:

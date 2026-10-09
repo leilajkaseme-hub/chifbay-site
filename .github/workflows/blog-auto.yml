@@ -21,6 +21,7 @@ on:
 permissions:
   contents: write
   pages: write      # lets the self-heal step request a fresh Pages build
+  actions: write    # starts gbp-draft.yml once the new post is live
 
 concurrency:
   group: journal-publish
@@ -134,6 +135,14 @@ jobs:
           done
           echo "::error::Post is still not live after 4 heal attempts — check GitHub Pages status"
           exit 1
+
+      # Google Business Profile draft of the new article, once a day (only the run that published).
+      - name: Start the Google Business Profile draft
+        if: steps.pub.outputs.state != 'ALREADY'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run gbp-draft.yml --repo "${GITHUB_REPOSITORY}"
 
       # Push notification to the ntfy app if anything above failed.
       - name: Notify failure (ntfy)
