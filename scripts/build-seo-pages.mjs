@@ -524,17 +524,17 @@ PAGES.push({
       <div class="cmp-card reveal d1"><div class="k">Per boat · median €537</div><h3>Private boat</h3><p>The whole boat for your group, with a skipper. You choose the pace, stay longer to swim, and nobody else is aboard. Prices run from about €150 to €3,500 per boat.</p></div>
     </div>
     <p class="cmp-note reveal">* From our own count of 58 GetYourGuide boat listings for Madeira on 11 August 2026: shared median €59 per person, middle half €40 to €79 (34 listings); private median €537 per boat (24 listings). Whale watching range: VMT Madeira and Lobosonda prices read on 4 October 2026, below. Method and full data: <a href="/posts/madeira-boat-tour-prices-2026">Madeira boat tour prices 2026</a>.</p>`),
-    prose("02", "Operators compared", "Six boat operators, side by side", `    <p class="reveal d1" style="max-width:68ch" id="compare">Facts below were read on the operators' own websites or on GetYourGuide on 4 October 2026. GetYourGuide shows US dollar prices to US visitors, so those are in US$. We left out star ratings: counts change every week and are not comparable across sites. "Visit Madeira list" means the operator appears on the official tourism board's boat trips page.</p>
+    prose("02", "Operators compared", "Six boat operators, side by side", `    <p class="reveal d1" style="max-width:68ch" id="compare">Facts below were read on the operators' own websites or on GetYourGuide on 4 October 2026. GetYourGuide shows US dollar prices to US visitors, so those are in US$. We left out star ratings: counts change every week and are not comparable across sites.</p>
     <div class="cmp-wrap reveal">
       <table class="cmp-t">
-        <thead><tr><th>Operator</th><th>Kind of trip</th><th>Price read on 4 Oct 2026</th><th>Good to know</th><th>Visit Madeira list</th></tr></thead>
+        <thead><tr><th>Operator</th><th>Kind of trip</th><th>Price read on 4 Oct 2026</th><th>Good to know</th></tr></thead>
         <tbody>
-          <tr><td>Chifbay</td><td>Private motor boat, Funchal</td><td>€${P.sunset2} to €${P.day3} per boat, up to 5 guests</td><td>2026 Karnic R8S, two skippers, food and drinks, swim stop on the day trip, 360° video, drone and camera photos included</td><td>No</td></tr>
-          <tr><td>Cristal Sea Madeira</td><td>Private boats, Funchal</td><td>Private boat 2 h 30 from €320 per boat; private sunset 2 h 30 from €340; bigger boats from €500</td><td>Up to 10 to 12 guests; paddle boards and snorkel gear included; books on its own site; licence RNAAT 375/2022</td><td>Yes</td></tr>
-          <tr><td>Ventura do Mar (Ventura Nature Emotions)</td><td>Shared sea trips, Funchal</td><td>See their site</td><td>Running since 2001; books online</td><td>Yes</td></tr>
-          <tr><td>VMT Madeira</td><td>Shared catamaran, Funchal</td><td>Whale and dolphin trip 3 h about US$45 to 48 per person; sunset catamaran US$45; Desertas day US$101 (GetYourGuide)</td><td>Books online; site in Portuguese and English</td><td>Yes</td></tr>
-          <tr><td>Lobosonda</td><td>Whale and dolphin watching, Calheta</td><td>Traditional boat from €51.83 per person; RIB 2 h from €66.63 per person</td><td>Running since 2003; site in Portuguese, German and English; based in Calheta, not Funchal</td><td>Yes</td></tr>
-          <tr><td>Bonita da Madeira</td><td>Shared boat trips, Funchal</td><td>See their site</td><td>Listed by the tourism board among Funchal boat operators</td><td>Yes</td></tr>
+          <tr><td>Chifbay</td><td>Private motor boat, Funchal</td><td>€${P.sunset2} to €${P.day3} per boat, up to 5 guests</td><td>2026 Karnic R8S, two skippers, food and drinks, swim stop on the day trip, 360° video, drone and camera photos included</td></tr>
+          <tr><td>Cristal Sea Madeira</td><td>Private boats, Funchal</td><td>Private boat 2 h 30 from €320 per boat; private sunset 2 h 30 from €340; bigger boats from €500</td><td>Up to 10 to 12 guests; paddle boards and snorkel gear included; books on its own site; licence RNAAT 375/2022</td></tr>
+          <tr><td>Ventura do Mar (Ventura Nature Emotions)</td><td>Shared sea trips, Funchal</td><td>See their site</td><td>Running since 2001; books online</td></tr>
+          <tr><td>VMT Madeira</td><td>Shared catamaran, Funchal</td><td>Whale and dolphin trip 3 h about US$45 to 48 per person; sunset catamaran US$45; Desertas day US$101 (GetYourGuide)</td><td>Books online; site in Portuguese and English</td></tr>
+          <tr><td>Lobosonda</td><td>Whale and dolphin watching, Calheta</td><td>Traditional boat from €51.83 per person; RIB 2 h from €66.63 per person</td><td>Running since 2003; site in Portuguese, German and English; based in Calheta, not Funchal</td></tr>
+          <tr><td>Bonita da Madeira</td><td>Shared boat trips, Funchal</td><td>See their site</td><td>Listed by the tourism board among Funchal boat operators</td></tr>
         </tbody>
       </table>
     </div>
