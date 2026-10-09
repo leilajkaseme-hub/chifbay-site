@@ -5,7 +5,8 @@
    What it changes, and only this:
    1. Type: titles in DM Serif Display (already loaded), everything else Inter.
       Satoshi and Space Mono are gone, so the page reads as one voice.
-   2. Light theme colours: warm bone paper, navy ink, one gold.
+   2. Light theme colours: cool near-white paper, navy ink, one gold. No beige
+      anywhere (Theo, 9 Oct 2026).
    3. A calmer header (solid, no blur: blur cost scroll frames on phones).
    4. Cards and photos: one radius, one soft shadow.
    Motion lives in marina.js. Without it everything here still shows. */
@@ -18,7 +19,7 @@
   --m-shadow:0 1px 2px rgba(11,34,54,.06),0 18px 40px -22px rgba(11,34,54,.28);
   --m-shadow-up:0 1px 2px rgba(11,34,54,.06),0 28px 56px -24px rgba(11,34,54,.36);
 }
-:root[data-theme="light"]{--ink-rgb:245,241,232}
+:root[data-theme="light"]{--ink-rgb:250,251,252}
 
 /* ---------------------------------------------------------------- titles */
 h1,h2,h3,
@@ -86,7 +87,7 @@ summary{font-weight:500}
 /* --------------------------------------------------------------- header */
 :root[data-theme="light"] #nav.sc,:root[data-theme="light"] .atlas #nav.sc,
 :root[data-theme="light"] body:not(:has(.hero)):not(:has(.bkhero)) #nav{
-  background:rgba(245,241,232,.97);backdrop-filter:none;-webkit-backdrop-filter:none;
+  background:rgba(255,255,255,.97);backdrop-filter:none;-webkit-backdrop-filter:none;
   border-bottom:1px solid rgba(11,34,54,.09);
 }
 :root[data-theme="dark"] #nav.sc,:root[data-theme="dark"] .atlas #nav.sc{
@@ -159,8 +160,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
   .atlas .revs.marquee .rv-mq .rev{flex-basis:calc((100cqw - (var(--rvn) - 1) * var(--rvgap)) / var(--rvn))}
 }
 
-/* light theme: the Marina review band, cream with white cards */
-:root[data-theme="light"] .t-band-navy{background:#ece6d8;color:var(--paper);
+/* light theme: a cool mist band with white cards */
+:root[data-theme="light"] .t-band-navy{background:#eef2f6;color:var(--paper);
   --rev-bg:#fff;--g-line:rgba(11,34,54,.1);--g-ink:#0b2236;--g-grey:#5d6a74}
 :root[data-theme="light"] .t-band-navy h2,:root[data-theme="light"] .t-band-navy .display,
 :root[data-theme="light"] .atlas .t-band-navy h2{color:#0b2236}
@@ -177,3 +178,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 :root[data-theme="light"] .t-band-navy .btn-g,:root[data-theme="light"] .atlas .t-band-navy .btn-g{color:#0b2236;border-color:rgba(11,34,54,.35)}
 :root[data-theme="light"] .t-band-navy .btn-g:hover,:root[data-theme="light"] .atlas .t-band-navy .btn-g:hover{border-color:#0b2236;background:rgba(11,34,54,.04)}
 :root[data-theme="light"] .t-band-navy .chead svg{stroke:var(--m-gold-ink)}
+
+/* the warm off-white the older layers hard-code (#f7f5f1, #f2ede2) */
+html.cbtx::before,#cbtx{background-color:#fafbfc!important}
+@media(max-width:860px){:root[data-theme="light"] .nl{background:#fff!important}}
+.t-mapcap,.t-mapctl button{background:rgba(255,255,255,.94)}
+:root[data-theme="dark"] .t-mapcap{background:rgba(11,27,41,.9)}
+:root[data-theme="light"] .hero .btn-p:hover,:root[data-theme="light"] .reserve .btn-p:hover,
+.atlas .nc:hover,.nc:hover{background:#e8eef3}
+:root[data-theme="light"] #nav.sc .nc:hover,:root[data-theme="light"] .atlas #nav.sc .nc:hover{background:rgb(var(--teal-rgb));color:#fff}
