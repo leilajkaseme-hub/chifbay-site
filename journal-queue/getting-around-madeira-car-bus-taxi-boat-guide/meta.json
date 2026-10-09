@@ -1,0 +1,36 @@
+{
+  "slug": "getting-around-madeira-car-bus-taxi-boat-guide",
+  "title": "Getting Around Madeira: Car, Bus, Taxi or Boat?",
+  "category": "Guide",
+  "date": "2026-10-17",
+  "description": "Getting around Madeira without stress: when to rent a car, how buses, taxis and ride apps work, and why a private boat is the easiest way to see the coast.",
+  "heroImage": "assets/ponta-do-sol.jpg",
+  "heroAlt": "Aerial view of the pier at Ponta do Sol, Madeira",
+  "readingMinutes": 5,
+  "keywords": [
+    "getting around Madeira",
+    "do you need a car in Madeira",
+    "Madeira buses",
+    "Madeira taxis and ride apps",
+    "driving in Madeira",
+    "Madeira transport guide",
+    "Funchal without a car",
+    "Madeira south coast by boat"
+  ],
+  "written": "2026-10-17",
+  "queued": "2026-10-09T20:12:29.027Z",
+  "images": [
+    {
+      "prompt": "Wide landscape photograph of the Madeira south coast at golden hour, with the pier and village of Ponta do Sol below green terraced cliffs and a calm blue Atlantic.",
+      "alt": "The south coast of Madeira near Ponta do Sol at golden hour"
+    },
+    {
+      "prompt": "A narrow winding mountain road in Madeira with a small hatchback car, lush green hillside and a stone wall, soft morning light.",
+      "alt": "A narrow winding road through the green hills of Madeira"
+    },
+    {
+      "prompt": "A small white private motorboat cruising along the Madeira coast below the tall Cabo Girão sea cliff on a clear sunny day, seen from the water.",
+      "alt": "A small private boat passing the Cabo Girão cliff"
+    }
+  ]
+}
