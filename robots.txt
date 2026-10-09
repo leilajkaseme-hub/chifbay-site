@@ -1,32 +1,42 @@
 User-agent: *
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: Applebot
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /journal-queue/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /journal-queue/
 
 Sitemap: https://chifbay.com/sitemap.xml
 

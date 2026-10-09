@@ -1,0 +1,59 @@
+name: Chifbay Journal — write posts ahead (queue)
+
+# Keeps journal-queue/ at two weeks of finished posts, so blog-auto.yml always has one to
+# publish. At most 2 posts a run: gentle on the Claude plan (shared with Theo's own
+# sessions). When the plan is at its weekly limit the run writes nothing and the queue
+# carries the days. The Mac mini then adds ChatGPT photos to each queued post.
+on:
+  schedule:
+    - cron: "20 2 * * *"
+    - cron: "20 15 * * *"
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "posts to write this run"
+        default: "2"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journal-fill
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  fill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test the publisher
+        run: node scripts/journal/test-journal.mjs
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Write posts into the queue
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: node scripts/journal/fill.mjs --max "${{ github.event.inputs.max || '2' }}"
+      - name: Commit & push
+        run: |
+          git add journal-queue
+          git diff --cached --quiet && { echo "nothing new in the queue"; exit 0; }
+          git commit -m "Journal queue: $(ls journal-queue | wc -l | tr -d ' ') post(s) written ahead"
+          scripts/ci-push.sh
+      - name: Notify failure (ntfy)
+        if: failure()
+        run: |
+          curl -s --max-time 20 -H "Title: CHIFBAY Journal queue job failed" -H "Priority: default" -H "Tags: warning,boat" \
+            -d "Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            https://ntfy.sh/futurx-blog-alerts-544024878e || true

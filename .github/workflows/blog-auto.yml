@@ -1,16 +1,34 @@
-name: Chifbay Journal — auto post (cloud, no API key)
+name: Chifbay Journal — publish today's post (from the queue)
 
-# Runs in GitHub's cloud on a schedule — your computer can be OFF.
-# Uses Claude Code with your subscription token (secret CLAUDE_CODE_OAUTH_TOKEN),
-# NOT an Anthropic API key, so there is no per-token cost.
+# One Journal post every day, no exception (Theo, 9 Oct 2026).
+#
+# Posts are written days ahead by journal-fill.yml into journal-queue/, and the Mac mini adds
+# their ChatGPT photos. This job only moves the next finished post into place: no AI, so a
+# Claude limit can no longer cost a day (it cost 22-23 Sep and 5-7 Oct). Read scripts/journal/lib.mjs.
+#
+# It runs five times a day. The first run that finds no post dated today publishes one; the
+# others see "ALREADY" and stop. GitHub's cron drifts by hours, so one daily run was not enough.
+# Last resort, queue empty: write one post now with Claude, then publish it.
 on:
   schedule:
-    - cron: "0 9 * * *"   # every day at 09:00 UTC — change to e.g. "0 9 * * 1,3,5" for Mon/Wed/Fri
+    - cron: "10 5 * * *"
+    - cron: "10 9 * * *"
+    - cron: "10 13 * * *"
+    - cron: "10 17 * * *"
+    - cron: "40 20 * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: write
   pages: write      # lets the self-heal step request a fresh Pages build
+
+concurrency:
+  group: journal-publish
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   post:
@@ -24,37 +42,32 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Install Claude Code
-        run: npm install -g @anthropic-ai/claude-code
-
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Generate one Journal post (text only)
+      - name: Publish the next queued post
+        id: pub
+        run: |
+          out=$(node scripts/journal/publish.mjs)
+          echo "$out"
+          echo "state=$(echo "$out" | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+
+      # Last resort only: the queue is empty, so a post is written now.
+      - name: Queue empty, write one post now
+        if: steps.pub.outputs.state == 'EMPTY'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
-          claude -p "$(cat scripts/blog-local/BLOG-INSTRUCTIONS.md)" \
-            --permission-mode acceptEdits \
-            --allowedTools "Read" "Write" "Edit" "Glob" "Grep" "WebSearch" "WebFetch" "Bash(date:*)"
+          npm install -g @anthropic-ai/claude-code
+          node scripts/journal/fill.mjs --today --max 1 --target 1
+          out=$(node scripts/journal/publish.mjs)
+          echo "$out"
+          case "$out" in PUBLISHED*) ;; *) echo "::error::no post today: the queue is empty and none could be written"; exit 1;; esac
 
-      # Generates a hero + 2 inline AI images matched to this post's specific
-      # subject via Pollinations (free, no API key) and wires them into the
-      # post HTML + posts.json. Best-effort — never fails the run; on any
-      # error it leaves the static manifest-picked image already in place.
-      - name: Generate AI images for the new post
-        env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-        run: node scripts/blog-local/gen-post-images.mjs
-
-      # L etape ci dessus ne peut pas echouer, par choix. Donc elle peut laisser
-      # un article qui montre une image qui n existe pas, et personne ne le voit:
-      # c est arrive cinq fois avant le 21 septembre 2026, trouve par un audit
-      # exterieur. Ce controle rend la panne bruyante sans bloquer la
-      # publication: l article part quand meme, mais le telephone sonne.
       - name: Check every article image really exists
+        if: steps.pub.outputs.state != 'ALREADY'
         id: imgcheck
         continue-on-error: true
         run: node scripts/checks/verify-post-images.mjs
@@ -71,6 +84,7 @@ jobs:
       # WebP copies of the new post's photos (scripts/make-webp.py), and the
       # pages pointed at them. Best effort: without it the post keeps its JPEGs.
       - name: WebP copies of the new photos
+        if: steps.pub.outputs.state != 'ALREADY'
         continue-on-error: true
         run: |
           python3 -m pip install --quiet --user --break-system-packages pillow || python3 -m pip install --quiet --user pillow
@@ -79,13 +93,16 @@ jobs:
 
       # the Journal pages carry their cards in the HTML: add today's post
       - name: Rebuild the Journal card lists
+        if: steps.pub.outputs.state != 'ALREADY'
         run: node scripts/build-blog-index.mjs
 
       # links to an article must use its canonical URL (no ".html")
       - name: Point article links at their canonical URL
+        if: steps.pub.outputs.state != 'ALREADY'
         run: node scripts/fix-post-links.mjs
 
       - name: Commit & push
+        if: steps.pub.outputs.state != 'ALREADY'
         run: |
           TITLE=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['title'])")
           git add -A
@@ -104,7 +121,8 @@ jobs:
           SLUG=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['slug'])")
           echo "Waiting for slug '$SLUG' to appear on the live site…"
           live_ok() {
-            curl -sf --max-time 20 "https://chifbay.com/posts/posts.json?nocache=$(date +%s)" | grep -q "\"$SLUG\""
+            curl -sf --max-time 20 "https://chifbay.com/posts/posts.json?nocache=$(date +%s)" | grep -q "\"$SLUG\"" &&
+            curl -sf -o /dev/null --max-time 20 "https://chifbay.com/posts/$SLUG?nocache=$(date +%s)"
           }
           for attempt in 1 2 3 4; do
             for i in $(seq 1 12); do
@@ -124,5 +142,5 @@ jobs:
           curl -s --max-time 20 \
             -H "Title: CHIFBAY blog post FAILED" \
             -H "Priority: high" -H "Tags: rotating_light,boat" \
-            -d "Today's Chifbay Journal auto-post failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            -d "Today's Chifbay Journal post failed (the next run of the day tries again). Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             https://ntfy.sh/futurx-blog-alerts-544024878e || true
