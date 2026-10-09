@@ -125,3 +125,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 
 /* dark theme, scrolled header: "Book now" was white text on a white pill */
 :root[data-theme="dark"] #nav.sc .nc,:root[data-theme="dark"] .atlas #nav.sc .nc{color:#0b2236}
+
+/* .wrap-w only had its width and side margins under html.atlas, so pages
+   without that class (experiences, 6 languages) ran sections edge to edge */
+.wrap-w{max-width:1500px;margin-left:auto;margin-right:auto;padding-left:32px;padding-right:32px}
+.t-wide .wrap-w{max-width:none}
+@media(max-width:600px){.wrap-w{padding-left:20px;padding-right:20px}}
