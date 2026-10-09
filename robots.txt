@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /journal-queue/
+Disallow: /README.md
 
 User-agent: GPTBot
 Allow: /
@@ -37,6 +38,7 @@ Disallow: /journal-queue/
 User-agent: Bingbot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /README.md
 
 Sitemap: https://chifbay.com/sitemap.xml
 
