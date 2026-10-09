@@ -3,7 +3,9 @@
 // (ChatGPT image jobs never run on the MacBook), from a small clone of chifbay-site:
 //
 //   ~/repos/chifbay-site   partial clone, sparse: journal-queue/ and scripts/journal/ only
-//   node scripts/journal/mini-images.mjs [--max 6]
+//   node scripts/journal/mini-images.mjs [--max 6] [--account 1] [--no-push]
+//
+// --no-push: make and place the photos, commit nothing (a test run).
 //
 // For each queued post without its three photos (meta.json "images": the hero and two
 // scenes, written with the article), asks ChatGPT through the same tool and Chrome profiles
@@ -49,6 +51,7 @@ function fit(png, jpg, [w, h]) {
 }
 
 function push(msg) {
+  if (process.argv.includes("--no-push")) { log(`--no-push: not pushed (${msg})`); return false; }
   git("add", "-A", "journal-queue");
   if (!git("status", "--porcelain", "journal-queue")) return false;
   git("commit", "-q", "-m", msg);
@@ -76,7 +79,7 @@ for (const item of todo) {
     { cwd: STILLS_DIR, stdio: "inherit", timeout: 40 * 60_000 });
   const made = IMAGE_NAMES.filter((n) => existsSync(join(work, "stills", `${n}.png`)) && statSync(join(work, "stills", `${n}.png`)).size > 100_000);
   if (made.length < 3) { log(`${item.slug}: ChatGPT gave ${made.length}/3 photos (exit ${r.status}), next run tries again`); if (r.status) break; continue; }
-  sync(); // the queue may have moved while ChatGPT worked
+  if (!process.argv.includes("--no-push")) sync(); // the queue may have moved while ChatGPT worked
   const dir = join(QUEUE, item.slug);
   if (!existsSync(dir)) { log(`${item.slug}: already published, photos not needed`); continue; }
   for (const n of IMAGE_NAMES) fit(join(work, "stills", `${n}.png`), join(dir, `${n}.jpg`), SIZE[n]);
