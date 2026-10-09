@@ -1,0 +1,36 @@
+{
+  "slug": "360-video-photos-boat-trip-madeira",
+  "title": "360° Video and Photos on a Boat Trip in Madeira: What You Get",
+  "category": "Experience",
+  "date": "2026-10-12",
+  "description": "Every private boat trip from Funchal includes Insta360 360° video, drone footage and real camera photos. Here is what you get and how to film the best shots.",
+  "heroImage": "assets/g-cliffs.jpg",
+  "heroAlt": "Madeira's dramatic green sea cliffs seen from the Atlantic",
+  "readingMinutes": 5,
+  "keywords": [
+    "360 video boat trip Madeira",
+    "Insta360 boat trip",
+    "drone footage Madeira boat",
+    "boat trip photos Madeira",
+    "private boat trip Funchal",
+    "Madeira boat trip photographer",
+    "Cabo Girão drone",
+    "Madeira boat trip memories"
+  ],
+  "written": "2026-10-12",
+  "queued": "2026-10-09T01:10:52.545Z",
+  "images": [
+    {
+      "prompt": "Wide landscape photograph of Madeira's towering green and dark basalt sea cliffs near Cabo Girão rising from the deep blue Atlantic, seen from the water in clear late-morning light, a small white private motorboat far below the cliff.",
+      "alt": "Madeira's sea cliffs rising from the Atlantic with a small white boat below"
+    },
+    {
+      "prompt": "Photograph of a small white private motorboat anchored in a calm turquoise cove at Fajã dos Padres, Madeira, with a person mid-jump into the clear water and the cliff behind, bright midday sun.",
+      "alt": "A guest jumping into the turquoise water beside a small white boat"
+    },
+    {
+      "prompt": "Photograph of a small white private motorboat sailing along the Madeira south coast at golden hour, seen from above like a drone shot, with the cliffs and Câmara de Lobos village glowing in warm light.",
+      "alt": "A small white boat on the Madeira coast at golden hour seen from above"
+    }
+  ]
+}

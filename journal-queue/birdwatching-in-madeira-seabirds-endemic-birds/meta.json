@@ -1,0 +1,36 @@
+{
+  "slug": "birdwatching-in-madeira-seabirds-endemic-birds",
+  "title": "Birdwatching in Madeira: Seabirds and Endemic Birds Worth Finding",
+  "category": "Nature",
+  "date": "2026-10-13",
+  "description": "Where to see birds in Madeira: Cory's shearwaters at sea, the Trocaz pigeon in the laurel forest and the firecrest on levadas, plus when and how to look.",
+  "heroImage": "assets/g-cliffs.jpg",
+  "heroAlt": "Madeira's dramatic green sea cliffs seen from the Atlantic",
+  "readingMinutes": 5,
+  "keywords": [
+    "birdwatching in Madeira",
+    "Madeira birds",
+    "Cory's shearwater Madeira",
+    "Trocaz pigeon",
+    "Madeira firecrest",
+    "endemic birds Madeira",
+    "seabirds Madeira boat trip",
+    "best time birdwatching Madeira"
+  ],
+  "written": "2026-10-13",
+  "queued": "2026-10-09T01:12:09.581Z",
+  "images": [
+    {
+      "prompt": "Wide landscape photograph of Madeira's steep green sea cliffs plunging into the deep blue Atlantic along the south coast near Cabo Girão, with a few seabirds gliding low over the water in soft morning light.",
+      "alt": "Green sea cliffs on Madeira's south coast with seabirds over the Atlantic"
+    },
+    {
+      "prompt": "A Cory's shearwater gliding low over the Atlantic swell off Madeira, wings stiff and tilted, with a cliff face blurred in the background in warm late light.",
+      "alt": "A shearwater gliding over the sea off Madeira"
+    },
+    {
+      "prompt": "A misty Madeira laurel forest trail at dawn with moss-covered trunks and a small bird perched on a branch, soft light filtering through the canopy.",
+      "alt": "A small bird on a branch in Madeira's laurel forest"
+    }
+  ]
+}
