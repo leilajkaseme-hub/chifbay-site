@@ -10,8 +10,8 @@ of its time downloading pictures (book page 3.8 MB, home page 6.2 MB, 4 Oct
 
 What it writes, next to each assets/**/<name>.jpg that a page, a stylesheet or
 a script names:
-  <name>.webp        longest side at most 1600 px, quality 78
-  <name>-800.webp    800 px wide, quality 66, only for photos straight under assets/ that
+  <name>.webp        full size (up to 4000 px), quality 90
+  <name>-800.webp    1200 px wide (the name is historical), quality 85, only for photos straight under assets/ that
                      are wider than 900 px: the phone size of the big header
                      photos and trip cards of the booking pages. A tall photo
                      is cut to 800 x 1000 around its middle: on a phone it is
@@ -33,11 +33,14 @@ from PIL import Image, ImageOps
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHECK = "--check" in sys.argv
-QUALITY = 78
-MAX_SIDE = 1600
-SMALL_W = 800
-SMALL_MAX_H = 1000
-SMALL_QUALITY = 66      # the phone copies: seen small, mostly under a dark scrim
+FORCE = "--force" in sys.argv          # rewrite every WebP, e.g. after a quality change
+# 9 Oct 2026, Theo: "only excellent photos, I do not care if it slows the site". So: high
+# quality, no size cap below the source, and sharp phone copies (a phone shows them at 3x).
+QUALITY = 90
+MAX_SIDE = 4000
+SMALL_W = 1200
+SMALL_MAX_H = 1600
+SMALL_QUALITY = 85
 SKIP_DIRS = {".git", "node_modules", "ig", "ig-auto", "social", "social-drive", "social-iphone",
              "story-9x16", "zz-test", "vendor"}
 TEXT = (".html", ".css", ".js", ".json")
@@ -64,7 +67,7 @@ def referenced():
 
 
 def stale(src, dst):
-    return not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src)
+    return FORCE or not os.path.exists(dst) or os.path.getmtime(dst) < os.path.getmtime(src)
 
 
 def save(im, dst, quality=QUALITY):
@@ -80,7 +83,8 @@ def main():
         with Image.open(src) as probe:
             w = probe.size[0]
         if top_level and w > 900:
-            targets.append((base + "-%d.webp" % SMALL_W, SMALL_W))
+            # the file keeps its old "-800" name: every page already points at it
+            targets.append((base + "-800.webp", min(SMALL_W, w)))
         todo = [t for t in targets if stale(src, t[0])]
         if not todo:
             continue
