@@ -30,9 +30,14 @@ function addDays(iso, n) {
   return d.toISOString().slice(0, 10);
 }
 
-function preface(day) {
+function preface(day, queued) {
+  const planned = queued.length
+    ? `- These posts are already written and will go live before this one. Do NOT repeat their topic, and count
+  them as recent when you rotate categories:\n${queued.map((q) => `  - [${q.meta.category}] ${q.meta.title}`).join("\n")}\n`
+    : "";
   return `# Queue mode (read first)
 This post is written ahead of time. It goes live on **${day}**.
+${planned}
 - Wherever the steps below say "today" or ask you to run \`date\`, use ${day} instead. Every date in
   the post (meta, JSON-LD, the date under the title) is ${day}.
 - Anything time-bound (events, openings, seasons, "this week") must still be true and upcoming on ${day}.
@@ -73,11 +78,9 @@ function writeOne(day) {
   const posts = readPosts();
   const sitemap = readFileSync(SITEMAP, "utf8");
   const queued = queueItems();
-  // Claude reads posts.json to avoid repeats: show it the queued posts as well.
-  writeFileSync(POSTS_JSON, JSON.stringify([...queued.map((q) => ({ ...q.meta, date: day })), ...posts], null, 2) + "\n");
   const known = new Set([...posts, ...queued.map((q) => q.meta)].map((p) => p.slug));
 
-  const prompt = preface(day) + readFileSync(join(ROOT, "scripts/blog-local/BLOG-INSTRUCTIONS.md"), "utf8");
+  const prompt = preface(day, queued) + readFileSync(join(ROOT, "scripts/blog-local/BLOG-INSTRUCTIONS.md"), "utf8");
   const run = spawnSync("claude", ["-p", prompt, "--permission-mode", "acceptEdits",
     "--allowedTools", "Read", "Write", "Edit", "Glob", "Grep", "WebSearch", "WebFetch"],
   { cwd: ROOT, encoding: "utf8", timeout: 20 * 60_000, maxBuffer: 20 * 1024 * 1024 });
@@ -87,7 +90,7 @@ function writeOne(day) {
   try { wrote = readPosts().find((p) => !known.has(p.slug)); } catch { wrote = null; }
   const file = wrote && join(ROOT, "posts", `${wrote.slug}.html`);
   const problem = run.status !== 0 ? `claude stopped: ${out.split("\n").slice(-2).join(" ").slice(0, 300)}`
-    : !wrote ? `claude wrote no new posts.json entry (${out.slice(-200)})`
+    : !wrote ? `claude wrote no new posts.json entry: ${out.slice(-600)}`
     : !existsSync(file) ? `no posts/${wrote.slug}.html`
     : null;
   if (problem) {
