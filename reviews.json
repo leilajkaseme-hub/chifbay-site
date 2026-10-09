@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09T11:17:30.379Z",
+  "updatedAt": "2026-10-09T20:17:30.659Z",
   "aggregate": {
     "rating": 5,
     "count": 56
@@ -160,29 +160,6 @@
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
       "reply": {
         "text": "Thank you so much, Rebecca for your wonderful review 🤩 It was truly a pleasure for us too, welcoming you on board and sharing that family moment with you. We’re delighted you fully enjoyed the afternoon at sea: the views, the food, the drinks, and the swimming. We hope to have the joy of welcoming you back soon🏝️ The Chifbay Team⚓️"
-      },
-      "translation": null
-    },
-    {
-      "id": "google-3a5d94c3b4ab5ee3",
-      "source": "google",
-      "rating": 5,
-      "author": "Enzo",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-09-09",
-      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
-      "photos": [
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
-        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": {
-        "text": "Thank you so much, Enzo, for your message! 🤩 We're so glad to know you had a wonderful day with us. And the flying fish were a nice bonus, pretty cool! 😄 We hope to see you on board again someday. Chifbay⚓️ Translated by Google ・ See original (French)"
       },
       "translation": null
     },
@@ -448,6 +425,29 @@
       "reply": {
         "text": "Thank you so much for your kind words! We’re really happy we could make the birthday celebration a little more special with the cake and candles. It was lovely having you both on board, and we truly appreciate your recommendation. The Chifbay Team",
         "date": "2026-08-14"
+      },
+      "translation": null
+    },
+    {
+      "id": "google-3a5d94c3b4ab5ee3",
+      "source": "google",
+      "rating": 5,
+      "author": "Enzo",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-10",
+      "text": "I had a fantastic day at sea on this boat. I wanted to mention that it was very comfortable and spacious enough for several people; we truly had a wonderful time. I also want to thank the crew, Paco and Hugo, who were our guides. They were incredibly friendly and attentive to their clients; it was a truly unforgettable experience. Furthermore, if you're lucky, you might spot flying fish, which was also very cool to see on the water. I highly recommend this experience with them. Having checked several websites, I can say they are very competitive in terms of value for money; I found them really affordable!",
+      "photos": [
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-1.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-2.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-3.jpg",
+        "assets/reviews/google/google-3a5d94c3b4ab5ee3-4.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": {
+        "text": "Thank you so much, Enzo, for your message! 🤩 We're so glad to know you had a wonderful day with us. And the flying fish were a nice bonus, pretty cool! 😄 We hope to see you on board again someday. Chifbay⚓️ Translated by Google ・ See original (French)"
       },
       "translation": null
     },
