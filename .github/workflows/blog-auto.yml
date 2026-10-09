@@ -102,6 +102,11 @@ jobs:
         if: steps.pub.outputs.state != 'ALREADY'
         run: node scripts/fix-post-links.mjs
 
+      # contextual links from the new article to the pages that sell
+      # (Cabo Girão, Fajã dos Padres, sunset, day trip, home): safe to run again
+      - name: Link the article to the trip pages
+        run: node scripts/add-money-links.mjs --write
+
       - name: Commit & push
         if: steps.pub.outputs.state != 'ALREADY'
         run: |
