@@ -16,10 +16,13 @@ name: Chifbay Instagram — daily story
 # on a normal day the second run prints "already posted today" and stops. It
 # only does anything when the 17:00 run failed. It is before the 21:00
 # heartbeat on purpose: the retry gets its chance before anything shouts.
+#
+# 9 Oct 2026: set times moved to 12:00 and 15:00 UTC. GitHub fired the 17:00 run at 21:30 to 01:20 UTC,
+# so stories landed around midnight in Madeira. With that drift the new times land in the evening.
 on:
   schedule:
-    - cron: "0 17 * * *"
-    - cron: "30 20 * * *"
+    - cron: "0 12 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch: {}
 
 permissions:
