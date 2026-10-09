@@ -59,7 +59,8 @@ const TARGETS = {
     // in the real browser on 2026-08-30 and landing on "Write a review".
     // The listing was renamed (was g189167 ChifBay_Luxury_Yacht_Experiences);
     // the old URL still 301s here and the d34387047 id never changed.
-    expect: /^https:\/\/www\.tripadvisor\.com\/UserReviewEdit-g\d+-d\d+-/,
+    // Since 9 Oct 2026 the product page d34509327 (Theo's pick); guests tap "Write a review" there.
+    expect: /^https:\/\/www\.tripadvisor\.com\/(UserReviewEdit|AttractionProductReview)-g\d+-d\d+-/,
     brand: "Tripadvisor",
   },
 };
