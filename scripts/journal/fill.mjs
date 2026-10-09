@@ -37,6 +37,9 @@ function preface(day, queued) {
     : "";
   return `# Queue mode (read first)
 This post is written ahead of time. It goes live on **${day}**.
+- You have NO shell: never write or run a script (python, node, bash). Create every file directly with the
+  Write and Edit tools (Write the new post HTML in full, Edit posts.json and sitemap.xml). Finish the post
+  yourself; never stop to ask for permission or for a choice.
 ${planned}
 - Wherever the steps below say "today" or ask you to run \`date\`, use ${day} instead. Every date in
   the post (meta, JSON-LD, the date under the title) is ${day}.
@@ -126,7 +129,8 @@ while (made + failures.length < MAX) {
   if (have >= TARGET) break;
   // The queue posts one a day, starting tomorrow (or today, for the publisher's last resort).
   const day = process.argv.includes("--today") && made === 0 ? today() : addDays(today(), have + 1);
-  const r = writeOne(day);
+  let r = writeOne(day);
+  if (!r.slug && !r.limit) { console.log(`retrying once: ${r.problem}`); r = writeOne(day); }
   if (r.slug) { made++; console.log(`QUEUED ${r.slug} for about ${day}: ${r.title}`); continue; }
   failures.push(r.problem);
   console.log(`not written: ${r.problem}`);
