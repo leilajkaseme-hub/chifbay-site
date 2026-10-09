@@ -1,0 +1,36 @@
+{
+  "slug": "carne-de-vinho-e-alhos-madeira-guide",
+  "title": "Carne de Vinho e Alhos: Madeira's Wine and Garlic Pork, Explained",
+  "category": "Food & Drink",
+  "date": "2026-10-11",
+  "description": "Carne de vinho e alhos is Madeira's wine and garlic marinated pork. How it is made, when it is eaten, what to order with it and where to taste it in Funchal.",
+  "heroImage": "assets/exp-sunset.jpg",
+  "heroAlt": "Glasses of wine raised against a Madeira sunset aboard a private boat",
+  "readingMinutes": 4,
+  "keywords": [
+    "carne de vinho e alhos",
+    "Madeira garlic pork",
+    "vinha d'alhos",
+    "Madeira Christmas food",
+    "traditional Madeira dishes",
+    "Madeira pork recipe",
+    "vindaloo origin Portugal",
+    "what to eat in Funchal"
+  ],
+  "written": "2026-10-11",
+  "queued": "2026-10-09T01:04:50.790Z",
+  "images": [
+    {
+      "prompt": "A plate of traditional Madeiran pork cooked with garlic, served with golden fried maize cubes and bolo do caco on a rustic table in a Funchal restaurant, warm evening light.",
+      "alt": "Madeiran garlic pork served with fried maize and bolo do caco"
+    },
+    {
+      "prompt": "Close-up photograph of pork cubes marinating in white wine, garlic cloves and bay leaves in a ceramic bowl on a wooden kitchen counter in Madeira.",
+      "alt": "Pork marinating in wine, garlic and bay leaf"
+    },
+    {
+      "prompt": "The Mercado dos Lavradores in Funchal in the morning, colourful fruit and flower stalls, with shoppers browsing under the market's tiled hall.",
+      "alt": "Mercado dos Lavradores market in Funchal"
+    }
+  ]
+}
