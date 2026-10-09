@@ -424,7 +424,7 @@ PAGES.push({
   description: "Boat rental with skipper in Funchal: a private 2026 Karnic R8S, two licensed local skippers, up to 5 guests. Trips of 2h to 3h from €400, food and drinks.",
   heroImg: "boat-action", heroAlt: "The 2026 Karnic R8S that Chifbay charters with skipper from Funchal, at speed off Madeira",
   badge: "Private charter with skipper · Marina do Funchal",
-  h1: "Boat rental<br>with <em>skipper</em>, Funchal",
+  h1: "Boat rental<br>with <em>skipper</em><br>in Funchal",
   hsub: "Looking for a boat rental with skipper in Funchal? With us you charter the whole boat, a 2026 Karnic R8S, and two licensed local skippers drive it. There is no self drive. Up to 5 guests, from €400.",
   book: "/book", bookLabel: "Check dates &amp; book", waLabel: "Ask the skippers",
   meta: [["From", `<span class="now" data-cb-price="sunset">€${P.sunset2}</span>`], ["Boat", "2026 Karnic R8S"], ["Crew", "2 skippers"], ["Guests", "Up to 5"]],
