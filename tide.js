@@ -337,7 +337,18 @@
     // the boat runs a little offshore, Funchal first, west from there
     var pts = stops.map(function (s) { return px(GEO[s.getAttribute("data-id")] || [32.65, -17]); });
     var sea = pts.map(function (q) { return [q[0], q[1] + 22]; });
-    var d = smooth(sea);
+    // Between two stops the line follows the coast out at sea: joining the
+    // stops alone cut across the cape between Funchal and Camara de Lobos
+    // (Theo, 9 Oct). Coast points between them, pushed 30 px seaward.
+    var path = [sea[0]];
+    for (var si = 1; si < sea.length; si++) {
+      var xa = sea[si - 1][0], xb = sea[si][0];
+      coast.filter(function (c) { return c[0] < Math.max(xa, xb) - 12 && c[0] > Math.min(xa, xb) + 12; })
+        .sort(function (u, v) { return xa > xb ? v[0] - u[0] : u[0] - v[0]; })
+        .forEach(function (c) { path.push([c[0], c[1] + 30]); });
+      path.push(sea[si]);
+    }
+    var d = smooth(path);
     var names = stops.map(function (s) { var h = s.querySelector("h3"); return h ? h.textContent : ""; });
     var marks = sea.map(function (q, k) {
       return '<g class="t-pin" transform="translate(' + q[0].toFixed(1) + "," + q[1].toFixed(1) + ')">' +
@@ -447,7 +458,7 @@
     host.appendChild(ctl);
     var ppBtn = ctl.querySelector(".t-mc-pp"), rpBtn = ctl.querySelector(".t-mc-rp");
     var prog = 0, playing = false, visible = false, userPaused = false, done = false, lastT = 0, raf = 0;
-    function dur() { return 8000 + 4000 * lim; }                       // 8 to 12 seconds
+    function dur() { return 3200 + 1600 * lim; }                       // 3.2 to 4.8 s: people have already scrolled (Theo, 9 Oct)
     function drawBtn() {
       var showPause = playing && !done;
       ppBtn.setAttribute("aria-label", showPause ? LB[0] : LB[1]); ppBtn.title = ppBtn.getAttribute("aria-label");
@@ -520,7 +531,7 @@
     fit(false);
     if (REDUCE) { prog = 1; done = true; paint(1); drawBtn(); return; }
     paint(0); drawBtn();
-    inView(host, function (v) { visible = v; if (v && !userPaused) play(); else if (!v) pause(); }, { threshold: 0.4 });
+    inView(host, function (v) { visible = v; if (v && !userPaused) play(); else if (!v) pause(); }, { threshold: 0.25 });
   });
 
   /* Sunset trip departure, the owner's rule of 4 Oct 2026: 1 h 15 before that
