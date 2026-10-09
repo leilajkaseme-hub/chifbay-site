@@ -90,10 +90,13 @@ function writeOne(day) {
   try { wrote = readPosts().find((p) => !known.has(p.slug)); } catch { wrote = null; }
   const file = wrote && join(ROOT, "posts", `${wrote.slug}.html`);
   const problem = run.status !== 0 ? `claude stopped: ${out.split("\n").slice(-2).join(" ").slice(0, 300)}`
-    : !wrote ? `claude wrote no new posts.json entry: ${out.slice(-600)}`
+    : !wrote ? `claude wrote no new posts.json entry`
     : !existsSync(file) ? `no posts/${wrote.slug}.html`
     : null;
   if (problem) {
+    // What Claude said and touched, for the log: a failed write must explain itself.
+    const touched = spawnSync("git", ["status", "--porcelain"], { cwd: ROOT, encoding: "utf8" }).stdout.trim();
+    console.log(`--- claude's last words ---\n${out.slice(-2500)}\n--- files changed ---\n${touched}\n---`);
     if (wrote && existsSync(file)) rmSync(file);
     restore(posts, sitemap);
     return { problem, limit: /limit|rate|quota|usage/i.test(out) };
