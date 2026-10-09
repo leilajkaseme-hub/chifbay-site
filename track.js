@@ -32,7 +32,12 @@
     COOKIE_DOMAIN: ".chifbay.com",
     BOOKING_HOST: "book.chifbay.com",
     ATTR_DAYS: 90,           // how long we remember which ad brought them
-    CONSENT_BANNER: true,    // false = no banner (only legal outside the EU)
+    // No banner (Theo's rule for every site, 9 Oct 2026). Without one nobody
+    // ever says yes, so Google stays in consent mode "denied": GA4 and Ads get
+    // cookieless pings and model the conversions, and nothing is written on
+    // the visitor's device. The click id rides in the links (url_passthrough).
+    // A visitor who accepted the old banner keeps their answer.
+    CONSENT_BANNER: false,
     DEBUG: false,            // true = log every event to the console
 
     // Every ad click that lands here gets logged server-side — IP and user
@@ -242,6 +247,9 @@
     // reads the same visitor. "auto" usually does this, but not always behind
     // a proxy, and a wrong cookie here silently splits every session in two.
     var opts = { cookie_domain: "chifbay.com", cookie_flags: "SameSite=Lax;Secure" };
+    // Consent denied = no cookie to carry the ad click to the booking page,
+    // so Google adds it to the internal links instead.
+    gtag("set", "url_passthrough", true);
     if (CFG.GA4_ID) gtag("config", CFG.GA4_ID, opts);
     if (CFG.GOOGLE_ADS_ID) gtag("config", CFG.GOOGLE_ADS_ID, opts);
 
@@ -281,8 +289,7 @@
     setTimeout(function () { pushConsent(known); }, 1500);
     setTimeout(function () { pushConsent(known); }, 4000);
   }
-  else if (!CFG.CONSENT_BANNER) pushConsent("granted");
-  if (known === "granted" || !CFG.CONSENT_BANNER) persistAttr();
+  if (known === "granted") persistAttr();
 
   /* ----------------------------------------------------------- the banner */
 

@@ -17,10 +17,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preconnect" href="https://api.fontshare.com"/>
-<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="peak.min.css"/>
 <link rel="stylesheet" href="atlas.min.css"/>
 <!-- The poster is the LCP element, so it is preloaded — but only the one
@@ -51,6 +48,7 @@
 <script type="application/ld+json" data-cb="video">
 {"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "Drone footage from a Chifbay private boat trip", "description": "Aerial shots of the boat under Cabo Girão and in the coves of Madeira's south coast, included with every trip.", "thumbnailUrl": "https://chifbay.com/assets/media/drone-poster.jpg", "contentUrl": "https://chifbay.com/assets/media/drone.mp4", "uploadDate": "2026-09-29T16:05:23+02:00", "duration": "PT6S", "inLanguage": "en", "publisher": {"@id": "https://chifbay.com/#business"}}, {"@type": "VideoObject", "name": "Insta360 video from on board a Chifbay boat", "description": "360° footage from on board, reframed so the group is in every shot, included with every trip.", "thumbnailUrl": "https://chifbay.com/assets/media/insta360-poster.jpg", "contentUrl": "https://chifbay.com/assets/media/insta360.mp4", "uploadDate": "2026-09-29T16:05:23+02:00", "duration": "PT6S", "inLanguage": "en", "publisher": {"@id": "https://chifbay.com/#business"}}]}
 </script>
+<link rel="stylesheet" href="/marina.min.css"/>
 </head>
 <body>
 
@@ -615,5 +613,7 @@ vs.forEach(function(v){io.observe(v);});})();
 <script src="reviews-home.min.js" defer></script>
 <script src="map-home.min.js" defer></script>
 <script src="/tide.min.js" defer></script>
+<script src="/vendor/motion/motion-11.18.2.min.js" defer></script>
+<script src="/marina.min.js" defer></script>
 </body>
 </html>

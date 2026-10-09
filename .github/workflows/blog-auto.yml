@@ -108,6 +108,11 @@ jobs:
         if: steps.pub.outputs.state != 'ALREADY'
         run: node scripts/add-money-links.mjs --write
 
+      # the Marina layer (type, colours, Motion) on the new article: safe to run again
+      - name: Marina design layer on the new article
+        if: steps.pub.outputs.state != 'ALREADY'
+        run: node scripts/add-marina.mjs --write
+
       - name: Commit & push
         if: steps.pub.outputs.state != 'ALREADY'
         run: |
