@@ -131,3 +131,49 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .wrap-w{max-width:1500px;margin-left:auto;margin-right:auto;padding-left:32px;padding-right:32px}
 .t-wide .wrap-w{max-width:none}
 @media(max-width:600px){.wrap-w{padding-left:20px;padding-right:20px}}
+
+/* ------------------------------------------------------------ reviews */
+/* Same width as every other section (it ran from edge to edge on wide
+   screens, the title stuck to the left), three whole cards and no cut,
+   dimmed neighbours. A phone keeps one card with a small peek to swipe. */
+.t-band-navy .wrap-w,.atlas .t-band-navy .wrap-w{max-width:1500px}
+.atlas .revs.marquee{--rvpeek:0px;--rvgap:20px;--rvn:3}
+@media(max-width:1000px){.atlas .revs.marquee{--rvn:2}}
+@media(max-width:700px){.atlas .revs.marquee{--rvn:1;--rvpeek:22px;--rvgap:12px}}
+.atlas .rv-mq .rev[data-rv-side]{opacity:1}
+/* Card order: stars, who wrote it, the quote, then "Read on Google" pinned
+   to the foot. Cards share one height, so a short review leaves its room at
+   the bottom, not in a hole between the text and the name. */
+.atlas .rv-mq .rev q{flex:0 0 auto;-webkit-line-clamp:5;order:3}
+.atlas .rev q{font-family:var(--serif);font-size:1.16rem;line-height:1.45;letter-spacing:0}
+.atlas .rev .rv-top{order:1}
+.atlas .rev figcaption{display:contents}
+.atlas .rev .who{order:2;margin-top:2px}
+.atlas .rev .src{order:2;margin-bottom:14px}
+.atlas .rev .rv-more{order:4}
+.atlas .rev .rv-orig{order:5;margin-top:auto;padding-top:18px}
+/* above a phone: whole cards flush with the section title, no peek */
+@media(min-width:701px){
+  .atlas .revs.marquee .rv-mq{padding-bottom:34px;margin-bottom:-34px}
+  .atlas .revs.marquee .rv-mq .rv-track{padding-inline:0}
+  .atlas .revs.marquee .rv-mq .rev{flex-basis:calc((100cqw - (var(--rvn) - 1) * var(--rvgap)) / var(--rvn))}
+}
+
+/* light theme: the Marina review band, cream with white cards */
+:root[data-theme="light"] .t-band-navy{background:#ece6d8;color:var(--paper);
+  --rev-bg:#fff;--g-line:rgba(11,34,54,.1);--g-ink:#0b2236;--g-grey:#5d6a74}
+:root[data-theme="light"] .t-band-navy h2,:root[data-theme="light"] .t-band-navy .display,
+:root[data-theme="light"] .atlas .t-band-navy h2{color:#0b2236}
+:root[data-theme="light"] .t-band-navy .chead .cn,:root[data-theme="light"] .t-band-navy .chead .cl,
+:root[data-theme="light"] .atlas .t-band-navy .chead .cn,:root[data-theme="light"] .atlas .t-band-navy .chead .cl{color:var(--m-gold-ink)}
+:root[data-theme="light"] .t-band-navy #revsCount{color:#5d6a74}
+:root[data-theme="light"] .t-band-navy .rev{box-shadow:var(--m-shadow);border:1px solid rgba(11,34,54,.06)}
+:root[data-theme="light"] .t-band-navy .rev q{color:#10202e}
+:root[data-theme="light"] .t-band-navy .rev .st{color:var(--m-gold)}
+:root[data-theme="light"] .t-band-navy .rev .rv-more{color:var(--m-gold-ink)}
+:root[data-theme="light"] .t-band-navy .rev .rv-orig{color:#0b2236;text-decoration-color:rgba(11,34,54,.3)}
+:root[data-theme="light"] .t-band-navy .rv-ctl button{color:#0b2236;border-color:rgba(11,34,54,.28)}
+:root[data-theme="light"] .t-band-navy .rv-ctl button:hover{border-color:#0b2236}
+:root[data-theme="light"] .t-band-navy .btn-g,:root[data-theme="light"] .atlas .t-band-navy .btn-g{color:#0b2236;border-color:rgba(11,34,54,.35)}
+:root[data-theme="light"] .t-band-navy .btn-g:hover,:root[data-theme="light"] .atlas .t-band-navy .btn-g:hover{border-color:#0b2236;background:rgba(11,34,54,.04)}
+:root[data-theme="light"] .t-band-navy .chead svg{stroke:var(--m-gold-ink)}
