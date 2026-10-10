@@ -19,6 +19,18 @@ User-agent: ClaudeBot
 Allow: /
 Disallow: /journal-queue/
 
+User-agent: CCBot
+Allow: /
+Disallow: /journal-queue/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /journal-queue/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /journal-queue/
+
 User-agent: Google-Extended
 Allow: /
 Disallow: /journal-queue/

@@ -115,6 +115,7 @@ jobs:
         run: |
           node scripts/add-marina.mjs --write
           node scripts/add-preferred-source.mjs --write
+          node scripts/add-legal-links.mjs --write
 
       - name: Commit & push
         if: steps.pub.outputs.state != 'ALREADY'
