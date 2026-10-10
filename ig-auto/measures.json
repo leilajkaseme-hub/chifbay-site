@@ -850,8 +850,32 @@
     "id": "r02-sunset",
     "format": null,
     "source": "reel"
+   },
+   "h24": {
+    "at": "2026-10-10T12:29:46.142Z",
+    "age_hours": 42,
+    "reach": 126,
+    "views": 182,
+    "likes": 2,
+    "comments": 0,
+    "shares": 5,
+    "saved": 0,
+    "total_interactions": 7,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 6002
+   }
+  },
+  "18067608743720820": {
+   "posted_at": "2026-10-09T16:50:15+0000",
+   "permalink": "https://www.instagram.com/p/DeR-jYPjl3s/",
+   "type": "carousel",
+   "ours": {
+    "id": "20261002204319-4b3e",
+    "format": null,
+    "source": "curated"
    }
   }
  },
- "updated_at": "2026-10-09T13:14:39.513Z"
+ "updated_at": "2026-10-10T12:29:46.142Z"
 }
