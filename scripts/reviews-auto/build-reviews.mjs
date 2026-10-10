@@ -319,6 +319,18 @@ async function main() {
   let html = readFileSync(REVIEWS_HTML, "utf-8");
   html = replaceBetween(html, "<!-- REVIEWS:BADGES -->", "<!-- /REVIEWS:BADGES -->", badgesHtml);
   html = replaceBetween(html, "<!-- REVIEWS:LIST -->", "<!-- /REVIEWS:LIST -->", cardsHtml);
+  // One plain sentence with the facts, for search engines and AI assistants
+  // that answer "Chifbay reviews": who we are, how many reviews, where, the
+  // average, and when it was last counted. Rebuilt on every run so it never drifts.
+  const perSourceText = Object.keys(SOURCE_LINKS).filter((k) => perSource[k])
+    .map((k) => `${SOURCE_LINKS[k].label} (${perSource[k]})`);
+  const sourcesText = perSourceText.length > 1
+    ? perSourceText.slice(0, -1).join(", ") + " and " + perSourceText.slice(-1) : perSourceText[0] || "";
+  const countedOn = new Date(updatedAt).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "Atlantic/Madeira" });
+  const summaryHtml = `    Chifbay runs private boat tours from Marina do Funchal, Madeira. As of ${countedOn}, ` +
+    `${aggregate.count} guests have reviewed Chifbay on ${sourcesText}, with an average rating of ` +
+    `${aggregate.rating.toFixed(1)} out of 5. Every review is below, word for word, with a link to the original.`;
+  html = replaceBetween(html, "<!-- REVIEWS:SUMMARY -->", "<!-- /REVIEWS:SUMMARY -->", summaryHtml);
   writeFileSync(REVIEWS_HTML, html);
 
   // Keep the homepage's JSON-LD aggregateRating (used for search-result

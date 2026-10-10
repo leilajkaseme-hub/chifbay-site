@@ -187,3 +187,8 @@ html.cbtx::before,#cbtx{background-color:#fafbfc!important}
 :root[data-theme="light"] .hero .btn-p:hover,:root[data-theme="light"] .reserve .btn-p:hover,
 .atlas .nc:hover,.nc:hover{background:#e8eef3}
 :root[data-theme="light"] #nav.sc .nc:hover,:root[data-theme="light"] .atlas #nav.sc .nc:hover{background:rgb(var(--teal-rgb));color:#fff}
+
+/* titles and big figures that a page sets in its own <style> with Satoshi */
+.dnh,.nf-h1,.rvh,.rq-badge .n,.statcard .sv,.bal h1,.sum .due b,.inc h2{
+  font-family:var(--serif)!important;font-weight:400!important;letter-spacing:-.01em}
+.rvh{text-align:center}
