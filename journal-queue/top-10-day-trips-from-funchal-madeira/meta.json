@@ -1,0 +1,36 @@
+{
+  "slug": "top-10-day-trips-from-funchal-madeira",
+  "title": "Top 10 Day Trips from Funchal: Mountains, Coast and a Private Boat Day",
+  "category": "Top 10",
+  "date": "2026-10-18",
+  "description": "The 10 best day trips from Funchal, Madeira: Cabo Girão, Porto Moniz, Pico do Arieiro, Santana and a private boat day on the south coast, with drive times.",
+  "heroImage": "assets/ponta-do-sol.jpg",
+  "heroAlt": "Aerial view of the pier at Ponta do Sol, Madeira",
+  "readingMinutes": 5,
+  "keywords": [
+    "day trips from Funchal",
+    "best day trips Madeira",
+    "Funchal day trips by car",
+    "Porto Moniz from Funchal",
+    "Santana Madeira day trip",
+    "Pico do Arieiro from Funchal",
+    "boat day trip Funchal",
+    "things to do near Funchal"
+  ],
+  "written": "2026-10-18",
+  "queued": "2026-10-10T08:32:32.033Z",
+  "images": [
+    {
+      "prompt": "Wide landscape photograph of the seafront and pier at Ponta do Sol on Madeira's south coast in warm afternoon light, seen from above with the blue Atlantic beside it.",
+      "alt": "The pier and seafront of Ponta do Sol on Madeira's south coast"
+    },
+    {
+      "prompt": "Photograph of the triangular thatched A-frame houses of Santana on Madeira's north coast, surrounded by green gardens and soft morning light.",
+      "alt": "Traditional thatched houses in Santana, Madeira"
+    },
+    {
+      "prompt": "Photograph of a small white private motorboat cruising along the foot of the tall green sea cliffs of Madeira's south coast on a calm sunny morning.",
+      "alt": "A small white boat passing beneath Madeira's sea cliffs"
+    }
+  ]
+}

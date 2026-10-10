@@ -1,0 +1,36 @@
+{
+  "slug": "how-was-madeira-formed-volcanic-cliffs-coves",
+  "title": "How Was Madeira Formed? The Volcanic Story Behind the Cliffs and Coves",
+  "category": "Nature",
+  "date": "2026-10-19",
+  "description": "How Madeira was formed: a volcano rising from the Atlantic floor, carved into 580 m cliffs, sea caves and fajãs. See the geology up close from the sea.",
+  "heroImage": "assets/g-cliffs.jpg",
+  "heroAlt": "Madeira's dramatic green sea cliffs seen from the Atlantic",
+  "readingMinutes": 5,
+  "keywords": [
+    "how was Madeira formed",
+    "Madeira volcanic island",
+    "Madeira geology",
+    "Cabo Girão cliff height",
+    "Madeira sea cliffs",
+    "what is a fajã",
+    "is Madeira a volcano",
+    "Madeira boat trip cliffs"
+  ],
+  "written": "2026-10-19",
+  "queued": "2026-10-10T08:33:43.083Z",
+  "images": [
+    {
+      "prompt": "Wide landscape photograph of Madeira's steep green and dark basalt sea cliffs on the south coast rising from deep blue Atlantic water, soft late-afternoon light, taken from a small boat.",
+      "alt": "Madeira's volcanic sea cliffs rising from the Atlantic"
+    },
+    {
+      "prompt": "Close photograph of the layered basalt cliff face of Cabo Girão in Madeira, showing dark lava layers and reddish ash bands, seen from the water below in clear daylight.",
+      "alt": "Layers of lava and ash in the Cabo Girão cliff face"
+    },
+    {
+      "prompt": "Photograph of Fajã dos Padres on Madeira's south coast, a small green flat platform at the foot of a tall cliff with a pebble shore and turquoise sea, seen from a small white private motorboat.",
+      "alt": "Fajã dos Padres, a small platform below the cliffs"
+    }
+  ]
+}
