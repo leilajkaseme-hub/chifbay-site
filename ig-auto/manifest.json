@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T16:50:19.400Z",
+ "generated_at": "2026-10-10T10:51:51.313Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -533,6 +533,36 @@
    "template": null,
    "priority": 0,
    "created": "2026-10-09T11:33:06.721Z"
+  },
+  {
+   "id": "20261010105143-7d47",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Two white glasses and a bottle on ice, waiting on the back edge of the boat.\nBehind us the white wake, and Funchal's houses climbing the green hills under a clear blue sky.\nThe town gets smaller, the sea gets bigger.\nAté já, Funchal.\nBook direct on chifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#boattrip",
+    "#boatlife",
+    "#funchalmarina",
+    "#harbourlife",
+    "#islandhopping"
+   ],
+   "cover": "https://chifbay.com/ig/20261010105143-7d47-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261010105143-7d47-1.jpg",
+    "https://chifbay.com/ig/20261010105143-7d47-2.jpg",
+    "https://chifbay.com/ig/20261010105143-7d47-3.jpg",
+    "https://chifbay.com/ig/20261010105143-7d47-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-10T10:51:51.311Z"
   }
  ]
 }

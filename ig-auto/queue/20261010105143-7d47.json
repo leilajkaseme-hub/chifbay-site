@@ -1,0 +1,51 @@
+{
+  "id": "20261010105143-7d47",
+  "kind": "feed",
+  "created": "2026-10-10T10:51:51.311Z",
+  "source": "library",
+  "origin": "social-drive/05-hospitality-drinks-deck-1FtVCJW8.jpg",
+  "image": "ig/20261010105143-7d47-1.jpg",
+  "url": "https://www.chifbay.com/ig/20261010105143-7d47-1.jpg",
+  "sha256": "c11524841221e1f4ab8d6e5ee0dac177f429a5481026f4add24576352b450d18",
+  "slides": [
+    {
+      "origin": "social-drive/05-hospitality-drinks-deck-1FtVCJW8.jpg",
+      "image": "ig/20261010105143-7d47-1.jpg",
+      "url": "https://www.chifbay.com/ig/20261010105143-7d47-1.jpg",
+      "sha256": "c11524841221e1f4ab8d6e5ee0dac177f429a5481026f4add24576352b450d18"
+    },
+    {
+      "origin": "social-drive/04-boat-deck-comfort-1n6f9zlh.jpg",
+      "image": "ig/20261010105143-7d47-2.jpg",
+      "url": "https://www.chifbay.com/ig/20261010105143-7d47-2.jpg",
+      "sha256": "1bc3c1d4d6929a168947a0c28379a48ecc96a2b71b9de69453eaf92a00b71ee5"
+    },
+    {
+      "origin": "social-drive/03-karnic-r8s-boat-action-158caXjx.jpg",
+      "image": "ig/20261010105143-7d47-3.jpg",
+      "url": "https://www.chifbay.com/ig/20261010105143-7d47-3.jpg",
+      "sha256": "61d06eedece452ebbd07affa7390015f55a73cdac61ac72c804383df9014c94b"
+    },
+    {
+      "origin": "social-drive/02-cabo-girao-cliff-view-1V3Vts49.jpg",
+      "image": "ig/20261010105143-7d47-4.jpg",
+      "url": "https://www.chifbay.com/ig/20261010105143-7d47-4.jpg",
+      "sha256": "507e981e06861389db7e32ab56bb17228d814162f7dd5650053867948f541b46"
+    }
+  ],
+  "angle": "marina",
+  "caption": "Two white glasses and a bottle on ice, waiting on the back edge of the boat.\nBehind us the white wake, and Funchal's houses climbing the green hills under a clear blue sky.\nThe town gets smaller, the sea gets bigger.\nAté já, Funchal.\nBook direct on chifbay.com",
+  "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#boattrip",
+    "#boatlife",
+    "#funchalmarina",
+    "#harbourlife",
+    "#islandhopping"
+  ],
+  "rendered_caption": "Two white glasses and a bottle on ice, waiting on the back edge of the boat.\nBehind us the white wake, and Funchal's houses climbing the green hills under a clear blue sky.\nThe town gets smaller, the sea gets bigger.\nAté já, Funchal.\nBook direct on chifbay.com\n\n#madeira #funchal #boattrip #boatlife #funchalmarina #harbourlife #islandhopping",
+  "writer": "claude",
+  "priority": 0,
+  "fresh": true
+}
