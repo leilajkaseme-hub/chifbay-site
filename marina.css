@@ -192,3 +192,13 @@ html.cbtx::before,#cbtx{background-color:#fafbfc!important}
 .dnh,.nf-h1,.rvh,.rq-badge .n,.statcard .sv,.bal h1,.sum .due b,.inc h2{
   font-family:var(--serif)!important;font-weight:400!important;letter-spacing:-.01em}
 .rvh{text-align:center}
+
+/* "Add Chifbay as a preferred source on Google", under each Journal article */
+.pref-src{max-width:720px;margin:28px auto 0;padding:16px 20px;border:1px solid rgba(11,34,54,.1);border-radius:14px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;font-size:.92rem}
+.pref-src span{color:var(--muted)}
+.pref-src a{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--paper);text-decoration:none;
+  padding:9px 14px;border-radius:999px;background:#fff;border:1px solid rgba(11,34,54,.14);min-height:44px}
+.pref-src a:hover{border-color:rgba(11,34,54,.4)}
+:root[data-theme="dark"] .pref-src{border-color:rgba(255,255,255,.14)}
+:root[data-theme="dark"] .pref-src a{background:#fff;color:#0b2236}
