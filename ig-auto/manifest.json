@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T10:51:51.313Z",
+ "generated_at": "2026-10-10T17:05:49.840Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -179,7 +179,7 @@
     "problems": [],
     "at": "2026-10-03T18:53:26"
    },
-   "posted": false
+   "posted": true
   },
   {
    "id": "r10-cabogirao",
