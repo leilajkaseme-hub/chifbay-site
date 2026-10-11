@@ -30,8 +30,8 @@ if (!(pages.data || []).length) console.log("pages: none visible");
 // ---- profile words and the location tag (read-only; a container that is never published expires) ----
 const igUser = process.env.IG_USER_ID;
 if (igUser) {
-  const ig = await get(`/${igUser}`, { fields: "username,name,biography,website" });
-  console.log("instagram profile:", ig.error ? `error: ${ig.error.message}` : JSON.stringify({ name: ig.name, bio: ig.biography, website: ig.website }));
+  const ig = await get(`/${igUser}`, { fields: "username,name,biography,website,profile_picture_url" });
+  console.log("instagram profile:", ig.error ? `error: ${ig.error.message}` : JSON.stringify({ name: ig.name, bio: ig.biography, website: ig.website, pic: ig.profile_picture_url }));
 }
 const pg = (pages.data || [])[0];
 if (pg) {
