@@ -14,6 +14,7 @@
 import { execFileSync } from "node:child_process";
 import { brand, config, recentPosts } from "./queue.mjs";
 import { withLead } from "./seo.mjs";
+import { COMMON, IG_BRIEF, smells } from "./tone.mjs";
 
 // --- variety helpers -------------------------------------------------------
 
@@ -91,12 +92,13 @@ export function similarity(a, b) {
 export function violations(text) {
   const bad = [];
   const t = text.toLowerCase();
-  if (/(?:€|£|\$|\beur\b|\busd\b)\s*\d|\d+\s*(?:€|£|\$|eur\b|usd\b)/i.test(text)) bad.push("mentions a price");
+  if (/(?:€|£|\$|\beuros?\b|\busd\b)\s*\d|\d+\s*(?:€|£|\$|euros?\b|usd\b)/i.test(text)) bad.push("mentions a price");
   if (/\b(?:six|seven|eight|nine|ten|[6-9]|1\d)\s+(?:guests|people|passengers)\b/i.test(text)) bad.push("more than 5 guests");
   if (/guarantee|guaranteed/i.test(t)) bad.push("guarantees something");
   if (/cheapest|best price|lowest price/i.test(t)) bad.push("price claim");
   if (/#/.test(text)) bad.push("hashtags inside the caption body");
   if (text.length > 1500) bad.push("too long");
+  bad.push(...smells(text));
   if (text.trim().length < 40) bad.push("too short");
   return bad;
 }
@@ -180,18 +182,15 @@ export function writeCaption({ imagePath, angleHint, recent, source = "library" 
     "",
     `Business facts (do not contradict): ${JSON.stringify(brand.facts)}`,
     `Suggested angle if the photo fits it: ${angleHint.key} — ${angleHint.brief}`,
-    `End with this call to action, in your own phrasing: "${cta}"`,
+    `Closing line: one soft line, a question or an invitation. It may carry this call to action, in your own words and only if it fits naturally: "${cta}"`,
     "",
-    "Search words (Instagram search, Google and AI answers read the caption): the FIRST sentence,",
-    "within its first 120 characters, must say plainly where and what, in words people search for,",
-    "for example \"Private sunset cruise from Funchal, Madeira.\" or \"Cabo Girão boat tour from Funchal.\"",
-    "Use the place (Funchal, Madeira) and ONE service phrase (private boat trip, Madeira boat tour,",
-    "sunset cruise, Cabo Girão boat tour, day boat trip with a swim stop) that really fits the picture.",
-    "Say it once, as a normal sentence a person would write. Never a list of keywords, never repeated.",
+    IG_BRIEF,
+    "",
+    COMMON,
     "",
     "Hard rules: no hashtags at all (they are added separately). No prices.",
     "Never say more than five guests. Never guarantee wildlife sightings.",
-    "2 to 5 short lines. Plain English.",
+    "Plain English.",
     "",
     recentTexts.length
       ? `Do NOT reuse the phrasing, opening line or structure of these recent captions:\n${recentTexts.slice(0, 8).map((t) => `---\n${t}`).join("\n")}`

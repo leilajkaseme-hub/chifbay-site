@@ -37,6 +37,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Install Claude Code (writes the Facebook and Threads texts)
+        continue-on-error: true
+        run: npm install -g @anthropic-ai/claude-code
       - name: Send
         working-directory: ig-auto
         env:
@@ -45,6 +48,7 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: node bin/crosspost.mjs | tee /tmp/cross.log
       - name: Commit & push the record
         if: always()

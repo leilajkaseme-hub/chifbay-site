@@ -18,6 +18,7 @@ import { assertImageIsLive, graphCall, slideUrls } from "./publish.mjs";
 import { readReelPlan, reelItem } from "./autopilot.mjs";
 import { altFor, fewTags } from "./seo.mjs";
 import { alert } from "./notify.mjs";
+import { writeFor } from "./voice.mjs";
 
 export const THREADS = "https://graph.threads.net/v1.0";
 const sleep = (ms) => new Promise((r) => setTimeout(r, process.env.IG_TEST_FAST === "1" ? 1 : ms));
@@ -44,26 +45,28 @@ export function withoutBioLink(text) {
 export const bookUrl = (channel, id) =>
   `${config.site_url ?? "https://chifbay.com"}/?utm_source=${channel}&utm_medium=social&utm_campaign=${encodeURIComponent(id)}`;
 
-/** Facebook: the full caption, a real link, a few hashtags. Google reads Page posts, so the keyword lead stays. */
-export function facebookMessage(item) {
-  const text = withoutBioLink(bodyOf(item));
-  const tags = fewTags(item.hashtags, 4).join(" ");
-  return `${text}\n\nBook a private boat trip in Madeira: ${bookUrl("facebook", item.id)}${tags ? `\n\n${tags}` : ""}`;
+/** The same id always gives the same answer: 1 Threads post in 3 carries the link, the others are just words. */
+const linkOnThreads = (id) => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h % 3 === 0; };
+
+/**
+ * Facebook: the written text (voice.mjs) and a plain link on its own line. `text` is null when Claude
+ * could not write one: then the Instagram caption is used, without its hashtags and "link in bio".
+ */
+export function facebookMessage(item, text = null) {
+  const body = text ?? withoutBioLink(bodyOf(item));
+  return `${body}\n\n${bookUrl("facebook", item.id)}`;
 }
 
-/** Threads: 500 characters in all. The keyword lead first, the rest as far as it fits, one link at the end. */
-export function threadsText(item) {
-  const link = bookUrl("threads", item.id);
-  const room = 500 - link.length - 4;
-  const paras = withoutBioLink(bodyOf(item)).split(/\n+/).map((p) => p.trim()).filter(Boolean);
-  let out = "";
-  for (const p of paras) {
-    const next = out ? `${out}\n${p}` : p;
-    if (next.length > room) break;
-    out = next;
+/** Threads: short. The written text; without one, the first lines of the caption that fit in 230 characters. */
+export function threadsText(item, text = null) {
+  let out = text;
+  if (!out) {
+    const paras = withoutBioLink(bodyOf(item)).split(/\n+/).map((p) => p.trim()).filter(Boolean);
+    out = "";
+    for (const p of paras) { const next = out ? `${out}\n${p}` : p; if (next.length > 230) break; out = next; }
+    if (!out) out = (paras[0] ?? "").slice(0, 228).replace(/\s+\S*$/, "") + "…";
   }
-  if (!out) out = (paras[0] ?? "").slice(0, room - 1).replace(/\s+\S*$/, "") + "…";
-  return `${out}\n\n${link}`;
+  return linkOnThreads(item.id) ? `${out}\n\n${bookUrl("threads", item.id)}` : out;
 }
 
 // ---- what is waiting ------------------------------------------------------------------------
@@ -134,7 +137,7 @@ async function waitForVideo(videoId, token, { timeoutMs = 600_000 } = {}) {
   return false; // still processing: published all the same, only not confirmed yet
 }
 
-export async function facebook(item, { userToken = process.env.IG_ACCESS_TOKEN, page = process.env.FB_PAGE_ID || config.fb_page_id } = {}) {
+export async function facebook(item, { userToken = process.env.IG_ACCESS_TOKEN, page = process.env.FB_PAGE_ID || config.fb_page_id, text = null } = {}) {
   if (!userToken) throw new Error("IG_ACCESS_TOKEN is not set");
   if (!page) throw new Error("no fb_page_id in config.json");
   const token = await pageToken(userToken, page);
@@ -153,7 +156,7 @@ export async function facebook(item, { userToken = process.env.IG_ACCESS_TOKEN, 
     return { remote_id: st.post_id ?? photo.id };
   }
 
-  const message = facebookMessage(item);
+  const message = facebookMessage(item, text);
   if (isVideo) {
     const start = await graphCall(`/${page}/video_reels`, { upload_phase: "start", access_token: token });
     await ruploadFromUrl(start.upload_url, token, urls[0]);
@@ -177,13 +180,13 @@ export async function facebook(item, { userToken = process.env.IG_ACCESS_TOKEN, 
   return { remote_id: r.id };
 }
 
-/** Did this post go out after all (a timeout can hide a success)? Feed posts only. */
+/** Did this post go out after all (a timeout can hide a success)? Feed posts only; matched on the campaign tag in its link. */
 export async function facebookHas(item, sinceMs, { userToken = process.env.IG_ACCESS_TOKEN, page = process.env.FB_PAGE_ID || config.fb_page_id } = {}) {
   if (item.kind === "story") return null;
   const token = await pageToken(userToken, page);
   const r = await graphCall(`/${page}/posts`, { fields: "id,message,created_time", limit: "8", access_token: token }, "GET");
-  const head = facebookMessage(item).slice(0, 60);
-  const hit = (r.data ?? []).find((x) => Date.parse(x.created_time) >= sinceMs - 120_000 && String(x.message ?? "").startsWith(head));
+  const tag = `utm_campaign=${encodeURIComponent(item.id)}`;
+  const hit = (r.data ?? []).find((x) => Date.parse(x.created_time) >= sinceMs - 120_000 && String(x.message ?? "").includes(tag));
   return hit ? hit.id : null;
 }
 
@@ -265,10 +268,10 @@ export async function threadsAuth(env = process.env, now = Date.now()) {
   return { token: cur.token, user: cur.user_id };
 }
 
-export async function threads(item, auth) {
+export async function threads(item, auth, text = null) {
   if (!auth) throw new Error("Threads is not connected (THREADS_ACCESS_TOKEN / THREADS_USER_ID)");
   const { token, user } = auth;
-  const text = threadsText(item);
+  const body = threadsText(item, text);
   const urls = slideUrls(item);
   const tag = process.env.THREADS_TOPIC ?? "Madeira";
   const make = async (params) => {
@@ -280,7 +283,7 @@ export async function threads(item, auth) {
   };
   let creation;
   if (item.media === "video") {
-    creation = await make({ media_type: "VIDEO", video_url: urls[0], text });
+    creation = await make({ media_type: "VIDEO", video_url: urls[0], text: body });
     await thReady(creation.id, token);
   } else if (urls.length > 1) {
     const kids = [];
@@ -289,10 +292,10 @@ export async function threads(item, auth) {
       await thReady(c.id, token);
       kids.push(c.id);
     }
-    creation = await make({ media_type: "CAROUSEL", children: kids.join(","), text });
+    creation = await make({ media_type: "CAROUSEL", children: kids.join(","), text: body });
     await thReady(creation.id, token);
   } else {
-    creation = await make({ media_type: "IMAGE", image_url: urls[0], text });
+    creation = await make({ media_type: "IMAGE", image_url: urls[0], text: body });
     await thReady(creation.id, token);
   }
   if (!creation.id) throw new Error("no Threads container id");
@@ -303,10 +306,14 @@ export async function threads(item, auth) {
 
 // ---- the run --------------------------------------------------------------------------------
 
+/** Written text for one channel; tests replace this. */
+export let writeText = async (channel, item, recent, log) => writeFor(channel, item, { recent, log });
+export const setWriter = (fn) => { writeText = fn; };
+
 const CHANNELS = {
   facebook: {
     ready: () => (process.env.IG_ACCESS_TOKEN ? null : "IG_ACCESS_TOKEN is not set"),
-    send: (item) => facebook(item),
+    send: (item, text) => facebook(item, { text }),
     has: (item, since) => facebookHas(item, since),
   },
   threads: {
@@ -315,7 +322,7 @@ const CHANNELS = {
       try { this.auth = await threadsAuth(); } catch (err) { return `token problem: ${err.message}`; }
       return this.auth ? null : "not connected yet (THREADS_ACCESS_TOKEN and THREADS_USER_ID are not set)";
     },
-    send(item) { return threads(item, this.auth); },
+    send(item, text) { return threads(item, this.auth, text); },
     has: async () => null,
   },
 };
@@ -344,8 +351,17 @@ export async function crosspostAll({ kinds = ["feed", "story"], dry = false, log
       try {
         for (const url of slideUrls(item)) await assertImageIsLive(url);
         let out = await impl.has(item, started).catch(() => null).then((id) => (id ? { remote_id: id, recovered: true } : null));
-        if (!out) out = await impl.send(item);
-        writeCross({ ok: true, channel, kind: entry.kind, id: entry.id, ...out });
+        let text = null;
+        if (!out) {
+          // A story has no words. Anything else gets a text written for this channel (voice.mjs), or, when
+          // Claude is not available, the plain adaptation of the Instagram caption: never a missed post.
+          if (entry.kind !== "story") {
+            const recent = crossLedger().filter((e) => e.channel === channel && e.text).slice(-6).map((e) => e.text).reverse();
+            text = await writeText(channel, item, recent, log);
+          }
+          out = await impl.send(item, text);
+        }
+        writeCross({ ok: true, channel, kind: entry.kind, id: entry.id, writer: text ? "claude" : "plain", ...(text ? { text } : {}), ...out });
         log(`${channel}: ${entry.kind} ${entry.id} -> ${out.remote_id}${out.recovered ? " (was already there)" : ""}`);
         summary.sent++;
       } catch (err) {

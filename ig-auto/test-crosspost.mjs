@@ -60,6 +60,8 @@ globalThis.fetch = async (input, init = {}) => {
 };
 
 const m = await import("./lib/crosspost.mjs");
+const v = await import("./lib/voice.mjs");
+m.setWriter(async () => null); // never call the real Claude in tests: the plain adaptation is used
 const { config } = await import("./lib/queue.mjs");
 config.fb_page_id = "PAGE";
 config.crosspost = { ...config.crosspost, since: "2000-01-01T00:00:00Z", days_back: 5000 };
@@ -73,6 +75,8 @@ async function check(name, fn) {
 }
 
 const AUTH = { token: "TH", user: "777" };
+const entry = (id, kind = "feed") => ({ ok: true, kind, id, at: new Date().toISOString(), media: "photo", url: `https://www.chifbay.com/ig/${id}.jpg`,
+  caption: "Private boat trip from Funchal, Madeira.\n\nOn the water.", hashtags: ["#madeira"] });
 const photo = { id: "p1", kind: "feed", media: "photo", url: "https://www.chifbay.com/ig/p1.jpg", slides: [{ url: "https://www.chifbay.com/ig/p1.jpg" }],
   caption: "Private boat trip from Funchal, Madeira.\n\nGlasses up under the cliffs.\nBooking link in bio.", hashtags: ["#madeira", "#funchal", "#boattrip"] };
 const carousel = { ...photo, id: "c1", slides: [1, 2, 3].map((n) => ({ url: `https://www.chifbay.com/ig/c1-${n}.jpg` })) };
@@ -81,14 +85,57 @@ const story = { id: "s1", kind: "story", media: "photo", url: "https://www.chifb
 
 console.log("Facebook Page and Threads, against a fake Meta");
 
-await check("words: link in bio becomes a real link, keyword lead kept, Threads under 500", () => {
+await check("plain adaptation: link in bio becomes a real link; Threads fallback is short", () => {
   const fb = m.facebookMessage(photo);
   assert.ok(fb.startsWith("Private boat trip from Funchal, Madeira."));
-  assert.ok(!/link in bio/i.test(fb)); assert.match(fb, /utm_source=facebook/); assert.match(fb, /#madeira/);
-  const long = { ...photo, caption: "Private boat trip from Funchal, Madeira.\n" + "A long sentence about the cliffs and the sea. ".repeat(30) };
+  assert.ok(!/link in bio/i.test(fb)); assert.match(fb, /utm_source=facebook/); assert.ok(!/#/.test(fb), "no hashtags on Facebook");
+  const long = { ...photo, id: "x2", caption: "Private boat trip from Funchal, Madeira.\n" + "A long sentence about the cliffs and the sea. ".repeat(30) };
   const th = m.threadsText(long);
-  assert.ok(th.length <= 500, `threads text is ${th.length} characters`); assert.ok(th.startsWith("Private boat trip"));
-  assert.match(th, /utm_source=threads/);
+  assert.ok(th.replace(/\n\nhttps:.*$/s, "").length <= 230, `threads text is ${th.length} characters`);
+  assert.ok(th.startsWith("Private boat trip"));
+});
+
+await check("Threads: only 1 post in 3 carries the link, always the same ones", () => {
+  const ids = Array.from({ length: 30 }, (_, i) => `post-${i}`);
+  const withLink = ids.filter((id) => /utm_source=threads/.test(m.threadsText({ ...photo, id })));
+  assert.ok(withLink.length >= 6 && withLink.length <= 14, `${withLink.length} of 30`);
+  assert.deepEqual(withLink, ids.filter((id) => /utm_source=threads/.test(m.threadsText({ ...photo, id }))));
+});
+
+await check("voice: the checks refuse spam, hashtags, prices, a missing place and a too long Threads post", () => {
+  const ok = "Our skipper swears the cliff at Cabo Girão gets taller every summer. Madeira, from the water.";
+  assert.deepEqual(v.problems("threads", ok), []);
+  assert.match(v.problems("threads", ok + " #madeira").join(), /hashtags/);
+  assert.match(v.problems("threads", "Book now! Don't miss our unforgettable trip in Madeira").join(), /ad words/);
+  assert.match(v.problems("threads", "A quiet afternoon on the water, nothing else to report today.").join(), /Funchal or Madeira/);
+  assert.match(v.problems("threads", ok + " x".repeat(200)).join(), /too long/);
+  assert.match(v.problems("threads", "Boat day in Madeira for 120 euro per person, wow").join(), /price/);
+  assert.match(v.problems("threads", "Boat day in Madeira — the best").join(), /long dash/);
+  assert.deepEqual(v.problems("facebook", "A".repeat(10)).filter((x) => /short/.test(x)).length, 1);
+});
+
+await check("voice: writeFor retries with the reason, then gives a text that passes; null when Claude never does", () => {
+  const prompts = [];
+  const answers = ["Visit Madeira #boat", "Our skipper says the swim stop at Fajã dos Padres is where plans go to die. Madeira, mid-afternoon, nobody checking the time."];
+  const ask = (p) => { prompts.push(p); return JSON.stringify({ text: answers.shift() }); };
+  const text = v.writeFor("threads", photo, { ask, log: () => {} });
+  assert.match(text, /plans go to die/); assert.equal(prompts.length, 2); assert.match(prompts[1], /hashtags/);
+  assert.equal(v.writeFor("threads", photo, { ask: () => "no json here", log: () => {} }), null);
+  assert.equal(v.writeFor("threads", photo, { ask: () => { throw new Error("You've hit your weekly limit"); }, log: () => {} }), null);
+});
+
+await check("a written text goes to both channels, is kept in the record, and the next one must not sound the same", async () => {
+  const sent = [];
+  m.setWriter(async (channel, item) => { sent.push(channel); return channel === "threads" ? "Short and Madeira-ish, a little smug about the weather." : "Facebook text about Funchal that is long enough to pass the minimum length of two hundred characters, with a small question at the end so people answer: who would you bring on the boat on a quiet Tuesday afternoon, and what would you pack?"; });
+  const out = await m.crosspostAll({ igLedger: [entry("w1")], log: () => {} });
+  assert.deepEqual(sent.sort(), ["facebook", "threads"]);
+  const fb = calls.find((c) => c.rec.endsWith("/PAGE/photos"));
+  assert.match(fb.body.message, /^Facebook text about Funchal/); assert.match(fb.body.message, /utm_campaign=w1$/);
+  const th = calls.find((c) => c.rec.endsWith("/777/threads"));
+  assert.match(th.q.text, /^Short and Madeira-ish/);
+  const led = m.crossLedger();
+  assert.ok(led.some((e) => e.channel === "threads" && e.writer === "claude" && e.text.startsWith("Short")));
+  m.setWriter(async () => null);
 });
 
 await check("Facebook photo: Page token, photo with message and alt text, one call", async () => {
@@ -190,9 +237,6 @@ await check("waiting(): feed to both channels, stories to Facebook only, done an
   assert.deepEqual(th, ["done", "tired", "f1"]);
 });
 
-const entry = (id, kind = "feed") => ({ ok: true, kind, id, at: new Date().toISOString(), media: "photo", url: `https://www.chifbay.com/ig/${id}.jpg`,
-  caption: "Private boat trip from Funchal, Madeira.\n\nOn the water.", hashtags: ["#madeira"] });
-
 await check("a Facebook outage is recorded and does not throw; the next run sends it once; Threads is not held up", async () => {
   const ig = [entry("o1")];
   scenario = { fbDown: true };
@@ -214,7 +258,7 @@ await check("gives up after 4 failures and stops trying", async () => {
 
 await check("a post that went out but was not recorded is found on the Page and not sent twice", async () => {
   const e = entry("d1");
-  scenario = { already: m.facebookMessage(m.loadItem(e)).slice(0, 60) };
+  scenario = { already: `Some words\n\n${m.bookUrl("facebook", "d1")}` };
   const out = await m.crosspostAll({ igLedger: [e], log: () => {} });
   assert.ok(m.crossLedger().some((x) => x.channel === "facebook" && x.recovered === true && x.id === "d1"));
   assert.ok(!calls.some((c) => c.rec.endsWith("/PAGE/photos")), "no second photo post");

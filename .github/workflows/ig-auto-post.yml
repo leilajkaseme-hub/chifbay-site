@@ -91,6 +91,13 @@ jobs:
           git commit -m "Instagram: posted $(date -u +%Y-%m-%d)"
           scripts/ci-push.sh
 
+      # Claude writes the Facebook and Threads versions of the text (ig-auto/lib/voice.mjs). If it is not
+      # available (weekly limit, network) the plain adaptation of the Instagram caption is used: no missed post.
+      - name: Install Claude Code
+        if: always()
+        continue-on-error: true
+        run: npm install -g @anthropic-ai/claude-code
+
       # Facebook Page and Threads get the same post a minute after Instagram has it. A failure here
       # never fails this job (Instagram is already safe): it is written in crosspost-ledger.jsonl
       # and sent to the phone by the script itself. Threads waits for its token (ig-auto/README.md).
@@ -104,6 +111,7 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}   # the Worker keeps and renews the live Threads token
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: node bin/crosspost.mjs
 
       - name: Commit & push the cross-post record

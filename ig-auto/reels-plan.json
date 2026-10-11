@@ -36,14 +36,14 @@
      "file": "IMG_2809.MOV",
      "in": 0.3,
      "out": 2.7,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "overcast",
      "exposure": -0.04,
      "light": {
       "L50": 68.3,
       "chroma": 4.8,
-      "hiB": -4.0
+      "hiB": -4
      },
      "seconds": 2.4,
      "what": "guests toast, faces visible"
@@ -52,7 +52,7 @@
      "src": "0080",
      "file": "DJI_20260924185527_0080_D.MP4",
      "in": 157.2,
-     "out": 159.0,
+     "out": 159,
      "speed": 0.6,
      "source_fps": 59.94,
      "grade": "overcast",
@@ -62,16 +62,16 @@
       "chroma": 5.9,
       "hiB": 0.2
      },
-     "seconds": 3.0,
+     "seconds": 3,
      "what": "Cabo Girao shore"
     },
     {
      "src": "ip2832",
      "file": "IMG_2832.MOV",
-     "in": 1.0,
-     "out": 4.0,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "in": 1,
+     "out": 4,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "daylight",
      "exposure": -0.04,
      "light": {
@@ -79,7 +79,7 @@
       "chroma": 10.6,
       "hiB": -3.5
      },
-     "seconds": 3.0,
+     "seconds": 3,
      "what": "paddle board, falls in"
     },
     {
@@ -87,8 +87,8 @@
      "file": "Video 1080P 13082026.mp4",
      "in": 10.8,
      "out": 13.4,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "overcast",
      "exposure": 0.04,
      "light": {
@@ -104,13 +104,13 @@
      "file": "Video 1080P 13082026.mp4",
      "in": 53.3,
      "out": 56.7,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "overcast",
      "exposure": 0.04,
      "light": {
       "L50": 35.9,
-      "chroma": 7.0,
+      "chroma": 7,
       "hiB": -3.4
      },
      "seconds": 3.4,
@@ -172,8 +172,8 @@
      "file": "Video 1080P 13082026.mp4",
      "in": 10.8,
      "out": 13.4,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "overcast",
      "exposure": 0.04,
      "light": {
@@ -187,16 +187,16 @@
     {
      "src": "aug13",
      "file": "Video 1080P 13082026.mp4",
-     "in": 14.0,
+     "in": 14,
      "out": 17.6,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "daylight",
      "exposure": 0.003,
      "light": {
       "L50": 44.4,
       "chroma": 11.7,
-      "hiB": -2.0
+      "hiB": -2
      },
      "seconds": 3.6,
      "what": "swimmers in the water, drone"
@@ -255,8 +255,8 @@
     {
      "src": "0080",
      "file": "DJI_20260924185527_0080_D.MP4",
-     "in": 18.0,
-     "out": 21.0,
+     "in": 18,
+     "out": 21,
      "speed": 0.5,
      "source_fps": 59.94,
      "grade": "overcast",
@@ -266,20 +266,20 @@
       "chroma": 8.1,
       "hiB": 3.3
      },
-     "seconds": 6.0,
+     "seconds": 6,
      "what": "overhead orbit, guests on deck (boat leaves the crop after 21)"
     },
     {
      "src": "0080",
      "file": "DJI_20260924185527_0080_D.MP4",
-     "in": 201.0,
+     "in": 201,
      "out": 206.3,
      "speed": 0.85,
      "source_fps": 59.94,
      "grade": "daylight",
      "exposure": 0.04,
      "light": {
-      "L50": 31.0,
+      "L50": 31,
       "chroma": 9.6,
       "hiB": 0.1
      },
@@ -340,16 +340,16 @@
     {
      "src": "aug13",
      "file": "Video 1080P 13082026.mp4",
-     "in": 101.0,
+     "in": 101,
      "out": 105.5,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "golden",
      "exposure": -0.023,
      "light": {
       "L50": 49.6,
       "chroma": 10.5,
-      "hiB": 22.0
+      "hiB": 22
      },
      "seconds": 4.5,
      "what": "sunset run, guests on deck (source dissolves at 100.6, 105.9, 111.9)"
@@ -359,8 +359,8 @@
      "file": "Video 1080P 13082026.mp4",
      "in": 106.4,
      "out": 111.4,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "golden",
      "exposure": -0.016,
      "light": {
@@ -368,7 +368,7 @@
       "chroma": 10.9,
       "hiB": 23.7
      },
-     "seconds": 5.0,
+     "seconds": 5,
      "what": "sun on the horizon, guests toast"
     }
    ],
@@ -425,10 +425,10 @@
     {
      "src": "ip2832",
      "file": "IMG_2832.MOV",
-     "in": 0.0,
+     "in": 0,
      "out": 6.3,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "daylight",
      "exposure": -0.039,
      "light": {
@@ -469,7 +469,7 @@
    "test": false,
    "subject": "place",
    "hook": "Under Cabo Girão, 580 m",
-   "caption": "Cabo Girão, 580 m of cliff straight above the sea, seen from the water. Every Chifbay trip from Funchal goes there, Day Trip and Sunset Trip.\n\nSave this for your Madeira trip. Booking link in bio.",
+   "caption": "Cabo Girão by boat from Funchal, Madeira: six seconds of cliff, and two yellow dots.\n\nThe dots are buoys. Look just above the middle of the water, side by side, like two small eyes keeping watch on the beach.\n\nBehind them: a strip of grey pebbles, then terraces with a few flat roofs and stone walls, then rock in red and green all the way up and out of the frame. The camera gave up before the cliff did.\n\nNobody built those terraces for the view. They got it anyway.\n\nDuas boias, uma praia, e uma montanha por cima.\n\nBoth our trips come along here from the marina. The Day Trip stops at Fajã dos Padres for the swim and paddle, the Sunset Trip turns at Cabo Girão as the light goes. Your group only, five at most.\n\nSix seconds is the Reel. The boat gives you a bit longer. Book direct on chifbay.com",
    "hashtags": [
     "#madeira",
     "#funchal",
@@ -563,8 +563,8 @@
      "file": "Video 1080P 13082026.mp4",
      "in": 53.5,
      "out": 59.7,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "overcast",
      "exposure": 0.04,
      "light": {
@@ -595,10 +595,10 @@
     {
      "src": "aug13",
      "file": "Video 1080P 13082026.mp4",
-     "in": 90.0,
-     "out": 96.0,
-     "speed": 1.0,
-     "source_fps": 30.0,
+     "in": 90,
+     "out": 96,
+     "speed": 1,
+     "source_fps": 30,
      "grade": "daylight",
      "exposure": 0.013,
      "light": {
@@ -606,7 +606,7 @@
       "chroma": 11.9,
       "hiB": -2.2
      },
-     "seconds": 6.0,
+     "seconds": 6,
      "what": "turquoise water from the drone"
     }
    ],
@@ -622,7 +622,7 @@
      332
     ]
    },
-   "duration": 6.0,
+   "duration": 6,
    "bytes": 6787847,
    "checks": {
     "ok": true,

@@ -33,19 +33,19 @@
       "sha256": "e29252b5ecf5d145cc2cc6bd74ba561c59de338d5635c5a09938bdd683f2e56f"
     }
   ],
-  "angle": "dolphins",
-  "caption": "Wild dolphins alongside the boat. Respectful distance, never chasing.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com",
+  "angle": "skipper",
+  "caption": "Private boat tours from Funchal, Madeira: meet the whole crew. Both of them.\n\nTwo black polos, one wheel. Look closely: there is a hand from each of us on it. We have not settled who is driving either.\n\nOver the shoulder on the left, a tiny parasail hangs in the sky. From the helm it looks like a small balloon somebody let go of.\n\nThe sky is grey and white, the sea is grey and blue. The boat does not care about that, and neither do we.\n\nDois skippers, um leme.\n\nThat is the team: two skippers, one Karnic R8S, and your group of five at most. Day Trip or Sunset Trip, it is one of these two faces at the wheel, and nobody else on board.\n\nNext time you walk past the marina, the black polos are easy to spot. Come and say olá.",
   "hashtags": [
-    "#madeiraisland",
+    "#funchalmadeira",
     "#visitmadeira",
     "#atlanticocean",
-    "#boattour",
-    "#dolphinwatching",
-    "#wildlifewatching",
-    "#visitportugal"
+    "#boatlife",
+    "#skipper",
+    "#localbusiness",
+    "#traveleurope"
   ],
-  "rendered_caption": "Wild dolphins alongside the boat. Respectful distance, never chasing.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com\n\n#madeiraisland #visitmadeira #atlanticocean #boattour #dolphinwatching #wildlifewatching #visitportugal",
-  "writer": "template",
+  "rendered_caption": "Private boat tours from Funchal, Madeira: meet the whole crew. Both of them.\n\nTwo black polos, one wheel. Look closely: there is a hand from each of us on it. We have not settled who is driving either.\n\nOver the shoulder on the left, a tiny parasail hangs in the sky. From the helm it looks like a small balloon somebody let go of.\n\nThe sky is grey and white, the sea is grey and blue. The boat does not care about that, and neither do we.\n\nDois skippers, um leme.\n\nThat is the team: two skippers, one Karnic R8S, and your group of five at most. Day Trip or Sunset Trip, it is one of these two faces at the wheel, and nobody else on board.\n\nNext time you walk past the marina, the black polos are easy to spot. Come and say olá.\n\n#funchalmadeira #visitmadeira #atlanticocean #boatlife #skipper #localbusiness #traveleurope",
+  "writer": "claude",
   "priority": 0,
   "fresh": true
 }
