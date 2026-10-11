@@ -71,3 +71,14 @@ if (pg && process.env.PROBE_IMAGE) {
     console.log("reel upload slot:", rl.error ? `refused: ${rl.error.message}` : `ok (video ${rl.video_id}, upload url ${rl.upload_url ? "given" : "missing"}), never finished`);
   }
 }
+
+// ---- what is on the Facebook Page now (read-only) ----
+if (pg && process.env.PAGE_LIST) {
+  const pageTok2 = (await get(`/${pg.id}`, { fields: "access_token" })).access_token;
+  const list = await (await fetch(`${GRAPH}/${pg.id}/posts?fields=id,created_time,permalink_url,status_type,message&limit=5&access_token=${pageTok2}`)).json().catch(() => ({}));
+  console.log("page posts:", list.error ? `error: ${list.error.message}` : JSON.stringify((list.data || []).map((x) => ({ id: x.id, at: x.created_time, type: x.status_type, url: x.permalink_url, start: String(x.message || "").slice(0, 50) }))));
+  for (const edge of ["video_stories", "photo_stories", "stories"]) {
+    const r = await (await fetch(`${GRAPH}/${pg.id}/${edge}?access_token=${pageTok2}`)).json().catch(() => ({}));
+    console.log(`page ${edge}:`, r.error ? `error: ${r.error.message}` : JSON.stringify(r.data ?? r).slice(0, 300));
+  }
+}

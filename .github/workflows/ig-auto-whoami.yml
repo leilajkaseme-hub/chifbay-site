@@ -9,7 +9,11 @@ name: Chifbay Instagram — find my account id (setup)
 # Runs here rather than on your machine so the token only ever exists as a
 # GitHub secret. It is never printed: only the account id is.
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      probe:
+        description: "yes = also upload a hidden test photo and remove it again"
+        default: "no"
 
 permissions:
   contents: read
@@ -44,5 +48,6 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           IG_USER_ID: "17841473755961444"   # the public id from config.json
-          PROBE_IMAGE: https://www.chifbay.com/ig/20261002204317-ec30-1.jpg
+          PROBE_IMAGE: ${{ github.event.inputs.probe == 'yes' && 'https://www.chifbay.com/ig/20261002204317-ec30-1.jpg' || '' }}
+          PAGE_LIST: "1"
         run: node bin/meta-scopes.mjs
