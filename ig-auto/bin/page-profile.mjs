@@ -33,16 +33,12 @@ const pageTok = (await call(`/${page}`, { body: { fields: "access_token" } })).a
 const P = (path, opts = {}) => call(path, { ...opts, tok: pageTok });
 const mode = process.argv[2];
 
-/** Every Facebook Page category (the endpoint answers in small pages). */
+/** Every Facebook Page category, flattened (the endpoint returns groups with their categories inside). */
 async function allCategories() {
+  const r = await call("/fb_page_categories", { body: { fields: "id,name,fb_page_categories{id,name,fb_page_categories{id,name}}", limit: "250" } });
   const out = [];
-  let after;
-  for (let i = 0; i < 80; i++) {
-    const r = await call("/fb_page_categories", { body: { limit: "250", ...(after ? { after } : {}) } });
-    out.push(...(r.data ?? []));
-    after = r.paging?.cursors?.after;
-    if (!after || !r.paging?.next) break;
-  }
+  const walk = (list) => { for (const c of list ?? []) { out.push({ id: c.id, name: c.name }); walk(c.fb_page_categories?.data ?? c.fb_page_categories); } };
+  walk(r.data);
   return out;
 }
 
