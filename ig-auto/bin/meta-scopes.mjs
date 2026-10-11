@@ -86,6 +86,7 @@ if (pg && process.env.PAGE_LIST) {
 // ---- every profile field of the Facebook Page (read-only), to see what is missing ----
 if (pg && process.env.PAGE_FIELDS) {
   const f = "name,username,about,description,general_info,company_overview,mission,founded,category,category_list,phone,emails,website,single_line_address,location,hours,price_range,cover,picture.type(large){url,is_silhouette},link,fan_count,followers_count,rating_count,overall_star_rating,is_published,verification_status,call_to_actions{type,web_url},albums.limit(10){name,count},products.limit(1){id}";
-  const info = await get(`/${pg.id}`, { fields: f });
+  const pt = (await get(`/${pg.id}`, { fields: "access_token" })).access_token;
+  const info = await (await fetch(`${GRAPH}/${pg.id}?fields=${encodeURIComponent(f)}&access_token=${pt}`)).json().catch(() => ({}));
   console.log("PAGE FIELDS:", JSON.stringify(info));
 }
