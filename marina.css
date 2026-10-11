@@ -220,7 +220,3 @@ section p a:not([class]):hover,section li a:not([class]):hover,section dd a:not(
   color:var(--lnk-hover);text-decoration-color:currentColor;text-decoration-thickness:2px}
 .hero .hsub a{color:var(--lnk)}
 .hero .hsub a:hover{color:var(--lnk-hover)}
-
-/* the Insta360 sample tile is gone until we have real footage (the old one was
-   a phone clip): the two tiles left fill the grid, one tall tile each */
-section.minc .minc-grid .mi:nth-child(2):last-child{grid-row:span 2}
