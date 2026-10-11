@@ -50,4 +50,5 @@ jobs:
           IG_USER_ID: "17841473755961444"   # the public id from config.json
           PROBE_IMAGE: ${{ github.event.inputs.probe == 'yes' && 'https://www.chifbay.com/ig/20261002204317-ec30-1.jpg' || '' }}
           PAGE_LIST: "1"
+          PAGE_FIELDS: "1"
         run: node bin/meta-scopes.mjs
