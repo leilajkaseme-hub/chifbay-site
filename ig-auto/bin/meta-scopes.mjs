@@ -85,8 +85,15 @@ if (pg && process.env.PAGE_LIST) {
 
 // ---- every profile field of the Facebook Page (read-only), to see what is missing ----
 if (pg && process.env.PAGE_FIELDS) {
-  const f = "name,username,about,description,general_info,company_overview,mission,founded,category,category_list,phone,emails,website,single_line_address,location,hours,price_range,cover,picture.type(large){url,is_silhouette},link,fan_count,followers_count,rating_count,overall_star_rating,is_published,verification_status,call_to_actions{type,web_url},albums.limit(10){name,count},products.limit(1){id}";
   const pt = (await get(`/${pg.id}`, { fields: "access_token" })).access_token;
-  const info = await (await fetch(`${GRAPH}/${pg.id}?fields=${encodeURIComponent(f)}&access_token=${pt}`)).json().catch(() => ({}));
-  console.log("PAGE FIELDS:", JSON.stringify(info));
+  // one field per call: a field that needs a permission we lack must not hide the others
+  const fields = ["name", "username", "about", "description", "general_info", "company_overview", "mission", "founded", "category", "category_list",
+    "phone", "emails", "website", "single_line_address", "location", "hours", "price_range", "cover{source,offset_y}", "picture.type(large){url,is_silhouette}",
+    "link", "fan_count", "followers_count", "is_published", "verification_status", "impressum", "description_html"];
+  const have = {};
+  for (const f of fields) {
+    const r = await (await fetch(`${GRAPH}/${pg.id}?fields=${encodeURIComponent(f)}&access_token=${pt}`)).json().catch(() => ({}));
+    have[f] = r.error ? `ERROR ${r.error.message.slice(0, 70)}` : (r[f.split("{")[0].split(".")[0]] ?? null);
+  }
+  console.log("PAGE FIELDS:", JSON.stringify(have));
 }
