@@ -78,19 +78,21 @@ if (mode === "photos") {
   const done = existsSync(LEDGER) ? readFileSync(LEDGER, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l)) : [];
   const plan = JSON.parse(readFileSync(join(ROOT, "page-photos.json"), "utf8"));
   for (const album of plan.albums) {
-    let albumId = done.find((d) => d.album === album.name && d.album_id)?.album_id;
-    if (!albumId) {
-      const existing = await P(`/${page}/albums`, { body: { fields: "id,name", limit: "50" } }).catch(() => ({ data: [] }));
-      albumId = existing.data?.find((a) => a.name === album.name)?.id;
+    // Albums are not allowed for this app (error #3, checked 11 Oct 2026): then the photos go straight to the
+    // Page's Photos tab ("no_story" keeps each one out of the news feed). Same captions, same alt text.
+    let albumId = done.find((d) => d.album === album.name && d.album_id)?.album_id ?? null;
+    if (!albumId && !process.env.NO_ALBUM) {
+      try {
+        const existing = await P(`/${page}/albums`, { body: { fields: "id,name", limit: "50" } });
+        albumId = existing.data?.find((a) => a.name === album.name)?.id
+          ?? (await P(`/${page}/albums`, { method: "POST", body: { name: album.name, message: album.message } })).id;
+      } catch (e) { console.log(`no album (${e.message.slice(0, 90)}): uploading to the Page's Photos tab`); }
     }
-    if (!albumId) {
-      albumId = (await P(`/${page}/albums`, { method: "POST", body: { name: album.name, message: album.message } })).id;
-      console.log(`album created: ${album.name} (${albumId})`);
-    }
+    const target = albumId ?? page;
     for (const ph of album.photos) {
       if (done.some((d) => d.url === ph.url && d.ok)) { console.log(`already there: ${ph.url.split("/").pop()}`); continue; }
       try {
-        const r = await P(`/${albumId}/photos`, { method: "POST", body: { url: ph.url, message: ph.caption, alt_text_custom: ph.alt, no_story: true } });
+        const r = await P(`/${target}/photos`, { method: "POST", body: { url: ph.url, message: ph.caption, alt_text_custom: ph.alt, no_story: true, published: true } });
         appendFileSync(LEDGER, JSON.stringify({ at: new Date().toISOString(), ok: true, album: album.name, album_id: albumId, url: ph.url, photo_id: r.id }) + "\n");
         console.log(`uploaded: ${ph.url.split("/").pop()} -> ${r.id}`);
       } catch (e) {
