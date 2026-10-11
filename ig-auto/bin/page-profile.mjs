@@ -36,6 +36,7 @@ const mode = process.argv[2];
 if (mode === "discover") {
   const cats = await call("/fb_page_categories", { body: { limit: "1000" } }).catch((e) => { console.log(`categories: ${e.message}`); return { data: [] }; });
   const want = /boat|tour|sightsee|excursion|charter|sail|yacht|water|sea/i;
+  console.log(`categories returned: ${(cats.data ?? []).length}`);
   for (const c of (cats.data ?? []).filter((c) => want.test(c.name))) console.log(`category ${c.id} ${c.name}`);
 }
 
