@@ -45,6 +45,7 @@ globalThis.fetch = async (input, init = {}) => {
     if (method === "PUT") { scenario.stored = body; scenario.puts = (scenario.puts ?? 0) + 1; return json({ ok: true }); }
     return scenario.stored ? json(scenario.stored) : json({}, 404);
   }
+  if (url.host === "graph.threads.net" && p === "/me") return json({ id: "17841400000", username: "chifbay" });
   if (url.host === "graph.threads.net" && p === "/refresh_access_token") {
     return scenario.refreshFails ? json({ error: { message: "expired" } }, 400) : json({ access_token: "RENEWED_TOKEN_0123456789", expires_in: 5184000 });
   }
@@ -152,6 +153,12 @@ await check("Threads token: none = not connected; the GitHub secret alone works;
   // second run: the stored copy is used, nothing is written again
   await m.threadsAuth({ ...seed, IG_SYNC_SECRET: "s" }, NOW + 3_600_000);
   assert.equal(scenario.puts, 1);
+});
+
+await check("Threads: the token alone is enough, the user id comes from /me", async () => {
+  const r = await m.threadsAuth({ THREADS_ACCESS_TOKEN: "ONLYTOKEN_01234567890123456" }, Date.parse("2026-10-11T12:00:00Z"));
+  assert.deepEqual(r, { token: "ONLYTOKEN_01234567890123456", user: "17841400000" });
+  assert.equal(await m.threadsAuth({ THREADS_ACCESS_TOKEN: "x" }, 0).then((v) => v && v.user), "17841400000");
 });
 
 await check("Threads token is renewed at 25 days, the new one stored; a failed renewal says what to do", async () => {

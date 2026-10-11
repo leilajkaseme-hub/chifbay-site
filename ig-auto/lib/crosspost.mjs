@@ -225,9 +225,16 @@ const fingerprint = (t) => { let h = 0; for (const c of String(t)) h = (h * 33 +
 
 export async function threadsAuth(env = process.env, now = Date.now()) {
   const secret = env.IG_SYNC_SECRET;
-  const seed = env.THREADS_ACCESS_TOKEN && env.THREADS_USER_ID
-    ? { token: env.THREADS_ACCESS_TOKEN, user_id: env.THREADS_USER_ID, saved_at: Date.parse(env.THREADS_TOKEN_SAVED ?? "") || now, origin: fingerprint(env.THREADS_ACCESS_TOKEN) }
-    : null;
+  // The user id is optional: the token knows it (GET /me), so one secret is enough.
+  let seed = null;
+  if (env.THREADS_ACCESS_TOKEN) {
+    let id = env.THREADS_USER_ID;
+    if (!id) {
+      const me = await thCall("/me", { fields: "id,username", access_token: env.THREADS_ACCESS_TOKEN }, "GET").catch(() => null);
+      id = me?.id;
+    }
+    if (id) seed = { token: env.THREADS_ACCESS_TOKEN, user_id: String(id), saved_at: Date.parse(env.THREADS_TOKEN_SAVED ?? "") || now, origin: fingerprint(env.THREADS_ACCESS_TOKEN) };
+  }
   const headers = { Authorization: `Bearer ${secret}`, "Content-Type": "application/json" };
   const put = (v) => fetch(workerUrl(), { method: "PUT", headers, body: JSON.stringify(v), signal: AbortSignal.timeout(30_000) })
     .then((r) => { if (!r.ok) throw new Error(`token store ${r.status}`); });

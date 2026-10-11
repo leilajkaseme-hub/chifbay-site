@@ -498,12 +498,12 @@ Instagram record is saved. Instagram never waits for it and never fails because 
 - **Facebook** uses the Page token of the same System User token as Instagram (permissions checked: `pages_manage_posts`,
   `publish_video`; the Page lets it create content). No extra secret. Page id: `config.fb_page_id`.
 - **Threads** needs its own token: the Threads API takes only a Threads user token, not the System User one.
-  Setup (Theo's login): 1) create the Threads profile for @chifbay (log in with the Instagram account);
-  2) developers.facebook.com, app `chifbay-posting`, add the use case "Access the Threads API" with `threads_basic` and
-  `threads_content_publish`; 3) add the Threads account as a Threads tester and accept it in the Threads app
-  (Settings, Account, Website permissions); 4) in the app's Threads API page, "User Token Generator", make a token for
-  that account and copy it with the user id. Then set the GitHub secrets `THREADS_ACCESS_TOKEN` and `THREADS_USER_ID`.
-  Until then the Threads lines in the log say "not connected yet" and nothing fails.
+  Done on 11 Oct 2026 in the Meta app **"Chifbay"** (id 2041711779819523; not "chifbay-posting"): the Threads API use case
+  was already there, `threads_content_publish` added, the Threads profile @chifbay (it already existed) added as a
+  Threads tester and the invite accepted in Threads (Settings, Account, Website permissions). Token: app > Threads use case >
+  Settings > "Générer un token d'accès" for the chifbay tester (long-lived, 60 days). Store it with
+  `node bin/threads-token.mjs <token>` (checks it belongs to @chifbay, sets the GitHub secret THREADS_ACCESS_TOKEN; the user
+  id is read from the token). Until the secret exists the Threads lines in the log say "not connected yet" and nothing fails.
 - **Renewal**: a Threads token lasts 60 days. The first run with the secrets stores the token in the booking Worker
   (`/v1/ig/threads-token`, secret `IG_SYNC_SECRET`); every run uses that copy and renews it after 25 days
   (`th_refresh_token`), putting the new one back. A new token in the GitHub secret replaces the stored one. If a renewal
