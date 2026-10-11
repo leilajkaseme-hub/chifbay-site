@@ -51,3 +51,23 @@ if (pg) {
     for (const p of (found.data || []).slice(0, 3)) await probe(p.name, p.id);
   }
 }
+
+// ---- Facebook Page write check: a HIDDEN photo (published=false) and a Reel upload slot, then clean up ----
+if (pg && process.env.PROBE_IMAGE) {
+  const pageTok = (await get(`/${pg.id}`, { fields: "access_token" })).access_token;
+  console.log("page token:", pageTok ? "obtained" : "NOT obtained");
+  if (pageTok) {
+    const post = async (path, body) => {
+      const res = await fetch(`${GRAPH}${path}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...body, access_token: pageTok }) });
+      return res.json().catch(() => ({}));
+    };
+    const ph = await post(`/${pg.id}/photos`, { url: process.env.PROBE_IMAGE, published: false, temporary: true });
+    console.log("hidden photo:", ph.error ? `refused: ${ph.error.message}` : `created ${ph.id}`);
+    if (ph.id) {
+      const del = await fetch(`${GRAPH}/${ph.id}?access_token=${pageTok}`, { method: "DELETE" }).then((r) => r.json()).catch(() => ({}));
+      console.log("hidden photo removed:", JSON.stringify(del));
+    }
+    const rl = await post(`/${pg.id}/video_reels`, { upload_phase: "start" });
+    console.log("reel upload slot:", rl.error ? `refused: ${rl.error.message}` : `ok (video ${rl.video_id}, upload url ${rl.upload_url ? "given" : "missing"}), never finished`);
+  }
+}
