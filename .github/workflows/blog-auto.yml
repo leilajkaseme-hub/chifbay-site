@@ -37,6 +37,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main   # latest main, not the commit this run was queued on (a queued job started from a stale tree and clashed with the job before it)
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -136,8 +138,13 @@ jobs:
           git pull --rebase origin main || true
           SLUG=$(python3 -c "import json; print(json.load(open('posts/posts.json'))[0]['slug'])")
           echo "Waiting for slug '$SLUG' to appear on the live site…"
+          # No "curl | grep -q" here: with pipefail, grep -q quits on the first match, curl gets a broken
+          # pipe (exit 23) and the whole check "fails" while the post is live. That is what turned every
+          # run red from 9 Oct (the rewrite added pipefail). Read first, then test.
           live_ok() {
-            curl -sf --max-time 20 "https://chifbay.com/posts/posts.json?nocache=$(date +%s)" | grep -q "\"$SLUG\"" &&
+            local list
+            list=$(curl -sf --max-time 20 "https://chifbay.com/posts/posts.json?nocache=$(date +%s)") || return 1
+            grep -q "\"$SLUG\"" <<<"$list" || return 1
             curl -sf -o /dev/null --max-time 20 "https://chifbay.com/posts/$SLUG?nocache=$(date +%s)"
           }
           for attempt in 1 2 3 4; do

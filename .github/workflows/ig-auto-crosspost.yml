@@ -30,6 +30,8 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main   # latest main, not the commit this run was queued on (a queued job started from a stale tree and clashed with the job before it)
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
