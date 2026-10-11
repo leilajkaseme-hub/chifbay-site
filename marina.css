@@ -220,3 +220,8 @@ section p a:not([class]):hover,section li a:not([class]):hover,section dd a:not(
   color:var(--lnk-hover);text-decoration-color:currentColor;text-decoration-thickness:2px}
 .hero .hsub a{color:var(--lnk)}
 .hero .hsub a:hover{color:var(--lnk-hover)}
+
+/* booking summary for a guest sent by a hotel: what is paid now and what is paid on the day */
+.bksumbox .bkpart{display:block;margin-top:10px;padding:10px 12px;border-radius:10px;
+  background:rgba(184,134,43,.12);border:1px solid rgba(184,134,43,.35);font-size:.9rem;line-height:1.4}
+.bksumbox .bkpart b{font-weight:600}

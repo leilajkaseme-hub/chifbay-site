@@ -41,6 +41,8 @@
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
 
   var state = {
+    payNow: 1,         // share paid online: below 1 for guests sent by a hotel (the rest is paid on the day)
+    payTermsAsked: false,
     catalogue: null,
     only: null,        // trip id this page sells, or null for all of them
     trip: null,
@@ -909,9 +911,30 @@
     return dial ? "+" + dial + " " + local : local;
   }
 
+  /* A guest sent by a hotel with a pay-part deal pays 80% now and 20% on the day.
+     The Worker decides and charges; this only tells the guest before they pay.
+     Asked once, only when the page carries a partner tag. Any failure leaves the
+     normal "pay everything" wording, which is also what the Worker does. */
+  function loadPayTerms() {
+    if (state.payTermsAsked) return;
+    var at;
+    try { at = window.cbAttr ? window.cbAttr() : null; } catch (e) { at = null; }
+    var tag = at && typeof at.utm_source === "string" ? at.utm_source : "";
+    if (!tag) return;
+    state.payTermsAsked = true;
+    api("/v1/pay-terms?partner=" + encodeURIComponent(tag)).then(function (r) {
+      var share = r ? Number(r.payNow) : 1;
+      state.payNow = share > 0 && share < 1 ? share : 1;
+      if (state.payNow < 1 && state.catalogue && state.trip && state.variant && state.date && state.time) renderSummary();
+    }).catch(function () {});
+  }
+
   function renderSummary() {
+    loadPayTerms();
     var trip = state.catalogue.trips[state.trip];
     var v = trip.variants[state.variant];
+    var eur = function (c) { return "€" + (c / 100).toFixed(c % 100 === 0 ? 0 : 2); };
+    var now = Math.round(v.amount * state.payNow);
     $("#bksum").innerHTML =
       "<strong>" + esc(trip.name + " — " + v.name) + "</strong>" +
       "<span>" + esc(longDate(state.date)) + "</span>" +
@@ -919,7 +942,12 @@
       "<span><b>" + esc(state.time + " – " + endTime(state.time, v.minutes)) + "</b> · " +
         esc(durLong(v.minutes)) + " (" + esc(t("ui.funchalTime")) + ")</span>" +
       "<span>" + esc(t("ui.upTo", { n: state.catalogue.maxGuests })) + "</span>" +
-      '<span class="bksumprice">' + money(v.amount) + "</span>";
+      '<span class="bksumprice">' + money(v.amount) + "</span>" +
+      (state.payNow < 1
+        ? '<span class="bkpart"><b>' + esc(t("ui.payPart", {
+            now: eur(now), later: eur(v.amount - now), pct: Math.round(state.payNow * 100),
+          })) + "</b></span>"
+        : "");
   }
 
   /* Stripe's script is about 260 KB. It used to load with the page and took
