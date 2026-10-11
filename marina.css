@@ -202,3 +202,21 @@ html.cbtx::before,#cbtx{background-color:#fafbfc!important}
 .pref-src a:hover{border-color:rgba(11,34,54,.4)}
 :root[data-theme="dark"] .pref-src{border-color:rgba(255,255,255,.14)}
 :root[data-theme="dark"] .pref-src a{background:#fff;color:#0b2236}
+
+/* ---------------------------------------------------------- text links */
+/* Links inside paragraphs and lists had no style of their own, so browsers
+   drew them in the default blue (and purple once visited). Now: ink colour,
+   a gold underline that thickens on hover, and no purple. Buttons, cards and
+   the footer keep their own look: only classless links in text are touched. */
+:root{--lnk:#0b2236;--lnk-line:var(--m-gold);--lnk-hover:var(--m-gold-ink)}
+:root[data-theme="dark"],.minc,.hero,.reserve,.bleed{--lnk:#f0d9a0;--lnk-line:rgba(240,217,160,.55);--lnk-hover:#fff}
+section p a:not([class]),section li a:not([class]),section dd a:not([class]),
+.article a,.fb a,.cmp-p a,.cmp-note a,.bk-hint a,.bkfail a,.hsub a{
+  color:var(--lnk);font-weight:500;text-decoration:underline;
+  text-decoration-color:var(--lnk-line);text-decoration-thickness:1.5px;text-underline-offset:.22em;
+  transition:color .2s,text-decoration-color .2s,text-decoration-thickness .2s}
+section p a:not([class]):hover,section li a:not([class]):hover,section dd a:not([class]):hover,
+.article a:hover,.fb a:hover,.cmp-p a:hover,.cmp-note a:hover,.bk-hint a:hover,.bkfail a:hover,.hsub a:hover{
+  color:var(--lnk-hover);text-decoration-color:currentColor;text-decoration-thickness:2px}
+.hero .hsub a{color:var(--lnk)}
+.hero .hsub a:hover{color:var(--lnk-hover)}
