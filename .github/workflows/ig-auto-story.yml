@@ -107,6 +107,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}   # the Worker keeps and renews the live Threads token
         run: node bin/crosspost.mjs
 
       - name: Commit & push the cross-post record

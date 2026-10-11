@@ -206,13 +206,53 @@ async function thReady(id, token, { timeoutMs = 300_000 } = {}) {
   throw new Error("Threads never finished the media");
 }
 
-/** Threads token and account: two GitHub secrets (THREADS_ACCESS_TOKEN, THREADS_USER_ID). Null = not connected yet. */
-export function threadsAuth(env = process.env) {
-  const token = env.THREADS_ACCESS_TOKEN, user = env.THREADS_USER_ID;
-  return token && user ? { token, user } : null;
+/**
+ * The Threads token and account. Two GitHub secrets seed it (THREADS_ACCESS_TOKEN, THREADS_USER_ID);
+ * the booking Worker then keeps the live copy (route /v1/ig/threads-token, same secret as the board
+ * sync, IG_SYNC_SECRET) because a Threads token lasts 60 days and a workflow cannot rewrite its own
+ * secrets. Each run: use the Worker's copy, renew it when it is 25 days old and put the new one back.
+ * A new token in the GitHub secret replaces the stored one (compared by `origin`). Null = not connected.
+ */
+const RENEW_AFTER_MS = 25 * 86_400_000;
+const workerUrl = () => `${(config.approvals_url ?? "").replace(/\/v1\/ig\/approvals$/, "")}/v1/ig/threads-token`;
+const fingerprint = (t) => { let h = 0; for (const c of String(t)) h = (h * 33 + c.charCodeAt(0)) >>> 0; return `${String(t).length}-${h.toString(16)}`; };
+
+export async function threadsAuth(env = process.env, now = Date.now()) {
+  const secret = env.IG_SYNC_SECRET;
+  const seed = env.THREADS_ACCESS_TOKEN && env.THREADS_USER_ID
+    ? { token: env.THREADS_ACCESS_TOKEN, user_id: env.THREADS_USER_ID, saved_at: Date.parse(env.THREADS_TOKEN_SAVED ?? "") || now, origin: fingerprint(env.THREADS_ACCESS_TOKEN) }
+    : null;
+  const headers = { Authorization: `Bearer ${secret}`, "Content-Type": "application/json" };
+  const put = (v) => fetch(workerUrl(), { method: "PUT", headers, body: JSON.stringify(v), signal: AbortSignal.timeout(30_000) })
+    .then((r) => { if (!r.ok) throw new Error(`token store ${r.status}`); });
+
+  let stored = null;
+  if (secret) {
+    try {
+      const r = await fetch(workerUrl(), { headers, signal: AbortSignal.timeout(30_000) });
+      if (r.ok) stored = await r.json();
+    } catch { /* the Worker being unreachable must not stop a post: fall back to the secret */ }
+  }
+  let cur = stored?.token && !(seed && stored.origin !== seed.origin) ? stored : seed;
+  if (!cur) return null;
+  if (secret && cur === seed) await put(cur).catch((e) => console.warn(`threads: could not store the token (${e.message})`));
+
+  if (now - cur.saved_at > RENEW_AFTER_MS) {
+    const url = new URL(`${THREADS.replace("/v1.0", "")}/refresh_access_token`);
+    url.searchParams.set("grant_type", "th_refresh_token");
+    url.searchParams.set("access_token", cur.token);
+    const res = await fetch(url, { signal: AbortSignal.timeout(30_000) });
+    const j = await res.json().catch(() => ({}));
+    if (!res.ok || !j.access_token) {
+      throw new Error(`the Threads token could not be renewed (${j.error?.message ?? res.status}): make a new one in the Meta app and set THREADS_ACCESS_TOKEN`);
+    }
+    cur = { ...cur, token: j.access_token, saved_at: now };
+    if (secret) await put(cur).catch((e) => console.warn(`threads: renewed, but could not store it (${e.message})`));
+  }
+  return { token: cur.token, user: cur.user_id };
 }
 
-export async function threads(item, auth = threadsAuth()) {
+export async function threads(item, auth) {
   if (!auth) throw new Error("Threads is not connected (THREADS_ACCESS_TOKEN / THREADS_USER_ID)");
   const { token, user } = auth;
   const text = threadsText(item);
@@ -257,8 +297,12 @@ const CHANNELS = {
     has: (item, since) => facebookHas(item, since),
   },
   threads: {
-    ready: () => (threadsAuth() ? null : "not connected yet (THREADS_ACCESS_TOKEN and THREADS_USER_ID are not set)"),
-    send: (item) => threads(item),
+    auth: null,
+    async ready() {
+      try { this.auth = await threadsAuth(); } catch (err) { return `token problem: ${err.message}`; }
+      return this.auth ? null : "not connected yet (THREADS_ACCESS_TOKEN and THREADS_USER_ID are not set)";
+    },
+    send(item) { return threads(item, this.auth); },
     has: async () => null,
   },
 };
@@ -271,8 +315,15 @@ export async function crosspostAll({ kinds = ["feed", "story"], dry = false, log
   const summary = { sent: 0, failed: 0, skipped: [] };
   for (const [channel, impl] of Object.entries(CHANNELS)) {
     if (config.crosspost?.[channel] === false) continue;
-    const blocked = impl.ready();
-    if (blocked) { log(`${channel}: ${blocked}`); summary.skipped.push(channel); continue; }
+    // A channel that is not connected yet is a normal state, not a failure. A token that cannot be
+    // renewed is: that one alerts (once per run), because posts are waiting.
+    const blocked = await impl.ready();
+    if (blocked) {
+      log(`${channel}: ${blocked}`);
+      summary.skipped.push(channel);
+      if (/token problem/.test(blocked) && waiting(channel, { igLedger }).length) await alert(`CHIFBAY ${channel} is stuck`, blocked);
+      continue;
+    }
     for (const entry of waiting(channel, { igLedger }).filter((e) => kinds.includes(e.kind))) {
       const item = loadItem(entry);
       if (dry) { log(`[dry-run] ${channel} would get ${entry.kind} ${entry.id}`); continue; }

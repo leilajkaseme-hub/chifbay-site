@@ -422,8 +422,7 @@ IG_TRANSPORT=dry-run IG_NO_JITTER=1 IG_KIND=story node bin/post.mjs
 
 ## Not done yet
 
-- **Location tag.** The API accepts a `location_id` on feed posts. Tagging
-  Funchal helps local discovery. Needs the Page ID for the location.
+- ~~Location tag.~~ Done 11 Oct 2026: `config.location_id` = our own Facebook Page (Marina do Funchal).
 - **Alt text.** Sent as `alt_text` on photos and carousel slides that have one (curated sets).
   If Instagram refuses the field, the post goes out without it (`imageContainer()` in publish.mjs).
 
@@ -478,3 +477,52 @@ posts: `node bin/regrade.mjs` (rebuilds from the originals, keeps captions). No 
 - The old daily "post this Reel yourself" reminder (`reel-due`) is gone: Reels go out by API.
 - Music from Instagram's library cannot be added by the API. Reels carry our own sound (the sea from
   the 360 camera, or the clip's own wind and voices).
+
+
+## Facebook Page and Threads (since 11 Oct 2026)
+
+Theo: "post on Instagram, the Facebook Page and Threads every day, stories on all three if possible".
+`bin/crosspost.mjs` runs as the last step of `ig-auto-post.yml` and `ig-auto-story.yml`, after the
+Instagram record is saved. Instagram never waits for it and never fails because of it.
+
+| | Instagram | Facebook Page | Threads |
+|---|---|---|---|
+| Photo, carousel | yes | yes (carousel = unpublished photos + one feed post) | yes |
+| Reel | yes | yes (`video_reels`: start, upload by URL, finish) | yes (video post) |
+| Story | yes | yes (photo story, video story) | **no such thing on Threads** |
+
+- **Own record**: `crosspost-ledger.jsonl`. An `ok` line = never sent again. A failure is retried on the next run
+  (twice a day) up to 4 times, then an alert says it gave up. A post that went out but was not recorded is found on
+  the Page before a retry (feed posts), so no double post.
+- **Only posts from `config.crosspost.since` on** (11 Oct 2026): nothing old is dragged onto a new channel.
+- **Facebook** uses the Page token of the same System User token as Instagram (permissions checked: `pages_manage_posts`,
+  `publish_video`; the Page lets it create content). No extra secret. Page id: `config.fb_page_id`.
+- **Threads** needs its own token: the Threads API takes only a Threads user token, not the System User one.
+  Setup (Theo's login): 1) create the Threads profile for @chifbay (log in with the Instagram account);
+  2) developers.facebook.com, app `chifbay-posting`, add the use case "Access the Threads API" with `threads_basic` and
+  `threads_content_publish`; 3) add the Threads account as a Threads tester and accept it in the Threads app
+  (Settings, Account, Website permissions); 4) in the app's Threads API page, "User Token Generator", make a token for
+  that account and copy it with the user id. Then set the GitHub secrets `THREADS_ACCESS_TOKEN` and `THREADS_USER_ID`.
+  Until then the Threads lines in the log say "not connected yet" and nothing fails.
+- **Renewal**: a Threads token lasts 60 days. The first run with the secrets stores the token in the booking Worker
+  (`/v1/ig/threads-token`, secret `IG_SYNC_SECRET`); every run uses that copy and renews it after 25 days
+  (`th_refresh_token`), putting the new one back. A new token in the GitHub secret replaces the stored one. If a renewal
+  fails, the phone gets an alert and Threads stops until a new token is made.
+- **Words**: Facebook gets the full caption with the "link in bio" line replaced by a real link
+  (`?utm_source=facebook&utm_medium=social&utm_campaign=<post id>`; the booking Worker stores `utm_source` as the
+  partner tag, so orders from there show as partner "facebook"), 4 hashtags, alt text on photos. Threads gets the
+  keyword lead and as much of the caption as fits in 500 characters, a link with `utm_source=threads`, topic tag `Madeira`.
+- Test: `node test-crosspost.mjs` (13 cases, fake Meta), in CI. Look without sending:
+  `IG_ACCESS_TOKEN=x IG_TRANSPORT=dry-run node bin/crosspost.mjs`.
+
+### Keywords for search (Instagram search, Google, AI answers)
+
+- Every caption opens with one plain sentence holding the place and the service: "Private sunset cruise from
+  Funchal, Madeira." (`lib/seo.mjs`, leads in `brand.json` "seo"; new captions are asked for it in `lib/caption.mjs`,
+  and a lead is put in front if the model missed it). Words come from `scripts/data/seo-targets.json`.
+  `node bin/seo-captions.mjs [--write]` fixes the captions that are still waiting; posts already online stay as they are.
+- Photos carry default alt text with the same words (`altFor`), Facebook photos too (`alt_text_custom`).
+- Feed posts and Reels carry the Funchal place tag (`location_id`, see above).
+- Keyword hashtags added to the pools (#madeiraboattrip, #funchalboattrip, #cabogirao, #sunsetcruisemadeira...).
+- The Instagram name is already "CHIFBAY Private Boat Tour Madeira" (the name field is searched). The Facebook Page has no
+  About text yet: adding one with the same words is the next gain (Theo's OK, it is public).

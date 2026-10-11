@@ -41,6 +41,13 @@ globalThis.fetch = async (input, init = {}) => {
       : json({ success: true, post_id: "PAGE_reel" });
     if (p === "/VID1") return json({ status: { video_status: "ready" } });
   }
+  if (url.host === "chifbay-booking-api.chifandcopt.workers.dev") {
+    if (method === "PUT") { scenario.stored = body; scenario.puts = (scenario.puts ?? 0) + 1; return json({ ok: true }); }
+    return scenario.stored ? json(scenario.stored) : json({}, 404);
+  }
+  if (url.host === "graph.threads.net" && p === "/refresh_access_token") {
+    return scenario.refreshFails ? json({ error: { message: "expired" } }, 400) : json({ access_token: "RENEWED_TOKEN_0123456789", expires_in: 5184000 });
+  }
   if (url.host === "graph.threads.net") {
     if (scenario.thDown) return json({ error: { message: "oops", code: 4 } }, 400);
     if (p === "/777/threads") return json({ id: `C${calls.length}` });
@@ -64,6 +71,7 @@ async function check(name, fn) {
   catch (e) { failed++; console.log(`  FAIL ${name}\n       ${e.message.split("\n")[0]}`); }
 }
 
+const AUTH = { token: "TH", user: "777" };
 const photo = { id: "p1", kind: "feed", media: "photo", url: "https://www.chifbay.com/ig/p1.jpg", slides: [{ url: "https://www.chifbay.com/ig/p1.jpg" }],
   caption: "Private boat trip from Funchal, Madeira.\n\nGlasses up under the cliffs.\nBooking link in bio.", hashtags: ["#madeira", "#funchal", "#boattrip"] };
 const carousel = { ...photo, id: "c1", slides: [1, 2, 3].map((n) => ({ url: `https://www.chifbay.com/ig/c1-${n}.jpg` })) };
@@ -115,7 +123,7 @@ await check("Facebook story: unpublished photo, then a photo story", async () =>
 });
 
 await check("Threads: image post, text under 500, topic tag, published once, permalink read back", async () => {
-  const r = await m.threads(photo);
+  const r = await m.threads(photo, AUTH);
   assert.equal(r.remote_id, "T1"); assert.match(r.permalink, /threads\.com/);
   const c = calls.find((x) => x.rec.endsWith("/777/threads"));
   assert.equal(c.q.media_type, "IMAGE"); assert.equal(c.q.topic_tag, "Madeira"); assert.ok(c.q.text.length <= 500);
@@ -123,17 +131,41 @@ await check("Threads: image post, text under 500, topic tag, published once, per
 });
 
 await check("Threads carousel and video", async () => {
-  await m.threads(carousel);
+  await m.threads(carousel, AUTH);
   assert.equal(calls.filter((x) => x.q.is_carousel_item === "true").length, 3);
   assert.ok(calls.some((x) => x.q.media_type === "CAROUSEL"));
   calls.length = 0;
-  await m.threads(reel);
+  await m.threads(reel, AUTH);
   assert.equal(calls.find((x) => x.rec.endsWith("/777/threads")).q.media_type, "VIDEO");
 });
 
-await check("without a Threads token nothing is sent to Threads and nothing fails", async () => {
-  assert.equal(m.threadsAuth({}), null);
-  assert.ok(m.threadsAuth({ THREADS_ACCESS_TOKEN: "a", THREADS_USER_ID: "b" }));
+await check("Threads token: none = not connected; the GitHub secret alone works; the Worker keeps the live copy", async () => {
+  const NOW = Date.parse("2026-10-11T12:00:00Z");
+  assert.equal(await m.threadsAuth({}, NOW), null);
+  const seed = { THREADS_ACCESS_TOKEN: "SEEDTOKEN_0123456789012345", THREADS_USER_ID: "17841400000", THREADS_TOKEN_SAVED: "2026-10-10T00:00:00Z" };
+  assert.deepEqual(await m.threadsAuth(seed, NOW), { token: "SEEDTOKEN_0123456789012345", user: "17841400000" });
+  assert.equal(calls.length, 0, "no secret, no Worker call");
+  // with the sync secret: stored on first use
+  const r = await m.threadsAuth({ ...seed, IG_SYNC_SECRET: "s" }, NOW);
+  assert.equal(r.token, "SEEDTOKEN_0123456789012345"); assert.equal(scenario.puts, 1);
+  assert.ok(scenario.stored.origin && scenario.stored.saved_at);
+  // second run: the stored copy is used, nothing is written again
+  await m.threadsAuth({ ...seed, IG_SYNC_SECRET: "s" }, NOW + 3_600_000);
+  assert.equal(scenario.puts, 1);
+});
+
+await check("Threads token is renewed at 25 days, the new one stored; a failed renewal says what to do", async () => {
+  const seed = { THREADS_ACCESS_TOKEN: "SEEDTOKEN_0123456789012345", THREADS_USER_ID: "17841400000", THREADS_TOKEN_SAVED: "2026-09-01T00:00:00Z", IG_SYNC_SECRET: "s" };
+  const NOW = Date.parse("2026-10-11T12:00:00Z"); // 40 days later
+  const r = await m.threadsAuth(seed, NOW);
+  assert.equal(r.token, "RENEWED_TOKEN_0123456789"); assert.equal(scenario.stored.token, "RENEWED_TOKEN_0123456789");
+  assert.equal(scenario.stored.saved_at, NOW);
+  // a new token in the GitHub secret replaces the stored one
+  const again = await m.threadsAuth({ ...seed, THREADS_ACCESS_TOKEN: "ANOTHERTOKEN_012345678901", THREADS_TOKEN_SAVED: "2026-10-11T00:00:00Z" }, NOW);
+  assert.equal(again.token, "ANOTHERTOKEN_012345678901");
+  // renewal refused
+  scenario = { refreshFails: true };
+  await assert.rejects(() => m.threadsAuth(seed, NOW), /could not be renewed/);
 });
 
 await check("waiting(): feed to both channels, stories to Facebook only, done and given-up posts skipped, old posts ignored", () => {
