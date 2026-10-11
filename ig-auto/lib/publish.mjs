@@ -15,6 +15,7 @@
 // in the account, so an unrelated busy webhook can starve it. The strict
 // response check in makeWebhook() exists for exactly that case.
 import { config } from "./queue.mjs";
+import { altFor } from "./seo.mjs";
 
 async function makeWebhook(item) {
   const hook = process.env.MAKE_IG_WEBHOOK;
@@ -59,7 +60,7 @@ async function makeWebhook(item) {
 export const GRAPH = "https://graph.facebook.com/v21.0";
 
 /** Meta returns its real reason inside error.message — surface it, not "400". */
-async function graphCall(path, body, method = "POST") {
+export async function graphCall(path, body, method = "POST") {
   const url = new URL(`${GRAPH}${path}`);
   const init = { method, signal: AbortSignal.timeout(120_000) };
   if (method === "GET") {
@@ -93,6 +94,23 @@ async function graphCall(path, body, method = "POST") {
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, process.env.IG_TEST_FAST === "1" ? 1 : ms));
+
+/**
+ * The Funchal place tag on a feed post or Reel (config.location_id = our own Facebook Page at Marina
+ * do Funchal, accepted by Instagram on 11 Oct 2026). Local search reads it. If Instagram ever
+ * refuses the field, the post goes out without it rather than not at all.
+ */
+async function withPlace(build) {
+  const id = process.env.IG_LOCATION_ID ?? config.location_id;
+  if (!id) return build({});
+  try {
+    return await build({ location_id: id });
+  } catch (err) {
+    if (!/location/i.test(err.message)) throw err;
+    console.warn(`place tag refused (${err.message.slice(0, 120)}), posting without it`);
+    return build({});
+  }
+}
 
 /**
  * Wait for Meta to finish downloading the image into the container.
@@ -181,12 +199,13 @@ async function carouselContainer(user, token, urls, caption, alts = []) {
     children.push(child.id);
   }
 
-  const parent = await graphCall(`/${user}/media`, {
+  const parent = await withPlace((place) => graphCall(`/${user}/media`, {
     media_type: "CAROUSEL",
     children: children.join(","),
     caption,
     access_token: token,
-  });
+    ...place,
+  }));
   if (!parent.id) throw new Error(`no carousel container id: ${JSON.stringify(parent).slice(0, 200)}`);
 
   // The parent has nothing to download — its children are already finished —
@@ -216,24 +235,26 @@ async function graph(item) {
   if (item.media === "video") {
     // A Reel, or a video story. Meta downloads and transcodes the file itself,
     // which takes far longer than a photo, hence the ten-minute wait.
-    container = await graphCall(`/${user}/media`, {
+    const makeVideo = (place) => graphCall(`/${user}/media`, {
       video_url: urls[0],
       access_token: token,
       ...(isStory
         ? { media_type: "STORIES" }
-        : { media_type: "REELS", caption: item.rendered_caption, share_to_feed: true,
+        : { media_type: "REELS", caption: item.rendered_caption, share_to_feed: true, ...place,
             ...(item.cover_url ? { cover_url: item.cover_url } : {}) }),
     });
+    container = isStory ? await makeVideo({}) : await withPlace(makeVideo);
     if (!container.id) throw new Error(`no video container id: ${JSON.stringify(container).slice(0, 200)}`);
     await waitForContainer(container.id, token, { timeoutMs: 600_000, everyMs: 10_000 });
   } else if (!isStory && urls.length > 1) {
-    container = { id: await carouselContainer(user, token, urls, item.rendered_caption, (item.slides ?? []).map((x) => x.alt)) };
+    container = { id: await carouselContainer(user, token, urls, item.rendered_caption, urls.map((_, i) => altFor(item, i))) };
   } else {
-    container = await imageContainer(user, {
+    const makeImage = (place) => imageContainer(user, {
       image_url: urls[0],
       access_token: token,
-      ...(isStory ? { media_type: "STORIES" } : { caption: item.rendered_caption }),
-    }, isStory ? null : item.slides?.[0]?.alt);
+      ...(isStory ? { media_type: "STORIES" } : { caption: item.rendered_caption, ...place }),
+    }, isStory ? null : altFor(item, 0));
+    container = isStory ? await makeImage({}) : await withPlace(makeImage);
     if (!container.id) throw new Error(`no container id: ${JSON.stringify(container).slice(0, 200)}`);
     await waitForContainer(container.id, token);
   }

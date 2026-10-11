@@ -67,5 +67,16 @@
     "sun": "rest"
   },
   "allow_test_reels": false,
-  "heartbeat_max_hours_since_story": 40
+  "heartbeat_max_hours_since_story": 40,
+  "location_id": "1302083819644372",
+  "_comment_location": "Chifbay's own Facebook Page (Marina do Funchal) is the Funchal place tag: Instagram accepts it as location_id (checked 11 Oct 2026). Used on feed posts and Reels; a refusal posts without it.",
+  "fb_page_id": "1302083819644372",
+  "site_url": "https://chifbay.com",
+  "crosspost": {
+    "facebook": true,
+    "threads": true,
+    "days_back": 2,
+    "since": "2026-10-11T00:00:00Z"
+  },
+  "_comment_crosspost": "After an Instagram post is live, the same post goes to the Facebook Page (feed, Reels, stories) and Threads (feed only, Threads has no stories). bin/crosspost.mjs, own ledger crosspost-ledger.jsonl, a failure there never touches Instagram. Threads waits for its token (see README)."
 }

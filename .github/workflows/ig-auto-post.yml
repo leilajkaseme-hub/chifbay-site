@@ -91,6 +91,31 @@ jobs:
           git commit -m "Instagram: posted $(date -u +%Y-%m-%d)"
           scripts/ci-push.sh
 
+      # Facebook Page and Threads get the same post a minute after Instagram has it. A failure here
+      # never fails this job (Instagram is already safe): it is written in crosspost-ledger.jsonl
+      # and sent to the phone by the script itself. Threads waits for its token (ig-auto/README.md).
+      - name: Cross-post to the Facebook Page and Threads
+        if: always()
+        continue-on-error: true
+        working-directory: ig-auto
+        env:
+          CROSSPOST_KINDS: feed
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+        run: node bin/crosspost.mjs
+
+      - name: Commit & push the cross-post record
+        if: always()
+        run: |
+          git add ig-auto/crosspost-ledger.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "nothing to record"
+            exit 0
+          fi
+          git commit -m "Cross-post: Facebook and Threads, $(date -u +%Y-%m-%d)"
+          scripts/ci-push.sh
+
       - name: Notify failure (ntfy)
         if: failure()
         run: |

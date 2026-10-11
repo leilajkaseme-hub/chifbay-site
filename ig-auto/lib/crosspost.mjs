@@ -1,0 +1,302 @@
+// crosspost.mjs — the same post, on the Facebook Page and on Threads, a few minutes after Instagram.
+//
+// Theo, 11 Oct 2026: post on Instagram, the Facebook Page and Threads every day, and the stories on
+// all three "if possible". Facebook Page: feed photo, carousel, Reel and story. Threads: feed only
+// (Threads has no stories). Instagram is always first and never waits for this: a failure here is
+// written in its own ledger (crosspost-ledger.jsonl) and its own alert, and the Instagram record is
+// never touched.
+//
+// Published once: a post that has an ok line in the crosspost ledger is never sent again; a failed
+// one is tried again on the next run (twice a day) for `days_back` days, at most 4 times.
+//
+// Facebook uses the Page token of the same System User token as Instagram (permissions checked on
+// 11 Oct 2026: pages_manage_posts, publish_video). Threads needs its own token: see README.
+import { appendFileSync, existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { ROOT, config, readLedger } from "./queue.mjs";
+import { assertImageIsLive, graphCall, slideUrls } from "./publish.mjs";
+import { readReelPlan, reelItem } from "./autopilot.mjs";
+import { altFor, fewTags } from "./seo.mjs";
+import { alert } from "./notify.mjs";
+
+export const THREADS = "https://graph.threads.net/v1.0";
+const sleep = (ms) => new Promise((r) => setTimeout(r, process.env.IG_TEST_FAST === "1" ? 1 : ms));
+const LEDGER = process.env.CROSSPOST_LEDGER || join(ROOT, "crosspost-ledger.jsonl");
+const MAX_TRIES = 4;
+
+// ---- the words ------------------------------------------------------------------------------
+
+/** The caption as written for Instagram, without its hashtag block. */
+export function bodyOf(item) {
+  let t = String(item.caption ?? item.rendered_caption ?? "");
+  t = t.replace(/\n+(?:#[\p{L}\p{N}_]+\s*)+$/u, "");
+  return t.trim();
+}
+
+/** Instagram-only phrases ("link in bio") become the real link, which works on Facebook and Threads. */
+export function withoutBioLink(text) {
+  return text
+    .replace(/[ \t]*(?:the )?(?:booking )?link in (?:our )?bio[^\n.!?]*[.!?]?/gi, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+export const bookUrl = (channel, id) =>
+  `${config.site_url ?? "https://chifbay.com"}/?utm_source=${channel}&utm_medium=social&utm_campaign=${encodeURIComponent(id)}`;
+
+/** Facebook: the full caption, a real link, a few hashtags. Google reads Page posts, so the keyword lead stays. */
+export function facebookMessage(item) {
+  const text = withoutBioLink(bodyOf(item));
+  const tags = fewTags(item.hashtags, 4).join(" ");
+  return `${text}\n\nBook a private boat trip in Madeira: ${bookUrl("facebook", item.id)}${tags ? `\n\n${tags}` : ""}`;
+}
+
+/** Threads: 500 characters in all. The keyword lead first, the rest as far as it fits, one link at the end. */
+export function threadsText(item) {
+  const link = bookUrl("threads", item.id);
+  const room = 500 - link.length - 4;
+  const paras = withoutBioLink(bodyOf(item)).split(/\n+/).map((p) => p.trim()).filter(Boolean);
+  let out = "";
+  for (const p of paras) {
+    const next = out ? `${out}\n${p}` : p;
+    if (next.length > room) break;
+    out = next;
+  }
+  if (!out) out = (paras[0] ?? "").slice(0, room - 1).replace(/\s+\S*$/, "") + "…";
+  return `${out}\n\n${link}`;
+}
+
+// ---- what is waiting ------------------------------------------------------------------------
+
+const readLines = (file) => (existsSync(file)
+  ? readFileSync(file, "utf8").split("\n").filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean)
+  : []);
+export const crossLedger = () => readLines(LEDGER);
+const writeCross = (entry) => appendFileSync(LEDGER, JSON.stringify({ at: new Date().toISOString(), ...entry }) + "\n");
+
+/** The full post for an Instagram ledger line: queue item, Reel plan entry, or the ledger line itself. */
+export function loadItem(entry) {
+  const posted = join(ROOT, "posted", `${entry.id}.json`);
+  if (existsSync(posted)) return { ...JSON.parse(readFileSync(posted, "utf8")), kind: entry.kind };
+  const reel = (readReelPlan().reels ?? []).find((r) => r.id === entry.id);
+  if (reel) return { ...reelItem(reel), kind: entry.kind };
+  return entry;
+}
+
+/** Instagram posts of the last days that a channel has not got yet, oldest first. */
+export function waiting(channel, { days = config.crosspost?.days_back ?? 3, now = Date.now(), igLedger = readLedger(), cross = crossLedger() } = {}) {
+  const done = new Set(cross.filter((e) => e.channel === channel && e.ok).map((e) => e.id));
+  const tries = new Map();
+  for (const e of cross.filter((e) => e.channel === channel && !e.ok)) tries.set(e.id, (tries.get(e.id) ?? 0) + 1);
+  const seen = new Set();
+  return igLedger
+    .filter((e) => e.ok && e.id && (e.kind === "feed" || e.kind === "story") && e.transport !== "dry-run")
+    .filter((e) => now - Date.parse(e.at) < days * 86_400_000)
+    .filter((e) => Date.parse(e.at) >= Date.parse(config.crosspost?.since ?? 0)) // nothing from before the channel started
+    .filter((e) => (channel === "threads" ? e.kind === "feed" : true))
+    .filter((e) => !done.has(e.id) && (tries.get(e.id) ?? 0) < MAX_TRIES)
+    .filter((e) => (seen.has(e.id) ? false : seen.add(e.id)))
+    .sort((a, b) => a.at.localeCompare(b.at));
+}
+
+// ---- Facebook Page --------------------------------------------------------------------------
+
+async function pageToken(userToken, page) {
+  const r = await graphCall(`/${page}`, { fields: "access_token", access_token: userToken }, "GET");
+  if (!r.access_token) throw new Error("no Page access token: the token needs a role on the Facebook Page");
+  return r.access_token;
+}
+
+/** Video upload by URL (Reels and video stories): Facebook fetches the file itself. */
+async function ruploadFromUrl(uploadUrl, token, fileUrl) {
+  const res = await fetch(uploadUrl, {
+    method: "POST", headers: { Authorization: `OAuth ${token}`, file_url: fileUrl }, signal: AbortSignal.timeout(300_000),
+  });
+  const j = await res.json().catch(() => ({}));
+  if (!res.ok || j.success === false || j.error) throw new Error(`video upload refused: ${JSON.stringify(j).slice(0, 240)}`);
+}
+
+async function waitForVideo(videoId, token, { timeoutMs = 600_000 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const v = await graphCall(`/${videoId}`, { fields: "status", access_token: token }, "GET").catch(() => ({}));
+    const st = v.status?.video_status;
+    if (st === "error") throw new Error(`Facebook refused the video: ${JSON.stringify(v.status).slice(0, 240)}`);
+    if (st === "ready" || v.status?.publishing_phase?.status === "complete") return true;
+    await sleep(10_000);
+  }
+  return false; // still processing: published all the same, only not confirmed yet
+}
+
+export async function facebook(item, { userToken = process.env.IG_ACCESS_TOKEN, page = process.env.FB_PAGE_ID || config.fb_page_id } = {}) {
+  if (!userToken) throw new Error("IG_ACCESS_TOKEN is not set");
+  if (!page) throw new Error("no fb_page_id in config.json");
+  const token = await pageToken(userToken, page);
+  const urls = slideUrls(item);
+  const isVideo = item.media === "video";
+
+  if (item.kind === "story") {
+    if (isVideo) {
+      const start = await graphCall(`/${page}/video_stories`, { upload_phase: "start", access_token: token });
+      await ruploadFromUrl(start.upload_url, token, urls[0]);
+      const end = await graphCall(`/${page}/video_stories`, { video_id: start.video_id, upload_phase: "finish", access_token: token });
+      return { remote_id: end.post_id ?? start.video_id };
+    }
+    const photo = await graphCall(`/${page}/photos`, { url: urls[0], published: false, access_token: token });
+    const st = await graphCall(`/${page}/photo_stories`, { photo_id: photo.id, access_token: token });
+    return { remote_id: st.post_id ?? photo.id };
+  }
+
+  const message = facebookMessage(item);
+  if (isVideo) {
+    const start = await graphCall(`/${page}/video_reels`, { upload_phase: "start", access_token: token });
+    await ruploadFromUrl(start.upload_url, token, urls[0]);
+    const end = await graphCall(`/${page}/video_reels`, {
+      video_id: start.video_id, upload_phase: "finish", video_state: "PUBLISHED", description: message, access_token: token,
+    });
+    const ready = await waitForVideo(start.video_id, token);
+    return { remote_id: end.post_id ?? start.video_id, unverified: ready ? undefined : "still processing" };
+  }
+  if (urls.length === 1) {
+    const r = await graphCall(`/${page}/photos`, { url: urls[0], message, alt_text_custom: altFor(item, 0).slice(0, 400), published: true, access_token: token });
+    return { remote_id: r.post_id ?? r.id };
+  }
+  const ids = [];
+  for (const [i, url] of urls.entries()) {
+    const p = await graphCall(`/${page}/photos`, { url, published: false, alt_text_custom: altFor(item, i).slice(0, 400), access_token: token });
+    if (!p.id) throw new Error(`no photo id for slide ${i + 1}`);
+    ids.push(p.id);
+  }
+  const r = await graphCall(`/${page}/feed`, { message, attached_media: ids.map((media_fbid) => ({ media_fbid })), access_token: token });
+  return { remote_id: r.id };
+}
+
+/** Did this post go out after all (a timeout can hide a success)? Feed posts only. */
+export async function facebookHas(item, sinceMs, { userToken = process.env.IG_ACCESS_TOKEN, page = process.env.FB_PAGE_ID || config.fb_page_id } = {}) {
+  if (item.kind === "story") return null;
+  const token = await pageToken(userToken, page);
+  const r = await graphCall(`/${page}/posts`, { fields: "id,message,created_time", limit: "8", access_token: token }, "GET");
+  const head = facebookMessage(item).slice(0, 60);
+  const hit = (r.data ?? []).find((x) => Date.parse(x.created_time) >= sinceMs - 120_000 && String(x.message ?? "").startsWith(head));
+  return hit ? hit.id : null;
+}
+
+// ---- Threads --------------------------------------------------------------------------------
+
+async function thCall(path, params, method = "POST") {
+  const url = new URL(`${THREADS}${path}`);
+  for (const [k, v] of Object.entries(params)) if (v != null) url.searchParams.set(k, String(v));
+  const res = await fetch(url, { method, signal: AbortSignal.timeout(120_000) });
+  const j = await res.json().catch(() => ({}));
+  if (!res.ok || j.error) {
+    const e = j.error ?? {};
+    throw new Error(`threads ${path}: ${e.message ?? res.status}${e.code != null ? ` [code ${e.code}]` : ""}`);
+  }
+  return j;
+}
+
+async function thReady(id, token, { timeoutMs = 300_000 } = {}) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const s = await thCall(`/${id}`, { fields: "status,error_message", access_token: token }, "GET");
+    if (s.status === "FINISHED") return;
+    if (s.status === "ERROR" || s.status === "EXPIRED") throw new Error(`Threads refused the media: ${s.error_message ?? s.status}`);
+    await sleep(5_000);
+  }
+  throw new Error("Threads never finished the media");
+}
+
+/** Threads token and account: two GitHub secrets (THREADS_ACCESS_TOKEN, THREADS_USER_ID). Null = not connected yet. */
+export function threadsAuth(env = process.env) {
+  const token = env.THREADS_ACCESS_TOKEN, user = env.THREADS_USER_ID;
+  return token && user ? { token, user } : null;
+}
+
+export async function threads(item, auth = threadsAuth()) {
+  if (!auth) throw new Error("Threads is not connected (THREADS_ACCESS_TOKEN / THREADS_USER_ID)");
+  const { token, user } = auth;
+  const text = threadsText(item);
+  const urls = slideUrls(item);
+  const tag = process.env.THREADS_TOPIC ?? "Madeira";
+  const make = async (params) => {
+    try { return await thCall(`/${user}/threads`, { ...params, topic_tag: tag, access_token: token }); }
+    catch (err) {
+      if (!/topic/i.test(err.message)) throw err;
+      return thCall(`/${user}/threads`, { ...params, access_token: token });
+    }
+  };
+  let creation;
+  if (item.media === "video") {
+    creation = await make({ media_type: "VIDEO", video_url: urls[0], text });
+    await thReady(creation.id, token);
+  } else if (urls.length > 1) {
+    const kids = [];
+    for (const image_url of urls.slice(0, 20)) {
+      const c = await thCall(`/${user}/threads`, { media_type: "IMAGE", image_url, is_carousel_item: true, access_token: token });
+      await thReady(c.id, token);
+      kids.push(c.id);
+    }
+    creation = await make({ media_type: "CAROUSEL", children: kids.join(","), text });
+    await thReady(creation.id, token);
+  } else {
+    creation = await make({ media_type: "IMAGE", image_url: urls[0], text });
+    await thReady(creation.id, token);
+  }
+  if (!creation.id) throw new Error("no Threads container id");
+  const out = await thCall(`/${user}/threads_publish`, { creation_id: creation.id, access_token: token });
+  const seen = await thCall(`/${out.id}`, { fields: "permalink", access_token: token }, "GET").catch(() => ({}));
+  return { remote_id: out.id, permalink: seen.permalink };
+}
+
+// ---- the run --------------------------------------------------------------------------------
+
+const CHANNELS = {
+  facebook: {
+    ready: () => (process.env.IG_ACCESS_TOKEN ? null : "IG_ACCESS_TOKEN is not set"),
+    send: (item) => facebook(item),
+    has: (item, since) => facebookHas(item, since),
+  },
+  threads: {
+    ready: () => (threadsAuth() ? null : "not connected yet (THREADS_ACCESS_TOKEN and THREADS_USER_ID are not set)"),
+    send: (item) => threads(item),
+    has: async () => null,
+  },
+};
+
+/**
+ * Send every waiting post to every connected channel. Returns a summary; never throws for a
+ * channel failure (it is recorded and alerted), so Instagram's job stays green.
+ */
+export async function crosspostAll({ kinds = ["feed", "story"], dry = false, log = console.log, igLedger } = {}) {
+  const summary = { sent: 0, failed: 0, skipped: [] };
+  for (const [channel, impl] of Object.entries(CHANNELS)) {
+    if (config.crosspost?.[channel] === false) continue;
+    const blocked = impl.ready();
+    if (blocked) { log(`${channel}: ${blocked}`); summary.skipped.push(channel); continue; }
+    for (const entry of waiting(channel, { igLedger }).filter((e) => kinds.includes(e.kind))) {
+      const item = loadItem(entry);
+      if (dry) { log(`[dry-run] ${channel} would get ${entry.kind} ${entry.id}`); continue; }
+      const started = Date.now();
+      try {
+        for (const url of slideUrls(item)) await assertImageIsLive(url);
+        let out = await impl.has(item, started).catch(() => null).then((id) => (id ? { remote_id: id, recovered: true } : null));
+        if (!out) out = await impl.send(item);
+        writeCross({ ok: true, channel, kind: entry.kind, id: entry.id, ...out });
+        log(`${channel}: ${entry.kind} ${entry.id} -> ${out.remote_id}${out.recovered ? " (was already there)" : ""}`);
+        summary.sent++;
+      } catch (err) {
+        const why = String(err?.message ?? err).slice(0, 400);
+        const before = crossLedger().filter((e) => e.channel === channel && e.id === entry.id && !e.ok).length;
+        writeCross({ ok: false, channel, kind: entry.kind, id: entry.id, error: why });
+        log(`${channel}: ${entry.kind} ${entry.id} FAILED: ${why}`);
+        summary.failed++;
+        if (before + 1 >= MAX_TRIES) {
+          await alert(`CHIFBAY ${channel} gave up`, `${entry.kind} ${entry.id} failed ${MAX_TRIES} times: ${why}`);
+        } else if (before === 0) {
+          await alert(`CHIFBAY ${channel} ${entry.kind} not posted`, `${entry.id}: ${why}\n\nThe next run tries again.`);
+        }
+      }
+    }
+  }
+  return summary;
+}

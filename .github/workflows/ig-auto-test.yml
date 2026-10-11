@@ -48,6 +48,10 @@ jobs:
         working-directory: ig-auto
         run: node test-auto.mjs
 
+      - name: Facebook Page and Threads sender still holds
+        working-directory: ig-auto
+        run: node test-crosspost.mjs
+
       # This one does need the packages: it asks the real libraryFiles() what it
       # would serve, and that pulls in sharp. Kept as its own step so a package
       # problem can never be mistaken for a publishing fault.

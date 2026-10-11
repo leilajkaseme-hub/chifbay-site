@@ -13,6 +13,7 @@
 //   - a similarity check against the last 30 captions forces a rewrite
 import { execFileSync } from "node:child_process";
 import { brand, config, recentPosts } from "./queue.mjs";
+import { withLead } from "./seo.mjs";
 
 // --- variety helpers -------------------------------------------------------
 
@@ -181,6 +182,13 @@ export function writeCaption({ imagePath, angleHint, recent, source = "library" 
     `Suggested angle if the photo fits it: ${angleHint.key} — ${angleHint.brief}`,
     `End with this call to action, in your own phrasing: "${cta}"`,
     "",
+    "Search words (Instagram search, Google and AI answers read the caption): the FIRST sentence,",
+    "within its first 120 characters, must say plainly where and what, in words people search for,",
+    "for example \"Private sunset cruise from Funchal, Madeira.\" or \"Cabo Girão boat tour from Funchal.\"",
+    "Use the place (Funchal, Madeira) and ONE service phrase (private boat trip, Madeira boat tour,",
+    "sunset cruise, Cabo Girão boat tour, day boat trip with a swim stop) that really fits the picture.",
+    "Say it once, as a normal sentence a person would write. Never a list of keywords, never repeated.",
+    "",
     "Hard rules: no hashtags at all (they are added separately). No prices.",
     "Never say more than five guests. Never guarantee wildlife sightings.",
     "2 to 5 short lines. Plain English.",
@@ -208,7 +216,8 @@ export function writeCaption({ imagePath, angleHint, recent, source = "library" 
       (t) => similarity(text, t) > config.caption_similarity_max,
     );
     if (!bad.length && !tooSimilar) {
-      return { text, hashtags: pickHashtags(recent, angle), angle: angle.key, writer: "claude" };
+      // The model is asked for the place in the first sentence; if it still missed, a lead is put in front.
+      return { text: withLead(text, { angle: angle.key, id: String(recent.length) }), hashtags: pickHashtags(recent, angle), angle: angle.key, writer: "claude" };
     }
     console.warn(
       `caption attempt ${attempt} rejected: ${bad.join(", ") || "too similar to a recent caption"}`,
@@ -216,7 +225,7 @@ export function writeCaption({ imagePath, angleHint, recent, source = "library" 
   }
 
   return {
-    text: template(angleHint, cta),
+    text: withLead(template(angleHint, cta), { angle: angleHint.key, id: String(recent.length) }),
     hashtags: pickHashtags(recent, angleHint),
     angle: angleHint.key,
     writer: "template",
