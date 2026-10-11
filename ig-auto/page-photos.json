@@ -1,0 +1,20 @@
+{
+  "_about": "Real photos for the Facebook Page albums, with search words in the caption and alt text. Uploaded by bin/page-profile.mjs photos (workflow ig-auto-page-profile.yml); each file is uploaded once (page-photos-ledger.jsonl). Only real photos of our boat and coast, faces not the focus.",
+  "albums": [
+    {
+      "name": "Private boat trips from Funchal, Madeira",
+      "message": "Our boat, our coast: Cabo Girão, Câmara de Lobos, Fajã dos Padres and Marina do Funchal, seen from a private boat trip.",
+      "photos": [
+        { "url": "https://chifbay.com/assets/g-cliff-portrait.jpg", "caption": "Cabo Girão, the 580 m sea cliff on Madeira's south coast, seen from the water on a private boat trip from Funchal.", "alt": "Cabo Girão sea cliff in Madeira seen from a boat" },
+        { "url": "https://chifbay.com/social-drive/img-1729-1JAFIJI0.jpg", "caption": "Our boat cruising below the cliffs: a private boat tour from Marina do Funchal, Madeira, five guests at most.", "alt": "Private boat tour cruising below the Madeira cliffs near Cabo Girão" },
+        { "url": "https://chifbay.com/social-iphone/IMG_5343.jpg", "caption": "The cliff coast west of Funchal, between Câmara de Lobos and Cabo Girão, from the sea.", "alt": "Cliff coast west of Funchal, Madeira, from a boat" },
+        { "url": "https://chifbay.com/social-iphone/IMG_5393.jpg", "caption": "From the bow: leaving Funchal bay on a private boat trip along Madeira's south coast.", "alt": "View from the bow of a private boat leaving Funchal bay, Madeira" },
+        { "url": "https://chifbay.com/social-iphone/IMG_2818.jpg", "caption": "Swim stop under the cliffs: the Day Trip from Funchal stops for a swim and paddle, with the boat just for your group.", "alt": "Guests swimming under the cliffs on a Day Trip from Funchal, Madeira" },
+        { "url": "https://chifbay.com/assets/deck.jpg", "caption": "On board: a private boat from Marina do Funchal with room for five guests and a skipper.", "alt": "Deck of a private boat in Marina do Funchal, Madeira" },
+        { "url": "https://chifbay.com/assets/marina.jpg", "caption": "Marina do Funchal, Madeira: the meeting point of every Chifbay boat trip.", "alt": "Marina do Funchal, meeting point of the boat trips" },
+        { "url": "https://chifbay.com/assets/skippers.jpg", "caption": "Your two skippers on a Chifbay private boat trip from Funchal, Madeira.", "alt": "The two skippers of Chifbay, private boat trips in Madeira" },
+        { "url": "https://chifbay.com/social-drive/001-12M0Xk9l.jpg", "caption": "Sunset at sea: the Sunset Trip leaves Funchal 1h15 before the sun goes down, so the light is right all year.", "alt": "Bow of a boat at sunset off Funchal, Madeira" }
+      ]
+    }
+  ]
+}

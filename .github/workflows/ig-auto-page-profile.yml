@@ -1,0 +1,51 @@
+name: Chifbay — Facebook Page profile and photos (manual)
+
+# Sets the Facebook Page profile from ig-auto/page-profile.json and uploads ig-auto/page-photos.json.
+# Run by hand, one step at a time: discover (find category ids), show (what the Page has now),
+# apply (write the profile), photos (upload the album). Safe to repeat: a photo already uploaded is skipped.
+on:
+  workflow_dispatch:
+    inputs:
+      step:
+        description: "discover | show | apply | photos"
+        required: true
+        default: "show"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-auto
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  page:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Run
+        working-directory: ig-auto
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node bin/page-profile.mjs "${{ github.event.inputs.step }}"
+      - name: Commit the photo record
+        if: always()
+        run: |
+          git add ig-auto/page-photos-ledger.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then echo "nothing to record"; exit 0; fi
+          git commit -m "Facebook Page photos: upload record"
+          scripts/ci-push.sh
