@@ -768,6 +768,20 @@
     "follows": null,
     "profile_visits": null,
     "ig_reels_avg_watch_time": 7479
+   },
+   "d7": {
+    "at": "2026-10-11T12:47:07.845Z",
+    "age_hours": 189,
+    "reach": 179,
+    "views": 255,
+    "likes": 7,
+    "comments": 0,
+    "shares": 1,
+    "saved": 0,
+    "total_interactions": 8,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 7899
    }
   },
   "18410757622091529": {
@@ -874,8 +888,32 @@
     "id": "20261002204319-4b3e",
     "format": null,
     "source": "curated"
+   },
+   "h24": {
+    "at": "2026-10-11T12:47:07.845Z",
+    "age_hours": 44,
+    "reach": 58,
+    "views": 126,
+    "likes": 6,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 8,
+    "follows": 0,
+    "profile_visits": 1,
+    "ig_reels_avg_watch_time": null
+   }
+  },
+  "18059546084554048": {
+   "posted_at": "2026-10-10T17:05:42+0000",
+   "permalink": "https://www.instagram.com/reel/DeUlFXkAIVO/",
+   "type": "reel",
+   "ours": {
+    "id": "r14-paddle",
+    "format": null,
+    "source": "reel"
    }
   }
  },
- "updated_at": "2026-10-10T12:29:46.142Z"
+ "updated_at": "2026-10-11T12:47:07.845Z"
 }
