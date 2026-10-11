@@ -84,8 +84,14 @@ export function loadItem(entry) {
 }
 
 /** Instagram posts of the last days that a channel has not got yet, oldest first. */
-export function waiting(channel, { days = config.crosspost?.days_back ?? 3, now = Date.now(), igLedger = readLedger(), cross = crossLedger() } = {}) {
+export function waiting(channel, { days = config.crosspost?.days_back ?? 3, now = Date.now(), igLedger = readLedger(), cross = crossLedger(), only = process.env.CROSSPOST_ONLY } = {}) {
   const done = new Set(cross.filter((e) => e.channel === channel && e.ok).map((e) => e.id));
+  // CROSSPOST_ONLY=id1,id2 (manual run): exactly these Instagram posts, whatever their age.
+  if (only) {
+    const want = new Set(String(only).split(",").map((x) => x.trim()).filter(Boolean));
+    return igLedger.filter((e) => e.ok && want.has(e.id) && (e.kind === "feed" || e.kind === "story") && !done.has(e.id)
+      && (channel !== "threads" || e.kind === "feed")).sort((a, b) => a.at.localeCompare(b.at));
+  }
   const tries = new Map();
   for (const e of cross.filter((e) => e.channel === channel && !e.ok)) tries.set(e.id, (tries.get(e.id) ?? 0) + 1);
   const seen = new Set();

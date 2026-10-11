@@ -1,0 +1,55 @@
+name: Chifbay — send one Instagram post to the Facebook Page and Threads (manual)
+
+# Normal days need nothing: ig-auto-post.yml and ig-auto-story.yml do it by themselves.
+# This is for a post that must be (re)sent by hand, or to try a new type of post.
+# Enter the Instagram post id(s) from ig-auto/ledger.jsonl, separated by commas (for example
+# r14-paddle,20261009113306-2fdc). Leave it empty to run the normal catch-up.
+# A post already sent to a channel is never sent twice (crosspost-ledger.jsonl).
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: "Instagram post id(s), comma separated (empty = normal catch-up)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ig-auto
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  crosspost:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Send
+        working-directory: ig-auto
+        env:
+          CROSSPOST_ONLY: ${{ github.event.inputs.ids }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+        run: node bin/crosspost.mjs | tee /tmp/cross.log
+      - name: Commit & push the record
+        if: always()
+        run: |
+          git add ig-auto/crosspost-ledger.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then echo "nothing to record"; exit 0; fi
+          git commit -m "Cross-post (manual): $(date -u +%Y-%m-%d)"
+          scripts/ci-push.sh
