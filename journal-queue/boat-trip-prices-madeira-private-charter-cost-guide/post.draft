@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Boat Trip Madeira Prices: What a Private Charter Costs"/>
 <meta property="og:description" content="Private boat trip prices in Madeira from Funchal: Day Trip from €500, Sunset Trip from €400 for the whole boat, up to 5 guests. See exactly what is included."/>
-<meta property="og:image" content="https://chifbay.com/assets/hero.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/empty-boat-deck-seating-five-guests-madeira.jpg"/>
+<meta property="og:image:alt" content="The empty deck of a private boat with seating for five guests in Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/empty-boat-deck-seating-five-guests-madeira.jpg"/>
+<meta name="twitter:image:alt" content="The empty deck of a private boat with seating for five guests in Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Boat Trip Madeira Prices: What a Private Charter Costs and What Is Included","description":"Private boat trip prices in Madeira from Funchal: Day Trip from €500, Sunset Trip from €400 for the whole boat, up to 5 guests. See exactly what is included.","image":"https://chifbay.com/assets/hero.jpg","datePublished":"2026-10-22","dateModified":"2026-10-22","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/boat-trip-prices-madeira-private-charter-cost-guide.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Boat Trip Madeira Prices: What a Private Charter Costs and What Is Included","description":"Private boat trip prices in Madeira from Funchal: Day Trip from €500, Sunset Trip from €400 for the whole boat, up to 5 guests. See exactly what is included.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/empty-boat-deck-seating-five-guests-madeira.jpg","width":1536,"height":1024,"name":"Private boat charter prices in Madeira","caption":"The empty deck of a private boat with seating for five guests in Madeira","description":"The empty deck of a private boat with seating for five guests in Madeira"},"datePublished":"2026-10-22","dateModified":"2026-10-22","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/boat-trip-prices-madeira-private-charter-cost-guide.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a private boat trip in Madeira cost?","acceptedAnswer":{"@type":"Answer","text":"With Chifbay, a private Day Trip costs €500 for 2h30 or €600 for 3h, and a Sunset Trip costs €400 for 2h or €500 for 2h30. The price is for the whole boat, up to 5 guests."}},{"@type":"Question","name":"Is the price per person or per boat?","acceptedAnswer":{"@type":"Answer","text":"Per boat. The boat is yours alone, so the price is the same whether you are two guests or five."}},{"@type":"Question","name":"What is included in the price?","acceptedAnswer":{"@type":"Answer","text":"Drinks and food on board, an Insta360 360° video, drone footage from above (weather allowing) and high quality photos taken with a real camera, on every trip."}},{"@type":"Question","name":"Is a private boat trip cheaper than a shared tour?","acceptedAnswer":{"@type":"Answer","text":"For a group of four or five, a private trip often costs about the same per person as a shared tour, with no crowd, a flexible pace and photos and video included."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/hero.jpg');background-image:image-set(url('../assets/hero.webp') type('image/webp'),url('../assets/hero.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="The empty deck of a private boat with seating for five guests in Madeira" style="background-image:url('../assets/journal/empty-boat-deck-seating-five-guests-madeira.jpg');background-image:image-set(url('../assets/journal/empty-boat-deck-seating-five-guests-madeira.webp') type('image/webp'),url('../assets/journal/empty-boat-deck-seating-five-guests-madeira.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Guide</div>

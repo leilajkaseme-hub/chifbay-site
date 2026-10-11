@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Christmas and New Year in Madeira 2026: Lights, Market Night and Fireworks"/>
 <meta property="og:description" content="Christmas and New Year in Madeira 2026: lights from 1 December, Noite do Mercado on 23 December, Funchal fireworks on 31 December, and a sunset trip by sea."/>
-<meta property="og:image" content="https://chifbay.com/assets/hero.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/funchal-christmas-lights-new-year-fireworks-bay.jpg"/>
+<meta property="og:image:alt" content="Christmas lights and New Year fireworks over Funchal bay in Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/funchal-christmas-lights-new-year-fireworks-bay.jpg"/>
+<meta name="twitter:image:alt" content="Christmas lights and New Year fireworks over Funchal bay in Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -22,9 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Christmas and New Year in Madeira 2026: Lights, Market Night and Fireworks","description":"Christmas and New Year in Madeira 2026: lights from 1 December, Noite do Mercado on 23 December, Funchal fireworks on 31 December, and a sunset trip by sea.","image":"https://chifbay.com/assets/hero.jpg","datePublished":"2026-10-14","dateModified":"2026-10-14","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/christmas-new-year-madeira-2026-guide.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Christmas and New Year in Madeira 2026: Lights, Market Night and Fireworks","description":"Christmas and New Year in Madeira 2026: lights from 1 December, Noite do Mercado on 23 December, Funchal fireworks on 31 December, and a sunset trip by sea.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/funchal-christmas-lights-new-year-fireworks-bay.jpg","width":1536,"height":1024,"name":"Christmas and New Year in Madeira","caption":"Christmas lights and New Year fireworks over Funchal bay in Madeira","description":"Christmas lights and New Year fireworks over Funchal bay in Madeira"},"datePublished":"2026-10-14","dateModified":"2026-10-14","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/christmas-new-year-madeira-2026-guide.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When do the Christmas lights go on in Funchal in 2026?","acceptedAnswer":{"@type":"Answer","text":"Visit Madeira lists the Christmas and New Year festivities from 1 December 2026 to 10 January 2027. The exact switch-on evening is announced closer to the date, so check the Funchal city council and Visit Madeira pages in November."}},{"@type":"Question","name":"What is the Noite do Mercado?","acceptedAnswer":{"@type":"Answer","text":"It is a traditional night around the Mercado dos Lavradores in Funchal on 23 December, running into the early hours of 24 December, with stalls, music and street life across the lower town."}},{"@type":"Question","name":"Are there fireworks in Madeira on New Year's Eve?","acceptedAnswer":{"@type":"Answer","text":"Yes. Funchal's fireworks over the bay are the island's biggest New Year event and take place at midnight on 31 December. Book accommodation early because it is one of the busiest nights of the year."}},{"@type":"Question","name":"Can you take a boat trip in Madeira at Christmas?","acceptedAnswer":{"@type":"Answer","text":"Yes, weather allowing. Chifbay runs the Sunset Trip all year, leaving 1 h 15 before sunset, which is about 16:45 in December. It follows the same coast with drinks and food aboard, but there is no swimming that late in winter."}}]}
 </script>
@@ -56,7 +58,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/hero.jpg');background-image:image-set(url('../assets/hero.webp') type('image/webp'),url('../assets/hero.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="Christmas lights and New Year fireworks over Funchal bay in Madeira" style="background-image:url('../assets/journal/funchal-christmas-lights-new-year-fireworks-bay.jpg');background-image:image-set(url('../assets/journal/funchal-christmas-lights-new-year-fireworks-bay.webp') type('image/webp'),url('../assets/journal/funchal-christmas-lights-new-year-fireworks-bay.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · What's On</div>

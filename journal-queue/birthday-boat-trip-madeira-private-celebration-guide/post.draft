@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Birthday Boat Trip in Madeira: How to Celebrate at Sea"/>
 <meta property="og:description" content="Plan a birthday on a private boat in Madeira: which trip to pick, what is included, how food, drone and 360 video work, and tips for groups of up to 5 guests."/>
-<meta property="og:image" content="https://chifbay.com/assets/exp-sunset.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/birthday-cake-candle-boat-table-madeira.jpg"/>
+<meta property="og:image:alt" content="A birthday cake with a candle on the table of a private boat in Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/birthday-cake-candle-boat-table-madeira.jpg"/>
+<meta name="twitter:image:alt" content="A birthday cake with a candle on the table of a private boat in Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Birthday Boat Trip in Madeira: How to Celebrate at Sea","description":"Plan a birthday on a private boat in Madeira: which trip to pick, what is included, how food, drone and 360 video work, and tips for groups of up to 5 guests.","image":"https://chifbay.com/assets/exp-sunset.jpg","datePublished":"2026-10-20","dateModified":"2026-10-20","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/birthday-boat-trip-madeira-private-celebration-guide.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Birthday Boat Trip in Madeira: How to Celebrate at Sea","description":"Plan a birthday on a private boat in Madeira: which trip to pick, what is included, how food, drone and 360 video work, and tips for groups of up to 5 guests.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/birthday-cake-candle-boat-table-madeira.jpg","width":1536,"height":1024,"name":"Birthday boat trip in Madeira","caption":"A birthday cake with a candle on the table of a private boat in Madeira","description":"A birthday cake with a candle on the table of a private boat in Madeira"},"datePublished":"2026-10-20","dateModified":"2026-10-20","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/birthday-boat-trip-madeira-private-celebration-guide.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can you celebrate a birthday on a private boat in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Yes. Chifbay runs private boat trips from Marina do Funchal for up to 5 guests, so the whole boat is your group's. Choose the Day Trip for swimming or the Sunset Trip for golden light, with drinks and food aboard on both."}},{"@type":"Question","name":"How many people can come on a birthday boat trip?","acceptedAnswer":{"@type":"Answer","text":"Up to 5 guests per boat. The boat is private, so no other passengers join your group."}},{"@type":"Question","name":"Is the Day Trip or the Sunset Trip better for a birthday?","acceptedAnswer":{"@type":"Answer","text":"The Day Trip suits groups who want to swim and jump in at Fajã dos Padres. The Sunset Trip suits a relaxed, scenic celebration with no swimming. Both include drinks, food, an Insta360 360° video, drone footage (weather allowing) and photos taken with a real camera."}},{"@type":"Question","name":"What does a birthday boat trip in Madeira cost?","acceptedAnswer":{"@type":"Answer","text":"The Day Trip is €500 for 2h30 or €600 for 3h. The Sunset Trip is €400 for 2h or €500 for 2h30. Prices are per boat, not per person."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/exp-sunset.jpg');background-image:image-set(url('../assets/exp-sunset.webp') type('image/webp'),url('../assets/exp-sunset.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="A birthday cake with a candle on the table of a private boat in Madeira" style="background-image:url('../assets/journal/birthday-cake-candle-boat-table-madeira.jpg');background-image:image-set(url('../assets/journal/birthday-cake-candle-boat-table-madeira.webp') type('image/webp'),url('../assets/journal/birthday-cake-candle-boat-table-madeira.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Experience</div>

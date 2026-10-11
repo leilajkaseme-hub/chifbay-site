@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Top 10 Day Trips from Funchal, Madeira"/>
 <meta property="og:description" content="The 10 best day trips from Funchal, Madeira: Cabo Girão, Porto Moniz, Pico do Arieiro, Santana and a private boat day on the south coast, with drive times."/>
-<meta property="og:image" content="https://chifbay.com/assets/ponta-do-sol.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/day-trip-boat-cove-mountain-backdrop-funchal.jpg"/>
+<meta property="og:image:alt" content="A boat anchored at a cove with a mountain backdrop on a day trip from Funchal in Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/day-trip-boat-cove-mountain-backdrop-funchal.jpg"/>
+<meta name="twitter:image:alt" content="A boat anchored at a cove with a mountain backdrop on a day trip from Funchal in Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Top 10 Day Trips from Funchal, Madeira","description":"The 10 best day trips from Funchal, Madeira: Cabo Girão, Porto Moniz, Pico do Arieiro, Santana and a private boat day on the south coast, with drive times.","image":"https://chifbay.com/assets/ponta-do-sol.jpg","datePublished":"2026-10-18","dateModified":"2026-10-18","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/top-10-day-trips-from-funchal-madeira.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Top 10 Day Trips from Funchal, Madeira","description":"The 10 best day trips from Funchal, Madeira: Cabo Girão, Porto Moniz, Pico do Arieiro, Santana and a private boat day on the south coast, with drive times.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/day-trip-boat-cove-mountain-backdrop-funchal.jpg","width":1536,"height":1024,"name":"Day trips from Funchal","caption":"A boat anchored at a cove with a mountain backdrop on a day trip from Funchal in Madeira","description":"A boat anchored at a cove with a mountain backdrop on a day trip from Funchal in Madeira"},"datePublished":"2026-10-18","dateModified":"2026-10-18","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/top-10-day-trips-from-funchal-madeira.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best day trip from Funchal?","acceptedAnswer":{"@type":"Answer","text":"For most visitors it is a toss-up between a drive to Pico do Arieiro and the north coast, and a boat day along the south coast. The mountains give you altitude and views, while the sea gives you Cabo Girão from below, swimming and the coast road's best angles."}},{"@type":"Question","name":"Do you need a car for day trips from Funchal?","acceptedAnswer":{"@type":"Answer","text":"Not always. Monte, Câmara de Lobos and Ponta do Sol are easy by bus or taxi, but the north coast, Santana and Ponta de São Lourenço are far simpler with a car or a driver. A boat trip from Funchal marina needs no transport at all."}},{"@type":"Question","name":"How far is Porto Moniz from Funchal?","acceptedAnswer":{"@type":"Answer","text":"Porto Moniz is roughly 1 hour 15 minutes to 1 hour 30 minutes by car from Funchal using the expressways and tunnels, depending on traffic and stops."}},{"@type":"Question","name":"Can you do a day trip from Funchal by boat?","acceptedAnswer":{"@type":"Answer","text":"Yes. Chifbay runs private Day Trips from Marina do Funchal at 10:00 and 14:00, covering Câmara de Lobos, Cabo Girão, Fajã dos Padres and Ribeira Brava in 2h30 for €500, or 3h for €600 continuing to Ponta do Sol. The whole boat is yours, for up to 5 guests."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/ponta-do-sol.jpg');background-image:image-set(url('../assets/ponta-do-sol.webp') type('image/webp'),url('../assets/ponta-do-sol.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="A boat anchored at a cove with a mountain backdrop on a day trip from Funchal in Madeira" style="background-image:url('../assets/journal/day-trip-boat-cove-mountain-backdrop-funchal.jpg');background-image:image-set(url('../assets/journal/day-trip-boat-cove-mountain-backdrop-funchal.webp') type('image/webp'),url('../assets/journal/day-trip-boat-cove-mountain-backdrop-funchal.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Top 10</div>

@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="One Day in Funchal on a Cruise Stop: How to Plan Your Port Day"/>
 <meta property="og:description" content="One day in Funchal from a cruise ship? Here is a realistic port day plan: old town, market, cable car and a private boat trip along the coast, back in time."/>
-<meta property="og:image" content="https://chifbay.com/assets/hero.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/cruise-ship-in-funchal-harbour-madeira.jpg"/>
+<meta property="og:image:alt" content="A cruise ship moored in Funchal harbour with the city rising behind in Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/cruise-ship-in-funchal-harbour-madeira.jpg"/>
+<meta name="twitter:image:alt" content="A cruise ship moored in Funchal harbour with the city rising behind in Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -22,9 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"One Day in Funchal on a Cruise Stop: How to Plan Your Port Day","description":"One day in Funchal from a cruise ship? Here is a realistic port day plan: old town, market, cable car and a private boat trip along the coast, back in time.","image":"https://chifbay.com/assets/hero.jpg","datePublished":"2026-10-15","dateModified":"2026-10-15","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/madeira-cruise-stop-one-day-in-funchal-guide.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"One Day in Funchal on a Cruise Stop: How to Plan Your Port Day","description":"One day in Funchal from a cruise ship? Here is a realistic port day plan: old town, market, cable car and a private boat trip along the coast, back in time.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/cruise-ship-in-funchal-harbour-madeira.jpg","width":1536,"height":1024,"name":"One day in Funchal on a cruise stop","caption":"A cruise ship moored in Funchal harbour with the city rising behind in Madeira","description":"A cruise ship moored in Funchal harbour with the city rising behind in Madeira"},"datePublished":"2026-10-15","dateModified":"2026-10-15","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/madeira-cruise-stop-one-day-in-funchal-guide.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is one day enough for Madeira on a cruise?","acceptedAnswer":{"@type":"Answer","text":"One day is enough to see Funchal and one highlight of the south coast, but not the whole island. Choose either the old town and market on foot, or a boat trip along the coast, and add one more short stop if time allows."}},{"@type":"Question","name":"Can I do a boat trip on a cruise port day in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your all-aboard time leaves enough margin. Chifbay's Day Trip runs 2h30 for 500 euros, with a 3h option for 600 euros, and the boat is private to your group of up to 5 guests. Check your ship's all-aboard time before booking."}},{"@type":"Question","name":"Will the boat bring me back in time for the ship?","acceptedAnswer":{"@type":"Answer","text":"The Day Trip departs from Marina do Funchal at 10:00 or 14:00 and is back at 12:30 or 16:30 on the 2h30, or 13:00 or 17:00 on the 3h. Pick the departure that leaves you a comfortable gap before all-aboard."}},{"@type":"Question","name":"What should I do first on a short port day in Funchal?","acceptedAnswer":{"@type":"Answer","text":"Do the thing that depends on weather first. The sea and the cable car are weather-sensitive, while the old town and the Mercado dos Lavradores work in almost any conditions, so they fit around the rest."}}]}
 </script>
@@ -56,7 +58,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/hero.jpg');background-image:image-set(url('../assets/hero.webp') type('image/webp'),url('../assets/hero.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="A cruise ship moored in Funchal harbour with the city rising behind in Madeira" style="background-image:url('../assets/journal/cruise-ship-in-funchal-harbour-madeira.jpg');background-image:image-set(url('../assets/journal/cruise-ship-in-funchal-harbour-madeira.webp') type('image/webp'),url('../assets/journal/cruise-ship-in-funchal-harbour-madeira.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Guide</div>

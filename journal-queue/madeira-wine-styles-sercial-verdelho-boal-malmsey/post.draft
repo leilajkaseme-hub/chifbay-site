@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Madeira Wine Styles: Sercial, Verdelho, Boal and Malmsey Explained"/>
 <meta property="og:description" content="How dry or sweet each Madeira wine is, what the age labels mean and what to pair with each glass."/>
-<meta property="og:image" content="https://chifbay.com/assets/exp-sunset.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/madeira-wine-styles-sercial-verdelho-boal-malmsey-glasses.jpg"/>
+<meta property="og:image:alt" content="Four glasses of Madeira wine from pale Sercial to dark Malmsey in a row"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/madeira-wine-styles-sercial-verdelho-boal-malmsey-glasses.jpg"/>
+<meta name="twitter:image:alt" content="Four glasses of Madeira wine from pale Sercial to dark Malmsey in a row"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Madeira Wine Styles: Sercial, Verdelho, Boal and Malmsey Explained","description":"Sercial, Verdelho, Boal and Malmsey explained: how dry or sweet each Madeira wine is, what the age labels mean and what to pair with each glass in Funchal.","image":"https://chifbay.com/assets/exp-sunset.jpg","datePublished":"2026-10-16","dateModified":"2026-10-16","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/madeira-wine-styles-sercial-verdelho-boal-malmsey.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Madeira Wine Styles: Sercial, Verdelho, Boal and Malmsey Explained","description":"Sercial, Verdelho, Boal and Malmsey explained: how dry or sweet each Madeira wine is, what the age labels mean and what to pair with each glass in Funchal.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/madeira-wine-styles-sercial-verdelho-boal-malmsey-glasses.jpg","width":1536,"height":1024,"name":"Madeira wine styles","caption":"Four glasses of Madeira wine from pale Sercial to dark Malmsey in a row","description":"Four glasses of Madeira wine from pale Sercial to dark Malmsey in a row"},"datePublished":"2026-10-16","dateModified":"2026-10-16","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/madeira-wine-styles-sercial-verdelho-boal-malmsey.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which Madeira wine is the driest?","acceptedAnswer":{"@type":"Answer","text":"Sercial is the driest of the four traditional Madeira styles. It is pale, high in acidity and best served lightly chilled as an aperitif."}},{"@type":"Question","name":"Is Madeira wine always sweet?","acceptedAnswer":{"@type":"Answer","text":"No. Madeira ranges from dry (Sercial) through medium dry (Verdelho) and medium sweet (Boal) to rich and sweet (Malvasia, called Malmsey in English). The label tells you which style you are buying."}},{"@type":"Question","name":"What does 10 Year Old mean on a bottle of Madeira?","acceptedAnswer":{"@type":"Answer","text":"An age statement such as 10 Years Old is a guide to the average style and character of the blend, not an exact count of the youngest wine in the bottle. Common age statements are 3, 5, 10 and 15 years."}},{"@type":"Question","name":"Does Madeira wine go off once opened?","acceptedAnswer":{"@type":"Answer","text":"Madeira is unusually durable because it has already been heated and oxidised during production. An opened bottle keeps its character for weeks and often much longer if stored upright in a cool, dark place."}},{"@type":"Question","name":"Can I have a Madeira wine tasting around a boat trip with Chifbay?","acceptedAnswer":{"@type":"Answer","text":"Yes, many guests pair a visit to a Funchal wine lodge with a Day Trip or Sunset Trip. Drinks and food are included aboard, and the boat is private to your group of up to five."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/exp-sunset.jpg');background-image:image-set(url('../assets/exp-sunset.webp') type('image/webp'),url('../assets/exp-sunset.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="Four glasses of Madeira wine from pale Sercial to dark Malmsey in a row" style="background-image:url('../assets/journal/madeira-wine-styles-sercial-verdelho-boal-malmsey-glasses.jpg');background-image:image-set(url('../assets/journal/madeira-wine-styles-sercial-verdelho-boal-malmsey-glasses.webp') type('image/webp'),url('../assets/journal/madeira-wine-styles-sercial-verdelho-boal-malmsey-glasses.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Food &amp; Drink</div>

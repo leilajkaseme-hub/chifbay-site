@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Birdwatching in Madeira: Seabirds and Endemic Birds Worth Finding"/>
 <meta property="og:description" content="Cory's shearwaters at sea, the Trocaz pigeon in the laurel forest and the firecrest on the levadas: where and when to see Madeira's birds."/>
-<meta property="og:image" content="https://chifbay.com/assets/g-cliffs.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/seabirds-flying-over-sea-cliffs-madeira.jpg"/>
+<meta property="og:image:alt" content="Seabirds flying low over the sea beside the cliffs of Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/seabirds-flying-over-sea-cliffs-madeira.jpg"/>
+<meta name="twitter:image:alt" content="Seabirds flying low over the sea beside the cliffs of Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -22,9 +26,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Birdwatching in Madeira: Seabirds and Endemic Birds Worth Finding","description":"Cory's shearwaters at sea, the Trocaz pigeon in the laurel forest and the firecrest on the levadas: where and when to see Madeira's birds.","image":"https://chifbay.com/assets/g-cliffs.jpg","datePublished":"2026-10-13","dateModified":"2026-10-13","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/birdwatching-in-madeira-seabirds-endemic-birds.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Birdwatching in Madeira: Seabirds and Endemic Birds Worth Finding","description":"Cory's shearwaters at sea, the Trocaz pigeon in the laurel forest and the firecrest on the levadas: where and when to see Madeira's birds.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/seabirds-flying-over-sea-cliffs-madeira.jpg","width":1536,"height":1024,"name":"Birdwatching in Madeira","caption":"Seabirds flying low over the sea beside the cliffs of Madeira","description":"Seabirds flying low over the sea beside the cliffs of Madeira"},"datePublished":"2026-10-13","dateModified":"2026-10-13","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/birdwatching-in-madeira-seabirds-endemic-birds.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What birds can you see in Madeira?","acceptedAnswer":{"@type":"Answer","text":"The headline species are Cory's shearwater at sea, the Trocaz pigeon and the Madeira firecrest in the laurel forest, plus gulls, terns and waders along the coast. Zino's petrel breeds on the high peaks but is almost never seen by visitors."}},{"@type":"Question","name":"Is Madeira good for birdwatching?","acceptedAnswer":{"@type":"Answer","text":"Yes, for a small island. Two endemic land birds are easy to find on levada walks, and the surrounding Atlantic holds seabirds that are best seen from a boat."}},{"@type":"Question","name":"Where is the best place to see the Trocaz pigeon?","acceptedAnswer":{"@type":"Answer","text":"Look in the laurel forest, around Ribeiro Frio, the Balcões area, Fanal and the Rabaçal valley. Early morning, when it is quiet, gives the best chance."}},{"@type":"Question","name":"Can you see seabirds from a boat in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Yes. Cory's shearwaters and gulls are regularly seen along the south coast, especially on a quiet boat trip. On a Chifbay private trip from Funchal you can ask the skipper to slow down when birds are working the water."}}]}
 </script>
@@ -56,7 +58,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/g-cliffs.jpg');background-image:image-set(url('../assets/g-cliffs.webp') type('image/webp'),url('../assets/g-cliffs.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="Seabirds flying low over the sea beside the cliffs of Madeira" style="background-image:url('../assets/journal/seabirds-flying-over-sea-cliffs-madeira.jpg');background-image:image-set(url('../assets/journal/seabirds-flying-over-sea-cliffs-madeira.webp') type('image/webp'),url('../assets/journal/seabirds-flying-over-sea-cliffs-madeira.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Nature</div>

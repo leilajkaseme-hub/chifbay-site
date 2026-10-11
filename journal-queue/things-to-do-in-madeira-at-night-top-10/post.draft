@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Things to Do in Madeira at Night: Top 10 Evening Ideas"/>
 <meta property="og:description" content="Top 10 things to do in Madeira in the evening and at night: sunset at sea, Funchal old town dinners, poncha, night walks and Christmas lights."/>
-<meta property="og:image" content="https://chifbay.com/assets/hero.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/funchal-at-night-lights-reflected-sea-boat.jpg"/>
+<meta property="og:image:alt" content="Funchal at night with the city lights reflected in the sea and a boat with lights on in Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/funchal-at-night-lights-reflected-sea-boat.jpg"/>
+<meta name="twitter:image:alt" content="Funchal at night with the city lights reflected in the sea and a boat with lights on in Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Things to Do in Madeira at Night: Top 10 Evening Ideas","description":"Top 10 things to do in Madeira in the evening and at night: sunset at sea, Funchal old town dinners, poncha, night walks and Christmas lights.","image":"https://chifbay.com/assets/hero.jpg","datePublished":"2026-10-21","dateModified":"2026-10-21","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/things-to-do-in-madeira-at-night-top-10.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Things to Do in Madeira at Night: Top 10 Evening Ideas","description":"Top 10 things to do in Madeira in the evening and at night: sunset at sea, Funchal old town dinners, poncha, night walks and Christmas lights.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/funchal-at-night-lights-reflected-sea-boat.jpg","width":1536,"height":1024,"name":"Things to do in Madeira at night","caption":"Funchal at night with the city lights reflected in the sea and a boat with lights on in Madeira","description":"Funchal at night with the city lights reflected in the sea and a boat with lights on in Madeira"},"datePublished":"2026-10-21","dateModified":"2026-10-21","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/things-to-do-in-madeira-at-night-top-10.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is there to do in Madeira in the evening?","acceptedAnswer":{"@type":"Answer","text":"Watch the sunset, have dinner in Funchal's old town, try poncha in a small bar, walk the seafront promenade or join a sunset boat trip. Madeira is quiet and relaxed after dark rather than a party destination."}},{"@type":"Question","name":"Is Madeira good for nightlife?","acceptedAnswer":{"@type":"Answer","text":"Madeira has a relaxed evening scene built around restaurants, live music in bars and local drinks. Funchal has the most choice, with a few late bars and clubs, but most visitors come for dinner and a stroll."}},{"@type":"Question","name":"Is it safe to walk around Funchal at night?","acceptedAnswer":{"@type":"Answer","text":"Funchal is generally considered safe in the evening, particularly in the old town and along the seafront. Use normal city sense with your belongings and stick to lit streets."}},{"@type":"Question","name":"When does the sun set in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Sunset ranges from about 16:45 in December to about 20:00 in June. Chifbay's Sunset Trip leaves 1 h 15 before that day's sunset, so the timing follows the season."}},{"@type":"Question","name":"Can you do a boat trip in the evening in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Yes. Chifbay's private Sunset Trip runs along the south coast from Funchal Marina, 2 hours at 400 euros or 2h30 at 500 euros, with drinks and food on board for up to 5 guests."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/hero.jpg');background-image:image-set(url('../assets/hero.webp') type('image/webp'),url('../assets/hero.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="Funchal at night with the city lights reflected in the sea and a boat with lights on in Madeira" style="background-image:url('../assets/journal/funchal-at-night-lights-reflected-sea-boat.jpg');background-image:image-set(url('../assets/journal/funchal-at-night-lights-reflected-sea-boat.webp') type('image/webp'),url('../assets/journal/funchal-at-night-lights-reflected-sea-boat.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Top 10</div>

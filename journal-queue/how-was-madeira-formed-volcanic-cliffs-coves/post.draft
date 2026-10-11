@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="How Was Madeira Formed? The Volcanic Story Behind the Cliffs and Coves"/>
 <meta property="og:description" content="How Madeira was formed: a volcano rising from the Atlantic floor, carved into 580 m cliffs, sea caves and fajãs. See the geology up close from the sea."/>
-<meta property="og:image" content="https://chifbay.com/assets/g-cliffs.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/volcanic-basalt-cliff-layers-lava-madeira-coast.jpg"/>
+<meta property="og:image:alt" content="Layers of volcanic basalt and lava in a sea cliff on the coast of Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/volcanic-basalt-cliff-layers-lava-madeira-coast.jpg"/>
+<meta name="twitter:image:alt" content="Layers of volcanic basalt and lava in a sea cliff on the coast of Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Was Madeira Formed? The Volcanic Story Behind the Cliffs and Coves","description":"How Madeira was formed: a volcano rising from the Atlantic floor, carved into 580 m cliffs, sea caves and fajãs. See the geology up close from the sea.","image":"https://chifbay.com/assets/g-cliffs.jpg","datePublished":"2026-10-19","dateModified":"2026-10-19","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/how-was-madeira-formed-volcanic-cliffs-coves.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Was Madeira Formed? The Volcanic Story Behind the Cliffs and Coves","description":"How Madeira was formed: a volcano rising from the Atlantic floor, carved into 580 m cliffs, sea caves and fajãs. See the geology up close from the sea.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/volcanic-basalt-cliff-layers-lava-madeira-coast.jpg","width":1536,"height":1024,"name":"How Madeira was formed","caption":"Layers of volcanic basalt and lava in a sea cliff on the coast of Madeira","description":"Layers of volcanic basalt and lava in a sea cliff on the coast of Madeira"},"datePublished":"2026-10-19","dateModified":"2026-10-19","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/how-was-madeira-formed-volcanic-cliffs-coves.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How was Madeira formed?","acceptedAnswer":{"@type":"Answer","text":"Madeira is the summit of a huge volcano that grew from the Atlantic seabed through repeated eruptions over millions of years. Wind, rain and waves then carved the lava and ash into today's cliffs, valleys and coves."}},{"@type":"Question","name":"Is Madeira an active volcano?","acceptedAnswer":{"@type":"Answer","text":"Madeira is volcanic in origin but is not erupting today. Its last eruptions are thought to date back several thousand years, and the island is considered quiet."}},{"@type":"Question","name":"Why does Madeira have so few sandy beaches?","acceptedAnswer":{"@type":"Answer","text":"Because the island is hard volcanic rock that drops steeply into deep water, there is little room for sand to build up. Most swimming spots are pebble or boulder beaches, lava pools and rocky coves."}},{"@type":"Question","name":"What is a fajã in Madeira?","acceptedAnswer":{"@type":"Answer","text":"A fajã is a small flat platform at the foot of a sea cliff, usually formed by landslides or old lava flows. Fajã dos Padres, reachable by boat, is the best-known example on the south coast."}},{"@type":"Question","name":"Can you see the volcanic geology from a boat?","acceptedAnswer":{"@type":"Answer","text":"Yes. Layers of lava, ash and vertical dykes are clearest from the water. On a Chifbay Day Trip you pass Cabo Girão and Fajã dos Padres, and the Sunset Trip covers the same coast in golden light."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/g-cliffs.jpg');background-image:image-set(url('../assets/g-cliffs.webp') type('image/webp'),url('../assets/g-cliffs.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="Layers of volcanic basalt and lava in a sea cliff on the coast of Madeira" style="background-image:url('../assets/journal/volcanic-basalt-cliff-layers-lava-madeira-coast.jpg');background-image:image-set(url('../assets/journal/volcanic-basalt-cliff-layers-lava-madeira-coast.webp') type('image/webp'),url('../assets/journal/volcanic-basalt-cliff-layers-lava-madeira-coast.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Nature</div>

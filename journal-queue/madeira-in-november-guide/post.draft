@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Madeira in November: Weather, Sea Temperature and What to Do"/>
 <meta property="og:description" content="Madeira in November: about 21°C days, fewer crowds and sea still warm enough for a boat day. What to pack, what to do, and how to plan your trip in Funchal."/>
-<meta property="og:image" content="https://chifbay.com/assets/g-cliffs.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/rainbow-over-funchal-coast-november-madeira.jpg"/>
+<meta property="og:image:alt" content="A rainbow over the Madeira coast and a boat on the sea in November"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/rainbow-over-funchal-coast-november-madeira.jpg"/>
+<meta name="twitter:image:alt" content="A rainbow over the Madeira coast and a boat on the sea in November"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Madeira in November: Weather, Sea Temperature and What to Do","description":"Madeira in November: about 21°C days, fewer crowds and sea still warm enough for a boat day. What to pack, what to do, and how to plan your trip in Funchal.","image":"https://chifbay.com/assets/g-cliffs.jpg","datePublished":"2026-10-23","dateModified":"2026-10-23","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/madeira-in-november-guide.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Madeira in November: Weather, Sea Temperature and What to Do","description":"Madeira in November: about 21°C days, fewer crowds and sea still warm enough for a boat day. What to pack, what to do, and how to plan your trip in Funchal.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/rainbow-over-funchal-coast-november-madeira.jpg","width":1536,"height":1024,"name":"Madeira in November","caption":"A rainbow over the Madeira coast and a boat on the sea in November","description":"A rainbow over the Madeira coast and a boat on the sea in November"},"datePublished":"2026-10-23","dateModified":"2026-10-23","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/madeira-in-november-guide.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is November a good month to visit Madeira?","acceptedAnswer":{"@type":"Answer","text":"Yes. November is mild, with daytime highs around 21°C in Funchal, quieter trails and viewpoints, and plenty of sunny spells. It is wetter than summer, so plan flexibly and keep an eye on the forecast."}},{"@type":"Question","name":"Can you swim in the sea in Madeira in November?","acceptedAnswer":{"@type":"Answer","text":"The sea is usually around 21 to 22°C, which feels fresh but swimmable for many people on a sunny day. On the Chifbay Day Trip you can swim at Fajã dos Padres and Ribeira Brava; the Sunset Trip has no swimming."}},{"@type":"Question","name":"Do boat trips run in Madeira in November?","acceptedAnswer":{"@type":"Answer","text":"Yes, subject to sea and weather conditions on the day. Chifbay runs private Day Trips and Sunset Trips from Marina do Funchal year-round, and the crew will advise if conditions call for a different day."}},{"@type":"Question","name":"What should I pack for Madeira in November?","acceptedAnswer":{"@type":"Answer","text":"Pack layers, a light waterproof jacket, comfortable walking shoes and swimwear if you plan to get in the water. Evenings and the mountains are noticeably cooler than the coast."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/g-cliffs.jpg');background-image:image-set(url('../assets/g-cliffs.webp') type('image/webp'),url('../assets/g-cliffs.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="A rainbow over the Madeira coast and a boat on the sea in November" style="background-image:url('../assets/journal/rainbow-over-funchal-coast-november-madeira.jpg');background-image:image-set(url('../assets/journal/rainbow-over-funchal-coast-november-madeira.webp') type('image/webp'),url('../assets/journal/rainbow-over-funchal-coast-november-madeira.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Guide</div>

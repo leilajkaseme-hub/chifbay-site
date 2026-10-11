@@ -11,7 +11,11 @@
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Getting Around Madeira: Car, Bus, Taxi or Boat?"/>
 <meta property="og:description" content="When to rent a car in Madeira, how buses, taxis and ride apps work, and why a private boat is the easiest way to see the south coast."/>
-<meta property="og:image" content="https://chifbay.com/assets/ponta-do-sol.jpg"/>
+<meta property="og:image" content="https://chifbay.com/assets/journal/boat-at-funchal-marina-beside-road-and-bus-madeira.jpg"/>
+<meta property="og:image:alt" content="A boat moored at Funchal marina beside the seafront road with a bus and taxi in Madeira"/>
+<meta property="og:image:width" content="1536"/><meta property="og:image:height" content="1024"/>
+<meta name="twitter:image" content="https://chifbay.com/assets/journal/boat-at-funchal-marina-beside-road-and-bus-madeira.jpg"/>
+<meta name="twitter:image:alt" content="A boat moored at Funchal marina beside the seafront road with a bus and taxi in Madeira"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="../assets/favicon.ico" sizes="any"/>
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png"/>
@@ -19,9 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"Getting Around Madeira: Car, Bus, Taxi or Boat?","description":"Getting around Madeira without stress: when to rent a car, how buses, taxis and ride apps work, and why a private boat is the easiest way to see the coast.","image":"https://chifbay.com/assets/ponta-do-sol.jpg","datePublished":"2026-10-17","dateModified":"2026-10-17","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/getting-around-madeira-car-bus-taxi-boat-guide.html"}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Getting Around Madeira: Car, Bus, Taxi or Boat?","description":"Getting around Madeira without stress: when to rent a car, how buses, taxis and ride apps work, and why a private boat is the easiest way to see the coast.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/boat-at-funchal-marina-beside-road-and-bus-madeira.jpg","width":1536,"height":1024,"name":"Getting around Madeira by car, bus, taxi or boat","caption":"A boat moored at Funchal marina beside the seafront road with a bus and taxi in Madeira","description":"A boat moored at Funchal marina beside the seafront road with a bus and taxi in Madeira"},"datePublished":"2026-10-17","dateModified":"2026-10-17","author":{"@type":"Organization","name":"Chifbay"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/getting-around-madeira-car-bus-taxi-boat-guide.html"}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you need a car in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Not if you stay in Funchal and book tours, but a car helps for the north coast, Porto Moniz and mountain trailheads. Many visitors rent for two or three days only."}},{"@type":"Question","name":"Are taxis and ride apps available in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Yes. Taxis are plentiful in Funchal and ride apps operate around the island, which makes airport transfers and one-way trips easy without a rental."}},{"@type":"Question","name":"Is it hard to drive in Madeira?","acceptedAnswer":{"@type":"Answer","text":"The main expressway and tunnels are easy, but mountain and village roads are steep, narrow and winding. Choose a small car and avoid rushing."}},{"@type":"Question","name":"What is the easiest way to see Madeira's south coast cliffs and coves?","acceptedAnswer":{"@type":"Answer","text":"By boat. A private Chifbay trip from Marina do Funchal reaches Cabo Girão, Fajã dos Padres and Ribeira Brava without any driving, parking or walking."}}]}
 </script>
@@ -54,7 +56,7 @@
 </div></nav>
 
 <header class="hero sub">
-  <div class="hbg" style="background-image:url('../assets/ponta-do-sol.jpg');background-image:image-set(url('../assets/ponta-do-sol.webp') type('image/webp'),url('../assets/ponta-do-sol.jpg') type('image/jpeg'))"></div>
+  <div class="hbg" role="img" aria-label="A boat moored at Funchal marina beside the seafront road with a bus and taxi in Madeira" style="background-image:url('../assets/journal/boat-at-funchal-marina-beside-road-and-bus-madeira.jpg');background-image:image-set(url('../assets/journal/boat-at-funchal-marina-beside-road-and-bus-madeira.webp') type('image/webp'),url('../assets/journal/boat-at-funchal-marina-beside-road-and-bus-madeira.jpg') type('image/jpeg'))"></div>
   <div class="hov"></div>
   <div class="wrap hc">
     <div class="hbadge rv in">Journal · Guide</div>
