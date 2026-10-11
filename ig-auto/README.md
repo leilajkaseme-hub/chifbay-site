@@ -526,3 +526,21 @@ Instagram record is saved. Instagram never waits for it and never fails because 
 - Keyword hashtags added to the pools (#madeiraboattrip, #funchalboattrip, #cabogirao, #sunsetcruisemadeira...).
 - The Instagram name is already "CHIFBAY Private Boat Tour Madeira" (the name field is searched). The Facebook Page has no
   About text yet: adding one with the same words is the next gain (Theo's OK, it is public).
+
+### One idea, three texts (11 Oct 2026)
+
+Theo: captions adapted to each social, never like spam, teasing and entertaining. The voice is in `lib/tone.mjs`
+(funny and warm, wit but no invented moments, no ad words, no dashes, place named once, vary the closing line).
+
+| | Where it is written | Shape |
+|---|---|---|
+| Instagram | `lib/caption.mjs` when the post is queued (topup) | long, 400 to 900 characters; line 1 is a teaser that also names the place and the service; a short story; a true practical fact; one soft closing line; hashtags added after |
+| Facebook Page | `lib/voice.mjs` when the post is sent | 200 to 650 characters, 2 to 5 short lines, a hook and a playful question, no hashtags, the link on its own line |
+| Threads | `lib/voice.mjs` when the post is sent | 40 to 230 characters, one to three dry lines, no hashtags, no link in 2 posts out of 3 |
+
+Facebook and Threads texts are written by Claude Code (same token as the captions) from the Instagram text, the
+facts and the picture, then checked (length, no hashtags/links/prices/ad words/long dashes, Funchal or Madeira named,
+not like the last 6 on that channel; 3 tries). If Claude is not available (weekly limit), the plain adaptation of the
+Instagram caption is sent: a missed post is worse than a plain one. The text sent is kept in `crosspost-ledger.jsonl`
+(`writer`: claude or plain). `bin/rewrite-captions.mjs [--write]` rewrites the captions that are still waiting.
+New Reels: write their caption in `stores/chifbay/reels/reels.json` in the same voice (long, teaser first line).
