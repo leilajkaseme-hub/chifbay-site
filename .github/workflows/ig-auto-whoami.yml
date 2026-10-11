@@ -38,3 +38,9 @@ jobs:
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: node bin/whoami.mjs
+
+      - name: What is this token allowed to do? (names only)
+        working-directory: ig-auto
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node bin/meta-scopes.mjs
