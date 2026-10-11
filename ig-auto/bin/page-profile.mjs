@@ -33,11 +33,24 @@ const pageTok = (await call(`/${page}`, { body: { fields: "access_token" } })).a
 const P = (path, opts = {}) => call(path, { ...opts, tok: pageTok });
 const mode = process.argv[2];
 
+/** Every Facebook Page category (the endpoint answers in small pages). */
+async function allCategories() {
+  const out = [];
+  let after;
+  for (let i = 0; i < 80; i++) {
+    const r = await call("/fb_page_categories", { body: { limit: "250", ...(after ? { after } : {}) } });
+    out.push(...(r.data ?? []));
+    after = r.paging?.cursors?.after;
+    if (!after || !r.paging?.next) break;
+  }
+  return out;
+}
+
 if (mode === "discover") {
-  const cats = await call("/fb_page_categories", { body: { limit: "1000" } }).catch((e) => { console.log(`categories: ${e.message}`); return { data: [] }; });
-  const want = /boat|tour|sightsee|excursion|charter|sail|yacht|water|sea/i;
-  console.log(`categories returned: ${(cats.data ?? []).length}`);
-  for (const c of (cats.data ?? []).filter((c) => want.test(c.name))) console.log(`category ${c.id} ${c.name}`);
+  const cats = await allCategories().catch((e) => { console.log(`categories: ${e.message}`); return []; });
+  const want = /boat|tour|sightsee|excursion|charter|sail|yacht/i;
+  console.log(`categories returned: ${cats.length}`);
+  for (const c of cats.filter((c) => want.test(c.name))) console.log(`category ${c.id} ${c.name}`);
 }
 
 if (mode === "show") {
@@ -52,8 +65,8 @@ if (mode === "apply") {
   const set = {};
   for (const k of ["about", "description", "general_info", "emails", "website"]) if (want[k] != null) set[k] = want[k];
   if (want.category_names?.length) {
-    const cats = await call("/fb_page_categories", { body: { limit: "1000" } });
-    const ids = want.category_names.map((n) => cats.data?.find((c) => c.name.toLowerCase() === n.toLowerCase())?.id).filter(Boolean);
+    const cats = await allCategories();
+    const ids = want.category_names.map((n) => cats.find((c) => c.name.toLowerCase() === n.toLowerCase())?.id).filter(Boolean);
     if (ids.length) set.category_list = ids.slice(0, 3);
     console.log(`categories: ${want.category_names.join(", ")} -> ${ids.join(", ") || "none found"}`);
   }
