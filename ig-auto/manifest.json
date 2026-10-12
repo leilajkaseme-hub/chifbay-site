@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T12:31:01.980Z",
+ "generated_at": "2026-10-12T19:59:34.775Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -215,7 +215,7 @@
     "problems": [],
     "at": "2026-10-03T18:53:49"
    },
-   "posted": false
+   "posted": true
   },
   {
    "id": "r16-split",
