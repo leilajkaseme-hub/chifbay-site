@@ -1,0 +1,36 @@
+{
+  "slug": "madeira-endemic-plants-flowers-guide",
+  "title": "Madeira Endemic Plants and Flowers: What Grows Only Here",
+  "category": "Nature",
+  "date": "2026-10-26",
+  "description": "A field guide to the plants found only in Madeira, from the pride of Madeira and the Madeira orchid to the laurel forest, with where and when to see them.",
+  "heroImage": "assets/journal/madeira-botanical-garden-flowers-path.jpg",
+  "heroAlt": "A path lined with flowers in a Madeira garden",
+  "readingMinutes": 5,
+  "keywords": [
+    "Madeira endemic plants",
+    "Madeira flowers",
+    "pride of Madeira",
+    "Madeira orchid",
+    "Madeira native flora",
+    "Laurisilva trees",
+    "Madeira botanical garden",
+    "best time to see flowers in Madeira"
+  ],
+  "written": "2026-10-26",
+  "queued": "2026-10-12T09:16:58.622Z",
+  "images": [
+    {
+      "prompt": "Wide landscape photograph of colourful native flowers and green hillside gardens above Funchal in Madeira, soft morning light, the Atlantic visible in the distance.",
+      "alt": "Flowers and green hillside gardens above Funchal in Madeira"
+    },
+    {
+      "prompt": "Close photograph of tall blue-purple flower spikes of the pride of Madeira on a sunny coastal slope in Madeira, with bees and the sea in the background.",
+      "alt": "Blue-purple pride of Madeira flowers on a coastal slope"
+    },
+    {
+      "prompt": "Photograph of a misty ancient laurel forest in Madeira with giant ferns and moss-covered trunks beside a levada water channel, soft diffused light.",
+      "alt": "Ferns and moss-covered laurel trees beside a levada in Madeira"
+    }
+  ]
+}
