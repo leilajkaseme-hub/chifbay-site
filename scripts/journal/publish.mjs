@@ -12,7 +12,7 @@
 // several times a day, and the cron of GitHub drifts by hours).
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { POSTS_JSON, ROOT, longDate, queueItems, readPosts, today } from "./lib.mjs";
+import { IMAGE_NAMES, POSTS_JSON, ROOT, longDate, queueItems, readPosts, seoFile, today } from "./lib.mjs";
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -30,8 +30,8 @@ export function redate(html, from, day) {
 }
 
 /** Hero, share image and JSON-LD image point at the new photo; two photos go into the body. */
-export function wireImages(html, slug, alts) {
-  const hero = `assets/journal/${slug}-hero.jpg`;
+export function wireImages(html, files, alts) {
+  const hero = `assets/journal/${files[0]}.jpg`;
   const abs = `https://chifbay.com/${hero}`;
   html = html.replace(/background-image:url\('[^']*'\)/, `background-image:url('../${hero}')`);
   // The template also offers a WebP of the hero; use-webp.mjs rewrites it after make-webp.py runs.
@@ -41,13 +41,15 @@ export function wireImages(html, slug, alts) {
   const body = html.indexOf('<p class="lede"');
   const ends = [...html.matchAll(/<\/p>/g)].map((m) => m.index + 4).filter((i) => i > body);
   if (ends.length >= 3) {
-    const spots = [[ends[1], figure(`../assets/journal/${slug}-inline-1.jpg`, alts[1])],
-                   [ends[Math.floor((ends.length * 2) / 3)], figure(`../assets/journal/${slug}-inline-2.jpg`, alts[2])]];
+    const spots = [[ends[1], figure(`../assets/journal/${files[1]}.jpg`, alts[1])],
+                   [ends[Math.floor((ends.length * 2) / 3)], figure(`../assets/journal/${files[2]}.jpg`, alts[2])]];
     if (spots[1][0] === spots[0][0]) spots.pop();
     for (const [pos, frag] of spots.sort((a, b) => b[0] - a[0])) html = html.slice(0, pos) + frag + html.slice(pos);
   }
   return html;
 }
+
+const SPARE_HEROES = ["assets/journal/boat-deck-horizon-ginger-calm-sea-madeira", "assets/journal/madeira-autumn-calm-sea-soft-golden-light"];
 
 export function publish({ day = today(), log = console.log } = {}) {
   const posts = readPosts();
@@ -59,14 +61,29 @@ export function publish({ day = today(), log = console.log } = {}) {
   const { slug, dir, meta } = item;
   let html = redate(readFileSync(join(dir, "post.draft"), "utf8"), meta.written, day);
   const entry = { ...meta, date: day };
-  for (const k of ["written", "images", "queued", "imagePrompts"]) delete entry[k];
+  for (const k of ["written", "images", "queued", "imagePrompts", "photo"]) delete entry[k];
   if (item.images) {
     mkdirSync(join(ROOT, "assets", "journal"), { recursive: true });
-    for (const n of ["hero", "inline-1", "inline-2"]) copyFileSync(join(dir, `${n}.jpg`), join(ROOT, "assets", "journal", `${slug}-${n}.jpg`));
-    const alts = (meta.images || []).map((x) => x.alt);
-    html = wireImages(html, slug, [alts[0] || meta.heroAlt, alts[1] || meta.title, alts[2] || meta.title]);
-    entry.heroImage = `assets/journal/${slug}-hero.jpg`;
+    const alts = [0, 1, 2].map((i) => meta.images?.[i]?.alt || (i ? meta.title : meta.heroAlt || meta.title));
+    // Each photo is named after what it shows (search engines read the file name), not after the queue slot.
+    const taken = [];
+    const files = IMAGE_NAMES.map((n, i) => {
+      const f = seoFile(alts[i], taken); taken.push(f);
+      copyFileSync(join(dir, `${n}.jpg`), join(ROOT, "assets", "journal", `${f}.jpg`));
+      return f;
+    });
+    html = wireImages(html, files, alts);
+    entry.heroImage = `assets/journal/${files[0]}.jpg`;
     if (alts[0]) entry.heroAlt = alts[0];
+  }
+  if (!item.images) {
+    // A writer may have named a hero the photo job has not made yet. Never publish a broken picture:
+    // use a ChatGPT photo that is already on the site until the real one exists.
+    const base = String(entry.heroImage ?? "").replace(/\.(jpe?g|webp)$/i, "");
+    if (base && !existsSync(join(ROOT, `${base}.jpg`))) {
+      const spare = SPARE_HEROES.find((b) => existsSync(join(ROOT, `${b}.jpg`)));
+      if (spare) { html = html.split(base).join(spare); entry.heroImage = `${spare}.jpg`; log(`hero ${base} is missing, using ${spare}`); }
+    }
   }
   if (!html.includes(`/posts/${slug}`)) throw new Error(`${slug}: the draft does not carry its own canonical URL`);
   writeFileSync(join(ROOT, "posts", `${slug}.html`), html);

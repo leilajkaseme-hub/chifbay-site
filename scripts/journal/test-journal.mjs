@@ -6,7 +6,8 @@ import { spawnSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { ROOT } from "./lib.mjs";
+import { ROOT, seoFile } from "./lib.mjs";
+import { eventBrief, eventsFor } from "./events.mjs";
 
 const posts = JSON.parse(readFileSync(join(ROOT, "posts/posts.json"), "utf8"));
 const model = posts[0];
@@ -53,14 +54,14 @@ check("publishes the post that has its photos, dated today, photos wired in", (d
   const html = readFileSync(join(dir, "posts/newer-with-photos.html"), "utf8");
   assert.ok(html.includes("2026-10-20") && html.includes("20 October 2026"), "date changed");
   assert.ok(!html.includes(model.date), "old date gone");
-  assert.ok(html.includes("background-image:url('../assets/journal/newer-with-photos-hero.jpg')"));
-  assert.ok(html.includes('content="https://chifbay.com/assets/journal/newer-with-photos-hero.jpg"'), "share image");
-  assert.equal((html.match(/newer-with-photos-inline-/g) || []).length, 2, "two photos in the body");
+  assert.ok(html.includes("background-image:url('../assets/journal/hero-alt-madeira.jpg')"), "hero named after its alt");
+  assert.ok(html.includes('content="https://chifbay.com/assets/journal/hero-alt-madeira.jpg"'), "share image");
+  assert.ok(html.includes("assets/journal/inside-one-madeira.jpg") && html.includes("assets/journal/inside-two-madeira.jpg"), "two photos in the body");
   const p = JSON.parse(readFileSync(join(dir, "posts/posts.json"), "utf8"))[0];
   assert.equal(p.slug, "newer-with-photos"); assert.equal(p.date, "2026-10-20");
-  assert.equal(p.heroImage, "assets/journal/newer-with-photos-hero.jpg"); assert.equal(p.heroAlt, "Hero alt");
-  assert.ok(!("images" in p) && !("written" in p) && !("queued" in p), "queue fields stripped");
-  assert.ok(existsSync(join(dir, "assets/journal/newer-with-photos-inline-2.jpg")));
+  assert.equal(p.heroImage, "assets/journal/hero-alt-madeira.jpg"); assert.equal(p.heroAlt, "Hero alt");
+  assert.ok(!("images" in p) && !("written" in p) && !("queued" in p) && !("photo" in p), "queue fields stripped");
+  assert.ok(existsSync(join(dir, "assets/journal/inside-two-madeira.jpg")));
   assert.ok(readFileSync(join(dir, "sitemap.xml"), "utf8").includes("<loc>https://chifbay.com/posts/newer-with-photos</loc>"));
   assert.ok(!existsSync(join(dir, "journal-queue/newer-with-photos")), "queue folder removed");
   assert.ok(existsSync(join(dir, "journal-queue/older-no-photos")), "the other stays queued");
@@ -92,6 +93,44 @@ check("empty queue says EMPTY, changes nothing", (dir) => {
 check("a queued slug that is already live is never published twice", (dir) => {
   queue(dir, posts[1].slug);
   assert.match(run(dir, "2026-10-20").stdout, /^EMPTY/);
+});
+
+check("seoFile: plain words, madeira last, no clashes", () => {
+  assert.equal(seoFile("A Café table at the Mercado dos Lavradores, Funchal"), "cafe-table-mercado-dos-lavradores-funchal-madeira");
+  assert.equal(seoFile("Hero", ["hero-madeira"]), "hero-madeira-2");
+  assert.equal(seoFile("", []), "madeira");
+});
+
+check("a hero already made by ChatGPT (photo: chatgpt) keeps its file and does not ask for new photos", (dir) => {
+  const q = queue(dir, "has-hero");
+  const m = JSON.parse(readFileSync(join(q, "meta.json"), "utf8")); m.photo = "chatgpt";
+  writeFileSync(join(q, "meta.json"), JSON.stringify(m));
+  const r = run(dir, "2026-10-20");
+  assert.match(r.stdout, /PUBLISHED has-hero/);
+  assert.equal(JSON.parse(readFileSync(join(dir, "posts/posts.json"), "utf8"))[0].heroImage, model.heroImage);
+});
+
+check("a hero file that does not exist yet is swapped for a spare photo, never left broken", (dir) => {
+  const q = queue(dir, "ghost-hero");
+  const m = JSON.parse(readFileSync(join(q, "meta.json"), "utf8")); m.heroImage = "assets/journal/ghost-hero-hero.jpg";
+  writeFileSync(join(q, "meta.json"), JSON.stringify(m));
+  writeFileSync(join(q, "post.draft"), readFileSync(join(q, "post.draft"), "utf8").replace(model.heroImage.replace(/\.\w+$/, ""), "assets/journal/ghost-hero-hero"));
+  mkdirSync(join(dir, "assets/journal"), { recursive: true });
+  cpSync(join(ROOT, "assets/journal/boat-deck-horizon-ginger-calm-sea-madeira.jpg"), join(dir, "assets/journal/boat-deck-horizon-ginger-calm-sea-madeira.jpg"));
+  const r = run(dir, "2026-10-20");
+  assert.match(r.stdout, /PUBLISHED ghost-hero/);
+  assert.equal(JSON.parse(readFileSync(join(dir, "posts/posts.json"), "utf8"))[0].heroImage, "assets/journal/boat-deck-horizon-ginger-calm-sea-madeira.jpg");
+  assert.ok(!readFileSync(join(dir, "posts/ghost-hero.html"), "utf8").includes("ghost-hero-hero"));
+});
+
+check("events: the Flower Festival guide is due 10 to 18 days before, once", () => {
+  assert.equal(eventsFor("2027-04-05").length, 0, "24 days out: too early");
+  assert.equal(eventsFor("2027-04-15")[0].id, "flower-festival-2027");
+  assert.equal(eventsFor("2027-04-25").length, 0, "4 days out: too late");
+  assert.equal(eventsFor("2026-10-20").length, 0, "a quiet day has no event");
+  assert.match(eventBrief("2027-04-15"), /Timed post.*Flower Festival.*14 days/s);
+  assert.equal(eventBrief("2027-04-15", ["Madeira Flower Festival 2027: dates and parades"]), "", "already covered: no second one");
+  assert.equal(eventsFor("2026-12-20")[0].id, "new-year-fireworks-2026");
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

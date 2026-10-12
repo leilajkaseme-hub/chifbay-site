@@ -7,7 +7,7 @@
 //
 // --no-push: make and place the photos, commit nothing (a test run).
 //
-// For each queued post without its three photos (meta.json "images": the hero and two
+// For each queued post without its three photos (a post with "photo": "chatgpt" in meta.json already has its hero) (meta.json "images": the hero and two
 // scenes, written with the article), asks ChatGPT through the same tool and Chrome profiles
 // as the other image jobs (pale-youth-video/stills.mjs), resizes them (hero 1600x900, inside
 // 1200x800, JPEG), commits and pushes. Oldest posts first, at most --max posts a run, so a
@@ -50,6 +50,17 @@ function fit(png, jpg, [w, h]) {
   execFileSync("sips", ["-c", String(h), String(w), jpg], { stdio: "ignore" });
 }
 
+/** Clean metadata: nothing from ChatGPT is kept; a title, the owner and the standard "AI made" source type (as Google asks). */
+function stamp(file, alt, title) {
+  try {
+    execFileSync("exiftool", ["-q", "-overwrite_original", "-all=", file]);
+    execFileSync("exiftool", ["-q", "-overwrite_original", `-XMP-dc:Title=${title}`, `-XMP-dc:Description=${alt}`,
+      `-IPTC:ObjectName=${String(title).slice(0, 64)}`, `-IPTC:Caption-Abstract=${alt}`, "-XMP-dc:Creator=Chifbay",
+      "-XMP-dc:Rights=© CHIF&CO, Lda",
+      "-XMP-iptcExt:DigitalSourceType=http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia", file]);
+  } catch { log(`exiftool is not installed here: ${file} has no metadata (still a valid photo)`); }
+}
+
 function push(msg) {
   if (process.argv.includes("--no-push")) { log(`--no-push: not pushed (${msg})`); return false; }
   git("add", "-A", "journal-queue");
@@ -63,7 +74,7 @@ function push(msg) {
 }
 
 sync();
-const todo = queueItems().filter((i) => !i.images).slice(0, MAX);
+const todo = queueItems().filter((i) => i.needsPhotos).slice(0, MAX);
 log(`${queueItems().length} queued, ${todo.length} to illustrate now`);
 for (const item of todo) {
   const work = join(WORK, item.slug);
@@ -82,7 +93,10 @@ for (const item of todo) {
   if (!process.argv.includes("--no-push")) sync(); // the queue may have moved while ChatGPT worked
   const dir = join(QUEUE, item.slug);
   if (!existsSync(dir)) { log(`${item.slug}: already published, photos not needed`); continue; }
-  for (const n of IMAGE_NAMES) fit(join(work, "stills", `${n}.png`), join(dir, `${n}.jpg`), SIZE[n]);
+  for (const [i, n] of IMAGE_NAMES.entries()) {
+    fit(join(work, "stills", `${n}.png`), join(dir, `${n}.jpg`), SIZE[n]);
+    stamp(join(dir, `${n}.jpg`), shots[i].alt, item.meta.title);
+  }
   push(`Journal queue: ChatGPT photos for ${item.slug}`);
   log(`${item.slug}: 3 photos pushed`);
   rmSync(work, { recursive: true, force: true });

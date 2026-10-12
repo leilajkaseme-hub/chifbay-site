@@ -1,0 +1,24 @@
+{
+  "_about": "Madeira events the Journal times a post for. Dates come from the official Visit Madeira tourist calendar 2026-2028 (checked 12 Oct 2026; the board says it can change). 'guide' = the post goes live this many days BEFORE 'start' (min to max): early enough to plan a trip, late enough that people still search. Add the next year's events here every autumn. The writer also confirms the dates with a web search before it writes.",
+  "source": "https://www.visitmadeira.com/en/whats-on/events/official-calendar-2026-2028/",
+  "events": [
+    { "id": "christmas-lights-2026", "name": "Funchal Christmas lights and market", "start": "2026-12-01", "end": "2027-01-10", "guide": [4, 10],
+      "note": "The Funchal amphitheatre lights run 1 Dec to 10 Jan. The Christmas market is expected from 28 Nov (not confirmed).",
+      "scene": "Funchal bay at dusk with the Christmas lights shining on the hillside, seen from the sea" },
+    { "id": "new-year-fireworks-2026", "name": "New Year's Eve fireworks over Funchal bay", "start": "2026-12-31", "end": "2026-12-31", "guide": [7, 14],
+      "note": "Fireworks on 31 Dec over the bay. Famous worldwide; the bay is the best seat.",
+      "scene": "Fireworks over Funchal bay at midnight seen from the water, a small boat in the foreground" },
+    { "id": "carnival-2027", "name": "Funchal Carnival 2027", "start": "2027-02-03", "end": "2027-02-14", "guide": [8, 14],
+      "note": "3 to 14 Feb. Allegorical parade 5 and 6 Feb, slapstick parade 9 Feb.",
+      "scene": "Funchal seafront in February with colourful Carnival feathers and floats, no close faces" },
+    { "id": "flower-festival-2027", "name": "Madeira Flower Festival 2027", "start": "2027-04-29", "end": "2027-05-30", "guide": [10, 18],
+      "note": "29 Apr to 30 May. Great Flower Parade on 2 May and 16 May. Classic Car Revival 28 to 30 May.",
+      "scene": "Flower carpets and flower floats in Funchal in spring, no close faces" },
+    { "id": "flower-parade-2-2027", "name": "Madeira Flower Parade, second Sunday (16 May 2027)", "start": "2027-05-16", "end": "2027-05-16", "guide": [5, 9],
+      "note": "The second Great Flower Parade, 16 May.",
+      "scene": "A flower float with orchids and bird of paradise on the Funchal avenue" },
+    { "id": "atlantic-festival-2027", "name": "Atlantic Festival 2027 (fireworks every Saturday in June)", "start": "2027-06-04", "end": "2027-06-27", "guide": [10, 16],
+      "note": "4 to 27 Jun. International fireworks competition on 5, 12, 19 and 26 Jun, shot over the bay.",
+      "scene": "Fireworks competition over Funchal bay at night seen from a boat on the water" }
+  ]
+}

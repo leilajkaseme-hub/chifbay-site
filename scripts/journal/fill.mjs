@@ -16,6 +16,7 @@
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { eventBrief } from "./events.mjs";
 import { POSTS_JSON, QUEUE, ROOT, ntfy, queueItems, readPosts, today } from "./lib.mjs";
 
 const arg = (k, d) => (process.argv.includes(k) ? Number(process.argv[process.argv.indexOf(k) + 1]) : d);
@@ -30,7 +31,8 @@ function addDays(iso, n) {
   return d.toISOString().slice(0, 10);
 }
 
-function preface(day, queued) {
+function preface(day, queued, published = []) {
+  const timed = eventBrief(day, [...queued.map((q) => q.meta.title), ...published.map((x) => x.title)]);
   const planned = queued.length
     ? `- These posts are already written and will go live before this one. Do NOT repeat their topic, and count
   them as recent when you rotate categories:\n${queued.map((q) => `  - [${q.meta.category}] ${q.meta.title}`).join("\n")}\n`
@@ -40,7 +42,7 @@ This post is written ahead of time. It goes live on **${day}**.
 - You have NO shell: never write or run a script (python, node, bash). Create every file directly with the
   Write and Edit tools (Write the new post HTML in full, Edit posts.json and sitemap.xml). Finish the post
   yourself; never stop to ask for permission or for a choice.
-${planned}
+${planned}${timed}
 - Wherever the steps below say "today" or ask you to run \`date\`, use ${day} instead. Every date in
   the post (meta, JSON-LD, the date under the title) is ${day}.
 - Anything time-bound (events, openings, seasons, "this week") must still be true and upcoming on ${day}.
@@ -83,7 +85,7 @@ function writeOne(day) {
   const queued = queueItems();
   const known = new Set([...posts, ...queued.map((q) => q.meta)].map((p) => p.slug));
 
-  const prompt = preface(day, queued) + readFileSync(join(ROOT, "scripts/blog-local/BLOG-INSTRUCTIONS.md"), "utf8");
+  const prompt = preface(day, queued, readPosts().slice(0, 40)) + readFileSync(join(ROOT, "scripts/blog-local/BLOG-INSTRUCTIONS.md"), "utf8");
   const run = spawnSync("claude", ["-p", prompt, "--permission-mode", "acceptEdits",
     "--allowedTools", "Read", "Write", "Edit", "Glob", "Grep", "WebSearch", "WebFetch"],
   { cwd: ROOT, encoding: "utf8", timeout: 20 * 60_000, maxBuffer: 20 * 1024 * 1024 });

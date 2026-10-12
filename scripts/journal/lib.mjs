@@ -22,6 +22,22 @@ export const QUEUE = join(ROOT, "journal-queue");
 export const POSTS_JSON = join(ROOT, "posts", "posts.json");
 export const IMAGE_NAMES = ["hero", "inline-1", "inline-2"];
 
+/**
+ * The file name of a photo, from its alt text: plain words, lower case, no accents, 4 to 9 words,
+ * with "madeira" in it (search engines read the name). `taken` = names to avoid (adds -2, -3).
+ */
+export function seoFile(alt, taken = []) {
+  const stop = new Set(["a", "an", "the", "of", "and", "with", "on", "in", "at", "to", "for", "by", "its", "is", "are"]);
+  let words = String(alt ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ").split(" ").filter((w) => w && !stop.has(w));
+  if (!words.includes("madeira")) words.push("madeira");
+  words = [...words.filter((w) => w !== "madeira").slice(0, 7), "madeira"];
+  const base = words.join("-");
+  let name = base, n = 2;
+  while (taken.includes(name)) name = `${base}-${n++}`;
+  return name;
+}
+
 /** Today in Madeira, YYYY-MM-DD. The post date the reader sees. */
 export function today(now = new Date()) {
   if (process.env.JOURNAL_TODAY) return process.env.JOURNAL_TODAY;
@@ -44,7 +60,8 @@ export function queueItems() {
       const dir = join(QUEUE, slug);
       const meta = JSON.parse(readFileSync(join(dir, "meta.json"), "utf8"));
       const images = IMAGE_NAMES.every((n) => existsSync(join(dir, `${n}.jpg`)));
-      return { slug, dir, meta, images };
+      // meta.photo "chatgpt" = the hero is already a ChatGPT photo with its SEO name (journal-images/finish.py)
+      return { slug, dir, meta, images, needsPhotos: !images && meta.photo !== "chatgpt" };
     })
     .sort((a, b) => String(a.meta.queued).localeCompare(String(b.meta.queued)) || a.slug.localeCompare(b.slug));
 }
