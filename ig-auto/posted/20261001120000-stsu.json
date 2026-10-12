@@ -9,5 +9,14 @@
   "image": "ig/stories/sunset.jpg",
   "url": "https://www.chifbay.com/ig/stories/sunset.jpg",
   "sha256": "649bb30d0cab44d59764154d633d314e324ab9a731f074c95f1298efbb8fa2ee",
-  "look": "atlantic-v2"
+  "look": "atlantic-v2",
+  "posted_at": "2026-10-12T22:03:12.738Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "18130339840688884",
+    "confirmed": true,
+    "permalink": "https://www.instagram.com/stories/chifbay/4006588421312680775",
+    "media_type": "IMAGE",
+    "timestamp": "2026-10-12T22:03:10+0000"
+  }
 }
