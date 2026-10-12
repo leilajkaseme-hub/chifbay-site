@@ -912,8 +912,22 @@
     "id": "r14-paddle",
     "format": null,
     "source": "reel"
+   },
+   "h24": {
+    "at": "2026-10-12T15:20:43.295Z",
+    "age_hours": 46,
+    "reach": 159,
+    "views": 223,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 2,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 4449
    }
   }
  },
- "updated_at": "2026-10-11T12:47:07.845Z"
+ "updated_at": "2026-10-12T15:20:43.295Z"
 }
