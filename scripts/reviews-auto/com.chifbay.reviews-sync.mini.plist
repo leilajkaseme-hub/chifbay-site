@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key><string>com.chifbay.reviews-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/caffeinate</string><string>-i</string>
+        <string>/bin/bash</string>
+        <string>/Users/code/repos/chifbay-reviews/scripts/reviews-auto/run-local-reviews-sync.sh</string>
+    </array>
+    <key>WorkingDirectory</key><string>/Users/code/repos/chifbay-reviews/scripts/reviews-auto</string>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>8</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Hour</key><integer>13</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>15</integer></dict>
+        <dict><key>Hour</key><integer>22</integer><key>Minute</key><integer>15</integer></dict>
+    </array>
+    <key>RunAtLoad</key><false/>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key><string>/Users/code/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key><string>/Users/code</string>
+    </dict>
+    <key>StandardOutPath</key><string>/Users/code/repos/chifbay-reviews/scripts/reviews-auto/launchd-out.log</string>
+    <key>StandardErrorPath</key><string>/Users/code/repos/chifbay-reviews/scripts/reviews-auto/launchd-err.log</string>
+</dict>
+</plist>
