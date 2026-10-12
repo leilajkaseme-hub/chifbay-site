@@ -36,6 +36,8 @@ NTFY_INBOX="https://ntfy.sh/futurx-inbox-544024878e"
 # failed on every run for a month while the heartbeat said "success".
 API="https://chifbay-booking-api.chifandcopt.workers.dev"
 OTA_TOKEN_FILE="$(cd "$SCRIPT_DIR/../../../../.." && pwd)/.credentials/chifbay-ota.token"
+# Run from a clone outside /Users/Shared/Claude (the Mac mini does): use the shared copy of the token.
+[ -f "$OTA_TOKEN_FILE" ] || OTA_TOKEN_FILE="/Users/Shared/Claude/.credentials/chifbay-ota.token"
 STAGE="start"
 report() {   # report <ok:true|false> <published:true|false> [error]
   [ -f "$OTA_TOKEN_FILE" ] || return 0
