@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T12:15:42.141Z",
+ "generated_at": "2026-10-13T17:45:55.094Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -290,36 +290,6 @@
    "template": "times",
    "priority": null,
    "created": "2026-10-02T12:00:00.000Z"
-  },
-  {
-   "id": "20261003100655-0ca4",
-   "kind": "feed",
-   "media": "photo",
-   "caption": "Private boat trip from Funchal, Madeira: this is the view from the nose of our boat.\n\nTwo steel rails, a grey deck pad and a great deal of blue. Not a single thing in the way.\n\nFrom out here you notice what the island is really made of: steps. Hotels on the rock, houses on the terraces, every garden with a view and a staircase.\n\nThis coast is the start of both our trips, the Day Trip and the Sunset Trip, out of Funchal marina towards Câmara de Lobos and Cabo Girão. Just your group on board, never more than five.\n\nMar azul, céu azul, e nós no meio.\n\nFront seat or back seat, your call. Book direct on chifbay.com",
-   "hashtags": [
-    "#funchalmadeira",
-    "#portugal",
-    "#madeiraboattrip",
-    "#funchalboattrip",
-    "#dayonaboat",
-    "#islandlife",
-    "#travelportugal"
-   ],
-   "cover": "https://chifbay.com/ig/20261003100655-0ca4-1.jpg",
-   "video": null,
-   "slides": [
-    "https://chifbay.com/ig/20261003100655-0ca4-1.jpg",
-    "https://chifbay.com/ig/20261003100655-0ca4-2.jpg",
-    "https://chifbay.com/ig/20261003100655-0ca4-3.jpg",
-    "https://chifbay.com/ig/20261003100655-0ca4-4.jpg"
-   ],
-   "plan_index": null,
-   "set": null,
-   "alt": null,
-   "title": null,
-   "template": null,
-   "priority": 0,
-   "created": "2026-10-03T10:07:05.577Z"
   },
   {
    "id": "20261003100705-08c7",
