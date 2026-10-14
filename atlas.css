@@ -572,10 +572,45 @@ html.atlas body{background:var(--ink);color:var(--paper);font-weight:300;letter-
 .atlas .mfacts li span{display:block;font-family:'Space Mono',monospace;font-size:.58rem;
   letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-bottom:3px}
 
-.atlas .mapbox{position:relative;border:1px solid var(--line-2);border-radius:2px;
-  overflow:hidden;aspect-ratio:16/11;background:var(--ink-2)}
+.atlas .mapbox{position:relative;border:1px solid var(--line-2);border-radius:var(--radius-lg,18px);
+  overflow:hidden;aspect-ratio:16/11;background:var(--ink-2);box-shadow:0 12px 36px rgba(0,0,0,.15)}
 @media(max-width:600px){.atlas .mapbox{aspect-ratio:4/3}}
 .atlas .mapbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.atlas .cb-map-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;background:var(--ink-2)}
+
+/* Custom Leaflet Controls */
+.atlas .cb-map-canvas .leaflet-control-zoom{border:none!important;border-radius:12px!important;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.18)!important;margin-right:16px!important;margin-top:16px!important}
+.atlas .cb-map-canvas .leaflet-control-zoom a{background:rgba(255,255,255,.9)!important;color:#0b2236!important;border:none!important;width:38px!important;height:38px!important;line-height:38px!important;font-size:18px!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:all .2s ease}
+:root[data-theme="dark"] .atlas .cb-map-canvas .leaflet-control-zoom a{background:rgba(14,30,45,.88)!important;color:#f7f5f1!important;border-bottom:1px solid rgba(255,255,255,.08)!important}
+.atlas .cb-map-canvas .leaflet-control-zoom a:hover{background:#fff!important;color:#b8862b!important}
+:root[data-theme="dark"] .atlas .cb-map-canvas .leaflet-control-zoom a:hover{background:#18334a!important;color:#e0be7a!important}
+.atlas .cb-map-canvas .leaflet-control-attribution{background:rgba(255,255,255,.6)!important;backdrop-filter:blur(4px);color:#5d6a74!important;font-size:10px!important;padding:2px 8px!important;border-top-left-radius:6px}
+:root[data-theme="dark"] .atlas .cb-map-canvas .leaflet-control-attribution{background:rgba(11,27,41,.7)!important;color:#8899a6!important}
+.atlas .cb-map-canvas .leaflet-control-attribution a{color:inherit!important;text-decoration:none!important}
+
+/* Custom Luxury Boat / Anchor Marker */
+.cb-marker-wrap{position:relative;display:flex;align-items:center;justify-content:center;pointer-events:auto;cursor:pointer}
+.cb-marker-pulse{position:absolute;width:52px;height:52px;border-radius:50%;background:rgba(224,190,122,.38);animation:cbMapPulse 2.4s infinite ease-out;pointer-events:none}
+@keyframes cbMapPulse{0%{transform:scale(.3);opacity:.95}70%{transform:scale(1.7);opacity:0}100%{transform:scale(1.9);opacity:0}}
+.cb-marker-pin{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#e0be7a 0%,#b8862b 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.35),0 0 0 3px rgba(255,255,255,.9);position:relative;z-index:2;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+:root[data-theme="dark"] .cb-marker-pin{box-shadow:0 6px 18px rgba(0,0,0,.55),0 0 0 3px rgba(11,27,41,.9)}
+.cb-marker-wrap:hover .cb-marker-pin{transform:scale(1.15)}
+.cb-marker-pin svg{width:22px;height:22px;fill:#0b1b29}
+.cb-marker-card{position:absolute;bottom:48px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:6px 14px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.15);white-space:nowrap;border:1px solid rgba(11,34,54,.08);display:flex;align-items:center;gap:8px;font-family:var(--sans,'Inter',sans-serif);font-size:.8rem;color:#0b2236;pointer-events:none;z-index:3}
+:root[data-theme="dark"] .cb-marker-card{background:rgba(14,30,45,.92);color:#f7f5f1;border-color:rgba(255,255,255,.12)}
+.cb-marker-card strong{font-weight:600;color:inherit}
+.cb-marker-card span{font-size:.74rem;color:#b8862b;font-weight:500}
+:root[data-theme="dark"] .cb-marker-card span{color:#e0be7a}
+.cb-marker-card:after{content:"";position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:5px solid rgba(255,255,255,.94)}
+:root[data-theme="dark"] .cb-marker-card:after{border-top-color:rgba(14,30,45,.92)}
+
+/* Clean Floating Direct Button */
+.cb-map-direct-btn{position:absolute;bottom:14px;left:14px;z-index:1000;display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;font-size:.78rem;font-weight:600;font-family:var(--sans,'Inter',sans-serif);text-decoration:none;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#0b2236;border:1px solid rgba(11,34,54,.1);box-shadow:0 4px 14px rgba(0,0,0,.1);transition:all .2s ease}
+:root[data-theme="dark"] .cb-map-direct-btn{background:rgba(14,30,45,.9);color:#f7f5f1;border-color:rgba(255,255,255,.15)}
+.cb-map-direct-btn:hover{background:#fff;transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.15);color:#b8862b}
+:root[data-theme="dark"] .cb-map-direct-btn:hover{background:#18334a;color:#e0be7a}
+.cb-map-direct-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
 /* the pre-consent face of the card: our own marina photo, dimmed, with the pin */
 .atlas .mapstub{position:absolute;inset:0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:16px;text-align:center;padding:28px;
