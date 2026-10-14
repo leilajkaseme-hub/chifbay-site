@@ -844,6 +844,20 @@
     "follows": 0,
     "profile_visits": 1,
     "ig_reels_avg_watch_time": null
+   },
+   "d7": {
+    "at": "2026-10-14T11:49:22.799Z",
+    "age_hours": 186,
+    "reach": 30,
+    "views": 106,
+    "likes": 6,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 6,
+    "follows": 0,
+    "profile_visits": 1,
+    "ig_reels_avg_watch_time": null
    }
   },
   "18131578556479830": {
@@ -950,8 +964,32 @@
     "id": "r10-cabogirao",
     "format": null,
     "source": "reel"
+   },
+   "h24": {
+    "at": "2026-10-14T11:49:22.799Z",
+    "age_hours": 40,
+    "reach": 161,
+    "views": 202,
+    "likes": 5,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 5,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 3053
+   }
+  },
+  "17997548859012480": {
+   "posted_at": "2026-10-13T17:45:52+0000",
+   "permalink": "https://www.instagram.com/p/DecYFnTlL4j/",
+   "type": "carousel",
+   "ours": {
+    "id": "20261003100655-0ca4",
+    "format": null,
+    "source": "library"
    }
   }
  },
- "updated_at": "2026-10-13T14:09:44.469Z"
+ "updated_at": "2026-10-14T11:49:22.799Z"
 }
