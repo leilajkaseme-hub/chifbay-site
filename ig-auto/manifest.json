@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-14T09:49:30.882Z",
+ "generated_at": "2026-10-14T15:02:14.758Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -271,37 +271,6 @@
    "template": "times",
    "priority": null,
    "created": "2026-10-02T12:00:00.000Z"
-  },
-  {
-   "id": "20261003100705-08c7",
-   "kind": "feed",
-   "media": "photo",
-   "caption": "Four friends, a boat to themselves and a cliff in Madeira: spot the one who has just been in the water.\n\nEasy. Two towels, one hand still on the rail, and the biggest smile on board.\n\nThe other three already have their glasses back. Rosé, crisps, a tin of something, and a wooden table that stays flat while the sea does not.\n\nBehind them the cliff goes up in stripes, red and grey and black, straight out of deep blue water.\n\nPrimeiro o mar, depois o copo.\n\nThat is the order on our Day Trip: the swim and paddle stop at Fajã dos Padres, then food on the table. Just your group, five at most, and the skipper takes the photos.\n\nTowel first or glass first? WhatsApp us and we will find you a date.",
-   "hashtags": [
-    "#madeiraportugal",
-    "#visitmadeira",
-    "#madeiraboattour",
-    "#privateboatmadeira",
-    "#familytrip",
-    "#happyguests",
-    "#slowtravel",
-    "#madeiratravel"
-   ],
-   "cover": "https://chifbay.com/ig/20261003100705-08c7-1.jpg",
-   "video": null,
-   "slides": [
-    "https://chifbay.com/ig/20261003100705-08c7-1.jpg",
-    "https://chifbay.com/ig/20261003100705-08c7-2.jpg",
-    "https://chifbay.com/ig/20261003100705-08c7-3.jpg",
-    "https://chifbay.com/ig/20261003100705-08c7-4.jpg"
-   ],
-   "plan_index": null,
-   "set": null,
-   "alt": null,
-   "title": null,
-   "template": null,
-   "priority": 0,
-   "created": "2026-10-03T10:07:13.266Z"
   },
   {
    "id": "20261003100713-6ac5",
