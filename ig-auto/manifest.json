@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-13T19:43:30.042Z",
+ "generated_at": "2026-10-14T09:49:30.882Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -477,6 +477,36 @@
    "template": null,
    "priority": 0,
    "created": "2026-10-10T10:51:51.311Z"
+  },
+  {
+   "id": "20261014094920-5b37",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Wild dolphins alongside the boat. Respectful distance, never chasing.\n\nPrivate boat from Funchal, skipper included, five guests maximum.\n\nBook direct on chifbay.com",
+   "hashtags": [
+    "#madeiraisland",
+    "#portugal",
+    "#madeiraboattrip",
+    "#privateboatmadeira",
+    "#dolphinwatching",
+    "#wildlifewatching",
+    "#travelportugal"
+   ],
+   "cover": "https://chifbay.com/ig/20261014094920-5b37-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261014094920-5b37-1.jpg",
+    "https://chifbay.com/ig/20261014094920-5b37-2.jpg",
+    "https://chifbay.com/ig/20261014094920-5b37-3.jpg",
+    "https://chifbay.com/ig/20261014094920-5b37-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-14T09:49:30.876Z"
   }
  ]
 }
