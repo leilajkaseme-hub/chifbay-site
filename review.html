@@ -96,9 +96,9 @@
           <div class="rvw-hintline" id="rvwHint">Tap to rate</div>
         </div>
 
-        <!-- Step 2A — happy: send them where it counts -->
+        <!-- Step 2 — Public review links for ALL ratings (Google policy compliant) -->
         <div class="rvw-panel" id="rvwHappy">
-          <p style="margin-top:14px">Wonderful! Would you share it publicly? Your stars are pre-selected — just paste your thoughts.</p>
+          <p style="margin-top:14px">Thank you for rating your experience! Please share your thoughts publicly:</p>
           <div class="rvw-btns">
             <a class="btn btn-p btn-lg" id="rvwBtnG" href="#" target="_blank" rel="noopener">Post it on Google →</a>
             <a class="btn btn-g btn-lg" id="rvwBtnT" href="#" target="_blank" rel="noopener">Post it on Tripadvisor →</a>
@@ -110,14 +110,17 @@
             <span id="rvwWvAnd" style="display:none">We'll open your main browser automatically — you're already signed in there.</span>
           </div>
           <div class="rvw-note">Tripadvisor asks for a free account · Google works with any Google login</div>
+          <div style="margin-top:20px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);text-align:center">
+            <a href="#private-feedback" id="rvwToggleSad" class="rvw-alt" style="display:inline-block;cursor:pointer">Prefer to send a private note directly to the skipper? ↓</a>
+          </div>
         </div>
 
-        <!-- Step 2B — not happy: private line to the skipper, never public -->
+        <!-- Private line to the skipper (available to any guest) -->
         <div class="rvw-panel" id="rvwSad">
-          <p style="margin-top:14px">We're sorry it wasn't perfect — and we'd like to make it right. This goes <strong>directly and privately to the skipper's phone</strong>, not to the internet.</p>
+          <p style="margin-top:14px">Have suggestions or a private note? This goes <strong>directly and privately to the skipper's phone</strong>.</p>
           <form class="rvw-form" id="rvwForm">
             <input type="text" name="website" class="rvw-hp" tabindex="-1" autocomplete="off"/>
-            <textarea name="message" aria-label="Your feedback" placeholder="What happened? What could we have done better?" required></textarea>
+            <textarea name="message" aria-label="Your feedback" placeholder="What could we have done better or what would you like to share?" required></textarea>
             <input type="text" name="name" aria-label="Your name (optional)" placeholder="Your name (optional)"/>
             <input type="email" name="email" aria-label="Your email (optional)" placeholder="Email — only if you'd like a reply (optional)"/>
             <button class="btn btn-p btn-lg" type="submit" id="rvwSend">Send to the skipper</button>
@@ -275,11 +278,20 @@
   function paint(n){ stars.forEach(function(b){ b.className = (+b.getAttribute('data-v') <= n) ? 'on' : ''; }); }
   function show(n){
     rating = n; paint(n);
-    $('rvwHappy').className = 'rvw-panel' + (n >= 4 ? ' show' : '');
-    $('rvwSad').className   = 'rvw-panel' + (n >= 1 && n <= 3 ? ' show' : '');
+    $('rvwHappy').className = 'rvw-panel show';
+    $('rvwSad').className   = 'rvw-panel';
     $('rvwDone').className  = 'rvw-panel';
-    $('rvwHint').textContent = n >= 4 ? 'Thank you! One more tap below…' : 'Thanks for your honesty — talk to us below.';
+    $('rvwHint').textContent = n === 5 ? '5 stars — Thank you! Share it below…' : 'Thank you! Share your thoughts below…';
     $('rvwReset').style.display = 'inline';
+  }
+  var toggleSad = $('rvwToggleSad');
+  if (toggleSad) {
+    toggleSad.addEventListener('click', function(e){
+      e.preventDefault();
+      var sad = $('rvwSad');
+      sad.className = 'rvw-panel show';
+      sad.scrollIntoView({ behavior: 'smooth' });
+    });
   }
   stars.forEach(function(b){
     b.addEventListener('mouseenter', function(){ if (!rating) paint(+b.getAttribute('data-v')); });

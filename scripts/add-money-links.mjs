@@ -43,9 +43,21 @@ const GIRAO = "Cabo Gir[ãa]o";
 // One entry per target page. url(lang) gives the page, or null when the
 // language has none. pat[lang] lists patterns, most specific first.
 const TARGETS = [
-  { id: "faja", enOnly: true, url: () => "/faja-dos-padres-boat-trip",
-    pat: { all: [/\b(?:the )?(?:cove|bay|beach|terraces?) (?:at|of) Faj[ãa] dos Padres\b/, /\bFaj[ãa] dos Padres\b/] } },
-  { id: "cabo", enOnly: true, url: () => "/cabo-girao-boat-tour",
+  { id: "private", url: (l) => (l === "en" ? "/private-boat-tour-madeira" : l === "de" || l === "fr" ? `/${l}/private-boat-tour-madeira` : loc(l, "experiences")),
+    pat: {
+      en: [/\bprivate (?:boat|charter) (?:tours?|trips?|charters?|cruises?|excursions?)(?: (?:in|on|around) Madeira| from Funchal)?\b/i, /\bprivate (?:boat|charter)s?\b/i],
+      de: [/\bprivate[nrms]? Boots(?:tour|fahrt|ausflug)(?:en|e)?\b/, /\bPrivatboot(?:e|s)?\b/, /\bprivate[nrms]? Charter\b/],
+      fr: [/\b(?:excursion|sortie|balade|croisière)s? en bateau privé\b/i, /\bbateau(?:x)? privés?\b/i, /\bcharter privé\b/i, /\bvisiter Madère depuis la mer\b/i, /\bvoir Madère depuis la mer\b/i, /\bvisiter la côte en bateau\b/i],
+      pt: [/\bpasseios? de barco privados?\b/i, /\bbarcos? privados?\b/i],
+      es: [/\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco privado\b/i, /\bbarcos? privados?\b/i],
+      it: [/\bgit[ae] in barca privata\b/i, /\bbarc(?:a|he) privat[ae]\b/i],
+    } },
+  { id: "faja", url: (l) => (l === "en" ? "/faja-dos-padres-boat-trip" : loc(l, "hidden-coves-half-day")),
+    pat: {
+      en: [/\b(?:the )?(?:cove|bay|beach|terraces?) (?:at|of) Faj[ãa] dos Padres\b/, /\bFaj[ãa] dos Padres\b/],
+      all: [/\bFaj[ãa] dos Padres\b/]
+    } },
+  { id: "cabo", url: (l) => (l === "en" ? "/cabo-girao-boat-tour" : loc(l, "hidden-coves-half-day")),
     pat: {
       en: [new RegExp(`\\b(?:boat (?:tours?|trips?|rides?) (?:to|under|along|past|beneath) ${GIRAO}|${GIRAO} from the (?:sea|water)|(?:the )?(?:base|foot) of ${GIRAO}|under(?:neath)? ${GIRAO}|(?:the )?(?:sea )?cliffs? (?:of|at) ${GIRAO}|${GIRAO}(?:'s)? (?:sea )?cliffs?)\\b`, "i")],
       all: [new RegExp(`\\b${GIRAO}\\b(?! ?[Ss]kywalk)`)],
@@ -68,15 +80,6 @@ const TARGETS = [
       es: [/\bexcursi(?:ón|ones) (?:en barco )?de día\b/i, /\bparadas? para (?:nadar|bañarse)\b/i],
       it: [/\bgit[ae] (?:in barca )?di giorno\b/i, /\bsoste? per (?:il )?bagno\b/i],
     } },
-  { id: "private", url: (l) => (l === "en" ? "/private-boat-tour-madeira" : l === "de" || l === "fr" ? `/${l}/private-boat-tour-madeira` : home(l)),
-    pat: {
-      en: [/\bprivate (?:boat|charter) (?:tours?|trips?|charters?|cruises?|excursions?)(?: (?:in|on|around) Madeira| from Funchal)?\b/i, /\bprivate (?:boat|charter)s?\b/i],
-      de: [/\bprivate[nrms]? Boots(?:tour|fahrt|ausflug)(?:en|e)?\b/, /\bPrivatboot(?:e|s)?\b/, /\bprivate[nrms]? Charter\b/],
-      fr: [/\b(?:excursion|sortie|balade|croisière)s? en bateau privé\b/i, /\bbateau privé\b/i],
-      pt: [/\bpasseios? de barco privados?\b/i, /\bbarcos? privados?\b/i],
-      es: [/\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco privado\b/i, /\bbarcos? privados?\b/i],
-      it: [/\bgit[ae] in barca privata\b/i, /\bbarc(?:a|he) privat[ae]\b/i],
-    } },
   { id: "home", url: (l) => home(l),
     pat: {
       en: [/\b(?:Madeira|Funchal) boat (?:trips?|tours?)\b/i, /\bboat (?:trips?|tours?) (?:in|around|on|off|from|out of) (?:Madeira|Funchal)\b/i, /\bboat (?:trips?|tours?)\b/i],
@@ -92,7 +95,7 @@ const TARGETS = [
     pat: { en: [/\bbest boat (?:trips?|tours?)(?: in Madeira)?\b/i, /\bwhale[- ]watching (?:trips?|tours?|boats?|operators?)\b/i, /\bshared catamarans?(?: (?:trips?|tours?|cruises?))?\b/i, /\bcatamaran (?:trips?|tours?|cruises?)\b/i] } },
 ];
 // topical pages first; the home page always gets a slot when it has a match
-const ORDER = ["faja", "cabo", "sunset", "day", "private", "rental", "best"];
+const ORDER = ["private", "sunset", "day", "faja", "cabo", "rental", "best"];
 
 const files = [];
 for (const l of LANGS) {
