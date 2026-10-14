@@ -23,25 +23,37 @@
 .rvw-wrap .ccard{text-align:center}
 .rvw-stars{display:flex;justify-content:center;gap:clamp(2px,2vw,10px);margin:18px 0 6px;max-width:100%}
 .rvw-stars button{background:none;border:none;cursor:pointer;font-size:clamp(1.9rem,11vw,2.6rem);line-height:1;padding:4px;min-width:44px;flex:0 1 auto;color:rgba(255,255,255,.25);transition:transform .12s ease,color .12s ease}
+:root[data-theme="light"] .rvw-stars button{color:rgba(11,34,54,.18)}
 .rvw-stars button.on{color:#e3b264;text-shadow:0 0 22px rgba(227,178,100,.45)}
+:root[data-theme="light"] .rvw-stars button.on{color:#b98d3e;text-shadow:0 0 16px rgba(185,141,62,.3)}
 .rvw-stars button:hover{transform:scale(1.18)}
+:root[data-theme="light"] .rvw-stars button:hover{color:#b98d3e}
 .rvw-hintline{font-size:.85rem;opacity:.6;margin-top:4px}
+:root[data-theme="light"] .rvw-hintline{color:#5d6a74;opacity:1}
 .rvw-panel{display:none;margin-top:8px}
 .rvw-panel.show{display:block;animation:rvwin .45s ease}
 @keyframes rvwin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .rvw-btns{display:flex;flex-direction:column;gap:14px;margin-top:20px}
 .rvw-btns .btn{width:100%;justify-content:center;text-align:center}
 .rvw-alt{display:block;margin-top:10px;font-size:.82rem;opacity:.65}
+:root[data-theme="light"] .rvw-alt{color:#0b2236;opacity:.85}
 .rvw-note{font-size:.8rem;opacity:.55;margin-top:14px}
+:root[data-theme="light"] .rvw-note{color:#5d6a74;opacity:1}
 .rvw-webview{display:none;margin-top:16px;padding:12px 14px;border:1px solid rgba(227,178,100,.4);border-radius:10px;font-size:.85rem;line-height:1.5;background:rgba(227,178,100,.07)}
+:root[data-theme="light"] .rvw-webview{background:rgba(185,141,62,.08);border-color:rgba(185,141,62,.28);color:#0b2236}
 .rvw-webview.show{display:block}
 .rvw-form{display:flex;flex-direction:column;gap:12px;margin-top:20px;text-align:left}
 .rvw-form input,.rvw-form textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:10px;padding:13px 15px;color:#fff;font-family:'Inter',sans-serif;font-size:.95rem}
+:root[data-theme="light"] .rvw-form input,:root[data-theme="light"] .rvw-form textarea{background:#f7f9fa;border:1px solid rgba(11,34,54,.14);color:#0b2236}
 .rvw-form textarea{min-height:120px;resize:vertical}
 .rvw-form input::placeholder,.rvw-form textarea::placeholder{color:rgba(255,255,255,.4)}
+:root[data-theme="light"] .rvw-form input::placeholder,:root[data-theme="light"] .rvw-form textarea::placeholder{color:#8c9ba5}
 .rvw-form input:focus,.rvw-form textarea:focus{outline:none;border-color:#e3b264}
+:root[data-theme="light"] .rvw-form input:focus,:root[data-theme="light"] .rvw-form textarea:focus{border-color:#b98d3e;background:#fff}
 .rvw-reset{background:none;border:none;color:rgba(255,255,255,.5);font-size:.82rem;cursor:pointer;margin-top:18px;text-decoration:underline}
+:root[data-theme="light"] .rvw-reset{color:#5d6a74}
 .rvw-ok{font-size:1rem;line-height:1.6;padding:10px 0}
+:root[data-theme="light"] .rvw-ok{color:#0b2236}
 .rvw-hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
 </style>
   <script defer src="https://dashboard-pink-nine-58.vercel.app/t.js" data-store="chifbay"></script>
