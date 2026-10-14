@@ -50,11 +50,13 @@
 .rq-badge .n{font-family:'Satoshi','Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.7rem;color:#e3b264;line-height:1;white-space:nowrap;flex-shrink:0}
 .rq-badge .d{font-size:.82rem;opacity:.75;line-height:1.45}
 .rq-badge .d a{color:#e3b264;text-decoration:none}
-.rq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
-.rq{border-radius:14px;padding:32px 34px;text-align:left}
-@media(max-width:560px){.rq{padding:26px 20px}}
-.rq-stars{letter-spacing:2px;font-size:1.05rem;margin-bottom:14px}
-.rq p.rq-text{font-size:1.02rem;line-height:1.65;font-style:normal;margin:0 0 18px}
+.rq-list{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+@media(max-width:1040px){.rq-list{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(max-width:640px){.rq-list{grid-template-columns:1fr;gap:16px}}
+.rq{border-radius:14px;padding:26px 24px;text-align:left;display:flex;flex-direction:column;box-sizing:border-box}
+@media(max-width:560px){.rq{padding:22px 18px}}
+.rq-stars{letter-spacing:2px;font-size:1.02rem;margin-bottom:12px}
+.rq p.rq-text{font-family:var(--sans,'Inter',system-ui,-apple-system,sans-serif);font-size:1rem;line-height:1.62;font-style:normal;margin:0 0 16px}
 .rq-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-size:.86rem;color:var(--g-grey)}
 .rq-meta .who{font-weight:600}
 .rq-meta .src{font-size:.74rem;text-transform:none;letter-spacing:0;border:1px solid currentColor;border-radius:999px;padding:3px 10px}
