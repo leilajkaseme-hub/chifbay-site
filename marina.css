@@ -237,11 +237,11 @@ section p a:not([class]):hover,section li a:not([class]):hover,section dd a:not(
 }
 
 /* Reviews page (reviews.html) */
-.rq-list{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
-@media(max-width:1040px){.rq-list{grid-template-columns:repeat(2,1fr);gap:18px}}
-@media(max-width:640px){.rq-list{grid-template-columns:1fr;gap:16px}}
-.rq{border-radius:14px;padding:26px 24px;text-align:left;display:flex;flex-direction:column;box-sizing:border-box}
-@media(max-width:560px){.rq{padding:22px 18px}}
+.rq-list{max-width:1240px;margin:0 auto;column-count:3;column-gap:22px}
+@media(max-width:1040px){.rq-list{column-count:2;column-gap:18px}}
+@media(max-width:640px){.rq-list{column-count:1}}
+.rq{display:inline-block;width:100%;break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 22px;vertical-align:top;border-radius:14px;padding:26px 24px;text-align:left;box-sizing:border-box}
+@media(max-width:560px){.rq{padding:22px 18px;margin-bottom:16px}}
 :root[data-theme="light"] .rvh{color:#0b2236}
 :root[data-theme="light"] .rq-sum{color:#5d6a74}
 :root[data-theme="light"] .rq-badge{
