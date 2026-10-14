@@ -24,7 +24,8 @@ const UNDO = process.argv.includes("--undo");
 // `ig-auto/` ne part jamais dans une page.
 const FILES = ["peak.css", "atlas.css", "booking.css", "motion.css", "tide.css", "tide.js",
                "peak.js", "atlas.js", "motion.js", "booking.js", "booking-content.js",
-               "booking-config.js", "track.js", "fx.js", "map-home.js", "reviews-home.js"]
+               "booking-config.js", "track.js", "fx.js", "map-home.js", "reviews-home.js",
+               "marina.css", "marina.js"]
   .filter((f) => existsSync(join(SITE, f)));
 
 function pages() {

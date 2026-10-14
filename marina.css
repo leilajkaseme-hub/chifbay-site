@@ -146,7 +146,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
    to the foot. Cards share one height, so a short review leaves its room at
    the bottom, not in a hole between the text and the name. */
 .atlas .rv-mq .rev q{flex:0 0 auto;-webkit-line-clamp:5;order:3}
-.atlas .rev q{font-family:var(--serif);font-size:1.16rem;line-height:1.45;letter-spacing:0}
+.atlas .rev q{font-family:var(--sans);font-size:0.95rem;line-height:1.6;letter-spacing:0;font-weight:400}
 .atlas .rev .rv-top{order:1}
 .atlas .rev figcaption{display:contents}
 .atlas .rev .who{order:2;margin-top:2px}
