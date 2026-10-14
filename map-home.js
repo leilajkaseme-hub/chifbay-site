@@ -48,32 +48,33 @@
       box.appendChild(canvas);
 
       var isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      var tileVoyager = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
-      var tileDark    = "https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png";
+      var tileLight = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}";
+      var tileDark  = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}";
 
       var map = L.map(canvas, {
         center: [32.6465, -16.9125],
         zoom: 15,
-        zoomControl: true,
+        zoomControl: false,
         scrollWheelZoom: false,
         attributionControl: true
       });
+      L.control.zoom({ position: "topright" }).addTo(map);
 
-      var currentTileLayer = L.tileLayer(isDark ? tileDark : tileVoyager, {
-        subdomains: "abcd",
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'
-      }).addTo(map);
+      function createTileLayer(dark) {
+        return L.tileLayer(dark ? tileDark : tileLight, {
+          maxZoom: 19,
+          maxNativeZoom: dark ? 16 : 19,
+          attribution: '&copy; <a href="https://www.esri.com" target="_blank" rel="noopener">Esri</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'
+        });
+      }
+
+      var currentTileLayer = createTileLayer(isDark).addTo(map);
 
       // Listen to theme toggle changes to seamlessly swap tiles
       var obs = new MutationObserver(function () {
         var nowDark = document.documentElement.getAttribute("data-theme") === "dark";
         map.removeLayer(currentTileLayer);
-        currentTileLayer = L.tileLayer(nowDark ? tileDark : tileVoyager, {
-          subdomains: "abcd",
-          maxZoom: 19,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'
-        }).addTo(map);
+        currentTileLayer = createTileLayer(nowDark).addTo(map);
       });
       obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
