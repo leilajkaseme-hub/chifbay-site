@@ -882,6 +882,20 @@
     "follows": null,
     "profile_visits": null,
     "ig_reels_avg_watch_time": 3539
+   },
+   "d7": {
+    "at": "2026-10-15T11:26:34.443Z",
+    "age_hours": 185,
+    "reach": 41,
+    "views": 41,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 3,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 4269
    }
   },
   "18114733333833071": {
@@ -988,8 +1002,32 @@
     "id": "20261003100655-0ca4",
     "format": null,
     "source": "library"
+   },
+   "h24": {
+    "at": "2026-10-15T11:26:34.443Z",
+    "age_hours": 42,
+    "reach": 17,
+    "views": 40,
+    "likes": 3,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 3,
+    "follows": 0,
+    "profile_visits": 0,
+    "ig_reels_avg_watch_time": null
+   }
+  },
+  "18142334404609958": {
+   "posted_at": "2026-10-14T15:02:11+0000",
+   "permalink": "https://www.instagram.com/p/DeeqJegmDh_/",
+   "type": "carousel",
+   "ours": {
+    "id": "20261003100705-08c7",
+    "format": null,
+    "source": "library"
    }
   }
  },
- "updated_at": "2026-10-14T11:49:22.799Z"
+ "updated_at": "2026-10-15T11:26:34.443Z"
 }
