@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T06:16:40.368Z",
+  "updatedAt": "2026-10-15T20:16:39.824Z",
   "aggregate": {
     "rating": 5,
     "count": 58
@@ -128,7 +128,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-09-15",
-      "text": "Awesome sunset experience 👌🏼. Great time passed with Chifbay team! Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
+      "text": "Awesome sunset experience 👌🏼. Great time passed with Chifbay team!",
       "reply": null,
       "translation": null
     },
@@ -140,7 +140,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-09-15",
-      "text": "Incredible experience. Amazing! Highly recommended, super helpful team. 🙌 What a beautiful sunset full of comfort, joy, and good vibes. Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
+      "text": "Incredible experience. Amazing! Highly recommended, super helpful team. 🙌 What a beautiful sunset full of comfort, joy, and good vibes.",
       "reply": null,
       "translation": null
     },
@@ -164,7 +164,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-09-15",
-      "text": "Incredible boat trip 🤩. ⭐️⭐️⭐️⭐️⭐️ I loved the boat trip! It was super fun and relaxed, and the stop to swim made the experience even better; we also saw the sunset, ending the trip in the best way. It was a very well spent afternoon, no doubt to repeat! 🌊 Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks Translated from Portuguese",
+      "text": "Incredible boat trip 🤩. ⭐️⭐️⭐️⭐️⭐️ I loved the boat trip! It was super fun and relaxed, and the stop to swim made the experience even better; we also saw the sunset, ending the trip in the best way. It was a very well spent afternoon, no doubt to repeat! 🌊",
       "reply": null,
       "translation": null
     },
@@ -394,7 +394,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-08-15",
-      "text": "Awesome private boating experience. Brilliant experience from start to finish. Excellent communication, superb views of the island , food, drinks and swimming. A really lovely family business that I would highly recommend. Thank you for a wonderful afternoon. Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
+      "text": "Awesome private boating experience. Brilliant experience from start to finish. Excellent communication, superb views of the island , food, drinks and swimming. A really lovely family business that I would highly recommend. Thank you for a wonderful afternoon.",
       "reply": null,
       "translation": null
     },
@@ -406,7 +406,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-08-15",
-      "text": "Snorkel and swim trip with private boat. Was a nice trip with the boat. We took a private boat to different locations for snorkeling and swimming. With tasty snacks and drinks on board. Nice guys! Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks Translated from Dutch",
+      "text": "Snorkel and swim trip with private boat. Was a nice trip with the boat. We took a private boat to different locations for snorkeling and swimming. With tasty snacks and drinks on board. Nice guys!",
       "reply": null,
       "translation": null
     },
@@ -813,7 +813,7 @@
       "country": "",
       "countryFlag": "",
       "date": "2026-07-15",
-      "text": "Top experience 🥰. We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them were super well-coordinated, warm, and professional at the same time. You notice immediately that passion and experience come together here. Particularly worth mentioning are the excellent drinks, the delicious food, and the fresh, perfectly ripe pineapple – simply brilliant. The boat trip was sporty and fast, but always considerate and safe. Exactly the right balance between action and relaxation. There were 2–3 opportunities to swim – whoever wanted to could get in the water, everything very uncomplicated. The toilet on board is also a real plus. We had a blast the whole time and felt in the best of hands. For us, it's clear: When we are back in Madeira, we will definitely come back! Read less Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks Translated from German",
+      "text": "Top experience 🥰. We took a private boat tour in Madeira, accompanied by a guide team consisting of a father and his two sons – and it was an absolute highlight of our vacation. The three of them were super well-coordinated, warm, and professional at the same time. You notice immediately that passion and experience come together here. Particularly worth mentioning are the excellent drinks, the delicious food, and the fresh, perfectly ripe pineapple – simply brilliant. The boat trip was sporty and fast, but always considerate and safe. Exactly the right balance between action and relaxation. There were 2–3 opportunities to swim – whoever wanted to could get in the water, everything very uncomplicated. The toilet on board is also a real plus. We had a blast the whole time and felt in the best of hands. For us, it's clear: When we are back in Madeira, we will definitely come back!",
       "reply": null,
       "translation": null
     },
@@ -887,7 +887,11 @@
       "countryFlag": "🇳🇱",
       "date": "2026-06-20",
       "text": "We had an absolutely amazing day on the ClifBay boat tour. Everything was perfect, the friendly and professional crew, the delicious snacks and drinks, the relaxing swim stop, and as the highlight of the day we even spotted a whole group of dolphins. Truly magical. The atmosphere on board was wonderful, and you can feel how much the team enjoys what they do. It made the entire experience unforgettable. I would recommend this tour to everyone visiting Madeira. If we could give 6 stars, we definitely would. More than worth it!",
-      "photos": [],
+      "photos": [
+        "assets/reviews/gyg/gyg-d25aa77bd8ee-1.jpg",
+        "assets/reviews/gyg/gyg-d25aa77bd8ee-2.jpg",
+        "assets/reviews/gyg/gyg-d25aa77bd8ee-3.jpg"
+      ],
       "tourId": "t1342812",
       "tourName": "Madeira Coast Cruise",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/private-dolphin-and-whale-watching-madeira-t1342812/",
