@@ -52,3 +52,19 @@ jobs:
           PAGE_LIST: "1"
           PAGE_FIELDS: "1"
         run: node bin/meta-scopes.mjs
+
+      # The booking Worker answers comments on Instagram, Facebook and Threads (booking-api/replies.js). A workflow
+      # cannot hand a secret to Cloudflare directly, so it gives the Meta token to the Worker here (IG_SYNC_SECRET),
+      # every run: a renewed token reaches the Worker the same day. Never printed.
+      - name: Share the Meta token with the reply robot
+        if: always()
+        continue-on-error: true
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+        run: |
+          code=$(node -e 'process.stdout.write(JSON.stringify({token: process.env.IG_ACCESS_TOKEN}))' | curl -s -o /dev/null -w '%{http_code}' -X PUT \
+            -H "Authorization: Bearer $IG_SYNC_SECRET" -H "Content-Type: application/json" --data-binary @- \
+            https://chifbay-booking-api.chifandcopt.workers.dev/v1/replies/meta-token)
+          echo "Worker answered $code"
+          [ "$code" = "200" ]
