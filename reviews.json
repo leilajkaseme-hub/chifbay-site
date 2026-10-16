@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-16T06:16:36.667Z",
+  "updatedAt": "2026-10-16T20:16:43.595Z",
   "aggregate": {
     "rating": 5,
-    "count": 58
+    "count": 59
   },
   "reviews": [
     {
@@ -276,6 +276,25 @@
       "reply": {
         "text": "Thank you so much for your lovely review. We’re truly happy you enjoyed your time at sea with us. Sharing Madeira and creating special memories is what we love most. Thank you for your kindness and recommendation. It was a pleasure having you on board with Chifbay, and we hope to see you again one day.",
         "date": "2026-09-02"
+      },
+      "translation": null
+    },
+    {
+      "id": "gyg-e0eda013a0e8",
+      "source": "getyourguide",
+      "rating": 5,
+      "author": "GetYourGuide traveler",
+      "country": "United Kingdom",
+      "countryFlag": "🇬🇧",
+      "date": "2026-08-31",
+      "text": "Thank you so much for your 5 stars. We are happy you enjoyed your time with us. We hope to see you again in Madeira. Chifbay",
+      "photos": [],
+      "tourId": "t1340940",
+      "tourName": "Yacht Cruise with Drinks",
+      "tourUrl": "https://www.getyourguide.com/funchal-l1026/madeira-private-yacht-cruise-with-drinks-and-snacks-t1340940/",
+      "reply": {
+        "text": "Thank you so much for your 5 stars. We are happy you enjoyed your time with us. We hope to see you again in Madeira. Chifbay",
+        "date": "2026-10-15"
       },
       "translation": null
     },
