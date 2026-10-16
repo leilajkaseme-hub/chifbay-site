@@ -1,0 +1,36 @@
+{
+  "slug": "hidden-gems-in-madeira-top-10-secret-spots",
+  "title": "Top 10 Hidden Gems in Madeira: Secret Spots Worth Finding",
+  "category": "Top 10",
+  "date": "2026-10-30",
+  "description": "Discover 10 hidden gems in Madeira, from a cove only boats and a lift reach to quiet villages, forgotten levadas and lighthouse cliffs. Plan your visit.",
+  "heroImage": "assets/journal/madeira-pebble-beach-turquoise-water-from-above.jpg",
+  "heroAlt": "A pebble beach with turquoise water seen from above on the Madeira coast",
+  "readingMinutes": 5,
+  "keywords": [
+    "hidden gems in Madeira",
+    "secret places Madeira",
+    "off the beaten path Madeira",
+    "Fajã dos Padres",
+    "Curral das Freiras",
+    "Ponta do Pargo lighthouse",
+    "quiet levada walks Madeira",
+    "hidden coves Madeira"
+  ],
+  "written": "2026-10-30",
+  "queued": "2026-10-16T07:13:58.249Z",
+  "images": [
+    {
+      "prompt": "A secluded pebble cove with turquoise water below steep green cliffs on the south coast of Madeira, seen from the sea in soft morning light.",
+      "alt": "A secluded pebble cove with turquoise water below steep cliffs in Madeira"
+    },
+    {
+      "prompt": "The village of Curral das Freiras in a deep green volcanic valley surrounded by steep mountains in Madeira, seen from a viewpoint in clear light.",
+      "alt": "Curral das Freiras village in its mountain valley in Madeira"
+    },
+    {
+      "prompt": "A lighthouse on a grassy cliff above the Atlantic at the western tip of Madeira at golden hour.",
+      "alt": "Ponta do Pargo lighthouse on the western cliffs of Madeira"
+    }
+  ]
+}
