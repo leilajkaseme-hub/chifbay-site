@@ -298,6 +298,13 @@ function brief(slug, lang, queries) {
     `LINKS: you may link to these Chifbay pages in ${name}: ${langPages(lang).join(", ")} (and keep the links the current version has to other Chifbay pages).`,
     "",
     `Read "${file}" (the current page: copy its <figure> blocks from there) and "posts/${slug}.html" (the English source of facts).`,
+    (() => {
+      const cur = fs.readFileSync(path.join(ROOT, file), "utf8");
+      const srcs = [...((cur.match(/<article\b[\s\S]*?<\/article>/) || [""])[0]).matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map((m) => m[1]);
+      return srcs.length
+        ? `The ARTICLE must contain exactly these ${srcs.length} photos, each once, with these exact src values (the check refuses anything else): ${srcs.join(", ")}`
+        : "The current article has no photos: add none.";
+    })(),
     `Then write a plain text file "${out}" with the Write tool, with exactly these sections, each starting on its own line with the marker:`,
     "=== TITLE ===            the page title, under 62 characters, no brand name",
     "=== DESCRIPTION ===      the meta description, under 155 characters",
@@ -366,9 +373,11 @@ function assemble(html, t) {
 
 const DONE_FILE = path.join(ROOT, "scripts/data/native-done.json");
 const readDone = () => (fs.existsSync(DONE_FILE) ? readJSON(DONE_FILE) : {});
-function markDone(slug, lang) {
+function markDone(slug, lang, failed = false) {
   const d = readDone();
-  d[`${lang}/${slug}`] = new Date().toISOString().slice(0, 10);
+  const k = `${lang}/${slug}`;
+  // a refused article is tried again on later runs, 3 times at most ("failed-1" .. "failed-3")
+  d[k] = failed ? `failed-${(Number(String(d[k] || "").split("-")[1]) || 0) + 1}` : new Date().toISOString().slice(0, 10);
   fs.writeFileSync(DONE_FILE, JSON.stringify(Object.fromEntries(Object.entries(d).sort()), null, 1) + "\n");
 }
 
@@ -425,7 +434,8 @@ function rewritePairs() {
       if (f.endsWith(".html") && !known.has(`${lang}/${f.slice(0, -5)}`)) queue.push({ slug: f.slice(0, -5), lang, impressions: 0, queries: [] });
     }
   }
-  return queue.filter((e) => !done[`${e.lang}/${e.slug}`]
+  const open = (v) => !v || (/^failed-[12]$/.test(v));
+  return queue.filter((e) => open(done[`${e.lang}/${e.slug}`])
     && (!ONLY_LANG || e.lang === ONLY_LANG) && (!ONLY_SLUG || e.slug === ONLY_SLUG)
     && fs.existsSync(path.join(ROOT, e.lang, "posts", `${e.slug}.html`)));
 }
@@ -485,7 +495,7 @@ function updateSitemap() {
   const END = "  <!--/posts-i18n-->";
   // a rewritten article carries the day it was rewritten, so Google comes back to it
   const done = readDone();
-  const day = (u) => { const m = u.match(/chifbay\.com\/(\w\w)\/posts\/([a-z0-9-]+)/); return m && done[`${m[1]}/${m[2]}`]; };
+  const day = (u) => { const m = u.match(/chifbay\.com\/(\w\w)\/posts\/([a-z0-9-]+)/); const v = m && done[`${m[1]}/${m[2]}`]; return /^\d{4}-/.test(v || "") ? v : null; };
   const body = urls.map((u) => day(u) ? `  <url><loc>${u}</loc><lastmod>${day(u)}</lastmod></url>` : `  <url><loc>${u}</loc></url>`).join("\n");
   const block = `${START}\n${body}\n${END}`;
 
@@ -575,6 +585,7 @@ function main() {
       } catch (err) {
         // One bad article must not cost the whole run: the rest still land.
         console.log(`FAILED: ${err.message}`);
+        if (mode === "rewrite" && !/claude/i.test(String(err.message))) markDone(slug, lang, true);
         if (/usage limit|rate limit|quota/i.test(String(err.message))) break;
       }
     }
