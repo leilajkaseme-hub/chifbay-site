@@ -22,9 +22,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { nyePages } from "./data/nye-2026.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
+// --only <group>: build one group of pages (e.g. "nye"), leave the others as they are
+const ONLY = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1] : null;
 const SITE = "https://chifbay.com";
 const MODIFIED = "2026-10-09";
 const BIZ = { "@id": `${SITE}/#business` };
@@ -203,6 +206,14 @@ function ld(c) {
     "@type": "Article", "@id": `${url}#article`, headline: plain(c.h1Plain || c.title), description: plain(c.description),
     image: `${SITE}/assets/${c.heroImg}.jpg`, inLanguage: c.lang, datePublished: c.article.published, dateModified: MODIFIED,
     author: BIZ, publisher: BIZ, mainEntityOfPage: { "@id": `${url}#webpage` },
+  });
+  if (c.event) g.push({
+    "@type": "Event", "@id": `${url}#event`, name: c.event.name, description: c.event.description, url,
+    image: `${SITE}/assets/${c.heroImg}.jpg`, startDate: c.event.startDate, endDate: c.event.endDate,
+    eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    maximumAttendeeCapacity: c.event.capacity, organizer: BIZ, inLanguage: c.lang,
+    location: { "@type": "Place", name: "Marina do Funchal", address: { "@type": "PostalAddress", streetAddress: "Marina do Funchal, Pontoon C", addressLocality: "Funchal", addressRegion: "Madeira", postalCode: "9000-055", addressCountry: "PT" } },
+    offers: { "@type": "Offer", name: "Whole boat, up to 5 guests", price: String(c.event.price), priceCurrency: "EUR", availability: "https://schema.org/LimitedAvailability", url, validThrough: c.event.startDate },
   });
   g.push({
     "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`,
@@ -683,9 +694,13 @@ PAGES.push({
   ],
 });
 
+// 7. New Year's Eve fireworks night, 31 Dec 2026 (scripts/data/nye-2026.mjs) --
+PAGES.push(...nyePages({ ed, timeline, faq, reserve, WA }));
+
 // ---------------------------------------------------------------- write
 let changed = 0;
 for (const c of PAGES) {
+  if (ONLY && c.group !== ONLY) continue;
   // own text only: the borrowed blocks keep whatever they already say
   const own = JSON.stringify({ ...c, sections: undefined }) + c.sections.toString();
   if (/[–—]/.test(own)) throw new Error(`${c.slug}: en or em dash in new text`);

@@ -396,3 +396,12 @@ section p a:not([class]):hover,section li a:not([class]):hover,section dd a:not(
 :root[data-theme="light"] .t-pcard .t-pmonths li span{color:#5d6a74}
 :root[data-theme="light"] .t-pcard .t-pmonths li b{color:#0b2236}
 :root[data-theme="light"] .t-pcard .t-plist li{color:#3a4a56}
+
+/* ------------------------------------------------ New Year's Eve strip (scripts/add-nye-offer.mjs) */
+a.nye-ribbon,a.nye-ribbon:hover{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;width:min(1240px,calc(100% - 32px));box-sizing:border-box;margin:22px auto;padding:15px 22px;border-radius:14px;background:#0b2236;color:#f5f7fa;text-decoration:none;box-shadow:var(--m-shadow)}
+.nye-ribbon .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#d9b46a;font-weight:600}
+.nye-ribbon .t{font-family:var(--serif);font-size:1.18rem;line-height:1.2}
+.nye-ribbon .v{margin-left:auto;font-size:.9rem;font-weight:600;color:#fff}
+a.nye-ribbon:hover .v{text-decoration:underline;text-underline-offset:3px}
+#exp a.nye-ribbon{width:100%;margin:0 0 26px}
+@media (max-width:640px){.nye-ribbon .v{margin-left:0;width:100%}}
