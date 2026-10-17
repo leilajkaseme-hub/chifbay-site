@@ -157,7 +157,11 @@ fi
 # file come from origin/main.
 git -C "$REPO_DIR" fetch --quiet origin main || fail "git fetch failed"
 WT="$(mktemp -d)/reviews-publish"
-git -C "$REPO_DIR" worktree add --quiet --detach "$WT" origin/main || fail "worktree add failed"
+# Sparse checkout: the build only needs the HTML pages (it fixes the review count on every one), reviews.json, the review photos
+# and these scripts. A full checkout is 1.2 GB; on the Mac mini (16 Oct 2026, 0.8 GB free) it filled the disk and stopped the job.
+git -C "$REPO_DIR" worktree add --quiet --detach --no-checkout "$WT" origin/main || fail "worktree add failed"
+git -C "$WT" sparse-checkout set --no-cone '*.html' '/reviews.json' '/assets/reviews/' '/scripts/ci-push.sh' '/scripts/reviews-auto/' || fail "sparse checkout failed"
+git -C "$WT" checkout --quiet || fail "worktree checkout failed (disk full?)"
 cleanup_wt() {
   git -C "$REPO_DIR" worktree remove --force "$WT" >/dev/null 2>&1 || true
   git -C "$REPO_DIR" worktree prune >/dev/null 2>&1 || true
