@@ -190,6 +190,63 @@ function applyHreflang(html, slug) {
 //   - same photos (same src), JSON-LD still parses with the same structure;
 //   - no long dash, enough words, every internal link points to a real page.
 
+// The full-page translation (menu, footer, every interface text) is still how a
+// missing language is CREATED; the article in it is then rewritten natively.
+const SYSTEM = (langName) => `You are a senior NATIVE COPYWRITER and SEO localizer for a premium travel brand. You localize one article from the Journal of Chifbay — a private boat charter company in Funchal, Madeira, Portugal — into ${langName}.
+
+Write as if a top native writer wrote it directly in ${langName}. Idiomatic, warm, concrete. Never word-for-word. Keep the article's structure, length and every fact exactly as they are — this is a localization, not a rewrite, and not a summary.
+
+SEO matters here more than anything. This article exists to rank in ${langName} for the places it describes. Localize <title>, meta description, Open Graph and Twitter text, image alt text and any keywords using the REAL phrases people search in ${langName} (German "Bootstour Madeira", "Cabo Girão Aussichtsplattform"; French "excursion bateau Madère", "falaise Cabo Girão"; Portuguese "passeio de barco Madeira", "miradouro do Cabo Girão"). Meta descriptions stay between 150 and 158 characters, and the <title> stays at most 62 characters in total (main keyword first; drop " | Chifbay" if it does not fit).
+
+You are given a complete HTML document. Return the EXACT same HTML with ONLY the human-readable text translated.
+
+STRICT RULES — breaking any one of these makes the output useless:
+- Never modify a tag, attribute name, class, id, href, src, inline style, or any <script> code.
+- In JSON-LD, translate string VALUES only (headline, description, name, FAQ question and answer text, alt). Never touch keys, "@type", "@context", URLs, or dates.
+- Never translate or alter: "Chifbay"; place names (Funchal, Madeira, Cabo Girão, Câmara de Lobos, Fajã dos Padres, Ponta do Sol, Ribeira Brava, Marina do Funchal, Desertas, Pico do Arieiro, Seixal, Garajau, Machico, Santana); "poncha", "espetada", "Nikita", "levada"; boat words "Karnic", "Mercury"; any price, number, unit or time (€400, 2h30, 18:30, 580 m, 5 guests); phone numbers; emails; URLs; "@chifbay".
+- Keep every <link>, <meta>, <script> and HTML comment in place, in the same order.
+- Output ONLY the complete HTML document. No preamble, no explanation, no code fences.`;
+
+function translateOne(slug, lang) {
+  const src = path.join(EN_POSTS, `${slug}.html`);
+  const outDir = path.join(ROOT, lang, "posts");
+  const out = path.join(outDir, `${slug}.html`);
+  fs.mkdirSync(outDir, { recursive: true });
+
+  const prompt = [
+    SYSTEM(LANGS[lang]),
+    "",
+    `Read the file "posts/${slug}.html".`,
+    `Write the localized document to "${lang}/posts/${slug}.html".`,
+    "Write the file with the Write tool. Do not print the HTML in your reply.",
+  ].join("\n");
+
+  execFileSync(
+    "claude",
+    ["-p", prompt, "--permission-mode", "acceptEdits",
+     "--allowedTools", "Read", "Write"],
+    { cwd: ROOT, stdio: "inherit", timeout: 15 * 60 * 1000 },
+  );
+
+  if (!fs.existsSync(out)) throw new Error(`claude did not write ${lang}/posts/${slug}.html`);
+
+  let html = fs.readFileSync(out, "utf8");
+  if (!/<\/html>/i.test(html)) throw new Error(`${lang}/posts/${slug}.html looks truncated`);
+
+  // Mechanical fixes belong here, not in the prompt.
+  html = deepenPaths(html);
+  html = setDocMeta(html, lang, slug);
+  fs.writeFileSync(out, html);
+
+  // Sanity: the English source is the only place the real asset list exists.
+  const enImgs = (fs.readFileSync(src, "utf8").match(/<img\b/g) || []).length;
+  const outImgs = (html.match(/<img\b/g) || []).length;
+  if (enImgs !== outImgs) {
+    console.warn(`  ! ${lang}/${slug}: ${enImgs} images in English, ${outImgs} here — check it`);
+  }
+}
+
+
 /** Who reads each language, so the article is written for them. */
 const READERS = {
   fr: "readers from France, Belgium and Switzerland. Address them as \"vous\". They search things like \"que faire à Madère\", \"incontournables\", \"où manger\".",
@@ -218,38 +275,93 @@ function langPages(lang) {
     .map((n) => `/${lang}/${n}`);
 }
 
-function brief(slug, lang, mode, queries) {
+const OUT_DIR = path.join(ROOT, "native-out");     // scratch, never committed
+
+function brief(slug, lang, queries) {
   const name = LANGS[lang];
   const file = `${lang}/posts/${slug}.html`;
+  const out = `native-out/${lang}-${slug}.txt`;
   return [
     `You are a top native ${name} travel journalist. You write for the Journal of Chifbay, a private boat company in Funchal, Madeira, Portugal. Your readers are ${READERS[lang]}`,
     "",
-    `TASK: write a NEW article in ${name} on the same subject as the English article "posts/${slug}.html". It is NOT a translation. Think about what this reader types into Google on this subject, what they already know, what they want to find out, and what makes them trust a page. Then write the article the best ${name} travel writer would write for them: your own title, your own <h1>, your own opening, your own section headings and order. Add what this reader needs (practical details, when to go, how it compares) and drop what does not matter to them. Use the English article only as the source of facts.`,
+    `TASK: write a NEW article in ${name} on the same subject as the English article "posts/${slug}.html". It is NOT a translation. Think about what this reader types into Google on this subject, what they already know, what they want to find out, and what makes them trust a page. Then write the article the best ${name} travel writer would write for them: your own title, your own heading, your own opening, your own section headings and order. Add what this reader needs (practical details, when to go, how it compares) and drop what does not matter to them. Use the English article only as the source of facts.`,
     queries && queries.length
-      ? `\nThese real Google searches in ${name} already find this page: ${queries.map((q) => `"${q}"`).join(", ")}. Use their words naturally in the <title>, the <h1>, the first paragraph and one or two headings. Write for people, not for keywords.`
-      : `\nPick the words a native ${name} speaker really types into Google for this subject, and use them naturally in the <title>, the <h1>, the first paragraph and one or two headings.`,
+      ? `\nThese real Google searches in ${name} already find this page: ${queries.map((q) => `"${q}"`).join(", ")}. Use their words naturally in the title, the heading, the first paragraph and one or two section headings. Write for people, not for keywords.`
+      : `\nPick the words a native ${name} speaker really types into Google for this subject, and use them naturally in the title, the heading, the first paragraph and one or two section headings.`,
     "",
     "FACTS: state only facts that are in the English article, in the Chifbay facts below, or that you are certain of. Never invent a price, time, distance, date, name or record. When unsure, leave it out.",
     "Chifbay facts (never contradict them):",
     ...FACTS.map((f) => `- ${f}`),
     "",
-    "STYLE: natural, idiomatic, warm and concrete, short paragraphs. NEVER use a long dash (— or –) anywhere: use a comma, a colon or a full stop. No hype words. The <title> stays under 62 characters, the meta description under 155.",
+    "STYLE: natural, idiomatic, warm and concrete, short paragraphs. NEVER use a long dash (— or –) anywhere: use a comma, a colon or a full stop. No hype words.",
     "LENGTH: at least as long as the English article; longer when the reader needs more.",
-    "PHOTOS: keep every <figure>, <picture> and <img> of the article with exactly the same src and srcset paths. You may move them to where they fit best. Write a new, specific alt text and caption in the language that says what the photo shows.",
-    `LINKS: keep the links to Chifbay pages and point them at the ${name} pages. Pages you may link to: ${langPages(lang).join(", ")}.`,
-    "JSON-LD: change only the text values (headline, description, FAQ question and answer text) so they match your new article; write 3 to 5 FAQ items that real readers in this language ask. Never touch keys, @type, URLs, dates or images.",
+    `LINKS: you may link to these Chifbay pages in ${name}: ${langPages(lang).join(", ")} (and keep the links the current version has to other Chifbay pages).`,
     "",
-    mode === "rewrite"
-      ? [
-          `Read "${file}" (the current version) and "posts/${slug}.html" (the English source of facts).`,
-          `Then write the new version to "${file}" with the Write tool. In that file change ONLY: <title>, the meta description, og:title, og:description, og:image:alt, twitter:image:alt, the JSON-LD scripts, the aria-label of the <div class="hbg">, the <h1>, the reading time inside <div class="artmeta">, and everything inside <article class="article ...">...</article>. Everything else (head links and scripts, menu, header, the call to action after the article, footer) must stay byte for byte as it is.`,
-        ].join("\n")
-      : [
-          `Read "posts/${slug}.html" (the English source of facts, and the page template).`,
-          `Write the complete page to "${file}" with the Write tool: the same HTML document with the menu, footer and every other interface text in ${name}, and your new article in place of the English one. Never change a tag, attribute, class, id, href to another site, src, inline style or script code outside the article.`,
-        ].join("\n"),
-    "Do not print the HTML in your reply.",
+    `Read "${file}" (the current page: copy its <figure> blocks from there) and "posts/${slug}.html" (the English source of facts).`,
+    `Then write a plain text file "${out}" with the Write tool, with exactly these sections, each starting on its own line with the marker:`,
+    "=== TITLE ===            the page title, under 62 characters, no brand name",
+    "=== DESCRIPTION ===      the meta description, under 155 characters",
+    "=== SOCIAL_TITLE ===     the title for social sharing (can be a little longer)",
+    "=== SOCIAL_DESCRIPTION === one or two sentences for social sharing",
+    "=== IMAGE_ALT ===        what the header photo shows, in the language",
+    "=== H1 ===               the heading at the top of the page (plain text)",
+    "=== READING_TIME ===     the reading time in the language, e.g. \"8 Min. Lesezeit\"",
+    "=== ARTICLE ===          the HTML of the article body: <p class=\"lede\"> first, then <h2>, <h3>, <p>, <ul>/<ol>/<li>, <strong>, <em>, <a>, <blockquote> and the <figure> blocks. Copy every <figure> block of the current page with the same <picture>, <source> and <img> src/srcset, and write a new specific alt text and <figcaption> saying what the photo shows. Do not add other photos, scripts or styles.",
+    "=== FAQ ===              3 to 5 questions real readers in this language ask, each as two lines: \"Q: ...\" then \"A: ...\"",
+    "Do not print the article in your reply.",
   ].join("\n");
+}
+
+/** The model's text file, as { TITLE, DESCRIPTION, ..., FAQ: [[q, a]] }. */
+function readSections(file) {
+  const txt = fs.readFileSync(file, "utf8").replace(/\r/g, "");
+  const out = {};
+  const re = /^===\s*([A-Z0-9_]+)\s*===[^\n]*\n([\s\S]*?)(?=^===\s*[A-Z0-9_]+\s*===|(?![\s\S]))/gm;
+  for (const m of txt.matchAll(re)) out[m[1]] = m[2].trim();
+  for (const k of ["TITLE", "DESCRIPTION", "SOCIAL_TITLE", "SOCIAL_DESCRIPTION", "IMAGE_ALT", "H1", "READING_TIME", "ARTICLE", "FAQ"]) {
+    if (!out[k]) throw new Error(`section ${k} missing`);
+  }
+  const faq = [];
+  for (const m of out.FAQ.matchAll(/^Q:\s*(.+)\n+A:\s*([\s\S]+?)(?=\n+Q:|$)/gm)) faq.push([m[1].trim(), m[2].trim().replace(/\s+/g, " ")]);
+  if (faq.length < 2) throw new Error("FAQ needs at least 2 questions");
+  out.FAQ = faq;
+  if (out.TITLE.length > 70) throw new Error(`title too long (${out.TITLE.length})`);
+  if (out.DESCRIPTION.length > 170) throw new Error(`description too long (${out.DESCRIPTION.length})`);
+  return out;
+}
+
+const attr = (v) => v.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+const text = (v) => v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+/** Put the new text into the page. Only the editable parts move. */
+function assemble(html, t) {
+  const setMeta = (h, re, val) => h.replace(re, (m) => m.replace(/content="[^"]*"/, `content="${attr(val)}"`));
+  let h = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${text(t.TITLE)}</title>`);
+  h = setMeta(h, /<meta name="description" content="[^"]*"\s*\/?>/, t.DESCRIPTION);
+  h = setMeta(h, /<meta property="og:title" content="[^"]*"\s*\/?>/, t.SOCIAL_TITLE);
+  h = setMeta(h, /<meta property="og:description" content="[^"]*"\s*\/?>/, t.SOCIAL_DESCRIPTION);
+  h = setMeta(h, /<meta name="twitter:title" content="[^"]*"\s*\/?>/, t.SOCIAL_TITLE);
+  h = setMeta(h, /<meta name="twitter:description" content="[^"]*"\s*\/?>/, t.SOCIAL_DESCRIPTION);
+  h = setMeta(h, /<meta property="og:image:alt" content="[^"]*"\s*\/?>/, t.IMAGE_ALT);
+  h = setMeta(h, /<meta name="twitter:image:alt" content="[^"]*"\s*\/?>/, t.IMAGE_ALT);
+  h = h.replace(/<div class="hbg"[^>]*>/, (m) => / aria-label="/.test(m) ? m.replace(/ aria-label="[^"]*"/, ` aria-label="${attr(t.IMAGE_ALT)}"`) : m);
+  h = h.replace(/(<h1\b[^>]*>)[\s\S]*?(<\/h1>)/, (m, a, b) => a + text(t.H1) + b);
+  // reading time: the span that holds a number of minutes
+  h = h.replace(/(<div class="artmeta[^"]*"[^>]*>[\s\S]*?)<span>[^<]*\d+[^<]*(?:min|Min)[^<]*<\/span>/i, (m, a) => `${a}<span>${text(t.READING_TIME)}</span>`);
+  h = h.replace(/(<article\b[^>]*>)[\s\S]*?(<\/article>)/, (m, a, b) => `${a}\n      ${t.ARTICLE.trim()}\n    ${b}`);
+  h = h.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g, (m, a, body, b) => {
+    const d = JSON.parse(body);
+    for (const n of d["@graph"] || [d]) {
+      const types = [].concat(n["@type"] || []);
+      if (types.some((x) => /Posting|Article/.test(x))) { n.headline = t.H1; n.description = t.DESCRIPTION; if (n.image && typeof n.image === "object" && !Array.isArray(n.image)) { if ("caption" in n.image) n.image.caption = t.IMAGE_ALT; if ("description" in n.image) n.image.description = t.IMAGE_ALT; } }
+      if (types.includes("FAQPage") && Array.isArray(n.mainEntity) && n.mainEntity.length) {
+        const proto = n.mainEntity[0];
+        n.mainEntity = t.FAQ.map(([q, ans]) => ({ ...proto, name: q, acceptedAnswer: { ...proto.acceptedAnswer, text: ans } }));
+      }
+    }
+    return a + (body.startsWith("\n") ? "\n" : "") + JSON.stringify(d) + (body.endsWith("\n") ? "\n" : "") + b;
+  });
+  return h;
 }
 
 const DONE_FILE = path.join(ROOT, "scripts/data/native-done.json");
@@ -260,59 +372,59 @@ function markDone(slug, lang) {
   fs.writeFileSync(DONE_FILE, JSON.stringify(Object.fromEntries(Object.entries(d).sort()), null, 1) + "\n");
 }
 
-/** Write one native article. mode "new": no file yet; "rewrite": replace the translation. */
-function writeNative(slug, lang, mode, queries = []) {
-  const src = path.join(EN_POSTS, `${slug}.html`);
-  const outDir = path.join(ROOT, lang, "posts");
-  const out = path.join(outDir, `${slug}.html`);
-  fs.mkdirSync(outDir, { recursive: true });
-  const before = fs.existsSync(out) ? fs.readFileSync(out, "utf8") : null;
-  if (mode === "rewrite" && !before) throw new Error("nothing to rewrite");
-  const en = fs.readFileSync(src, "utf8");
+/** Replace one language's article with a native one (the page must exist). */
+function writeNative(slug, lang, queries = []) {
+  const out = path.join(ROOT, lang, "posts", `${slug}.html`);
+  if (!fs.existsSync(out)) throw new Error("nothing to rewrite");
+  const before = fs.readFileSync(out, "utf8");
+  const en = fs.readFileSync(path.join(EN_POSTS, `${slug}.html`), "utf8");
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+  const txt = path.join(OUT_DIR, `${lang}-${slug}.txt`);
+  if (fs.existsSync(txt)) fs.unlinkSync(txt);
 
   execFileSync(
     "claude",
-    ["-p", brief(slug, lang, mode, queries), "--permission-mode", "acceptEdits",
+    ["-p", brief(slug, lang, queries), "--permission-mode", "acceptEdits",
      "--allowedTools", "Read", "Write"],
     { cwd: ROOT, stdio: "inherit", timeout: 15 * 60 * 1000 },
   );
+  if (!fs.existsSync(txt)) throw new Error("claude wrote no text file");
 
-  const putBack = () => { if (before !== null) fs.writeFileSync(out, before); else if (fs.existsSync(out)) fs.unlinkSync(out); };
-  try {
-    if (!fs.existsSync(out)) throw new Error("claude wrote nothing");
-    let html = fs.readFileSync(out, "utf8");
-    if (before !== null && html === before) throw new Error("the file did not change");
-    if (!/<\/html>/i.test(html)) throw new Error("looks truncated");
+  const t = readSections(txt);
+  let html = assemble(before, t);
+  html = deepenPaths(html);
+  html = setDocMeta(html, lang, slug);
 
-    // Mechanical fixes belong here, not in the prompt.
-    html = deepenPaths(html);
-    html = setDocMeta(html, lang, slug);
+  // The page around the article must be what it was; the rest is checked too.
+  if (skeleton(html) !== skeleton(before)) throw new Error("changed something outside the article and its head text");
+  if (imgSrcs(html) !== imgSrcs(before)) throw new Error("the article photos are not the same");
+  if (bgSrcs(html) !== bgSrcs(before)) throw new Error("the header photo changed");
+  if (ldShape(html) !== ldShape(before)) throw new Error("JSON-LD structure changed (or does not parse)");
+  if (/[—–]/.test(editableText(html))) throw new Error("long dash in the new text");
+  if (/<(?:script|style|iframe)\b/i.test(t.ARTICLE)) throw new Error("script or style inside the article");
+  const enWords = words(articleOf(en)), newWords = words(articleOf(html));
+  if (newWords < 0.7 * enWords) throw new Error(`too short: ${newWords} words, English ${enWords}`);
+  const dead = deadLinks(ROOT, articleOf(html), lang);
+  if (dead.length) throw new Error(`links to pages that do not exist: ${dead.slice(0, 3).join(", ")}`);
 
-    const ref = mode === "rewrite" ? before : en;
-    if (mode === "rewrite" && skeleton(html) !== skeleton(before)) throw new Error("changed something outside the article and its head text");
-    if (!new RegExp(`<html lang="${lang}"`).test(html)) throw new Error("wrong <html lang>");
-    if (imgSrcs(html) !== imgSrcs(ref)) throw new Error("the article photos are not the same");
-    if (bgSrcs(html) !== bgSrcs(ref)) throw new Error("the header photo changed");
-    if (ldShape(html) !== ldShape(ref)) throw new Error("JSON-LD structure changed (or does not parse)");
-    if (/[—–]/.test(editableText(html))) throw new Error("long dash in the new text");
-    const enWords = words(articleOf(en)), newWords = words(articleOf(html));
-    if (newWords < 0.7 * enWords) throw new Error(`too short: ${newWords} words, English ${enWords}`);
-    const dead = deadLinks(ROOT, articleOf(html), lang);
-    if (dead.length) throw new Error(`links to pages that do not exist: ${dead.slice(0, 3).join(", ")}`);
-
-    fs.writeFileSync(out, html);
-    markDone(slug, lang);
-    return newWords;
-  } catch (err) {
-    putBack();
-    throw err;
-  }
+  fs.writeFileSync(out, html);
+  fs.unlinkSync(txt);
+  markDone(slug, lang);
+  return newWords;
 }
 
 /** The next translated articles to rewrite, most Google views first. */
 function rewritePairs() {
   const queue = readJSON(path.join(ROOT, "scripts/data/native-queue.json")).pairs;
   const done = readDone();
+  // articles that came after the queue was made go at the end
+  const known = new Set(queue.map((e) => `${e.lang}/${e.slug}`));
+  for (const lang of Object.keys(LANGS)) {
+    const dir = path.join(ROOT, lang, "posts");
+    if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir)) {
+      if (f.endsWith(".html") && !known.has(`${lang}/${f.slice(0, -5)}`)) queue.push({ slug: f.slice(0, -5), lang, impressions: 0, queries: [] });
+    }
+  }
   return queue.filter((e) => !done[`${e.lang}/${e.slug}`]
     && (!ONLY_LANG || e.lang === ONLY_LANG) && (!ONLY_SLUG || e.slug === ONLY_SLUG)
     && fs.existsSync(path.join(ROOT, e.lang, "posts", `${e.slug}.html`)));
@@ -446,6 +558,9 @@ function main() {
   const jobs = REINDEX_ONLY || BUDGET <= 0 ? []
     : REWRITE ? rewritePairs().slice(0, BUDGET).map((e) => ({ ...e, mode: "rewrite" }))
     : pairs.slice(0, BUDGET).map((e) => ({ ...e, mode: "new", queries: [] }));
+  if (!fs.existsSync(path.join(ROOT, ".gitignore")) || !fs.readFileSync(path.join(ROOT, ".gitignore"), "utf8").includes("native-out/")) {
+    fs.appendFileSync(path.join(ROOT, ".gitignore"), "\nnative-out/\n");
+  }
   if (jobs.length) {
     if (REWRITE) console.log(`${rewritePairs().length} translated articles still to rewrite natively`);
     console.log(`writing ${jobs.length} native article(s) (budget ${BUDGET})\n`);
@@ -453,7 +568,8 @@ function main() {
     for (const { slug, lang, mode, queries } of jobs) {
       process.stdout.write(`  ${lang}  ${slug} (${mode}) … `);
       try {
-        const n = writeNative(slug, lang, mode, queries);
+        if (mode === "new") translateOne(slug, lang);   // creates the page with its menu and footer in the language
+        const n = writeNative(slug, lang, queries);
         done++;
         console.log(`ok, ${n} words`);
       } catch (err) {

@@ -38,8 +38,13 @@ export function ldShape(html) {
   const strip = (v) => Array.isArray(v) ? v.map(strip)
     : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).filter(([k]) => !TEXT.has(k)).map(([k, x]) => [k, strip(x)]))
     : v;
+  // a new article may have more or fewer FAQ questions: compare the shape of one
+  const oneQuestion = (v) => Array.isArray(v) ? v.map(oneQuestion)
+    : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) =>
+      [k, k === "mainEntity" && [].concat(v["@type"]).includes("FAQPage") && Array.isArray(x) ? x.slice(0, 1).map(oneQuestion) : oneQuestion(x)]))
+    : v;
   return [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
-    .map((m) => JSON.stringify(strip(JSON.parse(m[1])))).join("\n");
+    .map((m) => JSON.stringify(oneQuestion(strip(JSON.parse(m[1]))))).join("\n");
 }
 
 /** Internal links that point to nothing (path relative to the site root). */
