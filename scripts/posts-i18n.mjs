@@ -51,6 +51,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { postUrl } from "./post-url.mjs";
+import { skeleton, editableText, articleOf, words, imgSrcs, bgSrcs, ldShape, deadLinks } from "./lib/native-guard.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const BASE = "https://chifbay.com";
@@ -80,6 +81,7 @@ const REINDEX_ONLY = flag("reindex");
 const BUDGET = Number(value("budget", "6"));
 const ONLY_LANG = value("lang");
 const ONLY_SLUG = value("slug");
+const REWRITE = flag("rewrite");
 
 if (ONLY_LANG && !LANGS[ONLY_LANG]) {
   console.error(`Unknown language "${ONLY_LANG}". Known: ${Object.keys(LANGS).join(", ")}`);
@@ -168,59 +170,152 @@ function applyHreflang(html, slug) {
     : html.replace(/<\/head>/, `${block}\n</head>`);
 }
 
-// -------------------------------------------------------------- translation
-const SYSTEM = (langName) => `You are a senior NATIVE COPYWRITER and SEO localizer for a premium travel brand. You localize one article from the Journal of Chifbay — a private boat charter company in Funchal, Madeira, Portugal — into ${langName}.
+// ------------------------------------------------------- native articles
+// Theo, 17 Oct 2026: "make each article in the unique language, not just a
+// simple translation, an article based on the language". Until then the model
+// was told to keep the structure, length and every fact "exactly": German
+// readers got the English article word for word (long dashes, the same photo
+// caption on every picture). On 4 Oct the German, French and Portuguese
+// articles lost half their Google clicks while the English ones grew.
+//
+// So each language now gets its OWN article on the same subject: own title,
+// own angle, own sections, built on what readers of that language really
+// search (the Search Console queries in scripts/data/native-queue.json). The
+// English article is the source of FACTS, not of sentences.
+//
+// The model writes text. Code checks everything else and refuses the file
+// when one check fails (the old version is put back):
+//   - outside the editable parts (head text, JSON-LD text, <h1>, the reading
+//     time, the <article>), the page is byte for byte what it was;
+//   - same photos (same src), JSON-LD still parses with the same structure;
+//   - no long dash, enough words, every internal link points to a real page.
 
-Write as if a top native writer wrote it directly in ${langName}. Idiomatic, warm, concrete. Never word-for-word. Keep the article's structure, length and every fact exactly as they are — this is a localization, not a rewrite, and not a summary.
+/** Who reads each language, so the article is written for them. */
+const READERS = {
+  fr: "readers from France, Belgium and Switzerland. Address them as \"vous\". They search things like \"que faire à Madère\", \"incontournables\", \"où manger\".",
+  de: "readers from Germany, Austria and Switzerland. Address them as \"Sie\". They plan carefully and want practical detail: how to get there, how long it takes, what it costs, when to go, Tipps and Sehenswürdigkeiten.",
+  pt: "readers of European Portuguese: people from mainland Portugal, the Portuguese abroad and Madeirans themselves. Use pt-PT words and spelling (autocarro, pequeno-almoço, telemóvel), never Brazilian forms. Do not explain to them what any Portuguese already knows; give them what is special about Madeira.",
+  es: "readers from Spain. Address them as \"usted\" like the rest of the Spanish site. They search things like \"qué ver en Madeira\", \"qué hacer\", \"dónde comer\".",
+  it: "readers from Italy. Address them with \"voi\" like the rest of the Italian site. They search things like \"cosa vedere a Madeira\", \"cosa fare\", \"quanti giorni\".",
+};
 
-SEO matters here more than anything. This article exists to rank in ${langName} for the places it describes. Localize <title>, meta description, Open Graph and Twitter text, image alt text and any keywords using the REAL phrases people search in ${langName} (German "Bootstour Madeira", "Cabo Girão Aussichtsplattform"; French "excursion bateau Madère", "falaise Cabo Girão"; Portuguese "passeio de barco Madeira", "miradouro do Cabo Girão"). Meta descriptions stay between 150 and 158 characters, and the <title> stays at most 62 characters in total (main keyword first; drop " | Chifbay" if it does not fit).
+/** Facts about Chifbay that an article may state, and must never contradict. */
+const FACTS = [
+  "Chifbay is a private boat company in Funchal, Madeira: the whole boat for one group only, up to 5 guests, two licensed skippers from Madeira, a 2026 Karnic R8S.",
+  "Meeting point: Marina do Funchal, Pontoon C.",
+  "Day trip: leaves at 10:00 or 14:00. 2 h 30 to Ribeira Brava for 500 EUR, or 3 h on to Ponta do Sol for 600 EUR. Câmara de Lobos, Cabo Girão, a swim and paddle boards at Fajã dos Padres.",
+  "Sunset trip: leaves 1 h 15 before sunset, all year. 2 h to Cabo Girão for 400 EUR, or 2 h 30 to Ribeira Brava for 500 EUR. No swim stop.",
+  "Prices are for the whole boat, never per person.",
+  "Every trip includes food and drinks on board, an Insta360 360° video, drone footage (weather allowing) and photos taken with a real camera.",
+  "Free cancellation up to 24 hours before departure.",
+  "Never promise dolphins, whales, golden light or good weather: they are a gift when they happen.",
+];
 
-You are given a complete HTML document. Return the EXACT same HTML with ONLY the human-readable text translated.
+/** Chifbay pages that exist in this language, for the model to link to. */
+function langPages(lang) {
+  return ["", "experiences", "sunset-cruise", "hidden-coves-half-day", "private-boat-tour-madeira", "practical", "blog", "reviews"]
+    .filter((n) => fs.existsSync(path.join(ROOT, lang, n ? `${n}.html` : "index.html")))
+    .map((n) => `/${lang}/${n}`);
+}
 
-STRICT RULES — breaking any one of these makes the output useless:
-- Never modify a tag, attribute name, class, id, href, src, inline style, or any <script> code.
-- In JSON-LD, translate string VALUES only (headline, description, name, FAQ question and answer text, alt). Never touch keys, "@type", "@context", URLs, or dates.
-- Never translate or alter: "Chifbay"; place names (Funchal, Madeira, Cabo Girão, Câmara de Lobos, Fajã dos Padres, Ponta do Sol, Ribeira Brava, Marina do Funchal, Desertas, Pico do Arieiro, Seixal, Garajau, Machico, Santana); "poncha", "espetada", "Nikita", "levada"; boat words "Karnic", "Mercury"; any price, number, unit or time (€400, 2h30, 18:30, 580 m, 5 guests); phone numbers; emails; URLs; "@chifbay".
-- Keep every <link>, <meta>, <script> and HTML comment in place, in the same order.
-- Output ONLY the complete HTML document. No preamble, no explanation, no code fences.`;
+function brief(slug, lang, mode, queries) {
+  const name = LANGS[lang];
+  const file = `${lang}/posts/${slug}.html`;
+  return [
+    `You are a top native ${name} travel journalist. You write for the Journal of Chifbay, a private boat company in Funchal, Madeira, Portugal. Your readers are ${READERS[lang]}`,
+    "",
+    `TASK: write a NEW article in ${name} on the same subject as the English article "posts/${slug}.html". It is NOT a translation. Think about what this reader types into Google on this subject, what they already know, what they want to find out, and what makes them trust a page. Then write the article the best ${name} travel writer would write for them: your own title, your own <h1>, your own opening, your own section headings and order. Add what this reader needs (practical details, when to go, how it compares) and drop what does not matter to them. Use the English article only as the source of facts.`,
+    queries && queries.length
+      ? `\nThese real Google searches in ${name} already find this page: ${queries.map((q) => `"${q}"`).join(", ")}. Use their words naturally in the <title>, the <h1>, the first paragraph and one or two headings. Write for people, not for keywords.`
+      : `\nPick the words a native ${name} speaker really types into Google for this subject, and use them naturally in the <title>, the <h1>, the first paragraph and one or two headings.`,
+    "",
+    "FACTS: state only facts that are in the English article, in the Chifbay facts below, or that you are certain of. Never invent a price, time, distance, date, name or record. When unsure, leave it out.",
+    "Chifbay facts (never contradict them):",
+    ...FACTS.map((f) => `- ${f}`),
+    "",
+    "STYLE: natural, idiomatic, warm and concrete, short paragraphs. NEVER use a long dash (— or –) anywhere: use a comma, a colon or a full stop. No hype words. The <title> stays under 62 characters, the meta description under 155.",
+    "LENGTH: at least as long as the English article; longer when the reader needs more.",
+    "PHOTOS: keep every <figure>, <picture> and <img> of the article with exactly the same src and srcset paths. You may move them to where they fit best. Write a new, specific alt text and caption in the language that says what the photo shows.",
+    `LINKS: keep the links to Chifbay pages and point them at the ${name} pages. Pages you may link to: ${langPages(lang).join(", ")}.`,
+    "JSON-LD: change only the text values (headline, description, FAQ question and answer text) so they match your new article; write 3 to 5 FAQ items that real readers in this language ask. Never touch keys, @type, URLs, dates or images.",
+    "",
+    mode === "rewrite"
+      ? [
+          `Read "${file}" (the current version) and "posts/${slug}.html" (the English source of facts).`,
+          `Then write the new version to "${file}" with the Write tool. In that file change ONLY: <title>, the meta description, og:title, og:description, og:image:alt, twitter:image:alt, the JSON-LD scripts, the aria-label of the <div class="hbg">, the <h1>, the reading time inside <div class="artmeta">, and everything inside <article class="article ...">...</article>. Everything else (head links and scripts, menu, header, the call to action after the article, footer) must stay byte for byte as it is.`,
+        ].join("\n")
+      : [
+          `Read "posts/${slug}.html" (the English source of facts, and the page template).`,
+          `Write the complete page to "${file}" with the Write tool: the same HTML document with the menu, footer and every other interface text in ${name}, and your new article in place of the English one. Never change a tag, attribute, class, id, href to another site, src, inline style or script code outside the article.`,
+        ].join("\n"),
+    "Do not print the HTML in your reply.",
+  ].join("\n");
+}
 
-function translateOne(slug, lang) {
+const DONE_FILE = path.join(ROOT, "scripts/data/native-done.json");
+const readDone = () => (fs.existsSync(DONE_FILE) ? readJSON(DONE_FILE) : {});
+function markDone(slug, lang) {
+  const d = readDone();
+  d[`${lang}/${slug}`] = new Date().toISOString().slice(0, 10);
+  fs.writeFileSync(DONE_FILE, JSON.stringify(Object.fromEntries(Object.entries(d).sort()), null, 1) + "\n");
+}
+
+/** Write one native article. mode "new": no file yet; "rewrite": replace the translation. */
+function writeNative(slug, lang, mode, queries = []) {
   const src = path.join(EN_POSTS, `${slug}.html`);
   const outDir = path.join(ROOT, lang, "posts");
   const out = path.join(outDir, `${slug}.html`);
   fs.mkdirSync(outDir, { recursive: true });
-
-  const prompt = [
-    SYSTEM(LANGS[lang]),
-    "",
-    `Read the file "posts/${slug}.html".`,
-    `Write the localized document to "${lang}/posts/${slug}.html".`,
-    "Write the file with the Write tool. Do not print the HTML in your reply.",
-  ].join("\n");
+  const before = fs.existsSync(out) ? fs.readFileSync(out, "utf8") : null;
+  if (mode === "rewrite" && !before) throw new Error("nothing to rewrite");
+  const en = fs.readFileSync(src, "utf8");
 
   execFileSync(
     "claude",
-    ["-p", prompt, "--permission-mode", "acceptEdits",
+    ["-p", brief(slug, lang, mode, queries), "--permission-mode", "acceptEdits",
      "--allowedTools", "Read", "Write"],
     { cwd: ROOT, stdio: "inherit", timeout: 15 * 60 * 1000 },
   );
 
-  if (!fs.existsSync(out)) throw new Error(`claude did not write ${lang}/posts/${slug}.html`);
+  const putBack = () => { if (before !== null) fs.writeFileSync(out, before); else if (fs.existsSync(out)) fs.unlinkSync(out); };
+  try {
+    if (!fs.existsSync(out)) throw new Error("claude wrote nothing");
+    let html = fs.readFileSync(out, "utf8");
+    if (before !== null && html === before) throw new Error("the file did not change");
+    if (!/<\/html>/i.test(html)) throw new Error("looks truncated");
 
-  let html = fs.readFileSync(out, "utf8");
-  if (!/<\/html>/i.test(html)) throw new Error(`${lang}/posts/${slug}.html looks truncated`);
+    // Mechanical fixes belong here, not in the prompt.
+    html = deepenPaths(html);
+    html = setDocMeta(html, lang, slug);
 
-  // Mechanical fixes belong here, not in the prompt.
-  html = deepenPaths(html);
-  html = setDocMeta(html, lang, slug);
-  fs.writeFileSync(out, html);
+    const ref = mode === "rewrite" ? before : en;
+    if (mode === "rewrite" && skeleton(html) !== skeleton(before)) throw new Error("changed something outside the article and its head text");
+    if (!new RegExp(`<html lang="${lang}"`).test(html)) throw new Error("wrong <html lang>");
+    if (imgSrcs(html) !== imgSrcs(ref)) throw new Error("the article photos are not the same");
+    if (bgSrcs(html) !== bgSrcs(ref)) throw new Error("the header photo changed");
+    if (ldShape(html) !== ldShape(ref)) throw new Error("JSON-LD structure changed (or does not parse)");
+    if (/[—–]/.test(editableText(html))) throw new Error("long dash in the new text");
+    const enWords = words(articleOf(en)), newWords = words(articleOf(html));
+    if (newWords < 0.7 * enWords) throw new Error(`too short: ${newWords} words, English ${enWords}`);
+    const dead = deadLinks(ROOT, articleOf(html), lang);
+    if (dead.length) throw new Error(`links to pages that do not exist: ${dead.slice(0, 3).join(", ")}`);
 
-  // Sanity: the English source is the only place the real asset list exists.
-  const enImgs = (fs.readFileSync(src, "utf8").match(/<img\b/g) || []).length;
-  const outImgs = (html.match(/<img\b/g) || []).length;
-  if (enImgs !== outImgs) {
-    console.warn(`  ! ${lang}/${slug}: ${enImgs} images in English, ${outImgs} here — check it`);
+    fs.writeFileSync(out, html);
+    markDone(slug, lang);
+    return newWords;
+  } catch (err) {
+    putBack();
+    throw err;
   }
+}
+
+/** The next translated articles to rewrite, most Google views first. */
+function rewritePairs() {
+  const queue = readJSON(path.join(ROOT, "scripts/data/native-queue.json")).pairs;
+  const done = readDone();
+  return queue.filter((e) => !done[`${e.lang}/${e.slug}`]
+    && (!ONLY_LANG || e.lang === ONLY_LANG) && (!ONLY_SLUG || e.slug === ONLY_SLUG)
+    && fs.existsSync(path.join(ROOT, e.lang, "posts", `${e.slug}.html`)));
 }
 
 // ------------------------------------------------------------- per-lang index
@@ -276,7 +371,10 @@ function updateSitemap() {
 
   const START = "  <!--posts-i18n-->";
   const END = "  <!--/posts-i18n-->";
-  const body = urls.map((u) => `  <url><loc>${u}</loc></url>`).join("\n");
+  // a rewritten article carries the day it was rewritten, so Google comes back to it
+  const done = readDone();
+  const day = (u) => { const m = u.match(/chifbay\.com\/(\w\w)\/posts\/([a-z0-9-]+)/); return m && done[`${m[1]}/${m[2]}`]; };
+  const body = urls.map((u) => day(u) ? `  <url><loc>${u}</loc><lastmod>${day(u)}</lastmod></url>` : `  <url><loc>${u}</loc></url>`).join("\n");
   const block = `${START}\n${body}\n${END}`;
 
   const existing = new RegExp(`${escapeRe(START)}[\\s\\S]*?${escapeRe(END)}`);
@@ -343,22 +441,28 @@ function main() {
     return;
   }
 
-  if (!REINDEX_ONLY && pairs.length && BUDGET > 0) {
-    const todo = pairs.slice(0, BUDGET);
-    console.log(`translating ${todo.length} (budget ${BUDGET})\n`);
+  // --rewrite: turn existing translations into native articles, most viewed first.
+  // Otherwise: write the missing languages of new articles, natively too.
+  const jobs = REINDEX_ONLY || BUDGET <= 0 ? []
+    : REWRITE ? rewritePairs().slice(0, BUDGET).map((e) => ({ ...e, mode: "rewrite" }))
+    : pairs.slice(0, BUDGET).map((e) => ({ ...e, mode: "new", queries: [] }));
+  if (jobs.length) {
+    if (REWRITE) console.log(`${rewritePairs().length} translated articles still to rewrite natively`);
+    console.log(`writing ${jobs.length} native article(s) (budget ${BUDGET})\n`);
     let done = 0;
-    for (const { slug, lang } of todo) {
-      process.stdout.write(`  ${lang}  ${slug} … `);
+    for (const { slug, lang, mode, queries } of jobs) {
+      process.stdout.write(`  ${lang}  ${slug} (${mode}) … `);
       try {
-        translateOne(slug, lang);
+        const n = writeNative(slug, lang, mode, queries);
         done++;
-        console.log("ok");
+        console.log(`ok, ${n} words`);
       } catch (err) {
-        // One bad article must not cost the whole run — the rest still land.
-        console.log(`FAILED — ${err.message}`);
+        // One bad article must not cost the whole run: the rest still land.
+        console.log(`FAILED: ${err.message}`);
+        if (/usage limit|rate limit|quota/i.test(String(err.message))) break;
       }
     }
-    console.log(`\ntranslated ${done}/${todo.length}`);
+    console.log(`\nwritten ${done}/${jobs.length}`);
   }
 
   for (const lang of Object.keys(LANGS)) {

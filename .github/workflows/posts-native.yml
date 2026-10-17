@@ -1,0 +1,111 @@
+name: Journal, native articles (fr / de / pt / es / it)
+
+# Rewrites the translated Journal articles as NATIVE articles, one language at
+# a time: own title, own angle, own sections, built on the real Google searches
+# in that language (scripts/data/native-queue.json, most viewed first). Theo,
+# 17 Oct 2026: "an article based on the language, not just a translation".
+# The English article is only the source of facts. Code refuses any result
+# that touches the menu, footer, photos or page code (scripts/lib/native-guard.mjs).
+#
+# Same Claude token as blog-auto.yml and posts-i18n.yml. Shares their queue
+# group so two jobs never write the same files at once.
+
+on:
+  schedule:
+    - cron: "15 13 * * *"   # daily, after the Journal post and the translation run
+  workflow_dispatch:
+    inputs:
+      budget:
+        description: "How many articles to rewrite in this run"
+        required: false
+        default: "6"
+      lang:
+        description: "Only this language (fr/de/pt/es/it), blank = queue order"
+        required: false
+        default: ""
+      slug:
+        description: "Only this article slug, blank = queue order"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: posts-i18n
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Test the checks
+        run: node scripts/journal/test-native.mjs
+
+      - name: Rewrite
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          BUDGET: ${{ github.event.inputs.budget || '6' }}
+          LANG_ARG: ${{ github.event.inputs.lang || '' }}
+          SLUG_ARG: ${{ github.event.inputs.slug || '' }}
+        run: |
+          set -euo pipefail
+          ARGS=(--rewrite --budget "$BUDGET")
+          [ -n "$LANG_ARG" ] && ARGS+=(--lang "$LANG_ARG")
+          [ -n "$SLUG_ARG" ] && ARGS+=(--slug "$SLUG_ARG")
+          node scripts/posts-i18n.mjs "${ARGS[@]}" | tee native.log
+          # the Journal index pages carry each article's (new) title
+          node scripts/build-blog-index.mjs
+          node scripts/add-money-links.mjs --write
+          if grep -q "FAILED" native.log; then echo "::warning::some articles were refused, see the log"; fi
+
+      - name: Commit & push
+        run: |
+          set -euo pipefail
+          rm -f native.log
+          if [ -z "$(git status --porcelain)" ]; then echo "nothing changed, not committing"; exit 0; fi
+          DONE=$(git diff --name-only | grep -c '^\(fr\|de\|pt\|es\|it\)/posts/.*\.html' || true)
+          git add -A
+          git commit -m "Journal: ${DONE} article(s) rewritten natively"
+          scripts/ci-push.sh
+
+      - name: Verify the pages are live
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          git pull --rebase origin main || true
+          PAGE=$(git log -1 --name-only --format= | grep '^\(fr\|de\|pt\|es\|it\)/posts/.*\.html' | head -1 || true)
+          if [ -z "$PAGE" ]; then echo "no article in the last commit, skipping"; exit 0; fi
+          for attempt in 1 2 3; do
+            for i in $(seq 1 10); do
+              if curl -sf --max-time 20 "https://chifbay.com/$PAGE?nocache=$(date +%s)" >/dev/null; then echo "live"; exit 0; fi
+              sleep 30
+            done
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" >/dev/null || true
+          done
+          echo "::warning::rewritten pages are committed but not serving yet"

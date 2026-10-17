@@ -1,0 +1,3050 @@
+{
+ "_about": "Order in which the translated Journal articles are rewritten as native articles (scripts/posts-i18n.mjs --rewrite). impressions = Google Search Console, 18 Jul to 17 Oct 2026; queries = the real searches in that language that already find the page.",
+ "made": "2026-10-17",
+ "pairs": [
+  {
+   "slug": "nikita-madeira-drink-guide",
+   "lang": "pt",
+   "impressions": 2474,
+   "queries": [
+    "nikita madeira",
+    "nikita bebida",
+    "bebida nikita",
+    "nikita bebida madeira",
+    "nikita camara de lobos",
+    "nikita cocktail",
+    "bebida nikita madeira",
+    "nikitas"
+   ]
+  },
+  {
+   "slug": "top-10-villages-in-madeira",
+   "lang": "de",
+   "impressions": 1135,
+   "queries": [
+    "santana madeira",
+    "madeira sehenswürdigkeiten",
+    "nonnental madeira",
+    "sehenswürdigkeiten madeira",
+    "funchal sehenswürdigkeiten",
+    "porto moniz",
+    "ponta do sol",
+    "madeira nonnental"
+   ]
+  },
+  {
+   "slug": "lapas-madeira-guide",
+   "lang": "pt",
+   "impressions": 753,
+   "queries": [
+    "lapas",
+    "lapas madeira",
+    "lapa marisco",
+    "lapas da madeira",
+    "lapas marisco",
+    "lapas grelhadas madeira",
+    "lapas de madeira",
+    "lapas funchal"
+   ]
+  },
+  {
+   "slug": "lapas-madeira-guide",
+   "lang": "it",
+   "impressions": 747,
+   "queries": [
+    "lapas",
+    "lapas madeira",
+    "lapas mollusco",
+    "lapas cosa sono",
+    "lapas in italiano",
+    "patelle alla griglia",
+    "patelle madeira",
+    "lapa significato"
+   ]
+  },
+  {
+   "slug": "nikita-madeira-drink-guide",
+   "lang": "fr",
+   "impressions": 712,
+   "queries": [
+    "nikita cocktail",
+    "nikita madere",
+    "nikita boisson",
+    "cocktail nikita madere",
+    "nikita boisson madère",
+    "boisson nikita madere",
+    "nikita cocktail madère",
+    "cocktail nikita"
+   ]
+  },
+  {
+   "slug": "picado-madeira-guide",
+   "lang": "de",
+   "impressions": 655,
+   "queries": [
+    "picado",
+    "picado madeira",
+    "picados",
+    "picados madeira",
+    "picado de vaca",
+    "madeira picado",
+    "was ist picado",
+    "beef picado madeira"
+   ]
+  },
+  {
+   "slug": "nikita-madeira-drink-guide",
+   "lang": "de",
+   "impressions": 610,
+   "queries": [
+    "nikita madeira",
+    "nikita drink madeira",
+    "nikita getränk madeira",
+    "nikita getränk",
+    "nikita cocktail madeira",
+    "nikita drink",
+    "nikita cocktail",
+    "madeira nikita"
+   ]
+  },
+  {
+   "slug": "madeira-bananas-guide",
+   "lang": "de",
+   "impressions": 572,
+   "queries": [
+    "madeira bananen",
+    "banane madeira",
+    "madeira banane",
+    "madeira bananas",
+    "madeira-bananen kaufen",
+    "madeira bananen kaufen",
+    "banana de madeira",
+    "bananen madeira"
+   ]
+  },
+  {
+   "slug": "nikita-madeira-drink-guide",
+   "lang": "es",
+   "impressions": 536,
+   "queries": [
+    "nikita bebida",
+    "nikita madeira",
+    "nikita bebida madeira",
+    "nikita",
+    "nikita portugal",
+    "nikita que es",
+    "nikitas madeira",
+    "nikita funchal"
+   ]
+  },
+  {
+   "slug": "how-many-days-in-madeira-itinerary-guide",
+   "lang": "it",
+   "impressions": 491,
+   "queries": [
+    "madeira quanti giorni",
+    "madeira",
+    "quanto stare a madeira",
+    "quanti giorni a madeira",
+    "quanti giorni servono per visitare madeira",
+    "quanti giorni stare a madeira",
+    "madeira portogallo",
+    "quanti giorni fare a madeira"
+   ]
+  },
+  {
+   "slug": "lapas-madeira-guide",
+   "lang": "fr",
+   "impressions": 476,
+   "queries": [
+    "lapas madeira",
+    "lapas",
+    "lapas coquillage",
+    "patelles madere",
+    "lapas en français",
+    "patelles grillées",
+    "coquillage madere",
+    "lapas madeira en francais"
+   ]
+  },
+  {
+   "slug": "madeira-public-holidays-guide",
+   "lang": "de",
+   "impressions": 434,
+   "queries": [
+    "feiertage madeira 2026",
+    "nationalfeiertag madeira",
+    "feiertag madeira 2026",
+    "feiertage madeira",
+    "madeira feiertage 2026",
+    "feiertag madeira",
+    "madeira feiertage",
+    "feiertag"
+   ]
+  },
+  {
+   "slug": "lapas-madeira-guide",
+   "lang": "de",
+   "impressions": 418,
+   "queries": [
+    "lapas",
+    "lapas madeira",
+    "napfschnecken madeira",
+    "lapas deutsch",
+    "gegrillte napfschnecken",
+    "napfschnecken essen",
+    "was sind lapas",
+    "madeira napfschnecken"
+   ]
+  },
+  {
+   "slug": "madeira-public-holidays-guide",
+   "lang": "pt",
+   "impressions": 418,
+   "queries": [
+    "feriados madeira 2026",
+    "feriados 2026 madeira",
+    "feriados na madeira 2026",
+    "feriados ilha da madeira 2026",
+    "feriados setembro 2026 madeira",
+    "feriado madeira 2026",
+    "amanhã é feriado",
+    "feriados agosto madeira 2026"
+   ]
+  },
+  {
+   "slug": "madeira-public-holidays-guide",
+   "lang": "es",
+   "impressions": 408,
+   "queries": [
+    "feriados en madeira 2026",
+    "dias feriados en madeira 2026",
+    "hoy es feriado en madeira",
+    "feriados madeira 2026",
+    "feriados funchal 2026",
+    "feriados madeira",
+    "madeira public holidays 2026",
+    "public holidays madeira 2026"
+   ]
+  },
+  {
+   "slug": "madeira-in-winter-guide",
+   "lang": "it",
+   "impressions": 404,
+   "queries": [
+    "madeira in inverno",
+    "madeira a gennaio cosa fare",
+    "madeira febbraio",
+    "madeira a dicembre",
+    "madeira a febbraio",
+    "madeira a settembre",
+    "madeira inverno",
+    "madeira clima dicembre"
+   ]
+  },
+  {
+   "slug": "madeira-in-winter-guide",
+   "lang": "de",
+   "impressions": 396,
+   "queries": [
+    "madeira im dezember",
+    "madeira im winter",
+    "wetter madeira dezember",
+    "madeira dezember",
+    "madeira wetter dezember",
+    "madeira januar",
+    "lohnt sich madeira im dezember",
+    "madeira winter"
+   ]
+  },
+  {
+   "slug": "lapas-madeira-guide",
+   "lang": "es",
+   "impressions": 389,
+   "queries": [
+    "lapas madeira",
+    "lapas",
+    "a que saben las lapas",
+    "lapas comida",
+    "lapas de madeira",
+    "lapas de mar",
+    "lapa comida",
+    "lapa da madeira"
+   ]
+  },
+  {
+   "slug": "pico-ruivo-madeira-guide",
+   "lang": "de",
+   "impressions": 367,
+   "queries": [
+    "pico ruivo",
+    "pico de ruivo",
+    "pico ruivo madeira",
+    "wie hoch ist der höchste berg auf madeira",
+    "pico ruvio",
+    "parkplatz pico ruivo",
+    "wie hoch ist der pico ruivo",
+    "höchster gipfel madeira"
+   ]
+  },
+  {
+   "slug": "apple-festival-ponta-do-pargo-2026",
+   "lang": "de",
+   "impressions": 359,
+   "queries": [
+    "apfelfest madeira",
+    "apple festival madeira",
+    "festa do pero 2026",
+    "apfelfest",
+    "apfelfest in der nähe",
+    "madeira apple festival",
+    "wann beginnt es",
+    "wo ist das apfelfest"
+   ]
+  },
+  {
+   "slug": "pico-ruivo-madeira-guide",
+   "lang": "es",
+   "impressions": 355,
+   "queries": [
+    "pico ruivo",
+    "pico ruivo altura",
+    "pico ruivo madeira",
+    "pico más alto de madeira",
+    "pico mas alto de madeira",
+    "altura pico ruivo",
+    "altura pico ruivo madeira",
+    "montaña mas alta de madeira"
+   ]
+  },
+  {
+   "slug": "mercado-dos-lavradores-funchal-guide",
+   "lang": "pt",
+   "impressions": 354,
+   "queries": [
+    "mercado dos lavradores",
+    "mercado dos lavradores funchal",
+    "mercado dos lavradores madeira horario",
+    "funchal mercado dos lavradores",
+    "mercado dos lavradores funchal horarios",
+    "mercado dos lavradores horario",
+    "mercado lavradores funchal",
+    "mercado funchal"
+   ]
+  },
+  {
+   "slug": "madeira-in-autumn-guide",
+   "lang": "de",
+   "impressions": 346,
+   "queries": [
+    "madeira wetter oktober",
+    "madeira beste reisezeit",
+    "madeira wassertemperatur september",
+    "madeira im november",
+    "wetter funchal november",
+    "wetter madeira oktober",
+    "beste reisezeit madeira",
+    "kann man im oktober auf madeira noch baden"
+   ]
+  },
+  {
+   "slug": "milho-frito-madeira-guide",
+   "lang": "fr",
+   "impressions": 335,
+   "queries": [
+    "milho",
+    "milho madeira",
+    "mais frito",
+    "milho frito",
+    "milo frito",
+    "fried maize madeira",
+    "mais frit",
+    "mais frit madere"
+   ]
+  },
+  {
+   "slug": "madeira-bananas-guide",
+   "lang": "fr",
+   "impressions": 327,
+   "queries": [
+    "banana madeira",
+    "banane de madère",
+    "banane verte madere",
+    "bananas da madeira",
+    "banane madere",
+    "banane madeira",
+    "bananes madere",
+    "madere banane"
+   ]
+  },
+  {
+   "slug": "trans-madeira-2026-enduro-race-guide",
+   "lang": "de",
+   "impressions": 321,
+   "queries": [
+    "trans madeira 2026",
+    "trans madeira enduro",
+    "trans madeira kosten",
+    "trans madeira"
+   ]
+  },
+  {
+   "slug": "milho-frito-madeira-guide",
+   "lang": "pt",
+   "impressions": 316,
+   "queries": [
+    "milho frito madeira",
+    "madeira milho frito",
+    "milho frito madeira que es",
+    "milho frito",
+    "milho frito que es",
+    "milho",
+    "milho frito da madeira",
+    "milho madeira"
+   ]
+  },
+  {
+   "slug": "festa-da-castanha-curral-das-freiras-2026",
+   "lang": "pt",
+   "impressions": 309,
+   "queries": [
+    "festa da castanha 2026",
+    "festa da castanha curral das freiras 2026",
+    "festival da castanha 2026",
+    "festa da castanha 2026 madeira",
+    "feira da castanha 2026",
+    "festa curral das freiras 2026",
+    "festa da castanha madeira",
+    "festa do curral das freiras 2026"
+   ]
+  },
+  {
+   "slug": "milho-frito-madeira-guide",
+   "lang": "de",
+   "impressions": 294,
+   "queries": [
+    "milho frito deutsch",
+    "milo frito",
+    "milho frito madeira",
+    "milho",
+    "mais madeira",
+    "milho madeira",
+    "frittierter mais",
+    "milho fritto"
+   ]
+  },
+  {
+   "slug": "is-madeira-safe-guide",
+   "lang": "de",
+   "impressions": 268,
+   "queries": [
+    "ist madeira sicher",
+    "ist madeira gefährlich",
+    "madeira sicherheit",
+    "autofahren madeira",
+    "madeira kriminalität",
+    "kriminalität madeira",
+    "madeira meer gefährlich",
+    "funchal kriminalität"
+   ]
+  },
+  {
+   "slug": "pico-ruivo-madeira-guide",
+   "lang": "it",
+   "impressions": 267,
+   "queries": [
+    "pico ruivo",
+    "pico ruivo madeira",
+    "pico ruivo altezza",
+    "altezza pico ruivo",
+    "madeira pico ruivo",
+    "pico ruvio",
+    "pico de ruivo",
+    "pico madeira"
+   ]
+  },
+  {
+   "slug": "picado-madeira-guide",
+   "lang": "pt",
+   "impressions": 265,
+   "queries": [
+    "picado",
+    "picados",
+    "picado madeira",
+    "picado de vaca",
+    "picado no prato",
+    "picado pequeno madeira",
+    "o picado",
+    "picado portugal"
+   ]
+  },
+  {
+   "slug": "aguardente-de-cana-madeira-rum-guide",
+   "lang": "pt",
+   "impressions": 258,
+   "queries": [
+    "aguardente de cana madeira",
+    "aguardente de cana",
+    "aguardente cana madeira",
+    "aguardente cana de açucar",
+    "aguardente de cana-de-açúcar",
+    "agua ardente de cana",
+    "aguardente de cana da madeira",
+    "aguardente madeira"
+   ]
+  },
+  {
+   "slug": "top-10-sunset-spots-in-madeira",
+   "lang": "pt",
+   "impressions": 247,
+   "queries": [
+    "por do sol madeira",
+    "onde ver o por do sol na madeira",
+    "melhor por do sol madeira",
+    "por do sol ilha da madeira",
+    "por do sol na madeira",
+    "madeira por do sol",
+    "onde ver o por do sol",
+    "por do sol funchal"
+   ]
+  },
+  {
+   "slug": "madeira-with-kids-family-guide",
+   "lang": "de",
+   "impressions": 239,
+   "queries": [
+    "madeira mit kindern",
+    "madeira familienurlaub",
+    "familienurlaub auf madeira",
+    "familienurlaub madeira",
+    "madeira urlaub mit kindern",
+    "madeira mit baby",
+    "madeira",
+    "funchal mit kindern"
+   ]
+  },
+  {
+   "slug": "is-english-spoken-in-madeira",
+   "lang": "de",
+   "impressions": 235,
+   "queries": [
+    "madeira sprache",
+    "madeira englisch",
+    "sprache auf madeira",
+    "sprache madeira",
+    "was spricht man auf madeira",
+    "welche sprache auf madeira",
+    "welche sprache spricht man auf madeira",
+    "madeira amtssprache"
+   ]
+  },
+  {
+   "slug": "madeira-in-autumn-guide",
+   "lang": "fr",
+   "impressions": 233,
+   "queries": [
+    "madere en octobre",
+    "madere en septembre",
+    "meteo madere novembre",
+    "temperature madere octobre",
+    "meteo madere octobre",
+    "madere en novembre",
+    "madere novembre",
+    "madère en novembre"
+   ]
+  },
+  {
+   "slug": "milho-frito-madeira-guide",
+   "lang": "es",
+   "impressions": 226,
+   "queries": [
+    "milho frito",
+    "milo frito",
+    "millo frito",
+    "milho frito madeira que es",
+    "milho frito que es",
+    "que es milho frito",
+    "milho frito madeira",
+    "que es el milho"
+   ]
+  },
+  {
+   "slug": "curral-das-freiras-madeira-guide",
+   "lang": "fr",
+   "impressions": 225,
+   "queries": [
+    "curral das freiras",
+    "vallee des nonnes",
+    "vallée des nonnes madère",
+    "curral das freiras madeira",
+    "la vallee des nonnes",
+    "curral des freiras",
+    "la vallée des nonnes madère",
+    "curral das freiras altitude"
+   ]
+  },
+  {
+   "slug": "madeira-public-holidays-guide",
+   "lang": "fr",
+   "impressions": 221,
+   "queries": [
+    "jour ferie madere",
+    "jour ferie madere 2026",
+    "dia da madeira",
+    "mardi gras est il un jour férié"
+   ]
+  },
+  {
+   "slug": "is-madeira-safe-guide",
+   "lang": "it",
+   "impressions": 217,
+   "queries": [
+    "madeira è pericolosa",
+    "madeira",
+    "dove si trova madeira",
+    "funchal",
+    "madeira isola",
+    "madeira portogallo",
+    "aeroporto madeira",
+    "come arrivare a madeira da roma"
+   ]
+  },
+  {
+   "slug": "top-10-souvenirs-madeira",
+   "lang": "it",
+   "impressions": 214,
+   "queries": [
+    "cosa comprare a madeira",
+    "souvenir madeira",
+    "madeira souvenir",
+    "madeira souvenirs",
+    "abitanti madeira",
+    "clima madeira febbraio",
+    "cosa c'è da vedere a madeira",
+    "funchal"
+   ]
+  },
+  {
+   "slug": "madeira-bananas-guide",
+   "lang": "pt",
+   "impressions": 211,
+   "queries": [
+    "banana da madeira vs banana normal",
+    "bananas da madeira",
+    "banana da madeira",
+    "bananeira da madeira",
+    "qual o nome",
+    "banana da madeira preço",
+    "sim"
+   ]
+  },
+  {
+   "slug": "aguardente-de-cana-madeira-rum-guide",
+   "lang": "de",
+   "impressions": 206,
+   "queries": [
+    "aguardente de cana",
+    "aguardente madeira",
+    "was ist aguardente",
+    "aguardente de cana-de-açúcar",
+    "zuckerrohrschnaps madeira",
+    "aguardente",
+    "rum aus madeira",
+    "schnaps auf madeira"
+   ]
+  },
+  {
+   "slug": "top-10-gardens-in-madeira",
+   "lang": "de",
+   "impressions": 196,
+   "queries": [
+    "garten madeira",
+    "gärten auf madeira",
+    "gärten madeira",
+    "madeira garten",
+    "parks in madeira",
+    "madeira garden",
+    "orchideengarten madeira",
+    "funchal gärten"
+   ]
+  },
+  {
+   "slug": "top-10-souvenirs-madeira",
+   "lang": "de",
+   "impressions": 190,
+   "queries": [
+    "madeira",
+    "funchal",
+    "funchal wetter",
+    "madeira korbwaren kaufen",
+    "madeira spezialitäten kaufen",
+    "essen madeira typisch",
+    "flugzeit frankfurt madeira direkt",
+    "funchal madeira sehenswürdigkeiten"
+   ]
+  },
+  {
+   "slug": "top-10-souvenirs-madeira",
+   "lang": "fr",
+   "impressions": 189,
+   "queries": [
+    "que ramener de madère",
+    "que ramener de madere",
+    "quel souvenir ramener de madere",
+    "souvenir funchal",
+    "souvenirs madere",
+    "que ramener comme souvenir de madere",
+    "souvenir madere"
+   ]
+  },
+  {
+   "slug": "queijada-da-madeira-cheese-pastry-guide",
+   "lang": "de",
+   "impressions": 180,
+   "queries": [
+    "queijada",
+    "madeira gebäck",
+    "gebäck madeira",
+    "queijada madeira",
+    "queijada da madeira",
+    "queijada madeirense",
+    "ziegenkäse portugiesisch",
+    "nachtisch"
+   ]
+  },
+  {
+   "slug": "bolo-de-mel-madeira",
+   "lang": "fr",
+   "impressions": 176,
+   "queries": [
+    "bolo de mel",
+    "bolo de mel recette",
+    "bolo chabon",
+    "bolo chambon madeira",
+    "bolo de mel recette en français",
+    "bolo mel",
+    "bolos de mel",
+    "le bolo de mel"
+   ]
+  },
+  {
+   "slug": "mercado-dos-lavradores-funchal-guide",
+   "lang": "de",
+   "impressions": 171,
+   "queries": [
+    "markthalle funchal",
+    "wann ist markt in funchal",
+    "fischmarkt funchal",
+    "funchal markt",
+    "markt in funchal"
+   ]
+  },
+  {
+   "slug": "top-10-villages-in-madeira",
+   "lang": "es",
+   "impressions": 170,
+   "queries": [
+    "isla de madeira",
+    "madeira ciudades",
+    "seixal madeira que ver",
+    "bosque de fanal",
+    "ciudades de madeira",
+    "curral das freiras que ver",
+    "el tiempo en madeira",
+    "get your guide madeira"
+   ]
+  },
+  {
+   "slug": "laurisilva-forest-madeira-guide",
+   "lang": "fr",
+   "impressions": 169,
+   "queries": [
+    "laurisilva",
+    "laurisilva madeira",
+    "laurisilva forest",
+    "laurissilva madeira",
+    "laurisilva de madère",
+    "laurissilva forest",
+    "foret de lauriers madere",
+    "foret de laurisilva madere"
+   ]
+  },
+  {
+   "slug": "madeira-in-spring-guide",
+   "lang": "de",
+   "impressions": 165,
+   "queries": [
+    "madeira beste reisezeit blüte",
+    "madeira beste reisezeit",
+    "madeira blütezeit",
+    "madeira wetter april",
+    "beste reisezeit madeira",
+    "madeira märz",
+    "madeira märz blumen",
+    "madeira april wetter"
+   ]
+  },
+  {
+   "slug": "pico-ruivo-madeira-guide",
+   "lang": "pt",
+   "impressions": 165,
+   "queries": [
+    "ponto mais alto da madeira",
+    "pico ruivo altitude",
+    "altitude pico ruivo",
+    "altura pico ruivo",
+    "cabo ruivo madeira",
+    "homem em pe pico ruivo",
+    "pico mais alto da madeira",
+    "altitude pico ruivo madeira"
+   ]
+  },
+  {
+   "slug": "madeira-in-winter-guide",
+   "lang": "es",
+   "impressions": 164,
+   "queries": [
+    "madeira en diciembre",
+    "madeira invierno",
+    "madeira en enero",
+    "madeira en invierno",
+    "tiempo en madeira diciembre",
+    "madeira en febrero",
+    "madeira en navidad temperatura",
+    "madeira winter"
+   ]
+  },
+  {
+   "slug": "madeira-in-autumn-guide",
+   "lang": "pt",
+   "impressions": 163,
+   "queries": [
+    "madeira em outubro",
+    "e a água do mar?",
+    "ilha da madeira",
+    "ilha da madeira em outubro",
+    "mar",
+    "quando chega o outono"
+   ]
+  },
+  {
+   "slug": "bolo-de-mel-madeira",
+   "lang": "es",
+   "impressions": 161,
+   "queries": [
+    "bolo de mel",
+    "bolo de miel",
+    "bolo de mel madeira",
+    "bolo de mel de cana da madeira",
+    "bolo do mel",
+    "bola de mel",
+    "bolo de mel cabo verde",
+    "bolo chabom madeira"
+   ]
+  },
+  {
+   "slug": "picado-madeira-guide",
+   "lang": "es",
+   "impressions": 148,
+   "queries": [
+    "picado madeira",
+    "picado",
+    "picados madeira",
+    "picado de carne madeira",
+    "picado de vaca madeira",
+    "picada madeira",
+    "picado comida",
+    "picado madeirense"
+   ]
+  },
+  {
+   "slug": "madeira-in-autumn-guide",
+   "lang": "es",
+   "impressions": 147,
+   "queries": [
+    "el tiempo en madeira en octubre",
+    "madeira en enero",
+    "madeira en noviembre",
+    "madeira en octubre",
+    "madeira en septiembre",
+    "el tiempo en madeira en noviembre",
+    "tiempo madeira octubre",
+    "mejor época para viajar a madeira"
+   ]
+  },
+  {
+   "slug": "bolo-de-mel-madeira",
+   "lang": "it",
+   "impressions": 145,
+   "queries": [
+    "bolo de mel",
+    "bolo do mel",
+    "dolce tipico di madeira",
+    "de mel",
+    "bolo de mel madeira ingredienti",
+    "bolo madeira",
+    "bolo tipico madeira",
+    "bolos de mel"
+   ]
+  },
+  {
+   "slug": "top-10-sunset-spots-in-madeira",
+   "lang": "es",
+   "impressions": 144,
+   "queries": [
+    "donde ver el atardecer en madeira",
+    "sunset madeira",
+    "puesta de sol madeira",
+    "donde ver la puesta de sol cerca de mi ubicación",
+    "lugares para ver el atardecer cerca de mi",
+    "puesta de sol cerca de mi"
+   ]
+  },
+  {
+   "slug": "trans-madeira-2026-enduro-race-guide",
+   "lang": "fr",
+   "impressions": 144,
+   "queries": [
+    "trans madeira 2026",
+    "transmadeira 2026",
+    "6 jours enduro 2026"
+   ]
+  },
+  {
+   "slug": "madeira-bananas-guide",
+   "lang": "it",
+   "impressions": 140,
+   "queries": [
+    "banana madeira",
+    "banane di madeira",
+    "banane madeira",
+    "bananas madeira",
+    "madeira banane",
+    "platano madeira",
+    "banana",
+    "banana da madeira"
+   ]
+  },
+  {
+   "slug": "laurisilva-forest-madeira-guide",
+   "lang": "pt",
+   "impressions": 138,
+   "queries": [
+    "laurisilva",
+    "laurisilva madeira",
+    "laurisilva forest",
+    "laurisilva de madeira",
+    "floresta laurissilva madeira",
+    "floresta laurissilva da madeira",
+    "floresta laurissilva madeira localização",
+    "floresta laurissilva"
+   ]
+  },
+  {
+   "slug": "nikita-madeira-drink-guide",
+   "lang": "it",
+   "impressions": 137,
+   "queries": [
+    "nikita madeira",
+    "nikita cocktail madeira",
+    "cristina pinto",
+    "nikita cocktail",
+    "nikita drink madeira",
+    "nikita drink",
+    "nikita ananas",
+    "nikita camara de lobos"
+   ]
+  },
+  {
+   "slug": "aguardente-de-cana-madeira-rum-guide",
+   "lang": "es",
+   "impressions": 132,
+   "queries": [
+    "aguardiente de caña",
+    "aguardente de cana",
+    "aguardiente madeira",
+    "aguardente",
+    "ron de madeira",
+    "aguardente de cana madeira",
+    "cañas bebida",
+    "ron madeira"
+   ]
+  },
+  {
+   "slug": "how-many-days-in-madeira-itinerary-guide",
+   "lang": "de",
+   "impressions": 131,
+   "queries": [
+    "madeira wie viele tage",
+    "wie lange auf madeira bleiben",
+    "ja",
+    "was machen auf madeira",
+    "wie viel tage madeira",
+    "wie viele tage madeira"
+   ]
+  },
+  {
+   "slug": "top-10-gardens-in-madeira",
+   "lang": "es",
+   "impressions": 131,
+   "queries": [
+    "jardin madeira",
+    "jardim madeira",
+    "jardines de madeira",
+    "jardines madeira",
+    "jardines en madeira",
+    "jardín",
+    "garden madeira"
+   ]
+  },
+  {
+   "slug": "aguardente-de-cana-madeira-rum-guide",
+   "lang": "fr",
+   "impressions": 123,
+   "queries": [
+    "aguardente de cana",
+    "aguardente portugal",
+    "aguardente madeira",
+    "aguardente",
+    "rhum madere",
+    "rum aguardente",
+    "alcool portugais eau-de vie",
+    "aguardente brandy"
+   ]
+  },
+  {
+   "slug": "faja-dos-padres-madeira-guide",
+   "lang": "es",
+   "impressions": 122,
+   "queries": [
+    "faja dos padres",
+    "faja dos padres madeira",
+    "teleferico faja dos padres",
+    "fajã dos padres",
+    "fajã dos padres madeira",
+    "faja dos padres teleferico",
+    "fajana de los padres",
+    "fajas dos padres madeira"
+   ]
+  },
+  {
+   "slug": "top-10-marine-animals-madeira",
+   "lang": "de",
+   "impressions": 122,
+   "queries": [
+    "fliegende fische madeira",
+    "fische madeira",
+    "madeira fische",
+    "madeira tiere wasser",
+    "tiere madeira",
+    "meerestiere liste"
+   ]
+  },
+  {
+   "slug": "madeira-in-summer-guide",
+   "lang": "fr",
+   "impressions": 114,
+   "queries": [
+    "quand partir à madère",
+    "madere aout",
+    "madere en ete",
+    "madère en juin",
+    "climat madère",
+    "madere climat",
+    "madere en aout",
+    "ile de madere climat"
+   ]
+  },
+  {
+   "slug": "rabacal-25-fontes-madeira-guide",
+   "lang": "fr",
+   "impressions": 113,
+   "queries": [
+    "rabaçal madeira",
+    "rabaçal",
+    "rabacal madere",
+    "25 fontes levada",
+    "randonnée 25 fontaines madère",
+    "25 fontes",
+    "levada das 25 fontes",
+    "rabacal madeira"
+   ]
+  },
+  {
+   "slug": "top-10-sunset-spots-in-madeira",
+   "lang": "de",
+   "impressions": 111,
+   "queries": [
+    "sonnenuntergang madeira",
+    "schönster sonnenuntergang madeira",
+    "wo geht die sonne unter madeira"
+   ]
+  },
+  {
+   "slug": "madeira-with-kids-family-guide",
+   "lang": "es",
+   "impressions": 110,
+   "queries": [
+    "madeira con niños",
+    "¿dónde alojarse en madeira para vacaciones en familia?",
+    "viajar a madeira con niños",
+    "3 años",
+    "madeira ?"
+   ]
+  },
+  {
+   "slug": "top-10-marine-animals-madeira",
+   "lang": "fr",
+   "impressions": 103,
+   "queries": [
+    "faune madere",
+    "tortue madere",
+    "animaux a madere",
+    "animaux madere",
+    "animaux madère",
+    "faune madère",
+    "madere faune",
+    "madere snorkeling"
+   ]
+  },
+  {
+   "slug": "madeira-in-summer-guide",
+   "lang": "de",
+   "impressions": 102,
+   "queries": [
+    "madeira beste reisezeit",
+    "beste reisezeit madeira",
+    "madeira wetter mai",
+    "madeira urlaub beste reisezeit",
+    "madeira urlaub wetter",
+    "reisezeit madeira",
+    "temperatur madeira juli",
+    "wassertemperatur funchal"
+   ]
+  },
+  {
+   "slug": "curral-das-freiras-madeira-guide",
+   "lang": "pt",
+   "impressions": 99,
+   "queries": [
+    "curral das freiras",
+    "vale das freiras madeira",
+    "curral das freiras madeira",
+    "curral das freiras o que visitar",
+    "curral de freiras",
+    "levada curral das freiras"
+   ]
+  },
+  {
+   "slug": "laurisilva-forest-madeira-guide",
+   "lang": "es",
+   "impressions": 99,
+   "queries": [
+    "laurisilva madeira",
+    "laurisilva de madeira",
+    "laurisilva forest",
+    "bosque de laurisilva madeira",
+    "bosque laurisilva madeira",
+    "laurisilva",
+    "bosque de laurisilva",
+    "bosque de laurisilva madeira como llegar"
+   ]
+  },
+  {
+   "slug": "queijada-da-madeira-cheese-pastry-guide",
+   "lang": "fr",
+   "impressions": 99,
+   "queries": [
+    "queijada",
+    "fromage madere",
+    "queijada madeira",
+    "madere fromage",
+    "queijadas de lait",
+    "queijadaria",
+    "queijada madeirense"
+   ]
+  },
+  {
+   "slug": "garajau-nature-reserve-madeira-guide",
+   "lang": "fr",
+   "impressions": 97,
+   "queries": [
+    "garajau",
+    "garajau madeira",
+    "garajau marine reserve",
+    "reserve naturelle garajau",
+    "réserve naturelle de garajau",
+    "garaujo",
+    "reserve de garajau",
+    "garajau nature reserve"
+   ]
+  },
+  {
+   "slug": "picado-madeira-guide",
+   "lang": "fr",
+   "impressions": 96,
+   "queries": [
+    "picado",
+    "picados",
+    "picado de vaca",
+    "picados madeira",
+    "picados madere",
+    "picado boeuf",
+    "picado de boeuf",
+    "picado madeira"
+   ]
+  },
+  {
+   "slug": "is-english-spoken-in-madeira",
+   "lang": "es",
+   "impressions": 94,
+   "queries": [
+    "funchal",
+    "funchal portugal",
+    "madeira idioma",
+    "do they speak english in madeira",
+    "funchal, portugal",
+    "madeira",
+    "madeira airport",
+    "madeira que idioma hablan"
+   ]
+  },
+  {
+   "slug": "madeira-in-summer-guide",
+   "lang": "es",
+   "impressions": 94,
+   "queries": [
+    "madeira en verano",
+    "madeira en julio",
+    "madeira en septiembre",
+    "madeira en agosto",
+    "temperatura agua madeira",
+    "cuando es mejor viajar a madeira",
+    "cuando viajar a madeira",
+    "el tiempo en madeira en agosto"
+   ]
+  },
+  {
+   "slug": "top-10-hiking-trails-in-madeira",
+   "lang": "de",
+   "impressions": 94,
+   "queries": [
+    "beste wanderwege madeira",
+    "schwierigkeitsgrade levada wanderungen madeira"
+   ]
+  },
+  {
+   "slug": "dolphins-and-whales-in-madeira-guide",
+   "lang": "de",
+   "impressions": 93,
+   "queries": [
+    "madeira delfine beste zeit",
+    "madeira delfine",
+    "welche wale kann man auf madeira sehen",
+    "welche wale vor madeira",
+    "delfine malaga",
+    "funchal delfine",
+    "grindwal madeira",
+    "grindwale madeira"
+   ]
+  },
+  {
+   "slug": "top-10-sunset-spots-in-madeira",
+   "lang": "it",
+   "impressions": 92,
+   "queries": [
+    "dove vedere il tramonto a madeira",
+    "tramonto funchal",
+    "tramonto madeira",
+    "tramonto madeira orario"
+   ]
+  },
+  {
+   "slug": "funchal-nautico-2026-guide",
+   "lang": "es",
+   "impressions": 91,
+   "queries": [
+    "regata madeira 2026"
+   ]
+  },
+  {
+   "slug": "is-english-spoken-in-madeira",
+   "lang": "it",
+   "impressions": 91,
+   "queries": [
+    "che lingua si parla a madeira",
+    "madeira lingua",
+    "madeira che lingua si parla",
+    "funchal",
+    "madeira maps"
+   ]
+  },
+  {
+   "slug": "dolphins-and-whales-in-madeira-guide",
+   "lang": "es",
+   "impressions": 90,
+   "queries": [
+    "delfines madeira",
+    "ballenas madeira"
+   ]
+  },
+  {
+   "slug": "faja-dos-padres-madeira-guide",
+   "lang": "fr",
+   "impressions": 88,
+   "queries": [
+    "telepherique faja dos padres",
+    "faja dos padres",
+    "fajã dos padres téléphérique",
+    "fajã dos padres",
+    "faja dos padres madeira",
+    "fajã dos padres madeira",
+    "se baigner a madere"
+   ]
+  },
+  {
+   "slug": "mercado-dos-lavradores-funchal-guide",
+   "lang": "it",
+   "impressions": 87,
+   "queries": [
+    "mercato dei lavoratori madeira",
+    "mercado dos lavradores",
+    "mercato funchal",
+    "mercato dos lavradores",
+    "mercato madeira"
+   ]
+  },
+  {
+   "slug": "faja-dos-padres-madeira-guide",
+   "lang": "de",
+   "impressions": 84,
+   "queries": [
+    "bananenplantage madeira seilbahn",
+    "faja dos padres",
+    "fajã dos padres seilbahn preise",
+    "praia da fajã dos padres",
+    "faja dos padres madeira",
+    "fajã dos padres",
+    "fajã dos padres seilbahn",
+    "windkraft seilbahn"
+   ]
+  },
+  {
+   "slug": "madeira-nature-festival-2026",
+   "lang": "fr",
+   "impressions": 83,
+   "queries": [
+    "nature festival madeira",
+    "madeira nature festival",
+    "madeira nature festival 2026",
+    "festival da natureza 2026"
+   ]
+  },
+  {
+   "slug": "garajau-nature-reserve-madeira-guide",
+   "lang": "de",
+   "impressions": 82,
+   "queries": [
+    "garajau",
+    "garajau madeira",
+    "garajau marine reserve",
+    "garajau nature reserve madeira",
+    "praia do garajau",
+    "ponta do lazareto",
+    "garajau nature reserve"
+   ]
+  },
+  {
+   "slug": "dolphins-and-whales-in-madeira-guide",
+   "lang": "it",
+   "impressions": 81,
+   "queries": [
+    "delfini madeira",
+    "delfini funchal",
+    "balene madeira periodo"
+   ]
+  },
+  {
+   "slug": "queijada-da-madeira-cheese-pastry-guide",
+   "lang": "it",
+   "impressions": 81,
+   "queries": [
+    "queijada",
+    "queijadas madeira",
+    "dolci tipici madeira",
+    "queijada madeira",
+    "queijada da madeira",
+    "quejiada"
+   ]
+  },
+  {
+   "slug": "queijada-da-madeira-cheese-pastry-guide",
+   "lang": "pt",
+   "impressions": 81,
+   "queries": [
+    "queijada da madeira",
+    "queijada madeira",
+    "queijada de madeira",
+    "queijadas madeira",
+    "queijadas da madeira",
+    "queijadas de madeira",
+    "queijada",
+    "queijada madeirense"
+   ]
+  },
+  {
+   "slug": "top-10-waterfalls-in-madeira",
+   "lang": "de",
+   "impressions": 81,
+   "queries": [
+    "wasserfall madeira ohne wandern",
+    "wasserfall madeira",
+    "madeira wasserfälle",
+    "madeira top 10",
+    "madeira wasserfall strasse",
+    "madeira wasserfall straße",
+    "schnüre",
+    "wasserfall in meiner nähe"
+   ]
+  },
+  {
+   "slug": "madeira-in-winter-guide",
+   "lang": "pt",
+   "impressions": 79,
+   "queries": [
+    "madeira em dezembro",
+    "madeira em janeiro",
+    "madeira in inverno",
+    "madeira in winter",
+    "madeira inverno",
+    "winter madeira",
+    "madeira em fevereiro"
+   ]
+  },
+  {
+   "slug": "garajau-nature-reserve-madeira-guide",
+   "lang": "es",
+   "impressions": 78,
+   "queries": [
+    "garajau",
+    "reserva natural de garajau",
+    "garajau madeira",
+    "reserva natural garajau",
+    "madeira garajau",
+    "reserva do garajau",
+    "reserva natural parcial do garajau",
+    "chifbay"
+   ]
+  },
+  {
+   "slug": "pico-ruivo-madeira-guide",
+   "lang": "fr",
+   "impressions": 77,
+   "queries": [
+    "pico ruivo",
+    "pico ruivo altitude",
+    "pico ruivo madeira",
+    "hauteur pico ruivo",
+    "parking pico ruivo",
+    "plus haut sommet de madère",
+    "pico do arieiro pico ruivo",
+    "altitude pico ruivo madeira"
+   ]
+  },
+  {
+   "slug": "top-10-sunset-spots-in-madeira",
+   "lang": "fr",
+   "impressions": 76,
+   "queries": [
+    "coucher de soleil ponta do sol",
+    "coucher soleil funchal",
+    "ou se couche le soleil",
+    "ou se couche le.soleil",
+    "ou voir le coucher de soleil autour de moi",
+    "ou voir le coucher de soleil à madère",
+    "ou voir un beau coucher de soleil autour de moi",
+    "ou voir un coucher de soleil autour de moi"
+   ]
+  },
+  {
+   "slug": "rabacal-25-fontes-madeira-guide",
+   "lang": "it",
+   "impressions": 72,
+   "queries": [
+    "madeira 25 fontes",
+    "25 fontes madeira"
+   ]
+  },
+  {
+   "slug": "festa-dos-fachos-machico-2026",
+   "lang": "fr",
+   "impressions": 71,
+   "queries": [
+    "fachos machico",
+    "fete machico madeira",
+    "fachos machico 2026",
+    "facho machico",
+    "fachos 2026",
+    "fachos de machico",
+    "festa dos fachos machico 2026",
+    "festa machico 2026"
+   ]
+  },
+  {
+   "slug": "top-10-gardens-in-madeira",
+   "lang": "it",
+   "impressions": 71,
+   "queries": [
+    "parchi madeira",
+    "giardino botanico madeira",
+    "giardini madeira",
+    "giardino botanico di madeira",
+    "giardino madeira"
+   ]
+  },
+  {
+   "slug": "dolphins-and-whales-in-madeira-guide",
+   "lang": "pt",
+   "impressions": 70,
+   "queries": [
+    "baleia piloto madeira",
+    "ver golfinhos e baleias na madeira",
+    "nadar com golfinhos madeira",
+    "ver baleias madeira"
+   ]
+  },
+  {
+   "slug": "is-english-spoken-in-madeira",
+   "lang": "fr",
+   "impressions": 68,
+   "queries": [
+    "madeira",
+    "ile de madere",
+    "maderia",
+    "où se trouve madère"
+   ]
+  },
+  {
+   "slug": "top-10-rainy-day-activities-in-madeira",
+   "lang": "fr",
+   "impressions": 68,
+   "queries": [
+    "que faire a madere quand il pleut",
+    "que faire un jour de pluie autour de moi",
+    "que faire à madère quand il pleut",
+    "que faire à funchal quand il pleut"
+   ]
+  },
+  {
+   "slug": "aguardente-de-cana-madeira-rum-guide",
+   "lang": "it",
+   "impressions": 67,
+   "queries": [
+    "aguardente de cana",
+    "aguardente",
+    "aguardente de cana madeira",
+    "agua de cana",
+    "aguardente de cana madeira continente",
+    "aguardente rum",
+    "rum madeira"
+   ]
+  },
+  {
+   "slug": "top-10-villages-in-madeira",
+   "lang": "it",
+   "impressions": 66,
+   "queries": [
+    "villaggi madeira",
+    "villaggio pescatori madeira",
+    "madeira villages",
+    "madeira villaggio turistico"
+   ]
+  },
+  {
+   "slug": "faja-dos-padres-madeira-guide",
+   "lang": "pt",
+   "impressions": 65,
+   "queries": [
+    "faja dos padres madeira",
+    "fajas dos padres madeira",
+    "fajas dos padres",
+    "fajã dos padres o que visitar",
+    "como chegar a fajã dos padres",
+    "faja dos padres",
+    "fajã dos padres"
+   ]
+  },
+  {
+   "slug": "top-10-rainy-day-activities-in-madeira",
+   "lang": "de",
+   "impressions": 65,
+   "queries": [
+    "madeira bei regen",
+    "indoor aktivitäten in der nähe",
+    "madeira bei regen was tun"
+   ]
+  },
+  {
+   "slug": "best-time-for-a-boat-trip-in-madeira",
+   "lang": "de",
+   "impressions": 64,
+   "queries": [
+    "madeira uhrzeit",
+    "uhrzeit funchal"
+   ]
+  },
+  {
+   "slug": "laurisilva-forest-madeira-guide",
+   "lang": "de",
+   "impressions": 64,
+   "queries": [
+    "laurissilva forest madeira",
+    "lorbeerwälder madeira",
+    "laurisilva madeira",
+    "lorbeerwald madeira",
+    "laurissilva madeira",
+    "laurisilva forest",
+    "laurisilva of madeira",
+    "laurisilva forest madeira"
+   ]
+  },
+  {
+   "slug": "madeira-in-summer-guide",
+   "lang": "pt",
+   "impressions": 63,
+   "queries": [
+    "madeira in july"
+   ]
+  },
+  {
+   "slug": "madeira-public-holidays-guide",
+   "lang": "it",
+   "impressions": 62,
+   "queries": [
+    "5 ottobre festa portogallo"
+   ]
+  },
+  {
+   "slug": "rabacal-25-fontes-madeira-guide",
+   "lang": "es",
+   "impressions": 62,
+   "queries": [
+    "cabo da levada",
+    "levada das 25 fontes madeira",
+    "ruta 25 fontes madeira"
+   ]
+  },
+  {
+   "slug": "madeira-with-kids-family-guide",
+   "lang": "pt",
+   "impressions": 60,
+   "queries": [
+    "com criancas",
+    "e outras alternativas"
+   ]
+  },
+  {
+   "slug": "festa-da-castanha-curral-das-freiras-2026",
+   "lang": "es",
+   "impressions": 59,
+   "queries": [
+    "festa da castanha 2026",
+    "festa da castanha curral das freiras 2026",
+    "festa da castanha",
+    "festa da castanha 2026 madeira",
+    "festa do curral das freiras 2026"
+   ]
+  },
+  {
+   "slug": "milho-frito-madeira-guide",
+   "lang": "it",
+   "impressions": 59,
+   "queries": [
+    "milho frito",
+    "mais frito"
+   ]
+  },
+  {
+   "slug": "top-10-marine-animals-madeira",
+   "lang": "es",
+   "impressions": 59,
+   "queries": [
+    "delfines madeira",
+    "hay tiburones en madeira"
+   ]
+  },
+  {
+   "slug": "festa-nossa-senhora-da-piedade-canical-2026",
+   "lang": "de",
+   "impressions": 58,
+   "queries": [
+    "was ist heute für ein fest"
+   ]
+  },
+  {
+   "slug": "ponta-do-sol-madeira-guide",
+   "lang": "it",
+   "impressions": 58,
+   "queries": [
+    "ponta do sol",
+    "ponta do sol cosa vedere",
+    "ponta do sol madeira",
+    "spiaggia ponta do sol",
+    "ponta de sol",
+    "ponta del sol madeira",
+    "ponta do.sol",
+    "porta do sol madeira"
+   ]
+  },
+  {
+   "slug": "top-10-waterfalls-in-madeira",
+   "lang": "fr",
+   "impressions": 58,
+   "queries": [
+    "cascade madeira",
+    "cascades madere",
+    "cascade madere",
+    "cascade madère",
+    "cascades madère"
+   ]
+  },
+  {
+   "slug": "cliff-jumping-in-madeira-guide",
+   "lang": "de",
+   "impressions": 57,
+   "queries": [
+    "madeira klippenspringen",
+    "klippenspringen madeira",
+    "cliff jumping madeira"
+   ]
+  },
+  {
+   "slug": "madeira-with-kids-family-guide",
+   "lang": "it",
+   "impressions": 56,
+   "queries": [
+    "madeira con bambini"
+   ]
+  },
+  {
+   "slug": "ribeiro-frio-balcoes-madeira-guide",
+   "lang": "pt",
+   "impressions": 56,
+   "queries": [
+    "parque natural do ribeiro frio",
+    "ribeiro frio balcões"
+   ]
+  },
+  {
+   "slug": "top-10-marine-animals-madeira",
+   "lang": "pt",
+   "impressions": 56,
+   "queries": []
+  },
+  {
+   "slug": "why-does-madeira-have-black-sand",
+   "lang": "de",
+   "impressions": 56,
+   "queries": [
+    "madeira sandstrände",
+    "schwarzer strand madeira",
+    "gibt es auf madeira sandstrände",
+    "warum ist der sand am strand schwarz"
+   ]
+  },
+  {
+   "slug": "camara-de-lobos-madeira-guide",
+   "lang": "es",
+   "impressions": 55,
+   "queries": [
+    "camara do lobos",
+    "poncha camara de lobos"
+   ]
+  },
+  {
+   "slug": "faja-dos-padres-madeira-guide",
+   "lang": "it",
+   "impressions": 55,
+   "queries": [
+    "faja dos padres",
+    "fajã dos padres",
+    "faja dos padres madeira",
+    "fajas dos padres madeira"
+   ]
+  },
+  {
+   "slug": "garajau-nature-reserve-madeira-guide",
+   "lang": "it",
+   "impressions": 55,
+   "queries": [
+    "ponta do garajau",
+    "garajau madeira",
+    "garajau",
+    "garajau madera",
+    "garajau marine reserve",
+    "quanto è grande madeira"
+   ]
+  },
+  {
+   "slug": "madeira-in-spring-guide",
+   "lang": "es",
+   "impressions": 55,
+   "queries": [
+    "madeira en abril",
+    "mercadillos funchal",
+    "tiempo en madeira en marzo",
+    "madeira en marzo",
+    "cuando ir a madeira",
+    "mejor época para viajar a madeira",
+    "tiempo madeira marzo",
+    "madeira marzo"
+   ]
+  },
+  {
+   "slug": "madeira-nature-festival-2026",
+   "lang": "pt",
+   "impressions": 55,
+   "queries": [
+    "nature festival 2026",
+    "festival da natureza 2026",
+    "madeira nature festival 2026",
+    "nature festival madeira",
+    "madeira nature festival"
+   ]
+  },
+  {
+   "slug": "top-10-souvenirs-madeira",
+   "lang": "pt",
+   "impressions": 55,
+   "queries": [
+    "recordações da ilha da madeira",
+    "o que visitar no funchal em 3 dias",
+    "onde comer no curral das freiras"
+   ]
+  },
+  {
+   "slug": "rocha-do-navio-madeira-guide",
+   "lang": "pt",
+   "impressions": 53,
+   "queries": [
+    "reserva natural da rocha do navio",
+    "rocha do navio madeira",
+    "teleférico rocha do navio",
+    "teleférico da rocha do navio",
+    "rocha do navio",
+    "baloiço da fajã da rocha do navio",
+    "teleferico rocha do navio"
+   ]
+  },
+  {
+   "slug": "top-10-hiking-trails-in-madeira",
+   "lang": "es",
+   "impressions": 50,
+   "queries": [
+    "rutas madeira",
+    "trekking madeira",
+    "madeira hiking",
+    "madeira trekking",
+    "senderos en madeira",
+    "mejores rutas senderismo madeira",
+    "rutas por madeira",
+    "senderismo madeira"
+   ]
+  },
+  {
+   "slug": "festa-do-faial-santana-2026",
+   "lang": "fr",
+   "impressions": 49,
+   "queries": [
+    "festa faial 2026",
+    "festa do faial 2026",
+    "festas do faial",
+    "festas faial 2026"
+   ]
+  },
+  {
+   "slug": "levada-do-furado-madeira-guide",
+   "lang": "fr",
+   "impressions": 49,
+   "queries": [
+    "levada do furado",
+    "levada do furado madeira",
+    "levada ribeiro frio",
+    "avis sur levada do furado",
+    "levada da portela",
+    "levada do ribeiro frio",
+    "levada furado madeira"
+   ]
+  },
+  {
+   "slug": "apple-festival-ponta-do-pargo-2026",
+   "lang": "pt",
+   "impressions": 48,
+   "queries": [
+    "festa do pero ponta do pargo 2026",
+    "festa do pero 2026"
+   ]
+  },
+  {
+   "slug": "madeira-wine-festival-2026",
+   "lang": "fr",
+   "impressions": 48,
+   "queries": [
+    "fete du vin madere 2026",
+    "croisière vendanges",
+    "le 14 septembre"
+   ]
+  },
+  {
+   "slug": "trans-madeira-2026-enduro-race-guide",
+   "lang": "it",
+   "impressions": 48,
+   "queries": [
+    "trans madeira 2026",
+    "trans madeira mtb"
+   ]
+  },
+  {
+   "slug": "madeira-in-spring-guide",
+   "lang": "it",
+   "impressions": 47,
+   "queries": [
+    "madeira in aprile",
+    "madeira a maggio",
+    "madeira ad aprile",
+    "madeira aprile",
+    "madeira gennaio",
+    "madeira spring",
+    "madeira primavera"
+   ]
+  },
+  {
+   "slug": "top-10-gardens-in-madeira",
+   "lang": "pt",
+   "impressions": 47,
+   "queries": [
+    "jardins do mar",
+    "jardim madeira",
+    "jardins botanicos madeira",
+    "jardins da madeira",
+    "jardins na madeira"
+   ]
+  },
+  {
+   "slug": "garajau-nature-reserve-madeira-guide",
+   "lang": "pt",
+   "impressions": 46,
+   "queries": [
+    "reserva do garajau",
+    "reserva natural do garajau"
+   ]
+  },
+  {
+   "slug": "top-10-gardens-in-madeira",
+   "lang": "fr",
+   "impressions": 46,
+   "queries": []
+  },
+  {
+   "slug": "bolo-de-mel-madeira",
+   "lang": "pt",
+   "impressions": 44,
+   "queries": [
+    "bolo de mel da madeira",
+    "bolo tipico madeira"
+   ]
+  },
+  {
+   "slug": "ponta-do-sol-madeira-guide",
+   "lang": "de",
+   "impressions": 44,
+   "queries": [
+    "ponta do sol",
+    "cais da ponta do sol",
+    "ponta de sol",
+    "ponta do sol madeira",
+    "ponta do sol portugal",
+    "ponta do sol strand",
+    "praia da ponta do sol",
+    "promenade"
+   ]
+  },
+  {
+   "slug": "top-10-rainy-day-activities-in-madeira",
+   "lang": "es",
+   "impressions": 44,
+   "queries": [
+    "sao vicente madeira"
+   ]
+  },
+  {
+   "slug": "top-10-marine-animals-madeira",
+   "lang": "it",
+   "impressions": 43,
+   "queries": [
+    "fauna di madeira",
+    "che animali ci sono a madeira",
+    "madeira animali"
+   ]
+  },
+  {
+   "slug": "is-english-spoken-in-madeira",
+   "lang": "pt",
+   "impressions": 42,
+   "queries": [
+    "ilha da madeira",
+    "do they speak english in madeira",
+    "ilha da madeira fica em qual continente",
+    "ilha da madeira portugal",
+    "ilha de madeira",
+    "madeirenses"
+   ]
+  },
+  {
+   "slug": "ribeira-brava-madeira-guide",
+   "lang": "es",
+   "impressions": 42,
+   "queries": [
+    "ribeira brava madeira que ver",
+    "que ver en ribeira brava",
+    "que ver en ribeira brava madeira",
+    "ribeira brava",
+    "bravo tours madeira",
+    "ribeira brava madeira",
+    "ribeira brava madeira portugal"
+   ]
+  },
+  {
+   "slug": "festa-da-castanha-curral-das-freiras-2026",
+   "lang": "fr",
+   "impressions": 41,
+   "queries": [
+    "festa da castanha 2026",
+    "festa da castanha curral das freiras 2026"
+   ]
+  },
+  {
+   "slug": "madeira-nature-festival-2026",
+   "lang": "de",
+   "impressions": 41,
+   "queries": [
+    "madeira nature festival 2026"
+   ]
+  },
+  {
+   "slug": "rocha-do-navio-madeira-guide",
+   "lang": "it",
+   "impressions": 41,
+   "queries": [
+    "rocha do navio",
+    "rocha do navio madeira",
+    "rocha do navio teleferico"
+   ]
+  },
+  {
+   "slug": "how-many-days-in-madeira-itinerary-guide",
+   "lang": "fr",
+   "impressions": 40,
+   "queries": [
+    "combien de temps pour visiter madère",
+    "combien de temps madere",
+    "combien de temps partir a madere",
+    "combien de temps pour visiter funchal",
+    "combien de temps pour visiter madere",
+    "madere combien de temps pour visiter",
+    "madère en 3 jours notre guide",
+    "visiter madère en 5 jours"
+   ]
+  },
+  {
+   "slug": "top-10-villages-in-madeira",
+   "lang": "fr",
+   "impressions": 40,
+   "queries": [
+    "les plus beaux villages de madère"
+   ]
+  },
+  {
+   "slug": "best-time-for-a-boat-trip-in-madeira",
+   "lang": "pt",
+   "impressions": 39,
+   "queries": [
+    "horários"
+   ]
+  },
+  {
+   "slug": "apple-festival-ponta-do-pargo-2026",
+   "lang": "it",
+   "impressions": 38,
+   "queries": []
+  },
+  {
+   "slug": "madeira-microclimates-weather-guide",
+   "lang": "de",
+   "impressions": 38,
+   "queries": []
+  },
+  {
+   "slug": "picado-madeira-guide",
+   "lang": "it",
+   "impressions": 38,
+   "queries": [
+    "picado madeira",
+    "picado",
+    "picados",
+    "picado meat",
+    "picados madeira"
+   ]
+  },
+  {
+   "slug": "ribeiro-frio-balcoes-madeira-guide",
+   "lang": "it",
+   "impressions": 38,
+   "queries": [
+    "ribeiro frio madeira",
+    "a quanti metri è",
+    "pr 11 madeira",
+    "ribeiro frio"
+   ]
+  },
+  {
+   "slug": "levada-do-furado-madeira-guide",
+   "lang": "pt",
+   "impressions": 37,
+   "queries": [
+    "pr10 levada do furado ribeiro frio portela"
+   ]
+  },
+  {
+   "slug": "why-does-madeira-have-black-sand",
+   "lang": "pt",
+   "impressions": 37,
+   "queries": []
+  },
+  {
+   "slug": "is-madeira-safe-guide",
+   "lang": "fr",
+   "impressions": 36,
+   "queries": [
+    "madeira"
+   ]
+  },
+  {
+   "slug": "ribeira-brava-madeira-guide",
+   "lang": "de",
+   "impressions": 36,
+   "queries": [
+    "ribeira brava madeira",
+    "ribeira brava"
+   ]
+  },
+  {
+   "slug": "how-many-days-in-madeira-itinerary-guide",
+   "lang": "pt",
+   "impressions": 35,
+   "queries": []
+  },
+  {
+   "slug": "madeira-in-summer-guide",
+   "lang": "it",
+   "impressions": 35,
+   "queries": [
+    "madeira ad agosto",
+    "madeira agosto",
+    "madeira estate",
+    "madeira quando andare",
+    "madeira temperature agosto",
+    "temperature a madeira",
+    "temperature madeira"
+   ]
+  },
+  {
+   "slug": "festa-nossa-senhora-da-piedade-canical-2026",
+   "lang": "fr",
+   "impressions": 34,
+   "queries": [
+    "fete canical madeira",
+    "festa da piedade caniçal 2026",
+    "festa da piedade",
+    "caniçal festa da piedade"
+   ]
+  },
+  {
+   "slug": "madeira-in-autumn-guide",
+   "lang": "it",
+   "impressions": 34,
+   "queries": [
+    "madeira fine ottobre"
+   ]
+  },
+  {
+   "slug": "madeira-microclimates-weather-guide",
+   "lang": "es",
+   "impressions": 34,
+   "queries": [
+    "que ropa llevar a madeira en agosto",
+    "que tiempo hace en madeira"
+   ]
+  },
+  {
+   "slug": "rabacal-25-fontes-madeira-guide",
+   "lang": "pt",
+   "impressions": 34,
+   "queries": []
+  },
+  {
+   "slug": "festa-da-castanha-curral-das-freiras-2026",
+   "lang": "it",
+   "impressions": 33,
+   "queries": [
+    "festa da castanha",
+    "festa da castanha curral das freiras 2026",
+    "festa da castanha 2026"
+   ]
+  },
+  {
+   "slug": "festa-dos-fachos-machico-2026",
+   "lang": "pt",
+   "impressions": 33,
+   "queries": [
+    "festa dos fachos machico 2026",
+    "data da próxima edição",
+    "festa dos fachos machico",
+    "noite dos fachos"
+   ]
+  },
+  {
+   "slug": "top-10-photo-spots-in-madeira",
+   "lang": "de",
+   "impressions": 32,
+   "queries": []
+  },
+  {
+   "slug": "why-does-madeira-have-black-sand",
+   "lang": "es",
+   "impressions": 32,
+   "queries": [
+    "piedra volcanica de color oscuro",
+    "playa de arena negra madeira"
+   ]
+  },
+  {
+   "slug": "madeira-wine-festival-2026",
+   "lang": "it",
+   "impressions": 31,
+   "queries": [
+    "festa del vino madeira 2026"
+   ]
+  },
+  {
+   "slug": "top-10-hiking-trails-in-madeira",
+   "lang": "it",
+   "impressions": 31,
+   "queries": [
+    "escursioni madeira",
+    "madeira escursioni",
+    "trekking madeira",
+    "hiking madeira",
+    "madeira trekking"
+   ]
+  },
+  {
+   "slug": "trans-madeira-2026-enduro-race-guide",
+   "lang": "es",
+   "impressions": 31,
+   "queries": [
+    "trans madeira 2026",
+    "transmadeira 2026"
+   ]
+  },
+  {
+   "slug": "camara-de-lobos-madeira-guide",
+   "lang": "pt",
+   "impressions": 30,
+   "queries": [
+    "porto de câmara de lobos",
+    "camara de lobos",
+    "baía de câmara de lobos",
+    "camara de lobos poncha",
+    "câmara de lobos",
+    "porto de camara de lobos"
+   ]
+  },
+  {
+   "slug": "is-madeira-safe-guide",
+   "lang": "pt",
+   "impressions": 30,
+   "queries": [
+    "madeirasafe"
+   ]
+  },
+  {
+   "slug": "top-10-waterfalls-in-madeira",
+   "lang": "pt",
+   "impressions": 30,
+   "queries": [
+    "cascatas na madeira",
+    "cascatas madeira",
+    "sim"
+   ]
+  },
+  {
+   "slug": "madeira-wine-festival-2026",
+   "lang": "es",
+   "impressions": 29,
+   "queries": []
+  },
+  {
+   "slug": "top-10-rainy-day-activities-in-madeira",
+   "lang": "pt",
+   "impressions": 29,
+   "queries": [
+    "dias de chuva",
+    "na madeira"
+   ]
+  },
+  {
+   "slug": "trans-madeira-2026-enduro-race-guide",
+   "lang": "pt",
+   "impressions": 29,
+   "queries": [
+    "transmadeira 2026",
+    "trans madeira 2026"
+   ]
+  },
+  {
+   "slug": "levada-do-furado-madeira-guide",
+   "lang": "it",
+   "impressions": 28,
+   "queries": [
+    "levada do furado"
+   ]
+  },
+  {
+   "slug": "mercado-dos-lavradores-funchal-guide",
+   "lang": "fr",
+   "impressions": 28,
+   "queries": [
+    "marché funchal dimanche",
+    "jour de marché funchal",
+    "marche a funchal",
+    "marché dos lavradores"
+   ]
+  },
+  {
+   "slug": "caldeirao-verde-queimadas-madeira-guide",
+   "lang": "es",
+   "impressions": 27,
+   "queries": [
+    "caldeirão",
+    "caldeirao verde",
+    "levada do caldeirao verde"
+   ]
+  },
+  {
+   "slug": "day-trip-vs-sunset-cruise-madeira",
+   "lang": "de",
+   "impressions": 27,
+   "queries": [
+    "sonnenuntergangsfahrt"
+   ]
+  },
+  {
+   "slug": "festa-nossa-senhora-da-piedade-canical-2026",
+   "lang": "pt",
+   "impressions": 26,
+   "queries": [
+    "festa de nossa senhora da piedade"
+   ]
+  },
+  {
+   "slug": "laurisilva-forest-madeira-guide",
+   "lang": "it",
+   "impressions": 26,
+   "queries": [
+    "laurisilva",
+    "lauri silva",
+    "foresta laurissilva",
+    "foresta laurissilva madeira",
+    "laurisilva forest madeira",
+    "laurissilva madeira"
+   ]
+  },
+  {
+   "slug": "madeira-wine-festival-2026",
+   "lang": "de",
+   "impressions": 26,
+   "queries": [
+    "camara de lobos festival 2026",
+    "weinfest funchal 2026"
+   ]
+  },
+  {
+   "slug": "madeira-wine-festival-2026",
+   "lang": "pt",
+   "impressions": 26,
+   "queries": []
+  },
+  {
+   "slug": "best-time-for-a-boat-trip-in-madeira",
+   "lang": "fr",
+   "impressions": 25,
+   "queries": [
+    "comment organiser une sortie en bateau au coucher du soleil et choisir le meilleur moment ?"
+   ]
+  },
+  {
+   "slug": "curral-das-freiras-madeira-guide",
+   "lang": "es",
+   "impressions": 25,
+   "queries": [
+    "corral das freiras",
+    "curral das freiras",
+    "madeira curral das freiras"
+   ]
+  },
+  {
+   "slug": "curral-das-freiras-madeira-guide",
+   "lang": "it",
+   "impressions": 25,
+   "queries": [
+    "curral das freiras",
+    "valle delle monache madeira",
+    "curral de freiras"
+   ]
+  },
+  {
+   "slug": "camara-de-lobos-madeira-guide",
+   "lang": "de",
+   "impressions": 23,
+   "queries": [
+    "camara de lobos madeira"
+   ]
+  },
+  {
+   "slug": "top-10-photo-spots-in-madeira",
+   "lang": "pt",
+   "impressions": 23,
+   "queries": []
+  },
+  {
+   "slug": "caldeirao-verde-queimadas-madeira-guide",
+   "lang": "de",
+   "impressions": 22,
+   "queries": [
+    "madeira verde",
+    "caldeirão verde",
+    "levada do caldeirão verde"
+   ]
+  },
+  {
+   "slug": "caldeirao-verde-queimadas-madeira-guide",
+   "lang": "pt",
+   "impressions": 22,
+   "queries": [
+    "caminho das queimadas"
+   ]
+  },
+  {
+   "slug": "festa-da-castanha-curral-das-freiras-2026",
+   "lang": "de",
+   "impressions": 21,
+   "queries": []
+  },
+  {
+   "slug": "best-time-for-a-boat-trip-in-madeira",
+   "lang": "es",
+   "impressions": 20,
+   "queries": []
+  },
+  {
+   "slug": "cliff-jumping-in-madeira-guide",
+   "lang": "fr",
+   "impressions": 20,
+   "queries": []
+  },
+  {
+   "slug": "cliff-jumping-in-madeira-guide",
+   "lang": "pt",
+   "impressions": 20,
+   "queries": [
+    "madeira cliff jumping",
+    "aonde especificamente"
+   ]
+  },
+  {
+   "slug": "levada-do-furado-madeira-guide",
+   "lang": "es",
+   "impressions": 20,
+   "queries": [
+    "levada do furado",
+    "levada do furado madeira"
+   ]
+  },
+  {
+   "slug": "top-10-photo-spots-in-madeira",
+   "lang": "fr",
+   "impressions": 20,
+   "queries": []
+  },
+  {
+   "slug": "festa-do-faial-santana-2026",
+   "lang": "es",
+   "impressions": 19,
+   "queries": [
+    "fiestas de santana 2026"
+   ]
+  },
+  {
+   "slug": "top-10-rainy-day-activities-in-madeira",
+   "lang": "it",
+   "impressions": 19,
+   "queries": []
+  },
+  {
+   "slug": "why-does-madeira-have-black-sand",
+   "lang": "fr",
+   "impressions": 19,
+   "queries": []
+  },
+  {
+   "slug": "caldeirao-verde-queimadas-madeira-guide",
+   "lang": "it",
+   "impressions": 18,
+   "queries": []
+  },
+  {
+   "slug": "ponta-do-sol-madeira-guide",
+   "lang": "fr",
+   "impressions": 18,
+   "queries": [
+    "ponta do sol",
+    "ponta sol madeira"
+   ]
+  },
+  {
+   "slug": "madeira-microclimates-weather-guide",
+   "lang": "it",
+   "impressions": 17,
+   "queries": [
+    "madeira clima",
+    "clima a madeira",
+    "clima madeira",
+    "madeira clima inverno",
+    "meteo madeira affidabile"
+   ]
+  },
+  {
+   "slug": "madeira-nature-festival-2026",
+   "lang": "es",
+   "impressions": 17,
+   "queries": [
+    "madeira nature festival 2026",
+    "nature festival madeira"
+   ]
+  },
+  {
+   "slug": "top-10-photo-spots-in-madeira",
+   "lang": "es",
+   "impressions": 17,
+   "queries": []
+  },
+  {
+   "slug": "why-does-madeira-have-black-sand",
+   "lang": "it",
+   "impressions": 17,
+   "queries": [
+    "madeira isola vulcanica",
+    "madeira è vulcanica",
+    "spiagge madeira"
+   ]
+  },
+  {
+   "slug": "ribeiro-frio-balcoes-madeira-guide",
+   "lang": "es",
+   "impressions": 16,
+   "queries": [
+    "piscifactoría el bosque"
+   ]
+  },
+  {
+   "slug": "camara-de-lobos-madeira-guide",
+   "lang": "it",
+   "impressions": 15,
+   "queries": [
+    "camara de lobos madeira"
+   ]
+  },
+  {
+   "slug": "curral-das-freiras-madeira-guide",
+   "lang": "de",
+   "impressions": 14,
+   "queries": []
+  },
+  {
+   "slug": "funchal-nautico-2026-guide",
+   "lang": "pt",
+   "impressions": 14,
+   "queries": []
+  },
+  {
+   "slug": "levada-do-furado-madeira-guide",
+   "lang": "de",
+   "impressions": 14,
+   "queries": []
+  },
+  {
+   "slug": "ribeiro-frio-balcoes-madeira-guide",
+   "lang": "de",
+   "impressions": 14,
+   "queries": [
+    "forellenzucht madeira",
+    "ribeiro frio forellenzucht"
+   ]
+  },
+  {
+   "slug": "festa-do-faial-santana-2026",
+   "lang": "de",
+   "impressions": 13,
+   "queries": []
+  },
+  {
+   "slug": "madeira-in-spring-guide",
+   "lang": "pt",
+   "impressions": 13,
+   "queries": [
+    "madeira primavera"
+   ]
+  },
+  {
+   "slug": "rabacal-25-fontes-madeira-guide",
+   "lang": "de",
+   "impressions": 13,
+   "queries": [
+    "madeira wanderungen buchen simplifica"
+   ]
+  },
+  {
+   "slug": "festa-dos-fachos-machico-2026",
+   "lang": "es",
+   "impressions": 12,
+   "queries": [
+    "festa dos fachos 2026"
+   ]
+  },
+  {
+   "slug": "festa-do-faial-santana-2026",
+   "lang": "it",
+   "impressions": 11,
+   "queries": []
+  },
+  {
+   "slug": "madeira-in-winter-guide",
+   "lang": "fr",
+   "impressions": 11,
+   "queries": []
+  },
+  {
+   "slug": "ribeiro-frio-balcoes-madeira-guide",
+   "lang": "fr",
+   "impressions": 11,
+   "queries": [
+    "ribeiro frio"
+   ]
+  },
+  {
+   "slug": "seasickness-boat-trip-madeira-guide",
+   "lang": "pt",
+   "impressions": 11,
+   "queries": []
+  },
+  {
+   "slug": "seasickness-boat-trip-madeira-guide",
+   "lang": "fr",
+   "impressions": 10,
+   "queries": [
+    "oui"
+   ]
+  },
+  {
+   "slug": "festa-dos-fachos-machico-2026",
+   "lang": "de",
+   "impressions": 9,
+   "queries": [
+    "fachos",
+    "machicos",
+    "fachos machico",
+    "machico fest"
+   ]
+  },
+  {
+   "slug": "madeira-microclimates-weather-guide",
+   "lang": "pt",
+   "impressions": 9,
+   "queries": []
+  },
+  {
+   "slug": "madeira-in-spring-guide",
+   "lang": "fr",
+   "impressions": 8,
+   "queries": [
+    "madere au printemps",
+    "météo madère en avril"
+   ]
+  },
+  {
+   "slug": "top-10-villages-in-madeira",
+   "lang": "pt",
+   "impressions": 8,
+   "queries": []
+  },
+  {
+   "slug": "cliff-jumping-in-madeira-guide",
+   "lang": "it",
+   "impressions": 7,
+   "queries": []
+  },
+  {
+   "slug": "drone-footage-boat-trip-madeira",
+   "lang": "it",
+   "impressions": 7,
+   "queries": []
+  },
+  {
+   "slug": "festa-dos-fachos-machico-2026",
+   "lang": "it",
+   "impressions": 7,
+   "queries": [
+    "festa machico 2026"
+   ]
+  },
+  {
+   "slug": "madeira-nature-festival-2026",
+   "lang": "it",
+   "impressions": 7,
+   "queries": []
+  },
+  {
+   "slug": "ponta-do-sol-madeira-guide",
+   "lang": "pt",
+   "impressions": 7,
+   "queries": []
+  },
+  {
+   "slug": "ribeira-brava-madeira-guide",
+   "lang": "it",
+   "impressions": 7,
+   "queries": [
+    "gite in barca funchal"
+   ]
+  },
+  {
+   "slug": "ribeira-brava-madeira-guide",
+   "lang": "pt",
+   "impressions": 7,
+   "queries": [
+    "onde fica ribeira brava"
+   ]
+  },
+  {
+   "slug": "apple-festival-ponta-do-pargo-2026",
+   "lang": "fr",
+   "impressions": 6,
+   "queries": []
+  },
+  {
+   "slug": "best-time-for-a-boat-trip-in-madeira",
+   "lang": "it",
+   "impressions": 6,
+   "queries": []
+  },
+  {
+   "slug": "festa-do-faial-santana-2026",
+   "lang": "pt",
+   "impressions": 6,
+   "queries": [
+    "festa do faial 2026"
+   ]
+  },
+  {
+   "slug": "festa-nossa-senhora-da-piedade-canical-2026",
+   "lang": "es",
+   "impressions": 6,
+   "queries": []
+  },
+  {
+   "slug": "top-10-hiking-trails-in-madeira",
+   "lang": "fr",
+   "impressions": 6,
+   "queries": [
+    "en as-tu d’autres ?",
+    "randonnée madère difficulté"
+   ]
+  },
+  {
+   "slug": "apple-festival-ponta-do-pargo-2026",
+   "lang": "es",
+   "impressions": 5,
+   "queries": []
+  },
+  {
+   "slug": "camara-de-lobos-madeira-guide",
+   "lang": "fr",
+   "impressions": 5,
+   "queries": []
+  },
+  {
+   "slug": "funchal-city-day-2026",
+   "lang": "de",
+   "impressions": 5,
+   "queries": []
+  },
+  {
+   "slug": "funchal-city-day-2026",
+   "lang": "pt",
+   "impressions": 5,
+   "queries": [
+    "dia da cidade do funchal 2026",
+    "dia do funchal 2026",
+    "funchal, madeira"
+   ]
+  },
+  {
+   "slug": "ponta-do-sol-madeira-guide",
+   "lang": "es",
+   "impressions": 5,
+   "queries": [
+    "ponta do sol",
+    "ponta do sol madeira"
+   ]
+  },
+  {
+   "slug": "seasickness-boat-trip-madeira-guide",
+   "lang": "it",
+   "impressions": 5,
+   "queries": []
+  },
+  {
+   "slug": "cliff-jumping-in-madeira-guide",
+   "lang": "es",
+   "impressions": 4,
+   "queries": []
+  },
+  {
+   "slug": "funchal-city-day-2026",
+   "lang": "es",
+   "impressions": 4,
+   "queries": []
+  },
+  {
+   "slug": "madeira-microclimates-weather-guide",
+   "lang": "fr",
+   "impressions": 4,
+   "queries": []
+  },
+  {
+   "slug": "caldeirao-verde-queimadas-madeira-guide",
+   "lang": "fr",
+   "impressions": 3,
+   "queries": []
+  },
+  {
+   "slug": "day-trip-vs-sunset-cruise-madeira",
+   "lang": "es",
+   "impressions": 3,
+   "queries": [
+    "excursión privada al atardecer en barco"
+   ]
+  },
+  {
+   "slug": "day-trip-vs-sunset-cruise-madeira",
+   "lang": "fr",
+   "impressions": 3,
+   "queries": []
+  },
+  {
+   "slug": "dolphins-and-whales-in-madeira-guide",
+   "lang": "fr",
+   "impressions": 3,
+   "queries": []
+  },
+  {
+   "slug": "funchal-city-day-2026",
+   "lang": "fr",
+   "impressions": 3,
+   "queries": []
+  },
+  {
+   "slug": "funchal-nautico-2026-guide",
+   "lang": "de",
+   "impressions": 3,
+   "queries": []
+  },
+  {
+   "slug": "funchal-nautico-2026-guide",
+   "lang": "fr",
+   "impressions": 3,
+   "queries": []
+  },
+  {
+   "slug": "top-10-hiking-trails-in-madeira",
+   "lang": "pt",
+   "impressions": 3,
+   "queries": [
+    "parque de estacionamento levada 25 fontes"
+   ]
+  },
+  {
+   "slug": "drone-footage-boat-trip-madeira",
+   "lang": "pt",
+   "impressions": 2,
+   "queries": []
+  },
+  {
+   "slug": "madeira-with-kids-family-guide",
+   "lang": "fr",
+   "impressions": 2,
+   "queries": []
+  },
+  {
+   "slug": "top-10-photo-spots-in-madeira",
+   "lang": "it",
+   "impressions": 2,
+   "queries": []
+  },
+  {
+   "slug": "cabo-girao-from-the-sea",
+   "lang": "fr",
+   "impressions": 1,
+   "queries": []
+  },
+  {
+   "slug": "day-trip-vs-sunset-cruise-madeira",
+   "lang": "pt",
+   "impressions": 1,
+   "queries": []
+  },
+  {
+   "slug": "drone-footage-boat-trip-madeira",
+   "lang": "es",
+   "impressions": 1,
+   "queries": []
+  },
+  {
+   "slug": "festa-nossa-senhora-da-piedade-canical-2026",
+   "lang": "it",
+   "impressions": 1,
+   "queries": []
+  },
+  {
+   "slug": "funchal-city-day-2026",
+   "lang": "it",
+   "impressions": 1,
+   "queries": []
+  },
+  {
+   "slug": "funchal-nautico-2026-guide",
+   "lang": "it",
+   "impressions": 1,
+   "queries": [
+    "gite in barca funchal"
+   ]
+  },
+  {
+   "slug": "seasickness-boat-trip-madeira-guide",
+   "lang": "es",
+   "impressions": 1,
+   "queries": []
+  },
+  {
+   "slug": "bolo-de-mel-madeira",
+   "lang": "de",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "day-trip-vs-sunset-cruise-madeira",
+   "lang": "it",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "drone-footage-boat-trip-madeira",
+   "lang": "de",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "drone-footage-boat-trip-madeira",
+   "lang": "fr",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "how-many-days-in-madeira-itinerary-guide",
+   "lang": "es",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "is-madeira-safe-guide",
+   "lang": "es",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "madeira-bananas-guide",
+   "lang": "es",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "mercado-dos-lavradores-funchal-guide",
+   "lang": "es",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "queijada-da-madeira-cheese-pastry-guide",
+   "lang": "es",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "ribeira-brava-madeira-guide",
+   "lang": "fr",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "rocha-do-navio-madeira-guide",
+   "lang": "de",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "rocha-do-navio-madeira-guide",
+   "lang": "es",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "rocha-do-navio-madeira-guide",
+   "lang": "fr",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "seasickness-boat-trip-madeira-guide",
+   "lang": "de",
+   "impressions": 0,
+   "queries": []
+  },
+  {
+   "slug": "top-10-souvenirs-madeira",
+   "lang": "es",
+   "impressions": 0,
+   "queries": []
+  }
+ ]
+}
