@@ -16,6 +16,7 @@
 //      LocalBusiness and the Organization. No aggregateRating is added.
 //   4. Every page: the old Google Maps cid in JSON-LD becomes the one the
 //      footer links to (11236673311781793484, the live Google profile).
+//   5. The <h1> of a page whose map entry has "h1Html".
 // The new landing pages are not touched here: build-seo-pages.mjs owns them.
 import fs from "node:fs";
 import path from "node:path";
@@ -102,6 +103,12 @@ for (const rel of files) {
     h = h.replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => a + escAttr(target.description) + b);
     const want = { ...(metaShort[rel] || {}), title: target.title, description: target.description };
     if (JSON.stringify(metaShort[rel]) !== JSON.stringify(want)) { metaShort[rel] = want; metaChanged = true; }
+    // the page heading, written in the words people search in that language
+    // (attributes such as data-mask are kept, only the text inside changes)
+    if (target.h1Html) {
+      if (!/<h1\b[^>]*>[\s\S]*?<\/h1>/.test(h)) throw new Error(`${rel}: no <h1> for h1Html`);
+      h = h.replace(/(<h1\b[^>]*>)[\s\S]*?(<\/h1>)/, (m, a, b) => a + target.h1Html + b);
+    }
   }
 
   // 3. home pages: logo + sameAs on the business and the organization

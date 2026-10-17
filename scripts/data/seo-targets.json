@@ -1,175 +1,361 @@
 {
-  "_about": "Keyword map: each Google search goes to ONE page. Searches from the audit of 4 Oct 2026 (google.com Portugal, logged out: chifbay.com on page 1 for 0 of 12) plus the Semrush terms Cristal Sea ranks for (9 Oct 2026). Titles and descriptions are written by scripts/shorten-meta.mjs from scripts/data/meta-short.json (kept equal to the values here); JSON-LD by scripts/apply-seo-targets.mjs; the new pages by scripts/build-seo-pages.mjs; contextual links from the Journal by scripts/add-money-links.mjs.",
-  "updated": "2026-10-09",
-  "pages": {
-    "index.html": {
-      "queries": [
-        "boat trip funchal",
-        "boat trips funchal",
-        "funchal boat trips",
-        "funchal boat trip",
-        "boat tour madeira",
-        "boat tours madeira",
-        "madeira boat tours",
-        "madeira boat tour",
-        "madeira boat trips",
-        "madeira boat trip",
-        "boat trips madeira",
-        "boat trips in madeira"
-      ],
-      "title": "Private Madeira Boat Trips & Tours from Funchal | Chifbay",
-      "description": "Private Madeira boat trips and tours from Funchal: the whole boat for up to 5 guests, day or sunset, from €400. 360° video, drone and photos included.",
-      "h1": "Private boat trips in Madeira",
-      "audit": "boat trip funchal: 13th in the map; boat tour madeira: absent"
-    },
-    "experiences.html": {
-      "queries": [
-        "madeira boat trips and tours",
-        "boat trips from funchal"
-      ],
-      "supports": "index.html",
-      "title": "Madeira Boat Trips and Tours from Funchal · Chifbay",
-      "description": "Every Chifbay boat trip from Funchal on one page: the day trip with a swim at Fajã dos Padres and the sunset cruise. Private, up to 5 guests, from €400.",
-      "h1": "Madeira boat trips, private from Funchal"
-    },
-    "private-boat-tour-madeira.html": {
-      "queries": [
-        "private boat tour madeira",
-        "private boat tours madeira",
-        "private boat charter madeira",
-        "private boat trip funchal",
-        "private boat trips funchal",
-        "private boat madeira"
-      ],
-      "title": "Private Boat Tour & Charter in Madeira from Funchal | Chifbay",
-      "description": "Private boat tour and charter in Madeira from Funchal: the whole 2026 Karnic R8S for up to 5 guests, two skippers, a swim at Fajã dos Padres. From €400.",
-      "h1": "Private boat tour & charter in Madeira",
-      "audit": "private boat trip funchal: only the GYG listing; private boat tour madeira and private boat charter madeira: absent"
-    },
-    "sunset-cruise.html": {
-      "queries": [
-        "sunset cruise funchal",
-        "sunset cruise madeira",
-        "sunset boat trip madeira",
-        "sunset boat trip funchal",
-        "sunset boat tour madeira",
-        "private sunset cruise madeira"
-      ],
-      "title": "Sunset Cruise Funchal: Private Sunset Boat Trip in Madeira",
-      "description": "Private sunset cruise from Funchal on Madeira's west coast: drinks, food and Portuguese wine on deck, 2h or 2h30. Whole boat for up to 5 from €400.",
-      "h1": "The sunset cruise",
-      "audit": "sunset cruise funchal: #15 (an article); sunset boat trip madeira: #19 (an article)"
-    },
-    "hidden-coves-half-day.html": {
-      "queries": [
-        "private day boat trip madeira",
-        "half day boat trip madeira",
-        "boat trip with swimming madeira",
-        "day boat trip funchal",
-        "boat trip swim madeira"
-      ],
-      "title": "Private Day Boat Trip from Funchal, Madeira · Swim & Paddle",
-      "description": "Private day boat trip from Funchal: Cabo Girão, a swim and paddle at Fajã dos Padres, 2h30 or 3h. Whole boat for up to 5 guests from €500, food and drinks.",
-      "h1": "The day boat trip"
-    },
-    "cabo-girao-boat-tour.html": {
-      "queries": [
-        "cabo girao boat tour",
-        "cabo girao boat trip",
-        "boat trip to cabo girao",
-        "cabo girao from the sea",
-        "cabo girão boat"
-      ],
-      "title": "Cabo Girão Boat Tour from Funchal · Private Boat | Chifbay",
-      "h1": "Cabo Girão boat tour",
-      "new": true,
-      "audit": "cabo girao boat tour: absent"
-    },
-    "faja-dos-padres-boat-trip.html": {
-      "queries": [
-        "faja dos padres boat trip",
-        "faja dos padres boat",
-        "fajã dos padres by boat",
-        "faja dos padres swim"
-      ],
-      "title": "Fajã dos Padres Boat Trip: Swim & Paddle, Madeira | Chifbay",
-      "h1": "Fajã dos Padres boat trip",
-      "new": true,
-      "audit": "faja dos padres boat trip: #16 (an article)"
-    },
-    "boat-rental-with-skipper-funchal.html": {
-      "queries": [
-        "boat rental with skipper funchal",
-        "boat rental funchal",
-        "boat hire funchal",
-        "rent a boat funchal",
-        "skippered boat madeira",
-        "boat charter with skipper madeira"
-      ],
-      "title": "Boat Rental with Skipper, Funchal · Private Charter | Chifbay",
-      "h1": "Boat rental with skipper in Funchal",
-      "new": true,
-      "note": "Honest: a private charter with two skippers. There is no self drive rental.",
-      "audit": "boat rental with skipper funchal: map, after 10"
-    },
-    "best-boat-trips-madeira.html": {
-      "queries": [
-        "best boat trips madeira",
-        "best boat trip madeira",
-        "best boat tours madeira",
-        "madeira boat trips compared",
-        "whale watching or private boat madeira"
-      ],
-      "title": "Best Boat Trips in Madeira (2026): Compared | Chifbay",
-      "h1": "Best boat trips in Madeira (2026)",
-      "new": true
-    },
-    "de/index.html": {
-      "queries": [
-        "private bootstour madeira",
-        "bootstour madeira",
-        "bootstouren madeira",
-        "bootsausflug funchal",
-        "bootstour funchal"
-      ],
-      "title": "Private Bootstour Madeira ab Funchal · Privatboot | Chifbay",
-      "description": "Private Bootstouren ab Funchal, Madeira: das ganze Boot für bis zu 5 Gäste, tagsüber oder abends, ab 400 €. Insta360-360°-Video, Drohne und Fotos inklusive.",
-      "h1": "Private Bootstouren auf Madeira",
-      "audit": "private bootstour madeira: #16"
-    },
-    "de/private-boat-tour-madeira.html": {
-      "queries": [
-        "privatboot madeira",
-        "private bootsfahrt funchal",
-        "boot mit skipper madeira",
-        "private bootstour madeira"
-      ],
-      "title": "Private Bootstour Madeira: Privatboot ab Funchal | Chifbay",
-      "h1": "Private Bootstour Madeira",
-      "new": true
-    },
-    "fr/index.html": {
-      "queries": [
-        "excursion bateau privé madère",
-        "excursion bateau madère",
-        "sortie bateau funchal",
-        "balade en bateau madère"
-      ],
-      "title": "Excursion en Bateau Privé à Madère · Funchal | Chifbay",
-      "description": "Sorties en bateau privé depuis Funchal : tout le bateau pour 5 personnes max., de jour ou au coucher du soleil, dès 400 €. Vidéo 360°, drone et photos inclus.",
-      "h1": "Excursion en bateau privé à Madère",
-      "audit": "excursion bateau privé madère: absent"
-    },
-    "fr/private-boat-tour-madeira.html": {
-      "queries": [
-        "bateau privé madère",
-        "location bateau avec skipper madère",
-        "sortie en mer privée madère",
-        "excursion bateau privé madère"
-      ],
-      "title": "Excursion Bateau Privé Madère depuis Funchal | Chifbay",
-      "h1": "Excursion en bateau privé à Madère",
-      "new": true
-    }
+ "_about": "Keyword map: each Google search goes to ONE page. Searches from the audit of 4 Oct 2026 (google.com Portugal, logged out: chifbay.com on page 1 for 0 of 12) plus the Semrush terms Cristal Sea ranks for (9 Oct 2026). Titles and descriptions are written by scripts/shorten-meta.mjs from scripts/data/meta-short.json (kept equal to the values here); JSON-LD by scripts/apply-seo-targets.mjs; the new pages by scripts/build-seo-pages.mjs; contextual links from the Journal by scripts/add-money-links.mjs.",
+ "updated": "2026-10-17",
+ "pages": {
+  "index.html": {
+   "queries": [
+    "boat trip funchal",
+    "boat trips funchal",
+    "funchal boat trips",
+    "funchal boat trip",
+    "boat tour madeira",
+    "boat tours madeira",
+    "madeira boat tours",
+    "madeira boat tour",
+    "madeira boat trips",
+    "madeira boat trip",
+    "boat trips madeira",
+    "boat trips in madeira"
+   ],
+   "title": "Private Boat Tours & Trips in Madeira from Funchal | Chifbay",
+   "description": "Private boat tours in Madeira from Funchal: the whole boat for up to 5 guests, day or sunset, from €400. 360° video, drone and photos included.",
+   "h1": "Private boat trips in Madeira",
+   "audit": "boat trip funchal: 13th in the map; boat tour madeira: absent"
+  },
+  "experiences.html": {
+   "queries": [
+    "madeira boat trips and tours",
+    "boat trips from funchal"
+   ],
+   "supports": "index.html",
+   "title": "Madeira Boat Trips and Tours from Funchal · Chifbay",
+   "description": "Every Chifbay boat trip from Funchal on one page: the day trip with a swim at Fajã dos Padres and the sunset cruise. Private, up to 5 guests, from €400.",
+   "h1": "Madeira boat trips, private from Funchal"
+  },
+  "private-boat-tour-madeira.html": {
+   "queries": [
+    "private boat tour madeira",
+    "private boat tours madeira",
+    "private boat charter madeira",
+    "private boat trip funchal",
+    "private boat trips funchal",
+    "private boat madeira"
+   ],
+   "title": "Private Boat Tour & Charter in Madeira from Funchal | Chifbay",
+   "description": "Private boat tour and charter in Madeira from Funchal: the whole 2026 Karnic R8S for up to 5 guests, two skippers, a swim at Fajã dos Padres. From €400.",
+   "h1": "Private boat tour & charter in Madeira",
+   "audit": "private boat trip funchal: only the GYG listing; private boat tour madeira and private boat charter madeira: absent"
+  },
+  "sunset-cruise.html": {
+   "queries": [
+    "sunset cruise funchal",
+    "sunset cruise madeira",
+    "sunset boat trip madeira",
+    "sunset boat trip funchal",
+    "sunset boat tour madeira",
+    "private sunset cruise madeira"
+   ],
+   "title": "Sunset Cruise Funchal: Private Sunset Boat Trip in Madeira",
+   "description": "Private sunset cruise from Funchal on Madeira's west coast: drinks, food and Portuguese wine on deck, 2h or 2h30. Whole boat for up to 5 from €400.",
+   "h1": "The sunset cruise",
+   "audit": "sunset cruise funchal: #15 (an article); sunset boat trip madeira: #19 (an article)",
+   "h1Html": "Sunset cruise<br>in <em>Funchal</em>"
+  },
+  "hidden-coves-half-day.html": {
+   "queries": [
+    "private day boat trip madeira",
+    "half day boat trip madeira",
+    "boat trip with swimming madeira",
+    "day boat trip funchal",
+    "boat trip swim madeira"
+   ],
+   "title": "Private Day Boat Trip from Funchal, Madeira · Swim & Paddle",
+   "description": "Private day boat trip from Funchal: Cabo Girão, a swim and paddle at Fajã dos Padres, 2h30 or 3h. Whole boat for up to 5 guests from €500, food and drinks.",
+   "h1": "The day boat trip",
+   "h1Html": "Day boat trip<br>from <em>Funchal</em>"
+  },
+  "cabo-girao-boat-tour.html": {
+   "queries": [
+    "cabo girao boat tour",
+    "cabo girao boat trip",
+    "boat trip to cabo girao",
+    "cabo girao from the sea",
+    "cabo girão boat"
+   ],
+   "title": "Cabo Girão Boat Tour from Funchal · Private Boat | Chifbay",
+   "h1": "Cabo Girão boat tour",
+   "new": true,
+   "audit": "cabo girao boat tour: absent"
+  },
+  "faja-dos-padres-boat-trip.html": {
+   "queries": [
+    "faja dos padres boat trip",
+    "faja dos padres boat",
+    "fajã dos padres by boat",
+    "faja dos padres swim"
+   ],
+   "title": "Fajã dos Padres Boat Trip: Swim & Paddle, Madeira | Chifbay",
+   "h1": "Fajã dos Padres boat trip",
+   "new": true,
+   "audit": "faja dos padres boat trip: #16 (an article)"
+  },
+  "boat-rental-with-skipper-funchal.html": {
+   "queries": [
+    "boat rental with skipper funchal",
+    "boat rental funchal",
+    "boat hire funchal",
+    "rent a boat funchal",
+    "skippered boat madeira",
+    "boat charter with skipper madeira"
+   ],
+   "title": "Boat Rental with Skipper, Funchal · Private Charter | Chifbay",
+   "h1": "Boat rental with skipper in Funchal",
+   "new": true,
+   "note": "Honest: a private charter with two skippers. There is no self drive rental.",
+   "audit": "boat rental with skipper funchal: map, after 10"
+  },
+  "best-boat-trips-madeira.html": {
+   "queries": [
+    "best boat trips madeira",
+    "best boat trip madeira",
+    "best boat tours madeira",
+    "madeira boat trips compared",
+    "whale watching or private boat madeira"
+   ],
+   "title": "Best Boat Trips in Madeira (2026): Compared | Chifbay",
+   "h1": "Best boat trips in Madeira (2026)",
+   "new": true
+  },
+  "de/index.html": {
+   "queries": [
+    "private bootstour madeira",
+    "bootstour madeira",
+    "bootstouren madeira",
+    "bootsausflug funchal",
+    "bootstour funchal"
+   ],
+   "title": "Private Bootstour Madeira ab Funchal · Privatboot | Chifbay",
+   "description": "Private Bootstouren ab Funchal, Madeira: das ganze Boot für bis zu 5 Gäste, tagsüber oder abends, ab 400 €. Insta360-360°-Video, Drohne und Fotos inklusive.",
+   "h1": "Private Bootstouren auf Madeira",
+   "audit": "private bootstour madeira: #16"
+  },
+  "de/private-boat-tour-madeira.html": {
+   "queries": [
+    "privatboot madeira",
+    "private bootsfahrt funchal",
+    "boot mit skipper madeira",
+    "private bootstour madeira"
+   ],
+   "title": "Private Bootstour Madeira: Privatboot ab Funchal | Chifbay",
+   "h1": "Private Bootstour Madeira",
+   "new": true
+  },
+  "fr/index.html": {
+   "queries": [
+    "excursion bateau privé madère",
+    "excursion bateau madère",
+    "sortie bateau funchal",
+    "balade en bateau madère"
+   ],
+   "title": "Excursion en Bateau Privé à Madère · Funchal | Chifbay",
+   "description": "Sorties en bateau privé depuis Funchal : tout le bateau pour 5 personnes max., de jour ou au coucher du soleil, dès 400 €. Vidéo 360°, drone et photos inclus.",
+   "h1": "Excursion en bateau privé à Madère",
+   "audit": "excursion bateau privé madère: absent"
+  },
+  "fr/private-boat-tour-madeira.html": {
+   "queries": [
+    "bateau privé madère",
+    "location bateau avec skipper madère",
+    "sortie en mer privée madère",
+    "excursion bateau privé madère"
+   ],
+   "title": "Excursion Bateau Privé Madère depuis Funchal | Chifbay",
+   "h1": "Excursion en bateau privé à Madère",
+   "new": true
+  },
+  "de/sunset-cruise.html": {
+   "queries": [
+    "bootstour sonnenuntergang madeira",
+    "sonnenuntergang bootsfahrt funchal",
+    "bootstour funchal",
+    "sunset tour madeira"
+   ],
+   "title": "Bootstour zum Sonnenuntergang ab Funchal, Madeira | Chifbay",
+   "description": "Privates Boot zum Sonnenuntergang ab Funchal: los 1 Std. 15 Min. vor Sonnenuntergang, bis Cabo Girão, Essen, Getränke, Drohne. Bis 5 Gäste, ab 400 €.",
+   "h1Html": "Bootstour zum <em>Sonnenuntergang</em><br>ab Funchal"
+  },
+  "de/hidden-coves-half-day.html": {
+   "queries": [
+    "bootsausflug madeira",
+    "bootstour funchal",
+    "bootstour mit baden madeira",
+    "bootsausflug funchal"
+   ],
+   "title": "Bootsausflug ab Funchal mit Baden, Madeira | Chifbay",
+   "description": "Privater Bootsausflug ab Funchal um 10:00 oder 14:00: Cabo Girão, Baden und Paddeln an der Fajã dos Padres, Essen und Getränke. Bis 5 Gäste, ab 500 €.",
+   "h1Html": "Bootsausflug mit <em>Baden</em><br>ab Funchal"
+  },
+  "de/experiences.html": {
+   "queries": [
+    "bootstouren madeira",
+    "bootsausflüge funchal",
+    "bootstour madeira"
+   ],
+   "title": "Bootstouren auf Madeira ab Funchal: alle Fahrten | Chifbay",
+   "description": "Alle Bootstouren von Chifbay ab Funchal auf einer Seite: Tagesausflug mit Baden oder Sonnenuntergang, ganzes Boot für bis zu 5 Gäste, ab 400 €.",
+   "h1Html": "Bootstouren auf Madeira,<br><em>privat</em> ab Funchal"
+  },
+  "fr/sunset-cruise.html": {
+   "queries": [
+    "balade en bateau coucher de soleil madère",
+    "coucher de soleil bateau funchal",
+    "sortie bateau funchal",
+    "croisière coucher de soleil madère"
+   ],
+   "title": "Balade en bateau au coucher du soleil, Funchal | Chifbay",
+   "description": "Bateau privé au coucher du soleil depuis Funchal : départ 1 h 15 avant le coucher, jusqu'à Cabo Girão, repas, boissons, drone. 5 personnes max., dès 400 €.",
+   "h1Html": "Balade en bateau au <em>coucher du soleil</em>"
+  },
+  "fr/hidden-coves-half-day.html": {
+   "queries": [
+    "sortie bateau funchal",
+    "excursion bateau madère",
+    "balade en bateau madère baignade",
+    "sortie en mer madère"
+   ],
+   "title": "Sortie en bateau depuis Funchal avec baignade | Chifbay",
+   "description": "Sortie en bateau privé depuis Funchal à 10:00 ou 14:00 : Cabo Girão, baignade et paddle à Fajã dos Padres, repas et boissons. 5 personnes max., dès 500 €.",
+   "h1Html": "Sortie en bateau<br>et <em>baignade</em> à Madère"
+  },
+  "fr/experiences.html": {
+   "queries": [
+    "excursions bateau madère",
+    "sorties en bateau funchal",
+    "balade bateau madère"
+   ],
+   "title": "Excursions en bateau à Madère depuis Funchal | Chifbay",
+   "description": "Toutes les sorties en bateau Chifbay depuis Funchal : la journée avec baignade ou le coucher du soleil, tout le bateau pour 5 personnes max., dès 400 €.",
+   "h1Html": "Excursions en bateau à Madère,<br><em>privées</em> depuis Funchal"
+  },
+  "pt/index.html": {
+   "queries": [
+    "passeio de barco funchal",
+    "passeio de barco madeira",
+    "passeios de barco madeira",
+    "barco privado madeira"
+   ],
+   "title": "Passeios de Barco Privados na Madeira, Funchal | Chifbay",
+   "description": "Passeios de barco privados a partir do Funchal: o barco inteiro para até 5 pessoas, dois skippers, banhos em Fajã dos Padres ou pôr do sol. Desde 400 €.",
+   "h1Html": "Passeios de barco <em>privados</em><br>na Madeira"
+  },
+  "pt/sunset-cruise.html": {
+   "queries": [
+    "passeio de barco pôr do sol funchal",
+    "passeio ao pôr do sol madeira",
+    "pôr do sol barco madeira"
+   ],
+   "title": "Passeio de Barco ao Pôr do Sol no Funchal | Chifbay",
+   "description": "Barco privado ao pôr do sol a partir do Funchal: sai 1 h 15 antes do pôr do sol, até ao Cabo Girão, comida, bebidas e drone. Até 5 pessoas, desde 400 €.",
+   "h1Html": "Passeio de barco<br>ao <em>pôr do sol</em>"
+  },
+  "pt/hidden-coves-half-day.html": {
+   "queries": [
+    "passeio de barco funchal",
+    "passeio de barco fajã dos padres",
+    "passeio de barco com banhos madeira"
+   ],
+   "title": "Passeio de Barco com Banhos a partir do Funchal | Chifbay",
+   "description": "Passeio de barco privado às 10:00 ou 14:00: Cabo Girão, banhos e paddle na Fajã dos Padres, comida e bebidas a bordo. Até 5 pessoas, desde 500 €.",
+   "h1Html": "Passeio de barco<br>com <em>banhos</em>"
+  },
+  "pt/experiences.html": {
+   "queries": [
+    "passeios de barco funchal",
+    "passeios de barco madeira"
+   ],
+   "title": "Passeios de Barco na Madeira a partir do Funchal | Chifbay",
+   "description": "Todos os passeios de barco Chifbay a partir do Funchal: de dia com banhos ou ao pôr do sol, o barco inteiro para até 5 pessoas, desde 400 €.",
+   "h1Html": "Passeios de barco na Madeira,<br><em>privados</em> desde o Funchal"
+  },
+  "es/index.html": {
+   "queries": [
+    "paseo en barco funchal",
+    "excursión en barco madeira",
+    "excursiones en barco madeira",
+    "barco privado madeira"
+   ],
+   "title": "Excursiones en Barco Privado en Madeira, Funchal | Chifbay",
+   "description": "Excursiones en barco privado desde Funchal: el barco entero para hasta 5 personas, dos patrones, baño en Fajã dos Padres o atardecer. Desde 400 €.",
+   "h1Html": "Excursiones en barco <em>privado</em><br>en Madeira"
+  },
+  "es/sunset-cruise.html": {
+   "queries": [
+    "paseo en barco atardecer madeira",
+    "barco al atardecer funchal",
+    "paseo en barco funchal"
+   ],
+   "title": "Paseo en Barco al Atardecer en Funchal, Madeira | Chifbay",
+   "description": "Barco privado al atardecer desde Funchal: sale 1 h 15 antes de la puesta de sol, hasta Cabo Girão, comida, bebidas y dron. Hasta 5 personas, desde 400 €.",
+   "h1Html": "Paseo en barco<br>al <em>atardecer</em>"
+  },
+  "es/hidden-coves-half-day.html": {
+   "queries": [
+    "excursión en barco madeira",
+    "paseo en barco funchal",
+    "excursión en barco con baño madeira"
+   ],
+   "title": "Excursión en Barco con Baño desde Funchal | Chifbay",
+   "description": "Excursión en barco privado a las 10:00 o 14:00: Cabo Girão, baño y paddle en Fajã dos Padres, comida y bebidas a bordo. Hasta 5 personas, desde 500 €.",
+   "h1Html": "Excursión en barco<br>con <em>baño</em>"
+  },
+  "es/experiences.html": {
+   "queries": [
+    "excursiones en barco madeira",
+    "paseos en barco funchal"
+   ],
+   "title": "Excursiones en Barco en Madeira desde Funchal | Chifbay",
+   "description": "Todas las salidas en barco de Chifbay desde Funchal: de día con baño o al atardecer, el barco entero para hasta 5 personas, desde 400 €.",
+   "h1Html": "Excursiones en barco en Madeira,<br><em>privadas</em> desde Funchal"
+  },
+  "it/index.html": {
+   "queries": [
+    "gita in barca funchal",
+    "gite in barca funchal",
+    "escursione in barca madeira",
+    "barca privata madeira"
+   ],
+   "title": "Gite in Barca Privata a Madeira, da Funchal | Chifbay",
+   "description": "Gite in barca privata da Funchal: la barca intera fino a 5 persone, due skipper, bagno a Fajã dos Padres o tramonto in mare. Da 400 €.",
+   "h1Html": "Gite in barca <em>privata</em><br>a Madeira"
+  },
+  "it/sunset-cruise.html": {
+   "queries": [
+    "gita in barca al tramonto madeira",
+    "tramonto in barca funchal",
+    "gita in barca funchal"
+   ],
+   "title": "Gita in Barca al Tramonto a Funchal, Madeira | Chifbay",
+   "description": "Barca privata al tramonto da Funchal: parte 1 h 15 prima del tramonto, fino a Cabo Girão, cibo, bevande e drone. Fino a 5 persone, da 400 €.",
+   "h1Html": "Gita in barca<br>al <em>tramonto</em>"
+  },
+  "it/hidden-coves-half-day.html": {
+   "queries": [
+    "escursione in barca madeira",
+    "gita in barca funchal",
+    "gita in barca con bagno madeira"
+   ],
+   "title": "Gita in Barca con Bagno da Funchal, Madeira | Chifbay",
+   "description": "Gita in barca privata alle 10:00 o alle 14:00: Cabo Girão, bagno e paddle a Fajã dos Padres, cibo e bevande a bordo. Fino a 5 persone, da 500 €.",
+   "h1Html": "Gita in barca<br>con <em>bagno</em>"
+  },
+  "it/experiences.html": {
+   "queries": [
+    "gite in barca madeira",
+    "escursioni in barca funchal"
+   ],
+   "title": "Gite in Barca a Madeira da Funchal: tutte le uscite | Chifbay",
+   "description": "Tutte le uscite in barca di Chifbay da Funchal: di giorno con bagno o al tramonto, la barca intera fino a 5 persone, da 400 €.",
+   "h1Html": "Gite in barca a Madeira,<br><em>private</em> da Funchal"
   }
+ }
 }

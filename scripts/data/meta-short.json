@@ -466,8 +466,8 @@
   "title": "Pourquoi Madère a-t-elle du sable noir ? | Chifbay"
  },
  "index.html": {
-  "description": "Private Madeira boat trips and tours from Funchal: the whole boat for up to 5 guests, day or sunset, from €400. 360° video, drone and photos included.",
-  "title": "Private Madeira Boat Trips & Tours from Funchal | Chifbay"
+  "description": "Private boat tours in Madeira from Funchal: the whole boat for up to 5 guests, day or sunset, from €400. 360° video, drone and photos included.",
+  "title": "Private Boat Tours & Trips in Madeira from Funchal | Chifbay"
  },
  "it/contact.html": {
   "title": "Contatti e Prenotazioni | Chifbay, barca privata a Madeira",
@@ -1157,5 +1157,77 @@
  "sunset-cruise.html": {
   "title": "Sunset Cruise Funchal: Private Sunset Boat Trip in Madeira",
   "description": "Private sunset cruise from Funchal on Madeira's west coast: drinks, food and Portuguese wine on deck, 2h or 2h30. Whole boat for up to 5 from €400."
+ },
+ "de/experiences.html": {
+  "title": "Bootstouren auf Madeira ab Funchal: alle Fahrten | Chifbay",
+  "description": "Alle Bootstouren von Chifbay ab Funchal auf einer Seite: Tagesausflug mit Baden oder Sonnenuntergang, ganzes Boot für bis zu 5 Gäste, ab 400 €."
+ },
+ "de/hidden-coves-half-day.html": {
+  "title": "Bootsausflug ab Funchal mit Baden, Madeira | Chifbay",
+  "description": "Privater Bootsausflug ab Funchal um 10:00 oder 14:00: Cabo Girão, Baden und Paddeln an der Fajã dos Padres, Essen und Getränke. Bis 5 Gäste, ab 500 €."
+ },
+ "de/sunset-cruise.html": {
+  "title": "Bootstour zum Sonnenuntergang ab Funchal, Madeira | Chifbay",
+  "description": "Privates Boot zum Sonnenuntergang ab Funchal: los 1 Std. 15 Min. vor Sonnenuntergang, bis Cabo Girão, Essen, Getränke, Drohne. Bis 5 Gäste, ab 400 €."
+ },
+ "es/experiences.html": {
+  "title": "Excursiones en Barco en Madeira desde Funchal | Chifbay",
+  "description": "Todas las salidas en barco de Chifbay desde Funchal: de día con baño o al atardecer, el barco entero para hasta 5 personas, desde 400 €."
+ },
+ "es/hidden-coves-half-day.html": {
+  "title": "Excursión en Barco con Baño desde Funchal | Chifbay",
+  "description": "Excursión en barco privado a las 10:00 o 14:00: Cabo Girão, baño y paddle en Fajã dos Padres, comida y bebidas a bordo. Hasta 5 personas, desde 500 €."
+ },
+ "es/index.html": {
+  "title": "Excursiones en Barco Privado en Madeira, Funchal | Chifbay",
+  "description": "Excursiones en barco privado desde Funchal: el barco entero para hasta 5 personas, dos patrones, baño en Fajã dos Padres o atardecer. Desde 400 €."
+ },
+ "es/sunset-cruise.html": {
+  "title": "Paseo en Barco al Atardecer en Funchal, Madeira | Chifbay",
+  "description": "Barco privado al atardecer desde Funchal: sale 1 h 15 antes de la puesta de sol, hasta Cabo Girão, comida, bebidas y dron. Hasta 5 personas, desde 400 €."
+ },
+ "fr/experiences.html": {
+  "title": "Excursions en bateau à Madère depuis Funchal | Chifbay",
+  "description": "Toutes les sorties en bateau Chifbay depuis Funchal : la journée avec baignade ou le coucher du soleil, tout le bateau pour 5 personnes max., dès 400 €."
+ },
+ "fr/hidden-coves-half-day.html": {
+  "title": "Sortie en bateau depuis Funchal avec baignade | Chifbay",
+  "description": "Sortie en bateau privé depuis Funchal à 10:00 ou 14:00 : Cabo Girão, baignade et paddle à Fajã dos Padres, repas et boissons. 5 personnes max., dès 500 €."
+ },
+ "fr/sunset-cruise.html": {
+  "title": "Balade en bateau au coucher du soleil, Funchal | Chifbay",
+  "description": "Bateau privé au coucher du soleil depuis Funchal : départ 1 h 15 avant le coucher, jusqu'à Cabo Girão, repas, boissons, drone. 5 personnes max., dès 400 €."
+ },
+ "it/experiences.html": {
+  "title": "Gite in Barca a Madeira da Funchal: tutte le uscite | Chifbay",
+  "description": "Tutte le uscite in barca di Chifbay da Funchal: di giorno con bagno o al tramonto, la barca intera fino a 5 persone, da 400 €."
+ },
+ "it/hidden-coves-half-day.html": {
+  "title": "Gita in Barca con Bagno da Funchal, Madeira | Chifbay",
+  "description": "Gita in barca privata alle 10:00 o alle 14:00: Cabo Girão, bagno e paddle a Fajã dos Padres, cibo e bevande a bordo. Fino a 5 persone, da 500 €."
+ },
+ "it/index.html": {
+  "title": "Gite in Barca Privata a Madeira, da Funchal | Chifbay",
+  "description": "Gite in barca privata da Funchal: la barca intera fino a 5 persone, due skipper, bagno a Fajã dos Padres o tramonto in mare. Da 400 €."
+ },
+ "it/sunset-cruise.html": {
+  "title": "Gita in Barca al Tramonto a Funchal, Madeira | Chifbay",
+  "description": "Barca privata al tramonto da Funchal: parte 1 h 15 prima del tramonto, fino a Cabo Girão, cibo, bevande e drone. Fino a 5 persone, da 400 €."
+ },
+ "pt/experiences.html": {
+  "title": "Passeios de Barco na Madeira a partir do Funchal | Chifbay",
+  "description": "Todos os passeios de barco Chifbay a partir do Funchal: de dia com banhos ou ao pôr do sol, o barco inteiro para até 5 pessoas, desde 400 €."
+ },
+ "pt/hidden-coves-half-day.html": {
+  "title": "Passeio de Barco com Banhos a partir do Funchal | Chifbay",
+  "description": "Passeio de barco privado às 10:00 ou 14:00: Cabo Girão, banhos e paddle na Fajã dos Padres, comida e bebidas a bordo. Até 5 pessoas, desde 500 €."
+ },
+ "pt/index.html": {
+  "title": "Passeios de Barco Privados na Madeira, Funchal | Chifbay",
+  "description": "Passeios de barco privados a partir do Funchal: o barco inteiro para até 5 pessoas, dois skippers, banhos em Fajã dos Padres ou pôr do sol. Desde 400 €."
+ },
+ "pt/sunset-cruise.html": {
+  "title": "Passeio de Barco ao Pôr do Sol no Funchal | Chifbay",
+  "description": "Barco privado ao pôr do sol a partir do Funchal: sai 1 h 15 antes do pôr do sol, até ao Cabo Girão, comida, bebidas e drone. Até 5 pessoas, desde 400 €."
  }
 }
