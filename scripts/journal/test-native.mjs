@@ -18,7 +18,7 @@ ok(skeleton(rewritten) === skeleton(page), "a new article, title and h1 keep the
 ok(skeleton(page.replace('<nav id="nav">', '<nav id="nav" data-x>')) !== skeleton(page), "a change in the menu is caught");
 ok(skeleton(page.replace("</footer>", "<p>x</p></footer>")) !== skeleton(page), "a change in the footer is caught");
 ok(skeleton(page.replace('class="artcta rv"', 'class="artcta"')) !== skeleton(page), "a change in the call to action is caught");
-ok(/[—–]/.test(editableText(page)), "the old translation's long dashes are seen");
+ok(/[—–]/.test(editableText(page.replace("</h1>", " — x</h1>"))), "a long dash in the edited parts is seen");
 ok(!/[—–]/.test(editableText(page.replace(/<article\b[\s\S]*?<\/article>/, "<article></article>").replace(/<title>[^<]*<\/title>|<meta (?:name|property)="[^"]*" content="[^"]*"\s*\/?>|<script type="application\/ld\+json">[\s\S]*?<\/script>|<div class="artmeta[^"]*"[^>]*>[\s\S]*?<\/div>/g, ""))), "dashes outside the edited parts (menu logo alt) are not counted");
 ok(imgSrcs(rewritten) === imgSrcs(page), "same photos pass");
 ok(imgSrcs(page.replace(/inline-2\.jpg/, "inline-9.jpg")) !== imgSrcs(page), "a swapped photo is caught");
