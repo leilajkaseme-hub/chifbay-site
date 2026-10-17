@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-16T16:46:28.738Z",
+ "generated_at": "2026-10-17T08:54:31.287Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -509,6 +509,53 @@
    "template": null,
    "priority": 0,
    "created": "2026-10-16T09:23:14.239Z"
+  },
+  {
+   "id": "20261017085419-f3c8",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Madeira swim stop from above: a floating swimmer, a crooked stone wall and the whole Atlantic trying to get in.\n\nThe swimmer is on their back, in red, arms out, right of centre. Not a care in the picture.\n\nThe wall is the clever part. It bends at an angle like a folded ruler, and behind it the water turns green and clear. On the other side of the rock, the sea is all white foam and dark blue.\n\nSome good planning went into that wall. Or some very patient waves.\n\nThe practical bit: swimming is on our Day Trip only. It leaves Funchal marina at 10:00 or 14:00, takes 2h30 or 3h, and stops at Fajã dos Padres for a swim and paddle. The Sunset Trip has no swimming. Both are private, five guests at most, with food on board.\n\nBring a towel. We will bring the rest.\n\nDia de mar, sem pressa.\n\nSend us your dates on chifbay.com and we will see what is free.",
+   "hashtags": [
+    "#madeiraportugal",
+    "#portugal",
+    "#seaday",
+    "#boatlife",
+    "#clearwater",
+    "#swimming",
+    "#traveleurope"
+   ],
+   "cover": "https://chifbay.com/ig/20261017085419-f3c8-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261017085419-f3c8-1.jpg",
+    "https://chifbay.com/ig/20261017085419-f3c8-2.jpg",
+    "https://chifbay.com/ig/20261017085419-f3c8-3.jpg",
+    "https://chifbay.com/ig/20261017085419-f3c8-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-17T08:54:31.281Z"
+  },
+  {
+   "id": "20261017085431-ae7b",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1kFXctN5-2.jpg",
+   "video": "https://chifbay.com/ig/reel-1kFXctN5-2.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-17T08:54:31.285Z"
   }
  ]
 }
