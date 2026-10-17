@@ -958,6 +958,20 @@
     "follows": 0,
     "profile_visits": 1,
     "ig_reels_avg_watch_time": null
+   },
+   "d7": {
+    "at": "2026-10-17T10:41:36.047Z",
+    "age_hours": 186,
+    "reach": 67,
+    "views": 145,
+    "likes": 7,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 9,
+    "follows": 0,
+    "profile_visits": 3,
+    "ig_reels_avg_watch_time": null
    }
   },
   "18059546084554048": {
@@ -1064,8 +1078,32 @@
     "id": "20261003100713-6ac5",
     "format": null,
     "source": "library"
+   },
+   "h24": {
+    "at": "2026-10-17T10:41:36.047Z",
+    "age_hours": 44,
+    "reach": 23,
+    "views": 72,
+    "likes": 4,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 5,
+    "follows": 0,
+    "profile_visits": 2,
+    "ig_reels_avg_watch_time": null
+   }
+  },
+  "18632068075013970": {
+   "posted_at": "2026-10-16T15:34:54+0000",
+   "permalink": "https://www.instagram.com/p/Dej3fDLFHGQ/",
+   "type": "carousel",
+   "ours": {
+    "id": "20261003100723-2b35",
+    "format": null,
+    "source": "library"
    }
   }
  },
- "updated_at": "2026-10-16T11:21:27.593Z"
+ "updated_at": "2026-10-17T10:41:36.047Z"
 }
