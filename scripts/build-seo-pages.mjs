@@ -23,6 +23,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { nyePages } from "./data/nye-2026.mjs";
+import { guidePages, GUIDE_ALTS } from "./data/guide-boat-trips.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
@@ -192,7 +193,7 @@ function ld(c) {
   const url = `${SITE}/${c.slug}`;
   const g = [{
     "@type": "WebPage", "@id": `${url}#webpage`, url, name: plain(c.title), description: plain(c.description),
-    inLanguage: c.lang, dateModified: MODIFIED, primaryImageOfPage: `${SITE}/assets/${c.heroImg}.jpg`,
+    inLanguage: c.lang, dateModified: c.modified || MODIFIED, primaryImageOfPage: `${SITE}/assets/${c.heroImg}.jpg`,
     publisher: BIZ, ...(c.trip ? { about: { "@id": `${url}#trip` } } : {}),
   }];
   if (c.trip) g.push({
@@ -204,7 +205,7 @@ function ld(c) {
   });
   if (c.article) g.push({
     "@type": "Article", "@id": `${url}#article`, headline: plain(c.h1Plain || c.title), description: plain(c.description),
-    image: `${SITE}/assets/${c.heroImg}.jpg`, inLanguage: c.lang, datePublished: c.article.published, dateModified: MODIFIED,
+    image: `${SITE}/assets/${c.heroImg}.jpg`, inLanguage: c.lang, datePublished: c.article.published, dateModified: c.modified || MODIFIED,
     author: BIZ, publisher: BIZ, mainEntityOfPage: { "@id": `${url}#webpage` },
   });
   if (c.event) g.push({
@@ -503,26 +504,27 @@ ${html}
   </div>
 </section>`;
 PAGES.push({
-  slug: "best-boat-trips-madeira", lang: "en", css: CMP_CSS,
-  title: "Best Boat Trips in Madeira (2026): Compared | Chifbay",
-  description: "Best boat trips in Madeira for 2026: private boat, shared catamaran, sailing and whale watching compared. Prices, who each suits, real operators.",
+  slug: "best-boat-trips-madeira", lang: "en", css: CMP_CSS, group: "guide", alternates: GUIDE_ALTS, modified: "2026-10-18",
+  title: "Boat Trips in Madeira (2026): Best Tours Compared | Chifbay",
+  description: "Boat trips in Madeira compared for 2026: private boats, shared catamarans, whale watching and sailing, with prices, departure points and real operators.",
   heroImg: "hero", heroAlt: "A private boat off the south coast of Madeira in the evening",
-  badge: "Guide · updated 9 October 2026",
-  h1: "Best boat trips<br>in <em>Madeira</em> (2026)", h1Plain: "Best boat trips in Madeira (2026): private, shared, sailing and whale watching compared",
-  hsub: "Private, shared, sailing and whale watching compared. The best boat trips in Madeira, what they cost and who each one suits. Written by Chifbay, a private boat company in Funchal, so we say where we fit and where another trip is the better pick.",
+  badge: "Guide · updated 18 October 2026",
+  h1: "Boat trips<br>in <em>Madeira</em> (2026)", h1Plain: "Boat trips in Madeira (2026): the best ones compared, with prices",
+  hsub: "Boat trips in Madeira come in four kinds: shared catamarans (about €40 to €79 per person), whale and dolphin watching (about €45 to €67), sailing, and private boats (median €537 for the whole boat). Most leave from Marina do Funchal. Here they are side by side, written by Chifbay, a private boat company in Funchal, so we say where we fit and where another trip is the better pick.",
   book: "#compare", bookLabel: "See the comparison", waLabel: "Ask us a question",
-  meta: [["Shared trip", "€59 per person*"], ["Private boat", "€537 per boat*"], ["Operators", "6 compared"], ["Prices read", "4 Oct 2026"]],
+  meta: [["Shared trip", "€59 per person*"], ["Private boat", "€537 per boat*"], ["Operators", "9 compared"], ["Prices read", "Oct 2026"]],
   article: { published: "2026-10-09" },
-  crumbs: [["Home", "/"], ["Journal", "/blog"], ["Best boat trips in Madeira", "/best-boat-trips-madeira"]],
+  crumbs: [["Home", "/"], ["Experiences", "/experiences"], ["Boat trips in Madeira", "/best-boat-trips-madeira"]],
   sbar: { aria: "Private boat trips", k: "Private boat", v: `€${P.sunset2}`, live: "sunset", href: "/book", label: "Book Chifbay" },
   faq: {
-    n: "06", label: "Questions", h2: "Boat trips in Madeira: questions",
+    n: "07", label: "Questions", h2: "Boat trips in Madeira: questions",
     items: [
       ["What is the best boat trip in Madeira?", "It depends on who is going. For whales and dolphins, a specialist whale watching trip. For the lowest price per person, a shared catamaran. For a couple, a family or a small group who want to swim, take their time and have the boat to themselves, a private boat. For wind and quiet, a sailing trip."],
       ["How much does a boat trip in Madeira cost?", `When we counted every GetYourGuide boat listing for Madeira on 11 August 2026, the median shared trip was €59 per person (34 listings) and the median private boat was €537 for the whole boat (24 listings). Chifbay charges €${P.sunset2} to €${P.day3} for the whole boat, up to 5 guests.`],
       ["Is a private boat cheaper than a shared trip for a group?", `Usually not. For two people a €${P.sunset2} private boat is €200 each against about €59 each on a shared trip. The gap closes as the group grows: €80 each for five. You pay for having the boat, the route and the time to yourselves.`],
       ["Are dolphins and whales guaranteed?", "No trip can promise wild animals. Specialist whale watching operators go out to look for them, and that is their main focus. On a private coastal trip like ours, dolphins are a bonus when they show up, never a promise."],
-      ["Where do boat trips leave from in Madeira?", "Most leave from Marina do Funchal. Some whale watching companies work from other towns, for example Lobosonda in Calheta, on the west of the south coast."],
+      ["Where do boat trips leave from in Madeira?", "Most leave from Marina do Funchal, on the seafront in the city centre. Some companies work from other towns, for example Lobosonda and On Tales in Calheta, on the west of the south coast."],
+      ["Is there a boat trip for cruise passengers in Funchal?", "Yes. Marina do Funchal is in the city centre, on the same seafront as the cruise port, so a 2 or 3 hour trip fits most port days. Pick a trip that ends with plenty of time before all aboard, and tell the operator your ship's hours when you book."],
       ["Which boat trip goes to Cabo Girão and Fajã dos Padres?", `Several trips pass Cabo Girão. Chifbay goes to <a href="cabo-girao-boat-tour">Cabo Girão</a> on every trip and stops to swim at <a href="faja-dos-padres-boat-trip">Fajã dos Padres</a> on the day trip.`],
     ],
   },
@@ -535,17 +537,21 @@ PAGES.push({
       <div class="cmp-card reveal d1"><div class="k">Per boat · median €537</div><h3>Private boat</h3><p>The whole boat for your group, with a skipper. You choose the pace, stay longer to swim, and nobody else is aboard. Prices run from about €150 to €3,500 per boat.</p></div>
     </div>
     <p class="cmp-note reveal">* From our own count of 58 GetYourGuide boat listings for Madeira on 11 August 2026: shared median €59 per person, middle half €40 to €79 (34 listings); private median €537 per boat (24 listings). Whale watching range: VMT Madeira and Lobosonda prices read on 4 October 2026, below. Method and full data: <a href="/posts/madeira-boat-tour-prices-2026">Madeira boat tour prices 2026</a>.</p>`),
-    prose("02", "Operators compared", "Six boat operators, side by side", `    <p class="reveal d1" style="max-width:68ch" id="compare">Facts below were read on the operators' own websites or on GetYourGuide on 4 October 2026. GetYourGuide shows US dollar prices to US visitors, so those are in US$. We left out star ratings: counts change every week and are not comparable across sites.</p>
+    prose("02", "Operators compared", "Nine boat operators, side by side", `    <p class="reveal d1" style="max-width:68ch" id="compare">
+<strong>This guide is written by Chifbay, one of the nine operators below</strong>, so we list ourselves first. Facts below were read on the operators' own websites, on GetYourGuide or on Viator, on the date given in each row. Those sites show US dollar prices to US visitors, so some prices are in US$. We left out star ratings: counts change every week and are not comparable across sites.</p>
     <div class="cmp-wrap reveal">
       <table class="cmp-t">
-        <thead><tr><th>Operator</th><th>Kind of trip</th><th>Price read on 4 Oct 2026</th><th>Good to know</th></tr></thead>
+        <thead><tr><th>Operator</th><th>Kind of trip</th><th>Price (date read)</th><th>Good to know</th></tr></thead>
         <tbody>
-          <tr><td>Chifbay</td><td>Private motor boat, Funchal</td><td>€${P.sunset2} to €${P.day3} per boat, up to 5 guests</td><td>2026 Karnic R8S, two skippers, food and drinks, swim stop on the day trip, 360° video, drone and camera photos included</td></tr>
-          <tr><td>Cristal Sea Madeira</td><td>Private boats, Funchal</td><td>Private boat 2 h 30 from €320 per boat; private sunset 2 h 30 from €340; bigger boats from €500</td><td>Up to 10 to 12 guests; paddle boards and snorkel gear included; books on its own site; licence RNAAT 375/2022</td></tr>
+          <tr><td>Chifbay</td><td>Private motor boat, Funchal</td><td>€${P.sunset2} to €${P.day3} per boat, up to 5 guests (18 Oct 2026)</td><td>2026 Karnic R8S, two skippers, food and drinks, swim stop on the day trip, 360° video, drone and camera photos included</td></tr>
+          <tr><td>Cristal Sea Madeira</td><td>Private boats, Funchal</td><td>Private boat 2 h 30 from €320 per boat; private sunset 2 h 30 from €340; bigger boats from €500 (4 Oct 2026)</td><td>Up to 10 to 12 guests; paddle boards and snorkel gear included; books on its own site; licence RNAAT 375/2022</td></tr>
           <tr><td>Ventura do Mar (Ventura Nature Emotions)</td><td>Shared sea trips, Funchal</td><td>See their site</td><td>Running since 2001; books online</td></tr>
-          <tr><td>VMT Madeira</td><td>Shared catamaran, Funchal</td><td>Whale and dolphin trip 3 h about US$45 to 48 per person; sunset catamaran US$45; Desertas day US$101 (GetYourGuide)</td><td>Books online; site in Portuguese and English</td></tr>
-          <tr><td>Lobosonda</td><td>Whale and dolphin watching, Calheta</td><td>Traditional boat from €51.83 per person; RIB 2 h from €66.63 per person</td><td>Running since 2003; site in Portuguese, German and English; based in Calheta, not Funchal</td></tr>
+          <tr><td>VMT Madeira</td><td>Shared catamaran, Funchal</td><td>Whale and dolphin trip 3 h about US$45 to 48 per person; sunset catamaran US$45; Desertas day US$101 (GetYourGuide, 4 Oct 2026)</td><td>Books online; site in Portuguese and English</td></tr>
+          <tr><td>Lobosonda</td><td>Whale and dolphin watching, Calheta</td><td>Traditional boat from €51.83 per person; RIB 2 h from €66.63 per person (4 Oct 2026)</td><td>Running since 2003; site in Portuguese, German and English; based in Calheta, not Funchal</td></tr>
           <tr><td>Bonita da Madeira</td><td>Shared boat trips, Funchal</td><td>See their site</td><td>Listed by the tourism board among Funchal boat operators</td></tr>
+          <tr><td>Magic Dolphin</td><td>Shared catamaran, Funchal</td><td>From €35 per person on its own booking site (18 Oct 2026)</td><td>Whale and dolphin trips; a €10 repeat trip if no dolphins or whales are seen</td></tr>
+          <tr><td>VipDolphins</td><td>Premium shared trips and private charters, Funchal</td><td>Shared trip €89 per adult; private 3 h charter from €950 (18 Oct 2026)</td><td>At most 17 guests on the shared trip, a marine biologist and an open bar; books on its own site</td></tr>
+          <tr><td>On Tales</td><td>Private boat for up to 5, Calheta</td><td>About €535 per boat (18 Oct 2026)</td><td>Leaves from Calheta, not Funchal; hotel transfer listed as included</td></tr>
         </tbody>
       </table>
     </div>
@@ -558,9 +564,11 @@ PAGES.push({
       <li><strong>A bigger group, 6 to 12 people:</strong> a private operator with a larger boat, such as Cristal Sea Madeira. Chifbay takes 5 guests at most.</li>
       <li><strong>You want wind and quiet:</strong> a sailing trip.</li>
     </ul>`),
-    prose("04", "Why a private boat", "When a private boat is worth it", `    <p class="cmp-p reveal d1" style="max-width:68ch">A private boat costs more than a shared seat. What you buy is control: you choose when to stop, how long to swim, whether to go fast or slow, and nobody else is on board. On the south-west coast, that means time at the base of <a href="cabo-girao-boat-tour">Cabo Girão</a> and a swim at <a href="faja-dos-padres-boat-trip">Fajã dos Padres</a>, the cove with no road in, without a timetable.</p>
+    prose("04", "Where they leave from", "Where boat trips in Madeira start", `    <p class="cmp-p reveal d1" style="max-width:68ch">Most boat trips in Madeira start at <strong>Marina do Funchal</strong>, on the seafront in the city centre: Chifbay, Cristal Sea, VMT Madeira, Magic Dolphin and VipDolphins all leave from there. A few operators work from the west of the south coast instead, such as Lobosonda and On Tales in <strong>Calheta</strong>.</p>
+    <p class="cmp-p reveal d2" style="max-width:68ch">From Funchal the coast to the west is the classic route: <a href="cabo-girao-boat-tour">Cabo Girão</a>, one of the highest sea cliffs in Europe at about 580 metres, the cove of <a href="faja-dos-padres-boat-trip">Fajã dos Padres</a> that no road reaches, and the villages of Câmara de Lobos, Ribeira Brava and Ponta do Sol. Whale and dolphin trips go further out to sea, wherever the animals are that day.</p>`),
+    prose("05", "Why a private boat", "When a private boat is worth it", `    <p class="cmp-p reveal d1" style="max-width:68ch">A private boat costs more than a shared seat. What you buy is control: you choose when to stop, how long to swim, whether to go fast or slow, and nobody else is on board. On the south-west coast, that means time at the base of <a href="cabo-girao-boat-tour">Cabo Girão</a> and a swim at <a href="faja-dos-padres-boat-trip">Fajã dos Padres</a>, the cove with no road in, without a timetable.</p>
     <p class="cmp-p reveal d2" style="max-width:68ch">At Chifbay the whole boat is €${P.sunset2} for the 2 h <a href="sunset-cruise">sunset cruise</a> and €${P.day25} or €${P.day3} for the <a href="hidden-coves-half-day">day trip</a>, for up to 5 guests, with two local skippers, food and drinks, a 360° video, drone footage and camera photos included. More detail on our <a href="private-boat-tour-madeira">private boat tour</a> page and in <a href="private-boat-vs-catamaran-madeira">private boat or catamaran?</a></p>`),
-    prose("05", "Before you book", "Four questions to ask any operator", `    <ol class="cmp-list reveal d1">
+    prose("06", "Before you book", "Four questions to ask any operator", `    <ol class="cmp-list reveal d1">
       <li><strong>Is the price per person or for the whole boat?</strong> Both appear in the same search results.</li>
       <li><strong>How many other people will be aboard?</strong> A shared trip can mean 10 or 100.</li>
       <li><strong>What is not in the price?</strong> Drinks, food, photos and hotel pickup are often extras.</li>
@@ -696,6 +704,9 @@ PAGES.push({
 
 // 7. New Year's Eve fireworks night, 31 Dec 2026 (scripts/data/nye-2026.mjs) --
 PAGES.push(...nyePages({ ed, timeline, faq, reserve, WA }));
+
+// 8. "Boat trips in Madeira" in the five other languages (scripts/data/guide-boat-trips.mjs), native, with the English guide
+PAGES.push(...guidePages({ prose, faq, reserve, P, CMP_CSS }));
 
 // ---------------------------------------------------------------- write
 let changed = 0;

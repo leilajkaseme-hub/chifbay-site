@@ -73,6 +73,16 @@ const EXTRA = {
     crumb([["Home", "/"], ["Experiences", "/experiences"], ["Day boat trip", "/hidden-coves-half-day"]])] },
 };
 
+const KNOWS = ["Boat trips in Madeira", "Private boat tours from Funchal", "Sunset cruises in Madeira", "Cabo Girão by boat", "Fajã dos Padres", "Madeira's south coast"];
+const tripOffer = (name, price, href) => ({ "@type": "Offer", price: String(price), priceCurrency: "EUR", url: `${SITE}${href}`, availability: "https://schema.org/InStock",
+  itemOffered: { "@type": "TouristTrip", name, touristType: ["Couples", "Families", "Small groups"] } });
+const CATALOG = { "@type": "OfferCatalog", name: "Private boat trips from Funchal, Madeira (whole boat, up to 5 guests)", itemListElement: [
+  tripOffer("Sunset boat trip, 2 h, to Cabo Girão", 400, "/book-sunset?v=cabo-girao"),
+  tripOffer("Sunset boat trip, 2 h 30, to Ribeira Brava", 500, "/book-sunset?v=ribeira-brava"),
+  tripOffer("Day boat trip with a swim at Fajã dos Padres, 2 h 30", 500, "/book-day?v=ribeira-brava"),
+  tripOffer("Day boat trip with a swim, 3 h, to Ponta do Sol", 600, "/book-day?v=ponta-do-sol"),
+] };
+
 const metaShortFile = path.join(ROOT, "scripts/data/meta-short.json");
 const metaShort = JSON.parse(fs.readFileSync(metaShortFile, "utf8"));
 let metaChanged = false;
@@ -122,6 +132,12 @@ for (const rel of files) {
           if (n.logo !== LOGO) { n.logo = LOGO; touched = true; }
           if (JSON.stringify(n.sameAs) !== JSON.stringify(SAME_AS)) { n.sameAs = SAME_AS; touched = true; }
           if (t.includes("LocalBusiness") && !n.areaServed) { n.areaServed = { "@type": "AdministrativeArea", name: "Madeira" }; touched = true; }
+          // what the business sells and knows, so search engines and AI assistants tie Chifbay to boat trips in
+          // Madeira (18 Oct 2026). Prices: booking-api/catalog.js (whole boat, up to 5 guests).
+          if (t.includes("LocalBusiness")) {
+            if (JSON.stringify(n.knowsAbout) !== JSON.stringify(KNOWS)) { n.knowsAbout = KNOWS; touched = true; }
+            if (JSON.stringify(n.hasOfferCatalog) !== JSON.stringify(CATALOG)) { n.hasOfferCatalog = CATALOG; touched = true; }
+          }
         }
       }
       return touched ? `<script type="application/ld+json">${JSON.stringify(d)}</script>` : m;

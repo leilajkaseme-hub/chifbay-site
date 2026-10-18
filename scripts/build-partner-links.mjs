@@ -25,7 +25,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const API = "https://chifbay-booking-api.chifandcopt.workers.dev";
-const TARGET = "/experiences.html";
+const TARGET = "/experiences";   // the main address (the .html one split Google's signals, 18 Oct 2026)
 
 // Read the registry rather than keep a second copy of the slugs.
 const src = readFileSync(join(ROOT, "..", "booking-api", "partners.js"), "utf8");

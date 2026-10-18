@@ -82,17 +82,25 @@ const TARGETS = [
     } },
   { id: "home", url: (l) => home(l),
     pat: {
-      en: [/\b(?:Madeira|Funchal) boat (?:trips?|tours?)\b/i, /\bboat (?:trips?|tours?) (?:in|around|on|off|from|out of) (?:Madeira|Funchal)\b/i, /\bboat (?:trips?|tours?)\b/i],
-      de: [/\bBoots(?:tour|ausflug|fahrt)(?:en|e)? (?:auf|ab|von|in|um) (?:Madeira|Funchal)\b/, /\bBootstour(?:en)?\b/, /\bBootsausfl(?:ug|üge)\b/],
-      fr: [/\b(?:excursion|sortie|balade)s? en (?:bateau|mer) (?:à|depuis|autour de) (?:Madère|Funchal)\b/i, /\b(?:excursion|sortie|balade)s? en bateau\b/i],
-      pt: [/\bpasseios? de barco (?:na|pela|no|desde o|a partir do) (?:Madeira|Funchal)\b/i, /\bpasseios? de barco\b/i],
-      es: [/\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco (?:en|por|desde) (?:Madeira|Funchal)\b/i, /\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco\b/i],
-      it: [/\b(?:gita|gite|escursion[ei]|uscit[ae]|tour) in barca (?:a|da|intorno a) (?:Madeira|Funchal)\b/i, /\b(?:gita|gite|escursion[ei]|uscit[ae]) in barca\b/i],
+      en: [/\bFunchal boat (?:trips?|tours?)\b/i, /\bboat (?:trips?|tours?) (?:around|on|off|from|out of) (?:Madeira|Funchal)\b/i, /\bboat (?:trips?|tours?) in Funchal\b/i, /\bboat (?:trips?|tours?)\b/i],
+      de: [/\bBoots(?:tour|ausflug|fahrt)(?:en|e)? (?:ab|von|in|um) (?:Madeira|Funchal)\b/, /\bBootstour(?:en)?\b/, /\bBootsausfl(?:ug|üge)\b/],
+      fr: [/\b(?:excursion|sortie|balade)s? en (?:bateau|mer) (?:depuis|autour de) (?:Madère|Funchal)\b/i, /\b(?:excursion|sortie|balade)s? en (?:bateau|mer) à Funchal\b/i, /\b(?:excursion|sortie|balade)s? en bateau\b/i],
+      pt: [/\bpasseios? de barco (?:pela|no|desde o|a partir do) (?:Madeira|Funchal)\b/i, /\bpasseios? de barco\b/i],
+      es: [/\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco (?:desde|en) Funchal\b/i, /\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco desde Madeira\b/i, /\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco\b/i],
+      it: [/\b(?:gita|gite|escursion[ei]|uscit[ae]|tour) in barca (?:da|intorno a) (?:Madeira|Funchal)\b/i, /\b(?:gita|gite|escursion[ei]|uscit[ae]|tour) in barca a Funchal\b/i, /\b(?:gita|gite|escursion[ei]|uscit[ae]) in barca\b/i],
     } },
   { id: "rental", enOnly: true, url: (l) => (l === "en" ? "/boat-rental-with-skipper-funchal" : null),
     pat: { en: [/\b(?:boat (?:rentals?|hire)|rent(?:ing)? a boat|hir(?:e|ing) a (?:private )?boat|skippered (?:boats?|charters?)|boats? with (?:a )?skipper)\b/i] } },
-  { id: "best", enOnly: true, url: (l) => (l === "en" ? "/best-boat-trips-madeira" : null),
-    pat: { en: [/\bbest boat (?:trips?|tours?)(?: in Madeira)?\b/i, /\bwhale[- ]watching (?:trips?|tours?|boats?|operators?)\b/i, /\bshared catamarans?(?: (?:trips?|tours?|cruises?))?\b/i, /\bcatamaran (?:trips?|tours?|cruises?)\b/i] } },
+  // the "boat trips in Madeira" guide, in every language (native pages since 18 Oct 2026): the general phrase goes here
+  { id: "best", url: (l) => loc(l, "best-boat-trips-madeira"),
+    pat: {
+      en: [/\b(?:the )?best boat (?:trips?|tours?)(?: in Madeira)?\b/i, /\bboat (?:trips?|tours?) in Madeira\b/i, /\bMadeira boat (?:trips?|tours?)\b/i, /\bbest boat (?:trips?|tours?)(?: in Madeira)?\b/i, /\bwhale[- ]watching (?:trips?|tours?|boats?|operators?)\b/i, /\bshared catamarans?(?: (?:trips?|tours?|cruises?))?\b/i, /\bcatamaran (?:trips?|tours?|cruises?)\b/i],
+      de: [/\bBoots(?:touren|ausfl(?:ü|u)ge|fahrten) auf Madeira\b/, /\bBootstour auf Madeira\b/, /\bWal(?:beobachtung|beobachtungen)\b/, /\bDelfin(?:beobachtung|tour)(?:en)?\b/],
+      fr: [/\b(?:excursion|sortie|balade)s? en (?:bateau|mer) à Madère\b/i, /\bobservation des (?:baleines|dauphins|cétacés)\b/i],
+      pt: [/\bpasseios? de barco na Madeira\b/i, /\bobservação de (?:baleias|golfinhos|cetáceos)\b/i],
+      es: [/\b(?:excursi(?:ón|ones)|paseos?|salidas?) en barco (?:en|por) Madeira\b/i, /\bavistamiento de (?:ballenas|delfines|cetáceos)\b/i],
+      it: [/\b(?:gita|gite|escursion[ei]|uscit[ae]) in barca a Madeira\b/i, /\bavvistamento (?:di )?(?:balene|delfini|cetacei)\b/i],
+    } },
 ];
 // topical pages first; the home page always gets a slot when it has a match
 const ORDER = ["private", "sunset", "day", "faja", "cabo", "rental", "best"];
@@ -172,11 +180,12 @@ for (const [lang, rel] of files) {
   const pats = (t) => [...(t.pat[lang] || []), ...(t.pat.all || [])];
 
   const candidates = TARGETS.map((t) => ({ t, url: t.url(lang), n: countMatches(text, pats(t)) }))
-    .filter((c) => c.url && c.n > 0 && !linked.has(c.url) && !(c.t.id === "rental" || c.t.id === "best" ? lang !== "en" : false));
+    .filter((c) => c.url && c.n > 0 && !linked.has(c.url) && !(c.t.id === "rental" ? lang !== "en" : false));
   const topical = candidates.filter((c) => c.t.id !== "home")
     .sort((a, b) => (lang !== "en" ? (a.t.enOnly ? 1 : 0) - (b.t.enOnly ? 1 : 0) : 0) || b.n - a.n || ORDER.indexOf(a.t.id) - ORDER.indexOf(b.t.id));
   const homeC = candidates.find((c) => c.t.id === "home");
-  const queue = [...topical.slice(0, 1), ...(homeC ? [homeC] : []), ...topical.slice(1)];
+  const bestC = topical.find((c) => c.t.id === "best"), rest = topical.filter((c) => c !== bestC);
+  const queue = [...(bestC ? [bestC] : []), ...rest.slice(0, 1), ...(homeC ? [homeC] : []), ...rest.slice(1)];
 
   for (const c of queue) {
     if (added >= cap) break;
@@ -199,9 +208,12 @@ for (const [lang, rel] of files) {
 
 // ---------- footer: the landing pages in the "Book" column ----------
 const ROUTES = {
-  en: [["/private-boat-tour-madeira", "Private boat tour"], ["/cabo-girao-boat-tour", "Cabo Girão boat tour"], ["/faja-dos-padres-boat-trip", "Fajã dos Padres trip"], ["/boat-rental-with-skipper-funchal", "Boat with skipper"], ["/best-boat-trips-madeira", "Best boat trips compared"]],
-  fr: [["/fr/private-boat-tour-madeira", "Excursion en bateau privé"]],
-  de: [["/de/private-boat-tour-madeira", "Private Bootstour"]],
+  en: [["/private-boat-tour-madeira", "Private boat tour"], ["/cabo-girao-boat-tour", "Cabo Girão boat tour"], ["/faja-dos-padres-boat-trip", "Fajã dos Padres trip"], ["/boat-rental-with-skipper-funchal", "Boat with skipper"], ["/best-boat-trips-madeira", "Boat trips in Madeira"]],
+  fr: [["/fr/private-boat-tour-madeira", "Excursion en bateau privé"], ["/fr/best-boat-trips-madeira", "Excursions en bateau à Madère"]],
+  de: [["/de/private-boat-tour-madeira", "Private Bootstour"], ["/de/best-boat-trips-madeira", "Bootstouren auf Madeira"]],
+  pt: [["/pt/best-boat-trips-madeira", "Passeios de barco na Madeira"]],
+  es: [["/es/best-boat-trips-madeira", "Excursiones en barco en Madeira"]],
+  it: [["/it/best-boat-trips-madeira", "Gite in barca a Madeira"]],
 };
 let footerFiles = 0;
 const SKIP = new Set(["node_modules", "scripts", "ig", "ig-auto", "social", "social-drive", "social-iphone", "story-9x16", "zz-test", "vendor", "assets", "print"]);

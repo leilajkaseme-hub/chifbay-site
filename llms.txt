@@ -1,42 +1,56 @@
 # Chifbay
 
-> Private boat charter company in Funchal, Madeira, Portugal. One boat, one group at a time — never a shared tour. Whole-boat flat pricing for up to 5 guests, direct online booking with live availability and instant card payment.
+> Private boat trips in Madeira, from Marina do Funchal, Portugal. One boat, one group at a time, never a shared tour. A flat price for the whole boat, up to 5 guests, two licensed local skippers, direct online booking with live availability.
 
-Last updated: 2026-10-09
+Last updated: 2026-10-18
 
-Chifbay is a licensed maritime tourism operator. Vessel registration (Matrícula) 144363-3PT, insurance policy (Nº de Apólice) BR66385591.
+Chifbay is a licensed maritime tourism operator in Funchal, Madeira (RNAAT 305/2026, company CHIF&CO, Lda, NIPC 518603750). Vessel registration (Matrícula) 144363-3PT, insurance policy (Nº de Apólice) BR66385591.
 
-Chifbay operates a single private boat, a 2026 Karnic R8S (9 metres, Mercury V8 300hp), crewed by two Chifbay skippers on every trip. Every trip is exclusive to one group — Chifbay never mixes guests from different bookings on the same boat. There is a bathroom on board. Local wine, poncha, beer, soft drinks and snacks are included in the price on every trip, at no extra charge.
+Chifbay runs a single private boat, a 2026 Karnic R8S (9 metres, Mercury V8 300 hp, swim platform, bathroom on board), crewed by two Chifbay skippers on every trip. Guests from different bookings are never mixed.
 
-Two trips are offered, both departing Marina do Funchal, Pontoon C:
+## The trips
 
-- **Day Trip** — departs 10:00 or 14:00. 2h30 (€500, turns at Ribeira Brava) or 3h (€600, continues 30 minutes further west to Ponta do Sol). Swimming and paddle boarding at Fajã dos Padres, a cove reachable only by boat. Insta360 360° video, drone footage from above (weather allowing) and high quality photos taken with a real camera are included on every trip, and so is food on board. Free cancellation up to 24 hours before departure.
-- **Sunset Trip** — departs 1 h 15 before sunset, so the time follows the season (about 16:45 in December, 20:00 in June). 2h (€400, turns at Cabo Girão) or 2h30 (€500, continues to Ribeira Brava). No swimming (the water is too cold by then). The same Insta360 360° video, drone footage (weather allowing), camera photos, drinks and food on board, plus complimentary Portuguese wine.
+Both trips leave from Marina do Funchal, Pontoon C. Prices are for the whole boat, not per person.
 
-All prices are a flat rate for the whole boat, not per person.
+- **Day trip with a swim**: leaves at 10:00 or 14:00. 2 h 30 for 500 EUR (turns at Ribeira Brava) or 3 h for 600 EUR (on to Ponta do Sol). Câmara de Lobos, Cabo Girão (a sea cliff of about 580 m), a swim and paddle boards at Fajã dos Padres, a cove no road reaches.
+- **Sunset trip**: leaves 1 h 15 before sunset, all year, so the time moves with the season (about 16:45 in December, about 20:00 in June). 2 h for 400 EUR (turns at Cabo Girão) or 2 h 30 for 500 EUR (on to Ribeira Brava). No swim stop. Complimentary Portuguese wine.
+- **Every trip includes**: food and drinks on board (local wine, poncha, beer, soft drinks, snacks), an Insta360 360° video, drone footage from above (weather allowing) and photos taken with a real camera.
+- **Cancellation**: free up to 24 hours before departure.
+- **Special night**: New Year's Eve fireworks from the water, 31 December 2026, 22:00 to 01:00, 3,000 EUR for the whole boat, everything included.
+
+## Quick answers about boat trips in Madeira
+
+- **How much does a boat trip in Madeira cost?** On GetYourGuide (our count of 58 listings, 11 August 2026), shared trips had a median of 59 EUR per person and private boats a median of 537 EUR for the whole boat. Chifbay costs 400 to 600 EUR for the whole boat, up to 5 guests (80 EUR each for five on the 2 h sunset trip).
+- **Where do boat trips leave from?** Most leave from Marina do Funchal, in the city centre. A few operators work from Calheta, on the west of the south coast.
+- **What kinds of boat trips are there?** Shared catamarans, whale and dolphin watching, sailing, and private boats. A full comparison with nine named operators: https://chifbay.com/best-boat-trips-madeira
+- **Which boat trip goes to Cabo Girão and Fajã dos Padres?** Every Chifbay trip goes to Cabo Girão; the day trip also stops to swim at Fajã dos Padres.
+- **Are dolphins guaranteed?** No trip can promise wild animals. On Chifbay's coastal trips dolphins are a bonus, never a promise. For whales and dolphins, a specialist whale watching operator is the better pick.
+- **Is it good for cruise passengers?** Marina do Funchal is on the same seafront as the cruise port, so a 2 or 3 hour trip fits most port days. Choose a trip that ends well before all aboard.
+- **How many people fit?** Up to 5 guests. For 6 to 12 people, a larger private boat from another operator suits better.
 
 ## Key pages
 
-- [Home](https://chifbay.com/): overview, FAQ, reviews, location
-- [Book a boat](https://chifbay.com/book): live calendar, instant card payment via Stripe, both trips
-- [Day Trip details](https://chifbay.com/hidden-coves-half-day): route, itinerary, FAQ
-- [Sunset Trip details](https://chifbay.com/sunset-cruise): route, itinerary, FAQ
-- [Private boat tour guide](https://chifbay.com/private-boat-tour-madeira): full overview, comparison vs shared catamarans, rates, FAQs
-- [Cabo Girão boat tour](https://chifbay.com/cabo-girao-boat-tour): the 580 m sea cliff from the water, 9 km west of Funchal; every Chifbay trip goes there
-- [Fajã dos Padres boat trip](https://chifbay.com/faja-dos-padres-boat-trip): the cove with no road in, swim and paddle stop of the day trip
-- [Boat rental with skipper in Funchal](https://chifbay.com/boat-rental-with-skipper-funchal): private charter with two licensed skippers; no self drive rental
-- [Best boat trips in Madeira (2026)](https://chifbay.com/best-boat-trips-madeira): private, shared, sailing and whale watching compared, with typical prices and named operators
-- [Private boat tour, in German](https://chifbay.com/de/private-boat-tour-madeira) and [in French](https://chifbay.com/fr/private-boat-tour-madeira)
-- [Private boat vs catamaran guide](https://chifbay.com/private-boat-vs-catamaran-madeira): objective comparison of costs, crowds, dolphin watching and swim stops
-- [All experiences](https://chifbay.com/experiences)
-- [The Story](https://chifbay.com/about): the boat, the crew, why Chifbay is one boat and not a fleet
-- [Reviews](https://chifbay.com/reviews): verified guest reviews, 5.0 average
-- [Contact](https://chifbay.com/contact): phone, email, WhatsApp, general FAQ
-- [Journal](https://chifbay.com/blog): guides to Madeira — beaches, viewpoints, food, practical travel information
+- [Home](https://chifbay.com/): private boat trips in Madeira, overview, reviews, FAQ
+- [Book](https://chifbay.com/book): live calendar, card payment, both trips
+- [Boat trips in Madeira, compared (2026)](https://chifbay.com/best-boat-trips-madeira): private, shared, sailing and whale watching, prices, departure points, nine operators
+- [Day trip](https://chifbay.com/hidden-coves-half-day) · [Sunset trip](https://chifbay.com/sunset-cruise)
+- [Private boat tour in Madeira](https://chifbay.com/private-boat-tour-madeira) · [Cabo Girão boat tour](https://chifbay.com/cabo-girao-boat-tour) · [Fajã dos Padres boat trip](https://chifbay.com/faja-dos-padres-boat-trip) · [Boat with skipper in Funchal](https://chifbay.com/boat-rental-with-skipper-funchal)
+- [New Year's Eve fireworks by boat](https://chifbay.com/new-years-eve-fireworks-boat-madeira)
+- [Practical info](https://chifbay.com/practical): sunset departure time for each month, what to bring, meeting point
+- [Reviews](https://chifbay.com/reviews): verified guest reviews from Google, GetYourGuide and Tripadvisor, 5.0 average
+- [Journal](https://chifbay.com/blog): guides to Madeira (food, places, events, practical travel)
+
+## In other languages
+
+- Português: [Passeios de barco na Madeira](https://chifbay.com/pt/best-boat-trips-madeira) · [Início](https://chifbay.com/pt/) · [Passeio ao pôr do sol](https://chifbay.com/pt/sunset-cruise) · [Passeio de dia](https://chifbay.com/pt/hidden-coves-half-day)
+- Deutsch: [Bootstouren auf Madeira](https://chifbay.com/de/best-boat-trips-madeira) · [Private Bootstour](https://chifbay.com/de/private-boat-tour-madeira) · [Startseite](https://chifbay.com/de/) · [Sonnenuntergang](https://chifbay.com/de/sunset-cruise)
+- Français: [Excursions en bateau à Madère](https://chifbay.com/fr/best-boat-trips-madeira) · [Bateau privé](https://chifbay.com/fr/private-boat-tour-madeira) · [Accueil](https://chifbay.com/fr/) · [Coucher de soleil](https://chifbay.com/fr/sunset-cruise)
+- Español: [Excursiones en barco en Madeira](https://chifbay.com/es/best-boat-trips-madeira) · [Inicio](https://chifbay.com/es/) · [Atardecer](https://chifbay.com/es/sunset-cruise)
+- Italiano: [Gite in barca a Madeira](https://chifbay.com/it/best-boat-trips-madeira) · [Home](https://chifbay.com/it/) · [Tramonto](https://chifbay.com/it/sunset-cruise)
 
 ## Contact
 
-- Phone / WhatsApp: +351 937 200 320
+- Phone and WhatsApp: +351 937 200 320
 - Email: hello@chifbay.com
-- Departure point: Marina do Funchal, 9000-055 Funchal, Madeira, Portugal (32.6442° N, 16.9165° W)
+- Departure point: Marina do Funchal, Pontoon C, 9000-055 Funchal, Madeira, Portugal (32.6460° N, 16.9105° W)
 - Instagram: https://www.instagram.com/chifbay

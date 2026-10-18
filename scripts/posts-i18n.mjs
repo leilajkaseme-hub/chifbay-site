@@ -270,7 +270,7 @@ const FACTS = [
 
 /** Chifbay pages that exist in this language, for the model to link to. */
 function langPages(lang) {
-  return ["", "experiences", "sunset-cruise", "hidden-coves-half-day", "private-boat-tour-madeira", "practical", "blog", "reviews"]
+  return ["", "best-boat-trips-madeira", "experiences", "sunset-cruise", "hidden-coves-half-day", "private-boat-tour-madeira", "practical", "blog", "reviews"]
     .filter((n) => fs.existsSync(path.join(ROOT, lang, n ? `${n}.html` : "index.html")))
     .map((n) => `/${lang}/${n}`);
 }

@@ -82,6 +82,7 @@ jobs:
           else
             node scripts/posts-i18n.mjs --budget "$BUDGET"
           fi
+          node scripts/sitemap-lastmod.mjs --write
 
       # A run that translated nothing new must not create an empty commit —
       # that would spam the history and trigger a pointless Pages rebuild.
