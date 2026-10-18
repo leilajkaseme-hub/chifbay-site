@@ -41,7 +41,14 @@ const SAME_AS = [
   "https://www.getyourguide.com/funchal-l1026/luxury-sunset-yacht-experience-madeira-t1314963/",
   "https://www.getyourguide.com/funchal-l1026/romantic-sunset-cruise-madeira-private-yacht-t1342794/",
   "https://apps.apple.com/app/id6811650007",
+  // added 18 Oct 2026: the GetYourGuide supplier page lists the tours under "Chif & Co", Threads, the Tripadvisor tour page
+  "https://www.getyourguide.com/chif--co-s753880/",
+  "https://www.threads.com/@chifbay",
+  "https://www.tripadvisor.com/Attraction_Review-g2590007-d34387047-Reviews-Chifbay_Private_Boat_Tours_Funchal_Madeira-Sao_Martinho_Funchal_Madeira_Madeira.html",
 ];
+// the legal company name and the name GetYourGuide shows, tied to the brand (AI audit of 18 Oct 2026)
+const LEGAL_NAME = "CHIF&CO, Lda";
+const ALT_NAMES = ["Chif & Co", "CHIF&CO", "Chifbay Private Boat Tours"];
 const LOGO = `${SITE}/assets/logo-dark.png`;
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -131,6 +138,8 @@ for (const rel of files) {
         if (t.includes("LocalBusiness") || t.includes("Organization")) {
           if (n.logo !== LOGO) { n.logo = LOGO; touched = true; }
           if (JSON.stringify(n.sameAs) !== JSON.stringify(SAME_AS)) { n.sameAs = SAME_AS; touched = true; }
+          if (n.legalName !== LEGAL_NAME) { n.legalName = LEGAL_NAME; touched = true; }
+          if (JSON.stringify(n.alternateName) !== JSON.stringify(ALT_NAMES)) { n.alternateName = ALT_NAMES; touched = true; }
           if (t.includes("LocalBusiness") && !n.areaServed) { n.areaServed = { "@type": "AdministrativeArea", name: "Madeira" }; touched = true; }
           // what the business sells and knows, so search engines and AI assistants tie Chifbay to boat trips in
           // Madeira (18 Oct 2026). Prices: booking-api/catalog.js (whole boat, up to 5 guests).
