@@ -1,0 +1,36 @@
+{
+  "slug": "top-10-madeira-sweets-and-pastries",
+  "title": "Top 10 Madeira Sweets and Pastries to Try",
+  "category": "Top 10",
+  "date": "2026-11-01",
+  "description": "Top 10 Madeira sweets and pastries to try: honey cake, queijada, passion fruit pudding, malasadas and more, plus where to find them in Funchal and beyond.",
+  "heroImage": "assets/journal/top-10-madeira-sweets-and-pastries-hero.jpg",
+  "heroAlt": "A table of Madeira sweets and pastries including honey cake and queijadas beside a cup of coffee",
+  "readingMinutes": 5,
+  "keywords": [
+    "Madeira sweets",
+    "Madeira pastries",
+    "Madeira desserts",
+    "bolo de mel",
+    "queijada da Madeira",
+    "broas de mel",
+    "passion fruit dessert Madeira",
+    "what to eat in Funchal"
+  ],
+  "written": "2026-11-01",
+  "queued": "2026-10-18T18:14:54.296Z",
+  "images": [
+    {
+      "prompt": "Photograph of a wooden bakery table in Funchal, Madeira, with slices of dark honey cake, small cheese tarts and a cup of coffee, soft morning window light, shot from slightly above.",
+      "alt": "Madeira honey cake, cheese tarts and coffee on a bakery table"
+    },
+    {
+      "prompt": "Close-up photograph of golden queijada cheese tarts on a tray in a traditional Madeira pastelaria, warm natural light.",
+      "alt": "Fresh queijada cheese tarts on a bakery tray"
+    },
+    {
+      "prompt": "Photograph of a glass of passion fruit pudding topped with fresh passion fruit pulp on a restaurant terrace table overlooking the sea in Madeira, golden afternoon light.",
+      "alt": "Passion fruit pudding on a terrace table by the sea"
+    }
+  ]
+}
