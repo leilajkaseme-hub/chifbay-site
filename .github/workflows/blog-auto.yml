@@ -117,6 +117,8 @@ jobs:
         run: |
           node scripts/add-marina.mjs --write
           node scripts/add-preferred-source.mjs --write
+          # "By Chifbay" line + "About Chifbay" box (AI answers name the brand they quote)
+          node scripts/add-brand-mentions.mjs --write
           node scripts/add-legal-links.mjs --write
           # every sitemap address keeps the date its page declares (Google re-reads changed pages first)
           node scripts/sitemap-lastmod.mjs --write

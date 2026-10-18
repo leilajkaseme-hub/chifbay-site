@@ -81,6 +81,7 @@ jobs:
           # the Journal index pages carry each article's (new) title
           node scripts/build-blog-index.mjs
           node scripts/add-money-links.mjs --write
+          node scripts/add-brand-mentions.mjs --write
           node scripts/sitemap-lastmod.mjs --write
           if grep -q "FAILED" native.log; then echo "::warning::some articles were refused, see the log"; fi
 

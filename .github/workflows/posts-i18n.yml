@@ -82,6 +82,8 @@ jobs:
           else
             node scripts/posts-i18n.mjs --budget "$BUDGET"
           fi
+          # the byline and the About box in the new page's own language
+          node scripts/add-brand-mentions.mjs --write
           node scripts/sitemap-lastmod.mjs --write
 
       # A run that translated nothing new must not create an empty commit —
