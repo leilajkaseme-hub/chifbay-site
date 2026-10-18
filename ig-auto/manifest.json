@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-17T16:25:57.110Z",
+ "generated_at": "2026-10-18T09:12:23.799Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -509,6 +509,53 @@
    "template": null,
    "priority": 0,
    "created": "2026-10-17T08:54:31.285Z"
+  },
+  {
+   "id": "20261018091211-2ee7",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Madeira from the mountain side: a person in a red jacket, a stone path and a very big drop on both sides.\n\nThey are walking away from us, arms out, one hand on each rope. White woolly hat, black leggings. The path is a thin strip of stone steps along a ridge, and the rock on either side falls away into green and grey.\n\nThe sky is doing the most. Orange streaks across dark cloud, right over the peak. The path does not seem to mind.\n\nThis one is not from the boat, so no sea here. But the island is just as steep where it meets the water, and we see that side from Funchal marina.\n\nOur Day Trip and our Sunset Trip both follow the coast past Câmara de Lobos towards Cabo Girão, one of the highest sea cliffs in Europe. The Day Trip adds a swim and paddle stop at Fajã dos Padres. Both are private, five guests at most, with food on board.\n\nPés firmes na terra, ou no mar.\n\nMountain path or sea cliff, which one would you pick first?",
+   "hashtags": [
+    "#madeiraisland",
+    "#visitmadeira",
+    "#atlanticocean",
+    "#funchalboattrip",
+    "#seacliffs",
+    "#coastline",
+    "#islandhopping"
+   ],
+   "cover": "https://chifbay.com/ig/20261018091211-2ee7-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261018091211-2ee7-1.jpg",
+    "https://chifbay.com/ig/20261018091211-2ee7-2.jpg",
+    "https://chifbay.com/ig/20261018091211-2ee7-3.jpg",
+    "https://chifbay.com/ig/20261018091211-2ee7-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-18T09:12:23.791Z"
+  },
+  {
+   "id": "20261018091223-9947",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1kFXctN5-3.jpg",
+   "video": "https://chifbay.com/ig/reel-1kFXctN5-3.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-18T09:12:23.797Z"
   }
  ]
 }
