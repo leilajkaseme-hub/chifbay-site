@@ -1,0 +1,50 @@
+name: ig-auto, look at and cut Drive videos (no download to a disk)
+
+# Manual only. Reads the PUBLISH folder with the same read-only service account as drive-sync, streams the big
+# videos over HTTP and leaves a few small files (contact sheets, cut windows) as a downloadable artifact.
+# Posts nothing, writes nothing to Drive, commits nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "list | sheets | frames | cut"
+        required: true
+        default: list
+      args:
+        description: "arguments of the mode, space separated (see ig-auto/bin/drive-scan.mjs)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Run
+        working-directory: ig-auto
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
+          MODE: ${{ github.event.inputs.mode }}
+          ARGS: ${{ github.event.inputs.args }}
+        run: node bin/drive-scan.mjs "$MODE" $ARGS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drive-scan
+          path: ig-auto/scan-out/
+          retention-days: 3
