@@ -72,3 +72,7 @@ jobs:
       - name: Freshness and Reel rules still hold
         working-directory: ig-auto
         run: node test-freshness.mjs
+
+      - name: Source videos are not planned again
+        working-directory: ig-auto
+        run: node test-sources.mjs

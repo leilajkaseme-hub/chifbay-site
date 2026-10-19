@@ -24,6 +24,7 @@ import { pickAngle, render, writeCaption } from "../lib/caption.mjs";
 import { alert, inbox } from "../lib/notify.mjs";
 import { originsOf, usage, usedWithin, freshFirst } from "../lib/freshness.mjs";
 import { loadReels, saveReels, exists as fileExists } from "../lib/reels.mjs";
+import { recentSources, SOURCE_DAYS } from "../lib/sources.mjs";
 import { writeManifest } from "../lib/manifest.mjs";
 import { readPlan as readPortalPlan } from "../lib/approval.mjs";
 
@@ -213,9 +214,16 @@ function nextClip(kind) {
     ...listQueue().filter((i) => i.media === "video").map((i) => `${i.kind}:${i.origin}`),
   ]);
   const cutoff = Date.now() - (kind === "story" ? 30 : 3650) * 86_400_000;
+  // A video whose footage went out lately (any clip of it, a story or a Reel) rests for SOURCE_DAYS (Theo, 19 Oct 2026).
+  const resting = recentSources({ reels, days: config.video_source_days ?? SOURCE_DAYS });
+  for (const i of listQueue().filter((q) => q.media === "video")) {
+    const c = reels.clips.find((x) => x.clip === i.origin);
+    if (c?.source) resting.add(c.source);
+  }
   const free = reels.clips.filter((c) =>
     c.clip && !c.rejected && fileExists(c.clip) &&
     !busy.has(`${kind}:${c.clip}`) &&
+    !resting.has(c.source) &&
     !((c.used?.[kind] ?? 0) > cutoff));
   // Newest video first, best stretch of it first.
   free.sort((a, b) => (Date.parse(b.added) || 0) - (Date.parse(a.added) || 0) || b.score - a.score);
