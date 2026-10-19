@@ -1,66 +1,123 @@
 <!doctype html>
 <html lang="pt"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b2236">
 <title>Parceiro Chifbay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* The partner's own page: their numbers, their link and the QR their staff show to a guest.
+     Chifbay look: navy, gold for what matters, DM Serif Display titles, cool near white (never beige). */
   :root{
-    --bg:#f6f8fa; --card:#fff; --ink:#0d1b23; --soft:#5c6f7a; --line:#dfe6ea;
-    --accent:#0a6d94; --good:#0b7a52; --bad:#a3341f; --shadow:0 1px 2px rgba(13,27,35,.06),0 4px 16px rgba(13,27,35,.05);
+    --navy:#0b2236; --navy-2:#13314c; --gold:#b98d3e; --gold-ink:#8a6718;
+    --bg:#f4f6f9; --card:#fff; --ink:#0b2236; --soft:#5d7183; --line:#e3e9ef;
+    --good:#0b7a52; --bad:#a3341f;
+    --shadow:0 1px 2px rgba(11,34,54,.05),0 18px 40px -26px rgba(11,34,54,.35);
+    --serif:"DM Serif Display",Georgia,serif; --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   @media (prefers-color-scheme:dark){
-    :root{ --bg:#0b1720; --card:#122531; --ink:#e9f2f7; --soft:#93a9b5; --line:#1e3947;
-           --accent:#4bb8e0; --good:#3fbc8b; --bad:#e2745a; --shadow:none }
+    :root{ --bg:#071722; --card:#0f2738; --ink:#eef4f8; --soft:#93a9b8; --line:#1d3b52; --gold-ink:#d9b26a;
+           --good:#3fbc8b; --bad:#e2745a; --shadow:none }
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-       font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-       -webkit-font-smoothing:antialiased}
-  .wrap{max-width:640px;margin:0 auto;padding:20px 16px 56px}
-  header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:4px}
-  h1{font-size:1.35rem;margin:0;letter-spacing:-.01em}
-  .sub{color:var(--soft);font-size:.85rem;margin:2px 0 18px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-        padding:16px;margin-bottom:14px;box-shadow:var(--shadow)}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
-  .kpi .n{font-size:1.7rem;font-weight:650;letter-spacing:-.02em;line-height:1.1}
-  .kpi .l{color:var(--soft);font-size:.78rem;margin-top:3px}
-  .kpi.hero .n{color:var(--accent)}
-  h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);
-     margin:22px 0 8px;font-weight:650}
-  table{width:100%;border-collapse:collapse;font-size:.9rem}
-  th{text-align:left;font-weight:600;color:var(--soft);font-size:.75rem;
-     text-transform:uppercase;letter-spacing:.05em;padding:0 0 8px}
-  td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
-  td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
-  .tag{display:inline-block;font-size:.7rem;padding:1px 7px;border-radius:20px;
-       border:1px solid var(--line);color:var(--soft);white-space:nowrap}
-  .tag.ref{color:var(--bad);border-color:var(--bad)}
-  .neg{color:var(--bad)}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px 56px}
+
+  /* hero */
+  .hero{background:radial-gradient(120% 140% at 100% 0%,var(--navy-2) 0%,var(--navy) 60%);color:#fff;
+        padding:18px 0 30px;margin-bottom:-18px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .bar img{height:22px;width:auto;display:block}
+  .bar .pill{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+  .refresh{font:inherit;font-size:.82rem;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+           border-radius:999px;padding:7px 14px;cursor:pointer;min-height:36px}
+  .refresh:hover{background:rgba(255,255,255,.14)}
+  .eyebrow{margin:30px 0 6px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  h1{font:400 clamp(1.9rem,6vw,2.6rem)/1.08 var(--serif);margin:0;letter-spacing:-.005em}
+  .meta{color:rgba(255,255,255,.66);font-size:.84rem;margin:8px 0 0}
+  .big{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:26px}
+  .big .n{font:400 clamp(2.6rem,10vw,3.6rem)/1 var(--serif);color:#e0bd78;letter-spacing:-.01em}
+  .big .l{font-size:.82rem;color:rgba(255,255,255,.7);margin-top:6px}
+  .big .rate{border:1px solid rgba(185,141,62,.55);color:#e0bd78;border-radius:999px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+
+  /* cards */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);margin-bottom:14px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0;overflow:hidden}
+  .kpi{padding:16px 16px 15px}
+  .kpi+.kpi{border-left:1px solid var(--line)}
+  .kpi .n{font:400 1.75rem/1.1 var(--serif)}
+  .kpi .l{color:var(--soft);font-size:.76rem;margin-top:4px}
+  @media (max-width:430px){ .kpi{padding:14px 10px} .kpi .n{font-size:1.45rem} }
+  h2{font:400 1.25rem/1.2 var(--serif);margin:28px 2px 10px}
+  .note{color:var(--soft);font-size:.8rem;margin:2px 2px 0}
+
+  /* QR */
+  .qr{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+  .qrbox{background:#fff;border-radius:14px;padding:10px;border:1px solid var(--line);cursor:zoom-in;
+         width:150px;height:150px;transition:transform .2s ease,box-shadow .2s ease}
+  .qrbox:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .qrbox svg{width:100%;height:100%;display:block}
+  .qr h3{font:400 1.2rem/1.2 var(--serif);margin:0 0 6px}
+  .qr p{color:var(--soft);font-size:.86rem;margin:0 0 12px}
   .link{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-  code{background:var(--bg);border:1px solid var(--line);border-radius:7px;
-       padding:5px 9px;font-size:.85rem;word-break:break-all}
-  button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);
-         border-radius:9px;padding:7px 13px;cursor:pointer}
-  button:active{transform:translateY(1px)}
-  .foot{color:var(--soft);font-size:.78rem;margin-top:8px}
-  .empty{text-align:center;padding:26px 10px;color:var(--soft)}
-  .empty strong{display:block;color:var(--ink);font-size:1.02rem;margin-bottom:5px}
+  code{font:500 .86rem var(--sans);background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:7px 10px;word-break:break-all;color:var(--ink)}
+  .btn{font:500 .84rem var(--sans);border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;
+       padding:8px 14px;cursor:pointer;min-height:38px}
+  .btn.gold{background:var(--navy);color:#fff;border-color:var(--navy)}
+  @media (prefers-color-scheme:dark){ .btn.gold{background:var(--gold);border-color:var(--gold);color:#071722} }
+  .btn:active,.refresh:active{transform:translateY(1px)}
+  @media (max-width:520px){ .qr{grid-template-columns:1fr;justify-items:center;text-align:center} .link{justify-content:center} .qrbox{width:190px;height:190px} }
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;font-size:.9rem}
+  th{text-align:left;font-weight:500;color:var(--soft);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;padding:0 0 10px}
+  td{padding:11px 0;border-top:1px solid var(--line);vertical-align:middle}
+  td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+  td.c{color:var(--gold-ink);font-weight:600}
+  .tag{display:inline-block;font-size:.68rem;padding:2px 8px;border-radius:20px;border:1px solid var(--bad);color:var(--bad);margin-left:6px}
+  .neg{color:var(--bad)}
+  .empty{text-align:center;padding:22px 10px;color:var(--soft)}
+  .empty strong{display:block;color:var(--ink);font:400 1.15rem var(--serif);margin-bottom:4px}
   .err{border-color:var(--bad)}
-  .spin{opacity:.45}
+  .spin{opacity:.5;transition:opacity .2s}
+  .foot{text-align:center;color:var(--soft);font-size:.76rem;margin-top:26px}
+
+  /* full screen QR, to show a guest */
+  .zoom{position:fixed;inset:0;z-index:50;background:#fff;color:#0b2236;display:none;flex-direction:column;align-items:center;
+        justify-content:center;gap:18px;padding:24px;text-align:center;cursor:zoom-out}
+  .zoom.on{display:flex}
+  .zoom .q{width:min(82vw,62vh,560px);aspect-ratio:1}
+  .zoom .q svg{width:100%;height:100%;display:block}
+  .zoom .t{font:400 clamp(1.4rem,5vw,2rem)/1.15 var(--serif)}
+  .zoom .s{font-size:.95rem;color:#5d7183}
+  .zoom img{height:26px;width:auto}
+  .zoom .x{position:absolute;top:max(14px,env(safe-area-inset-top));right:16px;font:500 .85rem var(--sans);color:#5d7183;
+           border:1px solid #e3e9ef;border-radius:999px;padding:8px 14px;background:#fff}
 </style>
 </head><body>
-<div class="wrap" id="app"><p class="sub">A carregar…</p></div>
+<div id="app"><div class="hero"><div class="wrap"><div class="bar"><img src="/assets/logo-white.png" alt="Chifbay" width="110" height="22"></div>
+  <p class="meta" style="margin-top:28px">A carregar…</p></div></div></div>
+<div class="zoom" id="zoom" role="dialog" aria-modal="true" aria-label="Código QR em grande">
+  <button class="x" type="button">Fechar</button>
+  <img src="/assets/logo-dark.png" alt="Chifbay" width="130" height="26">
+  <div class="q" id="zq"></div>
+  <div class="t">Passeios privados de barco</div>
+  <div class="s" id="zl"></div>
+</div>
 
+<script src="/vendor/qrcode/qrcode.min.js"></script>
 <script>
 (function () {
   "use strict";
   var API = "https://chifbay-booking-api.chifandcopt.workers.dev/v1/partner";
   var app = document.getElementById("app");
+  var zoom = document.getElementById("zoom");
   var token = new URLSearchParams(location.search).get("k") || "";
-  var data = null, fetchedAt = 0, timer = null;
+  var data = null, fetchedAt = 0;
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -68,13 +125,16 @@
     });
   }
   function eur(cents) {
-    return (Math.round(cents || 0) / 100).toLocaleString("pt-PT",
-      { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+    return (Math.round(cents || 0) / 100).toLocaleString("pt-PT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   }
   function monthName(m) {
     var p = String(m).split("-");
-    var d = new Date(Date.UTC(+p[0], +p[1] - 1, 1));
-    return d.toLocaleDateString("pt-PT", { month: "long", year: "numeric", timeZone: "UTC" });
+    var t = new Date(Date.UTC(+p[0], +p[1] - 1, 1)).toLocaleDateString("pt-PT", { month: "long", year: "numeric", timeZone: "UTC" });
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  }
+  function dayName(d) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(d || "")) return esc(d || "");
+    return new Date(d + "T12:00:00Z").toLocaleDateString("pt-PT", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
   }
   function ago(ms) {
     var s = Math.max(0, Math.round((Date.now() - ms) / 1000));
@@ -84,91 +144,128 @@
     var h = Math.round(m / 60);
     return "há " + h + " hora" + (h === 1 ? "" : "s");
   }
+  // the same address as the QR on the reception card: chifbay.com/<slug>
+  function qrSvg(text) {
+    if (typeof qrcode !== "function") return "";
+    var q = qrcode(0, "Q"); q.addData(text); q.make();
+    return q.createSvgTag({ cellSize: 8, margin: 2, scalable: true });
+  }
 
   function thisMonth(d) {
     var now = new Date();
     var k = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0");
-    var prevD = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-    var pk = prevD.getFullYear() + "-" + String(prevD.getMonth() + 1).padStart(2, "0");
-    var byMonth = {};
-    (d.months || []).forEach(function (m) { byMonth[m.month] = m; });
+    var pd = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    var pk = pd.getFullYear() + "-" + String(pd.getMonth() + 1).padStart(2, "0");
+    var by = {}; (d.months || []).forEach(function (m) { by[m.month] = m; });
     var zero = { visits: 0, sales: 0, refunds: 0, gross: 0, commission: 0 };
-    return { cur: byMonth[k] || zero, prev: byMonth[pk] || zero, curKey: k, prevKey: pk };
+    return { cur: by[k] || zero, prev: by[pk] || zero, curKey: k, prevKey: pk };
   }
 
   function render() {
-    var d = data, t = d.totals, m = thisMonth(d);
+    var d = data, t = d.totals, m = thisMonth(d), qr = qrSvg(d.link);
     var rows = (d.recent || []).map(function (r) {
       var ref = r.state === "refunded" || r.state === "cancelled";
-      return '<tr><td>' + esc(r.date || "") +
-        (ref ? ' <span class="tag ref">' + (r.state === "refunded" ? "reembolsado" : "cancelado") + "</span>" : "") +
-        '</td><td class="r">' + (r.guests || "") +
-        '</td><td class="r">' + eur(r.amount) +
-        '</td><td class="r' + (ref ? " neg" : "") + '">' +
-        (ref ? "0" : eur(r.commission)) + "</td></tr>";
+      return "<tr><td>" + dayName(r.date) +
+        (ref ? '<span class="tag">' + (r.state === "refunded" ? "reembolsado" : "cancelado") + "</span>" : "") +
+        '</td><td class="r">' + (r.guests || "") + '</td><td class="r">' + eur(r.amount) +
+        '</td><td class="r ' + (ref ? "neg" : "c") + '">' + (ref ? "0" : eur(r.commission)) + "</td></tr>";
     }).join("");
-
     var monthRows = (d.months || []).map(function (x) {
-      return "<tr><td>" + esc(monthName(x.month)) +
-        '</td><td class="r">' + x.visits +
+      return '<tr><td>' + esc(monthName(x.month)) + '</td><td class="r">' + x.visits +
         '</td><td class="r">' + x.sales + (x.refunds ? ' <span class="neg">(' + x.refunds + ")</span>" : "") +
-        '</td><td class="r">' + eur(x.commission) + "</td></tr>";
+        '</td><td class="r c">' + eur(x.commission) + "</td></tr>";
     }).join("");
+    var conv = t.visits ? Math.round((t.sales / t.visits) * 100) + "%" : "0%";
 
     app.innerHTML =
-      '<header><h1>' + esc(d.partner) + "</h1>" +
-      '<button id="rf">Atualizar</button></header>' +
-      '<p class="sub">Comissão de ' + Math.round(d.rate * 100) + "% · atualizado <span id=\"ago\">" + ago(fetchedAt) + "</span></p>" +
+      '<div class="hero"><div class="wrap">' +
+        '<div class="bar"><img src="/assets/logo-white.png" alt="Chifbay" width="110" height="22">' +
+          '<button class="refresh" id="rf" type="button">Atualizar</button></div>' +
+        '<p class="eyebrow">Painel do parceiro</p>' +
+        "<h1>" + esc(d.partner) + "</h1>" +
+        '<p class="meta">Atualizado <span id="ago">' + ago(fetchedAt) + "</span></p>" +
+        '<div class="big"><div><div class="n">' + eur(t.commission) + '</div><div class="l">comissão acumulada</div></div>' +
+          '<div class="rate">Comissão de ' + Math.round(d.rate * 100) + "%</div></div>" +
+      "</div></div>" +
 
-      '<div class="grid">' +
-        '<div class="kpi hero"><div class="n">' + eur(t.commission) + '</div><div class="l">comissão acumulada</div></div>' +
-        '<div class="kpi"><div class="n">' + t.sales + '</div><div class="l">reservas confirmadas</div></div>' +
-        '<div class="kpi"><div class="n">' + t.visits + '</div><div class="l">visitas ao vosso link</div></div>' +
-        '<div class="kpi"><div class="n">' + eur(t.gross) + '</div><div class="l">valor das reservas</div></div>' +
-      "</div>" +
-      '<p class="foot">As visitas aparecem em cerca de um minuto. ' +
-        (t.refunds ? t.refunds + " reserva(s) reembolsada(s), já descontada(s)." : "") + "</p>" +
+      '<div class="wrap">' +
+        '<div class="card kpis">' +
+          '<div class="kpi"><div class="n">' + t.sales + '</div><div class="l">reservas confirmadas</div></div>' +
+          '<div class="kpi"><div class="n">' + t.visits + '</div><div class="l">visitas ao vosso link</div></div>' +
+          '<div class="kpi"><div class="n">' + eur(t.gross) + '</div><div class="l">valor das reservas</div></div>' +
+        "</div>" +
+        '<p class="note">As visitas aparecem em cerca de um minuto. Taxa de reserva: ' + conv + "." +
+          (t.refunds ? " " + t.refunds + " reserva(s) reembolsada(s), já descontada(s)." : "") + "</p>" +
 
-      '<h2>Este mês e o anterior</h2><div class="card"><table>' +
-        "<tr><th></th><th class=\"r\">visitas</th><th class=\"r\">reservas</th><th class=\"r\">comissão</th></tr>" +
-        "<tr><td>" + esc(monthName(m.curKey)) + '</td><td class="r">' + m.cur.visits +
-          '</td><td class="r">' + m.cur.sales + '</td><td class="r">' + eur(m.cur.commission) + "</td></tr>" +
-        "<tr><td>" + esc(monthName(m.prevKey)) + '</td><td class="r">' + m.prev.visits +
-          '</td><td class="r">' + m.prev.sales + '</td><td class="r">' + eur(m.prev.commission) + "</td></tr>" +
-      "</table></div>" +
+        "<h2>O vosso código QR</h2>" +
+        '<div class="card qr">' +
+          (qr ? '<div class="qrbox" id="qr" role="button" tabindex="0" aria-label="Ver o código QR em grande">' + qr + "</div>" : "") +
+          "<div><h3>Mostre-o a um hóspede</h3>" +
+            "<p>O hóspede aponta a câmara do telemóvel e chega à nossa página. Cada reserva feita assim conta para vós." +
+            (qr ? " Toque no código para o ver em ecrã inteiro." : "") + "</p>" +
+            '<div class="link"><code>' + esc(d.link.replace(/^https:\/\//, "")) + "</code>" +
+              '<button class="btn" id="cp" type="button">Copiar</button>' +
+              (qr ? '<button class="btn gold" id="big" type="button">Ecrã inteiro</button>' : "") + "</div></div>" +
+        "</div>" +
 
-      "<h2>Reservas</h2><div class=\"card\">" +
-        (rows
-          ? '<table><tr><th>data</th><th class="r">pax</th><th class="r">valor</th><th class="r">comissão</th></tr>' + rows + "</table>"
-          : '<div class="empty"><strong>Sem reservas ainda.</strong>O vosso link teve ' + t.visits +
-            " visita" + (t.visits === 1 ? "" : "s") + ".</div>") +
-      "</div>" +
+        "<h2>Este mês e o anterior</h2><div class=\"card\"><table>" +
+          '<tr><th></th><th class="r">visitas</th><th class="r">reservas</th><th class="r">comissão</th></tr>' +
+          '<tr><td>' + esc(monthName(m.curKey)) + '</td><td class="r">' + m.cur.visits +
+            '</td><td class="r">' + m.cur.sales + '</td><td class="r c">' + eur(m.cur.commission) + "</td></tr>" +
+          '<tr><td>' + esc(monthName(m.prevKey)) + '</td><td class="r">' + m.prev.visits +
+            '</td><td class="r">' + m.prev.sales + '</td><td class="r c">' + eur(m.prev.commission) + "</td></tr>" +
+        "</table></div>" +
 
-      (monthRows ? "<h2>Por mês</h2><div class=\"card\"><table>" +
-        '<tr><th>mês</th><th class="r">visitas</th><th class="r">reservas</th><th class="r">comissão</th></tr>' +
-        monthRows + "</table></div>" : "") +
+        "<h2>Reservas</h2><div class=\"card\">" +
+          (rows
+            ? '<table><tr><th>data</th><th class="r">pessoas</th><th class="r">valor</th><th class="r">comissão</th></tr>' + rows + "</table>"
+            : '<div class="empty"><strong>Ainda sem reservas</strong>O vosso link teve ' + t.visits + " visita" + (t.visits === 1 ? "" : "s") + ".</div>") +
+        "</div>" +
 
-      '<h2>O vosso link</h2><div class="card"><div class="link"><code>' + esc(d.link) + "</code>" +
-        '<button id="cp">Copiar</button></div>' +
-        '<p class="foot">' + esc(d.note) + "</p></div>";
+        (monthRows ? '<h2>Por mês</h2><div class="card"><table>' +
+          '<tr><th>mês</th><th class="r">visitas</th><th class="r">reservas</th><th class="r">comissão</th></tr>' + monthRows + "</table></div>" : "") +
+
+        '<p class="foot">' + esc(d.note) + "<br>Chifbay · Marina do Funchal, cais C · +351 937 200 320</p>" +
+      "</div>";
 
     document.getElementById("rf").onclick = function () { load(true); };
     var cp = document.getElementById("cp");
-    if (cp) cp.onclick = function () {
-      navigator.clipboard && navigator.clipboard.writeText(d.link);
+    cp.onclick = function () {
+      if (navigator.clipboard) navigator.clipboard.writeText(d.link);
       cp.textContent = "Copiado";
       setTimeout(function () { cp.textContent = "Copiar"; }, 1600);
     };
+    var box = document.getElementById("qr"), big = document.getElementById("big");
+    if (box) {
+      box.onclick = openZoom;
+      box.onkeydown = function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openZoom(); } };
+    }
+    if (big) big.onclick = openZoom;
   }
 
-  function tick() {
-    var el = document.getElementById("ago");
-    if (el && fetchedAt) el.textContent = ago(fetchedAt);
+  // full screen: white, the QR as big as the screen allows, tap anywhere or Esc to close
+  function openZoom() {
+    if (!data) return;
+    document.getElementById("zq").innerHTML = qrSvg(data.link);
+    document.getElementById("zl").textContent = data.link.replace(/^https:\/\//, "");
+    zoom.classList.add("on");
+    if (zoom.requestFullscreen) zoom.requestFullscreen().catch(function () {});
+    else if (zoom.webkitRequestFullscreen) try { zoom.webkitRequestFullscreen(); } catch (e) {}
   }
+  function closeZoom() {
+    zoom.classList.remove("on");
+    var fe = document.fullscreenElement || document.webkitFullscreenElement;
+    if (fe) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+  }
+  zoom.addEventListener("click", closeZoom);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && zoom.classList.contains("on")) closeZoom(); });
+  document.addEventListener("fullscreenchange", function () { if (!document.fullscreenElement) zoom.classList.remove("on"); });
+
+  function tick() { var el = document.getElementById("ago"); if (el && fetchedAt) el.textContent = ago(fetchedAt); }
 
   function fail(msg, detail) {
-    app.innerHTML = '<div class="card err"><div class="empty"><strong>' + esc(msg) + "</strong>" +
-      esc(detail || "") + "</div></div>";
+    app.innerHTML = '<div class="hero"><div class="wrap"><div class="bar"><img src="/assets/logo-white.png" alt="Chifbay" width="110" height="22"></div></div></div>' +
+      '<div class="wrap" style="margin-top:34px"><div class="card err"><div class="empty"><strong>' + esc(msg) + "</strong>" + esc(detail || "") + "</div></div></div>";
   }
 
   function load(manual) {
@@ -184,15 +281,13 @@
         if (!j) return;
         data = j; fetchedAt = Date.now();
         app.classList.remove("spin");
-        render();
+        // never redraw under a guest who is scanning the big QR
+        if (!zoom.classList.contains("on")) render();
       })
       .catch(function () {
         app.classList.remove("spin");
-        // Keep the last good numbers on screen rather than blanking the page:
-        // a concierge glancing at this on a phone with one bar should not lose
-        // what they were reading.
-        if (data) { var el = document.getElementById("ago");
-                    if (el) el.textContent = "sem ligação, a tentar de novo"; }
+        // keep the last good numbers on screen rather than blanking the page
+        if (data) { var el = document.getElementById("ago"); if (el) el.textContent = "sem ligação, a tentar de novo"; }
         else fail("Sem ligação.", "Não foi possível carregar. Tente atualizar.");
       });
   }
@@ -200,9 +295,7 @@
   load(false);
   setInterval(tick, 1000);
   setInterval(function () { load(false); }, 120000);
-  document.addEventListener("visibilitychange", function () {
-    if (!document.hidden) load(false);
-  });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) load(false); });
 })();
 </script>
 </body></html>
