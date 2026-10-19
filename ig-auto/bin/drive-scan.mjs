@@ -104,6 +104,16 @@ if (mode === "list") {
     const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", t0, "-t", String(Number(t1) - Number(t0)), "-i", url(f), "-vf", `fps=1/${step},scale=240:-1,tile=10x6`, "-frames:v", "1", sheet]);
     console.log(fs.existsSync(sheet) ? sheet : (r.stderr || "").slice(0, 200));
   }
+} else if (mode === "cutmany") {
+  // cutmany <name>:<start>:<len>:<out> ...   stream-copy several windows (cut points fall on the keyframe before start)
+  for (const w of rest) {
+    const [name, start, len, out] = w.split(":");
+    const f = all.find((x) => x.name === name);
+    if (!f) { console.log(`no video named ${name}`); continue; }
+    const dest = `${OUT}/${safe(out)}.mp4`;
+    const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-c", "copy", "-avoid_negative_ts", "make_zero", dest]);
+    console.log(fs.existsSync(dest) ? `${dest} ${(fs.statSync(dest).size / 1e6).toFixed(1)} MB` : (r.stderr || "").slice(0, 200));
+  }
 } else if (mode === "cut") {
   const [name, start, len, out] = rest;
   const f = all.find((x) => x.name === name);
