@@ -458,7 +458,10 @@
       "bytes": 6865682,
       "source": "DJI_20260811111635_0005_D.MP4",
       "driveId": "1xPwHgh6nMFkayP4jK5zYZZV2V9LO6ecF",
-      "added": "2026-10-18T09:24:23.659Z"
+      "added": "2026-10-18T09:24:23.659Z",
+      "used": {
+        "story": 1792411964470
+      }
     },
     {
       "clip": "ig/reel-1xPwHgh6-2.mp4",
@@ -506,7 +509,10 @@
       "bytes": 6994363,
       "source": "DJI_20260811102748_0004_D.MP4",
       "driveId": "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC",
-      "added": "2026-10-18T09:32:33.702Z"
+      "added": "2026-10-18T09:32:33.702Z",
+      "used": {
+        "story": 1792411964349
+      }
     },
     {
       "clip": "ig/reel-1w_FJU8t-2.mp4",
@@ -542,7 +548,10 @@
       "bytes": 7496314,
       "source": "DJI_20260812144130_0009_D.MP4",
       "driveId": "1MxxDAcqsH6ujhzKcif2EFPa4mmRTjcuT",
-      "added": "2026-10-18T09:43:43.579Z"
+      "added": "2026-10-18T09:43:43.579Z",
+      "used": {
+        "story": 1792411964332
+      }
     },
     {
       "clip": "ig/reel-1MxxDAcq-2.mp4",

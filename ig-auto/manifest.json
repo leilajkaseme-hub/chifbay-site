@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T10:22:32.231Z",
+ "generated_at": "2026-10-19T12:12:44.589Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -254,6 +254,150 @@
    "posted": false
   },
   {
+   "id": "r17-bowjump",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Who goes first?",
+   "caption": "Who goes first? Nobody. Then somebody does, and everyone has to.\n\nThe swim stop of our Day Trip from Funchal, Madeira: the boat stops under the cliffs, the water is deep blue, and the bow becomes a diving board. Three jumps, under ten seconds.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming is part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 8.62,
+   "video": "https://chifbay.com/ig/reels/r17-bowjump.mp4",
+   "preview": "https://chifbay.com/ig/reels/r17-bowjump-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r17-bowjump.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r17-bowjump-cover.jpg",
+   "colour": {
+    "hex": "#7f7b75",
+    "hue": 38,
+    "light": 0.479,
+    "sat": 0.041
+   },
+   "note": "",
+   "format": "action",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): trois sauts de la proue, avec le vrai son.",
+   "test": false,
+   "alt": "Three guests jump one after the other from the bow of a small boat into the sea below the cliffs of Madeira.",
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:08:08"
+   },
+   "posted": false
+  },
+  {
+   "id": "r18-standup",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Almost had it.",
+   "caption": "He had it. He really had it. Almost.\n\nPaddle boards come along on the swim stop of our Day Trip from Funchal, Madeira, and every board has the same ending: the sea wins, everybody laughs, the next person gets on.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming and paddle are part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 8.92,
+   "video": "https://chifbay.com/ig/reels/r18-standup.mp4",
+   "preview": "https://chifbay.com/ig/reels/r18-standup-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r18-standup.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r18-standup-cover.jpg",
+   "colour": {
+    "hex": "#787a5f",
+    "hue": 63,
+    "light": 0.427,
+    "sat": 0.12
+   },
+   "note": "",
+   "format": "action",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): un invite essaie de se lever sur le paddle, chute a la fin.",
+   "test": false,
+   "alt": "A guest crouches and tries to stand up on a paddle board in front of a cliff with small huts in Madeira, then falls into the sea.",
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:08:27"
+   },
+   "posted": false
+  },
+  {
+   "id": "r19-wake",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Leaving the marina",
+   "caption": "Out of the marina and straight into the good part: the wake, the wind, and the whole coast of Funchal sliding past.\n\nA private boat trip from Funchal, Madeira, starts like this. Then the cliffs of Cabo Girão, the little coves, and a Day Trip swim stop or a Sunset Trip that turns when the light goes.\n\nYour group only, five guests at most, a skipper included. Free cancellation up to 24 hours before.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 8.22,
+   "video": "https://chifbay.com/ig/reels/r19-wake.mp4",
+   "preview": "https://chifbay.com/ig/reels/r19-wake-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r19-wake.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r19-wake-cover.jpg",
+   "colour": {
+    "hex": "#647984",
+    "hue": 201,
+    "light": 0.456,
+    "sat": 0.137
+   },
+   "note": "",
+   "format": "action",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): depart de Funchal, le sillage et la cote.",
+   "test": false,
+   "alt": "The wake of a small boat and its outboard engine with the coast of Funchal and its hotels on the horizon.",
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:08:44"
+   },
+   "posted": false
+  },
+  {
+   "id": "r20-twoboard",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Two on one board",
+   "caption": "One paddle board. Two people. Zero plan.\n\nThe Day Trip from Funchal, Madeira, stops for a swim and paddle under the cliffs, and the boards are free for everyone on board to try, in pairs if you dare.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming and paddle are part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 9.02,
+   "video": "https://chifbay.com/ig/reels/r20-twoboard.mp4",
+   "preview": "https://chifbay.com/ig/reels/r20-twoboard-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r20-twoboard.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r20-twoboard-cover.jpg",
+   "colour": {
+    "hex": "#757e6f",
+    "hue": 96,
+    "light": 0.467,
+    "sat": 0.061
+   },
+   "note": "",
+   "format": "action",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): deux amis sur un paddle au pied de la falaise.",
+   "test": false,
+   "alt": "Two friends sit on a paddle board close to a rocky cliff in Madeira, one holding the paddle.",
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:09:06"
+   },
+   "posted": false
+  },
+  {
    "id": "20261005115342-c30d",
    "kind": "story",
    "media": "photo",
@@ -413,23 +557,6 @@
    "created": "2026-10-16T09:23:14.222Z"
   },
   {
-   "id": "20261016092314-658b",
-   "kind": "story",
-   "media": "video",
-   "caption": "",
-   "hashtags": [],
-   "cover": "https://chifbay.com/ig/reel-1GmeDw2N-2.jpg",
-   "video": "https://chifbay.com/ig/reel-1GmeDw2N-2.mp4",
-   "slides": [],
-   "plan_index": null,
-   "set": null,
-   "alt": null,
-   "title": null,
-   "template": null,
-   "priority": 0,
-   "created": "2026-10-16T09:23:14.236Z"
-  },
-  {
    "id": "20261016092314-2186",
    "kind": "story",
    "media": "video",
@@ -477,23 +604,6 @@
    "created": "2026-10-17T08:54:31.281Z"
   },
   {
-   "id": "20261017085431-ae7b",
-   "kind": "story",
-   "media": "video",
-   "caption": "",
-   "hashtags": [],
-   "cover": "https://chifbay.com/ig/reel-1kFXctN5-2.jpg",
-   "video": "https://chifbay.com/ig/reel-1kFXctN5-2.mp4",
-   "slides": [],
-   "plan_index": null,
-   "set": null,
-   "alt": null,
-   "title": null,
-   "template": null,
-   "priority": 0,
-   "created": "2026-10-17T08:54:31.285Z"
-  },
-  {
    "id": "20261018091211-2ee7",
    "kind": "feed",
    "media": "photo",
@@ -524,23 +634,6 @@
    "created": "2026-10-18T09:12:23.791Z"
   },
   {
-   "id": "20261018091223-9947",
-   "kind": "story",
-   "media": "video",
-   "caption": "",
-   "hashtags": [],
-   "cover": "https://chifbay.com/ig/reel-1kFXctN5-3.jpg",
-   "video": "https://chifbay.com/ig/reel-1kFXctN5-3.mp4",
-   "slides": [],
-   "plan_index": null,
-   "set": null,
-   "alt": null,
-   "title": null,
-   "template": null,
-   "priority": 0,
-   "created": "2026-10-18T09:12:23.797Z"
-  },
-  {
    "id": "20261019102232-ee09",
    "kind": "story",
    "media": "video",
@@ -556,6 +649,57 @@
    "template": null,
    "priority": 0,
    "created": "2026-10-19T10:22:32.229Z"
+  },
+  {
+   "id": "20261019121244-fd6d",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1MxxDAcq-1.jpg",
+   "video": "https://chifbay.com/ig/reel-1MxxDAcq-1.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-19T12:12:44.332Z"
+  },
+  {
+   "id": "20261019121244-2e56",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1w_FJU8t-1.jpg",
+   "video": "https://chifbay.com/ig/reel-1w_FJU8t-1.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-19T12:12:44.349Z"
+  },
+  {
+   "id": "20261019121244-2bcc",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1xPwHgh6-1.jpg",
+   "video": "https://chifbay.com/ig/reel-1xPwHgh6-1.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-19T12:12:44.469Z"
   }
  ]
 }
