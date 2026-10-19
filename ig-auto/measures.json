@@ -1140,8 +1140,22 @@
     "id": "20261007112420-3e54",
     "format": null,
     "source": "library"
+   },
+   "h24": {
+    "at": "2026-10-19T13:11:09.222Z",
+    "age_hours": 48,
+    "reach": 32,
+    "views": 78,
+    "likes": 7,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 8,
+    "follows": 0,
+    "profile_visits": 1,
+    "ig_reels_avg_watch_time": null
    }
   }
  },
- "updated_at": "2026-10-18T11:01:56.933Z"
+ "updated_at": "2026-10-19T13:11:09.222Z"
 }
