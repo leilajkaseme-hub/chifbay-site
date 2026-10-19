@@ -115,13 +115,13 @@ if (mode === "list") {
     console.log(fs.existsSync(dest) ? `${dest} ${(fs.statSync(dest).size / 1e6).toFixed(1)} MB` : (r.stderr || "").slice(0, 200));
   }
 } else if (mode === "cutenc") {
-  // cutenc <name>:<start>:<len>:<out> ...   like cutmany but re-encoded (H.264 crf 18, no sound): about 20 MB a window instead of 90
+  // cutenc <name>:<start>:<len>:<out> ...   like cutmany but re-encoded (1620p H.264 crf 24, no sound): small enough for this Mac disk
   for (const w of rest) {
     const [name, start, len, out] = w.split(":");
     const f = all.find((x) => x.name === name);
     if (!f) { console.log(`no video named ${name}`); continue; }
     const dest = `${OUT}/${safe(out)}.mp4`;
-    const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", dest]);
+    const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-an", "-vf", "scale=-2:1620", "-c:v", "libx264", "-preset", "veryfast", "-crf", "24", "-pix_fmt", "yuv420p", dest]);
     console.log(fs.existsSync(dest) ? `${dest} ${(fs.statSync(dest).size / 1e6).toFixed(1)} MB` : (r.stderr || "").slice(0, 200));
   }
 } else if (mode === "cut") {
