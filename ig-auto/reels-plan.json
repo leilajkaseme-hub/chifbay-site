@@ -952,6 +952,210 @@
     "problems": [],
     "at": "2026-10-19T14:09:06"
    }
+  },
+  {
+   "id": "r21-above",
+   "kind": "reel",
+   "format": "action",
+   "product": "any",
+   "verdict": "Nouveau (20 oct, export Insta360 du 18 oct, jamais utilise): le bateau vu de haut a pleine vitesse sous Cabo Girao.",
+   "test": false,
+   "subject": "360",
+   "hook": "Hold on tight.",
+   "caption": "This is what the Insta360 sees: the whole boat from above, the wake, the cliffs of Cabo Girão, and a group that stopped holding on somewhere around the second corner.\n\nA 360 camera on a pole films every private trip from Funchal, Madeira, and the clip is included. Day Trip (2h30 or 3h, leaving at 10:00 or 14:00) or Sunset Trip (2h or 2h30, leaving 1h15 before sunset), both from Funchal marina. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A small white boat seen from above at speed below the cliffs of Madeira, guests laughing with their arms out and a white wake behind.",
+   "video": "https://chifbay.com/ig/reels/r21-above.mp4",
+   "preview": "https://chifbay.com/ig/reels/r21-above-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r21-above.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r21-above-cover.jpg",
+   "colour": {
+    "hex": "#86817d",
+    "hue": 26,
+    "light": 0.51,
+    "sat": 0.037
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "x5",
+     "file": "814009287.314303_48561792316499.mp4",
+     "in": 20.0,
+     "out": 22.6,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.035,
+     "light": {
+      "L50": 52.1,
+      "chroma": 12.0,
+      "hiB": -5.5
+     },
+     "seconds": 2.6,
+     "what": "guests laughing, the skipper standing behind them"
+    },
+    {
+     "src": "x5",
+     "file": "814009287.314303_48561792316499.mp4",
+     "in": 27.6,
+     "out": 29.7,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.007,
+     "light": {
+      "L50": 46.3,
+      "chroma": 12.7,
+      "hiB": -5.1
+     },
+     "seconds": 2.1,
+     "what": "the boat at speed, guests arms around each other, the wake"
+    },
+    {
+     "src": "x5",
+     "file": "814009287.314303_48561792316499.mp4",
+     "in": 37.5,
+     "out": 39.9,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "overcast",
+     "exposure": -0.04,
+     "light": {
+      "L50": 56.0,
+      "chroma": 7.6,
+      "hiB": -3.5
+     },
+     "seconds": 2.4,
+     "what": "the boat at speed, the wake, guests with arms out"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood aerial, assets/music/r21-above.json)",
+   "words": {
+    "hook_lines": [
+     "Hold on tight."
+    ],
+    "box": [
+     387,
+     300,
+     693,
+     362
+    ]
+   },
+   "duration": 7.1,
+   "bytes": 7781354,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T19:16:33"
+   }
+  },
+  {
+   "id": "r22-swimstop360",
+   "kind": "reel",
+   "format": "action",
+   "product": "day",
+   "verdict": "Nouveau (20 oct, export Insta360 du 18 oct, jamais utilise): la baignade vue depuis la poupe, puis la table sur le pont.",
+   "test": false,
+   "subject": "swim",
+   "hook": "Swim stop, snacks, repeat",
+   "caption": "Swim first, snacks after, and nobody is in a hurry. Filmed from our 360 camera, the way every Day Trip from Funchal, Madeira, is filmed.\n\nThe swim stop is part of the Day Trip only (2h30 or 3h, leaving at 10:00 or 14:00), sea conditions allowing. Food and drinks on board, photos and the 360 video included. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A guest swims behind the stern of a small boat below a sea cliff in Madeira, then friends gather around a table of snacks on deck.",
+   "video": "https://chifbay.com/ig/reels/r22-swimstop360.mp4",
+   "preview": "https://chifbay.com/ig/reels/r22-swimstop360-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r22-swimstop360.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r22-swimstop360-cover.jpg",
+   "colour": {
+    "hex": "#6e787c",
+    "hue": 195,
+    "light": 0.46,
+    "sat": 0.059
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "x5",
+     "file": "814009287.314303_48561792316499.mp4",
+     "in": 5.3,
+     "out": 7.8,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.018,
+     "light": {
+      "L50": 48.6,
+      "chroma": 11.6,
+      "hiB": -7.9
+     },
+     "seconds": 2.5,
+     "what": "a guest swims off the stern, the outboard and the cliff behind"
+    },
+    {
+     "src": "x5",
+     "file": "814009287.314303_48561792316499.mp4",
+     "in": 8.0,
+     "out": 10.4,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "overcast",
+     "exposure": -0.04,
+     "light": {
+      "L50": 68.7,
+      "chroma": 7.1,
+      "hiB": -3.4
+     },
+     "seconds": 2.4,
+     "what": "guests round the table of snacks on deck, skipper at the console"
+    },
+    {
+     "src": "x5",
+     "file": "814009287.314303_48561792316499.mp4",
+     "in": 32.6,
+     "out": 34.7,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.018,
+     "light": {
+      "L50": 48.5,
+      "chroma": 12.3,
+      "hiB": -4.9
+     },
+     "seconds": 2.1,
+     "what": "back on the move, the boat at speed under the cliff"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood day, assets/music/r22-swimstop360.json)",
+   "words": {
+    "hook_lines": [
+     "Swim stop, snacks, repeat"
+    ],
+    "box": [
+     252,
+     300,
+     828,
+     362
+    ]
+   },
+   "duration": 7.0,
+   "bytes": 7651549,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T19:17:03"
+   }
   }
  ]
 }
