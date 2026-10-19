@@ -7,6 +7,7 @@
 //   node bin/drive-scan.mjs list [regex]                     every video of the tree with id, size, size on the Drive
 //   node bin/drive-scan.mjs sheets <regex> [seconds]         a contact sheet per matching video (one frame every N seconds, 4 by default)
 //   node bin/drive-scan.mjs frames <name> <t0> <t1> [step]   a finer sheet of one window, 0.5 s by default
+//   node bin/drive-scan.mjs windows <name>:<t0>-<t1>[@step] ...   a finer sheet per window
 //   node bin/drive-scan.mjs cut <name> <start> <len> <out>   stream-copy one window into out/<out>.mp4 (a few MB to tens of MB)
 //
 // Output goes to ./scan-out/ (the workflow uploads it as an artifact). Nothing is ever written to Drive.
@@ -91,6 +92,18 @@ if (mode === "list") {
   const sheet = `${OUT}/${safe(name)}_${t0}-${t1}.jpg`;
   const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", t0, "-t", String(Number(t1) - Number(t0)), "-i", url(f), "-vf", `fps=1/${step},scale=240:-1,tile=10x6`, "-frames:v", "1", sheet]);
   console.log(fs.existsSync(sheet) ? sheet : (r.stderr || "").slice(0, 300));
+} else if (mode === "windows") {
+  // windows <name>:<t0>-<t1>[@step] ...   one finer sheet per window (60 tiles: 30 s at 0.5 s)
+  for (const w of rest) {
+    const m = /^(.+):(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)(?:@(\d+(?:\.\d+)?))?$/.exec(w);
+    if (!m) { console.log(`bad window ${w}`); continue; }
+    const [, name, t0, t1, step = "0.5"] = m;
+    const f = all.find((x) => x.name === name);
+    if (!f) { console.log(`no video named ${name}`); continue; }
+    const sheet = `${OUT}/${safe(name)}_${t0}-${t1}.jpg`;
+    const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", t0, "-t", String(Number(t1) - Number(t0)), "-i", url(f), "-vf", `fps=1/${step},scale=240:-1,tile=10x6`, "-frames:v", "1", sheet]);
+    console.log(fs.existsSync(sheet) ? sheet : (r.stderr || "").slice(0, 200));
+  }
 } else if (mode === "cut") {
   const [name, start, len, out] = rest;
   const f = all.find((x) => x.name === name);
