@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-19T17:38:49.929Z",
+ "generated_at": "2026-10-19T19:31:57.265Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -398,6 +398,78 @@
    "posted": false
   },
   {
+   "id": "r21-above",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Hold on tight.",
+   "caption": "This is what the Insta360 sees: the whole boat from above, the wake, the cliffs of Cabo Girão, and a group that stopped holding on somewhere around the second corner.\n\nA 360 camera on a pole films every private trip from Funchal, Madeira, and the clip is included. Day Trip (2h30 or 3h, leaving at 10:00 or 14:00) or Sunset Trip (2h or 2h30, leaving 1h15 before sunset), both from Funchal marina. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 7.1,
+   "video": "https://chifbay.com/ig/reels/r21-above.mp4",
+   "preview": "https://chifbay.com/ig/reels/r21-above-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r21-above.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r21-above-cover.jpg",
+   "colour": {
+    "hex": "#86817d",
+    "hue": 26,
+    "light": 0.51,
+    "sat": 0.037
+   },
+   "note": "",
+   "format": "action",
+   "verdict": "Nouveau (20 oct, export Insta360 du 18 oct, jamais utilise): le bateau vu de haut a pleine vitesse sous Cabo Girao.",
+   "test": false,
+   "alt": "A small white boat seen from above at speed below the cliffs of Madeira, guests laughing with their arms out and a white wake behind.",
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T19:16:33"
+   },
+   "posted": false
+  },
+  {
+   "id": "r22-swimstop360",
+   "kind": "reel",
+   "media": "video",
+   "hook": "Swim stop, snacks, repeat",
+   "caption": "Swim first, snacks after, and nobody is in a hurry. Filmed from our 360 camera, the way every Day Trip from Funchal, Madeira, is filmed.\n\nThe swim stop is part of the Day Trip only (2h30 or 3h, leaving at 10:00 or 14:00), sea conditions allowing. Food and drinks on board, photos and the 360 video included. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "duration": 7,
+   "video": "https://chifbay.com/ig/reels/r22-swimstop360.mp4",
+   "preview": "https://chifbay.com/ig/reels/r22-swimstop360-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r22-swimstop360.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r22-swimstop360-cover.jpg",
+   "colour": {
+    "hex": "#6e787c",
+    "hue": 195,
+    "light": 0.46,
+    "sat": 0.059
+   },
+   "note": "",
+   "format": "action",
+   "verdict": "Nouveau (20 oct, export Insta360 du 18 oct, jamais utilise): la baignade vue depuis la poupe, puis la table sur le pont.",
+   "test": false,
+   "alt": "A guest swims behind the stern of a small boat below a sea cliff in Madeira, then friends gather around a table of snacks on deck.",
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T19:17:03"
+   },
+   "posted": false
+  },
+  {
    "id": "20261005115342-c30d",
    "kind": "story",
    "media": "photo",
@@ -555,23 +627,6 @@
    "template": null,
    "priority": 0,
    "created": "2026-10-16T09:23:14.222Z"
-  },
-  {
-   "id": "20261016092314-2186",
-   "kind": "story",
-   "media": "video",
-   "caption": "",
-   "hashtags": [],
-   "cover": "https://chifbay.com/ig/reel-1kFXctN5-1.jpg",
-   "video": "https://chifbay.com/ig/reel-1kFXctN5-1.mp4",
-   "slides": [],
-   "plan_index": null,
-   "set": null,
-   "alt": null,
-   "title": null,
-   "template": null,
-   "priority": 0,
-   "created": "2026-10-16T09:23:14.239Z"
   },
   {
    "id": "20261017085419-f3c8",
