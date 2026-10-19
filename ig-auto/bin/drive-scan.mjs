@@ -114,6 +114,16 @@ if (mode === "list") {
     const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-c", "copy", "-avoid_negative_ts", "make_zero", dest]);
     console.log(fs.existsSync(dest) ? `${dest} ${(fs.statSync(dest).size / 1e6).toFixed(1)} MB` : (r.stderr || "").slice(0, 200));
   }
+} else if (mode === "cutenc") {
+  // cutenc <name>:<start>:<len>:<out> ...   like cutmany but re-encoded (H.264 crf 18, no sound): about 20 MB a window instead of 90
+  for (const w of rest) {
+    const [name, start, len, out] = w.split(":");
+    const f = all.find((x) => x.name === name);
+    if (!f) { console.log(`no video named ${name}`); continue; }
+    const dest = `${OUT}/${safe(out)}.mp4`;
+    const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", dest]);
+    console.log(fs.existsSync(dest) ? `${dest} ${(fs.statSync(dest).size / 1e6).toFixed(1)} MB` : (r.stderr || "").slice(0, 200));
+  }
 } else if (mode === "cut") {
   const [name, start, len, out] = rest;
   const f = all.find((x) => x.name === name);
@@ -122,6 +132,6 @@ if (mode === "list") {
   const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-c", "copy", "-avoid_negative_ts", "make_zero", dest]);
   console.log(fs.existsSync(dest) ? `${dest} ${(fs.statSync(dest).size / 1e6).toFixed(1)} MB` : (r.stderr || "").slice(0, 300));
 } else {
-  console.error("modes: list | sheets | frames | cut");
+  console.error("modes: list | sheets | frames | windows | cutmany | cutenc | cut");
   process.exit(2);
 }
