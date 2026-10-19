@@ -629,6 +629,329 @@
     "problems": [],
     "at": "2026-10-03T18:54:23"
    }
+  },
+  {
+   "id": "r17-bowjump",
+   "kind": "reel",
+   "format": "action",
+   "product": "day",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): trois sauts de la proue, avec le vrai son.",
+   "test": false,
+   "subject": "jump",
+   "hook": "Who goes first?",
+   "caption": "Who goes first? Nobody. Then somebody does, and everyone has to.\n\nThe swim stop of our Day Trip from Funchal, Madeira: the boat stops under the cliffs, the water is deep blue, and the bow becomes a diving board. Three jumps, under ten seconds.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming is part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "Three guests jump one after the other from the bow of a small boat into the sea below the cliffs of Madeira.",
+   "video": "https://chifbay.com/ig/reels/r17-bowjump.mp4",
+   "preview": "https://chifbay.com/ig/reels/r17-bowjump-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r17-bowjump.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r17-bowjump-cover.jpg",
+   "colour": {
+    "hex": "#7f7b75",
+    "hue": 38,
+    "light": 0.479,
+    "sat": 0.041
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "ip2825",
+     "file": "IMG_2825.MOV",
+     "in": 0.0,
+     "out": 2.9,
+     "speed": 1.0,
+     "source_fps": 29.97,
+     "grade": "overcast",
+     "exposure": -0.04,
+     "light": {
+      "L50": 60.4,
+      "chroma": 6.1,
+      "hiB": -2.0
+     },
+     "seconds": 2.9,
+     "what": "a guest jumps off the bow, splash, a friend watching"
+    },
+    {
+     "src": "ip2825",
+     "file": "IMG_2825.MOV",
+     "in": 4.9,
+     "out": 7.7,
+     "speed": 1.0,
+     "source_fps": 29.97,
+     "grade": "overcast",
+     "exposure": -0.04,
+     "light": {
+      "L50": 60.1,
+      "chroma": 5.1,
+      "hiB": -2.4
+     },
+     "seconds": 2.8,
+     "what": "a second guest jumps off the bow"
+    },
+    {
+     "src": "ip2824",
+     "file": "IMG_2824.MOV",
+     "in": 0.1,
+     "out": 3.0,
+     "speed": 1.0,
+     "source_fps": 29.97,
+     "grade": "overcast",
+     "exposure": -0.04,
+     "light": {
+      "L50": 57.1,
+      "chroma": 6.0,
+      "hiB": -3.9
+     },
+     "seconds": 2.9,
+     "what": "a third jump off the bow, the cliff behind"
+    }
+   ],
+   "sound": "Own clip sound (our iPhone footage of the trip) + music made for this Reel (Lyria, mood jump, assets/music/r17-bowjump.json)",
+   "words": {
+    "hook_lines": [
+     "Who goes first?"
+    ],
+    "box": [
+     370,
+     300,
+     709,
+     362
+    ]
+   },
+   "duration": 8.62,
+   "bytes": 9405916,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:08:08"
+   }
+  },
+  {
+   "id": "r18-standup",
+   "kind": "reel",
+   "format": "action",
+   "product": "day",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): un invite essaie de se lever sur le paddle, chute a la fin.",
+   "test": false,
+   "subject": "paddle",
+   "hook": "Almost had it.",
+   "caption": "He had it. He really had it. Almost.\n\nPaddle boards come along on the swim stop of our Day Trip from Funchal, Madeira, and every board has the same ending: the sea wins, everybody laughs, the next person gets on.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming and paddle are part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A guest crouches and tries to stand up on a paddle board in front of a cliff with small huts in Madeira, then falls into the sea.",
+   "video": "https://chifbay.com/ig/reels/r18-standup.mp4",
+   "preview": "https://chifbay.com/ig/reels/r18-standup-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r18-standup.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r18-standup-cover.jpg",
+   "colour": {
+    "hex": "#787a5f",
+    "hue": 63,
+    "light": 0.427,
+    "sat": 0.12
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "ip2885",
+     "file": "IMG_2885.MOV",
+     "in": 9.6,
+     "out": 18.5,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.014,
+     "light": {
+      "L50": 47.9,
+      "chroma": 15.6,
+      "hiB": 12.9
+     },
+     "seconds": 8.9,
+     "what": "a guest tries to stand up on the paddle board below the cliff huts, falls in at the end"
+    }
+   ],
+   "sound": "Own clip sound (our iPhone footage of the trip) + music made for this Reel (Lyria, mood fun, assets/music/r18-standup.json)",
+   "words": {
+    "hook_lines": [
+     "Almost had it."
+    ],
+    "box": [
+     383,
+     300,
+     697,
+     362
+    ]
+   },
+   "duration": 8.92,
+   "bytes": 9869176,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:08:27"
+   }
+  },
+  {
+   "id": "r19-wake",
+   "kind": "reel",
+   "format": "action",
+   "product": "any",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): depart de Funchal, le sillage et la cote.",
+   "test": false,
+   "subject": "ride",
+   "hook": "Leaving the marina",
+   "caption": "Out of the marina and straight into the good part: the wake, the wind, and the whole coast of Funchal sliding past.\n\nA private boat trip from Funchal, Madeira, starts like this. Then the cliffs of Cabo Girão, the little coves, and a Day Trip swim stop or a Sunset Trip that turns when the light goes.\n\nYour group only, five guests at most, a skipper included. Free cancellation up to 24 hours before.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "The wake of a small boat and its outboard engine with the coast of Funchal and its hotels on the horizon.",
+   "video": "https://chifbay.com/ig/reels/r19-wake.mp4",
+   "preview": "https://chifbay.com/ig/reels/r19-wake-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r19-wake.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r19-wake-cover.jpg",
+   "colour": {
+    "hex": "#647984",
+    "hue": 201,
+    "light": 0.456,
+    "sat": 0.137
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "ip5381",
+     "file": "IMG_5381.MOV",
+     "in": 4.6,
+     "out": 12.8,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.029,
+     "light": {
+      "L50": 50.8,
+      "chroma": 17.4,
+      "hiB": -9.2
+     },
+     "seconds": 8.2,
+     "what": "the wake and the outboard, the coast of Funchal with its hotels sliding past"
+    }
+   ],
+   "sound": "Own clip sound (our iPhone footage of the trip) + music made for this Reel (Lyria, mood day, assets/music/r19-wake.json)",
+   "words": {
+    "hook_lines": [
+     "Leaving the marina"
+    ],
+    "box": [
+     321,
+     300,
+     759,
+     362
+    ]
+   },
+   "duration": 8.22,
+   "bytes": 9059169,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:08:44"
+   }
+  },
+  {
+   "id": "r20-twoboard",
+   "kind": "reel",
+   "format": "action",
+   "product": "day",
+   "verdict": "Nouveau (19 oct, images jamais utilisees): deux amis sur un paddle au pied de la falaise.",
+   "test": false,
+   "subject": "paddle",
+   "hook": "Two on one board",
+   "caption": "One paddle board. Two people. Zero plan.\n\nThe Day Trip from Funchal, Madeira, stops for a swim and paddle under the cliffs, and the boards are free for everyone on board to try, in pairs if you dare.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming and paddle are part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "Two friends sit on a paddle board close to a rocky cliff in Madeira, one holding the paddle.",
+   "video": "https://chifbay.com/ig/reels/r20-twoboard.mp4",
+   "preview": "https://chifbay.com/ig/reels/r20-twoboard-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r20-twoboard.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r20-twoboard-cover.jpg",
+   "colour": {
+    "hex": "#757e6f",
+    "hue": 96,
+    "light": 0.467,
+    "sat": 0.061
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "ip2870",
+     "file": "IMG_2870.MOV",
+     "in": 9.4,
+     "out": 14.0,
+     "speed": 1.0,
+     "source_fps": 29.97,
+     "grade": "daylight",
+     "exposure": -0.009,
+     "light": {
+      "L50": 46.8,
+      "chroma": 13.5,
+      "hiB": 13.1
+     },
+     "seconds": 4.6,
+     "what": "two friends sit on a paddle board in front of the cliff, close and laughing"
+    },
+    {
+     "src": "ip2869",
+     "file": "IMG_2869.MOV",
+     "in": 1.6,
+     "out": 6.0,
+     "speed": 1.0,
+     "source_fps": 30.0,
+     "grade": "daylight",
+     "exposure": -0.021,
+     "light": {
+      "L50": 49.2,
+      "chroma": 11.6,
+      "hiB": 9.6
+     },
+     "seconds": 4.4,
+     "what": "the same two on the board, wide, the cliff behind"
+    }
+   ],
+   "sound": "Own clip sound (our iPhone footage of the trip) + music made for this Reel (Lyria, mood fun, assets/music/r20-twoboard.json)",
+   "words": {
+    "hook_lines": [
+     "Two on one board"
+    ],
+    "box": [
+     339,
+     300,
+     741,
+     362
+    ]
+   },
+   "duration": 9.02,
+   "bytes": 9902721,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-19T14:09:06"
+   }
   }
  ]
 }
