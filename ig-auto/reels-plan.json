@@ -1156,6 +1156,414 @@
     "problems": [],
     "at": "2026-10-19T19:17:03"
    }
+  },
+  {
+   "id": "r23-fullspeed",
+   "kind": "reel",
+   "format": "action",
+   "product": "any",
+   "verdict": "Nouveau (20 oct, drone 4K du 11 aout, jamais utilise en Reel): le Karnic a pleine vitesse, ralenti.",
+   "test": false,
+   "subject": "ride",
+   "hook": "Full speed ahead",
+   "caption": "Full speed, deep blue, and a coast that never stops giving. This is the Karnic R8S that runs our private trips from Funchal, Madeira, filmed by our drone.\n\nThe drone flies when the weather allows and the footage is included with every trip, together with the 360 video and the photos. Day Trip (2h30 or 3h, leaving at 10:00 or 14:00) or Sunset Trip (2h or 2h30, leaving 1h15 before sunset). Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A drone follows a small white boat at speed over deep blue water off Madeira, then the boat turns toward the camera with spray and laughing guests.",
+   "video": "https://chifbay.com/ig/reels/r23-fullspeed.mp4",
+   "preview": "https://chifbay.com/ig/reels/r23-fullspeed-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r23-fullspeed.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r23-fullspeed-cover.jpg",
+   "colour": {
+    "hex": "#5886a0",
+    "hue": 201,
+    "light": 0.489,
+    "sat": 0.288
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "c5a",
+     "file": "c5a.mp4",
+     "in": 1.2,
+     "out": 3.0,
+     "speed": 0.5,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": -0.04,
+     "light": {
+      "L50": 60.1,
+      "chroma": 31.7,
+      "hiB": -19.4
+     },
+     "seconds": 3.6,
+     "what": "drone tracks the boat at speed from the side, slow motion"
+    },
+    {
+     "src": "c5b",
+     "file": "c5b.mp4",
+     "in": 1.2,
+     "out": 3.6,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": -0.04,
+     "light": {
+      "L50": 57.9,
+      "chroma": 31.4,
+      "hiB": -18.6
+     },
+     "seconds": 2.4,
+     "what": "the boat comes straight at the drone, wake behind it"
+    },
+    {
+     "src": "c5c",
+     "file": "c5c.mp4",
+     "in": 1.2,
+     "out": 2.6,
+     "speed": 0.5,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": -0.026,
+     "light": {
+      "L50": 50.1,
+      "chroma": 36.4,
+      "hiB": -20.9
+     },
+     "seconds": 2.8,
+     "what": "the boat turns toward the drone, spray, guests laughing, slow motion"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood aerial, assets/music/r23-fullspeed.json)",
+   "words": {
+    "hook_lines": [
+     "Full speed ahead"
+    ],
+    "box": [
+     355,
+     300,
+     725,
+     362
+    ]
+   },
+   "duration": 8.8,
+   "bytes": 9750326,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-20T15:10:15"
+   }
+  },
+  {
+   "id": "r24-fromabove",
+   "kind": "reel",
+   "format": "action",
+   "product": "day",
+   "verdict": "Nouveau (20 oct, drone 4K du 12 aout, jamais utilise en Reel): baignade et paddle vus d'en haut.",
+   "test": false,
+   "subject": "swim",
+   "hook": "Swim stop, from above",
+   "caption": "This is how the swim stop off Funchal, Madeira, looks from the air: clear water, a paddle board, a few swimmers, and nobody in a hurry.\n\nThe swim and paddle stop is part of our Day Trip (2h30 or 3h, leaving at 10:00 or 14:00), sea conditions allowing. The drone flies when the weather lets it, and the footage comes with the trip. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A drone looks straight down on swimmers and a guest on a paddle board in clear turquoise water off Madeira.",
+   "video": "https://chifbay.com/ig/reels/r24-fromabove.mp4",
+   "preview": "https://chifbay.com/ig/reels/r24-fromabove-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r24-fromabove.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r24-fromabove-cover.jpg",
+   "colour": {
+    "hex": "#447e86",
+    "hue": 188,
+    "light": 0.399,
+    "sat": 0.324
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "c9a",
+     "file": "c9a.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": 0.017,
+     "light": {
+      "L50": 41.6,
+      "chroma": 25.3,
+      "hiB": -7.5
+     },
+     "seconds": 3.0,
+     "what": "a guest on a paddle board, top-down, turquoise water"
+    },
+    {
+     "src": "c9b",
+     "file": "c9b.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": -0.009,
+     "light": {
+      "L50": 46.7,
+      "chroma": 31.3,
+      "hiB": -14.2
+     },
+     "seconds": 3.0,
+     "what": "swimmers splashing in clear turquoise water, top-down"
+    },
+    {
+     "src": "c9c",
+     "file": "c9c.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": 0.036,
+     "light": {
+      "L50": 37.7,
+      "chroma": 22.4,
+      "hiB": 2.5
+     },
+     "seconds": 3.0,
+     "what": "a paddle board and a swimmer with the coast behind"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood aerial, assets/music/r24-fromabove.json)",
+   "words": {
+    "hook_lines": [
+     "Swim stop, from above"
+    ],
+    "box": [
+     285,
+     300,
+     795,
+     362
+    ]
+   },
+   "duration": 9.0,
+   "bytes": 10022433,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-20T15:08:55"
+   }
+  },
+  {
+   "id": "r25-cove",
+   "kind": "reel",
+   "format": "action",
+   "product": "any",
+   "verdict": "Nouveau (20 oct, drone 4K du 11 aout, jamais utilise en Reel): de la poupe vers la falaise, puis l'ancre dans l'eau turquoise.",
+   "test": false,
+   "subject": "place",
+   "hook": "Under the cliffs",
+   "caption": "Straight at the cliff off Funchal, Madeira, then into a cove where the water turns turquoise and the boat just stops.\n\nOur private trips run along the south coast to places most boats do not slow down for. The Day Trip (2h30 or 3h) adds a swim and paddle stop; the Sunset Trip (2h or 2h30) turns when the light goes. Drone footage, 360 video and photos are part of the trip. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A drone follows a small white boat toward a tall sea cliff in Madeira and into a turquoise cove.",
+   "video": "https://chifbay.com/ig/reels/r25-cove.mp4",
+   "preview": "https://chifbay.com/ig/reels/r25-cove-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r25-cove.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r25-cove-cover.jpg",
+   "colour": {
+    "hex": "#578699",
+    "hue": 197,
+    "light": 0.472,
+    "sat": 0.276
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "c3a",
+     "file": "c3a.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": -0.04,
+     "light": {
+      "L50": 53.2,
+      "chroma": 24.9,
+      "hiB": -13.4
+     },
+     "seconds": 3.0,
+     "what": "from behind the boat toward the sea cliff, the hull lettering"
+    },
+    {
+     "src": "c3b",
+     "file": "c3b.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": 0.021,
+     "light": {
+      "L50": 40.7,
+      "chroma": 15.5,
+      "hiB": -4.3
+     },
+     "seconds": 3.0,
+     "what": "the boat from the side, guests at the helm, turquoise water"
+    },
+    {
+     "src": "c3c",
+     "file": "c3c.mp4",
+     "in": 1.2,
+     "out": 4.7,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": -0.018,
+     "light": {
+      "L50": 48.6,
+      "chroma": 18.2,
+      "hiB": -3.2
+     },
+     "seconds": 3.5,
+     "what": "the boat enters a turquoise cove under the cliff and stops"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood cliffs, assets/music/r25-cove.json)",
+   "words": {
+    "hook_lines": [
+     "Under the cliffs"
+    ],
+    "box": [
+     372,
+     300,
+     708,
+     362
+    ]
+   },
+   "duration": 9.5,
+   "bytes": 10489429,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-20T15:09:13"
+   }
+  },
+  {
+   "id": "r26-sternjump",
+   "kind": "reel",
+   "format": "action",
+   "product": "day",
+   "verdict": "Nouveau (20 oct, drone 4K du 13 aout, jamais utilise en Reel): saut de la poupe vu du drone, au pied de la falaise.",
+   "test": false,
+   "subject": "jump",
+   "hook": "Last one in",
+   "caption": "Last one in does the dishes. Everybody jumps at the same time anyway.\n\nThe swim stop of our Day Trip from Funchal, Madeira, is under the cliffs, in water that goes from turquoise to deep blue in one boat length. Day Trip 2h30 or 3h, leaving at 10:00 or 14:00, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#madeiraisland",
+    "#boattrip",
+    "#visitmadeira"
+   ],
+   "alt": "A drone follows a guest jumping off the stern of a small boat into the sea below a tall cliff in Madeira, then friends floating on their backs.",
+   "video": "https://chifbay.com/ig/reels/r26-sternjump.mp4",
+   "preview": "https://chifbay.com/ig/reels/r26-sternjump-p.mp4",
+   "cover": "https://chifbay.com/ig/reels/r26-sternjump.jpg",
+   "clean_cover": "https://chifbay.com/ig/reels/r26-sternjump-cover.jpg",
+   "colour": {
+    "hex": "#7b7c78",
+    "hue": 76,
+    "light": 0.481,
+    "sat": 0.014
+   },
+   "version": "v2",
+   "shots": [
+    {
+     "src": "c30a",
+     "file": "c30a.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "overcast",
+     "exposure": 0.027,
+     "light": {
+      "L50": 39.5,
+      "chroma": 7.3,
+      "hiB": -1.2
+     },
+     "seconds": 3.0,
+     "what": "a guest jumps off the stern, big splash, the cliff behind"
+    },
+    {
+     "src": "c30b",
+     "file": "c30b.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "overcast",
+     "exposure": 0.035,
+     "light": {
+      "L50": 37.9,
+      "chroma": 7.7,
+      "hiB": -3.8
+     },
+     "seconds": 3.0,
+     "what": "the boat turns away from the splash, the swimmer behind it"
+    },
+    {
+     "src": "c30c",
+     "file": "c30c.mp4",
+     "in": 1.2,
+     "out": 4.2,
+     "speed": 1.0,
+     "source_fps": 59.94,
+     "grade": "daylight",
+     "exposure": 0.026,
+     "light": {
+      "L50": 39.8,
+      "chroma": 11.6,
+      "hiB": -1.4
+     },
+     "seconds": 3.0,
+     "what": "friends floating on their backs in clear water, the stern in view"
+    }
+   ],
+   "sound": "Real sea and wind, Chifbay 360 camera, trip of 24 Sep 2026 (LRV_20260924_192832_01_020) + music made for this Reel (Lyria, mood jump, assets/music/r26-sternjump.json)",
+   "words": {
+    "hook_lines": [
+     "Last one in"
+    ],
+    "box": [
+     419,
+     300,
+     661,
+     362
+    ]
+   },
+   "duration": 9.0,
+   "bytes": 9924174,
+   "checks": {
+    "ok": true,
+    "problems": [],
+    "at": "2026-10-20T15:09:33"
+   }
   }
  ]
 }
