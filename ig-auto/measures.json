@@ -1034,6 +1034,20 @@
     "follows": null,
     "profile_visits": null,
     "ig_reels_avg_watch_time": 3053
+   },
+   "d7": {
+    "at": "2026-10-20T11:34:00.756Z",
+    "age_hours": 184,
+    "reach": 166,
+    "views": 210,
+    "likes": 5,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 5,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 3090
    }
   },
   "17997548859012480": {
@@ -1155,7 +1169,17 @@
     "profile_visits": 1,
     "ig_reels_avg_watch_time": null
    }
+  },
+  "18412275145093867": {
+   "posted_at": "2026-10-19T17:38:38+0000",
+   "permalink": "https://www.instagram.com/reel/Der0ADQDRP8/",
+   "type": "reel",
+   "ours": {
+    "id": "r17-bowjump",
+    "format": null,
+    "source": "reel"
+   }
   }
  },
- "updated_at": "2026-10-19T13:11:09.222Z"
+ "updated_at": "2026-10-20T11:34:00.756Z"
 }
