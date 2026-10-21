@@ -9,5 +9,14 @@
   "url": "https://chifbay.com/ig/reel-1MxxDAcq-1.mp4",
   "cover_url": "https://chifbay.com/ig/reel-1MxxDAcq-1.jpg",
   "angle": "video",
-  "priority": 0
+  "priority": 0,
+  "posted_at": "2026-10-21T17:49:52.984Z",
+  "result": {
+    "transport": "graph",
+    "media_id": "18078600842404547",
+    "confirmed": true,
+    "permalink": "https://www.instagram.com/stories/chifbay/4012983703348370645",
+    "media_type": "VIDEO",
+    "timestamp": "2026-10-21T17:49:48+0000"
+  }
 }
