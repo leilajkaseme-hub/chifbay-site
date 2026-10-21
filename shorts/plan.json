@@ -1120,25 +1120,25 @@
    "audio": "sea",
    "by": "claude (contact sheets)",
    "qa": {
-    "ok": null,
-    "problems": [
-     "second look not done: Gemini free calls spent for today"
-    ]
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.6-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425-thumb.jpg",
     "duration": 15.0,
-    "bytes": 15838954,
+    "bytes": 15839196,
     "shots": [
      {
       "name": "DJI_20260606200425_0015_D.MP4",
       "in": 0.5,
       "out": 4.1,
-      "grade": "overcast",
-      "exposure": 0.016,
+      "grade": "daylight",
+      "matched": true,
       "seconds": 3.6,
       "speed": 1.0,
       "tracked": true,
@@ -1155,7 +1155,7 @@
       "in": 18.0,
       "out": 21.6,
       "grade": "daylight",
-      "exposure": 0.015,
+      "matched": true,
       "seconds": 3.6,
       "speed": 1.0,
       "tracked": true,
@@ -1172,7 +1172,7 @@
       "in": 0.5,
       "out": 4.3,
       "grade": "daylight",
-      "exposure": -0.019,
+      "matched": true,
       "seconds": 3.8,
       "speed": 1.0,
       "tracked": true,
@@ -1189,7 +1189,7 @@
       "in": 66.0,
       "out": 68.0,
       "grade": "daylight",
-      "exposure": -0.005,
+      "matched": true,
       "seconds": 4.0,
       "speed": 0.5,
       "tracked": true,
@@ -1204,7 +1204,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T22:17:20Z"
+    "at": "2026-10-21T23:33:23Z"
    }
   },
   {
@@ -1515,25 +1515,25 @@
    "audio": "sea",
    "by": "claude (contact sheets)",
    "qa": {
-    "ok": null,
-    "problems": [
-     "second look not done: Gemini free calls spent for today"
-    ]
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.7-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c-thumb.jpg",
     "duration": 14.8,
-    "bytes": 15894441,
+    "bytes": 15896577,
     "shots": [
      {
       "name": "DJI_20260606200017_0014_D.MP4",
       "in": 1.0,
       "out": 4.6,
       "grade": "daylight",
-      "exposure": -0.025,
+      "matched": true,
       "seconds": 3.6,
       "speed": 1.0,
       "tracked": true,
@@ -1550,7 +1550,7 @@
       "in": 14.5,
       "out": 18.1,
       "grade": "daylight",
-      "exposure": 0.008,
+      "matched": true,
       "seconds": 3.6,
       "speed": 1.0,
       "tracked": true,
@@ -1566,8 +1566,8 @@
       "name": "DJI_20260601205023_0010_D.MP4",
       "in": 85.0,
       "out": 88.8,
-      "grade": "golden",
-      "exposure": -0.003,
+      "grade": "daylight",
+      "matched": true,
       "seconds": 3.8,
       "speed": 1.0,
       "tracked": true,
@@ -1583,8 +1583,8 @@
       "name": "DJI_20260601205023_0010_D.MP4",
       "in": 21.0,
       "out": 24.8,
-      "grade": "golden",
-      "exposure": -0.007,
+      "grade": "daylight",
+      "matched": true,
       "seconds": 3.8,
       "speed": 1.0,
       "tracked": false,
@@ -1596,7 +1596,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T22:21:26Z"
+    "at": "2026-10-21T23:37:56Z"
    }
   },
   {
@@ -1728,19 +1728,19 @@
     ]
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03-thumb.jpg",
     "duration": 14.6,
-    "bytes": 15635877,
+    "bytes": 15652243,
     "shots": [
      {
       "name": "DJI_20260811111635_0005_D.MP4",
       "in": 30.5,
       "out": 32.3,
       "grade": "daylight",
-      "exposure": -0.04,
+      "matched": true,
       "seconds": 3.6,
       "speed": 0.5,
       "tracked": true,
@@ -1755,7 +1755,7 @@
       "in": 50.0,
       "out": 53.6,
       "grade": "daylight",
-      "exposure": -0.04,
+      "matched": true,
       "seconds": 3.6,
       "speed": 1.0,
       "tracked": true,
@@ -1772,7 +1772,7 @@
       "in": 10.5,
       "out": 14.1,
       "grade": "daylight",
-      "exposure": 0.027,
+      "matched": true,
       "seconds": 3.6,
       "speed": 1.0,
       "tracked": true,
@@ -1789,7 +1789,7 @@
       "in": 56.0,
       "out": 59.8,
       "grade": "daylight",
-      "exposure": 0.001,
+      "matched": true,
       "seconds": 3.8,
       "speed": 1.0,
       "tracked": true,
@@ -1806,7 +1806,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T22:25:29Z"
+    "at": "2026-10-21T23:45:21Z"
    }
   },
   {
@@ -2013,10 +2013,159 @@
     "alt": "Fast cuts of a private boat day in Madeira: the white boat at full speed under red cliffs, guests laughing on deck, turquoise water, swimmers and a paddle board from above, and a swim off the stern.",
     "model": "written by Claude"
    },
-   "status": "draft",
+   "status": "rendered",
    "created": "2026-10-22",
    "audio": "sea",
-   "by": "claude (contact sheets)"
+   "by": "claude (contact sheets)",
+   "qa": {
+    "ok": null,
+    "problems": [
+     "second look not done: Gemini free calls spent for today"
+    ]
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748-thumb.jpg",
+    "duration": 11.5,
+    "bytes": 12493496,
+    "shots": [
+     {
+      "name": "DJI_20260811111635_0005_D.MP4",
+      "in": 37.0,
+      "out": 37.75,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.5,
+      "speed": 0.5,
+      "tracked": true,
+      "path": [
+       0.66
+      ],
+      "what": "the boat at full speed with the red cliffs behind, slow motion"
+     },
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 14.0,
+      "out": 15.5,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.5,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.517,
+       0.505
+      ],
+      "what": "the group laughing on the boat at full speed"
+     },
+     {
+      "name": "DJI_20260811102620_0003_D.MP4",
+      "in": 55.0,
+      "out": 56.0,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.14
+      ],
+      "what": "the boat with guests in turquoise water under a red cliff"
+     },
+     {
+      "name": "DJI_20260812144130_0009_D.MP4",
+      "in": 40.0,
+      "out": 41.0,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.812
+      ],
+      "what": "from above: swimmers and the paddle board"
+     },
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 3.8,
+      "out": 4.8,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.699
+      ],
+      "what": "a guest swims off the stern"
+     },
+     {
+      "name": "DJI_20260811102748_0004_D.MP4",
+      "in": 30.0,
+      "out": 31.0,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.367
+      ],
+      "what": "the boat in a turquoise cove"
+     },
+     {
+      "name": "DJI_20260606200425_0015_D.MP4",
+      "in": 60.0,
+      "out": 61.0,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.598
+      ],
+      "what": "the boat from behind on deep blue water"
+     },
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 47.0,
+      "out": 48.5,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 1.5,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.498,
+       0.524
+      ],
+      "what": "the boat at full speed with spray, the group laughing"
+     },
+     {
+      "name": "DJI_20260811111635_0005_D.MP4",
+      "in": 1.0,
+      "out": 2.0,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 2.0,
+      "speed": 0.5,
+      "tracked": true,
+      "path": [
+       0.323
+      ],
+      "what": "the boat at full speed side on, clear sky, slow motion"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-21T23:49:42Z"
+   }
   }
  ]
 }
