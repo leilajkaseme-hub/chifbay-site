@@ -1115,10 +1115,71 @@
     "model": "written by Claude"
    },
    "format": "story",
-   "status": "draft",
+   "status": "rendered",
    "created": "2026-10-21",
    "audio": "sea",
-   "by": "claude (contact sheets)"
+   "by": "claude (contact sheets)",
+   "qa": {
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.5-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d-thumb.jpg",
+    "duration": 15.0,
+    "bytes": 15834076,
+    "shots": [
+     {
+      "name": "DJI_20260606200425_0015_D.MP4",
+      "in": 0.5,
+      "out": 4.1,
+      "grade": "overcast",
+      "exposure": 0.016,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "huge sea cliffs above deep blue water"
+     },
+     {
+      "name": "DJI_20260811102620_0003_D.MP4",
+      "in": 18.0,
+      "out": 21.6,
+      "grade": "daylight",
+      "exposure": 0.015,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "the boat side on, a skipper at the helm, deep blue water"
+     },
+     {
+      "name": "DJI_20260811102748_0004_D.MP4",
+      "in": 0.5,
+      "out": 4.3,
+      "grade": "daylight",
+      "exposure": -0.019,
+      "seconds": 3.8,
+      "speed": 1.0,
+      "what": "the boat with guests in a turquoise cove"
+     },
+     {
+      "name": "DJI_20260606200425_0015_D.MP4",
+      "in": 66.0,
+      "out": 68.0,
+      "grade": "daylight",
+      "exposure": -0.005,
+      "seconds": 4.0,
+      "speed": 0.5,
+      "what": "low pass over guests at the deck table, slow motion"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-21T20:00:32Z"
+   }
   },
   {
    "id": "s012",
@@ -1238,10 +1299,71 @@
     "model": "written by Claude"
    },
    "format": "story",
-   "status": "draft",
+   "status": "rendered",
    "created": "2026-10-21",
    "audio": "sea",
-   "by": "claude (contact sheets)"
+   "by": "claude (contact sheets)",
+   "qa": {
+    "ok": true,
+    "score": 8,
+    "problems": [],
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb-thumb.jpg",
+    "duration": 14.4,
+    "bytes": 15232846,
+    "shots": [
+     {
+      "name": "DJI_20260813191642_0030_D.MP4",
+      "in": 63.0,
+      "out": 66.6,
+      "grade": "overcast",
+      "exposure": 0.04,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "the drone rises along a tall dark sea cliff, grey sky"
+     },
+     {
+      "name": "DJI_20260813191642_0030_D.MP4",
+      "in": 0.5,
+      "out": 4.1,
+      "grade": "overcast",
+      "exposure": 0.029,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "the boat anchored under the cliff, guests swimming beside it"
+     },
+     {
+      "name": "DJI_20260813191642_0030_D.MP4",
+      "in": 46.0,
+      "out": 49.6,
+      "grade": "daylight",
+      "exposure": 0.04,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "guests swimming next to the boat"
+     },
+     {
+      "name": "DJI_20260813191642_0030_D.MP4",
+      "in": 26.0,
+      "out": 29.6,
+      "grade": "overcast",
+      "exposure": 0.04,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "guests back on the stern deck under the cliff"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-21T20:06:01Z"
+   }
   },
   {
    "id": "s013",
@@ -1361,10 +1483,71 @@
     "model": "written by Claude"
    },
    "format": "story",
-   "status": "draft",
+   "status": "rendered",
    "created": "2026-10-21",
    "audio": "sea",
-   "by": "claude (contact sheets)"
+   "by": "claude (contact sheets)",
+   "qa": {
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.7-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29-thumb.jpg",
+    "duration": 14.8,
+    "bytes": 15905235,
+    "shots": [
+     {
+      "name": "DJI_20260606200017_0014_D.MP4",
+      "in": 1.0,
+      "out": 4.6,
+      "grade": "daylight",
+      "exposure": -0.025,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "the boat backlit by the low evening sun"
+     },
+     {
+      "name": "DJI_20260601205023_0010_D.MP4",
+      "in": 14.5,
+      "out": 18.1,
+      "grade": "daylight",
+      "exposure": 0.008,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "the sun flares beside the cliffs, the camera finds the boat"
+     },
+     {
+      "name": "DJI_20260601205023_0010_D.MP4",
+      "in": 85.0,
+      "out": 88.8,
+      "grade": "golden",
+      "exposure": -0.003,
+      "seconds": 3.8,
+      "speed": 1.0,
+      "what": "the boat in the path of the sun's reflection"
+     },
+     {
+      "name": "DJI_20260601205023_0010_D.MP4",
+      "in": 21.0,
+      "out": 24.8,
+      "grade": "golden",
+      "exposure": -0.007,
+      "seconds": 3.8,
+      "speed": 1.0,
+      "what": "the sun over the sea, the cliffs on the right"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-21T20:10:20Z"
+   }
   }
  ]
 }
