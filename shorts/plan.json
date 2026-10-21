@@ -1121,17 +1121,17 @@
    "by": "claude (contact sheets)",
    "qa": {
     "ok": true,
-    "score": 10,
+    "score": 9,
     "problems": [],
-    "model": "gemini-3.6-flash"
+    "model": "gemini-3.8-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-80546e19.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-80546e19-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-80546e19-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-80546e19-thumb.jpg",
     "duration": 15.0,
-    "bytes": 15843296,
+    "bytes": 15774311,
     "shots": [
      {
       "name": "DJI_20260606200425_0015_D.MP4",
@@ -1178,7 +1178,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T20:18:36Z"
+    "at": "2026-10-21T20:38:44Z"
    }
   },
   {
@@ -1489,18 +1489,18 @@
    "audio": "sea",
    "by": "claude (contact sheets)",
    "qa": {
-    "ok": null,
-    "problems": [
-     "second look not done: Gemini free calls spent for today"
-    ]
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.5-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce-thumb.jpg",
     "duration": 14.8,
-    "bytes": 15910704,
+    "bytes": 15902019,
     "shots": [
      {
       "name": "DJI_20260606200017_0014_D.MP4",
@@ -1547,7 +1547,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T20:26:43Z"
+    "at": "2026-10-21T20:42:34Z"
    }
   },
   {
@@ -1668,10 +1668,71 @@
     "model": "written by Claude"
    },
    "format": "story",
-   "status": "draft",
+   "status": "rendered",
    "created": "2026-10-21",
    "audio": "sea",
-   "by": "claude (contact sheets)"
+   "by": "claude (contact sheets)",
+   "qa": {
+    "ok": null,
+    "problems": [
+     "second look not done: Gemini free calls spent for today"
+    ]
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc-thumb.jpg",
+    "duration": 14.6,
+    "bytes": 15663588,
+    "shots": [
+     {
+      "name": "DJI_20260811111635_0005_D.MP4",
+      "in": 30.5,
+      "out": 32.3,
+      "grade": "daylight",
+      "exposure": -0.04,
+      "seconds": 3.6,
+      "speed": 0.5,
+      "what": "the boat at speed with the red cliffs behind, slow motion"
+     },
+     {
+      "name": "DJI_20260811102620_0003_D.MP4",
+      "in": 50.0,
+      "out": 53.6,
+      "grade": "daylight",
+      "exposure": -0.04,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "the boat with guests in turquoise water under a red cliff"
+     },
+     {
+      "name": "DJI_20260812144130_0009_D.MP4",
+      "in": 10.5,
+      "out": 14.1,
+      "grade": "daylight",
+      "exposure": 0.027,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "what": "from above: a guest on the paddle board and a swimmer"
+     },
+     {
+      "name": "DJI_20260811102748_0004_D.MP4",
+      "in": 56.0,
+      "out": 59.8,
+      "grade": "daylight",
+      "exposure": 0.001,
+      "seconds": 3.8,
+      "speed": 1.0,
+      "what": "the boat from the front, guests on deck, cliff behind"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-21T20:50:41Z"
+   }
   }
  ]
 }
