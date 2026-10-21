@@ -1,0 +1,64 @@
+name: shorts, post the approved videos (2 a day)
+
+# Every hour; the script decides whether a slot of the day (shorts/config.json) is due and posts ONE approved
+# video: Instagram Reel, then Facebook, Threads, YouTube Shorts and a TikTok draft. Off until config live=true.
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: "dry run: say what would happen, post nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shorts-post
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Quick exit when not live
+        id: live
+        run: echo "live=$(python3 -c "import json;print(str(json.load(open('shorts/config.json'))['live']).lower())")" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v4
+        if: steps.live.outputs.live == 'true' || github.event.inputs.dry == 'true'
+        with:
+          node-version: "22"
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Post
+        if: steps.live.outputs.live == 'true' || github.event.inputs.dry == 'true'
+        working-directory: ig-auto
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          DRY: ${{ github.event.inputs.dry }}
+        run: node bin/shorts-post.mjs ${DRY:+$( [ "$DRY" = true ] && echo --dry )}
+      - name: Commit the record
+        if: always() && (steps.live.outputs.live == 'true')
+        run: |
+          git add shorts ig-auto/ledger.jsonl ig-auto/crosspost-ledger.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then echo "nothing to record"; exit 0; fi
+          git commit -m "shorts: posted $(date -u +%Y-%m-%d)"
+          scripts/ci-push.sh

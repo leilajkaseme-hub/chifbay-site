@@ -76,3 +76,7 @@ jobs:
       - name: Source videos are not planned again
         working-directory: ig-auto
         run: node test-sources.mjs
+
+      - name: Shorts posting clock and choice
+        working-directory: ig-auto
+        run: node test-shorts.mjs

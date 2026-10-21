@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Chifbay videos to review</title>
+<style>
+  @font-face { font-family: "DM Serif Display"; font-style: italic; src: url("fonts/DMSerifDisplay-Italic.ttf") format("truetype"); font-display: swap; }
+  @font-face { font-family: "Inter"; font-weight: 600; src: url("fonts/Inter-SemiBold.ttf") format("truetype"); font-display: swap; }
+  :root { --navy: #050f18; --card: #0d2035; --line: #1c3550; --text: #f0f5f4; --muted: #8fa9b8; --gold: #c9a45c; --ok: #3fb67d; --no: #e0605a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--navy); color: var(--text); font: 15px/1.45 -apple-system, system-ui, "Segoe UI", sans-serif; }
+  header { position: sticky; top: 0; z-index: 5; background: rgba(5, 15, 24, .94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); padding: 14px 16px 10px; }
+  h1 { font: italic 26px/1.1 "DM Serif Display", Georgia, serif; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .tabs { display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; }
+  .tabs button { flex: none; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font: 600 13px Inter, sans-serif; }
+  .tabs button.on { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  main { max-width: 760px; margin: 0 auto; padding: 14px 16px 120px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 12px; margin: 0 0 16px; }
+  .top { display: grid; grid-template-columns: 150px 1fr; gap: 12px; }
+  video, .thumb { width: 100%; aspect-ratio: 9/16; border-radius: 10px; background: #000; object-fit: cover; display: block; }
+  .meta .id { color: var(--muted); font: 600 12px Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+  .hook { font: italic 22px/1.2 "DM Serif Display", Georgia, serif; margin: 4px 0 6px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
+  .chip { font: 600 11px Inter, sans-serif; padding: 3px 8px; border-radius: 999px; background: #12304d; color: #cfe1ec; }
+  .chip.gold { background: rgba(201, 164, 92, .18); color: var(--gold); }
+  .chip.okc { background: rgba(63, 182, 125, .18); color: var(--ok); }
+  .chip.noc { background: rgba(224, 96, 90, .18); color: var(--no); }
+  .shots { color: var(--muted); font-size: 12.5px; margin: 6px 0 0; padding-left: 16px; }
+  .thumbrow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .thumbrow figure { margin: 0; } .thumbrow figcaption { color: var(--muted); font-size: 11.5px; margin-top: 3px; text-align: center; }
+  details { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 8px; }
+  summary { cursor: pointer; color: var(--gold); font: 600 13px Inter, sans-serif; }
+  .txt { white-space: pre-wrap; background: #08182a; border-radius: 10px; padding: 10px; margin: 8px 0; font-size: 13.5px; }
+  .txt b { display: block; color: var(--gold); font: 600 11px Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
+  .act { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .act button, .bar button { border: 0; border-radius: 12px; padding: 13px; font: 600 15px Inter, sans-serif; cursor: pointer; }
+  .yes { background: var(--ok); color: #04140c; } .nope { background: transparent; color: var(--no); border: 1px solid var(--no) !important; }
+  .undo { background: transparent; color: var(--muted); border: 1px solid var(--line) !important; grid-column: 1 / -1; }
+  .note { width: 100%; margin-top: 8px; background: #08182a; color: var(--text); border: 1px solid var(--line); border-radius: 10px; padding: 9px; font: inherit; }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(5, 15, 24, .96); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); display: flex; gap: 8px; justify-content: center; }
+  .bar button { background: var(--gold); color: var(--navy); padding: 11px 16px; }
+  .bar button.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .empty { color: var(--muted); text-align: center; padding: 40px 0; }
+  .key { max-width: 420px; margin: 60px auto; text-align: center; }
+  .key input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); font: inherit; }
+  .err { color: var(--no); font-size: 13px; }
+  @media (max-width: 420px) { .top { grid-template-columns: 120px 1fr; } .hook { font-size: 19px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Videos to review</h1>
+  <div class="sub" id="sub">Loading…</div>
+  <div class="tabs" id="tabs"></div>
+</header>
+<main id="main"></main>
+<div class="bar" id="bar" hidden>
+  <button id="allok">OK all on this tab</button>
+  <button class="ghost" id="pause">Pause posting</button>
+</div>
+<script>
+const MEDIA = "https://chifbay-media.chifandcopt.workers.dev";
+const $ = (s, el = document) => el.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+let KEY = "", plan = { videos: [] }, decisions = {}, paused = false, tab = "review";
+
+function readKey() {
+  const m = /k=([a-f0-9]{16,64})/.exec(location.hash);
+  if (m) { try { localStorage.setItem("cb-review-key", m[1]); } catch {} history.replaceState(null, "", location.pathname); return m[1]; }
+  try { return localStorage.getItem("cb-review-key") || ""; } catch { return ""; }
+}
+
+async function api(method, body) {
+  const r = await fetch(`${MEDIA}/review`, { method, headers: { "X-Review-Key": KEY, "Content-Type": "application/json" }, body: body ? JSON.stringify(body) : undefined });
+  if (r.status === 401) throw new Error("wrong key");
+  if (!r.ok) throw new Error(`store answered ${r.status}`);
+  return r.json();
+}
+
+function stateOf(v) {
+  if (v.posted?.instagram) return "posted";
+  const d = decisions[v.id]?.d;
+  if (d === "no" || v.status === "retired") return "refused";
+  if (v.status === "failed") return "failed";
+  if (v.status !== "rendered") return "building";
+  if (d === "ok") return "approved";
+  return "review";
+}
+
+const TABS = [["review", "To review"], ["approved", "Approved, waiting"], ["posted", "Posted"], ["refused", "Refused"], ["building", "Being made"], ["failed", "Failed checks"]];
+
+function render() {
+  const groups = Object.fromEntries(TABS.map(([k]) => [k, []]));
+  for (const v of plan.videos) groups[stateOf(v)]?.push(v);
+  $("#tabs").innerHTML = TABS.filter(([k]) => groups[k].length || k === "review")
+    .map(([k, label]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${label} · ${groups[k].length}</button>`).join("");
+  $("#sub").textContent = `${groups.review.length} to review · ${groups.approved.length} approved (about ${Math.floor(groups.approved.length / 2)} days of posts at 2 a day)` + (paused ? " · POSTING PAUSED" : "");
+  const list = groups[tab] || [];
+  $("#main").innerHTML = list.length ? list.map(card).join("") : `<p class="empty">Nothing here.</p>`;
+  $("#bar").hidden = false;
+  $("#allok").hidden = tab !== "review" || !list.length;
+  $("#pause").textContent = paused ? "Resume posting" : "Pause posting";
+}
+
+function card(v) {
+  const r = v.render || {}, t = v.texts || {}, st = stateOf(v), dec = decisions[v.id];
+  const shots = (r.shots || v.shots || []).map((s) => `<li>${esc(s.what || "")} <span style="opacity:.7">(${esc(s.name)} ${s.in ?? s.start}s${s.speed && s.speed !== 1 ? ", slow motion" : ""})</span></li>`).join("");
+  const chip = st === "approved" ? `<span class="chip okc">OK</span>` : st === "refused" ? `<span class="chip noc">No</span>` : st === "posted" ? `<span class="chip okc">Posted</span>` : "";
+  const posted = v.posted ? Object.entries(v.posted).map(([k, p]) => p?.url ? `<a class="chip" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(k)}</a>` : `<span class="chip">${esc(k)}</span>`).join("") : "";
+  const problems = r.checks && !r.checks.ok ? `<p class="err">${esc((r.checks.problems || []).join("; "))}</p>` : "";
+  const texts = [["Instagram", `${t.ig || ""}\n\n${(t.hashtags || []).join(" ")}`], ["Facebook", t.fb], ["Threads", t.threads],
+    ["YouTube title", t.yt_title], ["YouTube description", t.yt_description], ["YouTube tags", (t.yt_tags || []).join(", ")], ["TikTok", t.tiktok],
+    ...(t.labels?.length ? [["On-screen list", t.labels.join("\n")]] : [])]
+    .map(([k, s]) => `<div class="txt"><b>${k}</b>${esc(s)}</div>`).join("");
+  const act = st === "review" ? `<div class="act"><button class="yes" data-ok="${v.id}">OK, post it</button><button class="nope" data-no="${v.id}">No</button></div>
+      <input class="note" id="n-${v.id}" placeholder="Note (optional): what to change">`
+    : (st === "approved" || st === "refused") ? `<div class="act"><button class="undo" data-undo="${v.id}">Undo (${dec?.d === "ok" ? "OK" : "No"} ${esc((dec?.at || "").slice(0, 10))})</button></div>` : "";
+  return `<article class="card" id="${v.id}">
+    <div class="top">
+      ${r.preview ? `<video src="${esc(r.preview)}" poster="${esc(r.cover || "")}" controls playsinline preload="none"></video>` : `<div class="thumb"></div>`}
+      <div class="meta">
+        <div class="id">${esc(v.id)} · ${esc(v.format)} · ${r.duration ? r.duration + " s" : ""}</div>
+        <div class="hook">${esc(t.hook || "")}</div>
+        <div class="chips">${chip}<span class="chip gold">${esc(v.music || "")} music</span><span class="chip">${esc(v.light || "")}</span>${posted}</div>
+        <ul class="shots">${shots}</ul>
+        ${problems}
+      </div>
+    </div>
+    ${r.thumb ? `<div class="thumbrow"><figure><img class="thumb" src="${esc(r.thumb)}" alt="" loading="lazy"><figcaption>YouTube thumbnail</figcaption></figure>
+      <figure><img class="thumb" src="${esc(r.cover)}" alt="" loading="lazy"><figcaption>Instagram cover (no words)</figcaption></figure></div>` : ""}
+    <details><summary>Texts for every platform</summary>${texts}</details>
+    ${act}
+  </article>`;
+}
+
+async function decide(id, d) {
+  const note = $(`#n-${id}`)?.value || "";
+  const out = await api("POST", { id, d, note });
+  decisions = out.decisions || {};
+  render();
+}
+
+document.addEventListener("click", async (e) => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  try {
+    if (b.dataset.t) { tab = b.dataset.t; render(); scrollTo(0, 0); }
+    else if (b.dataset.ok) await decide(b.dataset.ok, "ok");
+    else if (b.dataset.no) await decide(b.dataset.no, "no");
+    else if (b.dataset.undo) await decide(b.dataset.undo, "clear");
+    else if (b.id === "allok") {
+      const ids = plan.videos.filter((v) => stateOf(v) === "review").map((v) => v.id);
+      if (ids.length && confirm(`OK all ${ids.length} videos on this tab? Each one will be posted.`)) for (const id of ids) await decide(id, "ok");
+    } else if (b.id === "pause") {
+      const out = await api("POST", { id: "posting", d: paused ? "resume" : "pause" });
+      decisions = out.decisions || {}; paused = decisions.__paused?.d === "pause"; render();
+    }
+  } catch (err) { alert(err.message); }
+});
+
+async function start() {
+  KEY = readKey();
+  if (!KEY) {
+    $("#main").innerHTML = `<div class="key"><p>Open the link Claude sent you (it carries the review key).</p></div>`;
+    $("#sub").textContent = "";
+    return;
+  }
+  try {
+    const [p, d] = await Promise.all([fetch(`plan.json?t=${Date.now()}`, { cache: "no-store" }).then((r) => r.json()), api("GET")]);
+    plan = p; decisions = d.decisions || {}; paused = Boolean(d.paused);
+    render();
+  } catch (err) {
+    $("#main").innerHTML = `<p class="err">Could not load: ${esc(err.message)}</p>`;
+  }
+}
+start();
+</script>
+</body>
+</html>

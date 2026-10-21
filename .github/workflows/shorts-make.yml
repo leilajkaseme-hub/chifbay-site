@@ -1,0 +1,78 @@
+name: shorts, plan and build new videos
+
+# Plans new short videos from shorts/moments.json (fresh footage only), writes their texts, builds them
+# (cut from the Drive, graded, titled, music, checks, thumbnails) and stores them in the chifbay-media Worker.
+# Then Theo gets one message with the review link. Posts nothing: shorts-post.yml only takes approved videos.
+on:
+  schedule:
+    - cron: "17 5 * * 0,3"
+  workflow_dispatch:
+    inputs:
+      add:
+        description: "how many new videos to plan (empty = keep 16 waiting)"
+        required: false
+        default: ""
+      only:
+        description: "rebuild only these ids (e.g. s003 s007), no planning"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shorts-make
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ffmpeg and Python packages
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q numpy pillow google-genai
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Plan
+        if: github.event.inputs.only == ''
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ADD: ${{ github.event.inputs.add }}
+        run: cd shorts && python3 plan.py ${ADD:+--add $ADD}
+      - name: Build
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+          ONLY: ${{ github.event.inputs.only }}
+        run: cd shorts && python3 render.py $ONLY | tee /tmp/render.log
+      - name: Commit the plan
+        if: always()
+        run: |
+          git add shorts/plan.json 2>/dev/null || true
+          if git diff --staged --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "shorts: new videos built $(date -u +%Y-%m-%d)"
+          scripts/ci-push.sh
+      - name: Tell Theo
+        if: success()
+        run: |
+          N=$(grep -c ', ok$' /tmp/render.log || true)
+          if [ "${N:-0}" -gt 0 ]; then
+            curl -s -H "Title: Chifbay: $N new videos to review" -d "Tap OK or No on each one: https://chifbay.com/shorts/review.html" \
+              "$(python3 -c "import json;print(json.load(open('ig-auto/config.json'))['ntfy']['inbox'])")" > /dev/null
+          fi

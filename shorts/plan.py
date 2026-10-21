@@ -111,7 +111,7 @@ def shot_from(m, want):
     src_len = round(min(want * speed, m["end"] - m["start"]), 2)
     start = max(m["start"], min(m["peak"] - src_len * 0.55, m["end"] - src_len))
     landscape = (m["w"] or 0) > (m["h"] or 1)
-    return {"file_id": m["file_id"], "name": m["name"], "start": round(start, 2), "len": src_len, "speed": speed,
+    return {"file_id": m["file_id"], "name": m["name"], "start": round(start, 2), "len": src_len, "speed": speed, "peak": m["peak"],
             "x": m["x"] if landscape else 0.5, "x2": m["x2"] if landscape else 0.5,
             "what": m["what"], "tags": m["tags"], "score": m["score"], "hook": m["hook"],
             "audio": "own" if m["camera"] == "phone" and (sum(m["loud"]) / max(1, len(m["loud"]))) > 18 else "sea"}
@@ -207,7 +207,7 @@ Answer with JSON only:
  "thumb": "thumbnail title, 2 to 4 words, can differ from the hook",
  "ig": "Instagram caption: first line a teaser that names the place and service (contains 'Funchal, Madeira' or 'Madeira' and 'boat'), then 2 short paragraphs with true facts that fit this clip, then the call to action as the last line. 350 to 900 characters. 0 to 2 emoji.",
  "hashtags": ["4 or 5 hashtags, always #madeira and #funchal, others specific to the clip"],
- "fb": "Facebook text, 200 to 500 characters, warm and plain, ends with chifbay.com",
+ "fb": "Facebook text, 200 to 500 characters, warm and plain, no link (the booking link is added after it)",
  "threads": "Threads text, 60 to 220 characters, conversational, no hashtags",
  "yt_title": "YouTube Shorts title, 40 to 70 characters, catchy and true, ends with ' #Shorts'",
  "yt_description": "YouTube description: a hook line, 2 to 3 lines on what you see and the trip, then 'Book: https://chifbay.com/?utm_source=youtube&utm_medium=shorts', then 3 hashtags. 300 to 700 characters.",
@@ -308,7 +308,7 @@ def main():
         vid = f"s{n + added + 1:03d}"
         v = {"id": vid, "format": fmt, "status": "draft", "created": time.strftime("%Y-%m-%d"), "shots": shots,
              "music": MOODS[theme_of(ms[0])], "audio": "own" if all(s["audio"] == "own" for s in shots) else "sea",
-             "cta": CTAS[(n + added) % len(CTAS)], "light": ms[0]["light"]}
+             "cta": CTAS[(n + added) % len(CTAS)], "light": ms[0]["light"], "recorded": ms[0]["created"] or None}
         log(f"{vid} {fmt}: " + " | ".join(f"{s['name']}@{s['start']}+{s['len']}x{s['speed']} {s['what'][:40]}" for s in shots))
         if not dry:
             try:
