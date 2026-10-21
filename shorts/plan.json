@@ -1121,17 +1121,17 @@
    "by": "claude (contact sheets)",
    "qa": {
     "ok": true,
-    "score": 9,
+    "score": 10,
     "problems": [],
-    "model": "gemini-3.5-flash"
+    "model": "gemini-3.6-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-90a6352d-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-bb1e1029-thumb.jpg",
     "duration": 15.0,
-    "bytes": 15834076,
+    "bytes": 15843296,
     "shots": [
      {
       "name": "DJI_20260606200425_0015_D.MP4",
@@ -1178,7 +1178,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T20:00:32Z"
+    "at": "2026-10-21T20:18:36Z"
    }
   },
   {
@@ -1304,23 +1304,23 @@
    "audio": "sea",
    "by": "claude (contact sheets)",
    "qa": {
-    "ok": true,
-    "score": 8,
-    "problems": [],
-    "model": "gemini-3.8-flash"
+    "ok": null,
+    "problems": [
+     "second look not done: Gemini free calls spent for today"
+    ]
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s012-6dec6bbb-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s012-1dcce93e.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s012-1dcce93e-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s012-1dcce93e-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s012-1dcce93e-thumb.jpg",
     "duration": 14.4,
-    "bytes": 15232846,
+    "bytes": 15235761,
     "shots": [
      {
       "name": "DJI_20260813191642_0030_D.MP4",
-      "in": 63.0,
-      "out": 66.6,
+      "in": 64.5,
+      "out": 68.1,
       "grade": "overcast",
       "exposure": 0.04,
       "seconds": 3.6,
@@ -1362,7 +1362,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T20:06:01Z"
+    "at": "2026-10-21T20:23:13Z"
    }
   },
   {
@@ -1488,18 +1488,18 @@
    "audio": "sea",
    "by": "claude (contact sheets)",
    "qa": {
-    "ok": true,
-    "score": 9,
-    "problems": [],
-    "model": "gemini-3.7-flash"
+    "ok": null,
+    "problems": [
+     "second look not done: Gemini free calls spent for today"
+    ]
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-8211fa29-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9d97565f-thumb.jpg",
     "duration": 14.8,
-    "bytes": 15905235,
+    "bytes": 15910704,
     "shots": [
      {
       "name": "DJI_20260606200017_0014_D.MP4",
@@ -1546,7 +1546,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T20:10:20Z"
+    "at": "2026-10-21T20:26:43Z"
    }
   }
  ]
