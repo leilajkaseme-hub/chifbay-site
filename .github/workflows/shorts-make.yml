@@ -13,6 +13,10 @@ on:
         description: "how many new videos to plan (empty = keep 16 waiting)"
         required: false
         default: ""
+      format:
+        description: "only this format (story, highlight, montage...), empty = the rotation"
+        required: false
+        default: ""
       only:
         description: "rebuild only these ids (e.g. s003 s007), no planning"
         required: false
@@ -56,7 +60,8 @@ jobs:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_WORKERS_AI_TOKEN: ${{ secrets.CF_WORKERS_AI_TOKEN }}
           ADD: ${{ github.event.inputs.add }}
-        run: cd shorts && python3 plan.py ${ADD:+--add $ADD}
+          FORMAT: ${{ github.event.inputs.format }}
+        run: cd shorts && python3 plan.py ${ADD:+--add $ADD} ${FORMAT:+--format $FORMAT}
       - name: Build
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}

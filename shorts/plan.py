@@ -4,6 +4,7 @@
     python3 shorts/plan.py            add videos until 16 are waiting (not posted, not refused)
     python3 shorts/plan.py --add 6    add 6 more whatever is waiting
     python3 shorts/plan.py --dry      print what it would add, write nothing
+    python3 shorts/plan.py --add 3 --format story   3 videos of one format
 
 Rules, so the feed never repeats itself (Theo, 19 Oct 2026: "never re-plan the same videos"):
 - The same seconds of footage never come back: a shot may not overlap (1 s margin) anything already used in a
@@ -333,8 +334,9 @@ def main():
     recent_text = [x for v in plan["videos"][-20:] for x in (v.get("texts", {}).get("hook"), v.get("texts", {}).get("ig", "")[:80]) if x]
     rot = len(plan["videos"]) % len(ROTATION)
     added, misses = 0, 0
+    force = args[args.index("--format") + 1] if "--format" in args else None
     while added < want and misses < len(ROTATION):
-        fmt = ROTATION[(rot + added + misses) % len(ROTATION)]
+        fmt = force or ROTATION[(rot + added + misses) % len(ROTATION)]
         ms = pick(fmt, cand, set(recent_files[-6:]))
         if not ms:
             misses += 1
