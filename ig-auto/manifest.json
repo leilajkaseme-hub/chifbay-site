@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-20T16:51:39.683Z",
+ "generated_at": "2026-10-21T09:44:26.934Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -868,6 +868,55 @@
    "template": null,
    "priority": 0,
    "created": "2026-10-20T09:42:46.332Z"
+  },
+  {
+   "id": "20261021094404-c856",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Private boat tour from Funchal, Madeira: one straw hat, one hand on the wheel and a very bright sea.\n\nSomeone in a long white shirt is standing at the helm, back to us, hair under a straw hat with a black ribbon. One hand rests on the seat, the other on the steering wheel. The two Karnic seats are in front, so the view is not blocked.\n\nThe sea on the left is covered in little flashes of light, as if somebody spilled glitter on it. Above, blue sky and small white clouds, and the grey canopy framing it all like a window.\n\nThe practical bit: our Day Trip leaves Funchal marina at 10:00 or 14:00 and takes 2h30 or 3h. The Sunset Trip is 2h or 2h30 and leaves 1h15 before the sun goes down, so the time changes through the year. Bring a hat, like this one. Sunglasses help too. We have the food on board.\n\nPrivate boat, skipper included, five guests at most.\n\nO chapéu já está escolhido.\n\nDay or sunset, which time of day sounds like yours? Book direct on chifbay.com",
+   "hashtags": [
+    "#madeira",
+    "#funchal",
+    "#boattrip",
+    "#privateboatmadeira",
+    "#traveltips",
+    "#madeiratips",
+    "#visitportugal"
+   ],
+   "cover": "https://chifbay.com/ig/20261021094404-c856-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261021094404-c856-1.jpg",
+    "https://chifbay.com/ig/20261021094404-c856-2.jpg",
+    "https://chifbay.com/ig/20261021094404-c856-3.jpg",
+    "https://chifbay.com/ig/20261021094404-c856-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-10-21T09:44:26.268Z"
+  },
+  {
+   "id": "20261021094426-cf08",
+   "kind": "story",
+   "media": "photo",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/20261021094426-cf08.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261021094426-cf08.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": null,
+   "created": "2026-10-21T09:44:26.931Z"
   }
  ]
 }
