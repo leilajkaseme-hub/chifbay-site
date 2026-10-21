@@ -995,6 +995,376 @@
     ],
     "model": "gemini-3.8-flash"
    }
+  },
+  {
+   "id": "s011",
+   "music": "day",
+   "light": "day",
+   "recorded": "2026-06-06",
+   "cta": "Booking link in bio.",
+   "shots": [
+    {
+     "file_id": "1slYrl8FOnr4o1Y_DCxQ8ERrnFHvjH0ck",
+     "name": "DJI_20260606200425_0015_D.MP4",
+     "start": 0.5,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 2.3,
+     "x": 0.5,
+     "x2": 0.62,
+     "what": "huge sea cliffs above deep blue water",
+     "tags": [
+      "cliffs",
+      "aerial"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1VzTQnDln8DqBJDi85urBBuRD_EwmBsOX",
+     "name": "DJI_20260811102620_0003_D.MP4",
+     "start": 18.0,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 19.8,
+     "x": 0.55,
+     "x2": 0.62,
+     "what": "the boat side on, a skipper at the helm, deep blue water",
+     "tags": [
+      "boat_hero",
+      "skipper"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC",
+     "name": "DJI_20260811102748_0004_D.MP4",
+     "start": 0.5,
+     "len": 3.8,
+     "speed": 1.0,
+     "peak": 2.4,
+     "x": 0.3,
+     "x2": 0.45,
+     "what": "the boat with guests in a turquoise cove",
+     "tags": [
+      "turquoise",
+      "cove"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1slYrl8FOnr4o1Y_DCxQ8ERrnFHvjH0ck",
+     "name": "DJI_20260606200425_0015_D.MP4",
+     "start": 66.0,
+     "len": 2.0,
+     "speed": 0.5,
+     "peak": 67.0,
+     "x": 0.55,
+     "x2": 0.45,
+     "what": "low pass over guests at the deck table, slow motion",
+     "tags": [
+      "guests_happy",
+      "calm"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "texts": {
+    "labels": [
+     "POV: you booked a private boat in Madeira",
+     "Your own boat, two skippers, no other group",
+     "Then the water turns turquoise",
+     "Snacks on deck, nobody in a hurry"
+    ],
+    "thumb": "Your own boat in Madeira",
+    "ig": "POV: your own boat for the afternoon in Funchal, Madeira. No other group on board, just your people and our two skippers.\n\nWe follow the south coast under the cliffs, then stop where the water turns turquoise for a swim and the paddle board. Snacks are on us, and nobody watches the clock.\n\nDay Trip, 2h30 or 3h, leaving at 10:00 or 14:00. Five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#privateboat",
+     "#visitmadeira"
+    ],
+    "fb": "A private afternoon on the water from Funchal: your group, our two skippers and the south coast of Madeira. We stop where the water turns turquoise for a swim, there is food on board, and nobody is in a hurry. Day Trip, 2h30 or 3h, up to five guests.",
+    "threads": "POV: your own boat off Madeira, a turquoise cove, and nowhere to be.",
+    "yt_title": "POV: a private boat trip in Madeira #Shorts",
+    "yt_description": "Your own boat for the afternoon off Funchal, Madeira.\n\nThe south coast under the cliffs, a swim stop where the water turns turquoise, food on board and two local skippers. Private Day Trip, 2h30 or 3h, five guests at most.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat tour",
+     "private boat madeira",
+     "things to do in madeira",
+     "madeira",
+     "funchal",
+     "boat trip madeira",
+     "turquoise water",
+     "madeira coast",
+     "day trip madeira",
+     "chifbay"
+    ],
+    "tiktok": "POV: you booked a private boat in Madeira and found the turquoise water 🌊 #madeira #funchal #boattrip #visitmadeira #traveltok",
+    "alt": "Drone shots of the Madeira sea cliffs, a white private boat with a skipper on deep blue water, the boat in a turquoise cove, and guests relaxing at the deck table.",
+    "hook": "POV: you booked a private boat in Madeira",
+    "model": "written by Claude"
+   },
+   "format": "story",
+   "status": "draft",
+   "created": "2026-10-21",
+   "audio": "sea",
+   "by": "claude (contact sheets)"
+  },
+  {
+   "id": "s012",
+   "music": "cliffs",
+   "light": "overcast",
+   "recorded": "2026-08-13",
+   "cta": "Message us to pick your day.",
+   "shots": [
+    {
+     "file_id": "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV",
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 63.0,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 64.8,
+     "x": 0.5,
+     "x2": 0.6,
+     "what": "the drone rises along a tall dark sea cliff, grey sky",
+     "tags": [
+      "cliffs",
+      "reveal"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV",
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 0.5,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 2.3,
+     "x": 0.25,
+     "x2": 0.32,
+     "what": "the boat anchored under the cliff, guests swimming beside it",
+     "tags": [
+      "cliffs",
+      "swim"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV",
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 46.0,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 47.8,
+     "x": 0.42,
+     "x2": 0.45,
+     "what": "guests swimming next to the boat",
+     "tags": [
+      "swim",
+      "guests_happy"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV",
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 26.0,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 27.8,
+     "x": 0.5,
+     "x2": 0.48,
+     "what": "guests back on the stern deck under the cliff",
+     "tags": [
+      "guests_happy",
+      "boat_hero"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "texts": {
+    "labels": [
+     "POV: a grey day still beats the beach",
+     "The boat stops right under the cliffs",
+     "Everyone ends up in the water",
+     "Then back on deck to dry off"
+    ],
+    "thumb": "Under the cliffs",
+    "ig": "POV: a grey sky off Funchal, Madeira, and still the best swim of the week. Our Day Trip stops right under the cliffs, where the water is deep, clear and calm.\n\nEveryone ends up in the water, the paddle board comes out, and then it is back on deck to dry off with something to eat. Private boat, two skippers, five guests at most, 2h30 or 3h.\n\nMessage us to pick your day.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#wildswimming",
+     "#madeiraisland"
+    ],
+    "fb": "Grey sky, warm Atlantic. Our Day Trip from Funchal stops right under the cliffs, where everyone ends up in the water and then back on deck to dry off with something to eat. Private boat, two skippers, up to five guests.",
+    "threads": "Grey sky, giant cliffs, and everyone still ends up in the water.",
+    "yt_title": "POV: swimming under Madeira's cliffs #Shorts",
+    "yt_description": "A grey day off Madeira and still the best swim of the week.\n\nOur private Day Trip from Funchal stops right under the south coast cliffs: deep clear water, a paddle board, then back on deck with food on board. Two skippers, five guests at most, 2h30 or 3h.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "swimming in madeira",
+     "madeira cliffs",
+     "funchal boat tour",
+     "private boat madeira",
+     "things to do in madeira",
+     "madeira",
+     "funchal",
+     "wild swimming",
+     "chifbay"
+    ],
+    "tiktok": "POV: grey sky, giant cliffs, and everyone still ends up in the water 🌊 #madeira #funchal #boattrip #wildswimming #traveltok",
+    "alt": "Drone view of a tall dark cliff on Madeira's south coast, a white private boat anchored below it, guests swimming next to it and relaxing on the stern deck.",
+    "hook": "POV: a grey day still beats the beach",
+    "model": "written by Claude"
+   },
+   "format": "story",
+   "status": "draft",
+   "created": "2026-10-21",
+   "audio": "sea",
+   "by": "claude (contact sheets)"
+  },
+  {
+   "id": "s013",
+   "music": "sunset",
+   "light": "golden",
+   "recorded": "2026-06-01",
+   "cta": "Book your day on chifbay.com.",
+   "shots": [
+    {
+     "file_id": "189efHvO5Bm1ZZd8DreIXGzWQqi-Nyt_S",
+     "name": "DJI_20260606200017_0014_D.MP4",
+     "start": 1.0,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 2.8,
+     "x": 0.45,
+     "x2": 0.45,
+     "what": "the boat backlit by the low evening sun",
+     "tags": [
+      "golden_light",
+      "boat_hero"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1nuIunhlZARBYcTlnFQIKbqjzoEg8ro1X",
+     "name": "DJI_20260601205023_0010_D.MP4",
+     "start": 14.5,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 16.3,
+     "x": 0.3,
+     "x2": 0.65,
+     "what": "the sun flares beside the cliffs, the camera finds the boat",
+     "tags": [
+      "sunset",
+      "cliffs"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1nuIunhlZARBYcTlnFQIKbqjzoEg8ro1X",
+     "name": "DJI_20260601205023_0010_D.MP4",
+     "start": 85.0,
+     "len": 3.8,
+     "speed": 1.0,
+     "peak": 86.9,
+     "x": 0.5,
+     "x2": 0.68,
+     "what": "the boat in the path of the sun's reflection",
+     "tags": [
+      "sunset",
+      "boat_hero"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1nuIunhlZARBYcTlnFQIKbqjzoEg8ro1X",
+     "name": "DJI_20260601205023_0010_D.MP4",
+     "start": 21.0,
+     "len": 3.8,
+     "speed": 1.0,
+     "peak": 22.9,
+     "x": 0.55,
+     "x2": 0.6,
+     "what": "the sun over the sea, the cliffs on the right",
+     "tags": [
+      "sunset",
+      "golden_light"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "texts": {
+    "labels": [
+     "POV: you saved one evening for the sea",
+     "The sun drops behind the cliffs",
+     "Your boat, right in the golden light",
+     "This is why we leave before sunset"
+    ],
+    "thumb": "Sunset, from the sea",
+    "ig": "POV: one evening in Funchal, Madeira, kept free for the sea. Our Sunset Trip leaves 1h15 before the sun goes down, so you are on the water when the light turns gold behind the cliffs.\n\nPrivate boat, your group only, two skippers, food on board. 2h or 2h30, no swim stop on this one, just the light.\n\nBook your day on chifbay.com.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#sunsetcruise",
+     "#goldenhour",
+     "#boattrip"
+    ],
+    "fb": "Keep one evening free for the sea. Our Sunset Trip leaves Funchal 1h15 before the sun goes down, so you are on the water when the light turns gold behind the cliffs. Private boat, two skippers, food on board, up to five guests.",
+    "threads": "One evening, one boat, and the sun dropping behind Madeira's cliffs.",
+    "yt_title": "POV: sunset from a private boat in Madeira #Shorts",
+    "yt_description": "Keep one evening in Madeira free for the sea.\n\nOur private Sunset Trip leaves Funchal 1h15 before sunset, so you are on the water when the light turns gold behind the cliffs. 2h or 2h30, two skippers, food on board, five guests at most.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #sunset",
+    "yt_tags": [
+     "madeira sunset",
+     "sunset boat trip madeira",
+     "funchal sunset cruise",
+     "private boat madeira",
+     "things to do in madeira",
+     "madeira",
+     "funchal",
+     "golden hour",
+     "sunset cruise",
+     "chifbay"
+    ],
+    "tiktok": "POV: you saved one evening in Madeira for the sea 🌅 #madeira #funchal #sunset #boattrip #goldenhour",
+    "alt": "A white private boat on the Atlantic off Madeira at golden hour, the low sun flaring beside dark cliffs and its reflection on the water.",
+    "hook": "POV: you saved one evening for the sea",
+    "model": "written by Claude"
+   },
+   "format": "story",
+   "status": "draft",
+   "created": "2026-10-21",
+   "audio": "sea",
+   "by": "claude (contact sheets)"
   }
  ]
 }

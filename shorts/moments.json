@@ -2661,6 +2661,320 @@
      "issues": []
     }
    ]
+  },
+  "1slYrl8FOnr4o1Y_DCxQ8ERrnFHvjH0ck": {
+   "name": "DJI_20260606200425_0015_D.MP4",
+   "path": "vidéo clients 360 drone/DJI_20260606200425_0015_D.MP4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 59.94,
+   "dur": 74.96,
+   "camera": "drone",
+   "light": "day",
+   "summary": "Drone: Madeira cliffs over deep blue sea, then the boat approached and passed low over the guests at the table (picked by eye from the contact sheet).",
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 0.0,
+     "end": 6.0,
+     "peak": 2.0,
+     "score": 8,
+     "hook": 8,
+     "what": "huge green and brown sea cliffs above deep blue water, sailing boats small below",
+     "tags": [
+      "cliffs",
+      "aerial",
+      "reveal"
+     ],
+     "x": 0.5,
+     "x2": 0.62,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 63.0,
+     "end": 72.0,
+     "peak": 68.0,
+     "score": 8,
+     "hook": 7,
+     "what": "the drone passes low over the boat, guests relaxing at the deck table",
+     "tags": [
+      "boat_hero",
+      "guests_happy",
+      "calm"
+     ],
+     "x": 0.55,
+     "x2": 0.45,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T19:53:09Z"
+  },
+  "1VzTQnDln8DqBJDi85urBBuRD_EwmBsOX": {
+   "name": "DJI_20260811102620_0003_D.MP4",
+   "path": "USED/DJI_20260811102620_0003_D.MP4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 59.94,
+   "dur": 79.86,
+   "camera": null,
+   "light": null,
+   "summary": null,
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 15.0,
+     "end": 24.0,
+     "peak": 19.0,
+     "score": 7,
+     "hook": 7,
+     "what": "the boat side on, deep blue water, a skipper standing at the helm",
+     "tags": [
+      "boat_hero",
+      "skipper",
+      "open_sea"
+     ],
+     "x": 0.55,
+     "x2": 0.62,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T19:53:09Z"
+  },
+  "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC": {
+   "name": "DJI_20260811102748_0004_D.MP4",
+   "path": "USED/DJI_20260811102748_0004_D.MP4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 59.94,
+   "dur": 72.32,
+   "camera": "drone",
+   "light": "day",
+   "summary": "Drone around the boat in a turquoise cove with guests and a skipper.",
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 0.0,
+     "end": 7.0,
+     "peak": 3.0,
+     "score": 8,
+     "hook": 8,
+     "what": "the boat with guests in clear turquoise water of a cove",
+     "tags": [
+      "turquoise",
+      "cove",
+      "boat_hero"
+     ],
+     "x": 0.3,
+     "x2": 0.45,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T19:53:09Z"
+  },
+  "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV": {
+   "name": "DJI_20260813191642_0030_D.MP4",
+   "path": "USED/DJI_20260813191642_0030_D.MP4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 59.94,
+   "dur": 75.0,
+   "camera": null,
+   "light": null,
+   "summary": null,
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 0.0,
+     "end": 6.0,
+     "peak": 2.0,
+     "score": 8,
+     "hook": 7,
+     "what": "the boat anchored right under a huge dark cliff, guests swimming beside it, grey sky",
+     "tags": [
+      "cliffs",
+      "swim",
+      "boat_hero"
+     ],
+     "x": 0.25,
+     "x2": 0.32,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 25.0,
+     "end": 31.0,
+     "peak": 27.0,
+     "score": 7,
+     "hook": 6,
+     "what": "guests back on the stern deck of the boat under the cliff",
+     "tags": [
+      "guests_happy",
+      "boat_hero"
+     ],
+     "x": 0.5,
+     "x2": 0.48,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 45.0,
+     "end": 51.0,
+     "peak": 47.0,
+     "score": 7,
+     "hook": 7,
+     "what": "guests swimming in the sea next to the boat",
+     "tags": [
+      "swim",
+      "guests_happy"
+     ],
+     "x": 0.42,
+     "x2": 0.45,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 62.0,
+     "end": 70.0,
+     "peak": 66.0,
+     "score": 8,
+     "hook": 8,
+     "what": "the drone rises along a tall dark sea cliff, grey sky",
+     "tags": [
+      "cliffs",
+      "reveal",
+      "aerial"
+     ],
+     "x": 0.5,
+     "x2": 0.6,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T19:53:09Z"
+  },
+  "189efHvO5Bm1ZZd8DreIXGzWQqi-Nyt_S": {
+   "name": "DJI_20260606200017_0014_D.MP4",
+   "path": "vidéo clients 360 drone/DJI_20260606200017_0014_D.MP4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 59.94,
+   "dur": 63.01,
+   "camera": "drone",
+   "light": "golden",
+   "summary": "Drone: the boat backlit by the low evening sun, then over the guests.",
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 0.0,
+     "end": 6.0,
+     "peak": 2.0,
+     "score": 8,
+     "hook": 7,
+     "what": "the boat on the sea backlit by the low evening sun",
+     "tags": [
+      "golden_light",
+      "boat_hero"
+     ],
+     "x": 0.45,
+     "x2": 0.45,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T19:53:09Z"
+  },
+  "1nuIunhlZARBYcTlnFQIKbqjzoEg8ro1X": {
+   "name": "DJI_20260601205023_0010_D.MP4",
+   "path": "vidéo clients 360 drone/DJI_20260601205023_0010_D.MP4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 29.97,
+   "dur": 160.59,
+   "camera": "drone",
+   "light": "sunset",
+   "summary": "Drone at sunset: the boat, the sun dropping behind the cliffs, the boat in the sun's reflection.",
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 14.0,
+     "end": 20.0,
+     "peak": 16.0,
+     "score": 9,
+     "hook": 8,
+     "what": "the low sun flares beside the cliffs, the boat on the golden sea",
+     "tags": [
+      "sunset",
+      "golden_light",
+      "cliffs"
+     ],
+     "x": 0.3,
+     "x2": 0.65,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 20.5,
+     "end": 27.0,
+     "peak": 23.0,
+     "score": 8,
+     "hook": 7,
+     "what": "the sun over the sea with its reflection, the cliffs on the right",
+     "tags": [
+      "sunset",
+      "golden_light"
+     ],
+     "x": 0.55,
+     "x2": 0.6,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 84.0,
+     "end": 91.0,
+     "peak": 87.0,
+     "score": 9,
+     "hook": 8,
+     "what": "the boat right in the path of the sun's reflection",
+     "tags": [
+      "sunset",
+      "boat_hero",
+      "golden_light"
+     ],
+     "x": 0.5,
+     "x2": 0.68,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T19:53:09Z"
   }
  }
 }

@@ -142,7 +142,7 @@ def main():
     files = drive_videos()
     # a copy scanned before MD5 was compared (e.g. "x.MP4" and "x (1).MP4") is dropped: its windows would look unused
     keep = {f["id"] for f in files}
-    for fid in [k for k in db["files"] if k not in keep]:
+    for fid in [k for k in db["files"] if k not in keep and not str(db["files"][k].get("model", "")).startswith("claude")]:
         log(f"  dropping {db['files'][fid]['name']}: a copy of another file, or gone from the Drive")
         del db["files"][fid]
     for f in files:
