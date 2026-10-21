@@ -204,10 +204,13 @@ async function main() {
   const igPosted = new Set(lines(join(ROOT, "ledger.jsonl")).filter((e) => e.ok && e.id).map((e) => e.id));
   const v = nextVideo(plan, rev.decisions, igPosted);
   if (!v) {
+    // The slot stays open (an OK given later the same day still posts within max_late_hours); one reminder per slot.
     log(`slot ${slot}: no approved video waiting`);
-    const waiting = plan.videos.filter((x) => x.status === "rendered" && !rev.decisions[x.id]).length;
-    if (!DRY) await inbox("Chifbay: no approved video for today's slot", `${waiting} videos wait for your OK: ${cfg.review_url}`);
-    record({ slot, missed: true, why: "nothing approved" });
+    if (!lines(LEDGER).some((e) => e.slot === slot && e.reminded)) {
+      const waiting = plan.videos.filter((x) => x.status === "rendered" && !rev.decisions[x.id]).length;
+      if (!DRY) await inbox("Chifbay: no approved video for this slot", `${waiting} videos wait for your OK: ${cfg.review_url}`);
+      record({ slot, reminded: true });
+    }
     return;
   }
   log(`slot ${slot}: ${v.id} ${v.format} "${v.texts.hook}"`);
