@@ -131,9 +131,12 @@ def serif_png(text, path, size=52, top=300):
     for i, l in enumerate(lines):
         tw = d.textlength(l, font=font)
         x, y = W / 2 - tw / 2, top + i * step
-        ds.text((x, y + 2), l, font=font, fill=(0, 0, 0, 215))
+        # a wider soft halo, so a white line still reads over white clouds or bright water (no band: Theo, 3 Oct)
+        ds.text((x, y + 2), l, font=font, fill=(0, 0, 0, 200), stroke_width=max(3, size // 14), stroke_fill=(0, 0, 0, 150))
         d.text((x, y), l, font=font, fill=(255, 255, 255, 255))
-    img.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(7)))
+    soft = shadow.filter(ImageFilter.GaussianBlur(9))
+    img.alpha_composite(soft)
+    img.alpha_composite(soft)
     img.alpha_composite(layer)
     img.save(path)
     return lines
