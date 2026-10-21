@@ -36,7 +36,7 @@ const MAX_TRIES = 3;
 
 const readJson = (p, d) => { try { return JSON.parse(readFileSync(p, "utf8")); } catch { return d; } };
 const lines = (p) => (existsSync(p) ? readFileSync(p, "utf8").split("\n").filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean) : []);
-const record = (e) => appendFileSync(LEDGER, JSON.stringify({ at: new Date().toISOString(), ...e }) + "\n");
+const record = (e) => { if (!DRY) appendFileSync(LEDGER, JSON.stringify({ at: new Date().toISOString(), ...e }) + "\n"); };
 const savePlan = (plan) => writeFileSync(PLAN, JSON.stringify(plan, null, 1) + "\n");
 
 /** Madeira wall-clock parts of a Date. */
@@ -187,7 +187,7 @@ async function main() {
     [rev, ctl] = await Promise.all([approvals(), readControls()]);
   } catch (err) {
     log(`not posting: approvals or pause unreadable (${err.message})`);
-    await alert("Chifbay shorts held", `The approvals or the pause could not be read (${err.message}), so nothing was posted.`);
+    if (!DRY) await alert("Chifbay shorts held", `The approvals or the pause could not be read (${err.message}), so nothing was posted.`);
     return;
   }
   if (rev.paused || ctl.paused) { log(`not posting: PAUSED (${rev.paused ? "review page" : ctl.reason})`); return; }
@@ -206,8 +206,7 @@ async function main() {
   if (!v) {
     log(`slot ${slot}: no approved video waiting`);
     const waiting = plan.videos.filter((x) => x.status === "rendered" && !rev.decisions[x.id]).length;
-    await inbox("Chifbay: no approved video for today's slot",
-      `${waiting} videos wait for your OK: ${cfg.review_url}`);
+    if (!DRY) await inbox("Chifbay: no approved video for today's slot", `${waiting} videos wait for your OK: ${cfg.review_url}`);
     record({ slot, missed: true, why: "nothing approved" });
     return;
   }
