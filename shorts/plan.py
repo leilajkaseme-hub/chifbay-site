@@ -28,6 +28,7 @@ THEMES = {
 }
 # How each format is cut: number of shots, seconds per shot (on screen), total range.
 FORMATS = {
+    "story":     {"shots": 4, "len": (3.0, 4.2), "total": (12.0, 18.0)},
     "highlight": {"shots": 1, "len": (5.0, 8.0), "total": (5.0, 9.0)},
     "montage":   {"shots": 3, "len": (2.6, 3.6), "total": (8.5, 12.5)},
     "pov":       {"shots": 2, "len": (3.2, 4.6), "total": (7.0, 10.0)},
@@ -36,8 +37,10 @@ FORMATS = {
     "loop":      {"shots": 1, "len": (4.0, 6.0), "total": (4.0, 6.5)},
     "bestof":    {"shots": 5, "len": (1.8, 2.4), "total": (9.5, 12.5)},
 }
-ROTATION = ["highlight", "montage", "pov", "highlight", "list", "question", "montage", "loop",
-            "highlight", "pov", "montage", "bestof", "question", "highlight"]
+# Theo, 21 Oct 2026, after refusing the first 9: the footage was weak, and the style he wants is the POV / mini story
+# with text. So 3 videos in 4 are stories; strong drone highlights and montages fill the rest.
+ROTATION = ["story", "story", "highlight", "story", "story", "montage", "story", "story", "highlight", "story",
+            "story", "bestof", "story", "story", "montage", "story"]
 CTAS = ["Booking link in bio.", "Dates and booking on chifbay.com.", "Message us to pick your day.",
         "Book your day on chifbay.com.", "Ask us for a date in the DMs.", "Tap the link in our bio to book."]
 
@@ -86,7 +89,10 @@ def pool(moments, used):
         if not f.get("boat") or f.get("camera") == "edit" or f.get("error"):
             continue
         for m in f.get("moments", []):
-            if m["score"] < 6 or BAD & set(m["issues"]):
+            # Theo refused the first 9 for their footage: only strong moments now, and a phone clip only when excellent
+            # (guests on a paddle board or chatting on deck are not what sells the trip)
+            need = 8 if f.get("camera") == "phone" else 7
+            if m["score"] < need or m["hook"] < 6 or BAD & set(m["issues"]):
                 continue
             if not free(used, f["name"], m["start"], m["end"]):
                 continue
@@ -137,6 +143,22 @@ def pick(fmt, cand, recent_files):
                     return [m]
         return None
     n = spec["shots"]
+    if fmt == "story":
+        # one shot per step of a trip, in that order: leaving / the coast / the water / the end of the day
+        steps = [{"marina", "funchal", "boat_hero", "speed", "wake", "open_sea"},
+                 {"cliffs", "cave", "waterfall", "reveal", "orbit", "aerial"},
+                 {"jump", "swim", "paddle", "splash", "turquoise", "cove", "guests_happy"},
+                 {"sunset", "golden_light", "calm", "boat_hero", "wake", "food_drinks"}]
+        chosen = []
+        for step in steps:
+            for m in ok:
+                if m in chosen or not (step & set(m["tags"])):
+                    continue
+                if any(m["name"] == c["name"] and abs(m["start"] - c["start"]) < 20 for c in chosen):
+                    continue
+                chosen.append(m)
+                break
+        return chosen if len(chosen) >= 3 else None
     if fmt == "bestof":
         chosen, files = [], set()
         for m in ok:
@@ -182,6 +204,10 @@ def trip_of(shots):
 
 def text_prompt(v, recent):
     fmt_help = {
+        "story": "A POV mini story of a trip with us. 'labels' = exactly ONE line of 3 to 8 words per shot, in order; the first "
+                 "line starts with 'POV:' and sets the scene (e.g. 'POV: you booked a private boat in Madeira'), the next lines "
+                 "follow what each shot shows as the day goes on ('the skipper takes you under the cliffs', 'first one in wins'). "
+                 "'hook' = the first line again.",
         "highlight": "One strong moment. The hook names it plainly.",
         "montage": "Three moments of one theme. The hook names the theme.",
         "pov": "The hook starts with 'POV:' and puts the viewer on the boat (e.g. 'POV: your boat, your cove').",
@@ -205,7 +231,7 @@ Hooks and first lines used recently (do NOT reuse or echo them): {json.dumps(rec
 Answer with JSON only:
 {{
  "hook": "on-screen hook, 6 words at most, no hashtag, no emoji",
- "labels": ["only for the list format: one label per shot, 2 to 4 words"],
+ "labels": ["only for the list and story formats: one line per shot, in order (list: 2 to 4 words; story: 3 to 8 words)"],
  "thumb": "thumbnail title, 2 to 4 words of natural English a person would say (e.g. 'Lunch in a cove'), can differ from the hook",
  "ig": "Instagram caption: first line a teaser that names the place and service (contains 'Funchal, Madeira' or 'Madeira' and 'boat'), then 2 short paragraphs with true facts that fit this clip, then the call to action as the last line. 350 to 900 characters. 0 to 2 emoji.",
  "hashtags": ["4 or 5 hashtags, always #madeira and #funchal, others specific to the clip"],
@@ -234,10 +260,18 @@ def text_problems(v, t):
     p += [f"missing {k}" for k in req if not t.get(k)]
     if p:
         return p
-    if len(t["hook"].split()) > 6:
-        p.append("hook over 6 words")
+    if len(t["hook"].split()) > (9 if v["format"] == "story" else 6):
+        p.append("hook too long")
     if v["format"] == "list" and (len(t.get("labels") or []) != len(v["shots"]) or any(len(l.split()) > 5 for l in t["labels"])):
         p.append("list needs one label of 2 to 4 words per shot")
+    if v["format"] == "story":
+        labels = t.get("labels") or []
+        if len(labels) != len(v["shots"]) or any(not 3 <= len(l.split()) <= 9 for l in labels):
+            p.append(f"story needs exactly {len(v['shots'])} lines of 3 to 8 words, one per shot")
+        elif not labels[0].lower().startswith("pov"):
+            p.append("the first story line must start with 'POV:'")
+        else:
+            t["hook"] = labels[0]
     if v["format"] == "pov" and not t["hook"].lower().startswith("pov"):
         p.append("POV hook must start with 'POV:'")
     alltext = " ".join(str(x) for x in t.values()).lower()

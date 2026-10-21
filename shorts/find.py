@@ -153,7 +153,18 @@ def main():
     todo = [f for f in files if f["size"] > 3e6 and (f["id"] not in db["files"] or f["name"] in again
                                                      or db["files"][f["id"]].get("version") != VERSION
                                                      or (db["files"][f["id"]].get("error") and db["files"][f["id"]].get("tries", 0) < 3))]
-    todo.sort(key=lambda f: f["size"])    # small first: more files per run
+    # Real trip footage first (Theo, 21 Oct 2026: the footage of the first videos was weak): the drone flights of the
+    # trips (PUBLISH/USED and the client drone folder), then phone clips, and last the June test flights over land.
+    def priority(f):
+        p, n = f["path"].lower(), f["name"].lower()
+        if "dji drone videos/" in p:
+            return 3
+        if n.startswith("dji_") or "insta360" in p or n.startswith("814009287"):
+            return 0
+        if n.startswith("img_"):
+            return 1
+        return 2
+    todo.sort(key=lambda f: (priority(f), f["size"]))
     for f in todo:
         if done >= cap or time.time() - started > TIME_BUDGET:
             log("stopping here (cap or time budget): the next run carries on")

@@ -116,7 +116,7 @@ function card(v) {
     : v.qa.ok === false ? `<span class="chip noc">AI check refused</span>` : `<span class="chip">AI check not done</span>`) : "";
   const texts = [["Instagram", `${t.ig || ""}\n\n${(t.hashtags || []).join(" ")}`], ["Facebook", t.fb], ["Threads", t.threads],
     ["YouTube title", t.yt_title], ["YouTube description", t.yt_description], ["YouTube tags", (t.yt_tags || []).join(", ")], ["TikTok", t.tiktok],
-    ...(t.labels?.length ? [["On-screen list", t.labels.join("\n")]] : [])]
+    ...(t.labels?.length ? [["On-screen lines", t.labels.join("\n")]] : [])]
     .map(([k, s]) => `<div class="txt"><b>${k}</b>${esc(s)}</div>`).join("");
   const act = st === "review" ? `<div class="act"><button class="yes" data-ok="${v.id}">OK, post it</button><button class="nope" data-no="${v.id}">No</button></div>
       <input class="note" id="n-${v.id}" placeholder="Note (optional): what to change">`

@@ -26,7 +26,7 @@ LOOK = read_json(SITE / "ig-auto" / "look.json", {})
 GOLD = (201, 164, 92)
 SEA = HERE / "assets" / "sea.m4a"
 TEXT_X0, TEXT_X1 = 90, 990
-DURATION = {"highlight": (4.5, 9.5), "montage": (7.5, 13.5), "pov": (6.0, 10.5), "list": (8.0, 12.5),
+DURATION = {"story": (11.0, 19.5), "highlight": (4.5, 9.5), "montage": (7.5, 13.5), "pov": (6.0, 10.5), "list": (8.0, 12.5),
             "question": (4.5, 8.5), "loop": (3.5, 7.0), "bestof": (8.5, 13.5)}
 MOODS = {
     "day": ("Sunny Balearic chill house, warm clean electric guitar, light percussion, a summer day on a boat, uplifting and relaxed, no vocals", 116),
@@ -278,14 +278,27 @@ def build(v, moments, tmp):
         run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(joined)])
     total = float(run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(joined)]))
 
-    # words: the hook (or the list title) for the first 2.8 s; list labels each on their own shot
-    inputs, fc, last = ["-i", str(joined)], [], "0:v"
+    # words: the hook (or the list title) for the first 2.8 s; list labels each on their own shot.
+    # A POV story (Theo, 21 Oct 2026: "POV / story with text") has one line per shot instead, the first one "POV: ...".
+    inputs, fc, last, n = ["-i", str(joined)], [], "0:v", 1
+    if v["format"] == "story":
+        cursor = 0.0
+        for i, (line, sh) in enumerate(zip(t.get("labels", []), log_shots)):
+            a, b = cursor, cursor + sh["seconds"]
+            lp = tmp / f"l{i}.png"
+            serif_png(line, lp, 58, 330)
+            inputs += ["-loop", "1", "-i", str(lp)]
+            fade_in = f",fade=t=in:st={a + 0.05:.2f}:d=0.25:alpha=1" if i else ""
+            fc += [f"[{n}:v]format=rgba{fade_in}[l{i}]",
+                   f"[{last}][l{i}]overlay=0:0:shortest=1:enable='between(t,{a:.2f},{(b if i < len(log_shots) - 1 else total) - 0.05:.2f})'[w{i}]"]
+            last, n, cursor = f"w{i}", n + 1, b
     hook_end = min(2.8, total - 0.6) if v["format"] != "list" else min(2.0, total - 0.6)
-    hp = tmp / "hook.png"
-    serif_png(t["hook"], hp, 52, 300)
-    inputs += ["-loop", "1", "-i", str(hp)]
-    fc += [f"[1:v]format=rgba,fade=t=out:st={hook_end - 0.3}:d=0.3:alpha=1[h]", f"[{last}][h]overlay=0:0:shortest=1:enable='lte(t,{hook_end})'[v1]"]
-    last, n = "v1", 2
+    if v["format"] != "story":
+        hp = tmp / "hook.png"
+        serif_png(t["hook"], hp, 52, 300)
+        inputs += ["-loop", "1", "-i", str(hp)]
+        fc += [f"[{n}:v]format=rgba,fade=t=out:st={hook_end - 0.3}:d=0.3:alpha=1[h]", f"[{last}][h]overlay=0:0:shortest=1:enable='lte(t,{hook_end})'[v1]"]
+        last, n = "v1", n + 1
     if v["format"] == "list":
         cursor = 0.0
         for i, (lab, sh) in enumerate(zip(t.get("labels", []), log_shots)):
@@ -353,7 +366,7 @@ Otherwise ok=true and problems=[]. Be strict: when in doubt, ok=false."""
 def qa(v, preview):
     """A second look at the FINISHED video by Gemini, so the moment finder's mistakes do not reach the review page."""
     t = v["texts"]
-    prompt = QA_PROMPT.format(hook=t["hook"], labels=f", list labels {t['labels']}" if t.get("labels") else "", cap=t["ig"][:200])
+    prompt = QA_PROMPT.format(hook=t["hook"], labels=f", then one line per shot {t['labels']}" if t.get("labels") else "", cap=t["ig"][:200])
     for key in gemini_keys():
         if key_spent(key):
             continue
