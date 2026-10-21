@@ -16,6 +16,7 @@ sound always present and at Instagram's loudness. A video whose checks fail is n
 import asyncio, hashlib, json, os, pathlib, re, subprocess, sys, tempfile, time, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
+import reframe
 from lib import (FONTS, HERE, PLAN, SITE, QuotaGone, drive_input, gemini, gemini_delete, gemini_key, gemini_keys, gemini_upload,
                  key_spent, log, media_put, read_json, run, write_json)
 
@@ -78,11 +79,14 @@ def grade(kind, nudge):
     return ",".join(f + [NATURAL[kind]])
 
 
-def crop_filter(s, w, h, dur):
-    """9:16 out of a landscape source, panning from x to x2 (subject position from the moment finder)."""
+def crop_filter(s, w, h, dur, path=None):
+    """9:16 out of a landscape source. With a tracked path (reframe.py) the crop follows the boat and the people;
+    without one it pans from the planned x to x2."""
     if w / h <= 9 / 16 + 0.01:
         return [f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}"], W / w
     cw = int(h * 9 / 16) // 2 * 2
+    if path:
+        return [f"crop={cw}:{h}:'{reframe.crop_expr(path, w, cw, dur)}':0", f"scale={W}:{H}:flags=lanczos"], W / cw
     lo = lambda c: max(0, min(w - cw, c * w - cw / 2))
     a, b = lo(s.get("x", 0.5)), lo(s.get("x2", s.get("x", 0.5)))
     xexpr = f"{a:.1f}+({b - a:.1f})*t/{dur:.3f}" if abs(b - a) > 1 else f"{a:.1f}"
@@ -97,7 +101,8 @@ def render_shot(s, src, out, tmp, extra=0.0, own=False):
     src_len = s["len"] + extra * speed
     dur = src_len / speed
     kind, nudge = measure(s)
-    vf, up = crop_filter(s, w, h, src_len)
+    path = None if s.get("lock_crop") else reframe.track({**s, "len": src_len}, src)
+    vf, up = crop_filter(s, w, h, src_len, path)
     if up > 1.3:
         vf.append("unsharp=5:5:0.4")
     vf.append(grade(kind, nudge))
@@ -111,7 +116,8 @@ def render_shot(s, src, out, tmp, extra=0.0, own=False):
     else:
         args += ["-an"]
     run(args + [str(out)])
-    return {"grade": kind, "exposure": nudge, "seconds": round(dur, 2), "speed": speed}
+    return {"grade": kind, "exposure": nudge, "seconds": round(dur, 2), "speed": speed,
+            "tracked": bool(path), "path": [round(c, 3) for _, c in path][::4] if path else None}
 
 
 # ---- words -----------------------------------------------------------------------------------

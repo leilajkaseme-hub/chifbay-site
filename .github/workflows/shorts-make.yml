@@ -48,6 +48,9 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           pip install -q numpy pillow google-genai
+          # the object detector that keeps the boat and the people centred in the vertical crop (shorts/reframe.py)
+          pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -q ultralytics
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
