@@ -2018,18 +2018,18 @@
    "audio": "sea",
    "by": "claude (contact sheets)",
    "qa": {
-    "ok": null,
-    "problems": [
-     "second look not done: Gemini free calls spent for today"
-    ]
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.8-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s015-b8eca748-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e-thumb.jpg",
     "duration": 11.5,
-    "bytes": 12493496,
+    "bytes": 12460915,
     "shots": [
      {
       "name": "DJI_20260811111635_0005_D.MP4",
@@ -2089,18 +2089,18 @@
       "what": "from above: swimmers and the paddle board"
      },
      {
-      "name": "814009287.314303_48561792316499.mp4",
-      "in": 3.8,
-      "out": 4.8,
+      "name": "DJI_20260812144130_0009_D.MP4",
+      "in": 25.5,
+      "out": 26.5,
       "grade": "daylight",
       "matched": true,
       "seconds": 1.0,
       "speed": 1.0,
       "tracked": true,
       "path": [
-       0.699
+       0.574
       ],
-      "what": "a guest swims off the stern"
+      "what": "from above: a swimmer in deep blue water"
      },
      {
       "name": "DJI_20260811102748_0004_D.MP4",
@@ -2164,7 +2164,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T23:49:42Z"
+    "at": "2026-10-21T23:58:31Z"
    }
   }
  ]
