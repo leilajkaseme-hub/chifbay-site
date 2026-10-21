@@ -3044,6 +3044,23 @@
      "people": "far",
      "issues": [],
      "by": "claude (contact sheet)"
+    },
+    {
+     "start": 25.0,
+     "end": 28.0,
+     "peak": 26.5,
+     "score": 8,
+     "hook": 7,
+     "what": "from above: a swimmer in deep blue water",
+     "tags": [
+      "swim",
+      "topdown"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
     }
    ],
    "scanned_at": "2026-10-21T20:31:15Z"

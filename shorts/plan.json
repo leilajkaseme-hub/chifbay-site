@@ -1892,22 +1892,22 @@
      "audio": "sea"
     },
     {
-     "file_id": "1kO2gv1VYAAnzOaOPLAJTStoMfFRiCfDi",
-     "name": "814009287.314303_48561792316499.mp4",
-     "start": 3.8,
+     "file_id": "1MxxDAcqsH6ujhzKcif2EFPa4mmRTjcuT",
+     "name": "DJI_20260812144130_0009_D.MP4",
+     "start": 25.5,
      "len": 1.0,
      "speed": 1.0,
-     "peak": 4.3,
-     "x": 0.35,
-     "x2": 0.35,
-     "what": "a guest swims off the stern",
+     "peak": 26.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "from above: a swimmer in deep blue water",
      "tags": [
-      "swim"
+      "swim",
+      "topdown"
      ],
      "score": 8,
-     "hook": 8,
-     "audio": "sea",
-     "ch": 0.905
+     "hook": 7,
+     "audio": "sea"
     },
     {
      "file_id": "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC",
