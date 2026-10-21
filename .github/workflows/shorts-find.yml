@@ -1,0 +1,59 @@
+name: shorts, find the best moments in the Drive footage
+
+# Watches every trip video on the Drive (read-only) and writes shorts/moments.json: the moments worth a Reel,
+# YouTube Short or TikTok, scored by Gemini (free tier) plus motion, loudness and sharpness numbers.
+# Posts nothing. Daily, so a new video dropped in the Drive is looked at within a day.
+on:
+  schedule:
+    - cron: "41 2 * * *"
+  workflow_dispatch:
+    inputs:
+      args:
+        description: "find.py arguments, e.g. --max 3 or --again IMG_2885.MOV"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shorts-find
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ffmpeg and numpy
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q numpy
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Find moments
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ARGS: ${{ github.event.inputs.args }}
+        run: cd shorts && python3 find.py $ARGS
+      - name: Commit the moments
+        if: always()
+        run: |
+          git add shorts/moments.json 2>/dev/null || true
+          if git diff --staged --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "shorts: moments found $(date -u +%Y-%m-%d)"
+          scripts/ci-push.sh
