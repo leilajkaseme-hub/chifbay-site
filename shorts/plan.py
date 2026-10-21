@@ -207,10 +207,10 @@ def trip_of(shots):
 
 def text_prompt(v, recent):
     fmt_help = {
-        "story": "A POV mini story of a trip with us. 'labels' = exactly ONE line of 3 to 8 words per shot, in order; the first "
-                 "line starts with 'POV:' and sets the scene (e.g. 'POV: you booked a private boat in Madeira'), the next lines "
-                 "follow what each shot shows as the day goes on ('the skipper takes you under the cliffs', 'first one in wins'). "
-                 "'hook' = the first line again.",
+        "story": "A mini story of a trip with us, told like a real TikTok. 'labels' = exactly ONE line of 2 to 8 words per shot, "
+                 "in order, following what each shot shows. Either the guest's POV ('pov: the group chat finally agreed on "
+                 "something', 'the water did this', 'snacks, sun, zero plans') or the crew's dry voice ('our commute this morning', "
+                 "'first stop: under the red cliffs', 'every day. still not used to it.'). 'hook' = the first line again.",
         "highlight": "One strong moment. The hook names it plainly.",
         "montage": "Three moments of one theme. The hook names the theme.",
         "pov": "The hook starts with 'POV:' and puts the viewer on the boat (e.g. 'POV: your boat, your cove').",
@@ -230,6 +230,11 @@ What is on screen, shot by shot: {json.dumps(shots, ensure_ascii=False)}
 Which trip this footage fits: {trip_of(v['shots'])}.
 Call to action to use at the end of the Instagram caption (exactly this sentence): "{v['cta']}"
 Hooks and first lines used recently (do NOT reuse or echo them): {json.dumps(recent, ensure_ascii=False)}
+
+Words on screen (hook, labels, thumb), Theo's rule (21 Oct 2026, "not cringe, very tiktok"): lowercase, short, casual,
+deadpan or lightly funny, the way a person types on TikTok. No ad voice, no hype, no exclamation marks, no emoji on screen.
+Never: breathtaking, stunning, unforgettable, paradise, hidden gem, dream, magical, amazing, bucket list, must see,
+you won't believe, experience of a lifetime, tell me you're... without telling me.
 
 Answer with JSON only:
 {{
@@ -253,6 +258,8 @@ gear; the hook and texts must describe what really happens in the shots, nothing
 an ad agency."""
 
 
+HYPE = ["breathtaking", "stunning", "unforgettable", "paradise", "hidden gem", "dream", "magical", "amazing", "bucket list",
+        "must see", "must-see", "won't believe", "lifetime", "without telling me"]
 BANNED = ["snorkel", "guarantee", "cheapest", "unlimited", "full day", "full-day", "no filter", "nobody else on board", "18:30", "€", "eur ",
           "per person", "discount", "6 guests", "7 guests", "8 guests"]
 
@@ -271,12 +278,14 @@ def text_problems(v, t):
         labels = t.get("labels") or []
         if len(labels) != len(v["shots"]) or any(not 3 <= len(l.split()) <= 9 for l in labels):
             p.append(f"story needs exactly {len(v['shots'])} lines of 3 to 8 words, one per shot")
-        elif not labels[0].lower().startswith("pov"):
-            p.append("the first story line must start with 'POV:'")
         else:
             t["hook"] = labels[0]
     if v["format"] == "pov" and not t["hook"].lower().startswith("pov"):
         p.append("POV hook must start with 'POV:'")
+    screen = " ".join([str(t.get("hook", "")), str(t.get("thumb", ""))] + [str(x) for x in t.get("labels") or []])
+    p += [f"on-screen words sound like an ad ('{w}')" for w in HYPE if w in screen.lower()]
+    if "!" in screen:
+        p.append("no exclamation marks on screen")
     alltext = " ".join(str(x) for x in t.values()).lower()
     p += [f"says '{b}'" for b in BANNED if b in alltext]
     if "—" in alltext or "–" in alltext:
