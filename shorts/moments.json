@@ -1,0 +1,149 @@
+{
+ "version": 1,
+ "files": {
+  "13pCqgsv6AabTzaKWpPdrEk83MkMAd4AO": {
+   "name": "IMG_2823.MOV",
+   "path": "IMG_2823.MOV",
+   "size": 4531262,
+   "created": "2026-10-02",
+   "version": 1,
+   "scanned_at": "2026-10-21T08:22:09Z",
+   "w": 1080,
+   "h": 1920,
+   "fps": 30.0,
+   "dur": 1.87,
+   "stats": {
+    "step": 0.5,
+    "motion": [
+     100,
+     100,
+     100,
+     100
+    ],
+    "loud": [
+     100,
+     100,
+     100,
+     100
+    ],
+    "sharp": [
+     82,
+     84,
+     81,
+     86
+    ]
+   },
+   "boat": true,
+   "camera": "phone",
+   "light": "day",
+   "summary": "A couple smiles and flashes a peace sign while swimming in the sea next to the boat.",
+   "model": "gemini-3.8-flash",
+   "moments": [
+    {
+     "start": 0.0,
+     "end": 1.87,
+     "peak": 0.5,
+     "score": 5,
+     "hook": 5,
+     "what": "A man wearing a snorkel flashes a peace sign while swimming in deep water beside a smiling woman.",
+     "tags": [
+      "swim",
+      "couple",
+      "guests_happy"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "close",
+     "issues": []
+    }
+   ]
+  },
+  "1VE0e3P1aRZwGZDodKt28v0F6wFD5kfxa": {
+   "name": "IMG_2809.MOV",
+   "path": "IMG_2809.MOV",
+   "size": 7136517,
+   "created": "2026-10-02",
+   "version": 1,
+   "scanned_at": "2026-10-21T08:23:05Z",
+   "w": 1080,
+   "h": 1920,
+   "fps": 30.0,
+   "dur": 6.23,
+   "stats": {
+    "step": 0.5,
+    "motion": [
+     100,
+     54,
+     83,
+     85,
+     96,
+     49,
+     46,
+     58,
+     51,
+     48,
+     83,
+     69,
+     79
+    ],
+    "loud": [
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100,
+     85,
+     100,
+     100,
+     94,
+     100
+    ],
+    "sharp": [
+     58,
+     51,
+     57,
+     58,
+     64,
+     61,
+     60,
+     58,
+     59,
+     57,
+     62,
+     60,
+     56
+    ]
+   },
+   "boat": true,
+   "camera": "phone",
+   "light": "overcast",
+   "summary": "Two guests on board share drinks and chat under an overcast sky.",
+   "model": "gemini-3.8-flash",
+   "moments": [
+    {
+     "start": 0.0,
+     "end": 4.5,
+     "peak": 0.5,
+     "score": 5,
+     "hook": 5,
+     "what": "Guest raises a glass of wine and smiles with a friend while cruising past coastal cliffs",
+     "tags": [
+      "guests_happy",
+      "food_drinks",
+      "open_sea",
+      "cliffs"
+     ],
+     "x": 0.45,
+     "x2": 0.55,
+     "people": "medium",
+     "issues": [
+      "shaky"
+     ]
+    }
+   ]
+  }
+ }
+}
