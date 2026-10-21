@@ -80,5 +80,5 @@
   },
   "_comment_crosspost": "After an Instagram post is live, the same post goes to the Facebook Page (feed, Reels, stories) and Threads (feed only, Threads has no stories). bin/crosspost.mjs, own ledger crosspost-ledger.jsonl, a failure there never touches Instagram. Threads waits for its token (see README).",
   "_comment_reels_by_shorts": "true = Reels are posted by the short-video robot (shorts/, two a day, approved on chifbay.com/shorts/review.html) and this robot posts only the carousels (reel days become rest days). Turned on together with shorts/config.json live.",
-  "reels_by_shorts": false
+  "reels_by_shorts": true
 }

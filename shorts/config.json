@@ -1,14 +1,27 @@
 {
  "_comment": "Posting of the short videos (ig-auto/bin/shorts-post.mjs, workflow shorts-post.yml). live=false: nothing posts. Slots are Madeira time; each day drifts by up to jitter_minutes so the time is not fixed. Only videos approved on the review page go out.",
- "live": false,
+ "live": true,
  "timezone": "Atlantic/Madeira",
- "slots": ["11:30", "19:30"],
+ "slots": [
+  "11:30",
+  "19:30"
+ ],
  "jitter_minutes": 20,
  "max_late_hours": 5,
  "min_gap_hours": 4,
- "channels": {"instagram": true, "facebook": true, "threads": true, "youtube": true, "tiktok": true},
+ "channels": {
+  "instagram": true,
+  "facebook": true,
+  "threads": true,
+  "youtube": true,
+  "tiktok": true
+ },
  "review_url": "https://chifbay.com/shorts/review.html",
- "location": {"name": "Funchal, Madeira", "lat": 32.6447, "lng": -16.9145},
+ "location": {
+  "name": "Funchal, Madeira",
+  "lat": 32.6447,
+  "lng": -16.9145
+ },
  "youtube": {
   "playlist_id": null,
   "playlist_title": "Boat trips in Madeira | Chifbay Shorts",
