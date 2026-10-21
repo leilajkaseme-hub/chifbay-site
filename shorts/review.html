@@ -125,7 +125,7 @@ function card(v) {
       <div class="meta">
         <div class="id">${esc(v.id)} · ${esc(v.format)} · ${r.duration ? r.duration + " s" : ""}</div>
         <div class="hook">${esc(t.hook || "")}</div>
-        <div class="chips">${chip}<span class="chip gold">${esc(v.music || "")} music</span><span class="chip">${esc(v.light || "")}</span>${posted}</div>
+        <div class="chips">${chip}${v.music ? `<span class="chip gold">${esc(v.music)} music</span>` : ""}${v.light ? `<span class="chip">${esc(v.light)}</span>` : ""}${posted}</div>
         <ul class="shots">${shots}</ul>
         ${problems}
       </div>
