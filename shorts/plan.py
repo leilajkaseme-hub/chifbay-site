@@ -64,8 +64,10 @@ def used_windows(plan):
             else:
                 add(s["file"], s["in"], s["out"])
     for c in read_json(SITE / "ig-auto" / "reels.json", {"clips": []}).get("clips", []):
-        if c.get("source"):
+        if c.get("source") and "start" in c:
             add(c["source"], c["start"], c["start"] + c["len"])
+        elif c.get("source") and c.get("rejected"):
+            add(c["source"], 0, 1e9)          # looked at by eye and refused: the whole file stays out
     for v in plan.get("videos", []):
         if v.get("status") == "retired" and not v.get("posted"):
             continue
