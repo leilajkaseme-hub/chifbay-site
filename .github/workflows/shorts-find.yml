@@ -2,10 +2,12 @@ name: shorts, find the best moments in the Drive footage
 
 # Watches every trip video on the Drive (read-only) and writes shorts/moments.json: the moments worth a Reel,
 # YouTube Short or TikTok, scored by Gemini (free tier) plus motion, loudness and sharpness numbers.
-# Posts nothing. Daily, so a new video dropped in the Drive is looked at within a day.
+# Posts nothing. Daily, just after Gemini's free daily quota resets (midnight Pacific time): the free tier gives
+# 20 calls a day per model, about 80 videos a day over 4 models; the run stops when they are spent and the next day
+# carries on.
 on:
   schedule:
-    - cron: "41 2 * * *"
+    - cron: "41 8 * * *"
   workflow_dispatch:
     inputs:
       args:

@@ -47,7 +47,7 @@ def run(args, **kw):
 
 
 def http(url, data=None, headers=None, method=None, timeout=120):
-    """(status, headers, body bytes). Never raises on an HTTP error status."""
+    """(status, headers, body bytes). Never raises on an HTTP error status; a timeout or a dropped link is status 0."""
     # Cloudflare answers 403 (error 1010) to Python's default User-Agent, before our Worker even runs.
     req = urllib.request.Request(url, data=data, headers={"User-Agent": "chifbay-shorts/1.0", **(headers or {})}, method=method)
     try:
@@ -55,6 +55,8 @@ def http(url, data=None, headers=None, method=None, timeout=120):
             return r.status, dict(r.headers), r.read()
     except urllib.error.HTTPError as e:
         return e.code, dict(e.headers or {}), e.read()
+    except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+        return 0, {}, str(e).encode()
 
 
 # ---- Drive (read only) ------------------------------------------------------------------------
@@ -187,11 +189,14 @@ def gemini_delete(name):
     http(f"https://generativelanguage.googleapis.com/v1beta/{name}?key={gemini_key()}", method="DELETE")
 
 
+_spent = set()
+
+
 class QuotaGone(RuntimeError):
     """Every model is out of free quota for today: stop and let tomorrow's run continue."""
 
 
-def gemini(parts, *, schema_hint=True, temperature=0.4, media_low=False, models=None):
+def gemini(parts, *, schema_hint=True, temperature=0.4, media_low=False, models=None, timeout=300):
     """One generateContent call that returns parsed JSON. Busy or out-of-quota models hand over to the next."""
     cfg = {"temperature": temperature}
     if schema_hint:
@@ -200,11 +205,13 @@ def gemini(parts, *, schema_hint=True, temperature=0.4, media_low=False, models=
         cfg["mediaResolution"] = "MEDIA_RESOLUTION_LOW"
     body = json.dumps({"contents": [{"role": "user", "parts": parts}], "generationConfig": cfg}).encode()
     quota_out = 0
-    tried = models or MODELS
+    tried = [m for m in (models or MODELS) if m not in _spent] or (models or MODELS)
     for attempt in range(3):
         for m in tried:
+            if m in _spent:
+                continue
             st, _, raw = http(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={gemini_key()}",
-                              body, {"content-type": "application/json"}, timeout=300)
+                              body, {"content-type": "application/json"}, timeout=timeout)
             if st == 200:
                 j = json.loads(raw)
                 try:
@@ -223,7 +230,9 @@ def gemini(parts, *, schema_hint=True, temperature=0.4, media_low=False, models=
             log(f"  {m}: HTTP {st} {msg.splitlines()[0] if msg else ''}")
             if st == 429:
                 quota_out += 1
-        if quota_out >= len(tried):
+                if b"PerDay" in raw:
+                    _spent.add(m)       # the free tier gives 20 calls a day per model: do not ask again today
+        if all(m in _spent for m in tried) or quota_out >= len(tried):
             raise QuotaGone("all Gemini models are out of free quota")
         time.sleep(30 * (attempt + 1))
     raise RuntimeError("no Gemini model answered")
@@ -250,3 +259,32 @@ def notify(title, message, inbox=False):
     url = (cfg.get("ntfy") or {}).get("inbox" if inbox else "alerts")
     if url:
         http(url, message.encode(), {"Title": title.encode("ascii", "replace").decode()}, timeout=30)
+
+
+def workers_ai(prompt, temperature=0.7):
+    """Text from Cloudflare Workers AI (free daily allowance), when Gemini's free calls are spent for the day."""
+    acct, tok = os.environ.get("CF_ACCOUNT_ID"), os.environ.get("CF_WORKERS_AI_TOKEN")
+    if not acct or not tok:
+        raise RuntimeError("Workers AI is not configured (CF_ACCOUNT_ID, CF_WORKERS_AI_TOKEN)")
+    model = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    body = json.dumps({"messages": [{"role": "system", "content": "You answer with one JSON object and nothing else."},
+                                    {"role": "user", "content": prompt}],
+                       "max_tokens": 2500, "temperature": temperature}).encode()
+    st, _, raw = http(f"https://api.cloudflare.com/client/v4/accounts/{acct}/ai/run/{model}", body,
+                      {"Authorization": f"Bearer {tok}", "Content-Type": "application/json"}, timeout=120)
+    if st != 200:
+        raise RuntimeError(f"Workers AI {st}: {raw[:160]}")
+    out = json.loads(raw).get("result", {}).get("response", "")
+    if isinstance(out, dict):
+        return out, model
+    a, b = out.find("{"), out.rfind("}")
+    return json.loads(out[a:b + 1]), model
+
+
+def write_json_ai(prompt, temperature=0.7, timeout=90):
+    """JSON text from Gemini, or from Workers AI when Gemini is out of free calls or not answering."""
+    try:
+        return gemini([{"text": prompt}], temperature=temperature, timeout=timeout)
+    except (QuotaGone, RuntimeError) as e:
+        log(f"  Gemini unavailable ({e}), using Workers AI")
+        return workers_ai(prompt, temperature)

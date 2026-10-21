@@ -77,8 +77,9 @@ async function approvals() {
 }
 
 /** Next approved video: plan order, but not one sharing a source file with the last two posted. */
-export function nextVideo(plan, decisions) {
-  const ready = plan.videos.filter((v) => v.status === "rendered" && v.render?.checks?.ok && decisions[v.id]?.d === "ok" && !v.posted?.instagram);
+export function nextVideo(plan, decisions, igPosted = new Set()) {
+  const ready = plan.videos.filter((v) => v.status === "rendered" && v.render?.checks?.ok && decisions[v.id]?.d === "ok"
+    && !v.posted?.instagram && !igPosted.has(v.id));
   const posted = plan.videos.filter((v) => v.posted?.instagram).sort((a, b) => a.posted.instagram.at.localeCompare(b.posted.instagram.at));
   const recent = new Set(posted.slice(-2).flatMap((v) => v.shots.map((s) => s.name)));
   return ready.find((v) => !v.shots.some((s) => recent.has(s.name))) ?? ready[0] ?? null;
@@ -199,7 +200,9 @@ async function main() {
   if (!slot) { log("no slot due now"); return; }
   const last = lines(LEDGER).filter((e) => e.channel === "instagram" && e.ok).at(-1);
   if (last && Date.now() - Date.parse(last.at) < cfg.min_gap_hours * 3_600_000) { log(`slot ${slot} waits: last post ${last.at}`); return; }
-  const v = nextVideo(plan, rev.decisions);
+  // also every id the Instagram robot itself posted (a Reel imported from the old plan keeps its id)
+  const igPosted = new Set(lines(join(ROOT, "ledger.jsonl")).filter((e) => e.ok && e.id).map((e) => e.id));
+  const v = nextVideo(plan, rev.decisions, igPosted);
   if (!v) {
     log(`slot ${slot}: no approved video waiting`);
     const waiting = plan.videos.filter((x) => x.status === "rendered" && !rev.decisions[x.id]).length;

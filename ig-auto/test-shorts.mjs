@@ -19,4 +19,5 @@ const ok = { s003: { d: "ok" }, s004: { d: "ok" }, s005: { d: "no" } };
 assert.equal(nextVideo(plan, ok).id, "s004", "skips a video that reuses a file of the last two posts");
 assert.equal(nextVideo(plan, { s005: { d: "no" } }), null, "nothing approved: nothing goes out");
 assert.equal(nextVideo({ videos: [v("s009", ["A"], { render: { checks: { ok: false } } })] }, { s009: { d: "ok" } }), null, "failed checks never go out");
-console.log("shorts: 7 checks passed");
+assert.equal(nextVideo(plan, ok, new Set(["s004"])).id, "s003", "an id the Instagram robot already posted is never posted again");
+console.log("shorts: 8 checks passed");

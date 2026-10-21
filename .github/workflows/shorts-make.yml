@@ -5,7 +5,7 @@ name: shorts, plan and build new videos
 # Then Theo gets one message with the review link. Posts nothing: shorts-post.yml only takes approved videos.
 on:
   schedule:
-    - cron: "17 5 * * 0,3"
+    - cron: "17 13 * * 0,3"
   workflow_dispatch:
     inputs:
       add:
@@ -51,6 +51,8 @@ jobs:
         if: github.event.inputs.only == ''
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_WORKERS_AI_TOKEN: ${{ secrets.CF_WORKERS_AI_TOKEN }}
           ADD: ${{ github.event.inputs.add }}
         run: cd shorts && python3 plan.py ${ADD:+--add $ADD}
       - name: Build

@@ -29,7 +29,9 @@ export const WEEK = config.week ?? {
 /** "reel", "carousel" or "rest" for a Madeira date (YYYY-MM-DD). */
 export function slotFor(day = today()) {
   const d = new Date(day + "T12:00:00Z");
-  return WEEK[DAYS[d.getUTCDay()]] ?? "rest";
+  const slot = WEEK[DAYS[d.getUTCDay()]] ?? "rest";
+  // Since the short-video robot posts two Reels a day (bin/shorts-post.mjs), this robot keeps only the carousels.
+  return slot === "reel" && config.reels_by_shorts ? "rest" : slot;
 }
 
 /**

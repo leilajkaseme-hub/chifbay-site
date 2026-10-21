@@ -14,7 +14,7 @@ Each new video gets its texts for every platform from Gemini (free tier), checke
 Nothing is posted here: a video waits for Theo's OK on the review page.
 """
 import json, re, sys, time
-from lib import MOMENTS, PLAN, SITE, gemini, log, read_json, write_json
+from lib import MOMENTS, PLAN, SITE, log, read_json, write_json, write_json_ai
 
 WAITING_TARGET = 16
 BAD = {"shaky", "blurry", "dark", "watermark", "text_overlay", "transition", "nothing_happens", "ground_or_land",
@@ -204,7 +204,7 @@ Answer with JSON only:
 {{
  "hook": "on-screen hook, 6 words at most, no hashtag, no emoji",
  "labels": ["only for the list format: one label per shot, 2 to 4 words"],
- "thumb": "thumbnail title, 2 to 4 words, can differ from the hook",
+ "thumb": "thumbnail title, 2 to 4 words of natural English a person would say (e.g. 'Lunch in a cove'), can differ from the hook",
  "ig": "Instagram caption: first line a teaser that names the place and service (contains 'Funchal, Madeira' or 'Madeira' and 'boat'), then 2 short paragraphs with true facts that fit this clip, then the call to action as the last line. 350 to 900 characters. 0 to 2 emoji.",
  "hashtags": ["4 or 5 hashtags, always #madeira and #funchal, others specific to the clip"],
  "fb": "Facebook text, 200 to 500 characters, warm and plain, no link (the booking link is added after it)",
@@ -262,7 +262,7 @@ def text_problems(v, t):
 def write_texts(v, recent):
     prompt = text_prompt(v, recent)
     for attempt in range(3):
-        t, model = gemini([{"text": prompt}], temperature=0.8)
+        t, model = write_json_ai(prompt, temperature=0.8)
         probs = text_problems(v, t) if isinstance(t, dict) else ["not an object"]
         if not probs:
             t["hashtags"] = [h if h.startswith("#") else "#" + h for h in t["hashtags"]]
