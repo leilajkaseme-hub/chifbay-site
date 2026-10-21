@@ -890,6 +890,101 @@
     ],
     "at": "2026-10-20T15:09:33"
    }
+  },
+  {
+   "id": "s010",
+   "format": "question",
+   "status": "rendered",
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "file_id": "11Af8if4qPanHW-9ot9nrqS2wC-XS-5rI",
+     "name": "IMG_2814.MOV",
+     "start": 0.5,
+     "len": 5.0,
+     "speed": 1.0,
+     "peak": 4.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "A woman wearing a snorkel mask turns around and smiles at the camera while another guest gets ready and jumps into the sea.",
+     "tags": [
+      "jump",
+      "swim",
+      "guests_happy",
+      "cliffs",
+      "cove",
+      "food_drinks"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "own"
+    }
+   ],
+   "music": "jump",
+   "audio": "own",
+   "cta": "Book your day on chifbay.com.",
+   "light": "overcast",
+   "recorded": "2026-10-02",
+   "texts": {
+    "hook": "Would you jump right in?",
+    "labels": [
+     "Jumping in Funchal"
+    ],
+    "thumb": "First one in",
+    "ig": "Ready to jump into the clear waters of Madeira on our private boat? 🌊\n\nThe swim stop is always the highlight of our Day Trip from Funchal. We anchor under the cliffs at Fajã dos Padres or near Cabo Girão where the water is calm and deep blue. Snorkel masks and paddle boards are ready on board for whenever you are.\n\nIt is just your private group with our local crew. We serve fresh snacks, take photos, and record 360 video so you can just enjoy the water. Até já!\n\nBook your day on chifbay.com.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#madeiraisland",
+     "#fajadospadres"
+    ],
+    "fb": "When we stop the boat under the towering cliffs near Funchal, nobody stays on deck for long. Our Day Trip gives you time to swim, paddle, and relax in a quiet cove with fresh snacks and drinks on board. Just your group of up to 5 people with our small local crew.",
+    "threads": "Would you be the first one to jump into the water under the cliffs? That is our favorite moment on the Day Trip from Funchal.",
+    "yt_title": "Would you jump into this cove in Madeira? #Shorts",
+    "yt_description": "Would you jump right in?\n\nThis is the swim stop on our private Day Trip from Funchal, Madeira. We drop anchor under the cliffs where the water is calm, bring out the snorkel gear, and serve fresh snacks on board our Karnic R8S.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #boattrip #funchal",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat tour",
+     "things to do in madeira",
+     "faja dos padres",
+     "chifbay",
+     "madeira swimming",
+     "private boat funchal",
+     "madeira ocean",
+     "karnic r8s",
+     "visit madeira",
+     "funchal swim stop"
+    ],
+    "tiktok": "Would you jump in first? Swim stop under the cliffs on our private Day Trip from Funchal. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "A woman wearing a snorkel mask smiles at the camera on a boat while another guest jumps into the blue ocean near steep green cliffs in Madeira.",
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s010-1b7081aa.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s010-1b7081aa-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s010-1b7081aa-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s010-1b7081aa-thumb.jpg",
+    "duration": 5.02,
+    "bytes": 5788352,
+    "shots": [
+     {
+      "name": "IMG_2814.MOV",
+      "in": 0.5,
+      "out": 5.5,
+      "grade": "daylight",
+      "exposure": -0.007,
+      "seconds": 5.0,
+      "speed": 1.0,
+      "what": "A woman wearing a snorkel mask turns around and smiles at the camera while another guest gets ready and jumps into the sea."
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-21T13:54:59Z"
+   }
   }
  ]
 }
