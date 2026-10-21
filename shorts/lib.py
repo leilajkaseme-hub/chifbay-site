@@ -150,17 +150,28 @@ def probe_drive(file_id):
 
 # ---- Gemini (free tier) -----------------------------------------------------------------------
 
-def gemini_key():
-    k = os.environ.get("GEMINI_API_KEY")
-    if not k:
+def gemini_keys():
+    """Free keys, each in its own Google project, so each has its own daily quota (20 calls per model)."""
+    ks = [os.environ.get(n) for n in ("GEMINI_API_KEY", "GEMINI_API_KEY_2", "GEMINI_API_KEY_3")]
+    ks = [k for k in ks if k]
+    if not ks:
         sys.exit("GEMINI_API_KEY is not set")
-    return k
+    return ks
 
 
-def gemini_upload(path, mime="video/mp4"):
-    """Upload a file to the Gemini File API; returns its uri once it is ACTIVE."""
+def gemini_key():
+    return gemini_keys()[0]
+
+
+def key_spent(key, models=None):
+    return all((key, m) in _spent for m in (models or MODELS))
+
+
+def gemini_upload(path, mime="video/mp4", key=None):
+    """Upload a file to the Gemini File API; returns its uri once it is ACTIVE. A file belongs to the key's project."""
+    key = key or gemini_key()
     size = os.path.getsize(path)
-    st, hd, body = http(f"https://generativelanguage.googleapis.com/upload/v1beta/files?key={gemini_key()}",
+    st, hd, body = http(f"https://generativelanguage.googleapis.com/upload/v1beta/files?key={key}",
                         json.dumps({"file": {"display_name": pathlib.Path(path).name}}).encode(),
                         {"X-Goog-Upload-Protocol": "resumable", "X-Goog-Upload-Command": "start",
                          "X-Goog-Upload-Header-Content-Length": str(size),
@@ -180,13 +191,13 @@ def gemini_upload(path, mime="video/mp4"):
         if f.get("state") == "FAILED":
             raise RuntimeError(f"Gemini could not read {path}")
         time.sleep(4)
-        st, _, body = http(f"https://generativelanguage.googleapis.com/v1beta/{f['name']}?key={gemini_key()}")
+        st, _, body = http(f"https://generativelanguage.googleapis.com/v1beta/{f['name']}?key={key}")
         f = json.loads(body)
     raise RuntimeError("Gemini file never became ACTIVE")
 
 
-def gemini_delete(name):
-    http(f"https://generativelanguage.googleapis.com/v1beta/{name}?key={gemini_key()}", method="DELETE")
+def gemini_delete(name, key=None):
+    http(f"https://generativelanguage.googleapis.com/v1beta/{name}?key={key or gemini_key()}", method="DELETE")
 
 
 _spent = set()
@@ -196,45 +207,48 @@ class QuotaGone(RuntimeError):
     """Every model is out of free quota for today: stop and let tomorrow's run continue."""
 
 
-def gemini(parts, *, schema_hint=True, temperature=0.4, media_low=False, models=None, timeout=300):
-    """One generateContent call that returns parsed JSON. Busy or out-of-quota models hand over to the next."""
+def gemini(parts, *, schema_hint=True, temperature=0.4, media_low=False, models=None, timeout=300, key=None):
+    """One generateContent call that returns (parsed JSON, model). A model that is busy (503) or out of its free
+    daily quota (429) hands over to the next; without `key`, the next free key is tried when one is spent.
+    A file part (an uploaded video) only works with the key it was uploaded with: pass that key."""
     cfg = {"temperature": temperature}
     if schema_hint:
         cfg["responseMimeType"] = "application/json"
     if media_low:
         cfg["mediaResolution"] = "MEDIA_RESOLUTION_LOW"
     body = json.dumps({"contents": [{"role": "user", "parts": parts}], "generationConfig": cfg}).encode()
-    quota_out = 0
-    tried = [m for m in (models or MODELS) if m not in _spent] or (models or MODELS)
-    for attempt in range(3):
-        for m in tried:
-            if m in _spent:
-                continue
-            st, _, raw = http(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={gemini_key()}",
-                              body, {"content-type": "application/json"}, timeout=timeout)
-            if st == 200:
-                j = json.loads(raw)
-                try:
-                    text = "".join(p.get("text", "") for p in j["candidates"][0]["content"]["parts"] if not p.get("thought"))
-                except (KeyError, IndexError):
-                    log(f"  {m}: empty answer ({str(j)[:160]})")
-                    continue
-                if not schema_hint:
-                    return text, m
-                try:
-                    return json.loads(text.strip().removeprefix("```json").removesuffix("```").strip()), m
-                except json.JSONDecodeError:
-                    log(f"  {m}: answer was not JSON, next model")
-                    continue
-            msg = raw[:160].decode("utf8", "replace")
-            log(f"  {m}: HTTP {st} {msg.splitlines()[0] if msg else ''}")
-            if st == 429:
-                quota_out += 1
-                if b"PerDay" in raw:
-                    _spent.add(m)       # the free tier gives 20 calls a day per model: do not ask again today
-        if all(m in _spent for m in tried) or quota_out >= len(tried):
-            raise QuotaGone("all Gemini models are out of free quota")
-        time.sleep(30 * (attempt + 1))
+    want = models or MODELS
+    for k in ([key] if key else gemini_keys()):
+        for attempt in range(4):
+            live = [m for m in want if (k, m) not in _spent]
+            if not live:
+                break
+            for m in live:
+                st, _, raw = http(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={k}",
+                                  body, {"content-type": "application/json"}, timeout=timeout)
+                if st == 200:
+                    j = json.loads(raw)
+                    try:
+                        text = "".join(p.get("text", "") for p in j["candidates"][0]["content"]["parts"] if not p.get("thought"))
+                    except (KeyError, IndexError):
+                        log(f"  {m}: empty answer ({str(j)[:160]})")
+                        continue
+                    if not schema_hint:
+                        return text, m
+                    try:
+                        return json.loads(text.strip().removeprefix("```json").removesuffix("```").strip()), m
+                    except json.JSONDecodeError:
+                        log(f"  {m}: answer was not JSON, next model")
+                        continue
+                msg = raw[:160].decode("utf8", "replace")
+                log(f"  {m}: HTTP {st} {msg.splitlines()[0] if msg else ''}")
+                if st == 429 and b"PerDay" in raw:
+                    _spent.add((k, m))      # 20 calls a day per model on the free tier: not again today
+            if all((k, m) in _spent for m in want):
+                break
+            time.sleep(45 * (attempt + 1))      # busy models: wait, they come back
+    if all(key_spent(k, want) for k in ([key] if key else gemini_keys())):
+        raise QuotaGone("all Gemini models are out of free quota on every key")
     raise RuntimeError("no Gemini model answered")
 
 

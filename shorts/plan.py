@@ -242,12 +242,13 @@ def text_problems(v, t):
         p.append("long dash")
     if "dolphin" in alltext and not any("dolphins" in s["tags"] for s in v["shots"]):
         p.append("mentions dolphins that are not in the shots")
-    if "madeira" not in t["ig"][:220].lower():
-        p.append("Instagram first lines must name Madeira")
-    if not t["ig"].strip().endswith(v["cta"]):
-        p.append(f"Instagram caption must end with: {v['cta']}")
-    if not 300 <= len(t["ig"]) <= 1100:
-        p.append(f"Instagram caption {len(t['ig'])} characters")
+    if not v.get("legacy"):          # an imported Reel keeps its own Instagram caption
+        if "madeira" not in t["ig"][:220].lower():
+            p.append("Instagram first lines must name Madeira")
+        if not t["ig"].strip().endswith(v["cta"]):
+            p.append(f"Instagram caption must end with: {v['cta']}")
+        if not 300 <= len(t["ig"]) <= 1100:
+            p.append(f"the Instagram caption is {len(t['ig'])} characters, it must be 350 to 900: write three short paragraphs")
     if not (3 <= len(t["hashtags"]) <= 5 and "#madeira" in [h.lower() for h in t["hashtags"]]):
         p.append("hashtags: 3 to 5, with #madeira")
     if len(t["yt_title"]) > 95 or "#shorts" not in t["yt_title"].lower():

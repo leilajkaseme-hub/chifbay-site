@@ -15,8 +15,8 @@ The result is shorts/moments.json. plan.py builds the videos from it. Nothing is
 """
 import json, os, pathlib, sys, tempfile, time
 import numpy as np
-from lib import (MOMENTS, QuotaGone, drive_input, drive_videos, gemini, gemini_delete, gemini_upload, log,
-                 probe_drive, read_json, run, write_json)
+from lib import (MOMENTS, QuotaGone, drive_input, drive_videos, gemini, gemini_delete, gemini_keys, gemini_upload,
+                 key_spent, log, probe_drive, read_json, run, write_json)
 
 VERSION = 1
 STEP = 0.5            # seconds per stats bucket
@@ -158,12 +158,21 @@ def main():
                 proxy(f["id"], px)
                 log(f"  proxy {px.stat().st_size / 1e6:.1f} MB in {time.time() - t0:.0f} s")
                 rec["stats"] = numbers(px, rec["dur"])
-                uri, name = gemini_upload(px)
-                try:
-                    ans, model = gemini([{"file_data": {"mime_type": "video/mp4", "file_uri": uri}}, {"text": PROMPT}],
-                                        media_low=rec["dur"] > 240)
-                finally:
-                    gemini_delete(name)
+                ans = None
+                for key in gemini_keys():          # a key whose free calls are spent hands over to the next
+                    if key_spent(key):
+                        continue
+                    uri, name = gemini_upload(px, key=key)
+                    try:
+                        ans, model = gemini([{"file_data": {"mime_type": "video/mp4", "file_uri": uri}}, {"text": PROMPT}],
+                                            media_low=rec["dur"] > 240, key=key)
+                        break
+                    except QuotaGone:
+                        continue
+                    finally:
+                        gemini_delete(name, key=key)
+                if ans is None:
+                    raise QuotaGone("all Gemini keys are spent for today")
             rec.update(boat=bool(ans.get("boat_trip")), camera=ans.get("camera", "other"), light=ans.get("light", "day"),
                        summary=str(ans.get("summary", ""))[:300], model=model, moments=clean(ans.get("moments"), rec["dur"]))
             log(f"  {model}: boat={rec['boat']} {rec['camera']} {rec['light']}, {len(rec['moments'])} moments, "

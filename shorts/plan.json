@@ -1,0 +1,895 @@
+{
+ "videos": [
+  {
+   "id": "r18-standup",
+   "format": "highlight",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "IMG_2885.MOV",
+     "start": 9.6,
+     "len": 8.9,
+     "speed": 1.0,
+     "what": "a guest tries to stand up on the paddle board below the cliff huts, falls in at the end",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Almost had it.",
+    "labels": [],
+    "thumb": "Paddle Board Wipeout",
+    "ig": "He had it. He really had it. Almost.\n\nPaddle boards come along on the swim stop of our Day Trip from Funchal, Madeira, and every board has the same ending: the sea wins, everybody laughs, the next person gets on.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming and paddle are part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "We anchored beneath the high cliffs at Fajã dos Padres during a private day trip from Funchal. The paddle board is always ready, but staying on it is another story. On our boat, you get the bay to your own group of up to five guests, calm water, and plenty of laughs when balance runs out.",
+    "threads": "Anchor drops below the cliffs at Fajã dos Padres, paddle board goes in, and someone always takes a swim. Best way to spend an afternoon on the water with us.",
+    "yt_title": "Paddle boarding below the cliffs in Madeira #Shorts",
+    "yt_description": "Almost stayed on the board!\n\nDuring our private day trips from Funchal marina, we stop at Fajã dos Padres for a swim and paddle below the sea cliffs. Our boat holds just your group of up to 5 guests.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #paddleboarding",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "faja dos padres",
+     "paddle boarding madeira",
+     "private boat funchal",
+     "karnic r8s",
+     "boat tour madeira",
+     "madeira swimming",
+     "funchal boat tour"
+    ],
+    "tiktok": "Balancing on the paddle board below the cliffs at Fajã dos Padres is tougher than it looks. We always end up swimming anyway. #madeira #funchal #paddleboard #boattrip",
+    "alt": "A guest crouches and tries to stand up on a paddle board in front of a cliff with small huts in Madeira, then falls into the sea.",
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r18-standup.mp4",
+    "preview": "https://chifbay.com/ig/reels/r18-standup-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r18-standup-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r18-standup-thumb.jpg",
+    "duration": 8.92,
+    "bytes": 9869176,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-19T14:08:27"
+    },
+    "shots": [
+     {
+      "name": "IMG_2885.MOV",
+      "in": 9.6,
+      "speed": 1.0,
+      "what": "a guest tries to stand up on the paddle board below the cliff huts, falls in at the end"
+     }
+    ],
+    "at": "2026-10-19T14:08:27"
+   }
+  },
+  {
+   "id": "r19-wake",
+   "format": "highlight",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "IMG_5381.MOV",
+     "start": 4.6,
+     "len": 8.2,
+     "speed": 1.0,
+     "what": "the wake and the outboard, the coast of Funchal with its hotels sliding past",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Leaving the marina",
+    "labels": [],
+    "thumb": "Leaving Funchal Coast",
+    "ig": "Out of the marina and straight into the good part: the wake, the wind, and the whole coast of Funchal sliding past.\n\nA private boat trip from Funchal, Madeira, starts like this. Then the cliffs of Cabo Girão, the little coves, and a Day Trip swim stop or a Sunset Trip that turns when the light goes.\n\nYour group only, five guests at most, a skipper included. Free cancellation up to 24 hours before.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "Watching the Funchal shoreline fade into the wake as we head out to sea. It is just your group on board, up to five people, with the two of us taking care of the boat. Simple, quiet, and beautiful out on the water.",
+    "threads": "Leaving Funchal marina and watching the coast slide past behind the wake. Hard to beat this view from our boat.",
+    "yt_title": "Leaving Funchal marina on our private boat #Shorts",
+    "yt_description": "Leaving the marina behind on the open water.\n\nWatching the Funchal coast and hotels slide past from the stern of our Karnic R8S. We run private trips for up to five guests, with two skippers, food, and photos included on every trip.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "funchal boat tour",
+     "private boat madeira",
+     "karnic r8s",
+     "visit madeira",
+     "madeira coastline",
+     "funchal marina",
+     "madeira ocean",
+     "chifbay"
+    ],
+    "tiktok": "Watching the Funchal coastline slide past from the stern of our boat. #madeira #funchal #boattrip #privateboat #visitmadeira",
+    "alt": "The wake of a small boat and its outboard engine with the coast of Funchal and its hotels on the horizon.",
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r19-wake.mp4",
+    "preview": "https://chifbay.com/ig/reels/r19-wake-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r19-wake-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r19-wake-thumb.jpg",
+    "duration": 8.22,
+    "bytes": 9059169,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-19T14:08:44"
+    },
+    "shots": [
+     {
+      "name": "IMG_5381.MOV",
+      "in": 4.6,
+      "speed": 1.0,
+      "what": "the wake and the outboard, the coast of Funchal with its hotels sliding past"
+     }
+    ],
+    "at": "2026-10-19T14:08:44"
+   }
+  },
+  {
+   "id": "r20-twoboard",
+   "format": "montage",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "IMG_2870.MOV",
+     "start": 9.4,
+     "len": 4.6,
+     "speed": 1.0,
+     "what": "two friends sit on a paddle board in front of the cliff, close and laughing",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "IMG_2869.MOV",
+     "start": 1.6,
+     "len": 4.4,
+     "speed": 1.0,
+     "what": "the same two on the board, wide, the cliff behind",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Two on one board",
+    "labels": [],
+    "thumb": "Paddle Board Stop",
+    "ig": "One paddle board. Two people. Zero plan.\n\nThe Day Trip from Funchal, Madeira, stops for a swim and paddle under the cliffs, and the boards are free for everyone on board to try, in pairs if you dare.\n\nDay Trip from Funchal marina, 2h30 or 3h, leaving at 10:00 or 14:00. Swimming and paddle are part of this trip only, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "A quiet paddle stop beneath the cliffs. On our private Day Trip from Funchal, we drop anchor near Fajã dos Padres so you can take the board out and swim. It is just your group of up to five on board with us, with fresh snacks ready when you get back on.",
+    "threads": "Dropping anchor under the cliffs of Fajã dos Padres. Two friends sharing the paddle board while we keep the snacks ready on board.",
+    "yt_title": "Paddle board stop under the Madeira cliffs #Shorts",
+    "yt_description": "Moments on the paddle board under the cliffs.\n\nOn our private Day Trip departing from Funchal marina, we stop near Fajã dos Padres for swimming and paddling. Our boat takes up to five guests, with food and photos included on every trip.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #boattrip #funchal",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "funchal boat tour",
+     "private boat madeira",
+     "madeira paddle boarding",
+     "faja dos padres",
+     "karnic r8s",
+     "visit madeira",
+     "madeira private charter"
+    ],
+    "tiktok": "Floating under the cliffs during our private swim stop in Madeira. #madeira #funchal #boattrip #paddleboarding",
+    "alt": "Two friends sit on a paddle board close to a rocky cliff in Madeira, one holding the paddle.",
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r20-twoboard.mp4",
+    "preview": "https://chifbay.com/ig/reels/r20-twoboard-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r20-twoboard-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r20-twoboard-thumb.jpg",
+    "duration": 9.02,
+    "bytes": 9902721,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-19T14:09:06"
+    },
+    "shots": [
+     {
+      "name": "IMG_2870.MOV",
+      "in": 9.4,
+      "speed": 1.0,
+      "what": "two friends sit on a paddle board in front of the cliff, close and laughing"
+     },
+     {
+      "name": "IMG_2869.MOV",
+      "in": 1.6,
+      "speed": 1.0,
+      "what": "the same two on the board, wide, the cliff behind"
+     }
+    ],
+    "at": "2026-10-19T14:09:06"
+   }
+  },
+  {
+   "id": "r21-above",
+   "format": "montage",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 20.0,
+     "len": 2.6,
+     "speed": 1.0,
+     "what": "guests laughing, the skipper standing behind them",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 27.6,
+     "len": 2.1,
+     "speed": 1.0,
+     "what": "the boat at speed, guests arms around each other, the wake",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 37.5,
+     "len": 2.4,
+     "speed": 1.0,
+     "what": "the boat at speed, the wake, guests with arms out",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Hold on tight.",
+    "labels": [],
+    "thumb": "Private Boat Vibes",
+    "ig": "This is what the Insta360 sees: the whole boat from above, the wake, the cliffs of Cabo Girão, and a group that stopped holding on somewhere around the second corner.\n\nA 360 camera on a pole films every private trip from Funchal, Madeira, and the clip is included. Day Trip (2h30 or 3h, leaving at 10:00 or 14:00) or Sunset Trip (2h or 2h30, leaving 1h15 before sunset), both from Funchal marina. Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "Nothing beats good company and open water. Cruising along the Madeira coast from Funchal marina with just your group on board. We take care of the boat, food, and photos so you can just enjoy the ride.",
+    "threads": "Just you, your favorite people, and the ocean breeze. Running private boat trips from Funchal marina is the best job in the world. Até já!",
+    "yt_title": "Cruising Madeira Coast on a Private Boat #Shorts",
+    "yt_description": "Pure joy on the water along the coast of Madeira!\n\nJoin us on our private Karnic R8S leaving from Funchal marina. We host up to 5 guests with no other group on board, including food, photos, and drone footage when weather allows.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "karnic r8s",
+     "madeira island",
+     "private boat charter",
+     "chifbay"
+    ],
+    "tiktok": "Cruising along the coast of Funchal with your favorite people on board! #madeira #funchal #boattrip #visitmadeira",
+    "alt": "A small white boat seen from above at speed below the cliffs of Madeira, guests laughing with their arms out and a white wake behind.",
+    "model": "gemini-3.5-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r21-above.mp4",
+    "preview": "https://chifbay.com/ig/reels/r21-above-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r21-above-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r21-above-thumb.jpg",
+    "duration": 7.1,
+    "bytes": 7781354,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-19T19:16:33"
+    },
+    "shots": [
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 20.0,
+      "speed": 1.0,
+      "what": "guests laughing, the skipper standing behind them"
+     },
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 27.6,
+      "speed": 1.0,
+      "what": "the boat at speed, guests arms around each other, the wake"
+     },
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 37.5,
+      "speed": 1.0,
+      "what": "the boat at speed, the wake, guests with arms out"
+     }
+    ],
+    "at": "2026-10-19T19:16:33"
+   }
+  },
+  {
+   "id": "r22-swimstop360",
+   "format": "montage",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 5.3,
+     "len": 2.5,
+     "speed": 1.0,
+     "what": "a guest swims off the stern, the outboard and the cliff behind",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 8.0,
+     "len": 2.4,
+     "speed": 1.0,
+     "what": "guests round the table of snacks on deck, skipper at the console",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 32.6,
+     "len": 2.1,
+     "speed": 1.0,
+     "what": "back on the move, the boat at speed under the cliff",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Swim stop, snacks, repeat",
+    "labels": [
+     "Swim stop at cliff",
+     "Local snacks on deck",
+     "Cruising the coastline"
+    ],
+    "thumb": "Day on the coast",
+    "ig": "Swim first, snacks after, and nobody is in a hurry. Filmed from our 360 camera, the way every Day Trip from Funchal, Madeira, is filmed.\n\nThe swim stop is part of the Day Trip only (2h30 or 3h, leaving at 10:00 or 14:00), sea conditions allowing. Food and drinks on board, photos and the 360 video included. Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "A look at our private day trip along the Madeira coast. We leave from Funchal marina with just your group of up to 5 people. First a swim stop below the cliffs, then snacks on deck while we cruise past Cabo Girão.",
+    "threads": "Swimming stop at the cliffs, snacks on deck, and cruising the Madeira coast. Just us and up to 5 guests on our boat today. Bom dia from Funchal!",
+    "yt_title": "Private Boat Trip in Madeira: Swim & Cruise #Shorts",
+    "yt_description": "Three moments from our private day trip along the Madeira coast.\n\nWe leave Funchal marina on our boat with up to 5 guests. We stop for a swim below the cliffs at Fajã dos Padres, share food on deck, and cruise back.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "faja dos padres",
+     "karnic r8s",
+     "madeira private boat",
+     "funchal marina",
+     "madeira ocean",
+     "madeira island",
+     "private charter madeira",
+     "madeira travel",
+     "boattrip funchal"
+    ],
+    "tiktok": "A private day on our boat from Funchal. Swim stop under the cliffs and snacks on deck! #madeira #funchal #boattrip #madeiraisland",
+    "alt": "A guest swims behind the stern of a small boat below a sea cliff in Madeira, then friends gather around a table of snacks on deck.",
+    "model": "gemini-3.5-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r22-swimstop360.mp4",
+    "preview": "https://chifbay.com/ig/reels/r22-swimstop360-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r22-swimstop360-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r22-swimstop360-thumb.jpg",
+    "duration": 7.0,
+    "bytes": 7651549,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-19T19:17:03"
+    },
+    "shots": [
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 5.3,
+      "speed": 1.0,
+      "what": "a guest swims off the stern, the outboard and the cliff behind"
+     },
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 8.0,
+      "speed": 1.0,
+      "what": "guests round the table of snacks on deck, skipper at the console"
+     },
+     {
+      "name": "814009287.314303_48561792316499.mp4",
+      "in": 32.6,
+      "speed": 1.0,
+      "what": "back on the move, the boat at speed under the cliff"
+     }
+    ],
+    "at": "2026-10-19T19:17:03"
+   }
+  },
+  {
+   "id": "r23-fullspeed",
+   "format": "montage",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "DJI_20260811111635_0005_D.MP4",
+     "start": 15.0,
+     "len": 1.8,
+     "speed": 0.5,
+     "what": "drone tracks the boat at speed from the side, slow motion",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260811111635_0005_D.MP4",
+     "start": 24.8,
+     "len": 2.4,
+     "speed": 1.0,
+     "what": "the boat comes straight at the drone, wake behind it",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260811111635_0005_D.MP4",
+     "start": 47.6,
+     "len": 1.4,
+     "speed": 0.5,
+     "what": "the boat turns toward the drone, spray, guests laughing, slow motion",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Full speed ahead",
+    "labels": [],
+    "thumb": "Cruising the coast",
+    "ig": "Full speed, deep blue, and a coast that never stops giving. This is the Karnic R8S that runs our private trips from Funchal, Madeira, filmed by our drone.\n\nThe drone flies when the weather allows and the footage is included with every trip, together with the 360 video and the photos. Day Trip (2h30 or 3h, leaving at 10:00 or 14:00) or Sunset Trip (2h or 2h30, leaving 1h15 before sunset). Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "Cruising the south coast of Madeira on our Karnic R8S. When the sea is calm, we love getting the boat up to speed and sending the drone up to capture it. We take just one private group of up to five guests, with two skippers on board to make sure you have the best time on the water.",
+    "threads": "Opening up the throttle outside Funchal. When the weather is on our side, the drone gets these angles while you enjoy the ride.",
+    "yt_title": "Cruising the Madeira coast at speed #Shorts",
+    "yt_description": "Running along the south coast of Madeira with our private boat.\n\nThis is what cruising on our Karnic R8S looks like from the air. We take private groups of up to five guests from Funchal marina, with food, photos, and drone clips included when conditions allow.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #boattrip #funchal",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira drone",
+     "private boat funchal",
+     "karnic r8s",
+     "boat charter madeira",
+     "funchal boat tour",
+     "visit madeira",
+     "madeira private tour",
+     "funchal marina"
+    ],
+    "tiktok": "Cruising the south coast of Madeira on our private boat. When the wind drops, we let the drone fly alongside. #madeira #funchal #boattrip #drone #visitmadeira",
+    "alt": "A drone follows a small white boat at speed over deep blue water off Madeira, then the boat turns toward the camera with spray and laughing guests.",
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r23-fullspeed.mp4",
+    "preview": "https://chifbay.com/ig/reels/r23-fullspeed-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r23-fullspeed-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r23-fullspeed-thumb.jpg",
+    "duration": 8.8,
+    "bytes": 9750326,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-20T15:10:15"
+    },
+    "shots": [
+     {
+      "name": "DJI_20260811111635_0005_D.MP4",
+      "in": 15.0,
+      "speed": 0.5,
+      "what": "drone tracks the boat at speed from the side, slow motion"
+     },
+     {
+      "name": "DJI_20260811111635_0005_D.MP4",
+      "in": 24.8,
+      "speed": 1.0,
+      "what": "the boat comes straight at the drone, wake behind it"
+     },
+     {
+      "name": "DJI_20260811111635_0005_D.MP4",
+      "in": 47.6,
+      "speed": 0.5,
+      "what": "the boat turns toward the drone, spray, guests laughing, slow motion"
+     }
+    ],
+    "at": "2026-10-20T15:10:15"
+   }
+  },
+  {
+   "id": "r24-fromabove",
+   "format": "montage",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "DJI_20260812144130_0009_D.MP4",
+     "start": 4.5,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "a guest on a paddle board, top-down, turquoise water",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260812144130_0009_D.MP4",
+     "start": 20.5,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "swimmers splashing in clear turquoise water, top-down",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260812144130_0009_D.MP4",
+     "start": 33.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "a paddle board and a swimmer with the coast behind",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Swim stop, from above",
+    "labels": [],
+    "thumb": "Turquoise water swim",
+    "ig": "This is how the swim stop off Funchal, Madeira, looks from the air: clear water, a paddle board, a few swimmers, and nobody in a hurry.\n\nThe swim and paddle stop is part of our Day Trip (2h30 or 3h, leaving at 10:00 or 14:00), sea conditions allowing. The drone flies when the weather lets it, and the footage comes with the trip. Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "On our Day Trips out of Funchal, we love cutting the engine under the cliffs of Fajã dos Padres. It is quiet, the water is clear turquoise, and you get the paddle board all to yourselves. Just your group of up to 5 guests, with two skippers looking after you the whole way.",
+    "threads": "Dropping anchor under the cliffs on our Madeira day trip. Paddle board out, clear turquoise water below, and no other boat in sight.",
+    "yt_title": "Paddle and swim in clear Madeira water #Shorts",
+    "yt_description": "Turquoise water from above on our private boat trip in Madeira.\n\nThis is the swim stop on our Day Trip from Funchal marina. We anchor near Fajã dos Padres where guests can swim and paddle board along the sea cliffs. Private trips for up to 5 guests with two skippers, drone clips when weather allows, and food on board.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "funchal boat tour",
+     "private boat madeira",
+     "faja dos padres",
+     "madeira swimming",
+     "paddle boarding madeira",
+     "karnic r8s",
+     "visit madeira",
+     "madeira ocean"
+    ],
+    "tiktok": "Dropping anchor in clear turquoise water beneath the cliffs on our private Madeira boat trip. #madeira #funchal #madeiraisland #boattrip",
+    "alt": "A drone looks straight down on swimmers and a guest on a paddle board in clear turquoise water off Madeira.",
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r24-fromabove.mp4",
+    "preview": "https://chifbay.com/ig/reels/r24-fromabove-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r24-fromabove-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r24-fromabove-thumb.jpg",
+    "duration": 9.0,
+    "bytes": 10022433,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-20T15:08:55"
+    },
+    "shots": [
+     {
+      "name": "DJI_20260812144130_0009_D.MP4",
+      "in": 4.5,
+      "speed": 1.0,
+      "what": "a guest on a paddle board, top-down, turquoise water"
+     },
+     {
+      "name": "DJI_20260812144130_0009_D.MP4",
+      "in": 20.5,
+      "speed": 1.0,
+      "what": "swimmers splashing in clear turquoise water, top-down"
+     },
+     {
+      "name": "DJI_20260812144130_0009_D.MP4",
+      "in": 33.0,
+      "speed": 1.0,
+      "what": "a paddle board and a swimmer with the coast behind"
+     }
+    ],
+    "at": "2026-10-20T15:08:55"
+   }
+  },
+  {
+   "id": "r25-cove",
+   "format": "montage",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "DJI_20260811102620_0003_D.MP4",
+     "start": 38.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "from behind the boat toward the sea cliff, the hull lettering",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260811102620_0003_D.MP4",
+     "start": 42.6,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "the boat from the side, guests at the helm, turquoise water",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260811102620_0003_D.MP4",
+     "start": 72.0,
+     "len": 3.5,
+     "speed": 1.0,
+     "what": "the boat enters a turquoise cove under the cliff and stops",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "daylight",
+   "texts": {
+    "hook": "Under the cliffs",
+    "labels": [],
+    "thumb": "Under the cliffs",
+    "ig": "Straight at the cliff off Funchal, Madeira, then into a cove where the water turns turquoise and the boat just stops.\n\nOur private trips run along the south coast to places most boats do not slow down for. The Day Trip (2h30 or 3h) adds a swim and paddle stop; the Sunset Trip (2h or 2h30) turns when the light goes. Drone footage, 360 video and photos are part of the trip. Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "Our private boat cruising under the southern cliffs. We take just your group of up to 5 people out from Funchal, with both of us on board to steer, serve food, and capture photos and drone footage along the way.",
+    "threads": "Slipping into quiet coves under the cliffs. Just your group on board, good food, and the water all to ourselves.",
+    "yt_title": "Cruising Madeira's Cliffs on Our Private Boat #Shorts",
+    "yt_description": "Heading under the dramatic sea cliffs of Madeira on our private boat.\n\nWatch our Karnic R8S cruise along the coast from Funchal marina, taking in the turquoise water and hidden coves with just one group on board. We include food, photos, and drone footage when the weather allows.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal boat tour",
+     "madeira coast",
+     "karnic r8s",
+     "madeira travel",
+     "funchal marina",
+     "cabo girao boat",
+     "madeira holiday",
+     "boat charter madeira"
+    ],
+    "tiktok": "Cruising under the massive sea cliffs on our private boat out of Funchal marina. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "A drone follows a small white boat toward a tall sea cliff in Madeira and into a turquoise cove.",
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r25-cove.mp4",
+    "preview": "https://chifbay.com/ig/reels/r25-cove-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r25-cove-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r25-cove-thumb.jpg",
+    "duration": 9.5,
+    "bytes": 10489429,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-20T15:09:13"
+    },
+    "shots": [
+     {
+      "name": "DJI_20260811102620_0003_D.MP4",
+      "in": 38.0,
+      "speed": 1.0,
+      "what": "from behind the boat toward the sea cliff, the hull lettering"
+     },
+     {
+      "name": "DJI_20260811102620_0003_D.MP4",
+      "in": 42.6,
+      "speed": 1.0,
+      "what": "the boat from the side, guests at the helm, turquoise water"
+     },
+     {
+      "name": "DJI_20260811102620_0003_D.MP4",
+      "in": 72.0,
+      "speed": 1.0,
+      "what": "the boat enters a turquoise cove under the cliff and stops"
+     }
+    ],
+    "at": "2026-10-20T15:09:13"
+   }
+  },
+  {
+   "id": "r26-sternjump",
+   "format": "montage",
+   "status": "rendered",
+   "legacy": true,
+   "created": "2026-10-21",
+   "shots": [
+    {
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 13.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "a guest jumps off the stern, big splash, the cliff behind",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 19.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "the boat turns away from the splash, the swimmer behind it",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 38.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "friends floating on their backs in clear water, the stern in view",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "overcast",
+   "texts": {
+    "hook": "Last one in",
+    "labels": [],
+    "thumb": "Atlantic swim stop",
+    "ig": "Last one in does the dishes. Everybody jumps at the same time anyway.\n\nThe swim stop of our Day Trip from Funchal, Madeira, is under the cliffs, in water that goes from turquoise to deep blue in one boat length. Day Trip 2h30 or 3h, leaving at 10:00 or 14:00, sea conditions allowing. Your group only, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#visitmadeira"
+    ],
+    "fb": "Nothing beats cutting the engine under the cliffs of Fajã dos Padres. On our private Day Trip from Funchal, you get the boat completely to yourselves for up to five guests. Jump right off the stern, paddle, or just float on your back in the Atlantic.",
+    "threads": "That moment when the engines stop under the cliffs and everyone just jumps in. Private boat, up to 5 guests, just clear Atlantic water.",
+    "yt_title": "Jumping into the Atlantic off Madeira #Shorts",
+    "yt_description": "Taking a swim stop under the cliffs on our private boat.\n\nOur Day Trip departs from Funchal marina for up to five guests. We anchor under the cliffs near Fajã dos Padres for swimming, paddle boarding, and fresh food on board.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal boat tour",
+     "faja dos padres",
+     "madeira ocean swim",
+     "private charter funchal",
+     "madeira holiday",
+     "karnic r8s",
+     "chifbay"
+    ],
+    "tiktok": "Jumping off the stern under the cliffs on our private boat trip from Funchal. #madeira #funchal #boattrip #madeiraisland #atlantic",
+    "alt": "A drone follows a guest jumping off the stern of a small boat into the sea below a tall cliff in Madeira, then friends floating on their backs.",
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay.com/ig/reels/r26-sternjump.mp4",
+    "preview": "https://chifbay.com/ig/reels/r26-sternjump-p.mp4",
+    "cover": "https://chifbay.com/ig/reels/r26-sternjump-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r26-sternjump-thumb.jpg",
+    "duration": 9.0,
+    "bytes": 9924174,
+    "checks": {
+     "ok": true,
+     "problems": [],
+     "at": "2026-10-20T15:09:33"
+    },
+    "shots": [
+     {
+      "name": "DJI_20260813191642_0030_D.MP4",
+      "in": 13.0,
+      "speed": 1.0,
+      "what": "a guest jumps off the stern, big splash, the cliff behind"
+     },
+     {
+      "name": "DJI_20260813191642_0030_D.MP4",
+      "in": 19.0,
+      "speed": 1.0,
+      "what": "the boat turns away from the splash, the swimmer behind it"
+     },
+     {
+      "name": "DJI_20260813191642_0030_D.MP4",
+      "in": 38.0,
+      "speed": 1.0,
+      "what": "friends floating on their backs in clear water, the stern in view"
+     }
+    ],
+    "at": "2026-10-20T15:09:33"
+   }
+  }
+ ]
+}
