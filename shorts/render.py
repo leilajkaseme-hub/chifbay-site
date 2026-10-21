@@ -27,7 +27,7 @@ LOOK = read_json(SITE / "ig-auto" / "look.json", {})
 GOLD = (201, 164, 92)
 SEA = HERE / "assets" / "sea.m4a"
 TEXT_X0, TEXT_X1 = 90, 990
-DURATION = {"story": (11.0, 19.5), "highlight": (4.5, 9.5), "montage": (7.5, 13.5), "pov": (6.0, 10.5), "list": (8.0, 12.5),
+DURATION = {"fast": (8.0, 16.5), "story": (11.0, 19.5), "highlight": (4.5, 9.5), "montage": (7.5, 13.5), "pov": (6.0, 10.5), "list": (8.0, 12.5),
             "question": (4.5, 8.5), "loop": (3.5, 7.0), "bestof": (8.5, 13.5)}
 MOODS = {
     "day": ("Sunny Balearic chill house, warm clean electric guitar, light percussion, a summer day on a boat, uplifting and relaxed, no vocals", 116),
@@ -54,14 +54,36 @@ def lab_stats(raw):
 
 
 def measure(s):
+    """Light and colour of a shot from 2 small frames a second: the kind of light, and per-channel mean and spread."""
     raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-ss", str(s["start"]), "-t", str(s["len"]), *drive_input(s["file_id"]),
                           "-vf", "fps=2,scale=96:-2", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
     if not raw:
         raise RuntimeError(f"could not read {s['name']} at {s['start']} s from the Drive")
     st = lab_stats(raw)
     kind = "golden" if st["hiB"] > 18 else "overcast" if st["chroma"] < 9 else "daylight"
-    nudge = max(-0.04, min(0.04, (45 - st["L50"]) / 100 * 0.5))
-    return kind, round(nudge, 3)
+    px = np.frombuffer(raw, np.uint8).reshape(-1, 3).astype(np.float32)
+    keep = (px.max(axis=1) < 250) & (px.min(axis=1) > 5)          # leave clipped highlights and pure black out
+    px = px[keep] if keep.sum() > 100 else px
+    return {"kind": kind, "mean": px.mean(axis=0).tolist(), "std": px.std(axis=0).tolist(), "L50": st["L50"]}
+
+
+def match_filter(st, target, strength=0.8):
+    """Theo, 22 Oct 2026: "the colors could be better, more stable, too much change between the videos". Every shot of a
+    video is pulled toward the same colour (per channel mean and spread, the shots' average): drone and phone, sun and
+    shade then look like one film. Limited so a shot is corrected, never repainted."""
+    out = []
+    for c, ch in enumerate("rgb"):
+        m, sd = st["mean"][c], max(1.0, st["std"][c])
+        tm, tsd = target["mean"][c], target["std"][c]
+        gain = max(0.85, min(1.2, 1 + strength * (tsd / sd - 1)))
+        shift = max(-25.0, min(25.0, strength * (tm - m)))
+        out.append(f"{ch}='clip((val-{m:.1f})*{gain:.3f}+{m + shift:.1f},0,255)'")
+    return "lutrgb=" + ":".join(out)
+
+
+def video_target(stats):
+    """The colour every shot of one video is matched to: the average of its shots."""
+    return {"mean": np.mean([x["mean"] for x in stats], axis=0).tolist(), "std": np.mean([x["std"] for x in stats], axis=0).tolist()}
 
 
 # Theo, 21 Oct 2026, on the first POV stories: "better colors! more natural and good weather day type". The film look of
@@ -74,9 +96,10 @@ NATURAL = {
 }
 
 
-def grade(kind, nudge):
-    f = [f"eq=brightness={nudge}"] if abs(nudge) >= 0.005 else []
-    return ",".join(f + [NATURAL[kind]])
+def grade(kind, match=None):
+    """deflicker steadies the camera's own exposure changes inside a shot, the match evens the shots out, then one
+    natural grade for the whole video."""
+    return ",".join(["deflicker=size=7:mode=pm"] + ([match] if match else []) + [NATURAL[kind]])
 
 
 def crop_filter(s, w, h, dur, path=None):
@@ -84,6 +107,8 @@ def crop_filter(s, w, h, dur, path=None):
     without one it pans from the planned x to x2."""
     if w / h <= 9 / 16 + 0.01:
         return [f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H}"], W / w
+    if s.get("ch"):
+        h = int(h * s["ch"]) // 2 * 2       # keep the top share only (the Insta360 app puts its watermark at the bottom)
     cw = int(h * 9 / 16) // 2 * 2
     if path:
         return [f"crop={cw}:{h}:'{reframe.crop_expr(path, w, cw, dur)}':0", f"scale={W}:{H}:flags=lanczos"], W / cw
@@ -93,19 +118,20 @@ def crop_filter(s, w, h, dur, path=None):
     return [f"crop={cw}:{h}:'{xexpr}':0", f"scale={W}:{H}:flags=lanczos"], W / cw
 
 
-def render_shot(s, src, out, tmp, extra=0.0, own=False):
+def render_shot(s, src, out, tmp, extra=0.0, own=False, look=None):
     w, h, fps = src["w"], src["h"], src["fps"]
     speed = s.get("speed", 1.0)
     if speed != 1.0 and fps < 50:
         speed = 1.0                       # never slow a 30 fps source: it stutters
     src_len = s["len"] + extra * speed
     dur = src_len / speed
-    kind, nudge = measure(s)
+    st = look["stats"] if look else measure(s)
+    kind = look["kind"] if look else st["kind"]
     path = None if s.get("lock_crop") else reframe.track({**s, "len": src_len}, src)
     vf, up = crop_filter(s, w, h, src_len, path)
     if up > 1.3:
         vf.append("unsharp=5:5:0.4")
-    vf.append(grade(kind, nudge))
+    vf.append(grade(kind, match_filter(st, look["target"]) if look else None))
     if speed != 1.0:
         vf.append(f"setpts=PTS/{speed}")
     vf += [f"fps={FPS}", "format=yuv420p", "setsar=1"]
@@ -116,7 +142,7 @@ def render_shot(s, src, out, tmp, extra=0.0, own=False):
     else:
         args += ["-an"]
     run(args + [str(out)])
-    return {"grade": kind, "exposure": nudge, "seconds": round(dur, 2), "speed": speed,
+    return {"grade": kind, "matched": bool(look), "seconds": round(dur, 2), "speed": speed,
             "tracked": bool(path), "path": [round(c, 3) for _, c in path][::4] if path else None}
 
 
@@ -216,6 +242,26 @@ async def _lyria(path, prompt, bpm, seconds):
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(bytes(pcm))
 
 
+def beat_start(path, bpm, skip=4.0):
+    """Where to start the music so a beat falls at 0: cuts of whole beats then land on the beat (fast edits)."""
+    with wave.open(str(path)) as w:
+        sr, n = w.getframerate(), w.getnframes()
+        a = np.frombuffer(w.readframes(n), np.int16).astype(np.float32).reshape(-1, w.getnchannels()).mean(axis=1)
+    hop = 512
+    frames = len(a) // hop
+    e = np.log1p(np.sqrt((a[:frames * hop].reshape(frames, hop) ** 2).mean(axis=1)))
+    onset = np.maximum(0, np.diff(e, prepend=e[0]))
+    period = 60.0 / bpm
+    best, best_ph = -1, 0.0
+    for ph in np.arange(0, period, 0.01):
+        idx = ((skip + ph + np.arange(24) * period) * sr / hop).astype(int)
+        idx = idx[idx < len(onset)]
+        sc = onset[idx].sum()
+        if sc > best:
+            best, best_ph = sc, ph
+    return round(skip + best_ph, 3)
+
+
 def music(mood, path):
     prompt, bpm = MOODS.get(mood, MOODS["day"])
     for attempt in range(3):
@@ -276,10 +322,15 @@ def build(v, moments, tmp):
     parts, log_shots = [], []
     loop = v["format"] == "loop"
     xf = 0.6
+    stats = [measure(s) for s in v["shots"]]
+    target = video_target(stats)
+    kinds = [x["kind"] for x in stats]
+    kind = max(set(kinds), key=kinds.count)          # one grade for the whole video
     for i, s in enumerate(v["shots"]):
         src = moments["files"][s["file_id"]]
         part = tmp / f"p{i}.mp4"
-        info = render_shot(s, src, part, tmp, extra=xf if loop else 0.0, own=v.get("audio") == "own" and not loop)
+        info = render_shot(s, src, part, tmp, extra=xf if loop else 0.0, own=v.get("audio") == "own" and not loop,
+                           look={"stats": stats[i], "target": target, "kind": kind})
         parts.append(part)
         log_shots.append({"name": s["name"], "in": s["start"], "out": round(s["start"] + s["len"], 2), **info, "what": s["what"]})
     joined = tmp / "joined.mp4"
@@ -338,7 +389,8 @@ def build(v, moments, tmp):
         fc.append(f"[{n}:a]volume=0.5,atrim=0:{total}[base]")
         n += 1
         mvol = 0.9
-    inputs += ["-ss", "4", "-i", str(mus)]
+    music_from = beat_start(mus, MOODS.get(v.get("music", "day"), MOODS["day"])[1]) if v.get("beat_cuts") else 4
+    inputs += ["-ss", str(music_from), "-i", str(mus)]
     fc += [f"[{n}:a]volume={mvol},atrim=0:{total}[mus]", "[base][mus]amix=inputs=2:duration=first:normalize=0[mix]",
            f"[mix]afade=t=in:d=0.2,afade=t=out:st={total - 0.6}:d=0.6,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[a]"]
     master = tmp / "master.mp4"

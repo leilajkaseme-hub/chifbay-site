@@ -3047,6 +3047,75 @@
     }
    ],
    "scanned_at": "2026-10-21T20:31:15Z"
+  },
+  "1kO2gv1VYAAnzOaOPLAJTStoMfFRiCfDi": {
+   "name": "814009287.314303_48561792316499.mp4",
+   "path": "814009287.314303_48561792316499.mp4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 30.0,
+   "dur": 62.4,
+   "camera": "360",
+   "light": "day",
+   "summary": "Client Insta360 X5 export: the group laughing on the boat at speed, a swim off the stern, the snacks table; cloudy bright sky, blue sea. Watermark at the bottom: crop with ch 0.905.",
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 3.5,
+     "end": 5.2,
+     "peak": 4.3,
+     "score": 8,
+     "hook": 8,
+     "what": "a guest swims off the stern, the outboard and the cliff behind",
+     "tags": [
+      "swim",
+      "guests_happy"
+     ],
+     "x": 0.3,
+     "x2": 0.35,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 13.5,
+     "end": 16.5,
+     "peak": 15.0,
+     "score": 9,
+     "hook": 9,
+     "what": "the group laughing on the boat at full speed, cliffs behind",
+     "tags": [
+      "guests_happy",
+      "speed"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    },
+    {
+     "start": 46.5,
+     "end": 49.5,
+     "peak": 48.0,
+     "score": 9,
+     "hook": 9,
+     "what": "the boat at full speed with spray, the group laughing",
+     "tags": [
+      "guests_happy",
+      "speed",
+      "wake"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T23:25:36Z"
   }
  }
 }

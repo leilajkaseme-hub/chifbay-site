@@ -1808,6 +1808,215 @@
     },
     "at": "2026-10-21T22:25:29Z"
    }
+  },
+  {
+   "id": "s015",
+   "format": "fast",
+   "beat_cuts": true,
+   "music": "jump",
+   "light": "day",
+   "recorded": "2026-08-11",
+   "cta": "Booking link in bio.",
+   "shots": [
+    {
+     "file_id": "1xPwHgh6nMFkayP4jK5zYZZV2V9LO6ecF",
+     "name": "DJI_20260811111635_0005_D.MP4",
+     "start": 37.0,
+     "len": 0.75,
+     "speed": 0.5,
+     "peak": 37.375,
+     "x": 0.6,
+     "x2": 0.6,
+     "what": "the boat at full speed with the red cliffs behind, slow motion",
+     "tags": [
+      "speed",
+      "cliffs"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1kO2gv1VYAAnzOaOPLAJTStoMfFRiCfDi",
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 14.0,
+     "len": 1.5,
+     "speed": 1.0,
+     "peak": 14.75,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "the group laughing on the boat at full speed",
+     "tags": [
+      "guests_happy",
+      "speed"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea",
+     "ch": 0.905
+    },
+    {
+     "file_id": "1VzTQnDln8DqBJDi85urBBuRD_EwmBsOX",
+     "name": "DJI_20260811102620_0003_D.MP4",
+     "start": 55.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "peak": 55.5,
+     "x": 0.45,
+     "x2": 0.45,
+     "what": "the boat with guests in turquoise water under a red cliff",
+     "tags": [
+      "turquoise",
+      "cliffs"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1MxxDAcqsH6ujhzKcif2EFPa4mmRTjcuT",
+     "name": "DJI_20260812144130_0009_D.MP4",
+     "start": 40.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "peak": 40.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "from above: swimmers and the paddle board",
+     "tags": [
+      "swim",
+      "paddle"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1kO2gv1VYAAnzOaOPLAJTStoMfFRiCfDi",
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 3.8,
+     "len": 1.0,
+     "speed": 1.0,
+     "peak": 4.3,
+     "x": 0.35,
+     "x2": 0.35,
+     "what": "a guest swims off the stern",
+     "tags": [
+      "swim"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea",
+     "ch": 0.905
+    },
+    {
+     "file_id": "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC",
+     "name": "DJI_20260811102748_0004_D.MP4",
+     "start": 30.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "peak": 30.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "the boat in a turquoise cove",
+     "tags": [
+      "turquoise",
+      "cove"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1slYrl8FOnr4o1Y_DCxQ8ERrnFHvjH0ck",
+     "name": "DJI_20260606200425_0015_D.MP4",
+     "start": 60.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "peak": 60.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "the boat from behind on deep blue water",
+     "tags": [
+      "boat_hero"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1kO2gv1VYAAnzOaOPLAJTStoMfFRiCfDi",
+     "name": "814009287.314303_48561792316499.mp4",
+     "start": 47.0,
+     "len": 1.5,
+     "speed": 1.0,
+     "peak": 47.75,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "the boat at full speed with spray, the group laughing",
+     "tags": [
+      "speed",
+      "guests_happy"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea",
+     "ch": 0.905
+    },
+    {
+     "file_id": "1xPwHgh6nMFkayP4jK5zYZZV2V9LO6ecF",
+     "name": "DJI_20260811111635_0005_D.MP4",
+     "start": 1.0,
+     "len": 1.0,
+     "speed": 0.5,
+     "peak": 1.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "the boat at full speed side on, clear sky, slow motion",
+     "tags": [
+      "speed",
+      "boat_hero"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    }
+   ],
+   "texts": {
+    "hook": "3 hours. no plans. madeira.",
+    "thumb": "3 hours. no plans.",
+    "ig": "3 hours, no plans, Madeira. A private boat from Funchal for your group only, with our two skippers and the south coast all to yourselves.\n\nFull speed under the red cliffs, a turquoise cove, a swim off the back of the boat and the paddle board, then back on deck for something to eat.\n\nDay Trip, 2h30 or 3h, leaving at 10:00 or 14:00, five guests at most.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#privateboat",
+     "#visitmadeira"
+    ],
+    "fb": "Three hours, no plans, just the south coast of Madeira from your own boat. Full speed under the cliffs, a turquoise cove, a swim off the back and food on board. Private Day Trip from Funchal, two skippers, up to five guests.",
+    "threads": "3 hours. no plans. one boat. the south coast of Madeira.",
+    "yt_title": "3 hours, no plans, Madeira by private boat #Shorts",
+    "yt_description": "Three hours, no plans, Madeira from the water.\n\nOur private Day Trip from Funchal: full speed under the red cliffs, a turquoise cove, a swim and the paddle board, food on board. Two skippers, five guests at most, 2h30 or 3h.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat tour",
+     "private boat madeira",
+     "things to do in madeira",
+     "madeira",
+     "funchal",
+     "madeira day trip",
+     "boat day",
+     "madeira coast",
+     "chifbay"
+    ],
+    "tiktok": "3 hours. no plans. madeira. 🌊 #madeira #funchal #boattrip #privateboat #traveltok",
+    "alt": "Fast cuts of a private boat day in Madeira: the white boat at full speed under red cliffs, guests laughing on deck, turquoise water, swimmers and a paddle board from above, and a swim off the stern.",
+    "model": "written by Claude"
+   },
+   "status": "draft",
+   "created": "2026-10-22",
+   "audio": "sea",
+   "by": "claude (contact sheets)"
   }
  ]
 }
