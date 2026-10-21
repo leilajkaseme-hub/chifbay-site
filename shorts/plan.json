@@ -1492,15 +1492,15 @@
     "ok": true,
     "score": 9,
     "problems": [],
-    "model": "gemini-3.5-flash"
+    "model": "gemini-3.6-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-af36d9ce-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-fc3237af.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-fc3237af-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-fc3237af-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-fc3237af-thumb.jpg",
     "duration": 14.8,
-    "bytes": 15902019,
+    "bytes": 15897040,
     "shots": [
      {
       "name": "DJI_20260606200017_0014_D.MP4",
@@ -1547,7 +1547,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T20:42:34Z"
+    "at": "2026-10-21T21:01:27Z"
    }
   },
   {
@@ -1673,18 +1673,18 @@
    "audio": "sea",
    "by": "claude (contact sheets)",
    "qa": {
-    "ok": null,
-    "problems": [
-     "second look not done: Gemini free calls spent for today"
-    ]
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.7-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-87667cfc-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558-thumb.jpg",
     "duration": 14.6,
-    "bytes": 15663588,
+    "bytes": 15510582,
     "shots": [
      {
       "name": "DJI_20260811111635_0005_D.MP4",
@@ -1731,7 +1731,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T20:50:41Z"
+    "at": "2026-10-21T21:07:09Z"
    }
   }
  ]
