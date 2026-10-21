@@ -27,11 +27,14 @@ const REEL = (id, extra = {}) => ({
 });
 
 /** A temp copy of ig-auto with an empty history and the given reels. */
-function sandbox({ reels = [REEL("r15-daytrip"), REEL("r01-jump")], queue = [], state = {}, pauseFile = false } = {}) {
+function sandbox({ reels = [REEL("r15-daytrip"), REEL("r01-jump")], queue = [], state = {}, pauseFile = false, shorts = false } = {}) {
   const dir = mkdtempSync(join(tmpdir(), "igauto-"));
   for (const f of ["bin", "lib", "config.json", "brand.json", "look.json", "package.json", "test-fake-fetch.mjs"]) {
     cpSync(join(HERE, f), join(dir, f), { recursive: true });
   }
+  // These tests are about this robot's own week. reels_by_shorts (Reels posted by bin/shorts-post.mjs) is set per test.
+  const cfg = JSON.parse(readFileSync(join(dir, "config.json"), "utf8"));
+  writeFileSync(join(dir, "config.json"), JSON.stringify({ ...cfg, reels_by_shorts: shorts }, null, 2));
   if (existsSync(join(HERE, "node_modules"))) symlinkSync(join(HERE, "node_modules"), join(dir, "node_modules"));
   mkdirSync(join(dir, "queue")); mkdirSync(join(dir, "posted"));
   writeFileSync(join(dir, "ledger.jsonl"), "");
@@ -85,6 +88,15 @@ await check("a Reel day publishes the first qualified Reel, with its clean cover
   const e = r.ledger.at(-1);
   assert.equal(e.ok, true); assert.equal(e.id, "r15-daytrip");
   assert.equal(e.permalink, "https://www.instagram.com/reel/FAKE/");
+  rmSync(dir, { recursive: true });
+});
+
+await check("reels_by_shorts: a Reel day posts no Reel here (the short-video robot does), and no alert", async () => {
+  const dir = sandbox({ shorts: true });
+  const r = await run(dir, "bin/post.mjs", {});
+  assert.equal(r.code, 0, r.out);
+  assert.equal(count(r.calls, /media_publish/), 0);
+  assert.match(r.out, /rest day/);
   rmSync(dir, { recursive: true });
 });
 
