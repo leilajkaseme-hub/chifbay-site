@@ -1126,12 +1126,12 @@
     ]
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-c478b6a1.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-c478b6a1-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-c478b6a1-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-c478b6a1-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-66030ef9-thumb.jpg",
     "duration": 15.0,
-    "bytes": 15843374,
+    "bytes": 15838954,
     "shots": [
      {
       "name": "DJI_20260606200425_0015_D.MP4",
@@ -1141,6 +1141,13 @@
       "exposure": 0.016,
       "seconds": 3.6,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.125,
+       0.263,
+       0.311,
+       0.394
+      ],
       "what": "huge sea cliffs above deep blue water"
      },
      {
@@ -1151,6 +1158,13 @@
       "exposure": 0.015,
       "seconds": 3.6,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.669,
+       0.683,
+       0.65,
+       0.585
+      ],
       "what": "the boat side on, a skipper at the helm, deep blue water"
      },
      {
@@ -1161,6 +1175,13 @@
       "exposure": -0.019,
       "seconds": 3.8,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.48,
+       0.428,
+       0.311,
+       0.323
+      ],
       "what": "the boat with guests in a turquoise cove"
      },
      {
@@ -1171,6 +1192,11 @@
       "exposure": -0.005,
       "seconds": 4.0,
       "speed": 0.5,
+      "tracked": true,
+      "path": [
+       0.561,
+       0.599
+      ],
       "what": "low pass over guests at the deck table, slow motion"
      }
     ],
@@ -1178,7 +1204,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T21:56:33Z"
+    "at": "2026-10-21T22:17:20Z"
    }
   },
   {
@@ -1495,12 +1521,12 @@
     ]
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-c6069b6a.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-c6069b6a-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-c6069b6a-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-c6069b6a-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-9cda9fc0-thumb.jpg",
     "duration": 14.8,
-    "bytes": 15884357,
+    "bytes": 15894441,
     "shots": [
      {
       "name": "DJI_20260606200017_0014_D.MP4",
@@ -1510,6 +1536,13 @@
       "exposure": -0.025,
       "seconds": 3.6,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.435,
+       0.428,
+       0.44,
+       0.42
+      ],
       "what": "the boat backlit by the low evening sun"
      },
      {
@@ -1520,6 +1553,13 @@
       "exposure": 0.008,
       "seconds": 3.6,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.458,
+       0.509,
+       0.593,
+       0.744
+      ],
       "what": "the sun flares beside the cliffs, the camera finds the boat"
      },
      {
@@ -1530,6 +1570,13 @@
       "exposure": -0.003,
       "seconds": 3.8,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.913,
+       0.778,
+       0.598,
+       0.492
+      ],
       "what": "the boat in the path of the sun's reflection"
      },
      {
@@ -1540,6 +1587,8 @@
       "exposure": -0.007,
       "seconds": 3.8,
       "speed": 1.0,
+      "tracked": false,
+      "path": null,
       "what": "the sun over the sea, the cliffs on the right"
      }
     ],
@@ -1547,7 +1596,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T21:59:45Z"
+    "at": "2026-10-21T22:21:26Z"
    }
   },
   {
@@ -1679,12 +1728,12 @@
     ]
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-432ac9cc.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-432ac9cc-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-432ac9cc-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-432ac9cc-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-5f3f94c8-thumb.jpg",
     "duration": 14.6,
-    "bytes": 15665292,
+    "bytes": 15635877,
     "shots": [
      {
       "name": "DJI_20260811111635_0005_D.MP4",
@@ -1694,6 +1743,11 @@
       "exposure": -0.04,
       "seconds": 3.6,
       "speed": 0.5,
+      "tracked": true,
+      "path": [
+       0.744,
+       0.855
+      ],
       "what": "the boat at speed with the red cliffs behind, slow motion"
      },
      {
@@ -1704,6 +1758,13 @@
       "exposure": -0.04,
       "seconds": 3.6,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.337,
+       0.29,
+       0.255,
+       0.213
+      ],
       "what": "the boat with guests in turquoise water under a red cliff"
      },
      {
@@ -1714,6 +1775,13 @@
       "exposure": 0.027,
       "seconds": 3.6,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.683,
+       0.613,
+       0.647,
+       0.709
+      ],
       "what": "from above: a guest on the paddle board and a swimmer"
      },
      {
@@ -1724,6 +1792,13 @@
       "exposure": 0.001,
       "seconds": 3.8,
       "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.661,
+       0.68,
+       0.69,
+       0.684
+      ],
       "what": "the boat from the front, guests on deck, cliff behind"
      }
     ],
@@ -1731,7 +1806,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T22:02:52Z"
+    "at": "2026-10-21T22:25:29Z"
    }
   }
  ]
