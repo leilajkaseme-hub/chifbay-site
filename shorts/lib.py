@@ -48,7 +48,8 @@ def run(args, **kw):
 
 def http(url, data=None, headers=None, method=None, timeout=120):
     """(status, headers, body bytes). Never raises on an HTTP error status."""
-    req = urllib.request.Request(url, data=data, headers=headers or {}, method=method)
+    # Cloudflare answers 403 (error 1010) to Python's default User-Agent, before our Worker even runs.
+    req = urllib.request.Request(url, data=data, headers={"User-Agent": "chifbay-shorts/1.0", **(headers or {})}, method=method)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return r.status, dict(r.headers), r.read()
