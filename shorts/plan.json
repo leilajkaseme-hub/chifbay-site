@@ -1676,15 +1676,15 @@
     "ok": true,
     "score": 9,
     "problems": [],
-    "model": "gemini-3.7-flash"
+    "model": "gemini-3.5-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-736e5558-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-2c604aa0.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-2c604aa0-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-2c604aa0-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-2c604aa0-thumb.jpg",
     "duration": 14.6,
-    "bytes": 15510582,
+    "bytes": 15607108,
     "shots": [
      {
       "name": "DJI_20260811111635_0005_D.MP4",
@@ -1731,7 +1731,7 @@
      "ok": true,
      "problems": []
     },
-    "at": "2026-10-21T21:07:09Z"
+    "at": "2026-10-21T21:13:48Z"
    }
   }
  ]
