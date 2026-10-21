@@ -121,6 +121,16 @@ def clean(moments, dur):
     return out
 
 
+def checkpoint(done):
+    """Save the work so far to the repo (a long run can take hours; render can start on what is there)."""
+    import subprocess
+    root = str(MOMENTS.parent.parent)
+    subprocess.run(["git", "add", "shorts/moments.json"], cwd=root)
+    if subprocess.run(["git", "diff", "--staged", "--quiet"], cwd=root).returncode:
+        subprocess.run(["git", "commit", "-qm", f"shorts: moments, {done} files scanned so far"], cwd=root)
+        subprocess.run(["scripts/ci-push.sh"], cwd=root)
+
+
 def main():
     args = sys.argv[1:]
     cap = int(args[args.index("--max") + 1]) if "--max" in args else 999
@@ -168,6 +178,8 @@ def main():
         db["files"][f["id"]] = rec
         write_json(MOMENTS, db)
         done += 1
+        if os.environ.get("FIND_COMMIT_EVERY") and done % int(os.environ["FIND_COMMIT_EVERY"]) == 0:
+            checkpoint(done)
     usable = [m for r in db["files"].values() if r.get("boat") for m in r.get("moments", []) if m["score"] >= 6]
     log(f"{done} scanned this run; {len(usable)} moments scored 6/10 or more in {len(db['files'])} files")
 

@@ -28,8 +28,8 @@
   .chip.gold { background: rgba(201, 164, 92, .18); color: var(--gold); }
   .chip.okc { background: rgba(63, 182, 125, .18); color: var(--ok); }
   .chip.noc { background: rgba(224, 96, 90, .18); color: var(--no); }
-  .shots { color: var(--muted); font-size: 12.5px; margin: 6px 0 0; padding-left: 16px; }
-  .thumbrow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .shots { color: var(--muted); font-size: 12.5px; margin: 6px 0 0; padding-left: 16px; overflow-wrap: anywhere; }
+  .thumbrow { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; max-width: 300px; }
   .thumbrow figure { margin: 0; } .thumbrow figcaption { color: var(--muted); font-size: 11.5px; margin-top: 3px; text-align: center; }
   details { border-top: 1px solid var(--line); margin-top: 10px; padding-top: 8px; }
   summary { cursor: pointer; color: var(--gold); font: 600 13px Inter, sans-serif; }
@@ -97,7 +97,8 @@ function render() {
   for (const v of plan.videos) groups[stateOf(v)]?.push(v);
   $("#tabs").innerHTML = TABS.filter(([k]) => groups[k].length || k === "review")
     .map(([k, label]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${label} · ${groups[k].length}</button>`).join("");
-  $("#sub").textContent = `${groups.review.length} to review · ${groups.approved.length} approved (about ${Math.floor(groups.approved.length / 2)} days of posts at 2 a day)` + (paused ? " · POSTING PAUSED" : "");
+  const days = groups.approved.length >= 2 ? ` (about ${Math.floor(groups.approved.length / 2)} days of posts at 2 a day)` : "";
+  $("#sub").textContent = `${groups.review.length} to review · ${groups.approved.length} approved${days}` + (paused ? " · POSTING PAUSED" : "");
   const list = groups[tab] || [];
   $("#main").innerHTML = list.length ? list.map(card).join("") : `<p class="empty">Nothing here.</p>`;
   $("#bar").hidden = false;

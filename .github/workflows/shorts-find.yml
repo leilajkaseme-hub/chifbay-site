@@ -49,6 +49,7 @@ jobs:
           DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ARGS: ${{ github.event.inputs.args }}
+          FIND_COMMIT_EVERY: "8"
         run: cd shorts && python3 find.py $ARGS
       - name: Commit the moments
         if: always()
