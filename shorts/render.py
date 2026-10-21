@@ -16,7 +16,8 @@ sound always present and at Instagram's loudness. A video whose checks fail is n
 import asyncio, hashlib, json, os, pathlib, re, subprocess, sys, tempfile, time, wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
-from lib import FONTS, HERE, PLAN, SITE, drive_input, gemini_key, log, media_put, read_json, run, write_json
+from lib import (FONTS, HERE, PLAN, SITE, QuotaGone, drive_input, gemini, gemini_delete, gemini_key, gemini_keys, gemini_upload,
+                 key_spent, log, media_put, read_json, run, write_json)
 
 W, H, FPS = 1080, 1920, 30
 SERIF = FONTS / "DMSerifDisplay-Italic.ttf"
@@ -336,6 +337,37 @@ def build(v, moments, tmp):
             "shots": log_shots, "problems": problems}
 
 
+QA_PROMPT = """You check one finished short video of Chifbay, a small FAMILY business running private boat trips in Madeira,
+before it is posted on Instagram, YouTube and TikTok. Words on screen: {hook!r}{labels}. Caption starts: {cap!r}.
+
+Answer JSON only: {{"ok": true or false, "score": 1-10 (how good it is as a Reel), "problems": ["..."]}}
+Set ok=false, with the reason in problems, if ANY of these is true:
+- the camera mostly shows a guest's body in swimwear (from behind, close on skin) instead of the place, the boat or the activity
+- the words on screen or the caption promise something the video does not show (e.g. "jump" with no jump)
+- a child's face is close and clear, or a guest looks embarrassed, upset or in a private moment
+- it is blurry, shaky, dark, or nothing happens
+- another company's boat or brand is the main subject
+Otherwise ok=true and problems=[]. Be strict: when in doubt, ok=false."""
+
+
+def qa(v, preview):
+    """A second look at the FINISHED video by Gemini, so the moment finder's mistakes do not reach the review page."""
+    t = v["texts"]
+    prompt = QA_PROMPT.format(hook=t["hook"], labels=f", list labels {t['labels']}" if t.get("labels") else "", cap=t["ig"][:200])
+    for key in gemini_keys():
+        if key_spent(key):
+            continue
+        uri, name = gemini_upload(preview, key=key)
+        try:
+            ans, model = gemini([{"file_data": {"mime_type": "video/mp4", "file_uri": uri}}, {"text": prompt}], key=key, timeout=180)
+            return {"ok": bool(ans.get("ok")), "score": ans.get("score"), "problems": [str(p)[:200] for p in ans.get("problems", [])], "model": model}
+        except QuotaGone:
+            continue
+        finally:
+            gemini_delete(name, key=key)
+    return {"ok": None, "problems": ["second look not done: Gemini free calls spent for today"]}
+
+
 def main():
     only = set(a for a in sys.argv[1:] if not a.startswith("-"))
     plan = read_json(PLAN, {"videos": []})
@@ -348,6 +380,14 @@ def main():
         try:
             with tempfile.TemporaryDirectory() as td:
                 r = build(v, moments, pathlib.Path(td))
+                if not r["problems"]:
+                    try:
+                        v["qa"] = qa(v, r["preview"])
+                    except Exception as e:
+                        v["qa"] = {"ok": None, "problems": [f"second look failed: {str(e)[:160]}"]}
+                    if v["qa"]["ok"] is False:
+                        r["problems"] += [f"second look: {p}" for p in v["qa"]["problems"]] or ["second look refused it"]
+                    log(f"  second look: {v['qa']}")
                 ver = hashlib.sha1(r["master"].read_bytes()).hexdigest()[:8]
                 stem = f"{v['id']}-{ver}"
                 urls = {"video": media_put(f"{stem}.mp4", r["master"], "video/mp4"),

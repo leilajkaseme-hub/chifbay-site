@@ -26,7 +26,8 @@ TAGS = ["jump", "swim", "paddle", "splash", "speed", "wake", "boat_hero", "aeria
         "guests_happy", "couple", "family", "food_drinks", "skipper", "dolphins", "wildlife", "slow_motion_worthy",
         "loop_worthy", "calm", "details"]
 ISSUES = ["shaky", "blurry", "dark", "watermark", "text_overlay", "transition", "nothing_happens", "ground_or_land",
-          "drone_takeoff_landing", "camera_operator_visible", "crowded", "faces_very_close", "kids_close", "other_boats_brand"]
+          "drone_takeoff_landing", "camera_operator_visible", "crowded", "faces_very_close", "kids_close", "other_boats_brand",
+          "body_focus"]
 
 PROMPT = f"""You are the video editor of Chifbay, a small family business that runs private boat trips from Funchal,
 Madeira (one Karnic R8S boat with "Chifbay.com" on the bimini, two skippers, at most 5 guests). This is RAW footage
@@ -62,6 +63,8 @@ Rules:
 - Weak: empty sea with nothing happening, the ground, the drone taking off or landing, a shaky handheld pan, the
   marina car park.
 - Never invent wildlife: tag dolphins only if you clearly see them.
+- Flag "body_focus" when the shot mostly shows a guest's body in swimwear (from behind, close on skin) rather than the
+  place, the boat or what the guests are doing. A family business never posts that.
 - Times must be inside the video. Be precise: the editor cuts on your numbers.
 """
 
@@ -137,6 +140,14 @@ def main():
     again = set(args[args.index("--again") + 1].split(",")) if "--again" in args else set()
     db = read_json(MOMENTS, {"version": VERSION, "files": {}})
     files = drive_videos()
+    # a copy scanned before MD5 was compared (e.g. "x.MP4" and "x (1).MP4") is dropped: its windows would look unused
+    keep = {f["id"] for f in files}
+    for fid in [k for k in db["files"] if k not in keep]:
+        log(f"  dropping {db['files'][fid]['name']}: a copy of another file, or gone from the Drive")
+        del db["files"][fid]
+    for f in files:
+        if f["id"] in db["files"] and f.get("md5Checksum"):
+            db["files"][f["id"]]["md5"] = f["md5Checksum"]
     log(f"{len(files)} videos on the Drive, {len(db['files'])} already scanned")
     started, done = time.time(), 0
     todo = [f for f in files if f["size"] > 3e6 and (f["id"] not in db["files"] or f["name"] in again
@@ -148,7 +159,7 @@ def main():
             log("stopping here (cap or time budget): the next run carries on")
             break
         log(f"- {f['path']} ({f['size'] / 1e6:.0f} MB)")
-        rec = {"name": f["name"], "path": f["path"], "size": f["size"], "created": f.get("createdTime", "")[:10],
+        rec = {"name": f["name"], "path": f["path"], "size": f["size"], "created": f.get("createdTime", "")[:10], "md5": f.get("md5Checksum"),
                "version": VERSION, "scanned_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
         try:
             rec.update(probe_drive(f["id"]))

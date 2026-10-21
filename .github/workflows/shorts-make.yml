@@ -3,9 +3,10 @@ name: shorts, plan and build new videos
 # Plans new short videos from shorts/moments.json (fresh footage only), writes their texts, builds them
 # (cut from the Drive, graded, titled, music, checks, thumbnails) and stores them in the chifbay-media Worker.
 # Then Theo gets one message with the review link. Posts nothing: shorts-post.yml only takes approved videos.
+# Daily: plan.py only adds videos when fewer than 16 wait, so most days it builds nothing.
 on:
   schedule:
-    - cron: "17 13 * * 0,3"
+    - cron: "17 13 * * *"
   workflow_dispatch:
     inputs:
       add:

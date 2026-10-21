@@ -894,7 +894,7 @@
   {
    "id": "s010",
    "format": "question",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-21",
    "shots": [
     {
@@ -984,6 +984,16 @@
      "problems": []
     },
     "at": "2026-10-21T13:54:59Z"
+   },
+   "retired": "Refused by Claude and by the second look (21 Oct): the camera mostly films a guest in a bikini from behind, and the hook 'Would you jump right in?' shows no jump.",
+   "qa": {
+    "ok": false,
+    "score": 2,
+    "problems": [
+     "mostly a guest's body from behind",
+     "hook promises a jump that is not there"
+    ],
+    "model": "gemini-3.8-flash"
    }
   }
  ]

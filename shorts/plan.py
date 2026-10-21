@@ -18,7 +18,7 @@ from lib import MOMENTS, PLAN, SITE, log, read_json, write_json, write_json_ai
 
 WAITING_TARGET = 16
 BAD = {"shaky", "blurry", "dark", "watermark", "text_overlay", "transition", "nothing_happens", "ground_or_land",
-       "drone_takeoff_landing", "camera_operator_visible", "kids_close", "other_boats_brand"}
+       "drone_takeoff_landing", "camera_operator_visible", "kids_close", "other_boats_brand", "body_focus"}
 THEMES = {
     "swim": {"swim", "jump", "paddle", "splash", "turquoise", "cove"},
     "coast": {"cliffs", "cave", "waterfall", "reveal", "funchal", "cove"},
@@ -219,10 +219,12 @@ Answer with JSON only:
 }}
 Hard rules: never a price, a discount or a number of guests above 5; never 'guaranteed', 'cheapest', 'unlimited', a fixed
 sunset time, 'full day'; no long dashes; never say dolphins unless the shots show them; swimming only on the Day Trip;
-the drone flies only when the weather allows; write like a small local crew, not an ad agency."""
+the drone flies only when the weather allows; no snorkel gear is provided (a paddle board is), so never mention snorkelling
+gear; the hook and texts must describe what really happens in the shots, nothing more; write like a small local crew, not
+an ad agency."""
 
 
-BANNED = ["guarantee", "cheapest", "unlimited", "full day", "full-day", "no filter", "nobody else on board", "18:30", "€", "eur ",
+BANNED = ["snorkel", "guarantee", "cheapest", "unlimited", "full day", "full-day", "no filter", "nobody else on board", "18:30", "€", "eur ",
           "per person", "discount", "6 guests", "7 guests", "8 guests"]
 
 

@@ -112,6 +112,8 @@ function card(v) {
   const chip = st === "approved" ? `<span class="chip okc">OK</span>` : st === "refused" ? `<span class="chip noc">No</span>` : st === "posted" ? `<span class="chip okc">Posted</span>` : "";
   const posted = v.posted ? Object.entries(v.posted).map(([k, p]) => p?.url ? `<a class="chip" href="${esc(p.url)}" target="_blank" rel="noopener">${esc(k)}</a>` : `<span class="chip">${esc(k)}</span>`).join("") : "";
   const problems = r.checks && !r.checks.ok ? `<p class="err">${esc((r.checks.problems || []).join("; "))}</p>` : "";
+  const qa = v.qa ? (v.qa.ok === true ? `<span class="chip okc">AI check ${esc(v.qa.score ?? "")}/10</span>`
+    : v.qa.ok === false ? `<span class="chip noc">AI check refused</span>` : `<span class="chip">AI check not done</span>`) : "";
   const texts = [["Instagram", `${t.ig || ""}\n\n${(t.hashtags || []).join(" ")}`], ["Facebook", t.fb], ["Threads", t.threads],
     ["YouTube title", t.yt_title], ["YouTube description", t.yt_description], ["YouTube tags", (t.yt_tags || []).join(", ")], ["TikTok", t.tiktok],
     ...(t.labels?.length ? [["On-screen list", t.labels.join("\n")]] : [])]
@@ -125,7 +127,7 @@ function card(v) {
       <div class="meta">
         <div class="id">${esc(v.id)} · ${esc(v.format)} · ${r.duration ? r.duration + " s" : ""}</div>
         <div class="hook">${esc(t.hook || "")}</div>
-        <div class="chips">${chip}${v.music ? `<span class="chip gold">${esc(v.music)} music</span>` : ""}${v.light ? `<span class="chip">${esc(v.light)}</span>` : ""}${posted}</div>
+        <div class="chips">${chip}${qa}${v.music ? `<span class="chip gold">${esc(v.music)} music</span>` : ""}${v.light ? `<span class="chip">${esc(v.light)}</span>` : ""}${posted}</div>
         <ul class="shots">${shots}</ul>
         ${problems}
       </div>

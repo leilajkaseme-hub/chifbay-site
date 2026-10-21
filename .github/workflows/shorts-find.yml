@@ -51,7 +51,8 @@ jobs:
           DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY_2: ${{ secrets.GEMINI_API_KEY_2 }}
-          ARGS: ${{ github.event.inputs.args }}
+          # 45 files a day at most: the rest of the free Gemini calls go to the texts and the second look (shorts-make)
+          ARGS: ${{ github.event.inputs.args || '--max 45' }}
           FIND_COMMIT_EVERY: "8"
         run: cd shorts && python3 find.py $ARGS
       - name: Commit the moments

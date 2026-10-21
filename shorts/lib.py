@@ -94,14 +94,14 @@ def drive_token():
 
 
 def drive_videos():
-    """Every video under the PUBLISH folder, with its path. Same file in two folders = one entry (first path)."""
+    """Every video under the PUBLISH folder, with its path. The same file twice (same MD5) = one entry (first path)."""
     out, seen = [], set()
 
     def walk(folder, path):
         page = ""
         while True:
             q = {"q": f"'{folder}' in parents and trashed = false", "pageSize": "200",
-                 "fields": "nextPageToken, files(id,name,mimeType,size,createdTime,videoMediaMetadata)",
+                 "fields": "nextPageToken, files(id,name,mimeType,size,createdTime,md5Checksum,videoMediaMetadata)",
                  "supportsAllDrives": "true", "includeItemsFromAllDrives": "true"}
             if page:
                 q["pageToken"] = page
@@ -114,7 +114,8 @@ def drive_videos():
                 if f["mimeType"] == "application/vnd.google-apps.folder":
                     walk(f["id"], f"{path}{f['name']}/")
                 elif f["name"].lower().endswith(VIDEO_EXT):
-                    k = (f["name"], f.get("size"))
+                    # the same video often sits in two folders, sometimes renamed ("x (1).MP4"): its MD5 tells
+                    k = f.get("md5Checksum") or (f["name"], f.get("size"))
                     if k not in seen:
                         seen.add(k)
                         out.append({**f, "path": path + f["name"], "size": int(f.get("size") or 0)})
