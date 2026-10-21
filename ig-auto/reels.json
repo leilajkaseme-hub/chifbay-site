@@ -618,6 +618,90 @@
       "source": "DJI_20260813191642_0030_D.MP4",
       "driveId": "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV",
       "added": "2026-10-18T09:52:22.401Z"
+    },
+    {
+      "clip": "ig/reel-1lB2qw-3-1.mp4",
+      "cover": "ig/reel-1lB2qw-3-1.jpg",
+      "start": 5.9,
+      "len": 6.7,
+      "score": 17.3,
+      "shape": "9:16",
+      "bytes": 7466278,
+      "source": "IMG_5381.MOV",
+      "driveId": "1lB2qw-3hAL6a9w4JPZS6as1LEwCN97_d",
+      "added": "2026-10-21T09:31:29.703Z"
+    },
+    {
+      "clip": "ig/reel-1EBbp31H-1.mp4",
+      "cover": "ig/reel-1EBbp31H-1.jpg",
+      "start": 1.3,
+      "len": 6.2,
+      "score": 6.3,
+      "shape": "9:16",
+      "bytes": 6899050,
+      "source": "IMG_2824.MOV",
+      "driveId": "1EBbp31HpqwSfLvconIyIK9TbhH8ntjDb",
+      "added": "2026-10-21T09:31:52.291Z"
+    },
+    {
+      "clip": "ig/reel-1xAHCMm2-1.mp4",
+      "cover": "ig/reel-1xAHCMm2-1.jpg",
+      "start": 1.3,
+      "len": 6.1,
+      "score": 10.8,
+      "shape": "9:16",
+      "bytes": 6835302,
+      "source": "IMG_2840.MOV",
+      "driveId": "1xAHCMm2iQloTHWFsQur26JYeTGAaWCjO",
+      "added": "2026-10-21T09:32:13.863Z"
+    },
+    {
+      "clip": "ig/reel-1Qq9qJ8W-1.mp4",
+      "cover": "ig/reel-1Qq9qJ8W-1.jpg",
+      "start": 1.3,
+      "len": 6.1,
+      "score": 13.6,
+      "shape": "9:16",
+      "bytes": 6884096,
+      "source": "IMG_2869.MOV",
+      "driveId": "1Qq9qJ8WxAQ0Ck837dgZQqKlJZefjWY3j",
+      "added": "2026-10-21T09:32:36.290Z"
+    },
+    {
+      "clip": "ig/reel-17MYCmyK-1.mp4",
+      "cover": "ig/reel-17MYCmyK-1.jpg",
+      "start": 6.4,
+      "len": 6.1,
+      "score": 5.3,
+      "shape": "9:16",
+      "bytes": 6764041,
+      "source": "IMG_2825.MOV",
+      "driveId": "17MYCmyKxLivmR-ujnoCW_Hejr8FRZDrJ",
+      "added": "2026-10-21T09:32:58.184Z"
+    },
+    {
+      "clip": "ig/reel-1mYBxivA-1.mp4",
+      "cover": "ig/reel-1mYBxivA-1.jpg",
+      "start": 6.4,
+      "len": 8,
+      "score": 16.9,
+      "shape": "9:16",
+      "bytes": 8767098,
+      "source": "IMG_2885.MOV",
+      "driveId": "1mYBxivAddrEw4ayvb3SARnk3frvs3knu",
+      "added": "2026-10-21T09:33:27.917Z"
+    },
+    {
+      "clip": "ig/reel-14DRAr1P-1.mp4",
+      "cover": "ig/reel-14DRAr1P-1.jpg",
+      "start": 3.8,
+      "len": 6.5,
+      "score": 16.1,
+      "shape": "9:16",
+      "bytes": 7302700,
+      "source": "IMG_2870.MOV",
+      "driveId": "14DRAr1PXazrURM1ExSbXQROVChcwvPfv",
+      "added": "2026-10-21T09:33:57.556Z"
     }
   ]
 }
