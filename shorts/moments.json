@@ -2793,7 +2793,7 @@
    "fps": 59.94,
    "dur": 75.0,
    "camera": null,
-   "light": null,
+   "light": "overcast",
    "summary": null,
    "version": 1,
    "boat": true,
@@ -2975,6 +2975,78 @@
     }
    ],
    "scanned_at": "2026-10-21T19:53:09Z"
+  },
+  "1xPwHgh6nMFkayP4jK5zYZZV2V9LO6ecF": {
+   "name": "DJI_20260811111635_0005_D.MP4",
+   "path": "USED/DJI_20260811111635_0005_D.MP4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 59.94,
+   "dur": 96.56,
+   "camera": "drone",
+   "light": "day",
+   "summary": "Drone tracking the boat at speed on deep blue sea under a clear sky, red cliffs behind.",
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 29.0,
+     "end": 37.0,
+     "peak": 32.0,
+     "score": 9,
+     "hook": 9,
+     "what": "the boat at speed with the red sea cliffs behind it, clear blue sky",
+     "tags": [
+      "speed",
+      "wake",
+      "cliffs",
+      "boat_hero",
+      "slow_motion_worthy"
+     ],
+     "x": 0.62,
+     "x2": 0.55,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T20:31:15Z"
+  },
+  "1MxxDAcqsH6ujhzKcif2EFPa4mmRTjcuT": {
+   "name": "DJI_20260812144130_0009_D.MP4",
+   "path": "USED/DJI_20260812144130_0009_D.MP4",
+   "w": 3840,
+   "h": 2160,
+   "fps": 59.94,
+   "dur": 101.65,
+   "camera": "drone",
+   "light": "day",
+   "summary": "Drone from above over swimmers and a paddle board in deep blue water, sunny.",
+   "version": 1,
+   "boat": true,
+   "model": "claude (contact sheet)",
+   "moments": [
+    {
+     "start": 9.5,
+     "end": 17.5,
+     "peak": 12.0,
+     "score": 8,
+     "hook": 7,
+     "what": "from above: a guest on the paddle board and a swimmer in deep blue water",
+     "tags": [
+      "paddle",
+      "swim",
+      "topdown"
+     ],
+     "x": 0.55,
+     "x2": 0.55,
+     "people": "far",
+     "issues": [],
+     "by": "claude (contact sheet)"
+    }
+   ],
+   "scanned_at": "2026-10-21T20:31:15Z"
   }
  }
 }

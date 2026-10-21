@@ -89,6 +89,8 @@ def pool(moments, used):
     for fid, f in moments.get("files", {}).items():
         if not f.get("boat") or f.get("camera") == "edit" or f.get("error"):
             continue
+        if f.get("light") in ("overcast", "night"):
+            continue          # Theo, 21 Oct 2026: good weather only (sunny day, or a clear sunset)
         for m in f.get("moments", []):
             # Theo refused the first 9 for their footage: only strong moments now, and a phone clip only when excellent
             # (guests on a paddle board or chatting on deck are not what sells the trip)

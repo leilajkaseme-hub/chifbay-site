@@ -63,9 +63,19 @@ def measure(s):
     return kind, round(nudge, 3)
 
 
+# Theo, 21 Oct 2026, on the first POV stories: "better colors! more natural and good weather day type". The film look of
+# the photos (look.json: lifted blacks, blue shadows, warm highlights) is NOT used for the videos any more: true whites,
+# clean blacks, a little life in the sea and the sky (vibrance boosts dull colours, leaves skin alone), nothing else.
+NATURAL = {
+    "daylight": "vibrance=intensity=0.12,eq=contrast=1.04:saturation=1.05",
+    "golden": "vibrance=intensity=0.06,eq=contrast=1.03",
+    "overcast": "vibrance=intensity=0.15,eq=contrast=1.06:saturation=1.08",
+}
+
+
 def grade(kind, nudge):
     f = [f"eq=brightness={nudge}"] if abs(nudge) >= 0.005 else []
-    return ",".join(f + [LOOK["presets"][kind]])
+    return ",".join(f + [NATURAL[kind]])
 
 
 def crop_filter(s, w, h, dur):

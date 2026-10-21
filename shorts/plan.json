@@ -1299,7 +1299,7 @@
     "model": "written by Claude"
    },
    "format": "story",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-21",
    "audio": "sea",
    "by": "claude (contact sheets)",
@@ -1363,7 +1363,8 @@
      "problems": []
     },
     "at": "2026-10-21T20:23:13Z"
-   }
+   },
+   "retired": "Theo, 21 Oct: 'better colors, more natural and good weather day type': grey sky footage is out."
   },
   {
    "id": "s013",
@@ -1548,6 +1549,129 @@
     },
     "at": "2026-10-21T20:26:43Z"
    }
+  },
+  {
+   "id": "s014",
+   "music": "day",
+   "light": "day",
+   "recorded": "2026-08-11",
+   "cta": "Tap the link in our bio to book.",
+   "shots": [
+    {
+     "file_id": "1xPwHgh6nMFkayP4jK5zYZZV2V9LO6ecF",
+     "name": "DJI_20260811111635_0005_D.MP4",
+     "start": 30.5,
+     "len": 1.8,
+     "speed": 0.5,
+     "peak": 31.4,
+     "x": 0.62,
+     "x2": 0.55,
+     "what": "the boat at speed with the red cliffs behind, slow motion",
+     "tags": [
+      "speed",
+      "cliffs"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1VzTQnDln8DqBJDi85urBBuRD_EwmBsOX",
+     "name": "DJI_20260811102620_0003_D.MP4",
+     "start": 50.0,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 51.8,
+     "x": 0.42,
+     "x2": 0.5,
+     "what": "the boat with guests in turquoise water under a red cliff",
+     "tags": [
+      "cliffs",
+      "turquoise"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1MxxDAcqsH6ujhzKcif2EFPa4mmRTjcuT",
+     "name": "DJI_20260812144130_0009_D.MP4",
+     "start": 10.5,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 12.3,
+     "x": 0.55,
+     "x2": 0.55,
+     "what": "from above: a guest on the paddle board and a swimmer",
+     "tags": [
+      "paddle",
+      "swim"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC",
+     "name": "DJI_20260811102748_0004_D.MP4",
+     "start": 56.0,
+     "len": 3.8,
+     "speed": 1.0,
+     "peak": 57.9,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "the boat from the front, guests on deck, cliff behind",
+     "tags": [
+      "guests_happy",
+      "boat_hero"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "texts": {
+    "labels": [
+     "POV: the Atlantic is this blue in Madeira",
+     "Your boat slows down under the red cliffs",
+     "Then everyone gets in the water",
+     "No other group, just yours"
+    ],
+    "thumb": "This blue, in Madeira",
+    "ig": "POV: a sunny day off Funchal, Madeira, and the Atlantic is this blue. Your own boat, two skippers, and the red cliffs of the south coast right above you.\n\nWe slow down where the water turns turquoise, then everyone gets in: swim, paddle board, back on deck for something to eat. No other group on board, just yours.\n\nDay Trip, 2h30 or 3h, leaving at 10:00 or 14:00, five guests at most.\n\nTap the link in our bio to book.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#bluewater",
+     "#visitmadeira"
+    ],
+    "fb": "A sunny day off Funchal and the Atlantic this blue. Our private Day Trip runs along the red cliffs of the south coast, slows down where the water turns turquoise and stops for a swim and the paddle board. Two skippers, food on board, up to five guests.",
+    "threads": "Red cliffs, turquoise water, a paddle board, and only your group on the boat.",
+    "yt_title": "POV: the Atlantic is this blue in Madeira #Shorts",
+    "yt_description": "A sunny day off Funchal, Madeira, and the sea is this blue.\n\nOur private Day Trip follows the red cliffs of the south coast, slows down where the water turns turquoise and stops for a swim and the paddle board. Two skippers, food on board, five guests at most, 2h30 or 3h.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "madeira blue water",
+     "funchal boat tour",
+     "private boat madeira",
+     "things to do in madeira",
+     "madeira",
+     "funchal",
+     "paddle board madeira",
+     "madeira cliffs",
+     "chifbay"
+    ],
+    "tiktok": "POV: the Atlantic is this blue in Madeira 🌊 #madeira #funchal #boattrip #bluewater #traveltok",
+    "alt": "Drone shots on a sunny day: a white private boat at speed under red sea cliffs, the boat with guests in turquoise water, a paddle board and a swimmer from above, and guests on deck with the cliff behind.",
+    "hook": "POV: the Atlantic is this blue in Madeira",
+    "model": "written by Claude"
+   },
+   "format": "story",
+   "status": "draft",
+   "created": "2026-10-21",
+   "audio": "sea",
+   "by": "claude (contact sheets)"
   }
  ]
 }

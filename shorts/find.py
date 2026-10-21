@@ -63,6 +63,7 @@ Rules:
 - Weak: empty sea with nothing happening, the ground, the drone taking off or landing, a shaky handheld pan, the
   marina car park.
 - Never invent wildlife: tag dolphins only if you clearly see them.
+- Grey sky or dull light is weak for us: set "light" to "overcast" honestly and score those moments lower.
 - Flag "body_focus" when the shot mostly shows a guest's body in swimwear (from behind, close on skin) rather than the
   place, the boat or what the guests are doing. A family business never posts that.
 - Times must be inside the video. Be precise: the editor cuts on your numbers.
