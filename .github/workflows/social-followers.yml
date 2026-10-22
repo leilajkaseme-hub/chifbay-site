@@ -1,0 +1,47 @@
+name: Chifbay — follower counts to the stores dashboard
+
+# Reads @chifbay's followers on Instagram, the Facebook Page and Threads and sends them to the
+# stores dashboard (page "Social media"). Read only on Meta: it never posts, follows or edits.
+# It runs here because these tokens exist only as secrets of this repo.
+# First run by hand with follow_days=150: it sends the Instagram history since June.
+on:
+  workflow_dispatch:
+    inputs:
+      follow_days:
+        description: "Days of Instagram follows and unfollows to send (150 = since June)"
+        default: "3"
+  schedule:
+    - cron: "40 6 * * *"   # daily, a little after the insights job
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: ig-auto
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Read the counts and send them
+        working-directory: ig-auto
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          DASHBOARD_OPS_SECRET: ${{ secrets.DASHBOARD_OPS_SECRET }}
+          FOLLOW_DAYS: ${{ github.event.inputs.follow_days || '3' }}
+        run: node bin/followers-report.mjs
