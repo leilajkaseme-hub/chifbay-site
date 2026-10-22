@@ -2166,6 +2166,225 @@
     },
     "at": "2026-10-21T23:58:31Z"
    }
+  },
+  {
+   "id": "s016",
+   "format": "story",
+   "status": "rendered",
+   "created": "2026-10-22",
+   "shots": [
+    {
+     "file_id": "1sjHDHB4q6IoMWqsMu3wj6o6ruRKpl-nB",
+     "name": "video 1.MP4",
+     "start": 267.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 269.0,
+     "x": 0.3,
+     "x2": 0.35,
+     "what": "Guest standing on the front deck looks up and waves directly to the drone flying low above.",
+     "tags": [
+      "guests_happy",
+      "boat_hero",
+      "aerial",
+      "topdown",
+      "details"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1sjHDHB4q6IoMWqsMu3wj6o6ruRKpl-nB",
+     "name": "video 1.MP4",
+     "start": 290.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 292.0,
+     "x": 0.45,
+     "x2": 0.4,
+     "what": "Guest sitting down on the bow sunbed pad and waving to the overhead camera.",
+     "tags": [
+      "guests_happy",
+      "boat_hero",
+      "aerial",
+      "topdown"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1kFXctN555FQa5FtQXNEevGV0R4c_FYz2",
+     "name": "video 2.MP4",
+     "start": 15.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 17.0,
+     "x": 0.5,
+     "x2": 0.48,
+     "what": "Aerial glide directly above the volcanic pools and turquoise water.",
+     "tags": [
+      "aerial",
+      "cove",
+      "turquoise"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1sjHDHB4q6IoMWqsMu3wj6o6ruRKpl-nB",
+     "name": "video 1.MP4",
+     "start": 218.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 220.0,
+     "x": 0.7,
+     "x2": 0.6,
+     "what": "Aerial drone approach flying closer over the white motorboat on blue sea.",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "topdown",
+      "details"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Book your day on chifbay.com.",
+   "light": "day",
+   "recorded": "2026-10-14",
+   "texts": {
+    "hook": "waving at the drone again",
+    "labels": [
+     "waving at the drone again",
+     "sun deck spot claimed for the day",
+     "gliding past the volcanic rock pools",
+     "the view when weather lets us fly"
+    ],
+    "thumb": "view from the sky",
+    "ig": "Drone shots over the coast of Funchal, Madeira on our private boat.\n\nWhen the weather allows, we launch the drone to catch these angles from above. Our Karnic R8S takes up to 5 guests along the coast, with local food included on board and plenty of space to stretch out.\n\nWe send you all the footage after the trip, including camera photos and 360 video, so you can just enjoy the view.\n\nBook your day on chifbay.com.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boatlife",
+     "#dronephotography"
+    ],
+    "fb": "When the weather is right, we launch the drone to capture our trips from above. Private boat trips along the Madeira coast for up to 5 people, with food on board and all photos and videos included.",
+    "threads": "Whenever weather allows, we bring out the drone. Getting views of our boat from up here never gets old.",
+    "yt_title": "Private boat trip from Funchal from above #Shorts",
+    "yt_description": "Looking down at our private boat off Funchal, Madeira.\n\nOn days when weather permits, we launch our drone to get these overhead shots of the coast and our Karnic R8S. Every trip includes food on board, photos, and video footage for up to 5 guests.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira drone",
+     "private boat funchal",
+     "funchal boat trip",
+     "madeira island",
+     "karnic r8s",
+     "funchal marina",
+     "madeira coast"
+    ],
+    "tiktok": "When the weather lets us fly the drone over our boat off Funchal. #madeira #funchal #boattrip #madeiraisland #drone",
+    "alt": "A series of drone videos showing guests waving from a white motorboat and aerial views of clear turquoise waters along the rocky coastline of Madeira.",
+    "model": "gemini-3.5-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 8,
+    "problems": [],
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b-thumb.jpg",
+    "duration": 14.4,
+    "bytes": 15344314,
+    "shots": [
+     {
+      "name": "video 1.MP4",
+      "in": 267.02,
+      "out": 270.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.349,
+       0.381,
+       0.246,
+       0.27
+      ],
+      "what": "Guest standing on the front deck looks up and waves directly to the drone flying low above."
+     },
+     {
+      "name": "video 1.MP4",
+      "in": 290.02,
+      "out": 293.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.513,
+       0.529,
+       0.561,
+       0.562
+      ],
+      "what": "Guest sitting down on the bow sunbed pad and waving to the overhead camera."
+     },
+     {
+      "name": "video 2.MP4",
+      "in": 15.02,
+      "out": 18.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.572,
+       0.573,
+       0.563,
+       0.553
+      ],
+      "what": "Aerial glide directly above the volcanic pools and turquoise water."
+     },
+     {
+      "name": "video 1.MP4",
+      "in": 218.02,
+      "out": 221.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.704,
+       0.718,
+       0.738,
+       0.742
+      ],
+      "what": "Aerial drone approach flying closer over the white motorboat on blue sea."
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-22T18:10:07Z"
+   }
   }
  ]
 }
