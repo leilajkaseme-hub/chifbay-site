@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T07:16:42.281Z",
+  "updatedAt": "2026-10-22T21:16:37.869Z",
   "aggregate": {
     "rating": 5,
     "count": 59
@@ -906,7 +906,11 @@
       "countryFlag": "🇳🇱",
       "date": "2026-06-20",
       "text": "We had an absolutely amazing day on the ClifBay boat tour. Everything was perfect, the friendly and professional crew, the delicious snacks and drinks, the relaxing swim stop, and as the highlight of the day we even spotted a whole group of dolphins. Truly magical. The atmosphere on board was wonderful, and you can feel how much the team enjoys what they do. It made the entire experience unforgettable. I would recommend this tour to everyone visiting Madeira. If we could give 6 stars, we definitely would. More than worth it!",
-      "photos": [],
+      "photos": [
+        "assets/reviews/gyg/gyg-d25aa77bd8ee-1.jpg",
+        "assets/reviews/gyg/gyg-d25aa77bd8ee-2.jpg",
+        "assets/reviews/gyg/gyg-d25aa77bd8ee-3.jpg"
+      ],
       "tourId": "t1342812",
       "tourName": "Madeira Coast Cruise",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/private-dolphin-and-whale-watching-madeira-t1342812/",
