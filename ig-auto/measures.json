@@ -1110,6 +1110,20 @@
     "follows": 0,
     "profile_visits": 2,
     "ig_reels_avg_watch_time": null
+   },
+   "d7": {
+    "at": "2026-10-22T11:49:40.760Z",
+    "age_hours": 189,
+    "reach": 45,
+    "views": 125,
+    "likes": 6,
+    "comments": 3,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 9,
+    "follows": 0,
+    "profile_visits": 3,
+    "ig_reels_avg_watch_time": null
    }
   },
   "17943963870090097": {
@@ -1216,8 +1230,22 @@
     "id": "20261010105143-7d47",
     "format": null,
     "source": "library"
+   },
+   "h24": {
+    "at": "2026-10-22T11:49:40.760Z",
+    "age_hours": 45,
+    "reach": 19,
+    "views": 34,
+    "likes": 4,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 5,
+    "follows": 0,
+    "profile_visits": 0,
+    "ig_reels_avg_watch_time": null
    }
   }
  },
- "updated_at": "2026-10-21T11:46:57.587Z"
+ "updated_at": "2026-10-22T11:49:40.760Z"
 }
