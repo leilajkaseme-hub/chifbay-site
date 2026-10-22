@@ -1,0 +1,36 @@
+{
+  "slug": "marine-life-in-madeira-fish-rays-sea-creatures-guide",
+  "title": "Marine Life in Madeira: What Fish and Sea Creatures Can You See?",
+  "category": "Nature",
+  "date": "2026-11-04",
+  "description": "See Madeira marine life from a private boat: parrotfish, rays, barracuda, sunfish, dolphins and turtles, plus the best months and where to spot them.",
+  "heroImage": "assets/exp-coves.jpg",
+  "heroAlt": "A boat anchored in a turquoise Madeira cove with swimmers in the clear water",
+  "readingMinutes": 5,
+  "keywords": [
+    "marine life in Madeira",
+    "fish in Madeira",
+    "Madeira parrotfish",
+    "sea creatures Madeira",
+    "are there sharks in Madeira",
+    "jellyfish in Madeira",
+    "swimming with fish Madeira",
+    "Madeira boat trip wildlife"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-22T07:40:54.927Z",
+  "images": [
+    {
+      "prompt": "Wide landscape photograph of a small white private motorboat anchored in a calm turquoise cove on Madeira's south coast, clear water over rocks, basalt cliffs behind, bright morning light.",
+      "alt": "A small white boat anchored in a clear turquoise cove on Madeira's south coast"
+    },
+    {
+      "prompt": "Underwater photograph of colourful Atlantic parrotfish and white seabream swimming over volcanic rocks in clear shallow water off Madeira, sunlight rays from above.",
+      "alt": "Parrotfish and seabream swimming over volcanic rocks in clear Madeira water"
+    },
+    {
+      "prompt": "Photograph from a small white motorboat of a bottlenose dolphin surfacing beside the boat on the deep blue sea off Madeira, cliffs in the distance, afternoon light.",
+      "alt": "A dolphin surfacing next to a boat off the coast of Madeira"
+    }
+  ]
+}

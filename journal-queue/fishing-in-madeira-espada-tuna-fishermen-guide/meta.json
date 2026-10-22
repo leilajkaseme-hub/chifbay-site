@@ -1,0 +1,36 @@
+{
+  "slug": "fishing-in-madeira-espada-tuna-fishermen-guide",
+  "title": "Fishing in Madeira: Espada, Tuna and the Fishermen at Sea",
+  "category": "Experience",
+  "date": "2026-11-03",
+  "description": "See how Madeira fishermen work: deep water espada, tuna, the Câmara de Lobos boats, and what you can spot on a private boat trip from Funchal. Tips inside.",
+  "heroImage": "assets/journal/fishing-in-madeira-espada-tuna-fishermen-guide-hero.jpg",
+  "heroAlt": "Traditional fishing boats at Câmara de Lobos in Madeira at golden hour",
+  "readingMinutes": 5,
+  "keywords": [
+    "fishing in Madeira",
+    "Madeira fishermen",
+    "espada black scabbardfish fishing",
+    "Madeira tuna",
+    "Câmara de Lobos fishing village",
+    "fresh fish in Madeira",
+    "traditional fishing Madeira",
+    "Madeira boat trip fishing harbour"
+  ],
+  "written": "2026-11-03",
+  "queued": "2026-10-22T07:39:19.989Z",
+  "images": [
+    {
+      "prompt": "Real-looking wide photograph of colourful traditional wooden fishing boats pulled up on the small shingle beach of Câmara de Lobos, Madeira, at golden hour, with the terraced village and cliffs behind.",
+      "alt": "Traditional fishing boats at Câmara de Lobos in Madeira at golden hour"
+    },
+    {
+      "prompt": "Real-looking photograph of a Madeiran fisherman mending nets on a harbour quay in Câmara de Lobos in soft morning light, small painted boats in the background.",
+      "alt": "A fisherman mending nets on the quay at Câmara de Lobos"
+    },
+    {
+      "prompt": "Real-looking close-up photograph of fried espada (black scabbardfish) fillets served with fried banana on a white plate at a restaurant table in Funchal, Madeira.",
+      "alt": "Fried espada with banana, the signature fish dish of Madeira"
+    }
+  ]
+}
