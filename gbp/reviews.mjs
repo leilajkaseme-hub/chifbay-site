@@ -8,22 +8,38 @@
 // GetYourGuide and Tripadvisor replies (stores/chifbay/review-replies): short, human, in the reviewer's language,
 // never the same opening twice, never a name the review does not mention. 1 to 3 stars are never answered by the
 // robot: Theo gets the review and a draft on his phone.
-import { api, ledger, ntfy, record, v4, where } from "./lib.mjs";
+import { pathToFileURL } from "node:url";
+import { api, ledger, ntfy, record, syncSecret, v4, where } from "./lib.mjs";
 
 const DRY = process.argv.includes("--dry");
 const MAX = 10;
 const WORKER = "https://chifbay-booking-api.chifandcopt.workers.dev";
 const STARS = { ONE: 1, TWO: 2, THREE: 3, FOUR: 4, FIVE: 5 };
 
+
+// Google gives "original (Translated by Google) translation" or "(Translated by Google) translation (Original) original".
+export function original(comment = "") {
+  const c = comment.trim();
+  if (/\(Original\)/i.test(c)) return c.split(/\(Original\)/i).pop().trim();
+  return c.split(/\(Translated by Google\)/i)[0].trim();
+}
+
+// Madeira is Portugal: a Portuguese review gets Portugal Portuguese ("tê-la a bordo"), never the Brazilian "você".
+const PT = /\b(muito|obrigad[oa]|experiência|recomendo|passeio|barco|foi|equipa)\b/i;
+const BRAZIL = /\bvocês?\b|\bter você\b|\bequipe\b/i;
+
 async function draft(review, avoid) {
-  const r = await fetch(`${WORKER}/v1/replies/review-draft`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${process.env.IG_SYNC_SECRET}`, "Content-Type": "application/json", "User-Agent": "chifbay-gbp/1.0" },
-    body: JSON.stringify({ platform: "google", ...review, avoid }),
-  });
-  const j = await r.json().catch(() => ({}));
-  if (!j.reply) throw new Error(`no draft: ${j.error ?? r.status}`);
-  return j.reply;
+  for (let i = 0; i < 3; i++) {
+    const r = await fetch(`${WORKER}/v1/replies/review-draft`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${syncSecret()}`, "Content-Type": "application/json", "User-Agent": "chifbay-gbp/1.0" },
+      body: JSON.stringify({ platform: "Google", ...review, avoid }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!j.reply) throw new Error(`no draft: ${j.error ?? r.status}`);
+    if (!(review.language === "pt-PT" && BRAZIL.test(j.reply))) return j.reply;
+  }
+  throw new Error("only Brazilian Portuguese drafts");
 }
 
 async function main() {
@@ -38,12 +54,17 @@ async function main() {
   const open = all.filter((r) => !r.reviewReply);
   console.log(`${all.length} reviews, ${open.length} without a reply (${at.title})`);
   const avoid = ledger().filter((e) => e.kind === "review" && e.reply).slice(-10).map((e) => e.reply);
+  // Theo's own replies on this profile (not the robot's): the voice to follow.
+  const mine = new Set(ledger().filter((e) => /^review/.test(e.kind)).map((e) => e.id));
+  const examples = all.filter((r) => r.reviewReply?.comment && !mine.has(r.reviewId))
+    .sort((a, b) => b.reviewReply.updateTime.localeCompare(a.reviewReply.updateTime)).slice(0, 2).map((r) => r.reviewReply.comment);
   let done = 0;
   for (const r of open.sort((a, b) => a.createTime.localeCompare(b.createTime))) {
     if (done >= MAX) break;
     const rating = STARS[r.starRating] ?? 0;
-    const text = (r.comment ?? "").replace(/\(Translated by Google\)[\s\S]*?\(Original\)\s*/i, "").trim();
-    const review = { rating, author: r.reviewer?.displayName ?? "", text: text || `(${rating} stars, no text)`, language: "" };
+    const text = original(r.comment);
+    const review = { rating, author: r.reviewer?.displayName ?? "", text: text || `(${rating} stars, no text)`,
+                     language: PT.test(text) ? "pt-PT" : "", examples };
     let reply;
     try { reply = await draft(review, avoid); } catch (e) { console.log(`  ${r.reviewId}: ${e.message}`); continue; }
     if (rating <= 3) {
@@ -64,4 +85,5 @@ async function main() {
   console.log(`${done} answered${DRY ? " (dry run, nothing posted)" : ""}`);
 }
 
-main().catch((e) => { console.error(e.message); process.exit(1); });
+// Run only when called as a script: importing this file (a test, a check) must never post anything.
+if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) main().catch((e) => { console.error(e.message); process.exit(1); });

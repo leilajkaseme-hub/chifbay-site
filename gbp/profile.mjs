@@ -6,6 +6,7 @@
 //
 // Only the fields listed in profile.json are touched, with an explicit updateMask: nothing else on the profile changes.
 import { existsSync, readFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 import { join } from "node:path";
 import { ROOT, api, record, where } from "./lib.mjs";
 
@@ -35,4 +36,4 @@ async function main() {
   console.log(`\nupdated: ${mask.join(", ")} (${out.title})`);
 }
 
-main().catch((e) => { console.error(e.message); process.exit(1); });
+if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) main().catch((e) => { console.error(e.message); process.exit(1); });

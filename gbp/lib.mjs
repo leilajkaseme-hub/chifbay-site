@@ -43,7 +43,11 @@ export async function api(method, url, body) {
   const text = await r.text();
   let j = {};
   try { j = text ? JSON.parse(text) : {}; } catch { j = { raw: text.slice(0, 300) }; }
-  if (!r.ok) throw new Error(`${method} ${url.replace(/https:\/\/[^/]+/, "")} ${r.status}: ${j.error?.message ?? text.slice(0, 200)}`);
+  if (!r.ok) {
+    // Google hides the real cause in error.details (e.g. PROFILE_DESCRIPTION_CONTAINS_URL)
+    const why = (j.error?.details ?? []).map((d) => d.reason ?? d.fieldViolations?.map((v) => v.description).join("; ")).filter(Boolean).join(", ");
+    throw new Error(`${method} ${url.replace(/https:\/\/[^/]+/, "")} ${r.status}: ${j.error?.message ?? text.slice(0, 200)}${why ? ` (${why})` : ""}`);
+  }
   return j;
 }
 
@@ -62,6 +66,12 @@ export async function where() {
 }
 
 export const v4 = (p) => `${V4}/${p}`;
+
+/** IG_SYNC_SECRET (booking and media Workers): the env on GitHub, the local file on the Mac. */
+export function syncSecret() {
+  const f = "/Users/Shared/Claude/.credentials/chifbay-ig-sync.secret";
+  return process.env.IG_SYNC_SECRET || (existsSync(f) ? readFileSync(f, "utf8").trim() : "");
+}
 
 export function ledger() {
   return existsSync(LEDGER) ? readFileSync(LEDGER, "utf8").split("\n").filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean) : [];

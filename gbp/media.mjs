@@ -7,9 +7,10 @@
 //
 // Google fetches each file itself from its public URL (chifbay.com for photos, the chifbay-media Worker for videos).
 // Videos only when Theo said OK to that video (his rule, 17 Oct 2026). A few a day: a burst of uploads looks like spam.
-import { readdirSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import { pathToFileURL } from "node:url";
 import { join } from "node:path";
-import { ROOT, api, ledger, record, v4, where } from "./lib.mjs";
+import { ROOT, api, ledger, record, syncSecret, v4, where } from "./lib.mjs";
 
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry");
@@ -19,18 +20,18 @@ const MEDIA = "https://chifbay-media.chifandcopt.workers.dev";
 
 const sent = () => new Set(ledger().filter((e) => e.kind === "media" && e.ok).map((e) => e.source));
 
+// Only the hand-checked real photos of gbp/photos.json: social-drive also holds AI renders, never for Google.
+export function realPhotos() {
+  return JSON.parse(readFileSync(join(ROOT, "photos.json"), "utf8")).photos.map((p) => `https://chifbay.com/${p}`);
+}
+
 function photos(n) {
-  const done = sent();
-  const excl = new Set(JSON.parse(readFileSync(join(SITE, "ig-auto", "config.json"), "utf8")).exclude ?? []);
-  return readdirSync(join(SITE, "social-drive"))
-    .filter((f) => /\.jpe?g$/i.test(f) && !f.startsWith("00-") && !excl.has(`social-drive/${f}`))
-    .map((f) => `https://chifbay.com/social-drive/${f}`)
-    .filter((u) => !done.has(u))
-    .slice(0, n);
+  const done = new Set([...sent(), ...ledger().filter((e) => e.kind === "post").map((e) => e.photo)]);
+  return realPhotos().filter((u) => !done.has(u)).slice(0, n);
 }
 
 async function approvedVideos() {
-  const r = await fetch(`${MEDIA}/approvals`, { headers: { Authorization: `Bearer ${process.env.IG_SYNC_SECRET}`, "User-Agent": "chifbay-gbp/1.0" } });
+  const r = await fetch(`${MEDIA}/approvals`, { headers: { Authorization: `Bearer ${syncSecret()}`, "User-Agent": "chifbay-gbp/1.0" } });
   if (!r.ok) throw new Error(`approvals ${r.status}`);
   const dec = (await r.json()).decisions ?? {};
   const plan = JSON.parse(readFileSync(join(SITE, "shorts", "plan.json"), "utf8"));
@@ -63,4 +64,4 @@ async function main() {
   }
 }
 
-main().catch((e) => { console.error(e.message); process.exit(1); });
+if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) main().catch((e) => { console.error(e.message); process.exit(1); });

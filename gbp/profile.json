@@ -1,0 +1,134 @@
+{
+ "_why": "22 Oct 2026: private not small group, no snorkeling, two skippers, media and 24 h cancellation; sunset leaves 1h15 before sunset (not 18:00); day trip starts 10:00 / 14:00; Sunday open like other days (bookings sell every day).",
+ "profile": {
+  "description": "Chifbay runs private boat trips from Marina do Funchal, Madeira. The whole boat is yours, up to 5 guests, never shared. Two skippers, a father and his son, take you along the south coast on a new 2026 Karnic: Câmara de Lobos, the cliffs of Cabo Girão, Fajã dos Padres, Ribeira Brava and Ponta do Sol.\n\nDay trips leave at 10:00 or 14:00 (2h30 or 3 hours) with swim stops and a paddle board. Sunset trips leave 1h15 before sunset (2 hours or 2h30). Food and drinks on board, 360 video, drone footage and photos are included on every trip. Free cancellation up to 24 hours before. Book online on our website."
+ },
+ "regularHours": {
+  "periods": [
+   {
+    "openDay": "SUNDAY",
+    "openTime": {
+     "hours": 8
+    },
+    "closeDay": "SUNDAY",
+    "closeTime": {
+     "hours": 22
+    }
+   },
+   {
+    "openDay": "MONDAY",
+    "openTime": {
+     "hours": 8
+    },
+    "closeDay": "MONDAY",
+    "closeTime": {
+     "hours": 22
+    }
+   },
+   {
+    "openDay": "TUESDAY",
+    "openTime": {
+     "hours": 8
+    },
+    "closeDay": "TUESDAY",
+    "closeTime": {
+     "hours": 22
+    }
+   },
+   {
+    "openDay": "WEDNESDAY",
+    "openTime": {
+     "hours": 8
+    },
+    "closeDay": "WEDNESDAY",
+    "closeTime": {
+     "hours": 22
+    }
+   },
+   {
+    "openDay": "THURSDAY",
+    "openTime": {
+     "hours": 8
+    },
+    "closeDay": "THURSDAY",
+    "closeTime": {
+     "hours": 22
+    }
+   },
+   {
+    "openDay": "FRIDAY",
+    "openTime": {
+     "hours": 8
+    },
+    "closeDay": "FRIDAY",
+    "closeTime": {
+     "hours": 22
+    }
+   },
+   {
+    "openDay": "SATURDAY",
+    "openTime": {
+     "hours": 8
+    },
+    "closeDay": "SATURDAY",
+    "closeTime": {
+     "hours": 22
+    }
+   }
+  ]
+ },
+ "serviceItems": [
+  {
+   "freeFormServiceItem": {
+    "category": "categories/gcid:boat_tour_agency",
+    "label": {
+     "displayName": "Day Trip to Ribeira Brava (2h30)",
+     "description": "Private half day. Câmara de Lobos, Cabo Girão with drone footage, swim, jump in and paddle at Fajã dos Padres, second swim stop at Ribeira Brava. Food and drinks on board. Starts at 10:00 or 14:00. Flat price, whole boat, up to 5."
+    }
+   },
+   "price": {
+    "currencyCode": "EUR",
+    "units": "500"
+   }
+  },
+  {
+   "freeFormServiceItem": {
+    "category": "categories/gcid:boat_tour_agency",
+    "label": {
+     "displayName": "Day Trip to Ponta do Sol (3h)",
+     "description": "Everything in the 2h30, then 30 minutes further west to Ponta do Sol, with more time in the water at each stop. Starts at 10:00 or 14:00. Flat price, whole boat, up to 5."
+    }
+   },
+   "price": {
+    "currencyCode": "EUR",
+    "units": "600"
+   }
+  },
+  {
+   "freeFormServiceItem": {
+    "category": "categories/gcid:boat_tour_agency",
+    "label": {
+     "displayName": "Sunset Trip to Cabo Girão (2h)",
+     "description": "Leaves Marina do Funchal 1h15 before sunset. Câmara de Lobos and the Funchal waterfront, Cabo Girão from the water with drone footage, food and drinks on deck, a fast run back into a lit up Funchal. Flat price, whole boat, up to 5, never shared."
+    }
+   },
+   "price": {
+    "currencyCode": "EUR",
+    "units": "400"
+   }
+  },
+  {
+   "freeFormServiceItem": {
+    "category": "categories/gcid:boat_tour_agency",
+    "label": {
+     "displayName": "Sunset Trip to Ribeira Brava (2h30)",
+     "description": "Leaves 1h15 before sunset. Everything in the 2 hours, then on past Fajã dos Padres, the cove with no road in, to Ribeira Brava before turning: thirty more minutes in the best light of the day. Flat price, whole boat, up to 5, never shared."
+    }
+   },
+   "price": {
+    "currencyCode": "EUR",
+    "units": "500"
+   }
+  }
+ ]
+}
