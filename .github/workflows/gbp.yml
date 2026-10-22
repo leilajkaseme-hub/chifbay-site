@@ -1,0 +1,73 @@
+name: Google Business Profile (reviews, photos, videos, posts)
+
+# The main profile "Chifbay, Marina do Funchal" through the Business Profile API (access granted Oct 2026, project
+# chifbay-gbp). Four times a day: answer new 4 and 5 star reviews (1 to 3 stars go to Theo's phone with a draft).
+# Once a day (the first run that finds nothing sent today; GitHub's clock drifts by hours): 3 real trip photos, the videos Theo approved on chifbay.com/shorts/review.html, and the
+# day's Journal article as a "What's new" post with a real photo. Does nothing until GBP_REFRESH_TOKEN exists.
+on:
+  schedule:
+    - cron: "19 7,11,15,19 * * *"
+  workflow_dispatch:
+    inputs:
+      what:
+        description: "reviews | media | post | profile | all"
+        required: false
+        default: all
+      dry:
+        description: "dry run, send nothing"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gbp
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  gbp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GBP_CLIENT_ID: ${{ secrets.GBP_CLIENT_ID }}
+      GBP_CLIENT_SECRET: ${{ secrets.GBP_CLIENT_SECRET }}
+      GBP_REFRESH_TOKEN: ${{ secrets.GBP_REFRESH_TOKEN }}
+      IG_SYNC_SECRET: ${{ secrets.IG_SYNC_SECRET }}
+      WHAT: ${{ github.event.inputs.what || 'scheduled' }}
+      DRY: ${{ github.event.inputs.dry == 'true' && '--dry' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Connected?
+        id: on
+        run: echo "on=$([ -n "$GBP_REFRESH_TOKEN" ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
+      - name: Reviews
+        if: steps.on.outputs.on == 'yes' && (env.WHAT == 'scheduled' || env.WHAT == 'reviews' || env.WHAT == 'all')
+        run: node gbp/reviews.mjs $DRY
+      - name: Photos and approved videos
+        if: steps.on.outputs.on == 'yes' && (env.WHAT == 'scheduled' || env.WHAT == 'media' || env.WHAT == 'all')
+        run: node gbp/media.mjs --photos 3 --videos --daily $DRY
+      - name: Post of the day
+        if: steps.on.outputs.on == 'yes' && (env.WHAT == 'scheduled' || env.WHAT == 'post' || env.WHAT == 'all')
+        run: node gbp/post.mjs --journal $DRY
+      - name: Profile
+        if: steps.on.outputs.on == 'yes' && (env.WHAT == 'profile')
+        run: node gbp/profile.mjs
+      - name: Commit the record
+        if: always() && steps.on.outputs.on == 'yes'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add gbp/ledger.jsonl 2>/dev/null || true
+          if git diff --staged --quiet; then echo "nothing to record"; exit 0; fi
+          git commit -m "gbp: record $(date -u +%Y-%m-%d)"
+          scripts/ci-push.sh
