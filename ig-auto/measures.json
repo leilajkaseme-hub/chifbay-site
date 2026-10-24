@@ -1186,6 +1186,20 @@
     "follows": 0,
     "profile_visits": 0,
     "ig_reels_avg_watch_time": null
+   },
+   "d7": {
+    "at": "2026-10-24T10:57:06.193Z",
+    "age_hours": 187,
+    "reach": 21,
+    "views": 64,
+    "likes": 2,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 3,
+    "follows": 0,
+    "profile_visits": 0,
+    "ig_reels_avg_watch_time": null
    }
   },
   "18136828687739250": {
@@ -1261,5 +1275,5 @@
    }
   }
  },
- "updated_at": "2026-10-23T11:37:04.310Z"
+ "updated_at": "2026-10-24T10:57:06.193Z"
 }
