@@ -2385,6 +2385,412 @@
     },
     "at": "2026-10-22T18:10:07Z"
    }
+  },
+  {
+   "id": "s017",
+   "format": "story",
+   "status": "rendered",
+   "created": "2026-10-24",
+   "shots": [
+    {
+     "file_id": "1BiodL9A4fo5Z-GTjwXwQO5yPJyJ0F_MT",
+     "name": "DJI_20260604202235_0011_D.MP4",
+     "start": 18.52,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 20.5,
+     "x": 0.75,
+     "x2": 0.5,
+     "what": "Top-down overhead drone shot sweeping directly over the boat revealing guests sitting with food and drinks.",
+     "tags": [
+      "aerial",
+      "topdown",
+      "boat_hero",
+      "guests_happy",
+      "food_drinks",
+      "calm"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 72.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 74.0,
+     "x": 0.48,
+     "x2": 0.48,
+     "what": "Camera tilts up while tracking the boat at speed to reveal the coastline and cliffs of Madeira across the blue water",
+     "tags": [
+      "reveal",
+      "boat_hero",
+      "aerial",
+      "cliffs",
+      "funchal",
+      "speed",
+      "wake"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 320.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 322.0,
+     "x": 0.45,
+     "x2": 0.53,
+     "what": "Close aerial pass as the skipper in red waves enthusiastically up at the drone while steering the boat",
+     "tags": [
+      "skipper",
+      "guests_happy",
+      "boat_hero",
+      "speed"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 97.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 99.0,
+     "x": 0.46,
+     "x2": 0.51,
+     "what": "Boat banks into a turn, carving a white arced wake across the deep blue sea",
+     "tags": [
+      "speed",
+      "wake",
+      "boat_hero",
+      "aerial",
+      "open_sea"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Ask us for a date in the DMs.",
+   "light": "day",
+   "recorded": "2026-10-14",
+   "texts": {
+    "hook": "snacks on deck and zero plans",
+    "labels": [
+     "snacks on deck and zero plans",
+     "the commute looks like this today",
+     "skipper saw the camera again",
+     "carving white lines in the Atlantic"
+    ],
+    "thumb": "View from above",
+    "ig": "A private boat trip off Funchal, Madeira from a different angle.\n\nWhenever the weather allows, we fly our drone to capture your trip from above. It is always just your group on board our Karnic R8S, up to 5 people max, with food included as we cruise along the southern coast.\n\nYou get the whole boat to yourselves while our skipper handles the wheel and the views.\n\nAsk us for a date in the DMs.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#funchalmadeira",
+     "#karnicr8s"
+    ],
+    "fb": "When the weather plays along in Funchal, we bring out the drone. Here is what a private trip looks like on our Karnic R8S, with food on board and just your group of up to 5 people. A calm way to see the Madeira coastline from the sea.",
+    "threads": "when the drone gets cleared for takeoff off funchal. food, drinks, and open sea for your group.",
+    "yt_title": "Private Boat Cruise Off Funchal, Madeira #Shorts",
+    "yt_description": "A top-down view of our private boat trip off Funchal, Madeira.\n\nCruising the southern coast on our Karnic R8S with food on board and up to 5 guests. When weather permits, aerial drone footage is included on every trip.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "funchal boat trip",
+     "private boat funchal",
+     "madeira drone",
+     "karnic r8s",
+     "chifbay madeira",
+     "funchal marina",
+     "madeira coast"
+    ],
+    "tiktok": "when the skipper spots the drone off funchal marina #madeira #funchal #boattrip #privateboat",
+    "alt": "An aerial drone sequence shows guests enjoying food on a private boat off the coastline of Funchal, Madeira, as the skipper waves and the boat turns in the blue water.",
+    "model": "gemini-3.5-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 8,
+    "problems": [],
+    "model": "gemini-3.7-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783-thumb.jpg",
+    "duration": 14.4,
+    "bytes": 15403711,
+    "shots": [
+     {
+      "name": "DJI_20260604202235_0011_D.MP4",
+      "in": 18.52,
+      "out": 22.12,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.657,
+       0.548,
+       0.508,
+       0.456
+      ],
+      "what": "Top-down overhead drone shot sweeping directly over the boat revealing guests sitting with food and drinks."
+     },
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 72.02,
+      "out": 75.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.459,
+       0.459,
+       0.465,
+       0.468
+      ],
+      "what": "Camera tilts up while tracking the boat at speed to reveal the coastline and cliffs of Madeira across the blue water"
+     },
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 320.02,
+      "out": 323.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.604,
+       0.604,
+       0.604,
+       0.598
+      ],
+      "what": "Close aerial pass as the skipper in red waves enthusiastically up at the drone while steering the boat"
+     },
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 97.02,
+      "out": 100.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.455,
+       0.453,
+       0.448,
+       0.439
+      ],
+      "what": "Boat banks into a turn, carving a white arced wake across the deep blue sea"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-24T17:04:15Z"
+   }
+  },
+  {
+   "id": "s018",
+   "format": "story",
+   "status": "failed",
+   "created": "2026-10-24",
+   "shots": [
+    {
+     "file_id": "1vw6KCPRNP7CSD2UgMh6DuGoscMM8kw9G",
+     "name": "DJI_20260606200425_0015_D.MP4",
+     "start": 50.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 52.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "High orbit shot around the boat showing guests relaxing onboard.",
+     "tags": [
+      "aerial",
+      "orbit",
+      "boat_hero",
+      "guests_happy",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1i4-TBI3Ob0XjmiLYcRy4yWeMMbPMdaH8",
+     "name": "DJI_20260601192422_0009_D.MP4",
+     "start": 10.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 12.0,
+     "x": 0.44,
+     "x2": 0.44,
+     "what": "Drone approaches the boat anchored in calm turquoise waters beneath towering sea cliffs",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "cliffs",
+      "cove",
+      "turquoise",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1N88UFilP0UNLcI1aIpVyuSZ9oa98KqZC",
+     "name": "DJI_20260601205023_0010_D.MP4",
+     "start": 71.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 73.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Aerial view descending closer toward the boat drifting peacefully in deep blue water",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "open_sea",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Tap the link in our bio to book.",
+   "light": "golden",
+   "recorded": "2026-10-14",
+   "texts": {
+    "hook": "drifting under the giant cliffs",
+    "labels": [
+     "drifting under the giant cliffs",
+     "when the weather lets us fly",
+     "just your group on board"
+    ],
+    "thumb": "Quiet cove from above",
+    "ig": "Drifting along the coast of Funchal, Madeira on a private boat trip.\n\nWhen the weather plays along, we launch the drone to get shots of our boat under the sea cliffs. It is just your group on board, up to 5 guests max, with two skippers taking care of everything.\n\nWe bring food on board, capture video with our 360 camera, and take photos so you can just sit back and relax. Até já. 🌊\n\nTap the link in our bio to book.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boatlife",
+     "#dronestagram",
+     "#madeiraisland"
+    ],
+    "fb": "A quiet moment along the Madeira coastline from above. Whenever the wind and weather allow, we fly the drone over our Karnic R8S while guests relax. It is always a private trip from Funchal marina with max 5 guests and food on board.",
+    "threads": "When the weather allows, we fly the drone over our boat trips off Funchal. Just your group on board and deep blue water all around.",
+    "yt_title": "Private boat floating under Madeira sea cliffs #Shorts",
+    "yt_description": "Drifting under the giant cliffs of Funchal, Madeira.\n\nThis is what a private boat trip with us looks like from above. When the weather allows, we fly the drone to capture aerial video of your group relaxing on deck. Up to 5 guests max, food included, and two skippers taking care of the route.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone",
+     "karnic r8s",
+     "madeira sea cliffs",
+     "faja dos padres",
+     "madeira travel",
+     "funchal marina"
+    ],
+    "tiktok": "drifting under the cliffs off funchal. private boat, max 5 guests. #madeira #funchal #boattrip #dronevideo #madeiraisland",
+    "alt": "Aerial drone footage orbiting around a private boat carrying a small group of guests along the steep sea cliffs of Funchal, Madeira.",
+    "model": "gemini-3.5-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s018-69fcc417.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s018-69fcc417-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s018-69fcc417-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s018-69fcc417-thumb.jpg",
+    "duration": 10.8,
+    "bytes": 11794308,
+    "shots": [
+     {
+      "name": "DJI_20260606200425_0015_D.MP4",
+      "in": 50.02,
+      "out": 53.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.655,
+       0.645,
+       0.65,
+       0.638
+      ],
+      "what": "High orbit shot around the boat showing guests relaxing onboard."
+     },
+     {
+      "name": "DJI_20260601192422_0009_D.MP4",
+      "in": 10.02,
+      "out": 13.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.44,
+       0.44,
+       0.442,
+       0.443
+      ],
+      "what": "Drone approaches the boat anchored in calm turquoise waters beneath towering sea cliffs"
+     },
+     {
+      "name": "DJI_20260601205023_0010_D.MP4",
+      "in": 71.02,
+      "out": 74.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.495,
+       0.492,
+       0.486,
+       0.48
+      ],
+      "what": "Aerial view descending closer toward the boat drifting peacefully in deep blue water"
+     }
+    ],
+    "checks": {
+     "ok": false,
+     "problems": [
+      "10.8 s is outside 11.0 to 19.5 s for story"
+     ]
+    },
+    "at": "2026-10-24T17:06:51Z"
+   }
   }
  ]
 }
