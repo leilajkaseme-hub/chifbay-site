@@ -1,24 +1,5 @@
 [
   {
-    "id": "google-7b024a0503fbc242",
-    "source": "google",
-    "rating": 5,
-    "author": "Sabrina Di Girolamo",
-    "country": "",
-    "countryFlag": "",
-    "date": "2026-07-26",
-    "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
-    "photos": [
-      "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
-      "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
-      "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
-    ],
-    "tourId": null,
-    "tourName": null,
-    "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-    "reply": "Sabrina, it means so much to us that you chose our boat for such a special moment. Congratulations on your engagement 🤗 We’re so happy to have been part of this beautiful memory, and hope to welcome you both back on board one day. The Chifbay team⚓️ Chifbay.com"
-  },
-  {
     "id": "google-eb909f10a2597e25",
     "source": "google",
     "rating": 5,
@@ -55,6 +36,25 @@
     "tourName": null,
     "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
     "reply": "Tank you so much, Rebecca, for this wonderful review. The whole Chifbay team was delighted to welcome you and your family on board. Knowing that you had such a great day means a lot to us. We hope to see you again for another aventure Chifbay team⚓️ Chifbay.com"
+  },
+  {
+    "id": "google-7b024a0503fbc242",
+    "source": "google",
+    "rating": 5,
+    "author": "Sabrina Di Girolamo",
+    "country": "",
+    "countryFlag": "",
+    "date": "2026-07-26",
+    "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
+    "photos": [
+      "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
+      "assets/reviews/google/google-7b024a0503fbc242-2.jpg",
+      "assets/reviews/google/google-7b024a0503fbc242-3.jpg"
+    ],
+    "tourId": null,
+    "tourName": null,
+    "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+    "reply": "Sabrina, it means so much to us that you chose our boat for such a special moment. Congratulations on your engagement 🤗 We’re so happy to have been part of this beautiful memory, and hope to welcome you both back on board one day. The Chifbay team⚓️ Chifbay.com"
   },
   {
     "id": "google-7b7011515c484df0",
