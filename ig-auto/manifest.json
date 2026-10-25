@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T16:52:43.181Z",
+ "generated_at": "2026-10-25T16:49:15.471Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -612,25 +612,6 @@
     "at": "2026-10-20T15:09:33"
    },
    "posted": false
-  },
-  {
-   "id": "20261005115342-c30d",
-   "kind": "story",
-   "media": "photo",
-   "caption": "",
-   "hashtags": [],
-   "cover": "https://chifbay.com/ig/20261005115342-c30d.jpg",
-   "video": null,
-   "slides": [
-    "https://chifbay.com/ig/20261005115342-c30d.jpg"
-   ],
-   "plan_index": null,
-   "set": null,
-   "alt": null,
-   "title": null,
-   "template": null,
-   "priority": null,
-   "created": "2026-10-05T11:53:42.328Z"
   },
   {
    "id": "20261006113524-85ef",
