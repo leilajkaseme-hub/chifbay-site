@@ -2791,6 +2791,114 @@
     },
     "at": "2026-10-24T17:06:51Z"
    }
+  },
+  {
+   "id": "s019",
+   "format": "highlight",
+   "status": "rendered",
+   "created": "2026-10-25",
+   "shots": [
+    {
+     "file_id": "1sjHDHB4q6IoMWqsMu3wj6o6ruRKpl-nB",
+     "name": "video 1.MP4",
+     "start": 232.0,
+     "len": 7.65,
+     "speed": 1.0,
+     "peak": 236.0,
+     "x": 0.5,
+     "x2": 0.3,
+     "what": "Close-up aerial flyover over the bow of the boat.",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "topdown",
+      "details"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Booking link in bio.",
+   "light": "day",
+   "recorded": "2026-10-14",
+   "texts": {
+    "hook": "flying right over the bow",
+    "labels": [],
+    "thumb": "above the bow",
+    "ig": "A close flyover over our bow on a private boat trip off Funchal, Madeira.\n\nWhen the weather allows, we launch the drone to capture shots like this. It gives you a completely different view of our Karnic R8S while we cruise along the coast.\n\nOur trips depart from Funchal marina for up to five guests. A skipper, snacks, and footage are all included so you can just enjoy the ride.\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#dronevideo",
+     "#madeiraisland"
+    ],
+    "fb": "A close flyover over the bow of our Karnic R8S. Whenever the weather permits, we bring the drone out on our private boat trips from Funchal marina. Up to five guests, skipper included, with food and aerial footage on board.",
+    "threads": "close aerial pass over the bow of our boat off funchal. whenever the weather allows, the drone comes out.",
+    "yt_title": "Close aerial pass over our boat off Funchal #Shorts",
+    "yt_description": "A close drone flyover over the bow of our Karnic R8S off Funchal, Madeira.\n\nWe bring the drone along on our private trips whenever the weather allows, so you get aerial videos of your time on the water. Departing daily from Funchal marina for up to five guests.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "madeira drone",
+     "karnic r8s",
+     "boat flyover",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal"
+    ],
+    "tiktok": "flying right over the bow on our private boat trip off funchal marina #madeira #funchal #boattrip #drone",
+    "alt": "Aerial camera flies close over the bow of a white boat cruising on blue ocean water near the coast of Madeira.",
+    "model": "gemini-3.6-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8-thumb.jpg",
+    "duration": 7.67,
+    "bytes": 8548473,
+    "shots": [
+     {
+      "name": "video 1.MP4",
+      "in": 232.0,
+      "out": 239.65,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 7.65,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.634,
+       0.646,
+       0.631,
+       0.589,
+       0.565,
+       0.532,
+       0.478,
+       0.406
+      ],
+      "what": "Close-up aerial flyover over the bow of the boat."
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-25T17:17:04Z"
+   }
   }
  ]
 }
