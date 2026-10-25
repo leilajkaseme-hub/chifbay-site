@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T07:16:35.103Z",
+  "updatedAt": "2026-10-25T08:16:51.297Z",
   "aggregate": {
     "rating": 5,
     "count": 59
@@ -42,6 +42,29 @@
       "translation": null
     },
     {
+      "id": "google-eb909f10a2597e25",
+      "source": "google",
+      "rating": 5,
+      "author": "Thomas Bisogne",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-09-25",
+      "text": "The boat is brand new and absolutely immaculate — not a detail missed anywhere. The snacks were genuinely delicious, the wine was cold, and everything felt thought through rather than thrown together. What set it apart, though, was the family running it. Watching the father-and-son dynamic play out on the water was honestly heartwarming. You can feel their values in how they treat you — warm, generous, proud of their island and eager to share it. They talked us through the landscape and the history of the coastline as we went, and because the tour is intimate, it never felt like being herded around on a booze cruise. The drone footage they captured was incredible and gave us the most beautiful photo we took during our entire stay. Madeira is full of dramatic, over-the-top, adrenaline-fueled activities. This quiet sunset on the water beat all of them. Service was impeccable. Cannot recommend it highly enough.",
+      "photos": [
+        "assets/reviews/google/google-eb909f10a2597e25-1.jpg",
+        "assets/reviews/google/google-eb909f10a2597e25-2.jpg",
+        "assets/reviews/google/google-eb909f10a2597e25-3.jpg",
+        "assets/reviews/google/google-eb909f10a2597e25-4.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": {
+        "text": "Thank you so much Thomas. We’re really happy you enjoyed your time with us. It was a pleasure having you on board, and we hope to see you again. The Chifbay Team⚓️"
+      },
+      "translation": null
+    },
+    {
       "id": "google-15115199545884af",
       "source": "google",
       "rating": 5,
@@ -56,29 +79,6 @@
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
       "reply": {
         "text": "Thank you so much, Rebecca for your wonderful review 🤩 It was truly a pleasure for us too, welcoming you on board and sharing that family moment with you. We’re delighted you fully enjoyed the afternoon at sea: the views, the food, the drinks, and the swimming. We hope to have the joy of welcoming you back soon🏝️ The Chifbay Team⚓️"
-      },
-      "translation": null
-    },
-    {
-      "id": "google-eb909f10a2597e25",
-      "source": "google",
-      "rating": 5,
-      "author": "Thomas Bisogne",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-09-24",
-      "text": "The boat is brand new and absolutely immaculate — not a detail missed anywhere. The snacks were genuinely delicious, the wine was cold, and everything felt thought through rather than thrown together. What set it apart, though, was the family running it. Watching the father-and-son dynamic play out on the water was honestly heartwarming. You can feel their values in how they treat you — warm, generous, proud of their island and eager to share it. They talked us through the landscape and the history of the coastline as we went, and because the tour is intimate, it never felt like being herded around on a booze cruise. The drone footage they captured was incredible and gave us the most beautiful photo we took during our entire stay. Madeira is full of dramatic, over-the-top, adrenaline-fueled activities. This quiet sunset on the water beat all of them. Service was impeccable. Cannot recommend it highly enough.",
-      "photos": [
-        "assets/reviews/google/google-eb909f10a2597e25-1.jpg",
-        "assets/reviews/google/google-eb909f10a2597e25-2.jpg",
-        "assets/reviews/google/google-eb909f10a2597e25-3.jpg",
-        "assets/reviews/google/google-eb909f10a2597e25-4.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": {
-        "text": "Thank you so much Thomas. We’re really happy you enjoyed your time with us. It was a pleasure having you on board, and we hope to see you again. The Chifbay Team⚓️"
       },
       "translation": null
     },
@@ -318,6 +318,27 @@
       "translation": null
     },
     {
+      "id": "google-e1707c388194f625",
+      "source": "google",
+      "rating": 5,
+      "author": "Lane End Chandlery",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-08-26",
+      "text": "What a wonderful day! We opted for the three hour trip which was very reasonably priced. Luigi and family (including Dad who made the best Guacamole ever - secret ingredient honey!) were so friendly and welcoming and couldn’t do enough for us. We saw some sights, swam in the sea with the SUP board and snorkels, had a lovely lunch and as many drinks as we wanted. The boat itself was pristine - the best boat for this price I have been on. We ended the day at the front of the boat whilst the driver drove us very fast - the kids loved it! Thanks ever so much I would highly recommend but book directly if you can as if you book via a site, they take an exorbitant amount of money. Thanks again! Rebecca and family!",
+      "photos": [
+        "assets/reviews/google/google-e1707c388194f625-1.jpg",
+        "assets/reviews/google/google-e1707c388194f625-2.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": {
+        "text": "Tank you so much, Rebecca, for this wonderful review. The whole Chifbay team was delighted to welcome you and your family on board. Knowing that you had such a great day means a lot to us. We hope to see you again for another aventure Chifbay team⚓️ Chifbay.com"
+      },
+      "translation": null
+    },
+    {
       "id": "google-7b7011515c484df0",
       "source": "google",
       "rating": 5,
@@ -335,27 +356,6 @@
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
       "reply": {
         "text": "Thank you so much, Manon 🤩 We’re delighted you had such a wonderful time on board. Paco will be thrilled to hear your kind words. We hope to welcome you back for another amazing boat trip soon. The Chifbay Team⚓️ …"
-      },
-      "translation": null
-    },
-    {
-      "id": "google-e1707c388194f625",
-      "source": "google",
-      "rating": 5,
-      "author": "Lane End Chandlery",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-25",
-      "text": "What a wonderful day! We opted for the three hour trip which was very reasonably priced. Luigi and family (including Dad who made the best Guacamole ever - secret ingredient honey!) were so friendly and welcoming and couldn’t do enough for us. We saw some sights, swam in the sea with the SUP board and snorkels, had a lovely lunch and as many drinks as we wanted. The boat itself was pristine - the best boat for this price I have been on. We ended the day at the front of the boat whilst the driver drove us very fast - the kids loved it! Thanks ever so much I would highly recommend but book directly if you can as if you book via a site, they take an exorbitant amount of money. Thanks again! Rebecca and family!",
-      "photos": [
-        "assets/reviews/google/google-e1707c388194f625-1.jpg",
-        "assets/reviews/google/google-e1707c388194f625-2.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": {
-        "text": "Tank you so much, Rebecca, for this wonderful review. The whole Chifbay team was delighted to welcome you and your family on board. Knowing that you had such a great day means a lot to us. We hope to see you again for another aventure Chifbay team⚓️ Chifbay.com"
       },
       "translation": null
     },
@@ -760,7 +760,7 @@
       "author": "Sabrina Di Girolamo",
       "country": "",
       "countryFlag": "",
-      "date": "2026-07-26",
+      "date": "2026-07-27",
       "text": "We chose this sunset boat tour for a very special occasion, as it's where we got engaged. It will definitely remain the highlight of our trip. The boat is beautiful, comfortable, and very well maintained. Our hosts were welcoming, attentive, and truly helped make the experience even more special. They even captured the moment with a drone video, which is such a wonderful keepsake for us. Drinks and a snacks were included, and the guacamole was especially delicious! We highly recommend this experience to anyone looking to enjoy a beautiful sunset in a peaceful and elegant setting. Thank you again for helping make this moment so memorable.",
       "photos": [
         "assets/reviews/google/google-7b024a0503fbc242-1.jpg",
@@ -906,11 +906,7 @@
       "countryFlag": "🇳🇱",
       "date": "2026-06-20",
       "text": "We had an absolutely amazing day on the ClifBay boat tour. Everything was perfect, the friendly and professional crew, the delicious snacks and drinks, the relaxing swim stop, and as the highlight of the day we even spotted a whole group of dolphins. Truly magical. The atmosphere on board was wonderful, and you can feel how much the team enjoys what they do. It made the entire experience unforgettable. I would recommend this tour to everyone visiting Madeira. If we could give 6 stars, we definitely would. More than worth it!",
-      "photos": [
-        "assets/reviews/gyg/gyg-d25aa77bd8ee-1.jpg",
-        "assets/reviews/gyg/gyg-d25aa77bd8ee-2.jpg",
-        "assets/reviews/gyg/gyg-d25aa77bd8ee-3.jpg"
-      ],
+      "photos": [],
       "tourId": "t1342812",
       "tourName": "Madeira Coast Cruise",
       "tourUrl": "https://www.getyourguide.com/funchal-l1026/private-dolphin-and-whale-watching-madeira-t1342812/",
