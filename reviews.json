@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-10-25T13:16:27.143Z",
+  "updatedAt": "2026-10-26T18:15:50.438Z",
   "aggregate": {
     "rating": 5,
-    "count": 59
+    "count": 64
   },
   "reviews": [
     {
@@ -117,6 +117,18 @@
       "tourId": null,
       "tourName": null,
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "tripadvisor-3bc7204b1c04",
+      "source": "tripadvisor",
+      "rating": 5,
+      "author": "Guilherme Nobrega",
+      "country": "wrote a review Sep 2026",
+      "countryFlag": "",
+      "date": "2026-09-15",
+      "text": "Date visited:. Trip type: Travelled with friends 0",
       "reply": null,
       "translation": null
     },
@@ -375,6 +387,18 @@
       "translation": null
     },
     {
+      "id": "tripadvisor-785aabe3490e",
+      "source": "tripadvisor",
+      "rating": 5,
+      "author": "Thomas B",
+      "country": "wrote a review Aug 2026",
+      "countryFlag": "",
+      "date": "2026-08-15",
+      "text": "Date visited:. Trip type: Travelled as a couple 0",
+      "reply": null,
+      "translation": null
+    },
+    {
       "id": "tripadvisor-936d4a402fd4",
       "source": "tripadvisor",
       "rating": 5,
@@ -383,6 +407,30 @@
       "countryFlag": "",
       "date": "2026-08-15",
       "text": "Snorkel and swim trip with private boat. Was a nice trip with the boat. We took a private boat to different locations for snorkeling and swimming. With tasty snacks and drinks on board. Nice guys! Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks Translated from Dutch",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "tripadvisor-da2c1f340d09",
+      "source": "tripadvisor",
+      "rating": 5,
+      "author": "Enzo M",
+      "country": "wrote a review Aug 2026",
+      "countryFlag": "",
+      "date": "2026-08-15",
+      "text": "Date visited:. Trip type: Travelled with friends Translated from French",
+      "reply": null,
+      "translation": null
+    },
+    {
+      "id": "tripadvisor-e1ccbeb216d9",
+      "source": "tripadvisor",
+      "rating": 5,
+      "author": "Markus K",
+      "country": "wrote a review Aug 2026",
+      "countryFlag": "",
+      "date": "2026-08-15",
+      "text": "Date visited:. Trip type: Travelled as a couple Translated from German",
       "reply": null,
       "translation": null
     },
@@ -811,6 +859,18 @@
       "text": "This is a must when in Madeira!. Amazing sunset trip along beautiful Madeira coastline. Family run business, so the little touches made this even more special. Champagne, snacks, a beautiful yacht and crew were friendly and knowledgeable. Everything from booking to meeting to receiving a personalised video memoir afterwards was first rate. Worth every penny. Review of: Swim at Private Madeira Coast Cruise with Snacks and Drinks",
       "translation": null,
       "reply": null
+    },
+    {
+      "id": "tripadvisor-94b84f9181f0",
+      "source": "tripadvisor",
+      "rating": 5,
+      "author": "Joanne C",
+      "country": "wrote a review Jul 2026",
+      "countryFlag": "",
+      "date": "2026-07-15",
+      "text": "Date visited:. Trip type: Travelled with family 0",
+      "reply": null,
+      "translation": null
     },
     {
       "id": "tripadvisor-9e5d9d0f77aa",
