@@ -17,3 +17,4 @@
 {"at":"2026-10-26T20:37:21.678Z","slot":"2026-10-26#0","missed":true,"why":"run came 9 h late"}
 {"at":"2026-10-26T20:37:21.893Z","slot":"2026-10-26#1","reminded":true}
 {"at":"2026-10-27T13:22:48.568Z","slot":"2026-10-27#0","reminded":true}
+{"at":"2026-10-27T18:50:12.033Z","slot":"2026-10-27#0","missed":true,"why":"run came 7 h late"}
