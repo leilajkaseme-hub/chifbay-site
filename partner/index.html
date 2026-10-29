@@ -80,6 +80,21 @@
   td.c{color:var(--gold-ink);font-weight:600}
   .tag{display:inline-block;font-size:.68rem;padding:2px 8px;border-radius:20px;border:1px solid var(--bad);color:var(--bad);margin-left:6px}
   .neg{color:var(--bad)}
+  .bks{display:grid;gap:0}
+  .bk{padding:14px 0;border-top:1px solid var(--line)}
+  .bk:first-child{border-top:0;padding-top:2px}
+  .bk.off{opacity:.62}
+  .bk-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .bk-day{font-weight:600}
+  .code{font:600 .72rem var(--sans);letter-spacing:.06em;padding:3px 8px;border-radius:7px;background:var(--bg);border:1px solid var(--line);color:var(--soft);margin-left:auto}
+  .bk-trip{font:400 1.08rem/1.3 var(--serif);margin-top:6px}
+  .bk-who{color:var(--soft);font-size:.86rem;margin-top:2px}
+  .bk-money{display:flex;justify-content:space-between;gap:12px;margin-top:10px}
+  .bk-money .k{color:var(--soft);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}
+  .bk-money .v{font:400 1.25rem/1.2 var(--serif);font-variant-numeric:tabular-nums}
+  .bk-money .v.c{color:var(--gold-ink)}
+  .bk-money .s{color:var(--soft);font-size:.76rem}
+  .bk-money .r{text-align:right}
   .empty{text-align:center;padding:22px 10px;color:var(--soft)}
   .empty strong{display:block;color:var(--ink);font:400 1.15rem var(--serif);margin-bottom:4px}
   .err{border-color:var(--bad)}
@@ -134,7 +149,7 @@
   }
   function dayName(d) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(d || "")) return esc(d || "");
-    return new Date(d + "T12:00:00Z").toLocaleDateString("pt-PT", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+    return new Date(d + "T12:00:00Z").toLocaleDateString("pt-PT", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   }
   function ago(ms) {
     var s = Math.max(0, Math.round((Date.now() - ms) / 1000));
@@ -143,6 +158,15 @@
     if (m < 60) return "há " + m + " minuto" + (m === 1 ? "" : "s");
     var h = Math.round(m / 60);
     return "há " + h + " hora" + (h === 1 ? "" : "s");
+  }
+  // "Passeio de dia · 2h30, até à Ribeira Brava"
+  function tripName(r) {
+    var T = { "day-trip": "Passeio de dia", "sunset": "Passeio ao pôr do sol" };
+    var V = { "ribeira-brava": "até à Ribeira Brava", "ponta-do-sol": "até à Ponta do Sol", "cabo-girao": "até ao Cabo Girão" };
+    var dur = r.minutes ? Math.floor(r.minutes / 60) + "h" + (r.minutes % 60 ? String(r.minutes % 60).padStart(2, "0") : "") : "";
+    var name = T[r.trip] || (r.trip ? "Passeio privado" : "Passeio");
+    var tail = [dur, V[r.variant] || ""].filter(Boolean).join(", ");
+    return tail ? name + " · " + tail : name;
   }
   // the same address as the QR on the reception card: chifbay.com/<slug>
   function qrSvg(text) {
@@ -165,10 +189,17 @@
     var d = data, t = d.totals, m = thisMonth(d), qr = qrSvg(d.link);
     var rows = (d.recent || []).map(function (r) {
       var ref = r.state === "refunded" || r.state === "cancelled";
-      return "<tr><td>" + dayName(r.date) +
-        (ref ? '<span class="tag">' + (r.state === "refunded" ? "reembolsado" : "cancelado") + "</span>" : "") +
-        '</td><td class="r">' + (r.guests || "") + '</td><td class="r">' + eur(r.amount) +
-        '</td><td class="r ' + (ref ? "neg" : "c") + '">' + (ref ? "0" : eur(r.commission)) + "</td></tr>";
+      var rest = (r.amount || 0) - (r.paid || 0);
+      return '<div class="bk' + (ref ? " off" : "") + '">' +
+        '<div class="bk-top"><span class="bk-day">' + dayName(r.date) + (r.time ? " · " + esc(r.time) : "") + "</span>" +
+          (r.code ? '<span class="code">' + esc(r.code) + "</span>" : "") +
+          (ref ? '<span class="tag">' + (r.state === "refunded" ? "reembolsado" : "cancelado") + "</span>" : "") + "</div>" +
+        '<div class="bk-trip">' + esc(tripName(r)) + "</div>" +
+        '<div class="bk-who">' + esc(r.name || "Cliente") + (r.guests ? " · " + r.guests + " pessoa" + (r.guests === 1 ? "" : "s") : "") + "</div>" +
+        '<div class="bk-money"><div><div class="k">Valor pago</div><div class="v">' + eur(r.amount) + "</div>" +
+            (rest > 0 && !ref ? '<div class="s">' + eur(r.paid) + " online, " + eur(rest) + " no dia</div>" : "") + "</div>" +
+          '<div class="r"><div class="k">Comissão</div><div class="v ' + (ref ? "neg" : "c") + '">' + (ref ? eur(0) : eur(r.commission)) + "</div></div></div>" +
+      "</div>";
     }).join("");
     var monthRows = (d.months || []).map(function (x) {
       return '<tr><td>' + esc(monthName(x.month)) + '</td><td class="r">' + x.visits +
@@ -218,7 +249,7 @@
 
         "<h2>Reservas</h2><div class=\"card\">" +
           (rows
-            ? '<table><tr><th>data</th><th class="r">pessoas</th><th class="r">valor</th><th class="r">comissão</th></tr>' + rows + "</table>"
+            ? '<div class="bks">' + rows + "</div>"
             : '<div class="empty"><strong>Ainda sem reservas</strong>O vosso link teve ' + t.visits + " visita" + (t.visits === 1 ? "" : "s") + ".</div>") +
         "</div>" +
 
