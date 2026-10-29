@@ -23351,7 +23351,7 @@
    "created": "2026-10-28",
    "md5": "dc227c910990aff392479a4e6c1367d5",
    "version": 1,
-   "scanned_at": "2026-10-28T15:30:53Z",
+   "scanned_at": "2026-10-29T15:33:17Z",
    "w": 3840,
    "h": 2160,
    "fps": 30.0,
@@ -23698,8 +23698,125 @@
      26
     ]
    },
-   "error": "'list' object has no attribute 'get'",
-   "tries": 1
+   "boat": true,
+   "camera": "edit",
+   "light": "day",
+   "summary": "Edited promotional video showcasing a family on a boat trip off Madeira, enjoying cruising, paddleboarding, and jumping into the sea.",
+   "model": "gemini-3.5-flash",
+   "moments": [
+    {
+     "start": 0.0,
+     "end": 3.5,
+     "peak": 1.5,
+     "score": 5,
+     "hook": 6,
+     "what": "Aerial view of dramatic coastal cliffs with brand logo overlay.",
+     "tags": [
+      "aerial",
+      "cliffs",
+      "cove"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "none",
+     "issues": [
+      "text_overlay"
+     ]
+    },
+    {
+     "start": 3.5,
+     "end": 7.0,
+     "peak": 4.5,
+     "score": 7,
+     "hook": 7,
+     "what": "Family sitting on the bow deck while cruising, mother waves to camera.",
+     "tags": [
+      "boat_hero",
+      "speed",
+      "wake",
+      "family",
+      "guests_happy"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "medium",
+     "issues": []
+    },
+    {
+     "start": 10.5,
+     "end": 13.0,
+     "peak": 11.5,
+     "score": 7,
+     "hook": 6,
+     "what": "Couple relaxing together on the bow sunbed while the boat cruises.",
+     "tags": [
+      "boat_hero",
+      "speed",
+      "couple",
+      "guests_happy"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "medium",
+     "issues": []
+    },
+    {
+     "start": 13.0,
+     "end": 17.0,
+     "peak": 15.0,
+     "score": 8,
+     "hook": 7,
+     "what": "High aerial view of a couple paddleboarding on turquoise ocean water near the boat.",
+     "tags": [
+      "paddle",
+      "aerial",
+      "topdown",
+      "turquoise",
+      "couple"
+     ],
+     "x": 0.45,
+     "x2": 0.55,
+     "people": "far",
+     "issues": []
+    },
+    {
+     "start": 25.5,
+     "end": 31.0,
+     "peak": 29.5,
+     "score": 8,
+     "hook": 8,
+     "what": "Man leaps from the stern of the boat into the ocean as children watch.",
+     "tags": [
+      "jump",
+      "splash",
+      "swim",
+      "family",
+      "guests_happy"
+     ],
+     "x": 0.5,
+     "x2": 0.45,
+     "people": "medium",
+     "issues": []
+    },
+    {
+     "start": 41.5,
+     "end": 44.0,
+     "peak": 42.5,
+     "score": 7,
+     "hook": 6,
+     "what": "Couple cuddling on bow sunbed while pointing towards the scenic coastline while cruising.",
+     "tags": [
+      "boat_hero",
+      "couple",
+      "cliffs",
+      "guests_happy"
+     ],
+     "x": 0.5,
+     "x2": 0.5,
+     "people": "medium",
+     "issues": []
+    }
+   ]
   },
   "1MlQDRkI_47-4ZtLzkJHD_LxPqWavvF5o": {
    "name": "814875270.926515_186691793182478.mp4",
