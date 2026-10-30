@@ -62,6 +62,8 @@ const ageDays = Math.floor(
 // is right: a post recycled from three days ago is worse than no post, and it
 // would also hide the fact that blog-auto is broken.
 if (ageDays > 1 && !anyAge) {
+  // --json callers (gbp/post.mjs) parse the answer: say "no draft" as JSON, never as plain text.
+  if (asJson) { console.log(JSON.stringify({ skip: true, reason: `newest article is ${ageDays} days old (${post.date})` })); process.exit(0); }
   console.log(`newest article is ${ageDays} days old (${post.date}) — no draft today`);
   console.log("blog-auto has probably not run; that is the thing to look at");
   process.exit(0);

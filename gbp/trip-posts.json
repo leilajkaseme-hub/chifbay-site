@@ -1,0 +1,47 @@
+{
+ "_about": "Posts for the profile when the Journal has no fresh article (post.mjs --journal falls back to these, in order, each once). Real photos of our trips only (29 Oct 2026 batch, Insta360 + drone, checked by eye: no guest face). Facts as in ig-auto/brand.json: no price, no long dash, max 5 guests, swimming on the Day Trip only.",
+ "posts": [
+  {
+   "id": "t1029-r02",
+   "photo": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r02-8af14de3-grid.jpg",
+   "url": "https://chifbay.com/private-boat-tour-madeira",
+   "summary": "Cabo Girão from the water. From the top it is a viewpoint; from our boat it is a wall of red rock rising almost 600 metres straight out of the sea. On a private trip we slow down at the foot of the cliff and take our time. Only your group on board, two skippers, leaving from Funchal marina."
+  },
+  {
+   "id": "t1029-r04",
+   "photo": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r04-9b8c7ad9-grid.jpg",
+   "url": "https://chifbay.com/experiences",
+   "summary": "Our boat, seen from the drone on a trip last week. When the weather allows, we fly the drone during the trip and you get the footage, together with a 360 video and real photos of your day. Private trips from Funchal marina for up to 5 guests."
+  },
+  {
+   "id": "t1029-r08",
+   "photo": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r08-d0bb389c-grid.jpg",
+   "url": "https://chifbay.com/book-day",
+   "summary": "The swim stop. On the Day Trip we anchor in a quiet bay under the cliffs, you jump in, swim, or just stay on board with a drink and something to eat. 2h30 or 3h, leaving Funchal marina at 10:00 or 14:00. Swimming is part of the Day Trip only."
+  },
+  {
+   "id": "t1029-r06",
+   "photo": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7-grid.jpg",
+   "url": "https://chifbay.com/experiences",
+   "summary": "Our boat as a tiny planet. Every trip comes with a 360 video of your time on board, filmed with our Insta360, so you can relive the cliffs, the swim and the ride back from any angle. Private boat trips in Madeira, skipper included."
+  },
+  {
+   "id": "t1029-r07",
+   "photo": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r07-5e9b321f-grid.jpg",
+   "url": "https://chifbay.com/private-boat-tour-madeira",
+   "summary": "Salt in your hair on the way back to Funchal, with the south coast of Madeira on one side and the open Atlantic on the other. Private boat, your own group only, two skippers on board. Book a Day Trip or a Sunset Trip on our site."
+  },
+  {
+   "id": "t1029-r10",
+   "photo": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r10-a293dd31-grid.jpg",
+   "url": "https://chifbay.com/book-day",
+   "summary": "Nobody wants to turn back yet. A day on our boat: Câmara de Lobos, the Cabo Girão cliffs, a swim stop, food and drinks on board. Up to 5 guests, leaving Funchal marina at 10:00 or 14:00."
+  },
+  {
+   "id": "t1029-r03",
+   "photo": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r03-cb610aba-grid.jpg",
+   "url": "https://chifbay.com/sunset-cruise",
+   "summary": "No plans, just the sea. Our Sunset Trip leaves Funchal marina 1h15 before the sun goes down, so the time moves through the year. 2h or 2h30 along the coast with drinks and snacks on board. Private, for your group only."
+  }
+ ]
+}

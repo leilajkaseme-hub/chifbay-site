@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // post.mjs: one "What's new" post on the main profile.
 //
-//   node gbp/post.mjs --journal      today's Journal article (scripts/gbp-draft.mjs), with a REAL trip photo
+//   node gbp/post.mjs --journal      today's Journal article (scripts/gbp-draft.mjs), with a REAL trip photo;
+//                                    no fresh article = the next unused trip post of gbp/trip-posts.json (each once)
 //   node gbp/post.mjs --file x.json  a post written by hand: {summary, url, photo, action}
 //   add --dry to print it and send nothing
 //
@@ -9,7 +10,7 @@
 // same photo twice). No long dashes (Theo's rule). One post a day at most.
 import { execFileSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { ROOT, api, ledger, record, v4, where } from "./lib.mjs";
 
@@ -21,8 +22,16 @@ const today = new Date().toISOString().slice(0, 10);
 // A hand-checked real photo (gbp/photos.json), never one already in a post or in the profile's gallery.
 function realPhoto() {
   const used = new Set(ledger().flatMap((e) => e.kind === "post" ? [e.photo] : e.kind === "media" ? [e.source] : []));
-  const all = JSON.parse(readFileSync(join(ROOT, "photos.json"), "utf8")).photos.map((p) => `https://chifbay.com/${p}`);
+  const all = JSON.parse(readFileSync(join(ROOT, "photos.json"), "utf8")).photos.map((p) => (p.startsWith("https://") ? p : `https://chifbay.com/${p}`));
   return all.find((u) => !used.has(u)) ?? all[Math.floor(Math.random() * all.length)];
+}
+
+// Posts written for the days the Journal is silent (gbp/trip-posts.json), in order, each once.
+function tripPost() {
+  const used = new Set(ledger().filter((e) => e.kind === "post" && e.ok && e.trip).map((e) => e.trip));
+  const f = join(ROOT, "trip-posts.json");
+  if (!existsSync(f)) return null;
+  return JSON.parse(readFileSync(f, "utf8")).posts.find((p) => !used.has(p.id)) ?? null;
 }
 
 const clean = (t) => t.replace(/\s*[—–]\s*/g, ", ").replace(/,\s*,/g, ",").trim();
@@ -32,12 +41,20 @@ async function main() {
   if (ledger().some((e) => e.kind === "post" && e.ok && e.at.slice(0, 10) === today) && !args.includes("--force")) {
     console.log("already posted today"); return;
   }
-  let body;
+  let body, trip = null;
   if (args.includes("--journal")) {
     const d = JSON.parse(execFileSync("node", [join(SITE, "scripts", "gbp-draft.mjs"), "--json"], { encoding: "utf8" }));
-    if (!d.summary) { console.log("no Journal article today"); return; }
-    body = { languageCode: "en", topicType: "STANDARD", summary: clean(d.summary), callToAction: { ...d.callToAction, url: tagged(d.callToAction.url) },
-             media: [{ mediaFormat: "PHOTO", sourceUrl: realPhoto() }] };
+    if (d.summary) {
+      body = { languageCode: "en", topicType: "STANDARD", summary: clean(d.summary), callToAction: { ...d.callToAction, url: tagged(d.callToAction.url) },
+               media: [{ mediaFormat: "PHOTO", sourceUrl: realPhoto() }] };
+    } else {
+      const t = tripPost();
+      if (!t) { console.log(`no Journal article today (${d.reason ?? "none"}) and no trip post left in gbp/trip-posts.json`); return; }
+      console.log(`no Journal article today (${d.reason ?? "none"}): trip post ${t.id}`);
+      trip = t.id;
+      body = { languageCode: "en", topicType: "STANDARD", summary: clean(t.summary), callToAction: { actionType: "BOOK", url: tagged(t.url) },
+               media: [{ mediaFormat: "PHOTO", sourceUrl: t.photo }] };
+    }
   } else if (args.includes("--file")) {
     const p = JSON.parse(readFileSync(args[args.indexOf("--file") + 1], "utf8"));
     body = { languageCode: "en", topicType: "STANDARD", summary: clean(p.summary),
@@ -49,7 +66,7 @@ async function main() {
   if (DRY) return;
   const at = await where();
   const out = await api("POST", v4(`${at.path}/localPosts`), body);
-  record({ kind: "post", ok: true, name: out.name, url: out.searchUrl, photo: body.media[0].sourceUrl, summary: body.summary.slice(0, 120) });
+  record({ kind: "post", ok: true, name: out.name, url: out.searchUrl, photo: body.media[0].sourceUrl, trip, summary: body.summary.slice(0, 120) });
   console.log(`posted: ${out.searchUrl ?? out.name}`);
 }
 

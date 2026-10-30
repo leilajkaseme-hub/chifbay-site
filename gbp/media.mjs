@@ -22,7 +22,7 @@ const sent = () => new Set(ledger().filter((e) => e.kind === "media" && e.ok).ma
 
 // Only the hand-checked real photos of gbp/photos.json: social-drive also holds AI renders, never for Google.
 export function realPhotos() {
-  return JSON.parse(readFileSync(join(ROOT, "photos.json"), "utf8")).photos.map((p) => `https://chifbay.com/${p}`);
+  return JSON.parse(readFileSync(join(ROOT, "photos.json"), "utf8")).photos.map((p) => (p.startsWith("https://") ? p : `https://chifbay.com/${p}`));
 }
 
 function photos(n) {

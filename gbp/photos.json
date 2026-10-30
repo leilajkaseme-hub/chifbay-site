@@ -1,5 +1,5 @@
 {
- "_about": "Real photos only (phone and drone, checked by eye on 22 Oct 2026), in upload order. No AI pictures: social-drive mixes real photos with AI renders (the 01..20 numbered PNG series, exp-*, g-*, hero, funchal-goldenhour, 03-karnic...). No near-duplicates, no grey sky, no close-up of a guest in swimwear. media.mjs and post.mjs only use this list. Add new real photos here.",
+ "_about": "Real photos only (phone and drone, checked by eye on 22 Oct 2026), in upload order. No AI pictures: social-drive mixes real photos with AI renders (the 01..20 numbered PNG series, exp-*, g-*, hero, funchal-goldenhour, 03-karnic...). No near-duplicates, no grey sky, no close-up of a guest in swimwear. media.mjs and post.mjs only use this list. Add new real photos here. 30 Oct 2026: 12 photos of the 29 Oct trip added (Insta360 + drone stills, full URLs in the chifbay-media store, no guest face, no text on the image).",
  "photos": [
   "social-drive/0dc04f76-cedf-476f-b354-b0322f3ba22e-1XUBZOd1.jpg",
   "social-drive/img-1729-1JAFIJI0.jpg",
@@ -28,6 +28,18 @@
   "social-drive/86d84428-c0c9-4bb0-a9ea-fd6570ec1297-1ZO20xta.jpg",
   "social-drive/3224433f-0991-4caa-bb45-6e843c71da99-1E9HsLQS.jpg",
   "social-drive/img-1773-18jT8Jm2.jpg",
-  "social-iphone/IMG_2850.jpg"
+  "social-iphone/IMG_2850.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-p01-f48eedab.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-c01_05-1910f581.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-p02-35a85cd7.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-c02_05-8f66d167.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-p03-90816cba.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-c02_02-493c4a36.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-p06-7a3c121a.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-c02_04-71245d87.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-c04_05-f83ff99f.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-p04-445b8ddd.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-c02_03-2b6fd54f.jpg",
+  "https://chifbay-media.chifandcopt.workers.dev/m/b1029-c01_02-817c2941.jpg"
  ]
 }
