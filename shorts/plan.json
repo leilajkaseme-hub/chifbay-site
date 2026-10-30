@@ -2899,6 +2899,1387 @@
     },
     "at": "2026-10-25T17:17:04Z"
    }
+  },
+  {
+   "id": "b1029-r01",
+   "format": "pov",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "VID_20261029_141149_00_145",
+     "start": 8.0,
+     "len": 2.59,
+     "speed": 1.0,
+     "what": "pov: your day trip starts now",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_143644_00_149",
+     "start": 9.0,
+     "len": 2.59,
+     "speed": 1.0,
+     "what": "snacks are out, nobody is rushing",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029144023_0010_D",
+     "start": 63.0,
+     "len": 2.59,
+     "speed": 1.0,
+     "what": "cabo girão up close",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_161347_00_170",
+     "start": 24.6,
+     "len": 2.59,
+     "speed": 1.0,
+     "what": "ok who jumps first",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_161150_00_168",
+     "start": 40.0,
+     "len": 2.59,
+     "speed": 1.0,
+     "what": "then the sea gets quiet",
+     "tags": [
+      "360"
+     ]
+    }
+   ],
+   "music": "day",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "pov: your day trip starts now",
+    "labels": [],
+    "thumb": "pov: your day trip starts now",
+    "ig": "The day starts the second the boat pulls away.\nSnacks on the table, a huge red cliff, one big jump and a calm sea at the end.\nYour own boat with a skipper, up to 5 guests, nobody else on board.\nTag who you'd bring. 🌊",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#cabogirao",
+     "#boattrip",
+     "#madeiraisland",
+     "#privateboat"
+    ],
+    "fb": "A day on our boat in Madeira: snacks on board, Cabo Girão up close, a swim and soft light at the end. Who would you bring?",
+    "threads": "a day on our boat in madeira: snacks on board, cabo girão up close, a swim and soft light at the end. who would you bring?",
+    "yt_title": "POV: your day trip starts now | Madeira boat trip #Shorts",
+    "yt_description": "The day starts the second the boat pulls away.\nSnacks on the table, a huge red cliff, one big jump and a calm sea at the end.\nYour own boat with a skipper, up to 5 guests, nobody else on board.\nTag who you'd bring. 🌊\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #cabogirao",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "pov: your day trip starts now #madeira #funchal #cabogirao #boattrip #madeiraisland #privateboat",
+    "alt": "pov: your day trip starts now: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r01-a628b56c.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r01-a628b56c-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r01-a628b56c-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r01-a628b56c-cover.jpg",
+    "duration": 12.95,
+    "bytes": 20614918,
+    "shots": [
+     {
+      "name": "VID_20261029_141149_00_145",
+      "in": 8.0,
+      "out": 10.59,
+      "seconds": 2.59,
+      "speed": 1.0,
+      "what": "pov: your day trip starts now"
+     },
+     {
+      "name": "VID_20261029_143644_00_149",
+      "in": 9.0,
+      "out": 11.59,
+      "seconds": 2.59,
+      "speed": 1.0,
+      "what": "snacks are out, nobody is rushing"
+     },
+     {
+      "name": "DJI_20261029144023_0010_D",
+      "in": 63.0,
+      "out": 65.59,
+      "seconds": 2.59,
+      "speed": 1.0,
+      "what": "cabo girão up close"
+     },
+     {
+      "name": "VID_20261029_161347_00_170",
+      "in": 24.6,
+      "out": 27.19,
+      "seconds": 2.59,
+      "speed": 1.0,
+      "what": "ok who jumps first"
+     },
+     {
+      "name": "VID_20261029_161150_00_168",
+      "in": 40.0,
+      "out": 42.59,
+      "seconds": 2.59,
+      "speed": 1.0,
+      "what": "then the sea gets quiet"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r02",
+   "format": "oneshot",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "DJI_20261029143938_0009_D",
+     "start": 23.5,
+     "len": 4.3,
+     "speed": 0.5,
+     "what": "cabo girão, from the water",
+     "tags": [
+      "drone"
+     ]
+    }
+   ],
+   "music": "cliffs",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "cabo girão, from the water",
+    "labels": [],
+    "thumb": "cabo girão, from the water",
+    "ig": "Cabo Girão looks even bigger from the water.\nWe slow down at the foot of the cliff and take our time.\nSave this for your Madeira list. ⛰️",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#cabogirao",
+     "#madeiraisland",
+     "#visitmadeira",
+     "#dronevideo"
+    ],
+    "fb": "Cabo Girão from the water, filmed by our drone. Save it for your Madeira list.",
+    "threads": "cabo girão from the water, filmed by our drone. save it for your madeira list.",
+    "yt_title": "Cabo girão, from the water | Madeira boat trip #Shorts",
+    "yt_description": "Cabo Girão looks even bigger from the water.\nWe slow down at the foot of the cliff and take our time.\nSave this for your Madeira list. ⛰️\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #cabogirao",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "cabo girão, from the water #madeira #funchal #cabogirao #madeiraisland #visitmadeira #dronevideo",
+    "alt": "cabo girão, from the water: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r02-8af14de3.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r02-8af14de3-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r02-8af14de3-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r02-8af14de3-cover.jpg",
+    "duration": 8.62,
+    "bytes": 14034143,
+    "shots": [
+     {
+      "name": "DJI_20261029143938_0009_D",
+      "in": 23.5,
+      "out": 27.8,
+      "seconds": 4.3,
+      "speed": 0.5,
+      "what": "cabo girão, from the water"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r03",
+   "format": "fast",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "VID_20261029_143834_00_151",
+     "start": 130.0,
+     "len": 1.5,
+     "speed": 1.0,
+     "what": "no plans. just the sea.",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029144207_0011_D",
+     "start": 2.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_161010_00_167",
+     "start": 10.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029152508_0017_D",
+     "start": 18.0,
+     "len": 1.5,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029152745_0019_D",
+     "start": 0.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_160809_00_164",
+     "start": 20.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_143748_00_150",
+     "start": 8.0,
+     "len": 1.5,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029152745_0019_D",
+     "start": 50.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_161150_00_168",
+     "start": 60.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029143938_0009_D",
+     "start": 28.5,
+     "len": 1.5,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_161638_00_171",
+     "start": 85.0,
+     "len": 1.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    }
+   ],
+   "music": "jump",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "no plans. just the sea.",
+    "labels": [],
+    "thumb": "no plans. just the sea.",
+    "ig": "No plans. Just the sea.\nCliffs, a quiet cove, snacks on board and a swim.\nThe Day Trip leaves from Funchal marina and lasts 2h30 or 3h.\nLink in bio to see which days are open.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#madeiraisland",
+     "#cabogirao",
+     "#daytrip",
+     "#privateboat"
+    ],
+    "fb": "No plans, just the sea. Our Day Trip from Funchal marina runs 2h30 or 3h, private boat, skipper included.",
+    "threads": "no plans, just the sea. our day trip from funchal marina runs 2h30 or 3h, private boat, skipper included.",
+    "yt_title": "No plans. just the sea. | Madeira boat trip #Shorts",
+    "yt_description": "No plans. Just the sea.\nCliffs, a quiet cove, snacks on board and a swim.\nThe Day Trip leaves from Funchal marina and lasts 2h30 or 3h.\nLink in bio to see which days are open.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "no plans. just the sea. #madeira #funchal #boattrip #madeiraisland #cabogirao #daytrip #privateboat",
+    "alt": "no plans. just the sea.: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r03-cb610aba.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r03-cb610aba-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r03-cb610aba-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r03-cb610aba-cover.jpg",
+    "duration": 13.01,
+    "bytes": 20755201,
+    "shots": [
+     {
+      "name": "VID_20261029_143834_00_151",
+      "in": 130.0,
+      "out": 131.5,
+      "seconds": 1.5,
+      "speed": 1.0,
+      "what": "no plans. just the sea."
+     },
+     {
+      "name": "DJI_20261029144207_0011_D",
+      "in": 2.0,
+      "out": 3.0,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_161010_00_167",
+      "in": 10.0,
+      "out": 11.0,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "DJI_20261029152508_0017_D",
+      "in": 18.0,
+      "out": 19.5,
+      "seconds": 1.5,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "DJI_20261029152745_0019_D",
+      "in": 0.0,
+      "out": 1.0,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_160809_00_164",
+      "in": 20.0,
+      "out": 21.0,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_143748_00_150",
+      "in": 8.0,
+      "out": 9.5,
+      "seconds": 1.5,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "DJI_20261029152745_0019_D",
+      "in": 50.0,
+      "out": 51.0,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_161150_00_168",
+      "in": 60.0,
+      "out": 61.0,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "DJI_20261029143938_0009_D",
+      "in": 28.5,
+      "out": 30.0,
+      "seconds": 1.5,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_161638_00_171",
+      "in": 85.0,
+      "out": 86.0,
+      "seconds": 1.0,
+      "speed": 1.0,
+      "what": ""
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r04",
+   "format": "pass",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "DJI_20261029144635_0016_D",
+     "start": 0.5,
+     "len": 8.0,
+     "speed": 1.0,
+     "what": "our boat, from the drone",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029152655_0018_D",
+     "start": 30.0,
+     "len": 4.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "our boat, from the drone",
+    "labels": [],
+    "thumb": "our boat, from the drone",
+    "ig": "Our boat, seen by our drone.\nEvery trip comes with drone footage when the weather allows, plus 360 video and photos.\nWhich view do you want of your own day?",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#dronevideo",
+     "#boattrip",
+     "#madeiraisland",
+     "#privateboat",
+     "#visitmadeira"
+    ],
+    "fb": "Our boat, seen by our drone. Every trip includes drone footage when the weather allows, plus 360 video and photos.",
+    "threads": "our boat, seen by our drone. every trip includes drone footage when the weather allows, plus 360 video and photos.",
+    "yt_title": "Our boat, from the drone | Madeira boat trip #Shorts",
+    "yt_description": "Our boat, seen by our drone.\nEvery trip comes with drone footage when the weather allows, plus 360 video and photos.\nWhich view do you want of your own day?\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #dronevideo",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "our boat, from the drone #madeira #funchal #dronevideo #boattrip #madeiraisland #privateboat #visitmadeira",
+    "alt": "our boat, from the drone: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r04-9b8c7ad9.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r04-9b8c7ad9-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r04-9b8c7ad9-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r04-9b8c7ad9-cover.jpg",
+    "duration": 12.01,
+    "bytes": 19410130,
+    "shots": [
+     {
+      "name": "DJI_20261029144635_0016_D",
+      "in": 0.5,
+      "out": 8.5,
+      "seconds": 8.0,
+      "speed": 1.0,
+      "what": "our boat, from the drone"
+     },
+     {
+      "name": "DJI_20261029152655_0018_D",
+      "in": 30.0,
+      "out": 34.0,
+      "seconds": 4.0,
+      "speed": 1.0,
+      "what": ""
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r05",
+   "format": "list",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "VID_20261029_143748_00_150",
+     "start": 20.0,
+     "len": 3.1,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029144207_0011_D",
+     "start": 80.0,
+     "len": 3.1,
+     "speed": 1.0,
+     "what": "2. the swim stop",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029152745_0019_D",
+     "start": 2.0,
+     "len": 3.1,
+     "speed": 1.0,
+     "what": "3. the cove",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_160620_00_161",
+     "start": 10.0,
+     "len": 3.1,
+     "speed": 1.0,
+     "what": "4. full speed",
+     "tags": [
+      "360"
+     ]
+    }
+   ],
+   "music": "day",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "our day, in four steps",
+    "labels": [],
+    "thumb": "our day, in four steps",
+    "ig": "Our Day Trip in four steps: the cliffs, the swim stop, a quiet cove and full speed in between.\nWe visit Câmara de Lobos, Cabo Girão, Fajã dos Padres and Ribeira Brava.\nWhich step is yours?",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#cabogirao",
+     "#boattrip",
+     "#madeiraisland",
+     "#daytrip",
+     "#privateboat"
+    ],
+    "fb": "Our Day Trip in four steps: the cliffs, the swim stop, a quiet cove and full speed in between. Which step is yours?",
+    "threads": "our day trip in four steps: the cliffs, the swim stop, a quiet cove and full speed in between. which step is yours?",
+    "yt_title": "Our day, in four steps | Madeira boat trip #Shorts",
+    "yt_description": "Our Day Trip in four steps: the cliffs, the swim stop, a quiet cove and full speed in between.\nWe visit Câmara de Lobos, Cabo Girão, Fajã dos Padres and Ribeira Brava.\nWhich step is yours?\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #cabogirao",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "our day, in four steps #madeira #funchal #cabogirao #boattrip #madeiraisland #daytrip #privateboat",
+    "alt": "our day, in four steps: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r05-17843c5f.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r05-17843c5f-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r05-17843c5f-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r05-17843c5f-cover.jpg",
+    "duration": 12.42,
+    "bytes": 19849367,
+    "shots": [
+     {
+      "name": "VID_20261029_143748_00_150",
+      "in": 20.0,
+      "out": 23.1,
+      "seconds": 3.1,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "DJI_20261029144207_0011_D",
+      "in": 80.0,
+      "out": 83.1,
+      "seconds": 3.1,
+      "speed": 1.0,
+      "what": "2. the swim stop"
+     },
+     {
+      "name": "DJI_20261029152745_0019_D",
+      "in": 2.0,
+      "out": 5.1,
+      "seconds": 3.1,
+      "speed": 1.0,
+      "what": "3. the cove"
+     },
+     {
+      "name": "VID_20261029_160620_00_161",
+      "in": 10.0,
+      "out": 13.1,
+      "seconds": 3.1,
+      "speed": 1.0,
+      "what": "4. full speed"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r06",
+   "format": "planet",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "VID_20261029_160620_00_161",
+     "start": 14.0,
+     "len": 8.0,
+     "speed": 1.0,
+     "what": "our boat, but make it a tiny planet",
+     "tags": [
+      "planet"
+     ]
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "tiny planet",
+    "labels": [],
+    "thumb": "tiny planet",
+    "ig": "Our boat, turned into a tiny planet.\nEvery trip comes with 360 video from our Insta360, plus drone footage when the weather allows and photos.\nSend this to your travel person. 🌍",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#insta360",
+     "#tinyplanet",
+     "#boattrip",
+     "#madeiraisland",
+     "#privateboat"
+    ],
+    "fb": "Our boat as a tiny planet. Every trip includes 360 video, drone footage when the weather allows, and photos.",
+    "threads": "our boat as a tiny planet. every trip includes 360 video, drone footage when the weather allows, and photos.",
+    "yt_title": "Tiny planet | Madeira boat trip #Shorts",
+    "yt_description": "Our boat, turned into a tiny planet.\nEvery trip comes with 360 video from our Insta360, plus drone footage when the weather allows and photos.\nSend this to your travel person. 🌍\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #insta360",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "tiny planet #madeira #funchal #insta360 #tinyplanet #boattrip #madeiraisland #privateboat",
+    "alt": "tiny planet: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7-cover.jpg",
+    "duration": 8.0,
+    "bytes": 12940950,
+    "shots": [
+     {
+      "name": "VID_20261029_160620_00_161",
+      "in": 14.0,
+      "out": 22.0,
+      "seconds": 8.0,
+      "speed": 1.0,
+      "what": "our boat, but make it a tiny planet"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r07",
+   "format": "speed",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "VID_20261029_160620_00_161",
+     "start": 2.0,
+     "len": 3.46,
+     "speed": 1.0,
+     "what": "salt in your hair",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_160809_00_164",
+     "start": 6.0,
+     "len": 3.46,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_161010_00_167",
+     "start": 12.0,
+     "len": 3.46,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_151538_00_157",
+     "start": 40.0,
+     "len": 3.46,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    }
+   ],
+   "music": "fun",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "salt in your hair",
+    "labels": [],
+    "thumb": "salt in your hair",
+    "ig": "Salt in your hair, cliffs on the horizon, a wake behind us.\nThis is what the boat feels like when we pick up the pace.\nShare it with someone who needs a day on the water.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boatlife",
+     "#madeiraisland",
+     "#visitmadeira",
+     "#insta360",
+     "#cabogirao"
+    ],
+    "fb": "Salt in your hair, cliffs on the horizon, a wake behind us. Share it with someone who needs a day on the water.",
+    "threads": "salt in your hair, cliffs on the horizon, a wake behind us. share it with someone who needs a day on the water.",
+    "yt_title": "Salt in your hair | Madeira boat trip #Shorts",
+    "yt_description": "Salt in your hair, cliffs on the horizon, a wake behind us.\nThis is what the boat feels like when we pick up the pace.\nShare it with someone who needs a day on the water.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boatlife",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "salt in your hair #madeira #funchal #boatlife #madeiraisland #visitmadeira #insta360 #cabogirao",
+    "alt": "salt in your hair: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r07-5e9b321f.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r07-5e9b321f-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r07-5e9b321f-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r07-5e9b321f-cover.jpg",
+    "duration": 13.87,
+    "bytes": 22013157,
+    "shots": [
+     {
+      "name": "VID_20261029_160620_00_161",
+      "in": 2.0,
+      "out": 5.46,
+      "seconds": 3.46,
+      "speed": 1.0,
+      "what": "salt in your hair"
+     },
+     {
+      "name": "VID_20261029_160809_00_164",
+      "in": 6.0,
+      "out": 9.46,
+      "seconds": 3.46,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_161010_00_167",
+      "in": 12.0,
+      "out": 15.46,
+      "seconds": 3.46,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_151538_00_157",
+      "in": 40.0,
+      "out": 43.46,
+      "seconds": 3.46,
+      "speed": 1.0,
+      "what": ""
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r08",
+   "format": "above",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "DJI_20261029144207_0011_D",
+     "start": 46.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "the swim stop, from above",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029152508_0017_D",
+     "start": 33.5,
+     "len": 2.5,
+     "speed": 0.5,
+     "what": "last one in",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029152508_0017_D",
+     "start": 38.0,
+     "len": 7.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    }
+   ],
+   "music": "day",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "the swim stop, from above",
+    "labels": [],
+    "thumb": "the swim stop, from above",
+    "ig": "The swim stop, seen by our drone.\nDrone footage comes with every trip when the weather allows.\nWould you jump first or last?",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#dronevideo",
+     "#swimstop",
+     "#boattrip",
+     "#madeiraisland",
+     "#fajadospadres"
+    ],
+    "fb": "The swim stop from above. Drone footage comes with every trip when the weather allows. Jump first or last?",
+    "threads": "the swim stop from above. drone footage comes with every trip when the weather allows. jump first or last?",
+    "yt_title": "The swim stop, from above | Madeira boat trip #Shorts",
+    "yt_description": "The swim stop, seen by our drone.\nDrone footage comes with every trip when the weather allows.\nWould you jump first or last?\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #dronevideo",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "the swim stop, from above #madeira #funchal #dronevideo #swimstop #boattrip #madeiraisland #fajadospadres",
+    "alt": "the swim stop, from above: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r08-d0bb389c.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r08-d0bb389c-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r08-d0bb389c-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r08-d0bb389c-cover.jpg",
+    "duration": 15.02,
+    "bytes": 22734815,
+    "shots": [
+     {
+      "name": "DJI_20261029144207_0011_D",
+      "in": 46.0,
+      "out": 49.0,
+      "seconds": 3.0,
+      "speed": 1.0,
+      "what": "the swim stop, from above"
+     },
+     {
+      "name": "DJI_20261029152508_0017_D",
+      "in": 33.5,
+      "out": 36.0,
+      "seconds": 2.5,
+      "speed": 0.5,
+      "what": "last one in"
+     },
+     {
+      "name": "DJI_20261029152508_0017_D",
+      "in": 38.0,
+      "out": 45.0,
+      "seconds": 7.0,
+      "speed": 1.0,
+      "what": ""
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r09",
+   "format": "table",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "VID_20261029_143834_00_151",
+     "start": 100.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "snack table with a view",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_143834_00_151",
+     "start": 126.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "VID_20261029_142442_00_148",
+     "start": 670.0,
+     "len": 3.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "360"
+     ]
+    }
+   ],
+   "music": "day",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "snack table with a view",
+    "labels": [],
+    "thumb": "snack table with a view",
+    "ig": "Snack table with a view.\nFood and drinks on board, cliffs in front of you and no rush.\nWhat would you put on the table?",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boatlife",
+     "#madeiraisland",
+     "#cabogirao",
+     "#privateboat",
+     "#visitmadeira"
+    ],
+    "fb": "Snack table with a view. Food and drinks are on board on every trip. What would you put on the table?",
+    "threads": "snack table with a view. food and drinks are on board on every trip. what would you put on the table?",
+    "yt_title": "Snack table with a view | Madeira boat trip #Shorts",
+    "yt_description": "Snack table with a view.\nFood and drinks on board, cliffs in front of you and no rush.\nWhat would you put on the table?\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boatlife",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "snack table with a view #madeira #funchal #boatlife #madeiraisland #cabogirao #privateboat #visitmadeira",
+    "alt": "snack table with a view: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r09-e16d6558.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r09-e16d6558-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r09-e16d6558-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r09-e16d6558-cover.jpg",
+    "duration": 9.0,
+    "bytes": 14515437,
+    "shots": [
+     {
+      "name": "VID_20261029_143834_00_151",
+      "in": 100.0,
+      "out": 103.0,
+      "seconds": 3.0,
+      "speed": 1.0,
+      "what": "snack table with a view"
+     },
+     {
+      "name": "VID_20261029_143834_00_151",
+      "in": 126.0,
+      "out": 129.0,
+      "seconds": 3.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "VID_20261029_142442_00_148",
+      "in": 670.0,
+      "out": 673.0,
+      "seconds": 3.0,
+      "speed": 1.0,
+      "what": ""
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
+  },
+  {
+   "id": "b1029-r10",
+   "format": "afternoon",
+   "status": "rendered",
+   "created": "2026-10-30",
+   "batch": "2026-10-29",
+   "shots": [
+    {
+     "file_id": null,
+     "name": "VID_20261029_161150_00_168",
+     "start": 0.0,
+     "len": 4.0,
+     "speed": 1.0,
+     "what": "pov: nobody wants to turn back yet",
+     "tags": [
+      "360"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029144533_0014_D",
+     "start": 3.0,
+     "len": 4.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    },
+    {
+     "file_id": null,
+     "name": "DJI_20261029144504_0013_D",
+     "start": 5.0,
+     "len": 4.0,
+     "speed": 1.0,
+     "what": "",
+     "tags": [
+      "drone"
+     ]
+    }
+   ],
+   "music": "fun",
+   "audio": "sea",
+   "cta": "",
+   "light": "day",
+   "recorded": "2026-10-29",
+   "texts": {
+    "hook": "pov: nobody wants to turn back yet",
+    "labels": [],
+    "thumb": "pov: nobody wants to turn back yet",
+    "ig": "Nobody wants to turn back yet.\nA swim, a huge cliff, a quiet corner of the coast, and the afternoon just keeps going.\nSave this for your next day off. ☀️",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#madeiraisland",
+     "#oceanswim",
+     "#visitmadeira",
+     "#privateboat"
+    ],
+    "fb": "Nobody wants to turn back yet. A swim, a huge cliff, a quiet corner of the coast and an afternoon that keeps going.",
+    "threads": "nobody wants to turn back yet. a swim, a huge cliff, a quiet corner of the coast and an afternoon that keeps going.",
+    "yt_title": "POV: nobody wants to turn back yet | Madeira boat trip #Shorts",
+    "yt_description": "Nobody wants to turn back yet.\nA swim, a huge cliff, a quiet corner of the coast, and the afternoon just keeps going.\nSave this for your next day off. ☀️\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao",
+     "madeira island",
+     "funchal boat tour",
+     "private boat funchal",
+     "madeira drone"
+    ],
+    "tiktok": "pov: nobody wants to turn back yet #madeira #funchal #boattrip #madeiraisland #oceanswim #visitmadeira #privateboat",
+    "alt": "pov: nobody wants to turn back yet: a private boat trip off Funchal, Madeira."
+   },
+   "qa": {
+    "ok": true,
+    "score": null,
+    "problems": [],
+    "model": "checked by eye (Claude), 30 Oct 2026"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r10-a293dd31.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r10-a293dd31-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r10-a293dd31-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r10-a293dd31-cover.jpg",
+    "duration": 12.01,
+    "bytes": 19298437,
+    "shots": [
+     {
+      "name": "VID_20261029_161150_00_168",
+      "in": 0.0,
+      "out": 4.0,
+      "seconds": 4.0,
+      "speed": 1.0,
+      "what": "pov: nobody wants to turn back yet"
+     },
+     {
+      "name": "DJI_20261029144533_0014_D",
+      "in": 3.0,
+      "out": 7.0,
+      "seconds": 4.0,
+      "speed": 1.0,
+      "what": ""
+     },
+     {
+      "name": "DJI_20261029144504_0013_D",
+      "in": 5.0,
+      "out": 9.0,
+      "seconds": 4.0,
+      "speed": 1.0,
+      "what": ""
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-10-30T10:08:19Z"
+   }
   }
  ]
 }
