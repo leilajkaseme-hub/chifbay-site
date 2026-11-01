@@ -665,7 +665,10 @@
       "bytes": 6884096,
       "source": "IMG_2869.MOV",
       "driveId": "1Qq9qJ8WxAQ0Ck837dgZQqKlJZefjWY3j",
-      "added": "2026-10-21T09:32:36.290Z"
+      "added": "2026-10-21T09:32:36.290Z",
+      "used": {
+        "story": 1793533045729
+      }
     },
     {
       "clip": "ig/reel-17MYCmyK-1.mp4",
