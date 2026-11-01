@@ -689,7 +689,10 @@
       "bytes": 8767098,
       "source": "IMG_2885.MOV",
       "driveId": "1mYBxivAddrEw4ayvb3SARnk3frvs3knu",
-      "added": "2026-10-21T09:33:27.917Z"
+      "added": "2026-10-21T09:33:27.917Z",
+      "used": {
+        "story": 1793496685720
+      }
     },
     {
       "clip": "ig/reel-14DRAr1P-1.mp4",
@@ -701,7 +704,10 @@
       "bytes": 7302700,
       "source": "IMG_2870.MOV",
       "driveId": "14DRAr1PXazrURM1ExSbXQROVChcwvPfv",
-      "added": "2026-10-21T09:33:57.556Z"
+      "added": "2026-10-21T09:33:57.556Z",
+      "used": {
+        "story": 1793496685716
+      }
     }
   ]
 }
