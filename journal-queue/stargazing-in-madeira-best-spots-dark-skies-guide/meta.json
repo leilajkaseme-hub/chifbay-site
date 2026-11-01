@@ -1,0 +1,36 @@
+{
+  "slug": "stargazing-in-madeira-best-spots-dark-skies-guide",
+  "title": "Stargazing in Madeira: Best Spots, Seasons and Dark Skies",
+  "category": "Nature",
+  "date": "2026-11-15",
+  "description": "Where to see the stars in Madeira: the best dark sky spots, the clearest seasons, what to bring and why dusk at sea is a beautiful first act. Plan your night.",
+  "heroImage": "assets/journal/stargazing-in-madeira-best-spots-dark-skies-guide-hero.jpg",
+  "heroAlt": "The night sky full of stars above the mountains of Madeira",
+  "readingMinutes": 5,
+  "keywords": [
+    "stargazing in Madeira",
+    "Madeira dark sky",
+    "Milky Way Madeira",
+    "Paul da Serra stargazing",
+    "Pico do Arieiro at night",
+    "best time to see stars Madeira",
+    "Madeira night sky",
+    "sunset boat trip Madeira"
+  ],
+  "written": "2026-11-15",
+  "queued": "2026-11-01T09:18:43.391Z",
+  "images": [
+    {
+      "prompt": "A real-looking wide photograph of the Milky Way and thousands of stars over the dark mountain ridges of Madeira's Paul da Serra plateau at night, with a faint glow of Funchal on the horizon.",
+      "alt": "The night sky full of stars above the mountains of Madeira"
+    },
+    {
+      "prompt": "A photograph of the Pico do Arieiro summit ridge at dusk with the last orange light on the clouds below and the first stars appearing above.",
+      "alt": "Dusk over the Pico do Arieiro summit with the first stars appearing"
+    },
+    {
+      "prompt": "A photograph at dusk of a small white private motorboat on a calm sea off the Madeira coast, with the cliffs dark against a purple sky and Venus shining above.",
+      "alt": "A small white boat on calm water at dusk off the Madeira coast"
+    }
+  ]
+}
