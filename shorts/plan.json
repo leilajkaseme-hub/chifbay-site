@@ -1113,7 +1113,7 @@
     "model": "gemini-3.5-flash"
    },
    "format": "story",
-   "status": "rendered",
+   "status": "failed",
    "created": "2026-10-21",
    "audio": "sea",
    "by": "claude (contact sheets)",
@@ -1124,85 +1124,13 @@
     "model": "gemini-3.6-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s011-55f76425-thumb.jpg",
-    "duration": 15.0,
-    "bytes": 15839196,
-    "shots": [
-     {
-      "name": "DJI_20260606200425_0015_D.MP4",
-      "in": 0.5,
-      "out": 4.1,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.125,
-       0.263,
-       0.311,
-       0.394
-      ],
-      "what": "huge sea cliffs above deep blue water"
-     },
-     {
-      "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 18.0,
-      "out": 21.6,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.669,
-       0.683,
-       0.65,
-       0.585
-      ],
-      "what": "the boat side on, a skipper at the helm, deep blue water"
-     },
-     {
-      "name": "DJI_20260811102748_0004_D.MP4",
-      "in": 0.5,
-      "out": 4.3,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.8,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.48,
-       0.428,
-       0.311,
-       0.323
-      ],
-      "what": "the boat with guests in a turquoise cove"
-     },
-     {
-      "name": "DJI_20260606200425_0015_D.MP4",
-      "in": 66.0,
-      "out": 68.0,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 4.0,
-      "speed": 0.5,
-      "tracked": true,
-      "path": [
-       0.561,
-       0.599
-      ],
-      "what": "low pass over guests at the deck table, slow motion"
-     }
-    ],
     "checks": {
-     "ok": true,
-     "problems": []
+     "ok": false,
+     "problems": [
+      "ffmpeg failed: [out#0/mp4 @ 0x5cfc36763980] Output with label '0:v' does not exist in any defined filter graph, or was already used elsewhere.\nError opening output file /tmp/tmpq07aek2u/master.mp4.\nError opening output files: Invalid argument\n"
+     ]
     },
-    "at": "2026-10-21T23:33:23Z"
+    "at": "2026-11-02T20:44:17Z"
    }
   },
   {
@@ -1509,7 +1437,7 @@
     "model": "gemini-3.5-flash"
    },
    "format": "story",
-   "status": "rendered",
+   "status": "failed",
    "created": "2026-10-21",
    "audio": "sea",
    "by": "claude (contact sheets)",
@@ -1520,82 +1448,13 @@
     "model": "gemini-3.7-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s013-b7fcc96c-thumb.jpg",
-    "duration": 14.8,
-    "bytes": 15896577,
-    "shots": [
-     {
-      "name": "DJI_20260606200017_0014_D.MP4",
-      "in": 1.0,
-      "out": 4.6,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.435,
-       0.428,
-       0.44,
-       0.42
-      ],
-      "what": "the boat backlit by the low evening sun"
-     },
-     {
-      "name": "DJI_20260601205023_0010_D.MP4",
-      "in": 14.5,
-      "out": 18.1,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.458,
-       0.509,
-       0.593,
-       0.744
-      ],
-      "what": "the sun flares beside the cliffs, the camera finds the boat"
-     },
-     {
-      "name": "DJI_20260601205023_0010_D.MP4",
-      "in": 85.0,
-      "out": 88.8,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.8,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.913,
-       0.778,
-       0.598,
-       0.492
-      ],
-      "what": "the boat in the path of the sun's reflection"
-     },
-     {
-      "name": "DJI_20260601205023_0010_D.MP4",
-      "in": 21.0,
-      "out": 24.8,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.8,
-      "speed": 1.0,
-      "tracked": false,
-      "path": null,
-      "what": "the sun over the sea, the cliffs on the right"
-     }
-    ],
     "checks": {
-     "ok": true,
-     "problems": []
+     "ok": false,
+     "problems": [
+      "ffmpeg failed: [out#0/mp4 @ 0x62d09ba77980] Output with label '0:v' does not exist in any defined filter graph, or was already used elsewhere.\nError opening output file /tmp/tmp19p5xh2v/master.mp4.\nError opening output files: Invalid argument\n"
+     ]
     },
-    "at": "2026-10-21T23:37:56Z"
+    "at": "2026-11-02T20:46:52Z"
    }
   },
   {
@@ -1715,7 +1574,7 @@
     "model": "gemini-3.6-flash"
    },
    "format": "story",
-   "status": "rendered",
+   "status": "failed",
    "created": "2026-10-21",
    "audio": "sea",
    "by": "claude (contact sheets)",
@@ -1726,85 +1585,13 @@
     ]
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s014-ba04ef03-thumb.jpg",
-    "duration": 14.6,
-    "bytes": 15652243,
-    "shots": [
-     {
-      "name": "DJI_20260811111635_0005_D.MP4",
-      "in": 30.5,
-      "out": 32.3,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 0.5,
-      "tracked": true,
-      "path": [
-       0.744,
-       0.855
-      ],
-      "what": "the boat at speed with the red cliffs behind, slow motion"
-     },
-     {
-      "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 50.0,
-      "out": 53.6,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.337,
-       0.29,
-       0.255,
-       0.213
-      ],
-      "what": "the boat with guests in turquoise water under a red cliff"
-     },
-     {
-      "name": "DJI_20260812144130_0009_D.MP4",
-      "in": 10.5,
-      "out": 14.1,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.683,
-       0.613,
-       0.647,
-       0.709
-      ],
-      "what": "from above: a guest on the paddle board and a swimmer"
-     },
-     {
-      "name": "DJI_20260811102748_0004_D.MP4",
-      "in": 56.0,
-      "out": 59.8,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.8,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.661,
-       0.68,
-       0.69,
-       0.684
-      ],
-      "what": "the boat from the front, guests on deck, cliff behind"
-     }
-    ],
     "checks": {
-     "ok": true,
-     "problems": []
+     "ok": false,
+     "problems": [
+      "ffmpeg failed: [out#0/mp4 @ 0x61d918c5e980] Output with label '0:v' does not exist in any defined filter graph, or was already used elsewhere.\nError opening output file /tmp/tmp5c1_dun7/master.mp4.\nError opening output files: Invalid argument\n"
+     ]
     },
-    "at": "2026-10-21T23:45:21Z"
+    "at": "2026-11-02T20:50:37Z"
    }
   },
   {
@@ -2013,7 +1800,7 @@
     "alt": "Footage from a boat cruising along high red cliffs in Madeira, with guests swimming and paddle boarding in clear turquoise water.",
     "model": "gemini-3.6-flash"
    },
-   "status": "rendered",
+   "status": "failed",
    "created": "2026-10-22",
    "audio": "sea",
    "by": "claude (contact sheets)",
@@ -2024,153 +1811,19 @@
     "model": "gemini-3.8-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s015-7ecd7e7e-thumb.jpg",
-    "duration": 11.5,
-    "bytes": 12460915,
-    "shots": [
-     {
-      "name": "DJI_20260811111635_0005_D.MP4",
-      "in": 37.0,
-      "out": 37.75,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.5,
-      "speed": 0.5,
-      "tracked": true,
-      "path": [
-       0.66
-      ],
-      "what": "the boat at full speed with the red cliffs behind, slow motion"
-     },
-     {
-      "name": "814009287.314303_48561792316499.mp4",
-      "in": 14.0,
-      "out": 15.5,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.5,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.517,
-       0.505
-      ],
-      "what": "the group laughing on the boat at full speed"
-     },
-     {
-      "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 55.0,
-      "out": 56.0,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.14
-      ],
-      "what": "the boat with guests in turquoise water under a red cliff"
-     },
-     {
-      "name": "DJI_20260812144130_0009_D.MP4",
-      "in": 40.0,
-      "out": 41.0,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.812
-      ],
-      "what": "from above: swimmers and the paddle board"
-     },
-     {
-      "name": "DJI_20260812144130_0009_D.MP4",
-      "in": 25.5,
-      "out": 26.5,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.574
-      ],
-      "what": "from above: a swimmer in deep blue water"
-     },
-     {
-      "name": "DJI_20260811102748_0004_D.MP4",
-      "in": 30.0,
-      "out": 31.0,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.367
-      ],
-      "what": "the boat in a turquoise cove"
-     },
-     {
-      "name": "DJI_20260606200425_0015_D.MP4",
-      "in": 60.0,
-      "out": 61.0,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.598
-      ],
-      "what": "the boat from behind on deep blue water"
-     },
-     {
-      "name": "814009287.314303_48561792316499.mp4",
-      "in": 47.0,
-      "out": 48.5,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 1.5,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.498,
-       0.524
-      ],
-      "what": "the boat at full speed with spray, the group laughing"
-     },
-     {
-      "name": "DJI_20260811111635_0005_D.MP4",
-      "in": 1.0,
-      "out": 2.0,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 2.0,
-      "speed": 0.5,
-      "tracked": true,
-      "path": [
-       0.323
-      ],
-      "what": "the boat at full speed side on, clear sky, slow motion"
-     }
-    ],
     "checks": {
-     "ok": true,
-     "problems": []
+     "ok": false,
+     "problems": [
+      "ffmpeg failed: [out#0/mp4 @ 0x6440c06899c0] Output with label '0:v' does not exist in any defined filter graph, or was already used elsewhere.\nError opening output file /tmp/tmpjxrbcekq/master.mp4.\nError opening output files: Invalid argument\n"
+     ]
     },
-    "at": "2026-10-21T23:58:31Z"
+    "at": "2026-11-02T20:54:16Z"
    }
   },
   {
    "id": "s016",
    "format": "story",
-   "status": "rendered",
+   "status": "failed",
    "created": "2026-10-22",
    "shots": [
     {
@@ -2305,93 +1958,19 @@
     "model": "gemini-3.6-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s016-a091981b-thumb.jpg",
-    "duration": 14.4,
-    "bytes": 15344314,
-    "shots": [
-     {
-      "name": "video 1.MP4",
-      "in": 267.02,
-      "out": 270.62,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.349,
-       0.381,
-       0.246,
-       0.27
-      ],
-      "what": "Guest standing on the front deck looks up and waves directly to the drone flying low above."
-     },
-     {
-      "name": "video 1.MP4",
-      "in": 290.02,
-      "out": 293.62,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.513,
-       0.529,
-       0.561,
-       0.562
-      ],
-      "what": "Guest sitting down on the bow sunbed pad and waving to the overhead camera."
-     },
-     {
-      "name": "video 2.MP4",
-      "in": 15.02,
-      "out": 18.62,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.572,
-       0.573,
-       0.563,
-       0.553
-      ],
-      "what": "Aerial glide directly above the volcanic pools and turquoise water."
-     },
-     {
-      "name": "video 1.MP4",
-      "in": 218.02,
-      "out": 221.62,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.704,
-       0.718,
-       0.738,
-       0.742
-      ],
-      "what": "Aerial drone approach flying closer over the white motorboat on blue sea."
-     }
-    ],
     "checks": {
-     "ok": true,
-     "problems": []
+     "ok": false,
+     "problems": [
+      "ffmpeg failed: [out#0/mp4 @ 0x588217c94980] Output with label '0:v' does not exist in any defined filter graph, or was already used elsewhere.\nError opening output file /tmp/tmphf3xjlva/master.mp4.\nError opening output files: Invalid argument\n"
+     ]
     },
-    "at": "2026-10-22T18:10:07Z"
+    "at": "2026-11-02T20:56:13Z"
    }
   },
   {
    "id": "s017",
    "format": "story",
-   "status": "rendered",
+   "status": "failed",
    "created": "2026-10-24",
    "shots": [
     {
@@ -2530,87 +2109,13 @@
     "model": "gemini-3.7-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0f8ff783-thumb.jpg",
-    "duration": 14.4,
-    "bytes": 15403711,
-    "shots": [
-     {
-      "name": "DJI_20260604202235_0011_D.MP4",
-      "in": 18.52,
-      "out": 22.12,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.657,
-       0.548,
-       0.508,
-       0.456
-      ],
-      "what": "Top-down overhead drone shot sweeping directly over the boat revealing guests sitting with food and drinks."
-     },
-     {
-      "name": "DJI_20260517161057_0006_D.MP4",
-      "in": 72.02,
-      "out": 75.62,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.459,
-       0.459,
-       0.465,
-       0.468
-      ],
-      "what": "Camera tilts up while tracking the boat at speed to reveal the coastline and cliffs of Madeira across the blue water"
-     },
-     {
-      "name": "DJI_20260517161057_0006_D.MP4",
-      "in": 320.02,
-      "out": 323.62,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.604,
-       0.604,
-       0.604,
-       0.598
-      ],
-      "what": "Close aerial pass as the skipper in red waves enthusiastically up at the drone while steering the boat"
-     },
-     {
-      "name": "DJI_20260517161057_0006_D.MP4",
-      "in": 97.02,
-      "out": 100.62,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 3.6,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.455,
-       0.453,
-       0.448,
-       0.439
-      ],
-      "what": "Boat banks into a turn, carving a white arced wake across the deep blue sea"
-     }
-    ],
     "checks": {
-     "ok": true,
-     "problems": []
+     "ok": false,
+     "problems": [
+      "ffmpeg failed: [out#0/mp4 @ 0x61dcec506980] Output with label '0:v' does not exist in any defined filter graph, or was already used elsewhere.\nError opening output file /tmp/tmps1k9nd7o/master.mp4.\nError opening output files: Invalid argument\n"
+     ]
     },
-    "at": "2026-10-24T17:04:15Z"
+    "at": "2026-11-02T20:58:41Z"
    }
   },
   {
@@ -2797,7 +2302,7 @@
   {
    "id": "s019",
    "format": "highlight",
-   "status": "rendered",
+   "status": "failed",
    "created": "2026-10-25",
    "shots": [
     {
@@ -2866,40 +2371,13 @@
     "model": "gemini-3.6-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s019-6d48dcb8-thumb.jpg",
-    "duration": 7.67,
-    "bytes": 8548473,
-    "shots": [
-     {
-      "name": "video 1.MP4",
-      "in": 232.0,
-      "out": 239.65,
-      "grade": "daylight",
-      "matched": true,
-      "seconds": 7.65,
-      "speed": 1.0,
-      "tracked": true,
-      "path": [
-       0.634,
-       0.646,
-       0.631,
-       0.589,
-       0.565,
-       0.532,
-       0.478,
-       0.406
-      ],
-      "what": "Close-up aerial flyover over the bow of the boat."
-     }
-    ],
     "checks": {
-     "ok": true,
-     "problems": []
+     "ok": false,
+     "problems": [
+      "ffmpeg failed: [out#0/mp4 @ 0x5c5d88205940] Output with label '0:v' does not exist in any defined filter graph, or was already used elsewhere.\nError opening output file /tmp/tmpaszrfde_/master.mp4.\nError opening output files: Invalid argument\n"
+     ]
     },
-    "at": "2026-10-25T17:17:04Z"
+    "at": "2026-11-02T20:59:50Z"
    }
   },
   {
