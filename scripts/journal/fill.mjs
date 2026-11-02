@@ -19,6 +19,17 @@ import { join } from "node:path";
 import { eventBrief } from "./events.mjs";
 import { POSTS_JSON, QUEUE, ROOT, ntfy, queueItems, readPosts, today } from "./lib.mjs";
 
+// One line per Claude call with its tokens and cost, read from `claude -p --output-format json` (paid by the API key).
+function logUsage(label, stdout) {
+  try {
+    const j = JSON.parse(String(stdout || "").trim().split("\n").filter(Boolean).pop());
+    const u = j.usage || {};
+    console.log(`USAGE ${label} input=${u.input_tokens || 0} cache_write=${u.cache_creation_input_tokens || 0} ` +
+      `cache_read=${u.cache_read_input_tokens || 0} output=${u.output_tokens || 0} cost_usd=${(j.total_cost_usd || 0).toFixed(3)}`);
+    return j.result || "";
+  } catch { return String(stdout || ""); }
+}
+
 const arg = (k, d) => (process.argv.includes(k) ? Number(process.argv[process.argv.indexOf(k) + 1]) : d);
 const TARGET = arg("--target", 14);
 const MAX = arg("--max", 2);
@@ -86,10 +97,10 @@ function writeOne(day) {
   const known = new Set([...posts, ...queued.map((q) => q.meta)].map((p) => p.slug));
 
   const prompt = preface(day, queued, readPosts().slice(0, 40)) + readFileSync(join(ROOT, "scripts/blog-local/BLOG-INSTRUCTIONS.md"), "utf8");
-  const run = spawnSync("claude", ["-p", prompt, "--permission-mode", "acceptEdits",
+  const run = spawnSync("claude", ["-p", prompt, "--output-format", "json", "--permission-mode", "acceptEdits",
     "--allowedTools", "Read", "Write", "Edit", "Glob", "Grep", "WebSearch", "WebFetch"],
   { cwd: ROOT, encoding: "utf8", timeout: 20 * 60_000, maxBuffer: 20 * 1024 * 1024 });
-  const out = `${run.stdout || ""}${run.stderr || ""}`.trim();
+  const out = `${logUsage("journal-fill", run.stdout)}${run.stderr || ""}`.trim();
 
   let wrote;
   try { wrote = readPosts().find((p) => !known.has(p.slug)); } catch { wrote = null; }

@@ -53,6 +53,17 @@ import { fileURLToPath } from "node:url";
 import { postUrl } from "./post-url.mjs";
 import { skeleton, editableText, articleOf, words, imgSrcs, bgSrcs, ldShape, deadLinks } from "./lib/native-guard.mjs";
 
+// One line per Claude call with its tokens and cost, read from `claude -p --output-format json` (paid by the API key).
+function logUsage(label, stdout) {
+  try {
+    const j = JSON.parse(String(stdout || "").trim().split("\n").filter(Boolean).pop());
+    const u = j.usage || {};
+    console.log(`USAGE ${label} input=${u.input_tokens || 0} cache_write=${u.cache_creation_input_tokens || 0} ` +
+      `cache_read=${u.cache_read_input_tokens || 0} output=${u.output_tokens || 0} cost_usd=${(j.total_cost_usd || 0).toFixed(3)}`);
+    return j.result || "";
+  } catch { return String(stdout || ""); }
+}
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const BASE = "https://chifbay.com";
 const EN_POSTS = path.join(ROOT, "posts");
@@ -221,12 +232,12 @@ function translateOne(slug, lang) {
     "Write the file with the Write tool. Do not print the HTML in your reply.",
   ].join("\n");
 
-  execFileSync(
+  logUsage(`posts-i18n ${lang}/${slug}`, execFileSync(
     "claude",
-    ["-p", prompt, "--permission-mode", "acceptEdits",
+    ["-p", prompt, "--output-format", "json", "--permission-mode", "acceptEdits",
      "--allowedTools", "Read", "Write"],
-    { cwd: ROOT, stdio: "inherit", timeout: 15 * 60 * 1000 },
-  );
+    { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "inherit"], timeout: 15 * 60 * 1000, maxBuffer: 20 * 1024 * 1024 },
+  ));
 
   if (!fs.existsSync(out)) throw new Error(`claude did not write ${lang}/posts/${slug}.html`);
 
@@ -391,12 +402,12 @@ function writeNative(slug, lang, queries = []) {
   const txt = path.join(OUT_DIR, `${lang}-${slug}.txt`);
   if (fs.existsSync(txt)) fs.unlinkSync(txt);
 
-  execFileSync(
+  logUsage(`posts-native ${lang}/${slug}`, execFileSync(
     "claude",
-    ["-p", brief(slug, lang, queries), "--permission-mode", "acceptEdits",
+    ["-p", brief(slug, lang, queries), "--output-format", "json", "--permission-mode", "acceptEdits",
      "--allowedTools", "Read", "Write"],
-    { cwd: ROOT, stdio: "inherit", timeout: 15 * 60 * 1000 },
-  );
+    { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "inherit"], timeout: 15 * 60 * 1000, maxBuffer: 20 * 1024 * 1024 },
+  ));
   if (!fs.existsSync(txt)) throw new Error("claude wrote no text file");
 
   const t = readSections(txt);
