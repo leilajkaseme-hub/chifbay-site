@@ -1,0 +1,37 @@
+{
+  "slug": "top-10-places-madeira-southwest-coast",
+  "title": "Top 10 Places on Madeira's Southwest Coast, From Câmara de Lobos to Paul do Mar",
+  "category": "Top 10",
+  "date": "2026-11-18",
+  "description": "The 10 best places on Madeira's sunny southwest coast, from Câmara de Lobos and Cabo Girão to Fajã dos Padres, Ponta do Sol and the surf at Paul do Mar.",
+  "heroImage": "assets/exp-coastal.jpg",
+  "heroAlt": "The colourful fishing village of Câmara de Lobos at golden hour seen from the water",
+  "readingMinutes": 6,
+  "keywords": [
+    "Madeira southwest coast",
+    "best places west of Funchal",
+    "Câmara de Lobos to Ponta do Sol",
+    "Cabo Girão from the sea",
+    "Fajã dos Padres",
+    "Ponta do Sol Madeira",
+    "Calheta beach Madeira",
+    "Paul do Mar and Jardim do Mar",
+    "Madeira coast boat trip"
+  ],
+  "written": "2026-11-18",
+  "queued": "2026-11-02T01:10:27.431Z",
+  "images": [
+    {
+      "prompt": "A wide landscape photograph of Madeira's southwest coast seen from the sea in warm late-afternoon light, with the colourful houses of Câmara de Lobos in the foreground and the sheer basalt wall of Cabo Girão rising behind it, deep blue Atlantic water below.",
+      "alt": "Câmara de Lobos and the Cabo Girão cliff seen from the sea on Madeira's southwest coast"
+    },
+    {
+      "prompt": "A small white private motorboat anchored in clear turquoise water off the pebble beach of Fajã dos Padres, Madeira, with green terraces and towering cliffs behind it, bright midday sun, seen from slightly above.",
+      "alt": "A small white boat anchored off the pebble beach at Fajã dos Padres under the cliffs"
+    },
+    {
+      "prompt": "The whitewashed village of Ponta do Sol in Madeira at golden hour, seen from the water, with its short pier, pebble beach and houses climbing the green hillside, calm sea in the foreground.",
+      "alt": "Ponta do Sol village and pier at golden hour seen from the sea"
+    }
+  ]
+}
