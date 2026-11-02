@@ -74,7 +74,7 @@ jobs:
         env:
           # Claude API credits (pay per use), not the Claude subscription (Theo, 2 Nov 2026)
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          ANTHROPIC_MODEL: claude-opus-5-5
+          ANTHROPIC_MODEL: claude-sonnet-5-5  # translations: Sonnet, much cheaper than Opus (Theo, 2 Nov: "so expensive")
           BUDGET: ${{ github.event.inputs.budget || '8' }}
           LANG_ARG: ${{ github.event.inputs.lang || '' }}
         run: |
