@@ -68,7 +68,9 @@ jobs:
 
       - name: Rewrite
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Claude API credits (pay per use), not the Claude subscription (Theo, 2 Nov 2026)
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: claude-opus-5-5
           BUDGET: ${{ github.event.inputs.budget || '6' }}
           LANG_ARG: ${{ github.event.inputs.lang || '' }}
           SLUG_ARG: ${{ github.event.inputs.slug || '' }}

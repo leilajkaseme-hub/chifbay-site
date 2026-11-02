@@ -61,7 +61,9 @@ jobs:
       - name: Queue empty, write one post now
         if: steps.pub.outputs.state == 'EMPTY'
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Claude API credits (pay per use), not the Claude subscription (Theo, 2 Nov 2026)
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: claude-opus-5-5
         run: |
           npm install -g @anthropic-ai/claude-code
           node scripts/journal/fill.mjs --today --max 1 --target 1

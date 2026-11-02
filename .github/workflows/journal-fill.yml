@@ -45,7 +45,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
       - name: Write posts into the queue
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Claude API credits (pay per use), not the Claude subscription (Theo, 2 Nov 2026)
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: claude-opus-5-5
         run: node scripts/journal/fill.mjs --max "${{ github.event.inputs.max || '2' }}"
       - name: Commit & push
         run: |
