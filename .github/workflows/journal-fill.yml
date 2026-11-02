@@ -13,6 +13,9 @@ on:
       max:
         description: "posts to write this run"
         default: "2"
+      target:
+        description: "fill the queue up to this many posts"
+        default: "14"
 
 permissions:
   contents: write
@@ -48,7 +51,7 @@ jobs:
           # Claude API credits (pay per use), not the Claude subscription (Theo, 2 Nov 2026)
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ANTHROPIC_MODEL: claude-opus-5-5
-        run: node scripts/journal/fill.mjs --max "${{ github.event.inputs.max || '2' }}"
+        run: node scripts/journal/fill.mjs --max "${{ github.event.inputs.max || '2' }}" --target "${{ github.event.inputs.target || '14' }}"
       - name: Commit & push
         run: |
           git add journal-queue
