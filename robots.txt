@@ -1,55 +1,68 @@
 User-agent: *
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 Disallow: /README.md
 
 User-agent: GPTBot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: ChatGPT-User
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: CCBot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: Claude-SearchBot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: Claude-User
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: Applebot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 
 User-agent: Bingbot
 Allow: /
 Disallow: /journal-queue/
+Disallow: /portal
 Disallow: /README.md
 
 Sitemap: https://chifbay.com/sitemap.xml
