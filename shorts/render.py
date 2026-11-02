@@ -381,6 +381,9 @@ def build(v, moments, tmp):
             inputs += ["-loop", "1", "-i", str(lp)]
             fc += [f"[{n}:v]format=rgba[l{i}]", f"[{last}][l{i}]overlay=0:0:shortest=1:enable='between(t,{a:.2f},{b - 0.05:.2f})'[w{i}]"]
             last, n, cursor = f"w{i}", n + 1, b
+    if last == "0:v":                      # no words on screen: a plain pass so the output has a label
+        fc.append("[0:v]null[vplain]")
+        last = "vplain"
     # sound: music made for this video over the sea (or over the clip's own voices), brought to -14 LUFS
     mus = tmp / "music.wav"
     music(v.get("music", "day"), mus)
