@@ -2391,7 +2391,7 @@
   {
    "id": "s017",
    "format": "story",
-   "status": "failed",
+   "status": "rendered",
    "created": "2026-10-24",
    "shots": [
     {
@@ -2524,20 +2524,18 @@
     "model": "gemini-3.6-flash"
    },
    "qa": {
-    "ok": false,
-    "score": 6,
-    "problems": [
-     "The caption mentions food served on board, but no food or food service is shown in the video."
-    ],
-    "model": "gemini-3.6-flash"
+    "ok": true,
+    "score": 8,
+    "problems": [],
+    "model": "gemini-3.8-flash"
    },
    "render": {
-    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0e27330a.mp4",
-    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0e27330a-p.mp4",
-    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0e27330a-cover.jpg",
-    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s017-0e27330a-thumb.jpg",
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s017-f5139e45.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s017-f5139e45-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s017-f5139e45-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s017-f5139e45-thumb.jpg",
     "duration": 14.33,
-    "bytes": 15371324,
+    "bytes": 15366395,
     "shots": [
      {
       "name": "DJI_20260604202235_0011_D.MP4",
@@ -2609,12 +2607,10 @@
      }
     ],
     "checks": {
-     "ok": false,
-     "problems": [
-      "second look: The caption mentions food served on board, but no food or food service is shown in the video."
-     ]
+     "ok": true,
+     "problems": []
     },
-    "at": "2026-11-02T21:35:40Z"
+    "at": "2026-11-02T21:49:36Z"
    }
   },
   {
