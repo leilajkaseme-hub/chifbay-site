@@ -122,7 +122,9 @@
     '/avis': '/reviews', '/testimonials': '/reviews',
     '/about-us': '/about', '/story': '/about',
     '/journal': '/blog', '/news': '/blog', '/posts': '/blog',
-    '/contact-us': '/contact'
+    '/contact-us': '/contact',
+    '/portal': '/portal/', '/portail': '/portal/', '/portal/comptabilite': '/portal/comptabilite/',
+    '/comptabilite': '/portal/comptabilite/', '/portal/instagram': '/portal/instagram/'
   };
   if (ALIASES[want]) { location.replace(ALIASES[want] + search + hash); return; }
   // Short review links typed with capitals (chifbay.com/Google, /TripAdvisor): straight to the review form.
