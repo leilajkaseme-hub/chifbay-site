@@ -125,6 +125,13 @@
     '/contact-us': '/contact'
   };
   if (ALIASES[want]) { location.replace(ALIASES[want] + search + hash); return; }
+  // Short review links typed with capitals (chifbay.com/Google, /TripAdvisor): straight to the review form.
+  var REVIEW = {
+    '/google': 'https://search.google.com/local/writereview?placeid=ChIJLUOnXLFhYAwRzK7dtdeu8Js',
+    '/tripadvisor': 'https://www.tripadvisor.com/UserReviewEdit-g189167-d34387047-ChifBay_Luxury_Yacht_Experiences_Madeira-Funchal_Madeira_Madeira_Islands.html'
+  };
+  REVIEW['/trip-advisor'] = REVIEW['/tripadvisor'];
+  if (REVIEW[want]) { location.replace(REVIEW[want]); return; }
 
   // Root itself should never land here, but be safe.
   if (want === '/') { location.replace('/' + search + hash); return; }
