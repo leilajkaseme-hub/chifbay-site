@@ -26,6 +26,9 @@ SANS = FONTS / "Inter-SemiBold.ttf"
 LOOK = read_json(SITE / "ig-auto" / "look.json", {})
 GOLD = (201, 164, 92)
 SEA = HERE / "assets" / "sea.m4a"
+# No words burned into the video (Theo, 2 Nov 2026: "stop being cringe... maybe no text at all"). The hook and labels stay
+# in plan.json for the captions; set True to bring the on-screen words back.
+ON_SCREEN_TEXT = False
 TEXT_X0, TEXT_X1 = 90, 990
 DURATION = {"fast": (8.0, 16.5), "story": (11.0, 19.5), "highlight": (4.5, 9.5), "montage": (7.5, 13.5), "pov": (6.0, 10.5), "list": (8.0, 12.5),
             "question": (4.5, 8.5), "loop": (3.5, 7.0), "bestof": (8.5, 13.5)}
@@ -351,7 +354,7 @@ def build(v, moments, tmp):
     # words: the hook (or the list title) for the first 2.8 s; list labels each on their own shot.
     # A POV story (Theo, 21 Oct 2026: "POV / story with text") has one line per shot instead, the first one "POV: ...".
     inputs, fc, last, n = ["-i", str(joined)], [], "0:v", 1
-    if v["format"] == "story":
+    if v["format"] == "story" and ON_SCREEN_TEXT:
         cursor = 0.0
         for i, (line, sh) in enumerate(zip(t.get("labels", []), log_shots)):
             a, b = cursor, cursor + sh["seconds"]
@@ -363,13 +366,13 @@ def build(v, moments, tmp):
                    f"[{last}][l{i}]overlay=0:0:shortest=1:enable='between(t,{a:.2f},{(b if i < len(log_shots) - 1 else total) - 0.05:.2f})'[w{i}]"]
             last, n, cursor = f"w{i}", n + 1, b
     hook_end = min(2.8, total - 0.6) if v["format"] != "list" else min(2.0, total - 0.6)
-    if v["format"] != "story":
+    if v["format"] != "story" and ON_SCREEN_TEXT:
         hp = tmp / "hook.png"
         serif_png(t["hook"], hp, 52, 300)
         inputs += ["-loop", "1", "-i", str(hp)]
         fc += [f"[{n}:v]format=rgba,fade=t=out:st={hook_end - 0.3}:d=0.3:alpha=1[h]", f"[{last}][h]overlay=0:0:shortest=1:enable='lte(t,{hook_end})'[v1]"]
         last, n = "v1", n + 1
-    if v["format"] == "list":
+    if v["format"] == "list" and ON_SCREEN_TEXT:
         cursor = 0.0
         for i, (lab, sh) in enumerate(zip(t.get("labels", []), log_shots)):
             a, b = max(cursor, hook_end + 0.1 if i == 0 else cursor), cursor + sh["seconds"]
@@ -400,22 +403,26 @@ def build(v, moments, tmp):
     preview = tmp / "preview.mp4"
     run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", str(master), "-vf", "scale=540:960", "-c:v", "libx264", "-crf", "27",
          "-preset", "slow", "-movflags", "+faststart", "-c:a", "aac", "-b:a", "64k", str(preview)])
-    # the clean cover: the sharpest frame around the payoff of the first shot, without words
+    # the clean cover = the best shot of the whole video (Theo, 2 Nov 2026: "thumbnail clean and best shot of the video"):
+    # 18 frames across the video, scored on sharpness, colour and good exposure; the same clean picture is the YouTube thumbnail.
     cover = tmp / "cover.jpg"
-    first = v["shots"][0]
-    at = min(total - 0.3, max(0.3, (first.get("peak", first["start"] + first["len"] / 2) - first["start"]) / max(first.get("speed", 1), 0.5)))
-    best, best_sharp = None, -1
-    for k, dt in enumerate((-0.4, -0.2, 0, 0.2, 0.4)):
+    best, best_score = None, -1.0
+    for k in range(18):
         fp = tmp / f"c{k}.jpg"
-        tt = min(total - 0.2, max(0.1, at + dt))
+        tt = 0.4 + (total - 0.8) * k / 17
         run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", f"{tt:.2f}", "-i", str(joined), "-frames:v", "1", "-q:v", "2", str(fp)])
-        g = np.asarray(Image.open(fp).convert("L").resize((270, 480)), dtype=np.float32)
+        rgb = np.asarray(Image.open(fp).convert("RGB").resize((270, 480)), dtype=np.float32) / 255.0
+        g = rgb.mean(axis=2)
         sharp = float(np.abs(4 * g[1:-1, 1:-1] - g[:-2, 1:-1] - g[2:, 1:-1] - g[1:-1, :-2] - g[1:-1, 2:]).mean())
-        if sharp > best_sharp:
-            best, best_sharp = fp, sharp
+        colour = float((rgb.max(axis=2) - rgb.min(axis=2)).mean())
+        expo = max(0.0, 1.0 - abs(float(g.mean()) - 0.5) * 2.2)
+        clipped = float(((g < 0.03) | (g > 0.97)).mean())
+        score = sharp * (0.6 + colour) * expo * (1.0 - clipped)
+        if score > best_score:
+            best, best_score = fp, score
     Image.open(best).save(cover, quality=92)
     thumb = tmp / "thumb.jpg"
-    thumbnail(best, t.get("thumb") or t["hook"], thumb)
+    Image.open(best).save(thumb, quality=92)
     problems = checks(v, master, total)
     return {"master": master, "preview": preview, "cover": cover, "thumb": thumb, "duration": round(total, 2),
             "shots": log_shots, "problems": problems}
@@ -437,7 +444,8 @@ Otherwise ok=true and problems=[]. Be strict: when in doubt, ok=false."""
 def qa(v, preview):
     """A second look at the FINISHED video by Gemini, so the moment finder's mistakes do not reach the review page."""
     t = v["texts"]
-    prompt = QA_PROMPT.format(hook=t["hook"], labels=f", then one line per shot {t['labels']}" if t.get("labels") else "", cap=t["ig"][:200])
+    prompt = QA_PROMPT.format(hook=t["hook"] if ON_SCREEN_TEXT else "(none)",
+                              labels=f", then one line per shot {t['labels']}" if t.get("labels") and ON_SCREEN_TEXT else "", cap=t["ig"][:200])
     for key in gemini_keys():
         if key_spent(key):
             continue

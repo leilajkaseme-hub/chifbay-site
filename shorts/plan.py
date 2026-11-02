@@ -213,12 +213,13 @@ def text_prompt(v, recent):
                  "'first stop: under the red cliffs', 'every day. still not used to it.'). 'hook' = the first line again.",
         "highlight": "One strong moment. The hook names it plainly.",
         "montage": "Three moments of one theme. The hook names the theme.",
-        "pov": "The hook starts with 'POV:' and puts the viewer on the boat (e.g. 'POV: your boat, your cove').",
+        "pov": "The shots are seen from the boat. The hook names the place plainly.",
         "list": "Three moments, each with its own on-screen label of 2 to 4 words (in 'labels'), e.g. a numbered list "
                 "like '1. Cliffs from the water'. The hook is the list title, e.g. '3 things on our Day Trip'.",
         "question": "The hook is a short question to the viewer that the clip answers or teases ('Would you jump?').",
         "loop": "A calm looping clip. The hook is quiet and short.",
         "bestof": "Five quick moments: the best of a summer on our boat. The hook says so plainly.",
+        "fast": "Quick cuts on the music beat through one trip. The hook names the day plainly.",
     }[v["format"]]
     shots = [{"what": s["what"], "tags": s["tags"]} for s in v["shots"]]
     return f"""You write the words for one short vertical video of Chifbay, a small family business running private boat
@@ -231,8 +232,10 @@ Which trip this footage fits: {trip_of(v['shots'])}.
 Call to action to use at the end of the Instagram caption (exactly this sentence): "{v['cta']}"
 Hooks and first lines used recently (do NOT reuse or echo them): {json.dumps(recent, ensure_ascii=False)}
 
-Words on screen (hook, labels, thumb), Theo's rule (21 Oct 2026, "not cringe, very tiktok"): lowercase, short, casual,
-deadpan or lightly funny, the way a person types on TikTok. No ad voice, no hype, no exclamation marks, no emoji on screen.
+No words are shown on the video any more (Theo, 2 Nov 2026: "stop being cringe, maybe no text at all"); hook, labels and thumb
+are only kept as short internal titles. Every caption must read like a quiet, plain note from a small local crew: say what and
+where, nothing more. Never "pov", never "save this", never "tag someone", never "nobody wants...", no jokes, no questions to the
+viewer, no exclamation marks, at most one emoji (a place pin is fine).
 Never: breathtaking, stunning, unforgettable, paradise, hidden gem, dream, magical, amazing, bucket list, must see,
 you won't believe, experience of a lifetime, tell me you're... without telling me.
 
@@ -241,14 +244,14 @@ Answer with JSON only:
  "hook": "on-screen hook, 6 words at most, no hashtag, no emoji",
  "labels": ["only for the list and story formats: one line per shot, in order (list: 2 to 4 words; story: 3 to 8 words)"],
  "thumb": "thumbnail title, 2 to 4 words of natural English a person would say (e.g. 'Lunch in a cove'), can differ from the hook",
- "ig": "Instagram caption: first line a teaser that names the place and service (contains 'Funchal, Madeira' or 'Madeira' and 'boat'), then 2 short paragraphs with true facts that fit this clip, then the call to action as the last line. 350 to 900 characters. 0 to 2 emoji.",
+ "ig": "Instagram caption: one plain line saying what we see and where (contains 'Madeira'), e.g. 'Swim stop under Cabo Girão, Madeira.', then the call to action on its own last line. 60 to 260 characters.",
  "hashtags": ["4 or 5 hashtags, always #madeira and #funchal, others specific to the clip"],
- "fb": "Facebook text, 200 to 500 characters, warm and plain, no link (the booking link is added after it)",
- "threads": "Threads text, 60 to 220 characters, conversational, no hashtags",
- "yt_title": "YouTube Shorts title, 40 to 70 characters, catchy and true, ends with ' #Shorts'",
+ "fb": "Facebook text, one or two plain sentences, 60 to 260 characters, no link (the booking link is added after it)",
+ "threads": "Threads text, one plain sentence, 40 to 160 characters, no hashtags",
+ "yt_title": "YouTube Shorts title, 30 to 70 characters, plain description of the place and the boat trip (e.g. 'Cabo Girão cliffs from a private boat, Madeira #Shorts'), never 'POV', ends with ' #Shorts'",
  "yt_description": "YouTube description: a hook line, 2 to 3 lines on what you see and the trip, then 'Book: https://chifbay.com/?utm_source=youtube&utm_medium=shorts', then 3 hashtags. 300 to 700 characters.",
  "yt_tags": ["10 to 15 search tags: madeira boat trip, funchal, things to do in madeira, ..."],
- "tiktok": "TikTok caption, 80 to 150 characters plus 4 or 5 hashtags at the end",
+ "tiktok": "TikTok caption, one plain line of 40 to 120 characters plus 4 or 5 hashtags at the end",
  "alt": "plain description of the video for blind users, one sentence"
 }}
 Hard rules: never a price, a discount or a number of guests above 5; never 'guaranteed', 'cheapest', 'unlimited', a fixed
@@ -280,8 +283,7 @@ def text_problems(v, t):
             p.append(f"story needs exactly {len(v['shots'])} lines of 3 to 8 words, one per shot")
         else:
             t["hook"] = labels[0]
-    if v["format"] == "pov" and not t["hook"].lower().startswith("pov"):
-        p.append("POV hook must start with 'POV:'")
+    pass  # no on-screen words since 2 Nov 2026: the POV hook rule is gone
     screen = " ".join([str(t.get("hook", "")), str(t.get("thumb", ""))] + [str(x) for x in t.get("labels") or []])
     p += [f"on-screen words sound like an ad ('{w}')" for w in HYPE if w in screen.lower()]
     if "!" in screen:
@@ -297,8 +299,11 @@ def text_problems(v, t):
             p.append("Instagram first lines must name Madeira")
         if not t["ig"].strip().endswith(v["cta"]):
             p.append(f"Instagram caption must end with: {v['cta']}")
-        if not 300 <= len(t["ig"]) <= 1100:
-            p.append(f"the Instagram caption is {len(t['ig'])} characters, it must be 350 to 900: write three short paragraphs")
+        if not 50 <= len(t["ig"]) <= 320:
+            p.append(f"the Instagram caption is {len(t['ig'])} characters, it must be 60 to 260: one plain line, then the call to action")
+    for w in ("pov", "save this", "tag someone", "tag a friend", "nobody wants"):
+        if re.search(r"\b" + w + r"\b", " ".join(str(t.get(k, "")) for k in ("ig", "fb", "threads", "tiktok", "yt_title")).lower()):
+            p.append(f"says '{w}': plain words only")
     if not (3 <= len(t["hashtags"]) <= 5 and "#madeira" in [h.lower() for h in t["hashtags"]]):
         p.append("hashtags: 3 to 5, with #madeira")
     if len(t["yt_title"]) > 95 or "#shorts" not in t["yt_title"].lower():
