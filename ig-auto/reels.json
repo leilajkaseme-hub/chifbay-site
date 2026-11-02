@@ -653,7 +653,10 @@
       "bytes": 6835302,
       "source": "IMG_2840.MOV",
       "driveId": "1xAHCMm2iQloTHWFsQur26JYeTGAaWCjO",
-      "added": "2026-10-21T09:32:13.863Z"
+      "added": "2026-10-21T09:32:13.863Z",
+      "used": {
+        "story": 1793624438735
+      }
     },
     {
       "clip": "ig/reel-1Qq9qJ8W-1.mp4",
