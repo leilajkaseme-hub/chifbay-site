@@ -2905,7 +2905,7 @@
   {
    "id": "b1029-r01",
    "format": "pov",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -3062,12 +3062,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r02",
    "format": "oneshot",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -3148,12 +3149,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r03",
    "format": "fast",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -3425,12 +3427,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r04",
    "format": "pass",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -3531,12 +3534,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r05",
    "format": "list",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -3675,12 +3679,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r06",
    "format": "planet",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -3762,12 +3767,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r07",
    "format": "speed",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -3906,12 +3912,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r08",
    "format": "above",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -4031,12 +4038,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r09",
    "format": "table",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -4156,12 +4164,13 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   },
   {
    "id": "b1029-r10",
    "format": "afternoon",
-   "status": "rendered",
+   "status": "retired",
    "created": "2026-10-30",
    "batch": "2026-10-29",
    "shots": [
@@ -4281,7 +4290,8 @@
      "problems": []
     },
     "at": "2026-10-30T10:08:19Z"
-   }
+   },
+   "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
   }
  ]
 }
