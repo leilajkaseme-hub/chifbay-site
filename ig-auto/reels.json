@@ -629,7 +629,10 @@
       "bytes": 7466278,
       "source": "IMG_5381.MOV",
       "driveId": "1lB2qw-3hAL6a9w4JPZS6as1LEwCN97_d",
-      "added": "2026-10-21T09:31:29.703Z"
+      "added": "2026-10-21T09:31:29.703Z",
+      "used": {
+        "story": 1793709208112
+      }
     },
     {
       "clip": "ig/reel-1EBbp31H-1.mp4",
