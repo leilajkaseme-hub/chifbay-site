@@ -11,7 +11,7 @@
      "name": "IMG_2885.MOV",
      "start": 9.6,
      "len": 8.9,
-     "speed": 1.0,
+     "speed": 1,
      "what": "a guest tries to stand up on the paddle board below the cliff huts, falls in at the end",
      "tags": [],
      "file_id": null
@@ -69,7 +69,7 @@
      {
       "name": "IMG_2885.MOV",
       "in": 9.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "a guest tries to stand up on the paddle board below the cliff huts, falls in at the end"
      }
     ],
@@ -87,7 +87,7 @@
      "name": "IMG_5381.MOV",
      "start": 4.6,
      "len": 8.2,
-     "speed": 1.0,
+     "speed": 1,
      "what": "the wake and the outboard, the coast of Funchal with its hotels sliding past",
      "tags": [],
      "file_id": null
@@ -146,7 +146,7 @@
      {
       "name": "IMG_5381.MOV",
       "in": 4.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the wake and the outboard, the coast of Funchal with its hotels sliding past"
      }
     ],
@@ -164,7 +164,7 @@
      "name": "IMG_2870.MOV",
      "start": 9.4,
      "len": 4.6,
-     "speed": 1.0,
+     "speed": 1,
      "what": "two friends sit on a paddle board in front of the cliff, close and laughing",
      "tags": [],
      "file_id": null
@@ -173,7 +173,7 @@
      "name": "IMG_2869.MOV",
      "start": 1.6,
      "len": 4.4,
-     "speed": 1.0,
+     "speed": 1,
      "what": "the same two on the board, wide, the cliff behind",
      "tags": [],
      "file_id": null
@@ -231,13 +231,13 @@
      {
       "name": "IMG_2870.MOV",
       "in": 9.4,
-      "speed": 1.0,
+      "speed": 1,
       "what": "two friends sit on a paddle board in front of the cliff, close and laughing"
      },
      {
       "name": "IMG_2869.MOV",
       "in": 1.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the same two on the board, wide, the cliff behind"
      }
     ],
@@ -253,9 +253,9 @@
    "shots": [
     {
      "name": "814009287.314303_48561792316499.mp4",
-     "start": 20.0,
+     "start": 20,
      "len": 2.6,
-     "speed": 1.0,
+     "speed": 1,
      "what": "guests laughing, the skipper standing behind them",
      "tags": [],
      "file_id": null
@@ -264,7 +264,7 @@
      "name": "814009287.314303_48561792316499.mp4",
      "start": 27.6,
      "len": 2.1,
-     "speed": 1.0,
+     "speed": 1,
      "what": "the boat at speed, guests arms around each other, the wake",
      "tags": [],
      "file_id": null
@@ -273,7 +273,7 @@
      "name": "814009287.314303_48561792316499.mp4",
      "start": 37.5,
      "len": 2.4,
-     "speed": 1.0,
+     "speed": 1,
      "what": "the boat at speed, the wake, guests with arms out",
      "tags": [],
      "file_id": null
@@ -330,20 +330,20 @@
     "shots": [
      {
       "name": "814009287.314303_48561792316499.mp4",
-      "in": 20.0,
-      "speed": 1.0,
+      "in": 20,
+      "speed": 1,
       "what": "guests laughing, the skipper standing behind them"
      },
      {
       "name": "814009287.314303_48561792316499.mp4",
       "in": 27.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the boat at speed, guests arms around each other, the wake"
      },
      {
       "name": "814009287.314303_48561792316499.mp4",
       "in": 37.5,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the boat at speed, the wake, guests with arms out"
      }
     ],
@@ -361,16 +361,16 @@
      "name": "814009287.314303_48561792316499.mp4",
      "start": 5.3,
      "len": 2.5,
-     "speed": 1.0,
+     "speed": 1,
      "what": "a guest swims off the stern, the outboard and the cliff behind",
      "tags": [],
      "file_id": null
     },
     {
      "name": "814009287.314303_48561792316499.mp4",
-     "start": 8.0,
+     "start": 8,
      "len": 2.4,
-     "speed": 1.0,
+     "speed": 1,
      "what": "guests round the table of snacks on deck, skipper at the console",
      "tags": [],
      "file_id": null
@@ -379,7 +379,7 @@
      "name": "814009287.314303_48561792316499.mp4",
      "start": 32.6,
      "len": 2.1,
-     "speed": 1.0,
+     "speed": 1,
      "what": "back on the move, the boat at speed under the cliff",
      "tags": [],
      "file_id": null
@@ -432,7 +432,7 @@
     "preview": "https://chifbay.com/ig/reels/r22-swimstop360-p.mp4",
     "cover": "https://chifbay.com/ig/reels/r22-swimstop360-cover.jpg",
     "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r22-swimstop360-thumb.jpg",
-    "duration": 7.0,
+    "duration": 7,
     "bytes": 7651549,
     "checks": {
      "ok": true,
@@ -443,19 +443,19 @@
      {
       "name": "814009287.314303_48561792316499.mp4",
       "in": 5.3,
-      "speed": 1.0,
+      "speed": 1,
       "what": "a guest swims off the stern, the outboard and the cliff behind"
      },
      {
       "name": "814009287.314303_48561792316499.mp4",
-      "in": 8.0,
-      "speed": 1.0,
+      "in": 8,
+      "speed": 1,
       "what": "guests round the table of snacks on deck, skipper at the console"
      },
      {
       "name": "814009287.314303_48561792316499.mp4",
       "in": 32.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "back on the move, the boat at speed under the cliff"
      }
     ],
@@ -471,7 +471,7 @@
    "shots": [
     {
      "name": "DJI_20260811111635_0005_D.MP4",
-     "start": 15.0,
+     "start": 15,
      "len": 1.8,
      "speed": 0.5,
      "what": "drone tracks the boat at speed from the side, slow motion",
@@ -482,7 +482,7 @@
      "name": "DJI_20260811111635_0005_D.MP4",
      "start": 24.8,
      "len": 2.4,
-     "speed": 1.0,
+     "speed": 1,
      "what": "the boat comes straight at the drone, wake behind it",
      "tags": [],
      "file_id": null
@@ -549,14 +549,14 @@
     "shots": [
      {
       "name": "DJI_20260811111635_0005_D.MP4",
-      "in": 15.0,
+      "in": 15,
       "speed": 0.5,
       "what": "drone tracks the boat at speed from the side, slow motion"
      },
      {
       "name": "DJI_20260811111635_0005_D.MP4",
       "in": 24.8,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the boat comes straight at the drone, wake behind it"
      },
      {
@@ -579,8 +579,8 @@
     {
      "name": "DJI_20260812144130_0009_D.MP4",
      "start": 4.5,
-     "len": 3.0,
-     "speed": 1.0,
+     "len": 3,
+     "speed": 1,
      "what": "a guest on a paddle board, top-down, turquoise water",
      "tags": [],
      "file_id": null
@@ -588,17 +588,17 @@
     {
      "name": "DJI_20260812144130_0009_D.MP4",
      "start": 20.5,
-     "len": 3.0,
-     "speed": 1.0,
+     "len": 3,
+     "speed": 1,
      "what": "swimmers splashing in clear turquoise water, top-down",
      "tags": [],
      "file_id": null
     },
     {
      "name": "DJI_20260812144130_0009_D.MP4",
-     "start": 33.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 33,
+     "len": 3,
+     "speed": 1,
      "what": "a paddle board and a swimmer with the coast behind",
      "tags": [],
      "file_id": null
@@ -646,7 +646,7 @@
     "preview": "https://chifbay.com/ig/reels/r24-fromabove-p.mp4",
     "cover": "https://chifbay.com/ig/reels/r24-fromabove-cover.jpg",
     "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r24-fromabove-thumb.jpg",
-    "duration": 9.0,
+    "duration": 9,
     "bytes": 10022433,
     "checks": {
      "ok": true,
@@ -657,19 +657,19 @@
      {
       "name": "DJI_20260812144130_0009_D.MP4",
       "in": 4.5,
-      "speed": 1.0,
+      "speed": 1,
       "what": "a guest on a paddle board, top-down, turquoise water"
      },
      {
       "name": "DJI_20260812144130_0009_D.MP4",
       "in": 20.5,
-      "speed": 1.0,
+      "speed": 1,
       "what": "swimmers splashing in clear turquoise water, top-down"
      },
      {
       "name": "DJI_20260812144130_0009_D.MP4",
-      "in": 33.0,
-      "speed": 1.0,
+      "in": 33,
+      "speed": 1,
       "what": "a paddle board and a swimmer with the coast behind"
      }
     ],
@@ -685,9 +685,9 @@
    "shots": [
     {
      "name": "DJI_20260811102620_0003_D.MP4",
-     "start": 38.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 38,
+     "len": 3,
+     "speed": 1,
      "what": "from behind the boat toward the sea cliff, the hull lettering",
      "tags": [],
      "file_id": null
@@ -695,17 +695,17 @@
     {
      "name": "DJI_20260811102620_0003_D.MP4",
      "start": 42.6,
-     "len": 3.0,
-     "speed": 1.0,
+     "len": 3,
+     "speed": 1,
      "what": "the boat from the side, guests at the helm, turquoise water",
      "tags": [],
      "file_id": null
     },
     {
      "name": "DJI_20260811102620_0003_D.MP4",
-     "start": 72.0,
+     "start": 72,
      "len": 3.5,
-     "speed": 1.0,
+     "speed": 1,
      "what": "the boat enters a turquoise cove under the cliff and stops",
      "tags": [],
      "file_id": null
@@ -764,20 +764,20 @@
     "shots": [
      {
       "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 38.0,
-      "speed": 1.0,
+      "in": 38,
+      "speed": 1,
       "what": "from behind the boat toward the sea cliff, the hull lettering"
      },
      {
       "name": "DJI_20260811102620_0003_D.MP4",
       "in": 42.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the boat from the side, guests at the helm, turquoise water"
      },
      {
       "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 72.0,
-      "speed": 1.0,
+      "in": 72,
+      "speed": 1,
       "what": "the boat enters a turquoise cove under the cliff and stops"
      }
     ],
@@ -793,27 +793,27 @@
    "shots": [
     {
      "name": "DJI_20260813191642_0030_D.MP4",
-     "start": 13.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 13,
+     "len": 3,
+     "speed": 1,
      "what": "a guest jumps off the stern, big splash, the cliff behind",
      "tags": [],
      "file_id": null
     },
     {
      "name": "DJI_20260813191642_0030_D.MP4",
-     "start": 19.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 19,
+     "len": 3,
+     "speed": 1,
      "what": "the boat turns away from the splash, the swimmer behind it",
      "tags": [],
      "file_id": null
     },
     {
      "name": "DJI_20260813191642_0030_D.MP4",
-     "start": 38.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 38,
+     "len": 3,
+     "speed": 1,
      "what": "friends floating on their backs in clear water, the stern in view",
      "tags": [],
      "file_id": null
@@ -861,7 +861,7 @@
     "preview": "https://chifbay.com/ig/reels/r26-sternjump-p.mp4",
     "cover": "https://chifbay.com/ig/reels/r26-sternjump-cover.jpg",
     "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/r26-sternjump-thumb.jpg",
-    "duration": 9.0,
+    "duration": 9,
     "bytes": 9924174,
     "checks": {
      "ok": true,
@@ -871,20 +871,20 @@
     "shots": [
      {
       "name": "DJI_20260813191642_0030_D.MP4",
-      "in": 13.0,
-      "speed": 1.0,
+      "in": 13,
+      "speed": 1,
       "what": "a guest jumps off the stern, big splash, the cliff behind"
      },
      {
       "name": "DJI_20260813191642_0030_D.MP4",
-      "in": 19.0,
-      "speed": 1.0,
+      "in": 19,
+      "speed": 1,
       "what": "the boat turns away from the splash, the swimmer behind it"
      },
      {
       "name": "DJI_20260813191642_0030_D.MP4",
-      "in": 38.0,
-      "speed": 1.0,
+      "in": 38,
+      "speed": 1,
       "what": "friends floating on their backs in clear water, the stern in view"
      }
     ],
@@ -901,8 +901,8 @@
      "file_id": "11Af8if4qPanHW-9ot9nrqS2wC-XS-5rI",
      "name": "IMG_2814.MOV",
      "start": 0.5,
-     "len": 5.0,
-     "speed": 1.0,
+     "len": 5,
+     "speed": 1,
      "peak": 4.5,
      "x": 0.5,
      "x2": 0.5,
@@ -974,8 +974,8 @@
       "out": 5.5,
       "grade": "daylight",
       "exposure": -0.007,
-      "seconds": 5.0,
-      "speed": 1.0,
+      "seconds": 5,
+      "speed": 1,
       "what": "A woman wearing a snorkel mask turns around and smiles at the camera while another guest gets ready and jumps into the sea."
      }
     ],
@@ -1008,7 +1008,7 @@
      "name": "DJI_20260606200425_0015_D.MP4",
      "start": 0.5,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 2.3,
      "x": 0.5,
      "x2": 0.62,
@@ -1024,9 +1024,9 @@
     {
      "file_id": "1VzTQnDln8DqBJDi85urBBuRD_EwmBsOX",
      "name": "DJI_20260811102620_0003_D.MP4",
-     "start": 18.0,
+     "start": 18,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 19.8,
      "x": 0.55,
      "x2": 0.62,
@@ -1044,7 +1044,7 @@
      "name": "DJI_20260811102748_0004_D.MP4",
      "start": 0.5,
      "len": 3.8,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 2.4,
      "x": 0.3,
      "x2": 0.45,
@@ -1060,10 +1060,10 @@
     {
      "file_id": "1slYrl8FOnr4o1Y_DCxQ8ERrnFHvjH0ck",
      "name": "DJI_20260606200425_0015_D.MP4",
-     "start": 66.0,
-     "len": 2.0,
+     "start": 66,
+     "len": 2,
      "speed": 0.5,
-     "peak": 67.0,
+     "peak": 67,
      "x": 0.55,
      "x2": 0.45,
      "what": "low pass over guests at the deck table, slow motion",
@@ -1138,7 +1138,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.125,
@@ -1150,12 +1150,12 @@
      },
      {
       "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 18.0,
+      "in": 18,
       "out": 21.6,
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.669,
@@ -1172,7 +1172,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.8,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.479,
@@ -1184,11 +1184,11 @@
      },
      {
       "name": "DJI_20260606200425_0015_D.MP4",
-      "in": 66.0,
-      "out": 68.0,
+      "in": 66,
+      "out": 68,
       "grade": "daylight",
       "matched": true,
-      "seconds": 4.0,
+      "seconds": 4,
       "speed": 0.5,
       "tracked": true,
       "path": [
@@ -1203,6 +1203,29 @@
      "problems": []
     },
     "at": "2026-11-02T21:09:53Z"
+   },
+   "posted": {
+    "instagram": {
+     "at": "2026-11-04T23:48:07.829Z",
+     "id": "18642056257024805",
+     "url": "https://www.instagram.com/reel/DfVq-1djD4_/",
+     "slot": "2026-11-04#0"
+    },
+    "facebook": {
+     "at": "2026-11-04T23:48:38.194Z",
+     "id": "122130813717436640",
+     "url": "https://www.facebook.com/122130813717436640"
+    },
+    "threads": {
+     "at": "2026-11-04T23:49:12.641Z",
+     "id": "18094299644692814",
+     "url": "https://www.threads.com/@chifbay/post/DfVrHWEN8Vf"
+    },
+    "youtube": {
+     "at": "2026-11-04T23:49:35.687Z",
+     "id": "_yYP59bZuUE",
+     "url": "https://www.youtube.com/shorts/_yYP59bZuUE"
+    }
    }
   },
   {
@@ -1217,8 +1240,8 @@
      "name": "DJI_20260813191642_0030_D.MP4",
      "start": 64.5,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 66.0,
+     "speed": 1,
+     "peak": 66,
      "x": 0.5,
      "x2": 0.6,
      "what": "the drone rises along a tall dark sea cliff, grey sky",
@@ -1235,7 +1258,7 @@
      "name": "DJI_20260813191642_0030_D.MP4",
      "start": 0.5,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 2.3,
      "x": 0.25,
      "x2": 0.32,
@@ -1251,9 +1274,9 @@
     {
      "file_id": "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV",
      "name": "DJI_20260813191642_0030_D.MP4",
-     "start": 46.0,
+     "start": 46,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 47.8,
      "x": 0.42,
      "x2": 0.45,
@@ -1269,9 +1292,9 @@
     {
      "file_id": "1Ux9gjziek6wMV8s91oDTO50VInJyGrNV",
      "name": "DJI_20260813191642_0030_D.MP4",
-     "start": 26.0,
+     "start": 26,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 27.8,
      "x": 0.5,
      "x2": 0.48,
@@ -1348,7 +1371,7 @@
       "grade": "overcast",
       "exposure": 0.04,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the drone rises along a tall dark sea cliff, grey sky"
      },
      {
@@ -1358,27 +1381,27 @@
       "grade": "overcast",
       "exposure": 0.029,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "the boat anchored under the cliff, guests swimming beside it"
      },
      {
       "name": "DJI_20260813191642_0030_D.MP4",
-      "in": 46.0,
+      "in": 46,
       "out": 49.6,
       "grade": "daylight",
       "exposure": 0.04,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "guests swimming next to the boat"
      },
      {
       "name": "DJI_20260813191642_0030_D.MP4",
-      "in": 26.0,
+      "in": 26,
       "out": 29.6,
       "grade": "overcast",
       "exposure": 0.04,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "what": "guests back on the stern deck under the cliff"
      }
     ],
@@ -1400,9 +1423,9 @@
     {
      "file_id": "189efHvO5Bm1ZZd8DreIXGzWQqi-Nyt_S",
      "name": "DJI_20260606200017_0014_D.MP4",
-     "start": 1.0,
+     "start": 1,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 2.8,
      "x": 0.45,
      "x2": 0.45,
@@ -1420,7 +1443,7 @@
      "name": "DJI_20260601205023_0010_D.MP4",
      "start": 14.5,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 16.3,
      "x": 0.3,
      "x2": 0.65,
@@ -1436,9 +1459,9 @@
     {
      "file_id": "1nuIunhlZARBYcTlnFQIKbqjzoEg8ro1X",
      "name": "DJI_20260601205023_0010_D.MP4",
-     "start": 85.0,
+     "start": 85,
      "len": 3.8,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 86.9,
      "x": 0.42,
      "x2": 0.5,
@@ -1454,9 +1477,9 @@
     {
      "file_id": "1nuIunhlZARBYcTlnFQIKbqjzoEg8ro1X",
      "name": "DJI_20260601205023_0010_D.MP4",
-     "start": 21.0,
+     "start": 21,
      "len": 3.8,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 22.9,
      "x": 0.55,
      "x2": 0.6,
@@ -1529,12 +1552,12 @@
     "shots": [
      {
       "name": "DJI_20260606200017_0014_D.MP4",
-      "in": 1.0,
+      "in": 1,
       "out": 4.6,
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.435,
@@ -1551,7 +1574,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.458,
@@ -1563,12 +1586,12 @@
      },
      {
       "name": "DJI_20260601205023_0010_D.MP4",
-      "in": 85.0,
+      "in": 85,
       "out": 88.8,
       "grade": "daylight",
       "matched": true,
       "seconds": 3.8,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.913,
@@ -1580,12 +1603,12 @@
      },
      {
       "name": "DJI_20260601205023_0010_D.MP4",
-      "in": 21.0,
+      "in": 21,
       "out": 24.8,
       "grade": "daylight",
       "matched": true,
       "seconds": 3.8,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": false,
       "path": null,
       "what": "the sun over the sea, the cliffs on the right"
@@ -1626,9 +1649,9 @@
     {
      "file_id": "1VzTQnDln8DqBJDi85urBBuRD_EwmBsOX",
      "name": "DJI_20260811102620_0003_D.MP4",
-     "start": 50.0,
+     "start": 50,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 51.8,
      "x": 0.4,
      "x2": 0.34,
@@ -1646,7 +1669,7 @@
      "name": "DJI_20260812144130_0009_D.MP4",
      "start": 10.5,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 12.3,
      "x": 0.55,
      "x2": 0.55,
@@ -1662,9 +1685,9 @@
     {
      "file_id": "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC",
      "name": "DJI_20260811102748_0004_D.MP4",
-     "start": 56.0,
+     "start": 56,
      "len": 3.8,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 57.9,
      "x": 0.5,
      "x2": 0.5,
@@ -1750,12 +1773,12 @@
      },
      {
       "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 50.0,
+      "in": 50,
       "out": 53.6,
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.337,
@@ -1772,7 +1795,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.683,
@@ -1784,12 +1807,12 @@
      },
      {
       "name": "DJI_20260811102748_0004_D.MP4",
-      "in": 56.0,
+      "in": 56,
       "out": 59.8,
       "grade": "daylight",
       "matched": true,
       "seconds": 3.8,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.661,
@@ -1819,7 +1842,7 @@
     {
      "file_id": "1xPwHgh6nMFkayP4jK5zYZZV2V9LO6ecF",
      "name": "DJI_20260811111635_0005_D.MP4",
-     "start": 37.0,
+     "start": 37,
      "len": 0.75,
      "speed": 0.5,
      "peak": 37.375,
@@ -1837,9 +1860,9 @@
     {
      "file_id": "1kO2gv1VYAAnzOaOPLAJTStoMfFRiCfDi",
      "name": "814009287.314303_48561792316499.mp4",
-     "start": 14.0,
+     "start": 14,
      "len": 1.5,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 14.75,
      "x": 0.5,
      "x2": 0.5,
@@ -1856,9 +1879,9 @@
     {
      "file_id": "1VzTQnDln8DqBJDi85urBBuRD_EwmBsOX",
      "name": "DJI_20260811102620_0003_D.MP4",
-     "start": 55.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 55,
+     "len": 1,
+     "speed": 1,
      "peak": 55.5,
      "x": 0.45,
      "x2": 0.45,
@@ -1874,9 +1897,9 @@
     {
      "file_id": "1MxxDAcqsH6ujhzKcif2EFPa4mmRTjcuT",
      "name": "DJI_20260812144130_0009_D.MP4",
-     "start": 40.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 40,
+     "len": 1,
+     "speed": 1,
      "peak": 40.5,
      "x": 0.5,
      "x2": 0.5,
@@ -1893,9 +1916,9 @@
      "file_id": "1MxxDAcqsH6ujhzKcif2EFPa4mmRTjcuT",
      "name": "DJI_20260812144130_0009_D.MP4",
      "start": 25.5,
-     "len": 1.0,
-     "speed": 1.0,
-     "peak": 26.0,
+     "len": 1,
+     "speed": 1,
+     "peak": 26,
      "x": 0.5,
      "x2": 0.5,
      "what": "from above: a swimmer in deep blue water",
@@ -1910,9 +1933,9 @@
     {
      "file_id": "1w_FJU8tG8v1y4EgacmyVQCWB3APJ5dZC",
      "name": "DJI_20260811102748_0004_D.MP4",
-     "start": 30.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 30,
+     "len": 1,
+     "speed": 1,
      "peak": 30.5,
      "x": 0.5,
      "x2": 0.5,
@@ -1928,9 +1951,9 @@
     {
      "file_id": "1slYrl8FOnr4o1Y_DCxQ8ERrnFHvjH0ck",
      "name": "DJI_20260606200425_0015_D.MP4",
-     "start": 60.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 60,
+     "len": 1,
+     "speed": 1,
      "peak": 60.5,
      "x": 0.5,
      "x2": 0.5,
@@ -1945,9 +1968,9 @@
     {
      "file_id": "1kO2gv1VYAAnzOaOPLAJTStoMfFRiCfDi",
      "name": "814009287.314303_48561792316499.mp4",
-     "start": 47.0,
+     "start": 47,
      "len": 1.5,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 47.75,
      "x": 0.5,
      "x2": 0.5,
@@ -1964,8 +1987,8 @@
     {
      "file_id": "1xPwHgh6nMFkayP4jK5zYZZV2V9LO6ecF",
      "name": "DJI_20260811111635_0005_D.MP4",
-     "start": 1.0,
-     "len": 1.0,
+     "start": 1,
+     "len": 1,
      "speed": 0.5,
      "peak": 1.5,
      "x": 0.5,
@@ -2033,7 +2056,7 @@
     "shots": [
      {
       "name": "DJI_20260811111635_0005_D.MP4",
-      "in": 37.0,
+      "in": 37,
       "out": 37.75,
       "grade": "daylight",
       "matched": true,
@@ -2047,12 +2070,12 @@
      },
      {
       "name": "814009287.314303_48561792316499.mp4",
-      "in": 14.0,
+      "in": 14,
       "out": 15.5,
       "grade": "daylight",
       "matched": true,
       "seconds": 1.5,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.517,
@@ -2062,12 +2085,12 @@
      },
      {
       "name": "DJI_20260811102620_0003_D.MP4",
-      "in": 55.0,
-      "out": 56.0,
+      "in": 55,
+      "out": 56,
       "grade": "daylight",
       "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "seconds": 1,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.14
@@ -2076,12 +2099,12 @@
      },
      {
       "name": "DJI_20260812144130_0009_D.MP4",
-      "in": 40.0,
-      "out": 41.0,
+      "in": 40,
+      "out": 41,
       "grade": "daylight",
       "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "seconds": 1,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.812
@@ -2094,8 +2117,8 @@
       "out": 26.5,
       "grade": "daylight",
       "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "seconds": 1,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.574
@@ -2104,12 +2127,12 @@
      },
      {
       "name": "DJI_20260811102748_0004_D.MP4",
-      "in": 30.0,
-      "out": 31.0,
+      "in": 30,
+      "out": 31,
       "grade": "daylight",
       "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "seconds": 1,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.367
@@ -2118,12 +2141,12 @@
      },
      {
       "name": "DJI_20260606200425_0015_D.MP4",
-      "in": 60.0,
-      "out": 61.0,
+      "in": 60,
+      "out": 61,
       "grade": "daylight",
       "matched": true,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "seconds": 1,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.598
@@ -2132,12 +2155,12 @@
      },
      {
       "name": "814009287.314303_48561792316499.mp4",
-      "in": 47.0,
+      "in": 47,
       "out": 48.5,
       "grade": "daylight",
       "matched": true,
       "seconds": 1.5,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.498,
@@ -2147,11 +2170,11 @@
      },
      {
       "name": "DJI_20260811111635_0005_D.MP4",
-      "in": 1.0,
-      "out": 2.0,
+      "in": 1,
+      "out": 2,
       "grade": "daylight",
       "matched": true,
-      "seconds": 2.0,
+      "seconds": 2,
       "speed": 0.5,
       "tracked": true,
       "path": [
@@ -2178,8 +2201,8 @@
      "name": "video 1.MP4",
      "start": 267.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 269.0,
+     "speed": 1,
+     "peak": 269,
      "x": 0.3,
      "x2": 0.35,
      "what": "Guest standing on the front deck looks up and waves directly to the drone flying low above.",
@@ -2199,8 +2222,8 @@
      "name": "video 1.MP4",
      "start": 290.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 292.0,
+     "speed": 1,
+     "peak": 292,
      "x": 0.45,
      "x2": 0.4,
      "what": "Guest sitting down on the bow sunbed pad and waving to the overhead camera.",
@@ -2219,8 +2242,8 @@
      "name": "video 2.MP4",
      "start": 15.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 17.0,
+     "speed": 1,
+     "peak": 17,
      "x": 0.5,
      "x2": 0.48,
      "what": "Aerial glide directly above the volcanic pools and turquoise water.",
@@ -2238,8 +2261,8 @@
      "name": "video 1.MP4",
      "start": 218.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 220.0,
+     "speed": 1,
+     "peak": 220,
      "x": 0.7,
      "x2": 0.6,
      "what": "Aerial drone approach flying closer over the white motorboat on blue sea.",
@@ -2319,7 +2342,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.35,
@@ -2336,7 +2359,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.515,
@@ -2353,7 +2376,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.572,
@@ -2370,7 +2393,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.704,
@@ -2399,7 +2422,7 @@
      "name": "DJI_20260604202235_0011_D.MP4",
      "start": 18.52,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 20.5,
      "x": 0.75,
      "x2": 0.5,
@@ -2421,8 +2444,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 72.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 74.0,
+     "speed": 1,
+     "peak": 74,
      "x": 0.48,
      "x2": 0.48,
      "what": "Camera tilts up while tracking the boat at speed to reveal the coastline and cliffs of Madeira across the blue water",
@@ -2444,8 +2467,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 320.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 322.0,
+     "speed": 1,
+     "peak": 322,
      "x": 0.45,
      "x2": 0.53,
      "what": "Close aerial pass as the skipper in red waves enthusiastically up at the drone while steering the boat",
@@ -2464,8 +2487,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 97.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 99.0,
+     "speed": 1,
+     "peak": 99,
      "x": 0.46,
      "x2": 0.51,
      "what": "Boat banks into a turn, carving a white arced wake across the deep blue sea",
@@ -2544,7 +2567,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.657,
@@ -2561,7 +2584,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.46,
@@ -2578,7 +2601,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.604,
@@ -2595,7 +2618,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.455,
@@ -2624,8 +2647,8 @@
      "name": "DJI_20260606200425_0015_D.MP4",
      "start": 50.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 52.0,
+     "speed": 1,
+     "peak": 52,
      "x": 0.5,
      "x2": 0.5,
      "what": "High orbit shot around the boat showing guests relaxing onboard.",
@@ -2645,8 +2668,8 @@
      "name": "DJI_20260601192422_0009_D.MP4",
      "start": 10.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 12.0,
+     "speed": 1,
+     "peak": 12,
      "x": 0.44,
      "x2": 0.44,
      "what": "Drone approaches the boat anchored in calm turquoise waters beneath towering sea cliffs",
@@ -2667,8 +2690,8 @@
      "name": "DJI_20260601205023_0010_D.MP4",
      "start": 71.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 73.0,
+     "speed": 1,
+     "peak": 73,
      "x": 0.5,
      "x2": 0.5,
      "what": "Aerial view descending closer toward the boat drifting peacefully in deep blue water",
@@ -2740,7 +2763,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.655,
@@ -2757,7 +2780,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.44,
@@ -2774,7 +2797,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.495,
@@ -2803,10 +2826,10 @@
     {
      "file_id": "1sjHDHB4q6IoMWqsMu3wj6o6ruRKpl-nB",
      "name": "video 1.MP4",
-     "start": 232.0,
+     "start": 232,
      "len": 7.65,
-     "speed": 1.0,
-     "peak": 236.0,
+     "speed": 1,
+     "peak": 236,
      "x": 0.5,
      "x2": 0.3,
      "what": "Close-up aerial flyover over the bow of the boat.",
@@ -2875,12 +2898,12 @@
     "shots": [
      {
       "name": "video 1.MP4",
-      "in": 232.0,
+      "in": 232,
       "out": 239.65,
       "grade": "daylight",
       "matched": true,
       "seconds": 7.65,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.634,
@@ -2912,9 +2935,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_141149_00_145",
-     "start": 8.0,
+     "start": 8,
      "len": 2.59,
-     "speed": 1.0,
+     "speed": 1,
      "what": "pov: your day trip starts now",
      "tags": [
       "360"
@@ -2923,9 +2946,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_143644_00_149",
-     "start": 9.0,
+     "start": 9,
      "len": 2.59,
-     "speed": 1.0,
+     "speed": 1,
      "what": "snacks are out, nobody is rushing",
      "tags": [
       "360"
@@ -2934,9 +2957,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029144023_0010_D",
-     "start": 63.0,
+     "start": 63,
      "len": 2.59,
-     "speed": 1.0,
+     "speed": 1,
      "what": "cabo girão up close",
      "tags": [
       "drone"
@@ -2947,7 +2970,7 @@
      "name": "VID_20261029_161347_00_170",
      "start": 24.6,
      "len": 2.59,
-     "speed": 1.0,
+     "speed": 1,
      "what": "ok who jumps first",
      "tags": [
       "360"
@@ -2956,9 +2979,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_161150_00_168",
-     "start": 40.0,
+     "start": 40,
      "len": 2.59,
-     "speed": 1.0,
+     "speed": 1,
      "what": "then the sea gets quiet",
      "tags": [
       "360"
@@ -3018,26 +3041,26 @@
     "shots": [
      {
       "name": "VID_20261029_141149_00_145",
-      "in": 8.0,
+      "in": 8,
       "out": 10.59,
       "seconds": 2.59,
-      "speed": 1.0,
+      "speed": 1,
       "what": "pov: your day trip starts now"
      },
      {
       "name": "VID_20261029_143644_00_149",
-      "in": 9.0,
+      "in": 9,
       "out": 11.59,
       "seconds": 2.59,
-      "speed": 1.0,
+      "speed": 1,
       "what": "snacks are out, nobody is rushing"
      },
      {
       "name": "DJI_20261029144023_0010_D",
-      "in": 63.0,
+      "in": 63,
       "out": 65.59,
       "seconds": 2.59,
-      "speed": 1.0,
+      "speed": 1,
       "what": "cabo girão up close"
      },
      {
@@ -3045,15 +3068,15 @@
       "in": 24.6,
       "out": 27.19,
       "seconds": 2.59,
-      "speed": 1.0,
+      "speed": 1,
       "what": "ok who jumps first"
      },
      {
       "name": "VID_20261029_161150_00_168",
-      "in": 40.0,
+      "in": 40,
       "out": 42.59,
       "seconds": 2.59,
-      "speed": 1.0,
+      "speed": 1,
       "what": "then the sea gets quiet"
      }
     ],
@@ -3162,9 +3185,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_143834_00_151",
-     "start": 130.0,
+     "start": 130,
      "len": 1.5,
-     "speed": 1.0,
+     "speed": 1,
      "what": "no plans. just the sea.",
      "tags": [
       "360"
@@ -3173,9 +3196,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029144207_0011_D",
-     "start": 2.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 2,
+     "len": 1,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -3184,9 +3207,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_161010_00_167",
-     "start": 10.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 10,
+     "len": 1,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3195,9 +3218,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029152508_0017_D",
-     "start": 18.0,
+     "start": 18,
      "len": 1.5,
-     "speed": 1.0,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -3206,9 +3229,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029152745_0019_D",
-     "start": 0.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 0,
+     "len": 1,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -3217,9 +3240,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_160809_00_164",
-     "start": 20.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 20,
+     "len": 1,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3228,9 +3251,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_143748_00_150",
-     "start": 8.0,
+     "start": 8,
      "len": 1.5,
-     "speed": 1.0,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3239,9 +3262,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029152745_0019_D",
-     "start": 50.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 50,
+     "len": 1,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -3250,9 +3273,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_161150_00_168",
-     "start": 60.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 60,
+     "len": 1,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3263,7 +3286,7 @@
      "name": "DJI_20261029143938_0009_D",
      "start": 28.5,
      "len": 1.5,
-     "speed": 1.0,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -3272,9 +3295,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_161638_00_171",
-     "start": 85.0,
-     "len": 1.0,
-     "speed": 1.0,
+     "start": 85,
+     "len": 1,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3335,90 +3358,90 @@
     "shots": [
      {
       "name": "VID_20261029_143834_00_151",
-      "in": 130.0,
+      "in": 130,
       "out": 131.5,
       "seconds": 1.5,
-      "speed": 1.0,
+      "speed": 1,
       "what": "no plans. just the sea."
      },
      {
       "name": "DJI_20261029144207_0011_D",
-      "in": 2.0,
-      "out": 3.0,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "in": 2,
+      "out": 3,
+      "seconds": 1,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_161010_00_167",
-      "in": 10.0,
-      "out": 11.0,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "in": 10,
+      "out": 11,
+      "seconds": 1,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "DJI_20261029152508_0017_D",
-      "in": 18.0,
+      "in": 18,
       "out": 19.5,
       "seconds": 1.5,
-      "speed": 1.0,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "DJI_20261029152745_0019_D",
-      "in": 0.0,
-      "out": 1.0,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "in": 0,
+      "out": 1,
+      "seconds": 1,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_160809_00_164",
-      "in": 20.0,
-      "out": 21.0,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "in": 20,
+      "out": 21,
+      "seconds": 1,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_143748_00_150",
-      "in": 8.0,
+      "in": 8,
       "out": 9.5,
       "seconds": 1.5,
-      "speed": 1.0,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "DJI_20261029152745_0019_D",
-      "in": 50.0,
-      "out": 51.0,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "in": 50,
+      "out": 51,
+      "seconds": 1,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_161150_00_168",
-      "in": 60.0,
-      "out": 61.0,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "in": 60,
+      "out": 61,
+      "seconds": 1,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "DJI_20261029143938_0009_D",
       "in": 28.5,
-      "out": 30.0,
+      "out": 30,
       "seconds": 1.5,
-      "speed": 1.0,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_161638_00_171",
-      "in": 85.0,
-      "out": 86.0,
-      "seconds": 1.0,
-      "speed": 1.0,
+      "in": 85,
+      "out": 86,
+      "seconds": 1,
+      "speed": 1,
       "what": ""
      }
     ],
@@ -3441,8 +3464,8 @@
      "file_id": null,
      "name": "DJI_20261029144635_0016_D",
      "start": 0.5,
-     "len": 8.0,
-     "speed": 1.0,
+     "len": 8,
+     "speed": 1,
      "what": "our boat, from the drone",
      "tags": [
       "drone"
@@ -3451,9 +3474,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029152655_0018_D",
-     "start": 30.0,
-     "len": 4.0,
-     "speed": 1.0,
+     "start": 30,
+     "len": 4,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -3516,16 +3539,16 @@
       "name": "DJI_20261029144635_0016_D",
       "in": 0.5,
       "out": 8.5,
-      "seconds": 8.0,
-      "speed": 1.0,
+      "seconds": 8,
+      "speed": 1,
       "what": "our boat, from the drone"
      },
      {
       "name": "DJI_20261029152655_0018_D",
-      "in": 30.0,
-      "out": 34.0,
-      "seconds": 4.0,
-      "speed": 1.0,
+      "in": 30,
+      "out": 34,
+      "seconds": 4,
+      "speed": 1,
       "what": ""
      }
     ],
@@ -3547,9 +3570,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_143748_00_150",
-     "start": 20.0,
+     "start": 20,
      "len": 3.1,
-     "speed": 1.0,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3558,9 +3581,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029144207_0011_D",
-     "start": 80.0,
+     "start": 80,
      "len": 3.1,
-     "speed": 1.0,
+     "speed": 1,
      "what": "2. the swim stop",
      "tags": [
       "drone"
@@ -3569,9 +3592,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029152745_0019_D",
-     "start": 2.0,
+     "start": 2,
      "len": 3.1,
-     "speed": 1.0,
+     "speed": 1,
      "what": "3. the cove",
      "tags": [
       "drone"
@@ -3580,9 +3603,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_160620_00_161",
-     "start": 10.0,
+     "start": 10,
      "len": 3.1,
-     "speed": 1.0,
+     "speed": 1,
      "what": "4. full speed",
      "tags": [
       "360"
@@ -3643,34 +3666,34 @@
     "shots": [
      {
       "name": "VID_20261029_143748_00_150",
-      "in": 20.0,
+      "in": 20,
       "out": 23.1,
       "seconds": 3.1,
-      "speed": 1.0,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "DJI_20261029144207_0011_D",
-      "in": 80.0,
+      "in": 80,
       "out": 83.1,
       "seconds": 3.1,
-      "speed": 1.0,
+      "speed": 1,
       "what": "2. the swim stop"
      },
      {
       "name": "DJI_20261029152745_0019_D",
-      "in": 2.0,
+      "in": 2,
       "out": 5.1,
       "seconds": 3.1,
-      "speed": 1.0,
+      "speed": 1,
       "what": "3. the cove"
      },
      {
       "name": "VID_20261029_160620_00_161",
-      "in": 10.0,
+      "in": 10,
       "out": 13.1,
       "seconds": 3.1,
-      "speed": 1.0,
+      "speed": 1,
       "what": "4. full speed"
      }
     ],
@@ -3692,9 +3715,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_160620_00_161",
-     "start": 14.0,
-     "len": 8.0,
-     "speed": 1.0,
+     "start": 14,
+     "len": 8,
+     "speed": 1,
      "what": "our boat, but make it a tiny planet",
      "tags": [
       "planet"
@@ -3750,15 +3773,15 @@
     "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7-p.mp4",
     "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7-cover.jpg",
     "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r06-70b4d5f7-cover.jpg",
-    "duration": 8.0,
+    "duration": 8,
     "bytes": 12940950,
     "shots": [
      {
       "name": "VID_20261029_160620_00_161",
-      "in": 14.0,
-      "out": 22.0,
-      "seconds": 8.0,
-      "speed": 1.0,
+      "in": 14,
+      "out": 22,
+      "seconds": 8,
+      "speed": 1,
       "what": "our boat, but make it a tiny planet"
      }
     ],
@@ -3780,9 +3803,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_160620_00_161",
-     "start": 2.0,
+     "start": 2,
      "len": 3.46,
-     "speed": 1.0,
+     "speed": 1,
      "what": "salt in your hair",
      "tags": [
       "360"
@@ -3791,9 +3814,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_160809_00_164",
-     "start": 6.0,
+     "start": 6,
      "len": 3.46,
-     "speed": 1.0,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3802,9 +3825,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_161010_00_167",
-     "start": 12.0,
+     "start": 12,
      "len": 3.46,
-     "speed": 1.0,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3813,9 +3836,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_151538_00_157",
-     "start": 40.0,
+     "start": 40,
      "len": 3.46,
-     "speed": 1.0,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -3876,34 +3899,34 @@
     "shots": [
      {
       "name": "VID_20261029_160620_00_161",
-      "in": 2.0,
+      "in": 2,
       "out": 5.46,
       "seconds": 3.46,
-      "speed": 1.0,
+      "speed": 1,
       "what": "salt in your hair"
      },
      {
       "name": "VID_20261029_160809_00_164",
-      "in": 6.0,
+      "in": 6,
       "out": 9.46,
       "seconds": 3.46,
-      "speed": 1.0,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_161010_00_167",
-      "in": 12.0,
+      "in": 12,
       "out": 15.46,
       "seconds": 3.46,
-      "speed": 1.0,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_151538_00_157",
-      "in": 40.0,
+      "in": 40,
       "out": 43.46,
       "seconds": 3.46,
-      "speed": 1.0,
+      "speed": 1,
       "what": ""
      }
     ],
@@ -3925,9 +3948,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029144207_0011_D",
-     "start": 46.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 46,
+     "len": 3,
+     "speed": 1,
      "what": "the swim stop, from above",
      "tags": [
       "drone"
@@ -3947,9 +3970,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029152508_0017_D",
-     "start": 38.0,
-     "len": 7.0,
-     "speed": 1.0,
+     "start": 38,
+     "len": 7,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -4010,26 +4033,26 @@
     "shots": [
      {
       "name": "DJI_20261029144207_0011_D",
-      "in": 46.0,
-      "out": 49.0,
-      "seconds": 3.0,
-      "speed": 1.0,
+      "in": 46,
+      "out": 49,
+      "seconds": 3,
+      "speed": 1,
       "what": "the swim stop, from above"
      },
      {
       "name": "DJI_20261029152508_0017_D",
       "in": 33.5,
-      "out": 36.0,
+      "out": 36,
       "seconds": 2.5,
       "speed": 0.5,
       "what": "last one in"
      },
      {
       "name": "DJI_20261029152508_0017_D",
-      "in": 38.0,
-      "out": 45.0,
-      "seconds": 7.0,
-      "speed": 1.0,
+      "in": 38,
+      "out": 45,
+      "seconds": 7,
+      "speed": 1,
       "what": ""
      }
     ],
@@ -4051,9 +4074,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_143834_00_151",
-     "start": 100.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 100,
+     "len": 3,
+     "speed": 1,
      "what": "snack table with a view",
      "tags": [
       "360"
@@ -4062,9 +4085,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_143834_00_151",
-     "start": 126.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 126,
+     "len": 3,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -4073,9 +4096,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_142442_00_148",
-     "start": 670.0,
-     "len": 3.0,
-     "speed": 1.0,
+     "start": 670,
+     "len": 3,
+     "speed": 1,
      "what": "",
      "tags": [
       "360"
@@ -4131,31 +4154,31 @@
     "preview": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r09-e16d6558-p.mp4",
     "cover": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r09-e16d6558-cover.jpg",
     "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/b1029-r09-e16d6558-cover.jpg",
-    "duration": 9.0,
+    "duration": 9,
     "bytes": 14515437,
     "shots": [
      {
       "name": "VID_20261029_143834_00_151",
-      "in": 100.0,
-      "out": 103.0,
-      "seconds": 3.0,
-      "speed": 1.0,
+      "in": 100,
+      "out": 103,
+      "seconds": 3,
+      "speed": 1,
       "what": "snack table with a view"
      },
      {
       "name": "VID_20261029_143834_00_151",
-      "in": 126.0,
-      "out": 129.0,
-      "seconds": 3.0,
-      "speed": 1.0,
+      "in": 126,
+      "out": 129,
+      "seconds": 3,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "VID_20261029_142442_00_148",
-      "in": 670.0,
-      "out": 673.0,
-      "seconds": 3.0,
-      "speed": 1.0,
+      "in": 670,
+      "out": 673,
+      "seconds": 3,
+      "speed": 1,
       "what": ""
      }
     ],
@@ -4177,9 +4200,9 @@
     {
      "file_id": null,
      "name": "VID_20261029_161150_00_168",
-     "start": 0.0,
-     "len": 4.0,
-     "speed": 1.0,
+     "start": 0,
+     "len": 4,
+     "speed": 1,
      "what": "pov: nobody wants to turn back yet",
      "tags": [
       "360"
@@ -4188,9 +4211,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029144533_0014_D",
-     "start": 3.0,
-     "len": 4.0,
-     "speed": 1.0,
+     "start": 3,
+     "len": 4,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -4199,9 +4222,9 @@
     {
      "file_id": null,
      "name": "DJI_20261029144504_0013_D",
-     "start": 5.0,
-     "len": 4.0,
-     "speed": 1.0,
+     "start": 5,
+     "len": 4,
+     "speed": 1,
      "what": "",
      "tags": [
       "drone"
@@ -4262,26 +4285,26 @@
     "shots": [
      {
       "name": "VID_20261029_161150_00_168",
-      "in": 0.0,
-      "out": 4.0,
-      "seconds": 4.0,
-      "speed": 1.0,
+      "in": 0,
+      "out": 4,
+      "seconds": 4,
+      "speed": 1,
       "what": "pov: nobody wants to turn back yet"
      },
      {
       "name": "DJI_20261029144533_0014_D",
-      "in": 3.0,
-      "out": 7.0,
-      "seconds": 4.0,
-      "speed": 1.0,
+      "in": 3,
+      "out": 7,
+      "seconds": 4,
+      "speed": 1,
       "what": ""
      },
      {
       "name": "DJI_20261029144504_0013_D",
-      "in": 5.0,
-      "out": 9.0,
-      "seconds": 4.0,
-      "speed": 1.0,
+      "in": 5,
+      "out": 9,
+      "seconds": 4,
+      "speed": 1,
       "what": ""
      }
     ],

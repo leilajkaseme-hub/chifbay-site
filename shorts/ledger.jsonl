@@ -38,3 +38,8 @@
 {"at":"2026-11-03T15:21:08.671Z","slot":"2026-11-03#0","reminded":true}
 {"at":"2026-11-03T21:11:17.640Z","slot":"2026-11-03#0","missed":true,"why":"run came 9 h late"}
 {"at":"2026-11-03T21:11:17.887Z","slot":"2026-11-03#1","reminded":true}
+{"at":"2026-11-04T23:48:07.829Z","ok":true,"id":"18642056257024805","channel":"instagram","slot":"2026-11-04#0","url":"https://www.instagram.com/reel/DfVq-1djD4_/"}
+{"at":"2026-11-04T23:48:38.194Z","ok":true,"id":"122130813717436640","channel":"facebook","url":"https://www.facebook.com/122130813717436640"}
+{"at":"2026-11-04T23:49:12.641Z","ok":true,"id":"18094299644692814","channel":"threads","url":"https://www.threads.com/@chifbay/post/DfVrHWEN8Vf"}
+{"at":"2026-11-04T23:49:35.687Z","ok":true,"id":"_yYP59bZuUE","channel":"youtube","url":"https://www.youtube.com/shorts/_yYP59bZuUE"}
+{"at":"2026-11-04T23:49:36.102Z","ok":false,"id":"s011","channel":"tiktok","error":"TikTok draft refused: could not read the video (404) \"\""}
