@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T20:02:23.031Z",
+ "generated_at": "2026-11-04T12:43:01.156Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -872,6 +872,55 @@
    "template": null,
    "priority": 0,
    "created": "2026-11-03T12:33:28.112Z"
+  },
+  {
+   "id": "20261104124248-87e3",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Cliff boat tour from Funchal, Madeira: the rock is wearing stripes and the farms are sitting on top.\n\nA tall brown wall of rock runs across the middle of the picture. Look closely and it is ribbed, with darker and redder lines all the way down, like somebody combed it.\n\nAt the top, the land turns green and flat enough for terraces and a few small white houses. They sit right at the edge and seem completely relaxed about it.\n\nIn front, the sea is deep blue, with a bright patch of sparkle on the left. Above, a lot of small white clouds, all in a hurry to go somewhere else.\n\nThis is the coast we follow from Funchal marina, past Câmara de Lobos and on towards Cabo Girão. Our Day Trip goes this way and adds a swim and paddle stop at Fajã dos Padres. The Sunset Trip follows the same coast, without swimming. Both are private, five guests at most, with a skipper and food on board.\n\nA costa vista do mar tem outra altura.\n\nWould you look up at the cliff, or down at the water first?",
+   "hashtags": [
+    "#funchalmadeira",
+    "#portugal",
+    "#madeiraboattrip",
+    "#privateboattour",
+    "#cabogirao",
+    "#coastline",
+    "#travelportugal"
+   ],
+   "cover": "https://chifbay.com/ig/20261104124248-87e3-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261104124248-87e3-1.jpg",
+    "https://chifbay.com/ig/20261104124248-87e3-2.jpg",
+    "https://chifbay.com/ig/20261104124248-87e3-3.jpg",
+    "https://chifbay.com/ig/20261104124248-87e3-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-04T12:43:00.370Z"
+  },
+  {
+   "id": "20261104124301-450b",
+   "kind": "story",
+   "media": "photo",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/20261104124301-450b.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261104124301-450b.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": null,
+   "created": "2026-11-04T12:43:01.153Z"
   }
  ]
 }
