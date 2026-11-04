@@ -1,0 +1,35 @@
+{
+  "slug": "the-story-of-funchal-marina",
+  "title": "What Is the Story of Funchal Marina?",
+  "category": "Guide",
+  "date": "2026-12-26",
+  "description": "Ships once anchored off Funchal and landed people by rowing boat. The harbour wall grew from 1756, the marina came in the 1980s and was rebuilt from 2023.",
+  "heroImage": "assets/journal/marina-do-funchal-basin-from-above-at-midday-madeira.jpg",
+  "heroAlt": "Drone view of Marina do Funchal at midday, with pontoons, moored boats and the seafront avenue",
+  "readingMinutes": 5,
+  "keywords": [
+    "what is the story of Funchal marina",
+    "Funchal marina history",
+    "when was Funchal marina built",
+    "Marina do Funchal renovation",
+    "Funchal harbour history Pontinha",
+    "Praça do Povo Funchal"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T19:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic drone photograph from about 90 metres above Marina do Funchal, Madeira, at midday in bright sun, looking down at an angle. The rectangular basin of turquoise water, wooden pontoons with white motor boats, sailing yachts and a white 9 metre motor boat with grey cushioned seats and a dark canopy tied up, the stone quay and the new promenade around the basin, the seafront avenue lined with palm trees, and part of the green gardens of Praça do Povo next to it. The long harbour wall stretches away at one side. A few tiny people seen from above, true colours, no readable signs, no text.",
+      "alt": "Drone view of Marina do Funchal at midday, with pontoons, moored boats and the seafront avenue"
+    },
+    {
+      "prompt": "Morning view from the water outside Funchal harbour, Madeira: the long stone harbour wall of the Pontinha ending at a small rocky islet topped by an old fort with weathered walls, calm blue sea, the city on the hillside behind, realistic photo, no people close, no text.",
+      "alt": "The old fort on its islet at the end of Funchal's Pontinha harbour wall"
+    },
+    {
+      "prompt": "Early morning on the renovated promenade around Marina do Funchal, Madeira: light stone paving, a modern railing, pontoons with moored boats below, two walkers seen small from behind, soft low sunlight from the east, realistic photo, no readable signs, no text.",
+      "alt": "The new promenade around Marina do Funchal in early morning light"
+    }
+  ],
+  "set": "boat-60-2"
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "is-a-small-boat-safe-on-the-atlantic-around-madeira",
+  "title": "Is a Small Boat Safe on the Atlantic Around Madeira?",
+  "category": "Guide",
+  "date": "2026-12-04",
+  "description": "Yes, with a licensed operator, a skipper who checks the sea first, and a route along the sheltered south coast. Here is what really makes a trip unsafe.",
+  "heroImage": "assets/journal/small-boat-close-to-shore-seen-from-cliff-above-ponta-do-sol-madeira.jpg",
+  "heroAlt": "A small white motor boat following Madeira's south coast, seen from a cliff above Ponta do Sol",
+  "readingMinutes": 5,
+  "keywords": [
+    "is a small boat safe on the Atlantic around Madeira",
+    "small boat safety Madeira",
+    "is the sea safe for boat trips in Madeira",
+    "Madeira south coast calm sea",
+    "boat trip safety Funchal",
+    "licensed boat operator Madeira",
+    "is it safe to go on a boat in Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T12:10:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-afternoon in October, seen from a high viewpoint on the cliff road just east of Ponta do Sol, looking east along Madeira's south coast towards Ribeira Brava. Far below, a white 9 metre motor boat with grey cushioned seats and a dark canopy, small in the frame, runs parallel to the shore about 400 metres out, drawing a thin straight white wake. Terraced green slopes with banana plantations and a few white houses drop to a dark pebble shoreline. The calm, deep blue Atlantic fills the right half of the frame up to a clear horizon. Clear autumn light, true colours, no people visible, realistic photograph.",
+      "alt": "A small white motor boat following Madeira's south coast, seen from a cliff above Ponta do Sol"
+    },
+    {
+      "prompt": "Morning, seen from the deck of a white motor boat a few hundred metres off Funchal: a flat, glassy sea in the foreground, the city climbing the hillside, and the central mountain ridge of Madeira behind it wrapped in a band of white cloud, showing how the mountains shelter the south coast. Realistic photograph, natural colours, no people.",
+      "alt": "Flat sea off Funchal with Madeira's central mountains in cloud behind the city"
+    },
+    {
+      "prompt": "Late morning, seen from the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy as it slows near the foot of Cabo Girão: three guests seen from behind sit under the canopy, the skipper's back at the helm, the huge brown cliff filling the view ahead, calm deep blue water. Realistic photograph, no faces.",
+      "alt": "Guests seated under the canopy as the boat slows near the foot of Cabo Girão"
+    }
+  ],
+  "set": "boat-60-2"
+}

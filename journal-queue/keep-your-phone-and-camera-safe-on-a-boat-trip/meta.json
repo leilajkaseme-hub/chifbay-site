@@ -1,0 +1,36 @@
+{
+  "slug": "keep-your-phone-and-camera-safe-on-a-boat-trip",
+  "title": "How Do You Keep Your Phone and Camera Safe on a Boat Trip in Madeira?",
+  "category": "Guide",
+  "date": "2026-12-28",
+  "description": "Use a wrist strap or lanyard when it is out, a waterproof pouch or dry bag when it is not, and keep it away from the bow at speed. Waterproof is not safe.",
+  "heroImage": "assets/journal/phone-on-lanyard-in-waterproof-pouch-on-boat-cushion-cabo-girao-madeira.jpg",
+  "heroAlt": "A phone in a clear waterproof pouch on a lanyard, resting on a grey boat cushion",
+  "readingMinutes": 5,
+  "keywords": [
+    "how to keep your phone safe on a boat trip",
+    "phone safe on a boat Madeira",
+    "waterproof phone pouch boat trip",
+    "camera on a boat salt spray",
+    "is IP68 enough for a boat trip",
+    "phone fell in the sea what to do",
+    "dry bag boat trip Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T20:10:00.000Z",
+  "images": [
+    {
+      "prompt": "Midday close-up on board a white 9 metre motor boat with grey cushioned seats and a dark canopy, stopped off Cabo Girão, Madeira. In sharp focus on a grey cushion: a phone sealed in a clear waterproof pouch on a bright orange neck lanyard, small drops of sea spray beaded on the plastic, the screen dark with nothing readable. Behind, out of focus, the deep blue sea and the brown face of Cabo Girão under strong sun. Realistic photograph, true colours, no text, no logos, no people.",
+      "alt": "A phone in a clear waterproof pouch on a lanyard, resting on a grey boat cushion"
+    },
+    {
+      "prompt": "From the deck of a white motor boat off Madeira's south coast, a guest seen from behind holds a phone with a wrist strap looped around the wrist, taking a photo of the coast while the boat is stopped, calm blue water, afternoon light. Realistic photograph, no face, no readable screen.",
+      "alt": "A guest photographing the coast with a wrist strap looped around the wrist"
+    },
+    {
+      "prompt": "Seen from the deck of a white motor boat with a dark canopy, looking up: a small grey drone hovering in a clear blue sky a few metres above the boat, the top of the brown cliff of Cabo Girão at the edge of the frame, late morning. Realistic photograph, no logos, no people.",
+      "alt": "A small drone hovering above the boat near Cabo Girão to film the trip"
+    }
+  ],
+  "set": "boat-60-2"
+}

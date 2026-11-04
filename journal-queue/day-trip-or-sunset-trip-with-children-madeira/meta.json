@@ -1,0 +1,36 @@
+{
+  "slug": "day-trip-or-sunset-trip-with-children-madeira",
+  "title": "Day Trip or Sunset Trip: Which Is Better With Children in Madeira?",
+  "category": "Experience",
+  "date": "2026-12-31",
+  "description": "For most children the Day Trip: swimming, jumping in and paddle boards, back by lunchtime. The Sunset Trip suits calmer, older kids, but it has no swimming.",
+  "heroImage": "assets/journal/child-holding-hand-on-pontoon-before-morning-boat-trip-funchal-madeira.jpg",
+  "heroAlt": "A small child seen from behind holding an adult's hand on the pontoon beside a white boat",
+  "readingMinutes": 5,
+  "keywords": [
+    "day trip or sunset trip with children Madeira",
+    "boat trip with kids Madeira",
+    "family boat trip Funchal",
+    "sunset cruise with children Madeira",
+    "can kids swim on a boat trip Madeira",
+    "best boat trip for families Madeira",
+    "boat trip with teenagers Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T21:10:00.000Z",
+  "images": [
+    {
+      "prompt": "About 09:45 on a sunny summer morning at Marina do Funchal, Madeira. Seen from behind at child height on the wooden pontoon: a small child in a sun hat and a little backpack holds an adult's hand, both walking towards a white 9 metre motor boat with grey cushioned seats and a dark canopy tied up alongside. Calm green water, other small boats and the palm-lined seafront in soft focus behind. Warm morning light from the east. No faces visible, no text, no logos, realistic photograph, true colours.",
+      "alt": "A small child seen from behind holding an adult's hand on the pontoon beside a white boat"
+    },
+    {
+      "prompt": "Midday at Ribeira Brava on Madeira's south coast, seen from the stern of a white motor boat: an adult swimmer seen from behind holds the edge of a paddle board on which a child, seen from behind in a sun hat and rash vest, kneels and grips the paddle, calm blue water, the town and pebble beach behind. Realistic photograph, no faces.",
+      "alt": "A child kneeling on a paddle board while an adult swims beside it off Ribeira Brava"
+    },
+    {
+      "prompt": "Winter late afternoon, about 17:30, on the back seat of a white motor boat with a dark canopy returning to Funchal: an adult and an older child, both seen from behind and wearing hooded jackets, sit close together watching the orange sky over the sea. Realistic photograph, silhouettes, no faces.",
+      "alt": "An adult and a child in hooded jackets watching a winter sunset from the boat"
+    }
+  ],
+  "set": "boat-60-2"
+}

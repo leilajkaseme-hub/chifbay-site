@@ -1,0 +1,36 @@
+{
+  "slug": "how-to-book-a-surprise-boat-trip-in-madeira",
+  "title": "How Do You Book a Surprise Boat Trip in Madeira Without Spoiling It?",
+  "category": "Experience",
+  "date": "2027-01-02",
+  "description": "Book in your own name, keep every message on your phone, give just two clues: what to wear and when to leave the hotel. The marina walk is your part to plan.",
+  "heroImage": "assets/journal/couple-walking-promenade-towards-funchal-marina-at-dusk-madeira.jpg",
+  "heroAlt": "Two people seen from behind walking along the seafront promenade towards Marina do Funchal",
+  "readingMinutes": 6,
+  "keywords": [
+    "how to book a surprise boat trip in madeira",
+    "surprise boat trip funchal",
+    "surprise sunset cruise madeira",
+    "boat trip gift surprise partner madeira",
+    "what to wear on a boat trip madeira",
+    "surprise anniversary madeira",
+    "secret birthday plan funchal"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T21:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Late afternoon on the seafront promenade above Marina do Funchal, warm low light from the west. Two people seen from behind walk hand in hand along the palm-lined path, one leading the other half a step ahead, both in light evening clothes and flat shoes. Below them, to the right, the wooden pontoons of the marina with small white motor boats moored, the calm bay beyond. True colours, faces not visible, no text, no logos.",
+      "alt": "Two people seen from behind walking along the seafront promenade towards Marina do Funchal"
+    },
+    {
+      "prompt": "A small bouquet of flowers and a light knitted cardigan lying on a hotel bed beside a pair of flat leather sandals, late afternoon sun through a window with a glimpse of the sea, no people, no text.",
+      "alt": "A cardigan, flat sandals and flowers laid out on a hotel bed before an evening out"
+    },
+    {
+      "prompt": "Golden hour on the deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy leaving Funchal: a guest seen from behind with both hands raised to their head in surprise, another guest beside them, the city on the hillside behind in warm light, the skipper's arm visible at the helm.",
+      "alt": "A guest seen from behind reacting with surprise as the boat leaves Funchal"
+    }
+  ],
+  "set": "boat-60-2"
+}

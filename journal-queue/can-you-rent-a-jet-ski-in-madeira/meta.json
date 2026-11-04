@@ -1,0 +1,37 @@
+{
+  "slug": "can-you-rent-a-jet-ski-in-madeira",
+  "title": "Can You Rent a Jet Ski in Madeira?",
+  "category": "Guide",
+  "date": "2026-12-08",
+  "description": "Yes, from Funchal and Calheta. Without a licence you ride in a marked area or a closed circuit. The open coast needs at least a Marinheiro boat licence.",
+  "heroImage": "assets/journal/jet-ski-carving-a-wake-in-the-bay-of-funchal-madeira.jpg",
+  "heroAlt": "A jet ski with two riders carving a white wake across the bay of Funchal",
+  "readingMinutes": 6,
+  "keywords": [
+    "can you rent a jet ski in Madeira",
+    "jet ski Madeira",
+    "jet ski tour Funchal",
+    "jet ski licence Portugal",
+    "jet ski Calheta",
+    "jet ski rules Madeira",
+    "jet ski or boat trip Madeira",
+    "water sports Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T13:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Late morning, seen from the end of the long harbour pier in Funchal, Madeira, looking towards the city: a single jet ski with two riders in life jackets, small and seen from behind, carves a white curving wake across calm blue water. Behind them the white houses and terracotta roofs of Funchal climb the green hills in an amphitheatre, with a few palm trees along the seafront. Bright sun, true colours, no text, no logos.",
+      "alt": "A jet ski with two riders carving a white wake across the bay of Funchal"
+    },
+    {
+      "prompt": "Close detail of the handlebars and throttle of a jet ski at speed, gloved hands only, drops of spray in the sunlight, deep blue sea ahead, no face.",
+      "alt": "Hands on the handlebars of a jet ski at speed off Madeira"
+    },
+    {
+      "prompt": "A row of orange life jackets hanging on a metal rail at a small marina in Madeira, morning light, blue sea and moored boats out of focus behind, no people.",
+      "alt": "Orange life jackets hanging on a rail at a Madeira marina"
+    }
+  ],
+  "set": "boat-60-2"
+}

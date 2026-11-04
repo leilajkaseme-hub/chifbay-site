@@ -1,0 +1,36 @@
+{
+  "slug": "madeira-if-you-are-afraid-of-heights",
+  "title": "Afraid of Heights: How Do You See Madeira's Cliffs Without the Skywalk?",
+  "category": "Guide",
+  "date": "2026-12-24",
+  "description": "From sea level. A boat runs along the foot of Cabo Girão, about 580 metres of cliff, with no glass floor or drop below you: you look up at the rock, not down.",
+  "heroImage": "assets/journal/full-height-of-cabo-girao-with-boat-for-scale-madeira.jpg",
+  "heroAlt": "The full height of the Cabo Girão cliff from the sea, with a small boat at its foot",
+  "readingMinutes": 6,
+  "keywords": [
+    "afraid of heights madeira",
+    "cabo girao skywalk fear of heights",
+    "madeira cliffs from the sea",
+    "is madeira good for people afraid of heights",
+    "madeira mountain roads fear of heights",
+    "cabo girao without the glass floor",
+    "see cabo girao by boat"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T18:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph taken from the sea about 800 metres offshore in early afternoon light, showing the full height of the Cabo Girão cliff in Madeira from the waterline to the skyline. Terraced green fields at the base, the reddish and dark volcanic layers of the wall, and the small viewpoint at the very top edge, tiny against the sky. At the foot of the cliff, on calm blue water, a white 9 metre motor boat with grey cushioned seats and a dark canopy looks very small, giving the scale. Clear sky, true colours, no text.",
+      "alt": "The full height of the Cabo Girão cliff from the sea, with a small boat at its foot"
+    },
+    {
+      "prompt": "From the deck of a white motor boat with grey cushioned seats, looking up at a towering volcanic cliff on Madeira's south coast, a guest seen from behind sitting relaxed on the low seat with one arm resting on the side, head tilted back to look at the top, soft morning light.",
+      "alt": "A guest sitting low on the boat deck looking up at a tall cliff on Madeira's south coast"
+    },
+    {
+      "prompt": "The entrance of a road tunnel on Madeira's VR1 expressway on a bright day, green slopes above it, a few cars driving in, the sea visible beside the road, no readable signs.",
+      "alt": "A road tunnel entrance on Madeira's expressway along the south coast"
+    }
+  ],
+  "set": "boat-60-2"
+}

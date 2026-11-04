@@ -1,0 +1,36 @@
+{
+  "slug": "is-there-a-boat-from-funchal-to-camara-de-lobos",
+  "title": "Is There a Boat From Funchal to Câmara de Lobos?",
+  "category": "Guide",
+  "date": "2026-12-05",
+  "description": "No regular ferry or water taxi links Funchal and Câmara de Lobos. Take the bus, a taxi or the seafront walk, and see the bay from the water on a boat trip.",
+  "heroImage": "assets/journal/camara-de-lobos-bay-from-above-with-boat-heading-west-madeira.jpg",
+  "heroAlt": "Drone view of Câmara de Lobos bay with a small white motor boat passing outside the harbour wall",
+  "readingMinutes": 6,
+  "keywords": [
+    "is there a boat from Funchal to Câmara de Lobos",
+    "ferry Funchal Câmara de Lobos",
+    "water taxi Funchal",
+    "bus from Funchal to Câmara de Lobos",
+    "walk from Funchal to Câmara de Lobos",
+    "Câmara de Lobos from the sea",
+    "how to get to Câmara de Lobos"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T12:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic drone photograph from about 120 metres up and a little offshore, late afternoon in spring, warm side light from the west. Below, the small round bay of Câmara de Lobos, Madeira: the curved harbour wall, a cluster of brightly painted wooden fishing boats in blue, red and yellow, the dark pebble beach of Vigário, and white houses with terracotta roofs climbing the slope. Just outside the harbour mouth, a white 9 metre motor boat with grey cushioned seats and a dark canopy heads west with a short white wake, a few tiny figures on board seen from above. The cliff of Cabo Girão rises at the left edge of the frame. True colours, no text.",
+      "alt": "Drone view of Câmara de Lobos bay with a small white motor boat passing outside the harbour wall"
+    },
+    {
+      "prompt": "Morning on the seafront promenade that runs along the cliff into Câmara de Lobos, Madeira: a concrete walkway on pillars above dark rocks and gentle surf, two walkers seen small from behind heading towards the bay and its white houses, soft light, realistic photo, no text.",
+      "alt": "Seafront promenade on pillars along the cliff, leading walkers into Câmara de Lobos bay"
+    },
+    {
+      "prompt": "Close view of traditional wooden fishing boats painted blue, yellow, red and white, resting on dark pebbles at the edge of Câmara de Lobos harbour in early morning light, fishing nets and ropes coiled on board, no people, realistic photo, no text.",
+      "alt": "Painted wooden fishing boats resting on dark pebbles at Câmara de Lobos harbour"
+    }
+  ],
+  "set": "boat-60-2"
+}

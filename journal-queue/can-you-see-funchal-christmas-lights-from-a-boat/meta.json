@@ -1,0 +1,35 @@
+{
+  "slug": "can-you-see-funchal-christmas-lights-from-a-boat",
+  "title": "Can You See Funchal's Christmas Lights From a Boat?",
+  "category": "What's On",
+  "date": "2026-12-20",
+  "description": "Yes. In December the Sunset Trip leaves about 16:45 and returns after dark, while Funchal is lit for Christmas. The 2026 lights run 1 December to 10 January.",
+  "heroImage": "assets/journal/funchal-seafront-christmas-lights-reflected-in-the-bay-from-the-water-madeira.jpg",
+  "heroAlt": "Funchal's seafront lit with Christmas lights at dusk, reflected in the calm bay, seen from a boat",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you see Funchal Christmas lights from a boat",
+    "Funchal Christmas lights 2026 dates",
+    "Christmas lights Madeira boat trip",
+    "December sunset boat trip Funchal",
+    "Funchal lights from the sea",
+    "Madeira Christmas 2026"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T17:30:00.000Z",
+  "images": [
+    {
+      "prompt": "December, about 30 minutes after sunset, seen from the bow of a white 9 metre motor boat with grey cushioned seats and a dark canopy, slowly approaching Marina do Funchal, Madeira. The seafront ahead glows with warm white and coloured Christmas lights along the promenade and in the trees, long golden reflections on calm dark water, the city lights climbing the dark hillside behind, a last band of deep blue in the sky. Only the bow rail and the front cushion in the foreground, no people visible, no readable signs, natural colours, no text.",
+      "alt": "Funchal's seafront lit with Christmas lights at dusk, reflected in the calm bay, seen from a boat"
+    },
+    {
+      "prompt": "Close detail at dusk on the table of a small boat: a short glass of red Madeira wine and a small cup of poncha, the city lights of Funchal blurred into soft round shapes in the background, cool blue evening light, realistic photo, no people, no text.",
+      "alt": "A glass of Madeira wine on a boat table with Funchal's lights blurred behind"
+    },
+    {
+      "prompt": "Evening in a street in central Funchal, Madeira, in December: strings of warm Christmas lights hang above a pedestrian street with traditional black and white cobbles, shop windows glowing, a few people seen small from behind in the distance, realistic photo, no readable signs, no text.",
+      "alt": "Christmas lights strung above a cobbled street in central Funchal at night"
+    }
+  ],
+  "set": "boat-60-2"
+}

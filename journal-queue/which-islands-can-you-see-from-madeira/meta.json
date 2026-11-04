@@ -1,0 +1,35 @@
+{
+  "slug": "which-islands-can-you-see-from-madeira",
+  "title": "Which Islands Can You See From Madeira, and When?",
+  "category": "Nature",
+  "date": "2026-12-14",
+  "description": "On clear days you see the Desertas, 30 to 40 km south-east of Funchal. Porto Santo shows only from high or eastern points. The Selvagens are never visible.",
+  "heroImage": "assets/journal/desertas-islands-on-the-horizon-late-afternoon-from-boat-off-funchal-madeira.jpg",
+  "heroAlt": "The long, low Desertas Islands on the south-eastern horizon, seen from a boat off Funchal",
+  "readingMinutes": 5,
+  "keywords": [
+    "which islands can you see from Madeira",
+    "can you see the Desertas from Funchal",
+    "can you see Porto Santo from Madeira",
+    "Selvagens visible from Madeira",
+    "Desertas Islands view",
+    "islands near Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T15:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Late afternoon in January, about an hour before sunset, seen from the bow of a white 9 metre motor boat with grey cushioned seats and a dark canopy, a short way off Funchal, Madeira, looking south-east across open water. On the horizon, the long low chain of the Desertas Islands: a flat table-like islet at the left, a long high island in the middle, a thinner one at the right, their western cliffs lit warm by the low sun. Very clear air, deep blue calm sea, a pale blue sky. Only the white bow rail and a coiled rope in the foreground, no people, true colours, no text.",
+      "alt": "The long, low Desertas Islands on the south-eastern horizon, seen from a boat off Funchal"
+    },
+    {
+      "prompt": "Early morning from the Pico do Arieiro viewpoint in Madeira: a sea of white clouds below the rocky ridges, and far off on the north-eastern horizon above the clouds the faint grey outline of Porto Santo island, one walker seen small from behind at the railing, clear sky, realistic photo, no text.",
+      "alt": "Porto Santo faint on the horizon above a sea of clouds, seen from Pico do Arieiro"
+    },
+    {
+      "prompt": "Telephoto view at dusk from the sea off Madeira: the three dark shapes of the Desertas Islands in a line on the horizon under a pink and grey sky, calm water with a soft sheen, no boats, realistic photo, no text.",
+      "alt": "The three Desertas Islands as dark shapes on the horizon at dusk"
+    }
+  ],
+  "set": "boat-60-2"
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "can-you-change-the-date-of-a-boat-trip-in-madeira",
+  "title": "Can You Change the Date of a Boat Trip in Madeira After Booking?",
+  "category": "Guide",
+  "date": "2026-12-19",
+  "description": "Yes, if you act over 24 hours before departure: a direct Chifbay booking cancels free until then, so you can rebook. If the sea is unsafe, you get a new date.",
+  "heroImage": "assets/journal/hotel-balcony-coffee-windy-sea-lido-funchal-madeira.jpg",
+  "heroAlt": "A coffee and a phone on a hotel balcony table above a ruffled sea in Funchal",
+  "readingMinutes": 6,
+  "keywords": [
+    "can you change the date of a boat trip in Madeira",
+    "reschedule boat trip Madeira",
+    "change booking date boat tour Funchal",
+    "free cancellation 24 hours boat trip",
+    "boat trip cancelled weather Madeira new date",
+    "change GetYourGuide booking date",
+    "move a private boat trip to another day"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T17:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning on a hotel balcony high above the Lido area of Funchal, Madeira. In the foreground, a small round metal table with a white cup of coffee and a phone lying face down, a light cardigan over the back of a chair. Beyond the glass railing, the Atlantic is ruffled with scattered white horses under a broken sky of grey cloud and patches of blue, the dark cliff of Ponta da Cruz on the right edge, no boats close in. Soft light, realistic, true colours, no people, no text.",
+      "alt": "A coffee and a phone on a hotel balcony table above a ruffled sea in Funchal"
+    },
+    {
+      "prompt": "A calm, sunny morning off Funchal, Madeira: flat deep blue sea, a small white motor boat with a dark canopy far out heading west along the coast, the green slopes and white houses of the city behind, seen from the seafront.",
+      "alt": "A calm morning off Funchal, the kind of day a trip moves to"
+    },
+    {
+      "prompt": "Marina do Funchal in still morning light after a windy night: small white boats motionless on glassy water inside the harbour wall, the sky clearing, a low line of islands faint on the far horizon, no people.",
+      "alt": "Marina do Funchal on a calm morning after a windy night"
+    }
+  ],
+  "set": "boat-60-2"
+}

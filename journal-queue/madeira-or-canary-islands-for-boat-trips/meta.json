@@ -1,0 +1,37 @@
+{
+  "slug": "madeira-or-canary-islands-for-boat-trips",
+  "title": "Madeira or the Canary Islands: Which Is Better for Boat Trips?",
+  "category": "Guide",
+  "date": "2026-12-29",
+  "description": "Madeira suits short private trips under tall cliffs, from a marina in the city centre. The Canaries win on sand beaches and Tenerife's resident pilot whales.",
+  "heroImage": "assets/journal/steep-south-coast-between-ribeira-brava-and-ponta-do-sol-madeira.jpg",
+  "heroAlt": "Two guests on a private boat looking at the steep green cliffs between Ribeira Brava and Ponta do Sol",
+  "readingMinutes": 6,
+  "keywords": [
+    "Madeira or Canary Islands for boat trips",
+    "Madeira vs Canary Islands",
+    "Madeira vs Tenerife boat trip",
+    "whale watching Tenerife or Madeira",
+    "Canary Islands boat trip",
+    "Madeira cliffs by boat",
+    "ferry Madeira Canary Islands",
+    "which is calmer Madeira or Canaries"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T20:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-afternoon in spring, seen from the middle of the deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy, the boat moving slowly parallel to the shore. Two guests seen from behind and small lean on the side rail, looking at the steep south coast of Madeira between Ribeira Brava and Ponta do Sol: high green and brown cliffs, terraces of banana plants on the lower slopes, a few white houses with orange roofs, and a narrow dark pebble shore at the foot with no sand beach. Calm deep blue sea, soft sun from the west, true colours, no text, no logos.",
+      "alt": "Two guests on a private boat looking at the steep green cliffs between Ribeira Brava and Ponta do Sol"
+    },
+    {
+      "prompt": "Terraced banana plantations climbing a steep slope above the sea on Madeira's south coast, small white houses among them, seen from the water in late afternoon light, no people.",
+      "alt": "Banana terraces on a steep slope above the sea on Madeira's south coast"
+    },
+    {
+      "prompt": "Close detail of a dark pebble shore at the foot of a cliff on Madeira's south coast, a small wave washing over rounded grey and black stones, bright afternoon light, no people.",
+      "alt": "Small wave washing over the dark pebbles of a Madeira shore below a cliff"
+    }
+  ],
+  "set": "boat-60-2"
+}

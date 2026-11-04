@@ -1,0 +1,36 @@
+{
+  "slug": "best-day-of-your-holiday-for-a-boat-trip-in-madeira",
+  "title": "Which Day of Your Madeira Holiday Is Best for a Boat Trip?",
+  "category": "Guide",
+  "date": "2026-12-12",
+  "description": "Usually your second or third day: rested after the flight, with spare days left if the sea says no. Avoid travel days, and never save the boat for the last.",
+  "heroImage": "assets/journal/hotel-balcony-morning-coffee-above-funchal-bay-madeira.jpg",
+  "heroAlt": "A coffee cup and a folded map on a balcony table above a calm Funchal bay in early morning",
+  "readingMinutes": 6,
+  "keywords": [
+    "best day of holiday for a boat trip madeira",
+    "when in my trip should i book a boat trip",
+    "madeira itinerary boat trip day",
+    "boat trip early or late in holiday",
+    "weather buffer madeira holiday",
+    "madeira one week itinerary with boat trip",
+    "plan madeira holiday around the sea"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T14:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning on a hotel balcony in Funchal's Lido area, looking south-west over the sea. In the foreground, slightly out of focus, a small round table with a cup of coffee, a folded paper map of Madeira and a pair of sunglasses. Beyond the railing, the calm sea in soft golden light, and far out a small white motor boat with a dark canopy heading west along the coast towards Câmara de Lobos. No people, no readable text, true colours.",
+      "alt": "A coffee cup and a folded map on a balcony table above a calm Funchal bay in early morning"
+    },
+    {
+      "prompt": "A straw hat, a rolled beach towel and a pair of sunglasses on a wooden table by an open window, morning sunlight, a view of Funchal's red roofs and the sea through the window, no readable words on the paper, no people.",
+      "alt": "A straw hat and beach towel on a table by a window overlooking Funchal"
+    },
+    {
+      "prompt": "Mid-afternoon on a quiet street in Funchal's Zona Velha, two people seen from behind walking slowly with towels in a bag after a boat trip, sun on the cobbles, the sea visible at the end of the street.",
+      "alt": "Two people walking through Funchal's old town after a boat trip"
+    }
+  ],
+  "set": "boat-60-2"
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "rain-in-the-forecast-when-to-book-a-boat-trip-in-madeira",
+  "title": "Rain in Your Madeira Forecast: When Should You Book the Boat Trip?",
+  "category": "Guide",
+  "date": "2026-12-09",
+  "description": "Book early in your stay, for the calmest sea, not the driest sky. A rain icon over Funchal often means mountain showers. Free cancellation ends at 24 hours.",
+  "heroImage": "assets/journal/boat-off-praia-formosa-under-mountain-rain-clouds-madeira.jpg",
+  "heroAlt": "The boat on sunlit water off Funchal while grey rain clouds sit on the mountains behind",
+  "readingMinutes": 6,
+  "keywords": [
+    "rain in madeira forecast boat trip",
+    "when to book a boat trip in madeira",
+    "madeira weather forecast accuracy",
+    "does it rain in funchal when the forecast says rain",
+    "chance of rain meaning",
+    "ipma forecast madeira south coast",
+    "boat trip cancellation weather madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T13:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic drone photograph from about 50 metres above the sea off Praia Formosa, just west of Funchal, late morning. A white 9 metre motor boat with grey cushioned seats and a dark canopy crosses sunlit deep blue water with a short white wake. Behind it the city and the green slopes of São Martinho are in sunshine, while a thick dark grey cloud bank sits on the mountain tops above and a faint rainbow arcs over the hills. True colours, small figures on deck, no faces, no text.",
+      "alt": "The boat on sunlit water off Funchal while grey rain clouds sit on the mountains behind"
+    },
+    {
+      "prompt": "From under the dark canopy of a white motor boat with grey cushioned seats, looking out at a short shower falling on calm grey-blue sea off Câmara de Lobos, a band of sunlight already breaking through on the water further west, a few raindrops on the edge of the canopy, no people.",
+      "alt": "A passing shower on the sea off Câmara de Lobos seen from under the boat canopy"
+    },
+    {
+      "prompt": "Evening view from the sea west of Funchal towards the horizon: the sun low and partly hidden behind a long bank of cloud, golden light leaking out under the cloud onto a calm sea, the dark outline of the coast near Cabo Girão to the right, no boats, no people.",
+      "alt": "A cloud bank hiding part of the sunset over the sea west of Funchal"
+    }
+  ],
+  "set": "boat-60-2"
+}

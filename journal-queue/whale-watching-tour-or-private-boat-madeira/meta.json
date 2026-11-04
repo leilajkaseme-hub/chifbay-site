@@ -1,0 +1,37 @@
+{
+  "slug": "whale-watching-tour-or-private-boat-madeira",
+  "title": "Whale Watching Tour or Private Boat Trip in Madeira: Which to Choose?",
+  "category": "Guide",
+  "date": "2026-12-17",
+  "description": "Choose a whale watching tour if whales and dolphins are the point, as it searches offshore. Choose a private boat for the coast, a swim and your own group.",
+  "heroImage": "assets/journal/brydes-whale-surfacing-in-calm-blue-water-off-madeira.jpg",
+  "heroAlt": "The dark back and small fin of a Bryde's whale breaking a calm blue sea off Madeira",
+  "readingMinutes": 6,
+  "keywords": [
+    "whale watching tour or private boat trip Madeira",
+    "whale watching Madeira",
+    "dolphin trip or boat trip Madeira",
+    "best way to see dolphins in Madeira",
+    "private boat dolphins Madeira",
+    "whale watching Funchal",
+    "Madeira cetaceans",
+    "is whale watching worth it in Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T16:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Telephoto wildlife photograph from a boat at a respectful distance, mid-afternoon on a calm day off Madeira's south coast: the long dark back and small curved dorsal fin of a Bryde's whale breaking the smooth deep blue surface, a faint low blow drifting above it. The green and brown coastline of the island lies low and hazy on the horizon. No boat in frame, no people, natural light, true colours, no text, no logos.",
+      "alt": "The dark back and small fin of a Bryde's whale breaking a calm blue sea off Madeira"
+    },
+    {
+      "prompt": "Seen from behind, a spotter in a cap stands on the raised upper deck of a large white catamaran and scans the open Atlantic with binoculars, deep blue sea all around, bright late morning light, no faces.",
+      "alt": "A spotter with binoculars scanning the sea from the upper deck of a whale watching catamaran"
+    },
+    {
+      "prompt": "From the bow of a white 9 metre motor boat with grey cushioned seats and a dark canopy, two guests seen from behind look up at the tall terraced cliff above the pebble shore of Fajã dos Padres, calm turquoise water, late morning.",
+      "alt": "Two guests at the bow looking up at the cliff above Fajã dos Padres"
+    }
+  ],
+  "set": "boat-60-2"
+}

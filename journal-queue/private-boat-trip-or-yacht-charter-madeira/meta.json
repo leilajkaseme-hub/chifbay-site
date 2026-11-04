@@ -1,0 +1,37 @@
+{
+  "slug": "private-boat-trip-or-yacht-charter-madeira",
+  "title": "Private Boat Trip or Yacht Charter in Madeira: What Is the Difference?",
+  "category": "Guide",
+  "date": "2026-12-26",
+  "description": "A private boat trip is a few hours on a small skippered boat for your group. A yacht charter is a bigger boat with cabins and crew, often for a day or more.",
+  "heroImage": "assets/journal/small-private-boat-passing-large-motor-yacht-funchal-madeira.jpg",
+  "heroAlt": "A small white motor boat passing a large three deck motor yacht moored in Funchal harbour",
+  "readingMinutes": 6,
+  "keywords": [
+    "difference between a private boat trip and a yacht charter in Madeira",
+    "yacht charter Madeira",
+    "private boat or yacht Madeira",
+    "crewed yacht Funchal",
+    "yacht with cabins Madeira",
+    "boat for a large group Madeira",
+    "half day private boat Funchal",
+    "Desertas Islands by yacht"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T19:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-morning in Funchal harbour, Madeira, seen from the water at a low angle. In the background a large white three deck motor yacht is moored along the outer harbour wall, its tinted windows catching the sun. In the foreground, a white 9 metre motor boat with grey cushioned seats and a dark canopy passes slowly from left to right with a small wake, three guests on board seen small from the side and behind. The amphitheatre of Funchal's white houses and green hills rises behind. Natural light, true colours, no text, no logos.",
+      "alt": "A small white motor boat passing a large three deck motor yacht moored in Funchal harbour"
+    },
+    {
+      "prompt": "Close detail inside the saloon of a large motor yacht moored in Funchal: cream leather sofas, a low wooden table and wide windows looking out at the harbour wall and blue sea, soft daylight, no people.",
+      "alt": "The saloon of a large yacht moored in Funchal harbour"
+    },
+    {
+      "prompt": "From the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, a small table with a plate of food and two glasses of white wine in the shade, the green and brown south coast of Madeira passing behind, late morning, no faces.",
+      "alt": "Food and local wine served in the shade on a small private boat off Madeira"
+    }
+  ],
+  "set": "boat-60-2"
+}

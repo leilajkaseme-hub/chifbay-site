@@ -1,0 +1,37 @@
+{
+  "slug": "why-is-garajau-named-after-a-seabird",
+  "title": "Why Is Garajau Named After a Seabird?",
+  "category": "Nature",
+  "date": "2027-01-02",
+  "description": "Garajau is the Madeiran word for the common tern, a seabird nesting on the cliffs from spring to autumn. The headland, statue and reserve that share its name.",
+  "heroImage": "assets/journal/common-tern-hovering-over-the-sea-below-garajau-cliffs-madeira.jpg",
+  "heroAlt": "A common tern hovering over the sea below the brown cliffs of Ponta do Garajau",
+  "readingMinutes": 6,
+  "keywords": [
+    "why is garajau named after a seabird",
+    "what does garajau mean",
+    "garajau tern madeira",
+    "common tern madeira",
+    "cristo rei garajau history",
+    "garajau nature reserve",
+    "ponta do garajau",
+    "birds madeira coast"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T21:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Early afternoon in June off the south-east coast of Madeira near Ponta do Garajau, seen from the water. In sharp focus, a single common tern hovers about two metres above a calm, deep blue sea, wings raised, forked tail spread, black cap and red bill clearly visible, looking down for a fish. Behind it, out of focus, the steep brown and green cliffs of the Garajau headland with a small white statue far away on top. Bright natural light, true colours, realistic wildlife photo, no text.",
+      "alt": "A common tern hovering over the sea below the brown cliffs of Ponta do Garajau"
+    },
+    {
+      "prompt": "Realistic photograph of the Cristo Rei statue on Ponta do Garajau, Madeira, seen from the clifftop path behind it in morning light, arms open towards the Atlantic, the deep blue sea and the coast towards Funchal below, no people in close-up, no text.",
+      "alt": "The Cristo Rei statue on Ponta do Garajau facing the Atlantic"
+    },
+    {
+      "prompt": "Realistic photograph of Praia do Garajau, a small pebble beach at the foot of high brown cliffs east of Funchal, Madeira, seen from above in late morning, clear turquoise and blue water, a few small figures on the stones, no text.",
+      "alt": "Praia do Garajau, a pebble beach at the foot of the cliffs east of Funchal"
+    }
+  ],
+  "set": "boat-60-2"
+}

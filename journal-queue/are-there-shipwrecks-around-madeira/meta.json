@@ -1,0 +1,37 @@
+{
+  "slug": "are-there-shipwrecks-around-madeira",
+  "title": "Are There Shipwrecks Around Madeira?",
+  "category": "Nature",
+  "date": "2026-12-12",
+  "description": "Yes. Three ships were sunk as reefs off Porto Santo and Cabo Girão, and older wrecks lie off Ponta do Sol, Funchal and Porto Santo. Where they are, how deep.",
+  "heroImage": "assets/journal/corvette-wreck-artificial-reef-under-cabo-girao-madeira.jpg",
+  "heroAlt": "Divers over the grey hull of a sunken navy corvette in deep blue water off Cabo Girão",
+  "readingMinutes": 6,
+  "keywords": [
+    "are there shipwrecks around madeira",
+    "madeira shipwrecks",
+    "wreck diving madeira",
+    "afonso cerqueira wreck cabo girao",
+    "porto santo wrecks",
+    "madeirense wreck",
+    "bowbelle wreck madeira",
+    "funchal 1916 submarine attack"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T14:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic underwater photograph at about 20 metres in the Cabo Girão marine park off Madeira, late morning. The grey steel bow and forward deck of a sunken navy corvette rest on a sandy bottom, partly covered in brown algae and small sponges, a shoal of small silver fish around the railings. Two scuba divers seen small from behind, with fins and tanks, hover above the deck. Deep blue water, soft sunlight rays from the surface, no faces, no text.",
+      "alt": "Divers over the grey hull of a sunken navy corvette in deep blue water off Cabo Girão"
+    },
+    {
+      "prompt": "Realistic photograph from the sea of Porto Santo harbour and the rocky Ilhéu de Cima islet with its lighthouse in calm morning light, turquoise and deep blue water, a small dive boat moored at a buoy, low brown hills behind, no text.",
+      "alt": "Porto Santo harbour and Ilhéu de Cima seen from the sea"
+    },
+    {
+      "prompt": "Realistic photograph of an orange diver's surface marker buoy floating on a calm deep blue sea off Madeira's south coast at midday, the tall dark cliff of Cabo Girão in soft focus behind, no people visible, no text.",
+      "alt": "A diver's marker buoy floating on the sea below Cabo Girão"
+    }
+  ],
+  "set": "boat-60-2"
+}

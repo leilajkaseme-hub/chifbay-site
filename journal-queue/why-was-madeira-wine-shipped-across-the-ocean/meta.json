@@ -1,0 +1,37 @@
+{
+  "slug": "why-was-madeira-wine-shipped-across-the-ocean",
+  "title": "Why Was Madeira Wine Shipped Across the Ocean?",
+  "category": "Guide",
+  "date": "2026-12-21",
+  "description": "Because long, hot voyages made it better. Wine that crossed the tropics and came back was sold as vinho da roda, and estufagem now copies that heat on land.",
+  "heroImage": "assets/journal/malvasia-vines-on-the-faja-dos-padres-terraces-madeira.jpg",
+  "heroAlt": "Low vines on the terraces of Fajã dos Padres between a tall cliff and the sea",
+  "readingMinutes": 6,
+  "keywords": [
+    "why was madeira wine shipped across the ocean",
+    "vinho da roda",
+    "what is estufagem",
+    "canteiro madeira wine",
+    "madeira wine history",
+    "why is madeira wine heated",
+    "madeira wine and the american colonies",
+    "how is madeira wine made"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T17:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Late afternoon in early autumn at Fajã dos Padres on Madeira's south coast, photographed at ground level among the vines. Rows of low green and yellowing vines on short wooden supports fill the foreground on a narrow strip of flat land. On the right, the huge dark brown cliff rises almost vertically into a blue sky. On the left, a low stone wall and beyond it the calm deep blue Atlantic. Warm side light, no people, true colours, realistic photo, no text.",
+      "alt": "Low vines on the terraces of Fajã dos Padres between a tall cliff and the sea"
+    },
+    {
+      "prompt": "Realistic photograph inside the warm top floor of an old wine lodge in Funchal, Madeira: rows of dark oak casks resting on wooden beams under a sloping timber roof, chalk marks on the cask ends, soft sunlight through a small window, no people, no text.",
+      "alt": "Oak casks of Madeira wine ageing in a warm lodge loft in Funchal"
+    },
+    {
+      "prompt": "Realistic photograph of the bay of Funchal seen from the sea in mid-afternoon, the old town and the cathedral area behind the seafront, white buildings and red roofs climbing the hill, calm blue water in the foreground, no text.",
+      "alt": "Funchal's old centre seen from the bay where wine casks were once loaded"
+    }
+  ],
+  "set": "boat-60-2"
+}

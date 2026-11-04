@@ -1,0 +1,37 @@
+{
+  "slug": "natural-pools-or-swimming-from-a-boat-madeira",
+  "title": "Natural Pools or a Boat Swim: Where Is Madeira's Best Sea Swim?",
+  "category": "Guide",
+  "date": "2026-12-23",
+  "description": "Natural pools at Porto Moniz, Seixal and Funchal give calm, guarded water. A swim stop from a boat gives deep open sea under cliffs with nobody else around.",
+  "heroImage": "assets/journal/seixal-natural-lava-pools-north-coast-morning-madeira.jpg",
+  "heroAlt": "Calm natural lava pools at Seixal on Madeira's north coast, waves breaking beyond the rocks",
+  "readingMinutes": 6,
+  "keywords": [
+    "natural pools or swimming from a boat Madeira",
+    "best sea swim in Madeira",
+    "Porto Moniz natural pools",
+    "Seixal natural pools",
+    "swimming from a boat Madeira",
+    "Doca do Cavacas",
+    "Funchal lido swimming",
+    "open water swim Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T18:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning at the natural lava pools of Seixal on Madeira's north coast: calm green-blue sea water held in basins of black volcanic rock in the foreground, white Atlantic waves breaking on the outer rocks beyond, and steep green mountainsides with a few white houses rising behind under soft light. Two swimmers seen small and from behind float in the far pool. No boat, natural light, true colours, no text, no logos.",
+      "alt": "Calm natural lava pools at Seixal on Madeira's north coast, waves breaking beyond the rocks"
+    },
+    {
+      "prompt": "From water level, a swimmer seen from behind floats in deep dark blue sea a few metres from the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, the tall brown and green cliff of Madeira's south coast above, late morning.",
+      "alt": "A swimmer in deep open water beside a private boat under Madeira's cliffs"
+    },
+    {
+      "prompt": "Drone view from above the natural swimming pools of Porto Moniz in Madeira: geometric basins of turquoise water set in black lava rock, waves breaking white along the outer wall, the small islet with its lighthouse offshore, midday, people tiny.",
+      "alt": "The lava rock swimming pools of Porto Moniz seen from above"
+    }
+  ],
+  "set": "boat-60-2"
+}

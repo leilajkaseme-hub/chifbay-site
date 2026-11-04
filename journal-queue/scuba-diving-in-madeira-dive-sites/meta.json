@@ -1,0 +1,37 @@
+{
+  "slug": "scuba-diving-in-madeira-dive-sites",
+  "title": "Can You Go Scuba Diving in Madeira, and How Do You Reach the Dive Sites?",
+  "category": "Nature",
+  "date": "2026-12-11",
+  "description": "Yes. Dive centres in Funchal, Caniço, Machico, Caniçal and Porto Santo run shore dives at Garajau and boat dives to wrecks off Cabo Girão and Porto Santo.",
+  "heroImage": "assets/journal/two-divers-walking-into-the-sea-at-a-shore-entry-madeira.jpg",
+  "heroAlt": "Two divers with tanks walking down worn steps into a calm sea on Madeira's south coast",
+  "readingMinutes": 6,
+  "keywords": [
+    "scuba diving in Madeira",
+    "Madeira dive sites",
+    "diving Garajau reserve",
+    "Afonso Cerqueira wreck",
+    "Porto Santo wreck dive",
+    "shore dive Madeira",
+    "dive centre Funchal",
+    "try diving Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T14:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning at a rocky shore entry on Madeira's south coast east of Funchal. Two scuba divers in black wetsuits, tanks on their backs and fins in their hands, seen from behind and small, walk carefully down worn concrete steps towards calm blue water. Dark volcanic rocks on both sides, brown and green cliffs behind them on the left, low sun from the east making the sea sparkle. No faces, natural light, true colours, no text, no logos.",
+      "alt": "Two divers with tanks walking down worn steps into a calm sea on Madeira's south coast"
+    },
+    {
+      "prompt": "Underwater photo at about 28 metres: the grey hull and deck of a sunken navy corvette resting on a pale sandy bottom off Madeira, a small diver with a torch hovering above the deck, blue light from the surface, a few fish around the wreck.",
+      "alt": "A diver over the deck of a sunken corvette off Madeira"
+    },
+    {
+      "prompt": "A small dive boat tied to a yellow mooring buoy on calm water off the brown cliffs east of Funchal, a trail of divers' bubbles on the surface beside it, a dive flag flying, morning light.",
+      "alt": "A dive boat on a mooring buoy in the Garajau reserve, bubbles at the surface"
+    }
+  ],
+  "set": "boat-60-2"
+}

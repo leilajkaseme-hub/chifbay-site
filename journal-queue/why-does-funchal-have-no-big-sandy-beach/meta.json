@@ -1,0 +1,37 @@
+{
+  "slug": "why-does-funchal-have-no-big-sandy-beach",
+  "title": "Why Does Funchal Have No Big Sandy Beach?",
+  "category": "Guide",
+  "date": "2026-12-09",
+  "description": "Madeira is young volcanic rock with a steep coast and narrow shelf, so the sea makes pebbles, not sand. Calheta and Machico import theirs. Where to swim.",
+  "heroImage": "assets/journal/praia-formosa-pebbles-and-wave-early-evening-funchal-madeira.jpg",
+  "heroAlt": "Rounded grey pebbles and a breaking wave on Praia Formosa in Funchal at early evening",
+  "readingMinutes": 6,
+  "keywords": [
+    "why does funchal have no sandy beach",
+    "sandy beach funchal",
+    "does madeira have sandy beaches",
+    "calheta beach imported sand",
+    "machico beach sand from where",
+    "where to swim in funchal",
+    "praia formosa funchal",
+    "pebble beaches madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T13:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Early evening in September on Praia Formosa, Funchal, Madeira, photographed from very low on the beach. In the foreground, wet rounded grey and black pebbles glistening as the backwash of a small wave drags over them, white foam between the stones. Behind, the long curve of the stony beach with a promenade and a few small figures walking far away, and the hotels and hills of Funchal in soft warm light to the east. Calm blue sea, true colours, realistic photo, no text.",
+      "alt": "Rounded grey pebbles and a breaking wave on Praia Formosa in Funchal at early evening"
+    },
+    {
+      "prompt": "Realistic photograph of Machico beach on Madeira's east coast at mid-morning: a short curve of pale yellow imported sand between two rock breakwaters, calm turquoise water, a few small figures far away on the sand, the town and green valley behind, no text.",
+      "alt": "Machico's imported yellow sand beach between its breakwaters"
+    },
+    {
+      "prompt": "Realistic photograph of the saltwater pools of the Lido bathing complex in Funchal, Madeira, in late morning sun: blue pools on the seafront rocks, a metal ladder leading down into the deep blue Atlantic beside them, palm trees and hotels behind, no faces, no text.",
+      "alt": "Saltwater pools and a sea ladder at the Lido in Funchal"
+    }
+  ],
+  "set": "boat-60-2"
+}

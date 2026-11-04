@@ -1,0 +1,37 @@
+{
+  "slug": "what-can-teenagers-do-in-madeira",
+  "title": "What Can Teenagers Do in Madeira, and Is a Boat Trip a Good Idea?",
+  "category": "Guide",
+  "date": "2026-12-06",
+  "description": "Teenagers in Madeira want speed, water and something to film: a Day Trip gives jumps, paddle boards, drone shots, plus toboggan, surf and canyoning ashore.",
+  "heroImage": "assets/journal/teenagers-on-paddle-boards-at-faja-dos-padres-madeira.jpg",
+  "heroAlt": "Two teenagers seen from behind standing on paddle boards near the pebble beach of Fajã dos Padres",
+  "readingMinutes": 6,
+  "keywords": [
+    "what can teenagers do in madeira",
+    "madeira with teenagers",
+    "boat trip with teenagers madeira",
+    "things to do in madeira for teens",
+    "jumping off a boat madeira",
+    "paddle boarding madeira teenagers",
+    "monte toboggan teenagers",
+    "surf lessons madeira beginners"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T12:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Late morning at Fajã dos Padres on Madeira's south coast, photographed from the deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy, slightly higher than the water. In the middle distance two teenagers, seen from behind and small in the frame, stand on two paddle boards side by side, one with arms out for balance, paddling towards the pebble beach. Beyond them the green terraced plots and the tall brown cliff of the fajã. Deep blue water near the boat turning turquoise near the shore, bright sun, true colours, no faces visible, no text, no logos.",
+      "alt": "Two teenagers seen from behind standing on paddle boards near the pebble beach of Fajã dos Padres"
+    },
+    {
+      "prompt": "On the steep road below the church of Monte above Funchal, a wicker basket toboggan sliding downhill, two drivers in white clothes and straw hats seen from behind standing on the back runners, two passengers seen from behind sitting inside, stone walls and green gardens on both sides, morning light, no faces visible.",
+      "alt": "A wicker basket toboggan sliding down the Monte road with two drivers on the back"
+    },
+    {
+      "prompt": "Seen from above with a drone, a white 9 metre motor boat with grey cushioned seats and a dark canopy running fast east along Madeira's south coast, a long white wake behind it on deep blue water, small figures seated on deck, the green and brown coast to the left, midday sun.",
+      "alt": "Drone view of the boat running fast back towards Funchal with a long white wake"
+    }
+  ],
+  "set": "boat-60-2"
+}

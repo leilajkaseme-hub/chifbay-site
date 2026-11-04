@@ -1,0 +1,37 @@
+{
+  "slug": "why-are-the-fishing-boats-in-camara-de-lobos-so-colourful",
+  "title": "Why Are the Fishing Boats in Câmara de Lobos So Colourful?",
+  "category": "Experience",
+  "date": "2026-12-30",
+  "description": "Mostly tradition and the owner's taste. No law sets the colours: EU rules only fix the black and white marks on the bow. What xavelhas are, and the best view.",
+  "heroImage": "assets/journal/camara-de-lobos-painted-boats-from-directly-above-winter-morning-madeira.jpg",
+  "heroAlt": "Painted fishing boats on dark pebbles and in the water at Câmara de Lobos, seen from directly above",
+  "readingMinutes": 6,
+  "keywords": [
+    "why are the fishing boats in camara de lobos so colourful",
+    "camara de lobos fishing boats",
+    "what is a xavelha",
+    "madeira fishing boats colours",
+    "camara de lobos harbour",
+    "espada fishing camara de lobos",
+    "camara de lobos from the sea",
+    "traditional boats madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T20:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Drone photograph taken from directly above the small harbour of Câmara de Lobos, Madeira, at about 08:30 on a clear winter morning. Looking straight down: a dozen small wooden fishing boats with bright stripes of red, yellow, blue and white lie on dark grey pebbles and float on calm green-blue water, their shapes and colours like a pattern, ropes and long morning shadows across the stones. The edge of the stone slipway in one corner. No people visible, no lettering readable, true colours, realistic photo, no text.",
+      "alt": "Painted fishing boats on dark pebbles and in the water at Câmara de Lobos, seen from directly above"
+    },
+    {
+      "prompt": "Realistic close photograph of the side of a small traditional wooden fishing boat pulled up on the pebble shore at Câmara de Lobos, Madeira: bright red, yellow and white painted stripes along the hull, a black painted rim, a coiled rope and an oar resting on it, late afternoon light, no lettering, no people, no text.",
+      "alt": "Painted stripes on the hull of a xavelha on the shore at Câmara de Lobos"
+    },
+    {
+      "prompt": "Realistic photograph from the sea at golden hour of the bay of Câmara de Lobos, Madeira: colourful small fishing boats moored in calm water, houses stacked on dark volcanic rock behind, the tall cliff of Cabo Girão rising on the left in warm light, no text.",
+      "alt": "Câmara de Lobos bay and its boats from the sea at golden hour, Cabo Girão behind"
+    }
+  ],
+  "set": "boat-60-2"
+}

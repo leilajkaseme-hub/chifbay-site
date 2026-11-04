@@ -1,0 +1,37 @@
+{
+  "slug": "can-you-go-sailing-in-madeira",
+  "title": "Can You Go Sailing in Madeira, and Is a Sailboat or Motorboat Better?",
+  "category": "Experience",
+  "date": "2026-12-14",
+  "description": "Yes, from Marina do Funchal. But the island often blocks the wind on the south coast, so sailboats suit sailing lovers and motorboats suit cliffs and swims.",
+  "heroImage": "assets/journal/sailing-yacht-heeling-off-ponta-de-sao-lourenco-madeira.jpg",
+  "heroAlt": "A sailing yacht leaning under full sail off the red and ochre cliffs of Ponta de São Lourenço",
+  "readingMinutes": 6,
+  "keywords": [
+    "can you go sailing in Madeira",
+    "sailing trip Madeira",
+    "sailboat or motorboat Madeira",
+    "sailing Funchal",
+    "catamaran trip Madeira",
+    "wind on Madeira's south coast",
+    "Santa Maria de Colombo Funchal",
+    "Madeira marinas for yachts"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T15:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Bright mid-afternoon off Ponta de São Lourenço, the eastern tip of Madeira. A white sailing yacht with two white sails leans over under full sail in a fresh breeze, small whitecaps on deep blue water. Behind it rise the bare red, ochre and brown cliffs of the narrow peninsula, with the small islet and its lighthouse at the far end. Two crew seen small from behind in the cockpit. Photographed from the water at a distance, natural light, true colours, no text, no logos.",
+      "alt": "A sailing yacht leaning under full sail off the red and ochre cliffs of Ponta de São Lourenço"
+    },
+    {
+      "prompt": "Close detail on the deck of a sailing yacht: a chrome winch with a taut white sheet wound around it, the edge of a white sail and deep blue sea beyond, bright sunlight, no faces.",
+      "alt": "A winch and a taut sheet on the deck of a sailing yacht off Madeira"
+    },
+    {
+      "prompt": "A sailing yacht with its sails lowered, motoring slowly across glassy flat water off Funchal at midday, the city and green hills faint behind, seen from a distance, no people visible.",
+      "alt": "A yacht with sails down motoring on a flat calm sea off Funchal"
+    }
+  ],
+  "set": "boat-60-2"
+}

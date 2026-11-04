@@ -1,0 +1,37 @@
+{
+  "slug": "madeira-for-people-who-do-not-hike",
+  "title": "What Can You Do in Madeira If You Do Not Want to Hike?",
+  "category": "Guide",
+  "date": "2026-12-21",
+  "description": "Plenty: see the cliffs from a boat, ride the cable car to Monte, walk the gardens, taste Madeira wine and drive to viewpoints a few steps from the car park.",
+  "heroImage": "assets/journal/botanical-garden-flower-beds-above-funchal-bay-madeira.jpg",
+  "heroAlt": "Patterned flower beds in the Madeira Botanical Garden above the red roofs and bay of Funchal",
+  "readingMinutes": 6,
+  "keywords": [
+    "what to do in madeira if you do not hike",
+    "madeira without hiking",
+    "madeira for non hikers",
+    "madeira viewpoints by car",
+    "funchal cable car monte",
+    "madeira gardens",
+    "boat trip madeira no hiking",
+    "easy things to do in madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T17:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Late morning in the Madeira Botanical Garden on the slope above Funchal. In the foreground, geometric flower beds in red, yellow and dark green laid out like a patterned carpet on a terrace, with a few palm trees and succulents. Far below, the red roofs of Funchal and the blue bay with the harbour. An older couple seen small from behind sits on a bench at the edge of the terrace, looking at the view. Clear light, true colours, no faces, no text.",
+      "alt": "Patterned flower beds in the Madeira Botanical Garden above the red roofs and bay of Funchal"
+    },
+    {
+      "prompt": "A Funchal cable car cabin seen from slightly below and behind, rising over the green slopes and white houses above the old town, the blue sea and the harbour far below, a clear morning, no people visible inside, no logos.",
+      "alt": "A cable car cabin climbing over the slopes above Funchal towards Monte"
+    },
+    {
+      "prompt": "Inside an old Madeira wine lodge in Funchal: dark wooden casks stacked on their sides in a dim cellar with old beams and a little warm light from a window, a few small tasting glasses of amber wine on a cask top in the foreground, no people, no readable labels.",
+      "alt": "Wooden casks and tasting glasses inside an old wine lodge in Funchal"
+    }
+  ],
+  "set": "boat-60-2"
+}

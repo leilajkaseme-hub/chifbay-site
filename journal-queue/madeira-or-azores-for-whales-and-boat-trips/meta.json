@@ -1,0 +1,37 @@
+{
+  "slug": "madeira-or-azores-for-whales-and-boat-trips",
+  "title": "Madeira or the Azores: Which Is Better for Whales and Boat Trips?",
+  "category": "Nature",
+  "date": "2027-01-01",
+  "description": "The Azores win for big whales, with sperm whales all year and blue whales in spring. Madeira is warmer, closer, and suits coastal boat trips with a swim stop.",
+  "heroImage": "assets/journal/sperm-whale-tail-fluke-off-the-coast-madeira.jpg",
+  "heroAlt": "The tail of a sperm whale rising above calm blue sea, with Madeira's mountains faint behind",
+  "readingMinutes": 6,
+  "keywords": [
+    "Madeira or Azores for whales",
+    "Madeira vs Azores whale watching",
+    "best time for whales in the Azores",
+    "whales in Madeira",
+    "sperm whales Azores",
+    "blue whales Azores spring",
+    "Madeira or Azores holiday",
+    "flights Funchal to Ponta Delgada"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T21:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Telephoto wildlife photograph taken from a boat at a respectful distance, mid-morning on a calm day far off Madeira's south coast: the broad dark tail fluke of a sperm whale rising straight out of smooth deep blue water as it dives, water streaming from its edges. Far behind, the mountains of Madeira rise faint and blue in light haze. No boat in frame, no people, natural light, true colours, no text, no logos.",
+      "alt": "The tail of a sperm whale rising above calm blue sea, with Madeira's mountains faint behind"
+    },
+    {
+      "prompt": "A pair of black binoculars resting on a low old stone wall at a clifftop viewpoint high above a calm deep blue Atlantic, light morning haze on the horizon, no people.",
+      "alt": "Binoculars on a stone wall at a clifftop lookout above the Atlantic"
+    },
+    {
+      "prompt": "The bay of Funchal seen from the sea on a bright winter morning, the white city climbing green hills under clear mountains, a white 9 metre motor boat with grey cushioned seats and a dark canopy small in the foreground on calm water.",
+      "alt": "Funchal from the sea on a clear winter morning, a small private boat in front"
+    }
+  ],
+  "set": "boat-60-2"
+}

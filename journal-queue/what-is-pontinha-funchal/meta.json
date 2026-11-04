@@ -1,0 +1,37 @@
+{
+  "slug": "what-is-pontinha-funchal",
+  "title": "What Is Pontinha in Funchal, and Why Is It Famous?",
+  "category": "Guide",
+  "date": "2026-12-24",
+  "description": "Pontinha is the rocky point at the west end of Funchal bay, tied to an islet by an 1890 breakwater: two forts, a cruise pier and a self-declared principality.",
+  "heroImage": "assets/journal/forte-de-sao-jose-on-its-rock-pontinha-from-the-water-madeira.jpg",
+  "heroAlt": "The small Forte de São José on its rock beside the Pontinha breakwater, seen from the sea",
+  "readingMinutes": 6,
+  "keywords": [
+    "what is pontinha funchal",
+    "pontinha funchal",
+    "principality of pontinha",
+    "forte de sao jose funchal",
+    "fortaleza do ilheu funchal",
+    "funchal breakwater history",
+    "pontinha pier walk",
+    "renato barros pontinha"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T18:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Late afternoon at the Pontinha, Funchal, Madeira, photographed from the water about 150 metres offshore at low angle. In the foreground, calm green-blue sea. Ahead, a small old stone fort with simple walls sits on a dark volcanic rock right beside the long harbour breakwater. Warm low sun from the west lights the stone. On the right edge, part of the white hull of a moored cruise ship. No people in close-up, true colours, realistic photo, no text.",
+      "alt": "The small Forte de São José on its rock beside the Pontinha breakwater, seen from the sea"
+    },
+    {
+      "prompt": "Realistic photograph at sunset at the far end of the Pontinha breakwater in Funchal, Madeira: a small round red and white banded light tower, a few people seen small from behind looking back at the bay, the amphitheatre of Funchal glowing behind, no faces, no text.",
+      "alt": "Walkers at the light at the end of the Pontinha breakwater at sunset"
+    },
+    {
+      "prompt": "Realistic photograph of the old stone fort on the islet at the Pontinha in Funchal, Madeira, seen from the breakwater walkway in morning light: thick walls on dark rock, a gate, the deep blue sea on one side, no people, no text.",
+      "alt": "The old fort on the Pontinha islet seen from the breakwater"
+    }
+  ],
+  "set": "boat-60-2"
+}

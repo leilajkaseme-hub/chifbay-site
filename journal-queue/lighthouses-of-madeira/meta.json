@@ -1,0 +1,37 @@
+{
+  "slug": "lighthouses-of-madeira",
+  "title": "Which Lighthouses Guard Madeira's Coast?",
+  "category": "Guide",
+  "date": "2026-12-15",
+  "description": "Three lighthouses watch Madeira: Ponta do Pargo (1922), São Lourenço (1870) and São Jorge (1959), with small harbour lights at Funchal and Câmara de Lobos.",
+  "heroImage": "assets/journal/sao-lourenco-lighthouse-islet-from-the-sea-early-morning-madeira.jpg",
+  "heroAlt": "The white São Lourenço lighthouse on its rocky islet off Madeira's eastern tip, seen from the sea",
+  "readingMinutes": 6,
+  "keywords": [
+    "lighthouses of madeira",
+    "madeira lighthouse",
+    "ponta do pargo lighthouse",
+    "sao lourenco lighthouse madeira",
+    "sao jorge lighthouse madeira",
+    "oldest lighthouse in madeira",
+    "funchal harbour light",
+    "can you visit ponta do pargo lighthouse"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T15:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning, about 08:00, on the sea off the eastern tip of Madeira. Seen from the water about 500 metres away, the steep rocky islet Ilhéu de Fora rises from a deep blue sea with small white waves at its base, and on its top stands a small white lighthouse with a red lantern. Behind it, the bare ochre and red ridges of the Ponta de São Lourenço peninsula catch the low sun. A few seabirds over the water, no boats, no people, true colours, realistic photo, no text.",
+      "alt": "The white São Lourenço lighthouse on its rocky islet off Madeira's eastern tip, seen from the sea"
+    },
+    {
+      "prompt": "Realistic photograph at blue hour from the water just outside Funchal harbour, Madeira: the small round red and white banded light tower at the end of the long Pontinha breakwater, its red light glowing, the lit amphitheatre of Funchal behind, calm dark sea, no people, no text.",
+      "alt": "The red and white harbour light at the end of the Pontinha breakwater at dusk"
+    },
+    {
+      "prompt": "Realistic photograph of the Ponta do Pargo lighthouse on Madeira's western tip at sunset, seen from the clifftop viewpoint: a small white tower with a red lantern on top of a very high sea cliff, the Atlantic far below in golden light, no people in close-up, no text.",
+      "alt": "Ponta do Pargo lighthouse on its high cliff at sunset"
+    }
+  ],
+  "set": "boat-60-2"
+}

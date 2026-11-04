@@ -1,0 +1,36 @@
+{
+  "slug": "things-to-do-in-funchal-on-a-sunday",
+  "title": "What Can You Do in Funchal on a Sunday?",
+  "category": "Guide",
+  "date": "2026-12-27",
+  "description": "The market and many small shops close, but the Monte cable car, gardens, big shopping centres and old town cafés stay open, and boat trips run as usual.",
+  "heroImage": "assets/journal/quiet-sunday-morning-rua-de-santa-maria-funchal-madeira.jpg",
+  "heroAlt": "A quiet Sunday morning on Rua de Santa Maria in Funchal's old town with painted doors",
+  "readingMinutes": 6,
+  "keywords": [
+    "things to do in funchal on a sunday",
+    "what is open in funchal on sunday",
+    "is the market in funchal open on sunday",
+    "funchal sunday shops",
+    "monte cable car sunday",
+    "boat trip funchal sunday",
+    "sunday in madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T19:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Early Sunday morning on Rua de Santa Maria in the Zona Velha, Funchal's old town. A narrow cobbled street with colourfully painted wooden doors on both sides, most shop shutters still closed, one small café setting out two little tables in the street. A single person seen from behind walks away down the street carrying a paper bag of bread. Soft low light, long shadows, true colours, no readable signs or text, no faces.",
+      "alt": "A quiet Sunday morning on Rua de Santa Maria in Funchal's old town with painted doors"
+    },
+    {
+      "prompt": "The front of the Mercado dos Lavradores market hall in Funchal on a Sunday morning, its doors closed, the street in front almost empty, palm trees and morning light, no readable signs, no people close up.",
+      "alt": "The closed doors of the Mercado dos Lavradores market hall on a Sunday morning"
+    },
+    {
+      "prompt": "Mid-afternoon in the Monte Palace Tropical Garden above Funchal: a small lake with a stone bridge, ferns and tall trees, a visitor seen small from behind on the path, warm light, true colours.",
+      "alt": "A lake and stone bridge in the Monte Palace Tropical Garden on a sunny afternoon"
+    }
+  ],
+  "set": "boat-60-2"
+}

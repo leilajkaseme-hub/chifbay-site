@@ -1,0 +1,36 @@
+{
+  "slug": "can-you-choose-the-route-on-a-private-boat-trip-in-madeira",
+  "title": "Can You Choose the Route on a Private Boat Trip in Madeira?",
+  "category": "Experience",
+  "date": "2026-12-25",
+  "description": "Partly. Both Chifbay trips run a set route west of Funchal, but you can ask for longer at one stop or to skip another. The sea and the clock decide the rest.",
+  "heroImage": "assets/journal/boat-turning-wide-wake-off-ponta-do-sol-madeira.jpg",
+  "heroAlt": "A motor boat seen from above making a wide curving turn off Ponta do Sol",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you choose the route on a private boat trip in Madeira",
+    "private boat trip route Madeira",
+    "custom boat trip Funchal",
+    "skip a stop boat tour Madeira",
+    "longer swim stop Fajã dos Padres",
+    "boat trip west of Funchal route",
+    "who decides the route on a boat trip"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T19:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Drone photo from about 50 metres up, late morning, off Ponta do Sol on Madeira's south coast: a white 9 metre motor boat with grey cushioned seats and a dark canopy carves a wide U-shaped turn, its curved white wake bright on deep blue water, the bow now pointing back east towards Funchal. At the edge of the frame, the small white houses, church tower and old pier of Ponta do Sol below steep green slopes. Realistic, natural colours, gentle sea, no text.",
+      "alt": "A motor boat seen from above making a wide curving turn off Ponta do Sol"
+    },
+    {
+      "prompt": "The grey pebble beach and the white church tower of Ribeira Brava on Madeira's south coast, seen from the sea at midday, the deep valley rising behind the town, calm blue water in the foreground, realistic.",
+      "alt": "Ribeira Brava seen from the sea, the second swim stop of the Day Trip"
+    },
+    {
+      "prompt": "Mid-morning inside a white motor boat with grey cushioned seats and a dark canopy: a guest seen from behind stands beside the skipper at the helm, also seen from behind, and points west along the tall cliffs of the south coast of Madeira, faces not visible.",
+      "alt": "A guest pointing along the coast while talking to the skipper"
+    }
+  ],
+  "set": "boat-60-2"
+}

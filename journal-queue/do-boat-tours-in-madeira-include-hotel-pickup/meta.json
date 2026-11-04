@@ -1,0 +1,37 @@
+{
+  "slug": "do-boat-tours-in-madeira-include-hotel-pickup",
+  "title": "Do Boat Tours in Madeira Include Hotel Pickup?",
+  "category": "Guide",
+  "date": "2026-12-31",
+  "description": "It depends on the operator. Chifbay's private trips have no pickup: you meet the skipper at Marina do Funchal, a walk, taxi or bus ride from most hotels.",
+  "heroImage": "assets/journal/santa-catarina-park-view-down-to-funchal-harbour-madeira.jpg",
+  "heroAlt": "View from Santa Catarina park over palm trees to Funchal harbour, the marina and a cruise ship",
+  "readingMinutes": 5,
+  "keywords": [
+    "do boat tours in Madeira include hotel pickup",
+    "boat trip Madeira hotel transfer",
+    "how to get to Marina do Funchal from my hotel",
+    "Funchal Lido to marina",
+    "taxi to Funchal marina",
+    "bus to Funchal seafront",
+    "cruise terminal to Funchal marina",
+    "boat tour pickup Calheta Caniço"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T21:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Morning in Parque de Santa Catarina in Funchal, Madeira, looking down over palm trees and flower beds to the harbour: the small white boats of Marina do Funchal on the left, a large white cruise ship berthed along the long Pontinha breakwater on the right, the deep blue Atlantic beyond under a clear sky. In the foreground, a couple seen from behind, small, walk down a park path towards the seafront, one carrying a small backpack. Bright light, realistic, true colours, no text, no logos.",
+      "alt": "View from Santa Catarina park over palm trees to Funchal harbour, the marina and a cruise ship"
+    },
+    {
+      "prompt": "An orange and yellow city bus passing a row of palm trees on the seafront avenue of Funchal, Madeira, in the morning, the masts of the marina behind, no readable text, signs or number plates.",
+      "alt": "A city bus on the Funchal seafront near the marina"
+    },
+    {
+      "prompt": "Estrada Monumental in Funchal's Lido area in the morning: a wide pavement in front of hotels, flowering trees, a walker seen from behind heading east towards the city with a small bag, sea glimpsed between buildings, realistic, no readable signs.",
+      "alt": "Walking from the Lido hotel zone towards central Funchal"
+    }
+  ],
+  "set": "boat-60-2"
+}

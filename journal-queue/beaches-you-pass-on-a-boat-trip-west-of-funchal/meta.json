@@ -1,0 +1,36 @@
+{
+  "slug": "beaches-you-pass-on-a-boat-trip-west-of-funchal",
+  "title": "Which Beaches Do You Pass on a Boat Trip West of Funchal?",
+  "category": "Guide",
+  "date": "2026-12-08",
+  "description": "West of Funchal a boat passes Praia Formosa, Vigário, the shore under Cabo Girão, Fajã dos Padres, Calhau da Lapa and Ribeira Brava. All pebble or black sand.",
+  "heroImage": "assets/journal/praia-do-gorgulho-pebble-cove-below-lido-hotel-cliffs-from-the-sea-madeira.jpg",
+  "heroAlt": "The small pebble cove of Praia do Gorgulho below the Lido hotel cliffs, seen from the sea",
+  "readingMinutes": 6,
+  "keywords": [
+    "which beaches do you pass on a boat trip west of Funchal",
+    "beaches west of Funchal",
+    "Praia Formosa from the sea",
+    "Praia do Vigário Câmara de Lobos",
+    "Fajã dos Padres beach",
+    "Ribeira Brava beach",
+    "pebble beaches Madeira south coast"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T13:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-morning in early summer, photographed from the water about 150 metres off the Lido area of Funchal, Madeira. A small cove of dark grey pebbles sits at the foot of brown volcanic cliffs topped by white hotel buildings and terraces with palm trees. Two or three small swimmers seen from behind enter the water from the stones, gentle waves wash the shore, deep blue-green water in the foreground. Sun from behind the camera, true colours, no readable signs, no text.",
+      "alt": "The small pebble cove of Praia do Gorgulho below the Lido hotel cliffs, seen from the sea"
+    },
+    {
+      "prompt": "Seen from the sea at midday in summer: Praia do Vigário in Câmara de Lobos, Madeira, a short pebble beach with a few small swimmers, the town's white houses and church above, the edge of the fishing harbour with painted boats on one side, calm blue-green water in front, realistic photo, no text.",
+      "alt": "Praia do Vigário pebble beach below Câmara de Lobos, seen from the sea"
+    },
+    {
+      "prompt": "Late afternoon at Anjos beach near Ponta do Sol, Madeira: a wooden deck walkway leading over basalt pebbles and black sand into calm sea, warm low sunlight, one person seen small from behind sitting at the end of the deck, realistic photo, no text.",
+      "alt": "Wooden deck over black pebbles and sand at Anjos beach in late afternoon light"
+    }
+  ],
+  "set": "boat-60-2"
+}

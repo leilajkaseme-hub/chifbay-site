@@ -1,0 +1,36 @@
+{
+  "slug": "how-to-swim-safely-from-a-boat-in-madeira",
+  "title": "How Do You Swim Safely From a Boat in Madeira's Open Water?",
+  "category": "Guide",
+  "date": "2026-12-19",
+  "description": "Wait for the skipper's word, swim in pairs near the boat, keep clear of the stern and propeller, and get out before you feel cold or tired. The water is deep.",
+  "heroImage": "assets/journal/drone-view-swimmers-near-boat-ladder-off-ribeira-brava-madeira.jpg",
+  "heroAlt": "Drone view of two swimmers near a stopped boat's ladder in deep blue water off Ribeira Brava",
+  "readingMinutes": 5,
+  "keywords": [
+    "how to swim safely from a boat in Madeira",
+    "swimming from a boat safety",
+    "open water swimming Madeira boat",
+    "swim stop safety tips",
+    "is it safe to swim from a boat in Madeira",
+    "boat ladder climbing after swim",
+    "propeller safety swimmers"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T17:10:00.000Z",
+  "images": [
+    {
+      "prompt": "Drone photograph looking straight down from about 30 metres, late morning in September, off Ribeira Brava on Madeira's south coast. A white 9 metre motor boat with grey cushioned seats and a dark canopy floats stopped in deep blue water, its stern ladder lowered. Two swimmers, small, seen from above, tread water a few metres from the ladder, and an orange ring lifebuoy on a white line floats behind the boat. The water darkens to deep blue below, with a band of turquoise and dark pebbles from the beach at one edge of the frame. Bright sun, sharp shadows, true colours, realistic photograph.",
+      "alt": "Drone view of two swimmers near a stopped boat's ladder in deep blue water off Ribeira Brava"
+    },
+    {
+      "prompt": "Seen from the stern deck of a white motor boat at Fajã dos Padres, Madeira: the folding stainless steel ladder lowered into clear blue water, a swimmer seen from behind holding both rails and stepping up the first rung, the tall terraced cliff behind. Late morning, realistic photograph, no face.",
+      "alt": "A swimmer climbing the boat ladder with both hands on the rails at Fajã dos Padres"
+    },
+    {
+      "prompt": "Water-level view of a swimmer seen from behind floating on their back in calm deep blue sea, arms spread, a white motor boat with a dark canopy a short distance away, the brown cliffs of Madeira's south coast behind, bright summer light. Realistic photograph, no face.",
+      "alt": "A swimmer resting on their back in deep water a short distance from the boat"
+    }
+  ],
+  "set": "boat-60-2"
+}

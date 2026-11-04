@@ -1,0 +1,35 @@
+{
+  "slug": "can-you-see-waterfalls-from-the-sea-in-madeira",
+  "title": "Can You See Waterfalls From the Sea in Madeira?",
+  "category": "Nature",
+  "date": "2027-01-01",
+  "description": "A few. Véu da Noiva falls towards the sea on the north coast, and after rain thin falls streak the south-west cliffs. In a dry summer you see none at all.",
+  "heroImage": "assets/journal/veu-da-noiva-waterfall-north-coast-cliff-from-the-sea-madeira.jpg",
+  "heroAlt": "The Véu da Noiva waterfall falling down a green cliff towards the sea on Madeira's north coast",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you see waterfalls from the sea in Madeira",
+    "Véu da Noiva waterfall Madeira",
+    "waterfalls on Madeira coast",
+    "Anjos waterfall Ponta do Sol",
+    "Madeira waterfalls after rain",
+    "waterfall from boat Madeira"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T21:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph taken from the sea a few hundred metres off Madeira's north coast between São Vicente and Seixal, on a bright winter morning after rain. A tall, steep cliff covered in green vegetation rises from a dark rocky shore with white surf, and down its face a long thin white waterfall drops in a veil of spray towards the sea. Wisps of cloud cling to the higher slopes, deep blue Atlantic in the foreground with a gentle swell. No boats, no people, true colours, no text.",
+      "alt": "The Véu da Noiva waterfall falling down a green cliff towards the sea on Madeira's north coast"
+    },
+    {
+      "prompt": "Seen from a boat off Madeira's south coast near Cabo Girão on a clearing winter morning: several thin temporary white waterfalls streak down a dark brown cliff face, wet rock shining, grey clouds breaking to blue sky, calm sea below, realistic photo, no people, no text.",
+      "alt": "Thin waterfalls streaking down a dark sea cliff on Madeira's south coast after rain"
+    },
+    {
+      "prompt": "Close view from the water of the mouth of a small stream on a Madeira pebble beach after heavy rain: brown, muddy water fanning out into clear deep blue sea, wet dark pebbles, green slopes behind, overcast light, realistic photo, no people, no text.",
+      "alt": "Brown stream water spreading into the blue sea at a Madeira pebble beach after rain"
+    }
+  ],
+  "set": "boat-60-2"
+}

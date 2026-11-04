@@ -1,0 +1,36 @@
+{
+  "slug": "what-does-the-skipper-do-on-a-boat-trip",
+  "title": "What Does the Skipper Do on a Private Boat Trip in Madeira?",
+  "category": "Experience",
+  "date": "2026-12-28",
+  "description": "The skipper checks the sea, briefs you, drives, picks and sets the swim stop, watches everyone in the water and decides when to head home. Chifbay has two.",
+  "heroImage": "assets/journal/skipper-at-bow-setting-anchor-below-cliffs-madeira.jpg",
+  "heroAlt": "A skipper seen from behind at the bow of a motor boat, watching the anchor line run out",
+  "readingMinutes": 5,
+  "keywords": [
+    "what does the skipper do on a private boat trip in Madeira",
+    "boat skipper role",
+    "skipper safety briefing",
+    "who decides if a boat trip goes ahead",
+    "can I drive the boat on a tour",
+    "local skipper Funchal",
+    "licensed boat operator Madeira skipper"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T20:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-morning on Madeira's south coast, seen from the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, looking forward along the deck. At the bow, the skipper, seen from behind in a plain dark polo shirt, kneels and watches the anchor line run out into deep blue water as the boat settles below a steep green and brown cliff west of Cabo Girão. Two guests sit small under the canopy in the middle of the frame, seen from behind. Calm sea, true colours, no faces visible, no text or logos.",
+      "alt": "A skipper seen from behind at the bow of a motor boat, watching the anchor line run out"
+    },
+    {
+      "prompt": "Dawn on the wooden pontoon at Marina do Funchal, Madeira: a hand seen from behind holds a phone showing a blurred, unreadable sea forecast map in blue and green, the bow of a white motor boat and the calm harbour soft in the background.",
+      "alt": "Checking the sea forecast on the pontoon before a trip"
+    },
+    {
+      "prompt": "Seen from the water at a little distance, late morning: at the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, the skipper, small and from the side, reaches down to offer a hand to a swimmer climbing the ladder from deep blue water, no faces visible.",
+      "alt": "The skipper helping a swimmer up the ladder at the stern"
+    }
+  ],
+  "set": "boat-60-2"
+}

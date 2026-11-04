@@ -1,0 +1,35 @@
+{
+  "slug": "which-mountains-can-you-see-from-the-sea-off-funchal",
+  "title": "Which Mountains Can You See From the Sea Off Funchal?",
+  "category": "Nature",
+  "date": "2026-12-17",
+  "description": "Off Funchal you see Pico dos Barcelos, Monte and, on clear mornings, the central ridge, where Pico do Arieiro's white radar dome is the easiest peak to name.",
+  "heroImage": "assets/journal/funchal-slope-to-central-mountain-ridge-early-morning-from-the-sea-madeira.jpg",
+  "heroAlt": "Funchal's slopes rising to a clear mountain ridge with a small white dome, seen from the sea",
+  "readingMinutes": 5,
+  "keywords": [
+    "which mountains can you see from the sea off Funchal",
+    "Pico do Arieiro from Funchal",
+    "Pico Ruivo height",
+    "mountains behind Funchal",
+    "Madeira peaks cloud morning",
+    "Monte Funchal from the sea"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T16:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning, about 08:30 in spring, photographed from the water roughly a kilometre off Funchal, Madeira, looking north. The city spreads low along the shore in soft side light, white buildings and red roofs climb green slopes cut by ravines, and above them a jagged grey mountain ridge stands sharp against a clear blue sky, with a tiny white radar dome on the skyline. A thin band of white cloud is just starting to form on the middle slopes. Calm deep blue sea in the foreground with a gentle swell, no boats close, no people, true colours, no text.",
+      "alt": "Funchal's slopes rising to a clear mountain ridge with a small white dome, seen from the sea"
+    },
+    {
+      "prompt": "Close view of the summit of Pico do Arieiro, Madeira, in clear morning light: dark volcanic rock ridges, a stone path with a few walkers seen small from behind, and the large white dome of the radar station beside the summit, blue sky, realistic photo, no text.",
+      "alt": "The white radar dome beside the rocky summit of Pico do Arieiro"
+    },
+    {
+      "prompt": "Mid-afternoon view from a boat off Funchal, Madeira: the city and lower slopes in bright sun, while a thick layer of white cloud sits over the upper slopes and hides the mountain tops completely, blue sea in the foreground, realistic photo, no people, no text.",
+      "alt": "Cloud sitting on the mountains above a sunny Funchal in the afternoon, seen from the sea"
+    }
+  ],
+  "set": "boat-60-2"
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "how-did-travellers-reach-madeira-before-the-airport",
+  "title": "How Did Travellers Reach Madeira Before the Airport?",
+  "category": "Guide",
+  "date": "2026-12-18",
+  "description": "By ship, then by flying boat. Until Madeira airport opened on 8 July 1964, visitors came on liners anchored in Funchal bay, on seaplanes, or via Porto Santo.",
+  "heroImage": "assets/journal/passenger-ship-at-anchor-in-funchal-bay-dawn-madeira.jpg",
+  "heroAlt": "A passenger ship lying at anchor in Funchal bay at dawn, a small launch heading to the harbour",
+  "readingMinutes": 6,
+  "keywords": [
+    "how did travellers reach madeira before the airport",
+    "when did madeira airport open",
+    "madeira flying boats",
+    "aquila airways madeira",
+    "first flight to madeira 1921",
+    "ships to madeira history",
+    "porto santo airport 1960",
+    "ferry to madeira from mainland"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T16:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Dawn in Funchal bay, Madeira, photographed from water level about a kilometre offshore. A large white passenger ship lies at anchor in the middle of the bay, not at the quay, its lights still on. A small launch with a white wake heads from it towards the long Pontinha breakwater on the left. Behind, the amphitheatre of Funchal climbs the green hillside in the first pink and gold light, the sea calm and silvery. No people visible, true colours, realistic photo, no text.",
+      "alt": "A passenger ship lying at anchor in Funchal bay at dawn, a small launch heading to the harbour"
+    },
+    {
+      "prompt": "Realistic photograph looking along the top of the long Pontinha breakwater in Funchal, Madeira, towards the city in soft morning light: the stone harbour wall on one side, calm green-blue harbour water on the other, a few small walkers far away, the hillside of white houses behind, no text.",
+      "alt": "Walking along the Pontinha breakwater towards Funchal in the morning"
+    },
+    {
+      "prompt": "Realistic photograph of the Porto Santo ferry, a large white and blue passenger ship, crossing a deep blue Atlantic between Madeira and Porto Santo in afternoon sun, seen from the side at a distance, no text.",
+      "alt": "The ferry between Funchal and Porto Santo crossing the open sea"
+    }
+  ],
+  "set": "boat-60-2"
+}

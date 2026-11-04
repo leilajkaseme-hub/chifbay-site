@@ -1,0 +1,37 @@
+{
+  "slug": "did-madeira-have-whaling-canical",
+  "title": "Did Madeira Hunt Whales? The Story of Caniçal's Whalers",
+  "category": "Nature",
+  "date": "2026-12-06",
+  "description": "Yes. Madeira hunted sperm whales from 1941 to 1981, in the end from a factory at Caniçal. How the whalers worked, why it stopped and how whales are protected.",
+  "heroImage": "assets/journal/sperm-whale-blowing-at-the-surface-off-madeira.jpg",
+  "heroAlt": "A sperm whale resting at the surface off Madeira, its bushy blow slanting forward",
+  "readingMinutes": 6,
+  "keywords": [
+    "did madeira hunt whales",
+    "whaling in madeira",
+    "canical whaling history",
+    "museu da baleia canical",
+    "whale museum madeira",
+    "when did whaling stop in madeira",
+    "sperm whales madeira",
+    "madeira whale protection"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T12:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-afternoon in late spring, far off Madeira's south-east coast, seen from the low side deck of a boat at a respectful distance of about 100 metres. A single sperm whale lies still at the surface of a calm, deep blue sea, its long dark grey back and wrinkled skin catching the light, its bushy blow slanting forward and to the left in a soft white cloud. The faint flat outline of the Desertas Islands on the horizon. Only a thin strip of white boat rail visible in the lower corner. No people, natural light, true colours, realistic wildlife photo, no text.",
+      "alt": "A sperm whale resting at the surface off Madeira, its bushy blow slanting forward"
+    },
+    {
+      "prompt": "Realistic photograph inside a whale museum hall in Caniçal, Madeira: a long, narrow wooden whaling boat painted white and dark green on a display stand, oars and long iron harpoons laid along it, soft daylight from tall windows, no people, no text.",
+      "alt": "A wooden whaling boat and harpoons on display at the Whale Museum in Caniçal"
+    },
+    {
+      "prompt": "Realistic photograph of the small fishing harbour of Caniçal on Madeira's east coast from the sea in early morning, a few small fishing boats moored inside a stone breakwater, low white houses behind, dry brown hills of the São Lourenço peninsula in the distance, calm water, no text.",
+      "alt": "Caniçal harbour on Madeira's east coast seen from the sea in the morning"
+    }
+  ],
+  "set": "boat-60-2"
+}

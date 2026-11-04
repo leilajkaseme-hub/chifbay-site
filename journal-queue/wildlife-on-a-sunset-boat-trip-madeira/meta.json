@@ -1,0 +1,35 @@
+{
+  "slug": "wildlife-on-a-sunset-boat-trip-madeira",
+  "title": "What Wildlife Can You See on a Sunset Boat Trip in Madeira?",
+  "category": "Nature",
+  "date": "2026-12-29",
+  "description": "Mostly seabirds: Cory's shearwaters from spring to autumn and gulls all year. Dolphins, flying fish and turtles sometimes, whales rarely. Nothing is promised.",
+  "heroImage": "assets/journal/cory-shearwaters-gliding-low-over-the-sea-at-dusk-from-boat-madeira.jpg",
+  "heroAlt": "Cory's shearwaters gliding low over a calm golden sea at dusk, seen from a boat",
+  "readingMinutes": 5,
+  "keywords": [
+    "what wildlife can you see on a sunset boat trip in Madeira",
+    "Cory's shearwater Madeira",
+    "dolphins at sunset Madeira",
+    "sea birds Madeira evening",
+    "flying fish Madeira",
+    "wildlife boat trip Funchal"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T20:30:00.000Z",
+  "images": [
+    {
+      "prompt": "About twenty minutes before sunset off Madeira's south coast in late summer, photographed from the side deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy. Three large brown and white Cory's shearwaters glide low over a calm sea on stiff, straight wings, one wingtip almost touching the water, their shapes dark against golden light reflected on the surface. The coastline is a soft dark band in the distance. Only the boat's white rail at the edge of the frame, no people, natural colours, no text.",
+      "alt": "Cory's shearwaters gliding low over a calm golden sea at dusk, seen from a boat"
+    },
+    {
+      "prompt": "A loose group of about fifteen large brown and white seabirds resting on calm deep blue water in warm evening light off Madeira's south coast, a few taking off and running across the surface, realistic wildlife photo, no boats, no text.",
+      "alt": "A group of shearwaters resting on the sea in warm evening light"
+    },
+    {
+      "prompt": "Detail on a small boat at sunset: a pair of binoculars and sunglasses lying on a grey cushioned seat, the sea and an orange sky softly out of focus behind, realistic photo, no people, no text.",
+      "alt": "Binoculars and sunglasses on a boat seat with the sunset sea behind"
+    }
+  ],
+  "set": "boat-60-2"
+}

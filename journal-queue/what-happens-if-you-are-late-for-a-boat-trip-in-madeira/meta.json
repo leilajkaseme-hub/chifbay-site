@@ -1,0 +1,36 @@
+{
+  "slug": "what-happens-if-you-are-late-for-a-boat-trip-in-madeira",
+  "title": "What Happens If You Are Late for a Boat Trip in Madeira?",
+  "category": "Guide",
+  "date": "2026-12-16",
+  "description": "Message the skipper on WhatsApp at once and keep coming. Return times stay as booked, and under Chifbay's terms a group that never turns up gets no refund.",
+  "heroImage": "assets/journal/couple-hurrying-along-avenida-do-mar-to-funchal-marina-madeira.jpg",
+  "heroAlt": "A couple seen from behind walking quickly along the Funchal seafront towards the marina",
+  "readingMinutes": 5,
+  "keywords": [
+    "what happens if you are late for a boat trip in Madeira",
+    "late for a boat tour Funchal",
+    "missed boat trip refund",
+    "no show boat trip Madeira",
+    "how early to arrive for a boat trip",
+    "Funchal traffic to the marina",
+    "Marina do Funchal arrival time"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T16:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Early afternoon on Avenida do Mar, the seafront promenade of Funchal, Madeira. Seen from behind and at street level, a couple walk briskly along the wide promenade paved with dark and light stone patterns towards Marina do Funchal, one holding a phone, the other with a small backpack and a rolled towel. A row of palm trees on the right, the masts of the small boats in the marina ahead on the left, the harbour wall and blue sea beyond. Bright sun, true colours, no faces, no readable signs or text.",
+      "alt": "A couple seen from behind walking quickly along the Funchal seafront towards the marina"
+    },
+    {
+      "prompt": "Slow afternoon traffic on a steep street in central Funchal, Madeira: a line of small cars and a yellow taxi with a blue stripe heading downhill towards the sea, white buildings with dark green shutters on both sides, a glimpse of blue sea at the bottom, no readable number plates or signs.",
+      "alt": "Slow traffic heading down to the Funchal seafront"
+    },
+    {
+      "prompt": "The white clock tower of Funchal cathedral, the Sé, seen from the street below against a clear blue sky in the early afternoon, the clock hands showing about twenty to two, palm leaves at the edge of the frame, no text.",
+      "alt": "The clock tower of Funchal cathedral, a few minutes' walk from the marina"
+    }
+  ],
+  "set": "boat-60-2"
+}

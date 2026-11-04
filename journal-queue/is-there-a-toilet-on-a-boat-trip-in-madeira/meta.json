@@ -1,0 +1,36 @@
+{
+  "slug": "is-there-a-toilet-on-a-boat-trip-in-madeira",
+  "title": "Is There a Toilet on a Private Boat Trip in Madeira?",
+  "category": "Guide",
+  "date": "2026-12-07",
+  "description": "On Chifbay's private trips, yes: there is a bathroom on board on both the Day Trip and the Sunset Trip. Not every small boat has one, so ask before you book.",
+  "heroImage": "assets/journal/grandmother-and-child-under-boat-canopy-off-praia-formosa-madeira.jpg",
+  "heroAlt": "An older woman and a child seen from behind under a boat canopy, Praia Formosa beach ahead",
+  "readingMinutes": 5,
+  "keywords": [
+    "is there a toilet on a boat trip in Madeira",
+    "boat trip Madeira bathroom on board",
+    "toilet on a private boat Madeira",
+    "how to use a boat toilet",
+    "boat trip with kids toilet Madeira",
+    "boat trip for older people Madeira",
+    "3 hour boat trip Funchal facilities"
+  ],
+  "written": "2026-11-05",
+  "queued": "2026-10-01T13:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Late morning off Praia Formosa, just west of Funchal, Madeira. Taken from the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, looking forward and to the side: in the shade of the canopy, a woman with white hair in a sun hat and a child of about seven in a cap sit side by side on the grey cushions, both seen from behind, looking towards the shore. Beyond them, across calm blue water, the long dark pebble beach of Praia Formosa and the tall hotels of the Lido on the slope above. Soft sun, true colours, no faces visible, no text.",
+      "alt": "An older woman and a child seen from behind under a boat canopy, Praia Formosa beach ahead"
+    },
+    {
+      "prompt": "A small café table on the seafront promenade of Avenida do Mar in Funchal in the morning: a small espresso cup and a bottle of water on the table, palm trees and the masts of Marina do Funchal behind, a few passers-by seen from behind in the distance, no readable signs.",
+      "alt": "Coffee on the Funchal seafront before a boat trip"
+    },
+    {
+      "prompt": "From the deck of a white motor boat on the 3 hour Day Trip: the white houses, church and old pier of Ponta do Sol on Madeira's south coast seen across calm blue water at midday, a bottle of water in a cup holder on the grey cushion in the foreground.",
+      "alt": "Ponta do Sol seen from the boat, far west of Funchal on the longer trip"
+    }
+  ],
+  "set": "boat-60-2"
+}
