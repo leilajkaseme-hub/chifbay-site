@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 // publish.mjs: put today's Journal post in place from the queue. No AI, no network.
 //
-//   node scripts/journal/publish.mjs          prints PUBLISHED <slug>, ALREADY <slug> or EMPTY
+//   node scripts/journal/publish.mjs          prints PUBLISHED <slug>, ALREADY <slug> or EMPTY (2 posts a day, see SECOND_HOUR)
 //
 // Picks the oldest queued post that has its ChatGPT photos; if none has them yet, the
 // oldest one anyway (it then keeps the real photo the writer chose from the site's
 // library, and gen-post-images.mjs may add pictures after). Writes posts/<slug>.html,
 // prepends posts.json, adds the sitemap line, copies the photos to assets/journal/,
 // and changes the date the draft carries to today. Removes the queue folder.
-// A post already dated today means the day is done: nothing happens (runs are retried
+// Two posts already dated today means the day is done: nothing happens (runs are retried
 // several times a day, and the cron of GitHub drifts by hours).
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -51,9 +51,19 @@ export function wireImages(html, files, alts) {
 
 const SPARE_HEROES = ["assets/journal/boat-deck-horizon-ginger-calm-sea-madeira", "assets/journal/madeira-autumn-calm-sea-soft-golden-light"];
 
-export function publish({ day = today(), log = console.log } = {}) {
+// Two posts a day since 4 Nov 2026 (Theo). The second one waits until SECOND_HOUR UTC, so the day's posts are spread out.
+// JOURNAL_PER_DAY and JOURNAL_HOUR (the current UTC hour) override both, for tests.
+const SECOND_HOUR = 15;
+
+export function publish({ day = today(), log = console.log, perDay = Number(process.env.JOURNAL_PER_DAY || 2),
+  hour = Number(process.env.JOURNAL_HOUR ?? new Date().getUTCHours()) } = {}) {
   const posts = readPosts();
-  if (posts[0]?.date === day) { log(`ALREADY ${posts[0].slug}`); return { state: "already", slug: posts[0].slug }; }
+  let done = 0;   // posts are prepended, so today's are the first ones
+  while (posts[done]?.date === day) done++;
+  if (done >= perDay || (done >= 1 && hour < SECOND_HOUR)) {
+    log(`ALREADY ${posts[0].slug}${done < perDay ? ` (post ${done + 1} of the day waits until ${SECOND_HOUR}:00 UTC)` : ""}`);
+    return { state: "already", slug: posts[0].slug };
+  }
   const items = queueItems().filter((i) => !posts.some((p) => p.slug === i.slug));
   const item = items.find((i) => i.images) || items[0];
   if (!item) { log("EMPTY"); return { state: "empty" }; }

@@ -55,7 +55,8 @@ jobs:
         run: |
           out=$(node scripts/journal/publish.mjs)
           echo "$out"
-          echo "state=$(echo "$out" | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+          # Only the result line counts: any other line in $out broke the output file (3 Nov 2026, no post for 2 days).
+          echo "state=$(echo "$out" | grep -oE '^(PUBLISHED|ALREADY|EMPTY)' | tail -n1)" >> "$GITHUB_OUTPUT"
 
       # Last resort only: the queue is empty, so a post is written now.
       - name: Queue empty, write one post now
@@ -69,7 +70,7 @@ jobs:
           node scripts/journal/fill.mjs --today --max 1 --target 1
           out=$(node scripts/journal/publish.mjs)
           echo "$out"
-          case "$out" in PUBLISHED*) ;; *) echo "::error::no post today: the queue is empty and none could be written"; exit 1;; esac
+          echo "$out" | grep -q '^PUBLISHED' || { echo "::error::no post today: the queue is empty and none could be written"; exit 1; }
 
       - name: Check every article image really exists
         if: steps.pub.outputs.state != 'ALREADY'

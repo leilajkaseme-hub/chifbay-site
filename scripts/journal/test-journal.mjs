@@ -34,8 +34,8 @@ function queue(dir, slug, { queued = "2026-10-01T00:00:00Z", photos = false } = 
   return q;
 }
 
-const run = (dir, day) => spawnSync(process.execPath, ["scripts/journal/publish.mjs"], {
-  cwd: dir, encoding: "utf8", env: { ...process.env, JOURNAL_TODAY: day } });
+const run = (dir, day, hour = 9) => spawnSync(process.execPath, ["scripts/journal/publish.mjs"], {
+  cwd: dir, encoding: "utf8", env: { ...process.env, JOURNAL_TODAY: day, JOURNAL_HOUR: String(hour) } });
 
 function check(name, fn) {
   const dir = site();
@@ -67,13 +67,16 @@ check("publishes the post that has its photos, dated today, photos wired in", (d
   assert.ok(existsSync(join(dir, "journal-queue/older-no-photos")), "the other stays queued");
 });
 
-check("a second run the same day publishes nothing", (dir) => {
-  queue(dir, "a"); queue(dir, "b", { queued: "2026-10-03T00:00:00Z" });
-  run(dir, "2026-10-20");
-  const r = run(dir, "2026-10-20");
-  assert.match(r.stdout, /^ALREADY a/);
+check("two posts a day: the second waits until 15:00 UTC, a third never comes", (dir) => {
+  queue(dir, "a"); queue(dir, "b", { queued: "2026-10-03T00:00:00Z" }); queue(dir, "c", { queued: "2026-10-04T00:00:00Z" });
+  assert.match(run(dir, "2026-10-20", 9).stdout, /PUBLISHED a/);
+  const r = run(dir, "2026-10-20", 13);
+  assert.match(r.stdout, /^ALREADY a \(post 2 of the day waits until 15:00 UTC\)/);
   assert.ok(existsSync(join(dir, "journal-queue/b")));
-  assert.match(run(dir, "2026-10-21").stdout, /PUBLISHED b/);
+  assert.match(run(dir, "2026-10-20", 17).stdout, /PUBLISHED b/);
+  assert.match(run(dir, "2026-10-20", 20).stdout, /^ALREADY b$/m);
+  assert.ok(existsSync(join(dir, "journal-queue/c")), "the third waits for the next day");
+  assert.match(run(dir, "2026-10-21", 6).stdout, /PUBLISHED c/);
 });
 
 check("no photos yet: still publishes, keeps the library photo", (dir) => {
