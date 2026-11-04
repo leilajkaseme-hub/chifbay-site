@@ -1,0 +1,37 @@
+{
+  "slug": "east-or-west-boat-trip-from-funchal",
+  "title": "East to Garajau or West to Cabo Girão: Which Is Better by Boat?",
+  "category": "Guide",
+  "date": "2026-11-29",
+  "description": "West suits a short trip with swims: cliffs, fajãs and shelter in 2h30 to 3h. East has the Garajau reserve, where motor boats may not cruise, and more wind.",
+  "heroImage": "assets/journal/garajau-coast-and-cristo-rei-from-the-sea-looking-east-madeira.jpg",
+  "heroAlt": "The Garajau coast with the Cristo Rei statue on its clifftop, seen from the sea",
+  "readingMinutes": 6,
+  "keywords": [
+    "east or west boat trip from Funchal",
+    "Garajau or Cabo Girão by boat",
+    "Garajau nature reserve boat rules",
+    "boat trip west of Funchal",
+    "what to see by boat from Funchal",
+    "Fajã dos Padres by boat",
+    "Cristo Rei Garajau from the sea",
+    "Funchal boat route"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T08:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Seen from the sea off Ponta do Lazareto on a clear morning, looking east along the Garajau coast: brown and green cliffs drop to a calm, deep blue sea, and the white Cristo Rei statue stands small on the clifftop of Ponta do Garajau with its arms open. A white 9 metre motor boat with grey cushioned seats and a dark canopy sits well offshore at the left edge of the frame, outside the reserve. Soft morning light, true colours, realistic photo, no text.",
+      "alt": "The Garajau coast with the Cristo Rei statue on its clifftop, seen from the sea"
+    },
+    {
+      "prompt": "Fajã dos Padres seen from the water at midday: a narrow strip of green terraces and a few small houses at the foot of a huge dark cliff, a pebble beach, and the cable car line running up the cliff face.",
+      "alt": "Fajã dos Padres at the foot of its cliff, with the cable car line above"
+    },
+    {
+      "prompt": "The extension of Madeira's airport runway standing on tall concrete pillars above the shore at Santa Cruz, seen from the sea in afternoon light, waves on the rocks below, no aircraft.",
+      "alt": "Madeira airport runway on tall pillars above the shore at Santa Cruz"
+    }
+  ],
+  "set": "boat-60"
+}

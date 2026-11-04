@@ -1,0 +1,37 @@
+{
+  "slug": "who-discovered-madeira-and-where-did-they-land",
+  "title": "Who Discovered Madeira, and Where Did They Land?",
+  "category": "Guide",
+  "date": "2026-11-11",
+  "description": "Zarco and Tristão Vaz Teixeira, squires of Prince Henry, reached Porto Santo in 1418 and Madeira in 1419. Tradition puts the landing at Machico on 1 July.",
+  "heroImage": "assets/journal/machico-bay-east-coast-from-the-sea-early-morning-madeira.jpg",
+  "heroAlt": "Machico bay on Madeira's east coast seen from the sea in early morning light",
+  "readingMinutes": 6,
+  "keywords": [
+    "who discovered Madeira",
+    "where did Zarco land in Madeira",
+    "discovery of Madeira 1419",
+    "João Gonçalves Zarco Madeira",
+    "Tristão Vaz Teixeira Machico",
+    "Porto Santo discovery 1418",
+    "Bartolomeu Perestrelo Porto Santo",
+    "Madeira history timeline"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T02:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph of Machico bay on Madeira's east coast, taken from the sea about a kilometre offshore at sunrise. The wide bay with its town at the back, green valley climbing behind, steep headlands on both sides, a calm grey blue sea with soft swell in the foreground. Warm low light on the slopes, no boat in the frame, no people, no text.",
+      "alt": "Machico bay on Madeira's east coast seen from the sea in early morning light"
+    },
+    {
+      "prompt": "Realistic photo of the bronze statue of João Gonçalves Zarco on Avenida Arriaga in Funchal, Madeira, seen from a low angle against a blue sky, jacaranda trees around, no people close.",
+      "alt": "Statue of João Gonçalves Zarco on Avenida Arriaga in central Funchal"
+    },
+    {
+      "prompt": "Realistic photo of wild fennel plants growing on a dry rocky slope above the sea on Madeira's south coast, Funchal bay softly out of focus behind, summer light.",
+      "alt": "Wild fennel on a rocky slope above Funchal bay, the plant behind the city's name"
+    }
+  ],
+  "set": "boat-60"
+}

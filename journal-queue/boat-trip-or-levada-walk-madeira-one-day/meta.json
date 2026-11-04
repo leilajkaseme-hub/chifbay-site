@@ -1,0 +1,37 @@
+{
+  "slug": "boat-trip-or-levada-walk-madeira-one-day",
+  "title": "Boat Trip or Levada Walk: Which Is Better With One Day in Madeira?",
+  "category": "Guide",
+  "date": "2026-11-18",
+  "description": "Clear peaks and a rough sea: walk a levada. Cloud up high and a calm south coast: take the boat. With one day, a morning walk and an evening boat do both.",
+  "heroImage": "assets/journal/levada-path-laurel-forest-morning-mist-madeira.jpg",
+  "heroAlt": "A walker seen from behind on a levada path along a green mountainside, morning mist below",
+  "readingMinutes": 5,
+  "keywords": [
+    "boat trip or levada walk madeira",
+    "one day in madeira what to do",
+    "levada walk or boat trip",
+    "madeira levada fee 2026",
+    "easy levada walk madeira",
+    "levada and boat trip same day",
+    "madeira two day plan",
+    "vereda dos balcoes"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T04:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning on a levada path in the mountains of Madeira: a narrow stone water channel running along a steep green slope covered in laurel forest and ferns, a single walker in a light jacket seen small from behind, walking away along the path. Low white cloud fills the valley below, sunlight on the ridges above. No sea, no boat. Natural light, true colours.",
+      "alt": "A walker seen from behind on a levada path along a green mountainside, morning mist below"
+    },
+    {
+      "prompt": "Late afternoon from the water near Cabo Girão: a white 9 metre motor boat with grey cushioned seats and a dark canopy cruising past the tall cliff, low sun from the west, calm deep blue sea, guests small and from behind on deck.",
+      "alt": "The boat passing under Cabo Girão on a calm late afternoon"
+    },
+    {
+      "prompt": "Detail of a levada channel with clear flowing water, moss on the stone edge and a hiking boot stepping beside it, soft forest light, no face.",
+      "alt": "Clear water flowing in a mossy levada channel beside a walker's boot"
+    }
+  ],
+  "set": "boat-60"
+}

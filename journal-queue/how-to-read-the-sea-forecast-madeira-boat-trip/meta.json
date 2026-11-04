@@ -1,0 +1,37 @@
+{
+  "slug": "how-to-read-the-sea-forecast-madeira-boat-trip",
+  "title": "How Do You Read the Sea Forecast Before a Boat Trip in Madeira?",
+  "category": "Guide",
+  "date": "2026-11-05",
+  "description": "Read wave height, swell period and wind direction together. On Madeira's south coast, a small long-period swell and a north wind mean a smooth boat trip.",
+  "heroImage": "assets/journal/boat-riding-long-atlantic-swell-off-funchal-morning-madeira.jpg",
+  "heroAlt": "White motor boat rising over a long, smooth Atlantic swell off Funchal in early morning light",
+  "readingMinutes": 6,
+  "keywords": [
+    "how to read the sea forecast before a boat trip in Madeira",
+    "Madeira sea forecast boat trip",
+    "swell period explained",
+    "wave height vs swell period",
+    "IPMA sea warnings Madeira south coast",
+    "Windy waves Madeira",
+    "is the sea calm in Funchal today",
+    "MadeiraOcean app forecast"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T00:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning off Funchal, photographed from low on the water about 30 metres away. A white 9 metre motor boat with grey cushioned seats and a dark canopy rides up the smooth face of a long, low Atlantic swell, the next swell line glinting behind it in soft gold light. Two passengers on board, seen from behind and small. In the background, the white houses of Funchal climb the green hillside under a clear sky. Realistic photo, true colours, no text, no logos.",
+      "alt": "White motor boat rising over a long, smooth Atlantic swell off Funchal in early morning light"
+    },
+    {
+      "prompt": "Long, smooth swell lines rolling in parallel towards Madeira's south coast at mid-morning, seen from a boat deck, sunlight catching each crest, dark cliffs in the distance, no people.",
+      "alt": "Long parallel swell lines rolling towards Madeira's south coast in morning sun"
+    },
+    {
+      "prompt": "Short, choppy wind waves with small whitecaps on a deep blue sea off Funchal on a breezy afternoon, seen from the deck of a motor boat with the edge of a grey cushioned seat in the foreground, the city hazy in the distance.",
+      "alt": "Choppy wind waves with whitecaps off Funchal seen from a boat deck"
+    }
+  ],
+  "set": "boat-60"
+}

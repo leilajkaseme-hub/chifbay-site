@@ -1,0 +1,36 @@
+{
+  "slug": "private-boat-trip-madeira-small-team-outing",
+  "title": "Can a Small Team or Company Book a Private Boat Trip in Madeira?",
+  "category": "Guide",
+  "date": "2026-11-19",
+  "description": "A team of up to five can book the whole boat from Funchal for a morning, afternoon or sunset trip, with an invoice in the company name. How to plan it.",
+  "heroImage": "assets/journal/small-team-on-deck-passing-ponta-do-sol-madeira.jpg",
+  "heroAlt": "Five colleagues in casual clothes on a white motor boat passing the village of Ponta do Sol",
+  "readingMinutes": 5,
+  "keywords": [
+    "can a company book a private boat trip in madeira",
+    "team outing madeira boat",
+    "corporate boat trip funchal",
+    "offsite activity madeira",
+    "remote team retreat madeira",
+    "team building boat madeira small group",
+    "company invoice boat trip portugal"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T05:10:00.000Z",
+  "images": [
+    {
+      "prompt": "Midday, seen from the water at a short distance: a white 9 metre motor boat with grey cushioned seats and a dark canopy cruising slowly past Ponta do Sol on Madeira's south coast. Five small adult figures in casual summer clothes on deck, seen from the side and behind, faces not visible. Behind them the village of Ponta do Sol with its seafront buildings, church and steep green slopes. Bright natural light, deep blue sea, true colours.",
+      "alt": "Five colleagues in casual clothes on a white motor boat passing the village of Ponta do Sol"
+    },
+    {
+      "prompt": "Detail from the deck: two people seen from behind sitting at the back of a white motor boat, looking at the white wake, a cold drink on the seat between them, Madeira cliffs in the distance, afternoon light, no faces.",
+      "alt": "Two colleagues seen from behind at the back of the boat watching the wake"
+    },
+    {
+      "prompt": "The seafront of Ponta do Sol, Madeira, from the water: the old pier, pastel buildings and the slope behind, calm blue sea in front, bright midday light, no boats in frame, no people close up.",
+      "alt": "Seafront of Ponta do Sol seen from the water under a bright midday sky"
+    }
+  ],
+  "set": "boat-60"
+}

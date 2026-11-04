@@ -1,0 +1,37 @@
+{
+  "slug": "are-there-coral-reefs-in-madeira",
+  "title": "Are There Coral Reefs in Madeira?",
+  "category": "Nature",
+  "date": "2026-11-24",
+  "description": "No. The sea cools to about 18 °C in late winter, the limit for reef corals, and the island drops steeply. Rocky reefs, seaweed, urchins and fish grow instead.",
+  "heroImage": "assets/journal/volcanic-rocky-reef-with-fish-madeira.jpg",
+  "heroAlt": "Underwater view of a volcanic rocky reef with seaweed, urchins and a shoal of fish",
+  "readingMinutes": 5,
+  "keywords": [
+    "are there coral reefs in Madeira",
+    "coral in Madeira",
+    "Madeira underwater life",
+    "snorkelling Madeira what will I see",
+    "Madeira rocky reef fish",
+    "why no coral reefs in Madeira",
+    "Madeira sea urchin barrens",
+    "maerl Cabo Girão"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T06:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Underwater photo over a volcanic rocky reef at about five metres off Madeira's south coast. Dark boulders partly covered in brown lobed seaweed and pink crusts of coralline algae, a few black sea urchins in the gaps, a shoal of silver salema passing above and a green ornate wrasse in the foreground. Deep blue water, soft sunlight rays from above, true colours, no divers, no text.",
+      "alt": "Underwater view of a volcanic rocky reef with seaweed, urchins and a shoal of fish"
+    },
+    {
+      "prompt": "Close underwater detail of brown lobed Lobophora seaweed on dark rock with a small ornate wrasse swimming past, sunlight dappling the rock, shallow water off Madeira.",
+      "alt": "Brown Lobophora seaweed and an ornate wrasse on a Madeira rock"
+    },
+    {
+      "prompt": "A small octopus spread on dark volcanic rock in shallow clear water, seen from above through the calm sea surface, soft morning light.",
+      "alt": "An octopus on volcanic rock seen through the surface of shallow water"
+    }
+  ],
+  "set": "boat-60"
+}

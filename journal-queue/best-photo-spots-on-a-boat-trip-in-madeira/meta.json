@@ -1,0 +1,37 @@
+{
+  "slug": "best-photo-spots-on-a-boat-trip-in-madeira",
+  "title": "Where Are the Best Photo Spots on a Boat Trip Along Madeira's South Coast?",
+  "category": "Experience",
+  "date": "2026-11-26",
+  "description": "The best shots west of Funchal: Câmara de Lobos bay, Cabo Girão from below, Fajã dos Padres, Ribeira Brava and Ponta do Sol, and the light that suits each.",
+  "heroImage": "assets/journal/guest-photographing-ribeira-brava-coast-from-the-bow-golden-light-madeira.jpg",
+  "heroAlt": "A guest seen from behind photographing the coast near Ribeira Brava from the bow in late light",
+  "readingMinutes": 6,
+  "keywords": [
+    "best photo spots boat trip Madeira",
+    "Madeira south coast photography from a boat",
+    "Cabo Girão photo from the sea",
+    "Câmara de Lobos photo",
+    "Fajã dos Padres photo",
+    "boat trip photos Madeira tips",
+    "drone shot Cabo Girão",
+    "sunset photo boat Madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T07:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph from the deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy, late afternoon about an hour before sunset. A guest seen from behind in silhouette at the bow holds up a phone towards the coast near Ribeira Brava, Madeira: the town at the mouth of a deep green valley, the church tower, steep cliffs lit warm gold, calm sea with small glints. No face visible, natural colours, no text.",
+      "alt": "A guest seen from behind photographing the coast near Ribeira Brava from the bow in late light"
+    },
+    {
+      "prompt": "Realistic photo of the old stone pier of Ponta do Sol in Madeira with its wide round basalt arch, seen from a boat on the water in soft late afternoon light, village houses climbing the cliff behind.",
+      "alt": "The 1849 stone pier with its round arch at Ponta do Sol, seen from the sea"
+    },
+    {
+      "prompt": "Realistic photo of a phone in a hand with a wrist strap, framing Cabo Girão cliff on its screen in portrait mode, the real cliff blurred behind, on the deck of a boat, bright morning light, no face visible.",
+      "alt": "A phone in portrait mode framing Cabo Girão from the deck of the boat"
+    }
+  ],
+  "set": "boat-60"
+}

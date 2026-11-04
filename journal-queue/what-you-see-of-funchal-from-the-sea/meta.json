@@ -1,0 +1,36 @@
+{
+  "slug": "what-you-see-of-funchal-from-the-sea",
+  "title": "What Can You See of Funchal From the Sea?",
+  "category": "Experience",
+  "date": "2026-11-23",
+  "description": "From the sea, Funchal is an amphitheatre: forts and hotels on the shore, houses climbing to Monte at about 600 m, and the high peaks behind it on clear days.",
+  "heroImage": "assets/journal/funchal-amphitheatre-city-lights-from-the-boat-at-dusk-madeira.jpg",
+  "heroAlt": "Funchal's lights climbing the hills at dusk, seen from the stern of a boat returning",
+  "readingMinutes": 6,
+  "keywords": [
+    "what can you see of Funchal from the sea",
+    "Funchal from the water",
+    "Funchal amphitheatre view",
+    "Funchal bay boat view",
+    "Monte church from the sea",
+    "Funchal at night from a boat",
+    "Funchal landmarks seen from the sea"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T06:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph taken from the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, returning to Funchal at blue hour, about 40 minutes after sunset. The amphitheatre city fills the frame: lights climbing the hills from the seafront to Monte, the dark mountain ridge above under a deep blue sky with a last band of orange, reflections on calm water, a soft wake. Two small figures in silhouette on the seats from behind, no faces, natural colours, no text.",
+      "alt": "Funchal's lights climbing the hills at dusk, seen from the stern of a boat returning"
+    },
+    {
+      "prompt": "Realistic daytime photo of Funchal's eastern seafront from the sea: the bright yellow Fortaleza de São Tiago, the old town houses and the cable car line climbing to Monte, white church with two towers high on the slope, clear morning light.",
+      "alt": "The yellow São Tiago fort and the Monte cable car seen from the sea"
+    },
+    {
+      "prompt": "Realistic photo from the water of the Pontinha harbour wall in Funchal with the small fort on its islet and a cruise ship moored behind, late afternoon light, calm sea.",
+      "alt": "The islet fort on the Pontinha harbour wall with a cruise ship behind"
+    }
+  ],
+  "set": "boat-60"
+}

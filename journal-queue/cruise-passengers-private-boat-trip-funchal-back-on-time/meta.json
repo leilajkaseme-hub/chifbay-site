@@ -1,0 +1,36 @@
+{
+  "slug": "cruise-passengers-private-boat-trip-funchal-back-on-time",
+  "title": "Cruise Passengers: Is There Time for a Private Boat Trip in Funchal?",
+  "category": "Guide",
+  "date": "2026-11-22",
+  "description": "Usually yes. Ships dock at the Pontinha pier, the marina is a flat walk away, and the 10:00 Day Trip is back at 12:30, well before an afternoon all-aboard.",
+  "heroImage": "assets/journal/boat-leaving-marina-cruise-ship-pontinha-pier-funchal-madeira.jpg",
+  "heroAlt": "White motor boat leaving Funchal marina in the morning with a cruise ship docked behind",
+  "readingMinutes": 5,
+  "keywords": [
+    "cruise passengers private boat trip funchal",
+    "funchal cruise port boat trip back on time",
+    "madeira shore excursion private boat",
+    "funchal cruise terminal to marina walk",
+    "independent shore excursion funchal",
+    "cruise all aboard time funchal",
+    "boat trip from funchal cruise ship"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T06:10:00.000Z",
+  "images": [
+    {
+      "prompt": "Morning at Funchal, Madeira, seen from the water just outside the marina entrance. A white 9 metre motor boat with grey cushioned seats and a dark canopy heads out to sea with a small white wake, a few small guests on deck seen from behind. In the background a large white cruise ship is docked along the long Pontinha pier, with the Funchal hillside of white houses rising behind. Clear morning light, calm blue sea, true colours, no logos readable on the ship.",
+      "alt": "White motor boat leaving Funchal marina in the morning with a cruise ship docked behind"
+    },
+    {
+      "prompt": "The Funchal seafront promenade in the morning, seen at eye level: a wide paved walkway along the sea with palm trees and the marina masts ahead, a few walkers seen from behind, the long cruise pier visible in the distance behind them.",
+      "alt": "Seafront promenade in Funchal leading from the cruise pier towards the marina"
+    },
+    {
+      "prompt": "Detail on a boat seat: a wristwatch and a folded cruise daily programme sheet with no readable text beside a pair of sunglasses, sunlight, blurred blue sea and Madeira coast behind.",
+      "alt": "Wristwatch, sunglasses and a folded daily programme sheet on a boat seat"
+    }
+  ],
+  "set": "boat-60"
+}

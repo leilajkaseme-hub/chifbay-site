@@ -1,0 +1,36 @@
+{
+  "slug": "do-boat-trips-in-madeira-run-in-the-rain",
+  "title": "Do Boat Trips in Madeira Run When It Rains?",
+  "category": "Guide",
+  "date": "2026-11-08",
+  "description": "Usually, yes. Rain alone does not decide a boat trip in Madeira: the sea, the wind and thunderstorms do. When trips go, when they stop and what to wear.",
+  "heroImage": "assets/journal/passing-shower-over-camara-de-lobos-from-boat-deck-madeira.jpg",
+  "heroAlt": "Passing rain shower over the sea near Câmara de Lobos, seen from a boat deck",
+  "readingMinutes": 5,
+  "keywords": [
+    "do boat trips in Madeira run when it rains",
+    "boat trip Madeira rain",
+    "rainy day boat trip Funchal",
+    "how often does it rain in Funchal",
+    "Madeira boat trip cancelled weather",
+    "rain on the south coast of Madeira",
+    "what to wear on a boat trip in the rain"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T01:20:00.000Z",
+  "images": [
+    {
+      "prompt": "From the deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy, looking towards Câmara de Lobos on a showery winter morning. Drops of rain bead on the grey cushions in the foreground. Out on the water, a grey curtain of rain falls over the sea while sunlight breaks through behind it onto the colourful houses and the cliffs. Two passengers in light rain jackets, seen from behind and small, sit under the dark canopy. Realistic photo, true colours, soft wet light, no text.",
+      "alt": "Passing rain shower over the sea near Câmara de Lobos, seen from a boat deck"
+    },
+    {
+      "prompt": "Wet wooden pontoon at Marina do Funchal just after a shower, puddles reflecting white boat hulls and a sky that is clearing to blue, mountains with cloud behind, no people.",
+      "alt": "Wet pontoon at Marina do Funchal reflecting a clearing sky after a shower"
+    },
+    {
+      "prompt": "Close detail of rain drops landing on calm dark sea water beside the white hull of a motor boat, small rings spreading on the surface, soft grey light.",
+      "alt": "Rain drops making small rings on calm sea water beside a white boat hull"
+    }
+  ],
+  "set": "boat-60"
+}

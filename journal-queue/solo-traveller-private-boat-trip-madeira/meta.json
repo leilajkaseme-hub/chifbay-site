@@ -1,0 +1,36 @@
+{
+  "slug": "solo-traveller-private-boat-trip-madeira",
+  "title": "Can a Solo Traveller Book a Private Boat Trip in Madeira?",
+  "category": "Guide",
+  "date": "2026-12-01",
+  "description": "Yes, but the price is per boat, so one person pays the same 400 to 600 EUR as five. Here is when it is worth it alone, and which cheaper shared trips exist.",
+  "heroImage": "assets/journal/solo-traveller-alone-on-bow-near-ribeira-brava-madeira.jpg",
+  "heroAlt": "Solo traveller seen from behind sitting alone near the front of a boat off Ribeira Brava",
+  "readingMinutes": 5,
+  "keywords": [
+    "can a solo traveller book a private boat trip in madeira",
+    "solo travel madeira boat trip",
+    "private boat trip for one person funchal",
+    "boat trip madeira travelling alone",
+    "single supplement boat trip madeira",
+    "shared boat trip funchal price",
+    "solo traveller things to do madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T09:10:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-afternoon off Ribeira Brava on Madeira's south coast, seen from the back of a white 9 metre motor boat with grey cushioned seats and a dark canopy, looking forward. One person, seen from behind, sits alone near the front with knees drawn up, looking at the coast. The other grey seats are empty. Ahead, the village of Ribeira Brava in its valley mouth with green slopes rising behind. Calm deep blue sea, bright natural light, true colours.",
+      "alt": "Solo traveller seen from behind sitting alone near the front of a boat off Ribeira Brava"
+    },
+    {
+      "prompt": "From the water at a swim stop below tall cliffs on the Madeira south coast: one swimmer alone in clear blue water beside a resting white motor boat, seen from a distance, afternoon light, no face visible.",
+      "alt": "One swimmer alone in blue water beside the resting boat below tall cliffs"
+    },
+    {
+      "prompt": "Detail on a boat seat: a single glass of local white wine, a paperback book face down with no visible title and a pair of sunglasses, soft afternoon light, the sea and coast blurred behind, no people.",
+      "alt": "Single glass of wine, a book and sunglasses on an empty boat seat"
+    }
+  ],
+  "set": "boat-60"
+}

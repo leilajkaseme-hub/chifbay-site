@@ -1,0 +1,37 @@
+{
+  "slug": "food-and-drinks-on-a-private-boat-in-madeira",
+  "title": "Can You Bring Your Own Food and Drinks on a Private Boat in Madeira?",
+  "category": "Experience",
+  "date": "2026-11-06",
+  "description": "Ask the operator first. On Chifbay trips food, local wine, poncha, beer and soft drinks are included, so bring only a cake, a special bottle or allergy food.",
+  "heroImage": "assets/journal/drinks-on-deck-south-coast-cliffs-madeira.jpg",
+  "heroAlt": "Glasses of poncha and local wine on a boat deck table, Madeira cliffs behind in midday sun",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you bring your own food on a private boat in madeira",
+    "bring drinks on a boat trip madeira",
+    "food and drinks included boat trip madeira",
+    "birthday cake on a boat madeira",
+    "poncha on a boat trip",
+    "food allergies boat trip madeira",
+    "what to eat before a boat trip",
+    "alcohol on a boat trip madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T00:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Midday on the open south coast of Madeira, seen from inside a white 9 metre motor boat with grey cushioned seats and a dark canopy. In the foreground, on a small table in the shade of the canopy: two short glasses of poncha with lemon peel, two glasses of white wine and a few cold bottles of beer and soft drinks with drops of water on the glass, no readable labels. Behind, slightly out of focus, the tall brown and green cliffs west of Cabo Girão above a calm dark blue sea. Natural light, true colours, no faces.",
+      "alt": "Glasses of poncha and local wine on a boat deck table, Madeira cliffs behind in midday sun"
+    },
+    {
+      "prompt": "Close detail of a dense dark bolo de mel honey cake in an open cardboard box on the grey cushioned seat of a white motor boat, a hand seen from behind lifting the lid, blue sea and sky behind, afternoon light, no text.",
+      "alt": "Bolo de mel honey cake in a box on a boat seat, ready to share at sea"
+    },
+    {
+      "prompt": "Late afternoon at the Marina do Funchal pontoon, seen from the pontoon: a guest from behind handing a closed cake box to the skipper standing at the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, Funchal's hillside houses behind, soft golden light.",
+      "alt": "Guest handing a cake box to the skipper on the pontoon at Marina do Funchal"
+    }
+  ],
+  "set": "boat-60"
+}

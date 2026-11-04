@@ -1,0 +1,36 @@
+{
+  "slug": "does-madeira-have-tides",
+  "title": "Does Madeira Have Tides, and Do They Matter on a Boat Trip?",
+  "category": "Nature",
+  "date": "2026-11-30",
+  "description": "Madeira has two highs and two lows a day, ranging in Funchal from under 1 m on neap tides to just over 2 m on springs. Why boats barely notice and who should.",
+  "heroImage": "assets/journal/low-tide-pebble-beach-ponta-do-sol-madeira.jpg",
+  "heroAlt": "Wet pebbles and exposed rock ledges at low tide on the beach at Ponta do Sol",
+  "readingMinutes": 5,
+  "keywords": [
+    "does Madeira have tides",
+    "tides in Madeira",
+    "Funchal tide range",
+    "tide times Funchal",
+    "do tides matter for a boat trip",
+    "low tide natural pools Madeira",
+    "spring and neap tides Madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T08:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning at low tide on the pebble beach of Ponta do Sol: wet grey and black stones glistening, a band of exposed dark rock ledges at the water's edge, small calm waves, the white houses of the village and its cliff behind in soft low light. True colours, no people, no boats, no text.",
+      "alt": "Wet pebbles and exposed rock ledges at low tide on the beach at Ponta do Sol"
+    },
+    {
+      "prompt": "Waves washing white over the outer black lava rocks of the Porto Moniz natural pools at high tide on a grey-blue afternoon, the pools inside calmer, nobody swimming.",
+      "alt": "Waves washing over the outer rocks of the Porto Moniz pools at high tide"
+    },
+    {
+      "prompt": "A clear rock pool on a black lava shelf at low tide, small fish and green seaweed visible in the still water, the calm sea and a low morning sun beyond.",
+      "alt": "A clear rock pool on a lava shelf at low tide"
+    }
+  ],
+  "set": "boat-60"
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "can-you-swim-at-the-foot-of-cabo-girao",
+  "title": "Can You Swim at the Foot of Cabo Girão?",
+  "category": "Guide",
+  "date": "2026-11-20",
+  "description": "Not a good idea from a boat. The foot of Cabo Girão is a boulder beach under a 580 m cliff that still drops rock, so boats swim at Fajã dos Padres instead.",
+  "heroImage": "assets/journal/boulder-beach-at-the-foot-of-cabo-girao-from-the-water-madeira.jpg",
+  "heroAlt": "Boulder beach and fallen rock at the foot of Cabo Girão, seen from the water",
+  "readingMinutes": 6,
+  "keywords": [
+    "can you swim at Cabo Girão",
+    "swimming under Cabo Girão",
+    "Cabo Girão rockfall",
+    "where to swim near Cabo Girão",
+    "Fajã dos Padres swimming",
+    "boat trip swim stop Madeira",
+    "is it safe to swim under cliffs in Madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T05:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph from a boat a few hundred metres offshore, looking at the base of the Cabo Girão cliff in Madeira at mid-morning. A wide beach of grey and brown boulders and pebbles with white surf, a few large fallen blocks, fresh pale scars on the dark rock face above and the cliff rising out of the top of the frame. Deep blue water in the foreground, no swimmers, no boats, natural colours, no text.",
+      "alt": "Boulder beach and fallen rock at the foot of Cabo Girão, seen from the water"
+    },
+    {
+      "prompt": "Realistic photo of a swimmer seen from behind floating in deep blue calm water near a white 9 metre motor boat with grey cushioned seats and a dark canopy at Fajã dos Padres, Madeira, the green fajã and cliff behind, bright late morning light.",
+      "alt": "A swimmer in deep blue water beside the boat at Fajã dos Padres"
+    },
+    {
+      "prompt": "Realistic photo of the stern ladder of a white motor boat over clear deep blue water, a paddle board floating alongside, bright sunlight, Madeira south coast cliffs softly out of focus.",
+      "alt": "Boat ladder and paddle board over deep blue water at the swim stop"
+    }
+  ],
+  "set": "boat-60"
+}

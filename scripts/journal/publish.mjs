@@ -10,7 +10,7 @@
 // and changes the date the draft carries to today. Removes the queue folder.
 // Two posts already dated today means the day is done: nothing happens (runs are retried
 // several times a day, and the cron of GitHub drifts by hours).
-import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { IMAGE_NAMES, POSTS_JSON, ROOT, longDate, queueItems, readPosts, seoFile, today } from "./lib.mjs";
 
@@ -21,6 +21,30 @@ export function figure(src, alt) {
         <img src="${src}" alt="${esc(alt)}" loading="lazy" style="width:100%;height:auto;border-radius:8px;display:block"/>
         <figcaption style="font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:10px">${esc(alt)}</figcaption>
       </figure>\n`;
+}
+
+// Articles of one set link to each other but go live on different days. A link to an article that is not live
+// yet waits as <span data-later-link="/posts/x">text</span> (plain text to the reader, no 404), and becomes a real
+// link the day x goes live. Only the English pages (posts/*.html) are touched.
+const LATER = (target) => new RegExp(`<span data-later-link="/posts/${target}">([\\s\\S]*?)</span>`, "g");
+
+/** Links in a page about to go live that point to an article not live yet are held back. */
+export function holdLinks(html, self) {
+  return html.replace(/<a href="\/posts\/([a-z0-9-]+)">([\s\S]*?)<\/a>/g, (all, target, text) =>
+    target === self || existsSync(join(ROOT, "posts", `${target}.html`)) ? all : `<span data-later-link="/posts/${target}">${text}</span>`);
+}
+
+/** The day `slug` goes live, every English page that was waiting for it gets its link. Returns how many pages changed. */
+export function releaseLinks(slug) {
+  let n = 0;
+  for (const f of readdirSync(join(ROOT, "posts")).filter((x) => x.endsWith(".html"))) {
+    const path = join(ROOT, "posts", f);
+    const before = readFileSync(path, "utf8");
+    if (!before.includes(`data-later-link="/posts/${slug}"`)) continue;
+    writeFileSync(path, before.replace(LATER(slug), (_, text) => `<a href="/posts/${slug}">${text}</a>`));
+    n++;
+  }
+  return n;
 }
 
 /** The draft's date (ISO and long form) becomes `day`. */
@@ -96,7 +120,10 @@ export function publish({ day = today(), log = console.log, perDay = Number(proc
     }
   }
   if (!html.includes(`/posts/${slug}`)) throw new Error(`${slug}: the draft does not carry its own canonical URL`);
+  html = holdLinks(html, slug);
   writeFileSync(join(ROOT, "posts", `${slug}.html`), html);
+  const relinked = releaseLinks(slug);
+  if (relinked) log(`linked ${relinked} earlier article(s) to ${slug}`);
   writeFileSync(POSTS_JSON, JSON.stringify([entry, ...posts], null, 2) + "\n");
 
   const sm = join(ROOT, "sitemap.xml");

@@ -1,0 +1,37 @@
+{
+  "slug": "jellyfish-in-madeira-is-it-safe-to-swim",
+  "title": "Are There Jellyfish in Madeira, and Is It Safe to Swim From a Boat?",
+  "category": "Nature",
+  "date": "2026-11-20",
+  "description": "Yes, a few kinds drift past, and the Portuguese man o' war turns up in some springs. Most days a boat swim on the south coast is safe. What to check and do.",
+  "heroImage": "assets/journal/portuguese-man-o-war-float-on-deep-blue-sea-madeira.jpg",
+  "heroAlt": "A Portuguese man o' war floating on the surface of the deep blue sea off Madeira",
+  "readingMinutes": 6,
+  "keywords": [
+    "are there jellyfish in Madeira",
+    "is it safe to swim in Madeira jellyfish",
+    "Portuguese man o' war Madeira",
+    "caravela-portuguesa Madeira",
+    "jellyfish sting what to do",
+    "mauve stinger Madeira",
+    "swimming from a boat in Madeira",
+    "GelAvista Madeira sightings"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T05:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Close, eye-level view at the water's surface off Madeira's south coast on a sunny spring morning: a single Portuguese man o' war, its translucent blue and violet float catching the light, drifting on a calm deep blue sea, thin dark blue tentacles visible just under the surface. Soft ripples, true colours, no boat, no people, realistic photo, no text.",
+      "alt": "A Portuguese man o' war floating on the surface of the deep blue sea off Madeira"
+    },
+    {
+      "prompt": "A skipper seen from behind standing at the bow of a white 9 metre motor boat with grey cushioned seats and a dark canopy, scanning the calm water before a swim stop off Ribeira Brava, bright late morning light, the village and pebble beach in the background.",
+      "alt": "Skipper at the bow scanning the water before a swim stop off Ribeira Brava"
+    },
+    {
+      "prompt": "Close underwater view of a small mauve stinger jellyfish, pink and translucent, drifting in deep blue water with light rays from above.",
+      "alt": "Small pink mauve stinger jellyfish drifting in deep blue water"
+    }
+  ],
+  "set": "boat-60"
+}

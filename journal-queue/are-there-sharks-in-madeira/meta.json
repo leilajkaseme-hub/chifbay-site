@@ -1,0 +1,37 @@
+{
+  "slug": "are-there-sharks-in-madeira",
+  "title": "Are There Sharks in Madeira's Waters?",
+  "category": "Nature",
+  "date": "2026-11-23",
+  "description": "Yes. Madeira lists 67 confirmed species of sharks, rays and chimaeras, but most sharks live far offshore or deep down, and swimmers rarely see one near shore.",
+  "heroImage": "assets/journal/blue-shark-swimming-in-open-ocean-off-madeira.jpg",
+  "heroAlt": "A blue shark swimming in open, deep blue ocean water far off the Madeira coast",
+  "readingMinutes": 6,
+  "keywords": [
+    "are there sharks in Madeira's waters",
+    "sharks in Madeira",
+    "is it safe to swim in Madeira sharks",
+    "blue shark Madeira",
+    "whale shark Madeira",
+    "shark attacks Madeira",
+    "deep sea sharks Madeira",
+    "swimming from a boat Madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T06:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Underwater, in the open ocean far off Madeira on a bright day: a single slender blue shark glides through deep blue water, sunlight rays slanting down from the surface above, nothing but blue below. Realistic underwater photo, natural colours, no people, no boat, no text.",
+      "alt": "A blue shark swimming in open, deep blue ocean water far off the Madeira coast"
+    },
+    {
+      "prompt": "Calm, clear shallow water over grey pebbles close to the shore at Ribeira Brava, seen from just above the surface, the stones clearly visible, a swimmer's legs at the edge of the frame, bright daylight.",
+      "alt": "Calm, clear shallow water over grey pebbles near the shore at Ribeira Brava"
+    },
+    {
+      "prompt": "A traditional fishing boat in Câmara de Lobos harbour in the early morning, coiled longlines and buckets on deck, colourful houses behind, no people facing the camera.",
+      "alt": "Fishing boat with coiled longlines in Câmara de Lobos harbour at dawn"
+    }
+  ],
+  "set": "boat-60"
+}

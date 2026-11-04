@@ -1,0 +1,37 @@
+{
+  "slug": "funchal-marina-meeting-point-for-boat-trips",
+  "title": "Where Do Private Boat Trips Leave From in Funchal, and How to Get There?",
+  "category": "Guide",
+  "date": "2026-11-19",
+  "description": "Private boat trips leave from Marina do Funchal, mid-seafront beside Avenida do Mar. Walk, take a taxi or a bus, and be on the pontoon 15 minutes early.",
+  "heroImage": "assets/journal/marina-do-funchal-pontoons-seen-from-avenida-do-mar-madeira.jpg",
+  "heroAlt": "Marina do Funchal and its pontoons seen from the seafront promenade, with palm trees and moored boats",
+  "readingMinutes": 5,
+  "keywords": [
+    "where do boat trips leave from in Funchal",
+    "Funchal marina meeting point",
+    "how to get to Marina do Funchal",
+    "Marina do Funchal walking distance Lido",
+    "parking near Funchal marina",
+    "taxi to Funchal marina",
+    "Funchal boat trip pontoon",
+    "cruise terminal to Funchal marina walk"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T05:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Mid-morning view looking down from the seafront promenade on Avenida do Mar in Funchal onto Marina do Funchal. Palm trees and the promenade railing in the foreground, below them the wooden pontoons with small white motor boats and sailing yachts moored in calm blue water, the harbour wall beyond and the open Atlantic. A few small figures walk along a pontoon, from behind, no faces visible. Bright sun, blue sky, realistic photo with true colours, no text or signs readable.",
+      "alt": "Marina do Funchal and its pontoons seen from the seafront promenade, with palm trees and moored boats"
+    },
+    {
+      "prompt": "Rua de Santa Maria in Funchal's old town in the morning, a narrow cobbled street with colourful painted doors and café tables, light coming from the sea end of the street, two small figures walking away from the camera, realistic photo.",
+      "alt": "Painted doors along Rua de Santa Maria in Funchal's old town"
+    },
+    {
+      "prompt": "A yellow Funchal taxi with a blue stripe parked by the palm-lined seafront of Avenida do Mar, the marina masts visible behind, sunny late morning, realistic photo, no readable number plates or text.",
+      "alt": "A yellow taxi with a blue stripe on Avenida do Mar in Funchal"
+    }
+  ],
+  "set": "boat-60"
+}

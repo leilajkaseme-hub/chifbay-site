@@ -1,0 +1,36 @@
+{
+  "slug": "funchal-to-cabo-girao-by-boat-how-long",
+  "title": "How Long Does It Take by Boat From Funchal to Cabo Girão?",
+  "category": "Guide",
+  "date": "2026-11-05",
+  "description": "Cabo Girão is about 5 nautical miles (9 to 10 km) west of Funchal by sea: around 15 minutes at a fast cruise, 40 to 60 minutes at a slow pace along the coast.",
+  "heroImage": "assets/journal/drone-view-boat-cruising-west-from-funchal-to-cabo-girao-madeira.jpg",
+  "heroAlt": "Drone view of a white motor boat cruising west along Madeira's south coast towards Cabo Girão",
+  "readingMinutes": 6,
+  "keywords": [
+    "how long by boat from Funchal to Cabo Girão",
+    "Funchal to Cabo Girão by boat",
+    "distance Funchal Cabo Girão by sea",
+    "Cabo Girão boat trip time",
+    "nautical miles Funchal Cabo Girão",
+    "Câmara de Lobos by boat from Funchal",
+    "what you see by boat west of Funchal"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T00:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic drone photograph from about 80 metres above the sea, mid-morning sun. A white 9 metre motor boat with grey cushioned seats and a dark canopy cruises west along Madeira's south coast, leaving a long straight white wake on deep blue water. Small figures seen from above on deck. To the right, the green and built-up slopes between Funchal and Câmara de Lobos. Far ahead, the tall dark wall of Cabo Girão in soft haze. Natural colours, no text, no logos.",
+      "alt": "Drone view of a white motor boat cruising west along Madeira's south coast towards Cabo Girão"
+    },
+    {
+      "prompt": "Realistic photo from the deck of a boat leaving Marina do Funchal, looking west along the Pontinha harbour wall and the small islet fort, a cruise ship moored, morning light, calm water, no people in close-up, natural colours.",
+      "alt": "Leaving Marina do Funchal past the Pontinha harbour wall and the small islet fort"
+    },
+    {
+      "prompt": "Realistic photo from the water of Praia Formosa pebble beach and the Ponta da Cruz headland west of Funchal, steep green slopes and houses above, soft afternoon light, no people visible up close.",
+      "alt": "Praia Formosa pebble beach and the Ponta da Cruz headland seen from the sea"
+    }
+  ],
+  "set": "boat-60"
+}

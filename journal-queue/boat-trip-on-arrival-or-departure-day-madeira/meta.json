@@ -1,0 +1,36 @@
+{
+  "slug": "boat-trip-on-arrival-or-departure-day-madeira",
+  "title": "Can You Do a Boat Trip on Your Arrival or Departure Day in Madeira?",
+  "category": "Guide",
+  "date": "2026-12-03",
+  "description": "Departure day works: a 10:00 Day Trip is back by 13:00. Arrival day is a gamble, because wind delays and diversions at Madeira's airport are common enough.",
+  "heroImage": "assets/journal/plane-approach-over-funchal-bay-from-the-boat-madeira.jpg",
+  "heroAlt": "A passenger plane low over the sea on its way to Madeira airport, seen from a boat deck",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you do a boat trip on your arrival day in madeira",
+    "boat trip on departure day madeira",
+    "madeira airport to funchal time",
+    "madeira airport wind delays",
+    "flight diverted from madeira",
+    "last day in madeira what to do",
+    "boat trip before a flight madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T09:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Late afternoon in the bay of Funchal, seen from the deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy: the edge of the canopy and one guest's shoulder from behind in the foreground. In the distance to the east, a passenger plane flies low over the sea along the coast towards the airport, the green hills of the south coast behind it. Warm light, slight haze, true colours, no airline logos visible, no text.",
+      "alt": "A passenger plane low over the sea on its way to Madeira airport, seen from a boat deck"
+    },
+    {
+      "prompt": "A small wheeled suitcase and a folded beach towel beside a hotel luggage trolley in a bright lobby, a window with a view of the sea behind, no people, no logos.",
+      "alt": "A suitcase and beach towel waiting in a hotel lobby on the last day"
+    },
+    {
+      "prompt": "Midday at the Marina do Funchal pontoon, seen from the pontoon: guests from behind stepping off a white 9 metre motor boat with grey cushioned seats and a dark canopy with towels over their shoulders, the seafront and the city behind, bright light.",
+      "alt": "Guests stepping off the boat onto the pontoon at Marina do Funchal at midday"
+    }
+  ],
+  "set": "boat-60"
+}

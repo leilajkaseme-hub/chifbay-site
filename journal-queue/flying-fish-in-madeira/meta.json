@@ -1,0 +1,36 @@
+{
+  "slug": "flying-fish-in-madeira",
+  "title": "Are There Flying Fish in Madeira?",
+  "category": "Nature",
+  "date": "2026-12-02",
+  "description": "Yes. Flying fish live in the open water around Madeira and turn up on boat trips all year. From a moving boat they look like silver darts skimming the sea.",
+  "heroImage": "assets/journal/atlantic-flying-fish-gliding-over-blue-sea-beside-boat-madeira.jpg",
+  "heroAlt": "An Atlantic flying fish gliding low over deep blue water beside a boat's wake",
+  "readingMinutes": 5,
+  "keywords": [
+    "flying fish Madeira",
+    "are there flying fish in Madeira",
+    "Atlantic flying fish Cheilopogon",
+    "peixe-voador Madeira",
+    "how far can flying fish glide",
+    "marine life boat trip Madeira",
+    "what you see from a boat in Madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T09:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic action photograph at midday from the side of a moving boat off Madeira's south coast: a small silver blue flying fish with four spread translucent fins glides about half a metre above deep blue water, a thin line of drops trailing from its tail where it just touched the surface, the white edge of the boat's wake in the lower corner, gentle swell, bright sun, natural colours, no people, no text.",
+      "alt": "An Atlantic flying fish gliding low over deep blue water beside a boat's wake"
+    },
+    {
+      "prompt": "Realistic photo of a Cory's shearwater gliding low over a calm deep blue Atlantic sea off Madeira, wings stiff and just above the surface, soft morning light.",
+      "alt": "A Cory's shearwater gliding low over the sea off Madeira"
+    },
+    {
+      "prompt": "Realistic photo from the bow of a white motor boat moving fast along Madeira's south coast, spray and blue water ahead, cliffs in the distance, a guest's hand pointing ahead at the sea, no face visible.",
+      "alt": "Looking ahead from the bow during the fast run back along the south coast"
+    }
+  ],
+  "set": "boat-60"
+}

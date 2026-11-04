@@ -1,0 +1,37 @@
+{
+  "slug": "is-a-private-boat-trip-in-madeira-worth-it",
+  "title": "Is a Private Boat Trip in Madeira Worth the Money?",
+  "category": "Guide",
+  "date": "2026-11-13",
+  "description": "For a group of four or five, a private boat trip in Madeira costs 80 to 150 EUR each. For one person on a tight budget, a shared catamaran is better value.",
+  "heroImage": "assets/journal/drone-view-private-boat-alone-faja-dos-padres-madeira.jpg",
+  "heroAlt": "Drone view of a white motor boat alone in turquoise water below the Fajã dos Padres cliffs",
+  "readingMinutes": 5,
+  "keywords": [
+    "is a private boat trip in Madeira worth it",
+    "private boat trip Madeira worth the money",
+    "private boat vs catamaran Madeira",
+    "boat trip Madeira price per person",
+    "shared catamaran Funchal or private boat",
+    "is a boat trip worth it in Madeira",
+    "private boat Madeira groups of five",
+    "Madeira boat trip value"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T03:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Drone photo from about 60 metres above the sea at Fajã dos Padres on Madeira's south coast, late morning in summer. A white 9 metre motor boat with grey cushioned seats and a dark canopy floats alone in deep turquoise and blue water close to the shore. Two small swimmers in the water beside it, seen from above, faces not visible. To one side, the strip of green terraced land at the foot of a sheer brown and green cliff. Far out on the open sea, a large white catamaran is a tiny shape. Realistic photo, true colours, sharp midday light.",
+      "alt": "Drone view of a white motor boat alone in turquoise water below the Fajã dos Padres cliffs"
+    },
+    {
+      "prompt": "A large shared catamaran full of passengers, seen from a distance on the open sea off Funchal, people as small shapes on its deck, bright afternoon, realistic photo, no logos visible.",
+      "alt": "A busy shared catamaran seen at a distance off Funchal"
+    },
+    {
+      "prompt": "View from the bow of a small motor boat sailing close beneath the vertical rock face of Cabo Girão, the cliff rising very high above, sun on the rock, deep blue water, realistic wide angle photo, no people.",
+      "alt": "The tall cliff of Cabo Girão seen from the bow of a small boat"
+    }
+  ],
+  "set": "boat-60"
+}

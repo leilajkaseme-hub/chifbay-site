@@ -1,0 +1,37 @@
+{
+  "slug": "why-is-madeira-south-coast-calmer-for-boats",
+  "title": "Why Is Madeira's South Coast Calmer for Boat Trips Than the North?",
+  "category": "Nature",
+  "date": "2026-11-11",
+  "description": "The island blocks the north-east trade wind and the big North Atlantic swells, so the south coast sits in the lee. How the shelter works, and when it fails.",
+  "heroImage": "assets/journal/flat-sea-south-coast-trade-wind-clouds-on-ridge-madeira.jpg",
+  "heroAlt": "Flat sea off Madeira's south coast with trade wind clouds resting on the mountain ridge",
+  "readingMinutes": 6,
+  "keywords": [
+    "why is Madeira's south coast calmer than the north",
+    "Madeira north coast vs south coast sea",
+    "Madeira trade winds",
+    "lee side of Madeira",
+    "is the sea calmer in Funchal",
+    "Madeira swell North Atlantic",
+    "best side of Madeira for a boat trip",
+    "Madeira wind at the island tips"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T02:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Seen from the water about a kilometre off Câmara de Lobos on a sunny summer afternoon: a smooth, glassy dark blue sea fills the foreground, the steep green and brown south coast rises behind, and a thick band of white trade wind cloud rests along the mountain ridge above, spilling over from the north side. A white 9 metre motor boat with grey cushioned seats and a dark canopy sits small in the lower corner, its wake a thin white line. Realistic photo, true colours, no text.",
+      "alt": "Flat sea off Madeira's south coast with trade wind clouds resting on the mountain ridge"
+    },
+    {
+      "prompt": "Big Atlantic waves breaking white against the north coast cliffs near Seixal, seen from a viewpoint on land, grey sky, spray in the air, no boats.",
+      "alt": "Big Atlantic waves breaking on Madeira's north coast cliffs near Seixal"
+    },
+    {
+      "prompt": "Wind-blown sea with whitecaps off the dry eastern tip at Ponta de São Lourenço, seen from the cliff path, red and ochre rock in the foreground, bright hard light.",
+      "alt": "Whitecaps on the sea off the windy eastern tip at Ponta de São Lourenço"
+    }
+  ],
+  "set": "boat-60"
+}

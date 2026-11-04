@@ -1,0 +1,36 @@
+{
+  "slug": "how-the-skipper-chooses-the-swim-stop",
+  "title": "How Does a Skipper Choose Where to Stop for a Swim in Madeira?",
+  "category": "Guide",
+  "date": "2026-11-29",
+  "description": "By reading the sea that morning: swell and wind direction, shelter, depth, rocks, other boats and the group on board. So the spot can change on the day.",
+  "heroImage": "assets/journal/skipper-at-the-helm-slowing-into-sheltered-cove-south-coast-madeira.jpg",
+  "heroAlt": "Skipper seen from behind at the helm, slowing the boat into a calm sheltered cove",
+  "readingMinutes": 6,
+  "keywords": [
+    "how does a skipper choose a swim stop",
+    "swim stop boat trip Madeira",
+    "where do boats stop to swim in Madeira",
+    "why did the boat change the swim spot",
+    "anchoring for a swim Madeira",
+    "swell direction south coast Madeira",
+    "safe swimming from a boat Madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T08:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph taken from inside a white 9 metre motor boat with grey cushioned seats and a dark canopy, looking forward over the skipper's shoulder from behind as he slows into a calm sheltered cove on Madeira's south coast near Fajã dos Padres. Glassy turquoise and deep blue water ahead, a pebble shore and green terraces under a tall cliff, the bow pointing gently into the bay, late morning sun. No face visible, natural colours, no text.",
+      "alt": "Skipper seen from behind at the helm, slowing the boat into a calm sheltered cove"
+    },
+    {
+      "prompt": "Realistic photo looking down from the bow of a motor boat as the anchor chain enters clear deep blue water over a pale gravel seabed, sunlight rays in the water, Madeira south coast.",
+      "alt": "Anchor chain going into clear blue water over a gravel seabed"
+    },
+    {
+      "prompt": "Realistic photo of the open sea off Madeira's south coast with long regular swell lines rolling towards a rocky headland, white water at its base, while the bay behind the headland stays calm, afternoon light.",
+      "alt": "Swell lines hitting a headland while the bay behind it stays calm"
+    }
+  ],
+  "set": "boat-60"
+}

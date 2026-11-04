@@ -1,0 +1,37 @@
+{
+  "slug": "morning-or-afternoon-boat-trip-madeira",
+  "title": "Morning or Afternoon: Which Boat Trip Time Is Better in Madeira?",
+  "category": "Guide",
+  "date": "2026-11-22",
+  "description": "A 10:00 boat trip in Madeira often means lighter wind and the sun behind you. A 14:00 trip frees your morning and brings warm light home. Here is how to pick.",
+  "heroImage": "assets/journal/camara-de-lobos-harbour-from-the-sea-morning-light-madeira.jpg",
+  "heroAlt": "Colourful fishing boats in Câmara de Lobos harbour seen from the sea in soft morning light",
+  "readingMinutes": 5,
+  "keywords": [
+    "morning or afternoon boat trip Madeira",
+    "best time of day for a boat trip in Madeira",
+    "is the sea calmer in the morning Madeira",
+    "10:00 or 14:00 boat trip Funchal",
+    "afternoon boat trip Madeira light",
+    "Madeira sea breeze afternoon",
+    "when is the sun strongest in Madeira",
+    "plan a day around a boat trip Funchal"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T06:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Around 10:30 on a summer morning, seen from the water just off Câmara de Lobos. The small harbour with its brightly painted wooden fishing boats in red, yellow, blue and white pulled up on the shore and moored in the bay, the old houses and the rocky headland behind, green hills above. The sun is behind the camera, lighting everything evenly. The bow rail of a white motor boat with grey cushions is just visible at the bottom edge. No people in close-up. Realistic photo, true colours, calm water.",
+      "alt": "Colourful fishing boats in Câmara de Lobos harbour seen from the sea in soft morning light"
+    },
+    {
+      "prompt": "Late afternoon, around 17:00, the view looking east from a small boat towards Funchal, the low sun from behind the camera lighting the white houses stacked up the green hillside, the marina and seafront at the bottom, gentle wake in the foreground, realistic photo.",
+      "alt": "Funchal's hillside lit by low afternoon sun, seen from a boat"
+    },
+    {
+      "prompt": "The dark canopy of a small white motor boat casting a sharp shadow over grey cushioned seats at midday, bright sun on the deck beyond the shade, a towel and a sun hat on the seat, the sea blue behind, realistic photo, no people.",
+      "alt": "Shade under the canopy of a boat at midday with a sun hat on the seat"
+    }
+  ],
+  "set": "boat-60"
+}

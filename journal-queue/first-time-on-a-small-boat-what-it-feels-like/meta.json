@@ -1,0 +1,36 @@
+{
+  "slug": "first-time-on-a-small-boat-what-it-feels-like",
+  "title": "What Does a Small Boat Feel Like If You Have Never Been on One?",
+  "category": "Experience",
+  "date": "2026-11-28",
+  "description": "Closer to the water than a ferry: a slow rocking when stopped, a firm, bouncy ride at speed, wind, engine noise and some spray. The back is steadiest.",
+  "heroImage": "assets/journal/first-time-passenger-view-from-stern-wake-funchal-madeira.jpg",
+  "heroAlt": "View from the back of the boat over the white wake towards Funchal on a bright morning",
+  "readingMinutes": 5,
+  "keywords": [
+    "what does a small boat feel like",
+    "first time on a small boat",
+    "first boat trip nervous",
+    "small motor boat ride what to expect",
+    "best seat on a boat to avoid motion",
+    "boat trip madeira first time",
+    "is a speed boat bumpy"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T08:10:00.000Z",
+  "images": [
+    {
+      "prompt": "Bright mid-morning just west of Funchal, Madeira. Seen from the back deck of a white 9 metre motor boat with grey cushioned seats and a dark canopy, looking back over the stern: a long white wake curving across deep blue water towards the Funchal hillside of white houses and the marina in the distance. In the lower corner, a passenger's hand rests on the boat rail, no face. A little spray in the air catches the light. Natural light, true colours.",
+      "alt": "View from the back of the boat over the white wake towards Funchal on a bright morning"
+    },
+    {
+      "prompt": "From the middle of a white motor boat under a dark canopy, looking forward: the bow lifting slightly over a small wave, a light curtain of spray to the side, the cliffs of the Madeira south coast ahead, sunny morning, no faces.",
+      "alt": "Bow of the boat lifting over a small wave with spray and cliffs ahead"
+    },
+    {
+      "prompt": "From the water at a swim stop: a white motor boat at rest with its engine off, rocking gently on a calm swell below tall dark cliffs near Fajã dos Padres, soft reflections, late morning light, a few small figures on deck.",
+      "alt": "Boat resting with the engine off on a calm swell below tall cliffs"
+    }
+  ],
+  "set": "boat-60"
+}

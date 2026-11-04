@@ -1,0 +1,36 @@
+{
+  "slug": "how-eco-friendly-is-a-boat-trip-in-madeira",
+  "title": "How Eco-Friendly Is a Boat Trip in Madeira? An Honest Answer",
+  "category": "Experience",
+  "date": "2026-11-18",
+  "description": "A motor boat trip is not low-impact. What changes the harm is speed, how the boat treats wildlife, what goes in the sea and how many share it. The trade-offs.",
+  "heroImage": "assets/journal/turtle-at-the-surface-boat-holding-back-madeira.jpg",
+  "heroAlt": "A loggerhead turtle at the surface while a small boat waits well back",
+  "readingMinutes": 5,
+  "keywords": [
+    "how eco-friendly is a boat trip in Madeira",
+    "sustainable boat trip Madeira",
+    "eco-friendly boat tour Funchal",
+    "reef-safe sunscreen Madeira",
+    "small boat vs catamaran environmental impact",
+    "responsible tourism Madeira sea",
+    "boat trip carbon footprint"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T04:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Photo from water level: a loggerhead sea turtle resting at the surface of calm deep blue water in the foreground, its shell just breaking the surface. Far behind it, a white 9 metre motor boat with grey cushioned seats and a dark canopy waits with its engine idling, the cliffs of the south coast beyond in late morning light. True colours, no text.",
+      "alt": "A loggerhead turtle at the surface while a small boat waits well back"
+    },
+    {
+      "prompt": "A Cory's shearwater gliding low over a long blue swell off the south coast of Madeira, wing tip almost touching the water, late afternoon light, cliffs faint in the distance.",
+      "alt": "Cory's shearwater gliding low over the swell off Madeira's south coast"
+    },
+    {
+      "prompt": "A person in a red sea kayak seen from behind, paddling along the foot of dark cliffs near Câmara de Lobos on a calm morning, clear blue-green water by the rocks.",
+      "alt": "Kayaker paddling along the cliffs near Câmara de Lobos on a calm morning"
+    }
+  ],
+  "set": "boat-60"
+}

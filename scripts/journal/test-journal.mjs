@@ -79,6 +79,22 @@ check("two posts a day: the second waits until 15:00 UTC, a third never comes", 
   assert.match(run(dir, "2026-10-21", 6).stdout, /PUBLISHED c/);
 });
 
+check("a link to an article not live yet waits as text, and becomes a link the day it goes live", (dir) => {
+  queue(dir, "first"); queue(dir, "second", { queued: "2026-10-03T00:00:00Z" });
+  const d = join(dir, "journal-queue/first/post.draft");
+  writeFileSync(d, readFileSync(d, "utf8").replace("</article>",
+    `<p>See <a href="/posts/second">the second one</a> and <a href="/posts/${model.slug}">an old one</a>.</p></article>`));
+  writeFileSync(join(dir, "posts", `${model.slug}.html`), modelHtml);   // an article already live
+  run(dir, "2026-10-20");
+  let first = readFileSync(join(dir, "posts/first.html"), "utf8");
+  assert.ok(first.includes('<span data-later-link="/posts/second">the second one</span>'), "not live yet: held as text");
+  assert.ok(first.includes(`<a href="/posts/${model.slug}">an old one</a>`), "a live article stays linked");
+  run(dir, "2026-10-21");
+  first = readFileSync(join(dir, "posts/first.html"), "utf8");
+  assert.ok(first.includes('<a href="/posts/second">the second one</a>'), "live now: a real link");
+  assert.ok(!first.includes("data-later-link"), "nothing left waiting");
+});
+
 check("no photos yet: still publishes, keeps the library photo", (dir) => {
   queue(dir, "plain");
   const r = run(dir, "2026-10-20");

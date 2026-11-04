@@ -1,0 +1,37 @@
+{
+  "slug": "calima-in-madeira-and-boat-trips",
+  "title": "What Is Calima in Madeira, and Does It Affect Boat Trips?",
+  "category": "Nature",
+  "date": "2026-11-26",
+  "description": "Calima is a haze of Saharan dust carried to Madeira on east or south winds. It dims the view and reddens the sunset, but wind and waves decide if a trip runs.",
+  "heroImage": "assets/journal/hazy-orange-sun-saharan-dust-from-boat-bow-madeira.jpg",
+  "heroAlt": "Orange sun dimmed by Saharan dust haze over the sea, seen past a boat's bow",
+  "readingMinutes": 5,
+  "keywords": [
+    "what is calima in Madeira",
+    "calima Madeira",
+    "Saharan dust Madeira",
+    "tempo de leste Madeira",
+    "Madeira haze boat trip",
+    "Madeira air quality dust",
+    "calima sunset Madeira",
+    "does calima affect boat trips"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T07:20:00.000Z",
+  "images": [
+    {
+      "prompt": "From the bow of a white 9 metre motor boat with grey cushioned seats and a dark canopy off Madeira's south coast in the early evening: the sky is a milky, dusty yellow and the sun is a soft orange disc sinking into haze well above the horizon. The sea has a copper sheen. The cliffs of Cabo Girão are a faint grey shape in the haze to one side. No faces, realistic photo, natural colours, no text.",
+      "alt": "Orange sun dimmed by Saharan dust haze over the sea, seen past a boat's bow"
+    },
+    {
+      "prompt": "Funchal bay on a hazy dust day, seen from the sea at midday: the city and the mountains pale and washed out under a white-yellow sky, the water flat and grey-blue, the far coast fading into haze.",
+      "alt": "Funchal bay under a pale yellow Saharan dust haze, seen from the sea"
+    },
+    {
+      "prompt": "Close detail of a thin film of fine reddish Saharan dust on the white fibreglass deck and the grey seat cushion of a motor boat, a single finger trace drawn through it, soft daylight.",
+      "alt": "Fine reddish Saharan dust settled on a white boat deck and grey cushion"
+    }
+  ],
+  "set": "boat-60"
+}

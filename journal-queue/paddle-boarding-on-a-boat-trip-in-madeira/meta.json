@@ -1,0 +1,36 @@
+{
+  "slug": "paddle-boarding-on-a-boat-trip-in-madeira",
+  "title": "Can You Paddleboard on a Boat Trip in Madeira?",
+  "category": "Experience",
+  "date": "2026-11-27",
+  "description": "Yes, on the Day Trip: paddle boards come out at the swim stop at Fajã dos Padres, under the cliffs, when the sea allows. Beginners can start on their knees.",
+  "heroImage": "assets/journal/paddle-board-under-the-cliffs-faja-dos-padres-madeira.jpg",
+  "heroAlt": "A paddle boarder kneeling on a board in deep blue water under the cliffs of Fajã dos Padres",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you paddleboard on a boat trip in madeira",
+    "paddle boarding madeira",
+    "stand up paddle madeira beginner",
+    "paddle board faja dos padres",
+    "sup on a boat trip funchal",
+    "is paddle boarding hard for beginners",
+    "madeira boat trip swim stop"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T07:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Seen from water level and from the side, a person seen from behind kneeling on a paddle board in deep blue water, paddle in hand, moving along the shore under the tall brown cliff of Fajã dos Padres in Madeira. A pebble beach and the green of the small farm at the foot of the cliff, the thin cable car line on the rock face. A white 9 metre motor boat with grey cushioned seats and a dark canopy holds position further out. Late morning light, true colours.",
+      "alt": "A paddle boarder kneeling on a board in deep blue water under the cliffs of Fajã dos Padres"
+    },
+    {
+      "prompt": "Drone view from directly above: one person standing on a paddle board on deep turquoise water near a pebble beach, small ripples, the board's shadow on the water, no faces visible.",
+      "alt": "Drone view of a paddle boarder standing on calm water near a pebble beach"
+    },
+    {
+      "prompt": "Close detail on the deck of a white motor boat: a wet paddle board and paddle laid across the back of the boat, drops of sea water on the surface, the cliff out of focus behind, bright midday light.",
+      "alt": "A wet paddle board and paddle on the back of the boat after the swim stop"
+    }
+  ],
+  "set": "boat-60"
+}

@@ -1,0 +1,37 @@
+{
+  "slug": "is-a-2-hour-boat-trip-enough-in-madeira",
+  "title": "Is a 2 Hour Boat Trip Enough in Madeira, or Should You Book 3 Hours?",
+  "category": "Guide",
+  "date": "2026-12-01",
+  "description": "Two hours is enough for a sunset run from Funchal to Cabo Girão. To swim, book the 2h30 Day Trip, and choose 3 hours to add 30 minutes west to Ponta do Sol.",
+  "heroImage": "assets/journal/drone-boat-wake-turning-under-cabo-girao-golden-hour-madeira.jpg",
+  "heroAlt": "Drone view of a white boat drawing a curved wake as it turns below Cabo Girão",
+  "readingMinutes": 5,
+  "keywords": [
+    "is a 2 hour boat trip enough in Madeira",
+    "2 or 3 hour boat trip Madeira",
+    "how long should a boat trip be in Madeira",
+    "Funchal to Cabo Girão by boat",
+    "3 hour boat trip Funchal Ponta do Sol",
+    "2 hour sunset boat trip Madeira",
+    "boat trip length Madeira",
+    "half day boat trip Funchal how long"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T09:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Drone photo taken from high above the sea at the foot of Cabo Girão on Madeira's south coast, golden hour about 30 minutes before sunset. A white 9 metre motor boat with grey cushioned seats and a dark canopy draws a long curved white wake as it turns back east, small in the frame. The huge dark cliff face rises along one side, its top edge lit warm orange, the terraced fields above it. The sea is deep blue going to gold towards the west. No faces visible. Realistic photo, natural colours.",
+      "alt": "Drone view of a white boat drawing a curved wake as it turns below Cabo Girão"
+    },
+    {
+      "prompt": "Ponta do Sol village seen from a boat at sea in mid-afternoon, the white church and houses on the low rocky headland, the small pebble beach and pier, green slopes behind, calm blue water, realistic photo, no people in close-up.",
+      "alt": "Ponta do Sol village and its church seen from the sea"
+    },
+    {
+      "prompt": "Night falling over the south coast of Madeira seen from the stern of a small boat heading east, the lights of Câmara de Lobos and Funchal spread along the dark hills, the last blue light in the sky, a faint white wake behind, realistic photo.",
+      "alt": "The lights of Funchal at dusk seen from a boat on the way home"
+    }
+  ],
+  "set": "boat-60"
+}

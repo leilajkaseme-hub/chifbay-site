@@ -1,0 +1,37 @@
+{
+  "slug": "what-is-a-faja-in-madeira",
+  "title": "What Is a Fajã, and Why Are There Farms at the Foot of Madeira's Cliffs?",
+  "category": "Nature",
+  "date": "2026-11-14",
+  "description": "A fajã is flat land at the foot of a sea cliff, made by a landslide or lava flow. The soil is rich and the air warm, so Madeirans farm them below the cliffs.",
+  "heroImage": "assets/journal/rancho-cable-car-descending-to-faja-fields-cabo-girao-madeira.jpg",
+  "heroAlt": "View from the Rancho cable car down to the fajã fields and the sea under Cabo Girão",
+  "readingMinutes": 6,
+  "keywords": [
+    "what is a fajã",
+    "fajã Madeira meaning",
+    "farms at the bottom of cliffs Madeira",
+    "Fajã dos Padres",
+    "fajãs Cabo Girão",
+    "Rancho cable car Cabo Girão",
+    "how are fajãs formed",
+    "Achadas da Cruz fajã"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T03:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph taken through the glass of the small Rancho cable car cabin as it descends the cliff at Cabo Girão, Madeira, mid-morning. Far below, a narrow flat strip of green terraced fields with vines and fruit trees and a few tiny stone huts at sea level, a grey boulder beach with white surf, and the deep blue Atlantic stretching to the horizon. The steep dark volcanic cliff face drops away on one side. No people in the frame, natural colours, no text.",
+      "alt": "View from the Rancho cable car down to the fajã fields and the sea under Cabo Girão"
+    },
+    {
+      "prompt": "Realistic photo of Fajã dos Padres in Madeira seen from a boat, a wide bay with banana plants and vineyards on flat land under a tall cliff, a few small red-roofed houses, pebble shore, calm turquoise water, afternoon light.",
+      "alt": "Fajã dos Padres seen from the water, banana plants and vines under the cliff"
+    },
+    {
+      "prompt": "Realistic photo of the small cable car cabin descending the steep cliff at Achadas da Cruz on Madeira's north west coast, the fajã fields and stone houses far below by the sea, hazy morning light.",
+      "alt": "Cable car cabin descending the cliff to the fajã at Achadas da Cruz"
+    }
+  ],
+  "set": "boat-60"
+}

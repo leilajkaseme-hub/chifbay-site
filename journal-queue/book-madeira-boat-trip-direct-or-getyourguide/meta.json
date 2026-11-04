@@ -1,0 +1,36 @@
+{
+  "slug": "book-madeira-boat-trip-direct-or-getyourguide",
+  "title": "Is It Better to Book a Madeira Boat Trip Direct or Through GetYourGuide?",
+  "category": "Guide",
+  "date": "2026-11-25",
+  "description": "It is the same boat, skipper and route either way. Booking direct means dealing with us. GetYourGuide is handy for one app, its own rules and its own support.",
+  "heroImage": "assets/journal/private-boat-stopped-off-ribeira-brava-midday-madeira.jpg",
+  "heroAlt": "A white motor boat stopped in calm water off Ribeira Brava, the village and valley behind",
+  "readingMinutes": 5,
+  "keywords": [
+    "book Madeira boat trip direct or GetYourGuide",
+    "GetYourGuide or book direct boat trip",
+    "is it cheaper to book direct Madeira",
+    "Viator vs direct booking Funchal boat",
+    "Click&Boat Madeira private boat",
+    "GetYourGuide cancellation boat trip Madeira",
+    "where to book a boat trip in Funchal"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T07:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Midday in summer, photographed from the water about 40 metres away. A white 9 metre motor boat with grey cushioned seats and a dark canopy sits stopped in calm blue-green water off Ribeira Brava. Two guests sit on the bow, small and seen from behind, one with legs over the side. Behind the boat, the dark pebble beach, the white church tower and houses of the village at the mouth of a deep green valley, steep slopes on both sides. Bright sun, true colours, realistic photo, no text.",
+      "alt": "A white motor boat stopped in calm water off Ribeira Brava, the village and valley behind"
+    },
+    {
+      "prompt": "Mid-morning at Marina do Funchal, three adults in light summer clothes seen from behind walking along a wooden pontoon with a tote bag and a towel towards a moored white motor boat, calm water and other boats around, no phones or screens, realistic photo from pontoon level.",
+      "alt": "Three guests walking along a pontoon towards a boat in Funchal marina"
+    },
+    {
+      "prompt": "A person seen from behind jumping feet first from the side of a small white motor boat into deep blue water off Madeira's south coast, steep green and brown cliffs behind, bright sun, splash just starting, realistic photo, no face visible.",
+      "alt": "A swimmer jumping from the boat into deep blue water below the cliffs"
+    }
+  ],
+  "set": "boat-60"
+}

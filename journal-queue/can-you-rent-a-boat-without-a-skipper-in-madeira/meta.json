@@ -1,0 +1,37 @@
+{
+  "slug": "can-you-rent-a-boat-without-a-skipper-in-madeira",
+  "title": "Can You Rent a Boat Without a Skipper in Madeira?",
+  "category": "Guide",
+  "date": "2026-11-21",
+  "description": "Only with a valid licence. Portuguese law says whoever commands a recreational boat needs a licence, and EU licences count. Why most trips have a skipper.",
+  "heroImage": "assets/journal/skipper-at-the-helm-south-coast-cliffs-madeira.jpg",
+  "heroAlt": "A skipper at the helm seen from behind, steering a motor boat along Madeira's south coast cliffs",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you rent a boat without a skipper in madeira",
+    "boat licence portugal",
+    "carta de navegador de recreio",
+    "bareboat rental madeira",
+    "do you need a licence to drive a boat in portugal",
+    "is an eu boat licence valid in portugal",
+    "paddle board licence portugal",
+    "boat hire funchal without skipper"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T05:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Seen from just behind the helm seat inside a white 9 metre motor boat with grey cushioned seats and a dark canopy: the skipper from behind, one hand on the wheel, looking ahead along the south coast of Madeira, the tall dark cliff of Cabo Girão rising ahead on the right, a calm blue sea with a gentle swell, morning sun. No face visible, no readable screens or text.",
+      "alt": "A skipper at the helm seen from behind, steering a motor boat along Madeira's south coast cliffs"
+    },
+    {
+      "prompt": "From the water, a calm stretch of sea at the foot of high brown cliffs on Madeira's south coast, white water breaking gently on the boulders at the base to show the scale of the cliff, no boat, natural light.",
+      "alt": "Swell breaking gently at the foot of high cliffs on Madeira's south coast"
+    },
+    {
+      "prompt": "Seen from the boat's deck at water level, two swimmers and one person kneeling on a paddle board in deep blue water near a pebble beach under tall cliffs, all small and from behind, late morning light.",
+      "alt": "Swimmers and a paddle boarder near a pebble beach under the cliffs"
+    }
+  ],
+  "set": "boat-60"
+}

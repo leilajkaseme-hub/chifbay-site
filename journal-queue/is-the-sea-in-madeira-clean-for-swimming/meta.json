@@ -1,0 +1,36 @@
+{
+  "slug": "is-the-sea-in-madeira-clean-for-swimming",
+  "title": "Is the Sea in Madeira Clean Enough to Swim In?",
+  "category": "Guide",
+  "date": "2026-11-27",
+  "description": "Mostly, yes. Most of Madeira's 60 bathing waters rated excellent in 2025, but two were poor, and stream mouths are best avoided for a day after heavy rain.",
+  "heroImage": "assets/journal/swimmer-in-clean-blue-water-faja-dos-padres-madeira.jpg",
+  "heroAlt": "Swimmer in deep clear blue water looking towards the pebble shore of Fajã dos Padres",
+  "readingMinutes": 5,
+  "keywords": [
+    "is the sea in Madeira clean enough to swim in",
+    "Madeira bathing water quality",
+    "Madeira beach water quality 2025",
+    "swimming after rain Madeira",
+    "Doca do Cavacas water quality",
+    "Blue Flag beaches Madeira 2026",
+    "is it safe to swim in Funchal"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T07:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Photo taken from water level: the head and shoulders of one swimmer seen from behind, treading water in clear deep blue sea, looking towards the pebble beach, green plots and towering terraced cliff of Fajã dos Padres. Late morning sun, light ripples, true colours, no boat in frame, no text.",
+      "alt": "Swimmer in deep clear blue water looking towards the pebble shore of Fajã dos Padres"
+    },
+    {
+      "prompt": "The mouth of the Ribeira Brava stream meeting the sea at the town's pebble beach after heavy rain, a brown plume of muddy water spreading into the blue sea, grey sky clearing, seen from a little way out at sea.",
+      "alt": "Brown stream water spreading into the sea at Ribeira Brava after heavy rain"
+    },
+    {
+      "prompt": "Funchal's Lido sea pools at the water's edge on a calm early morning, the Atlantic beyond the low wall perfectly still, nobody swimming yet, soft blue light.",
+      "alt": "Funchal's Lido sea pools beside a calm Atlantic early in the morning"
+    }
+  ],
+  "set": "boat-60"
+}

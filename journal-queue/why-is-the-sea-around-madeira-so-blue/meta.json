@@ -1,0 +1,37 @@
+{
+  "slug": "why-is-the-sea-around-madeira-so-blue",
+  "title": "Why Is the Sea Around Madeira So Deep Blue?",
+  "category": "Nature",
+  "date": "2026-12-02",
+  "description": "Because deep water starts close to the shore and the sea here holds little plankton. Water absorbs red light, and with little to turn it green, it stays blue.",
+  "heroImage": "assets/journal/looking-down-into-deep-blue-water-from-boat-side-cabo-girao-madeira.jpg",
+  "heroAlt": "Looking down over the side of a white boat into deep, clear blue water",
+  "readingMinutes": 6,
+  "keywords": [
+    "why is the sea around Madeira so deep blue",
+    "why is Madeira water so blue",
+    "Madeira sea colour",
+    "how deep is the sea around Madeira",
+    "Madeira ocean depth",
+    "why is the ocean blue",
+    "Madeira clear water",
+    "Porto Santo turquoise water"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T09:20:00.000Z",
+  "images": [
+    {
+      "prompt": "Looking straight down over the side of a white 9 metre motor boat with grey cushioned seats and a dark canopy into deep, clear cobalt blue water off Cabo Girão at midday. Shafts of sunlight fan down into the depth, the white hull edge and a strip of grey cushion fill one corner of the frame. No sea bed visible, only blue. Realistic photo, true colours, no people, no text.",
+      "alt": "Looking down over the side of a white boat into deep, clear blue water"
+    },
+    {
+      "prompt": "Drone view straight down over the pebble shore at Ponta do Sol: the water changes from pale, clear blue-green over the stones near the shore to deep navy a short way out, small waves on the stones, bright midday light.",
+      "alt": "Drone view of water turning from pale to deep blue off Ponta do Sol"
+    },
+    {
+      "prompt": "A brown, muddy stream plume spreading into the blue sea at Ribeira Brava after heavy rain, seen from the sea, the grey sky starting to clear over the valley.",
+      "alt": "Brown stream plume spreading into the blue sea at Ribeira Brava after rain"
+    }
+  ],
+  "set": "boat-60"
+}

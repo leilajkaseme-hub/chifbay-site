@@ -1,0 +1,37 @@
+{
+  "slug": "can-you-go-to-porto-santo-by-boat-from-madeira",
+  "title": "Can You Go to Porto Santo by Boat From Madeira?",
+  "category": "Guide",
+  "date": "2026-11-30",
+  "description": "Yes, on the Lobo Marinho ferry from Funchal: about two and a half hours each way, out in the morning and back in the evening. A flight takes about 25 minutes.",
+  "heroImage": "assets/journal/porto-santo-golden-beach-early-morning-madeira.jpg",
+  "heroAlt": "The long golden sand beach of Porto Santo in soft morning light beside a calm turquoise sea",
+  "readingMinutes": 5,
+  "keywords": [
+    "can you go to porto santo by boat from madeira",
+    "porto santo ferry",
+    "lobo marinho crossing time",
+    "funchal to porto santo ferry",
+    "porto santo day trip from madeira",
+    "flight funchal to porto santo",
+    "porto santo beach",
+    "how far is porto santo from madeira"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T08:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Early morning on the long golden sand beach of Porto Santo, seen from low on the sand looking along the shore: gentle turquoise water, the beach curving away for kilometres, low brown hills behind, two small figures walking far away from behind. Soft warm light, true colours, no boats, no buildings in focus, no text.",
+      "alt": "The long golden sand beach of Porto Santo in soft morning light beside a calm turquoise sea"
+    },
+    {
+      "prompt": "Early morning at the port of Funchal, seen from the seafront: a large white passenger ferry leaving the harbour on a calm sea, the city hills in morning haze behind, no readable name or logo.",
+      "alt": "A large ferry leaving the port of Funchal in early morning light"
+    },
+    {
+      "prompt": "From high on Pico do Areeiro at sunrise, a sea of clouds below and, far away on the horizon, the low outline of Porto Santo island, one hiker small and from behind at the viewpoint.",
+      "alt": "Porto Santo on the horizon seen from Pico do Areeiro above the clouds"
+    }
+  ],
+  "set": "boat-60"
+}

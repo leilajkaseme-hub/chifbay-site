@@ -1,0 +1,37 @@
+{
+  "slug": "how-to-check-a-boat-tour-operator-in-madeira-is-licensed",
+  "title": "How Do You Check That a Boat Tour Operator in Madeira Is Licensed?",
+  "category": "Guide",
+  "date": "2026-11-28",
+  "description": "Ask the operator for its RNAAT number and look it up in Visit Madeira's directory of tourist animation companies, then check insurance, skipper and red flags.",
+  "heroImage": "assets/journal/skipper-at-helm-leaving-funchal-harbour-madeira.jpg",
+  "heroAlt": "A skipper seen from behind at the helm, steering a boat out past the Funchal harbour wall",
+  "readingMinutes": 5,
+  "keywords": [
+    "how to check a boat tour operator in Madeira is licensed",
+    "RNAAT number Madeira",
+    "licensed boat tour Madeira",
+    "maritime tourism operator licence Portugal",
+    "Visit Madeira tourist animation directory",
+    "Livro de Reclamações boat tour",
+    "is my Madeira boat tour legal",
+    "boat tour red flags Funchal"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T08:00:00.000Z",
+  "images": [
+    {
+      "prompt": "Morning, taken from inside a white 9 metre motor boat with grey cushioned seats and a dark canopy, behind and slightly to the side of the skipper standing at the helm, hand on the wheel, face not visible. Ahead through the windscreen, the end of the Funchal harbour wall and the open blue Atlantic, the coast curving away west towards Câmara de Lobos. Calm sea, clear light. Realistic photo, true colours, no text or dashboard numbers readable.",
+      "alt": "A skipper seen from behind at the helm, steering a boat out past the Funchal harbour wall"
+    },
+    {
+      "prompt": "A small white motor boat moored at a pontoon in Marina do Funchal seen from the water at a low angle, its clean hull and grey cushioned seats, the dark canopy, other boats and the seafront palm trees behind, bright morning, realistic photo, no readable names or numbers.",
+      "alt": "A small white motor boat moored at a pontoon in Funchal marina"
+    },
+    {
+      "prompt": "Close detail of a coiled mooring line and a wooden pontoon edge with a white boat fender, blue water below, sun reflections, Funchal marina, realistic photo, no people.",
+      "alt": "A coiled mooring line and fender on a pontoon in Funchal marina"
+    }
+  ],
+  "set": "boat-60"
+}

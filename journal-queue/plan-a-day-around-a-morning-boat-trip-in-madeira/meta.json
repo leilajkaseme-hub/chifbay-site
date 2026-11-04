@@ -1,0 +1,36 @@
+{
+  "slug": "plan-a-day-around-a-morning-boat-trip-in-madeira",
+  "title": "How Do You Plan a Day Around a Morning Boat Trip in Madeira?",
+  "category": "Guide",
+  "date": "2026-11-15",
+  "description": "Boat at 10:00, back by 13:00, lunch in Funchal, then drive to Câmara de Lobos and the Cabo Girão skywalk, and end the day at Ponta do Sol for the sunset.",
+  "heroImage": "assets/journal/cabo-girao-skywalk-looking-down-at-the-sea-madeira.jpg",
+  "heroAlt": "Two visitors on the Cabo Girão glass skywalk looking down at the sea and small fields far below",
+  "readingMinutes": 5,
+  "keywords": [
+    "how to plan a day around a morning boat trip in madeira",
+    "madeira one day itinerary with a boat trip",
+    "cabo girao skywalk in the afternoon",
+    "camara de lobos afternoon visit",
+    "ponta do sol sunset",
+    "what to do after a boat trip in madeira",
+    "funchal day plan"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T03:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Afternoon at the Cabo Girão skywalk in Madeira, seen from behind two visitors standing small at the rail of the glass platform. Far below, about 580 metres down, the deep blue Atlantic, a thin line of surf at the foot of the cliff and small green terraced fields on the narrow strip of land at its base. On the water, a tiny white motor boat leaves a thin wake heading west. The hazy coast towards Câmara de Lobos and Funchal in the distance. Natural light, true colours.",
+      "alt": "Two visitors on the Cabo Girão glass skywalk looking down at the sea and small fields far below"
+    },
+    {
+      "prompt": "Câmara de Lobos harbour in mid afternoon: brightly painted wooden fishing boats pulled up by the water, the small curved bay and the cliff behind, a few people far away walking, natural colours, no text.",
+      "alt": "Painted fishing boats in the harbour of Câmara de Lobos in the afternoon"
+    },
+    {
+      "prompt": "Sunset over the sea seen from the seafront of Ponta do Sol, the sun low over the water, the dark slopes of the village on one side, two people small and from behind sitting on the sea wall, warm natural light.",
+      "alt": "Sunset over the sea from the seafront at Ponta do Sol, Madeira"
+    }
+  ],
+  "set": "boat-60"
+}

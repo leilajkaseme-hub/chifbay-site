@@ -1,0 +1,36 @@
+{
+  "slug": "boat-trip-from-funchal-or-calheta",
+  "title": "Should You Take a Boat Trip From Funchal or From Calheta?",
+  "category": "Guide",
+  "date": "2026-11-24",
+  "description": "Funchal boats run west past Câmara de Lobos, Cabo Girão and Fajã dos Padres. Calheta boats show the quieter southwest. Start near where you are staying.",
+  "heroImage": "assets/journal/calheta-marina-and-sand-beach-from-above-madeira.jpg",
+  "heroAlt": "Drone view of Calheta marina and its golden sand beach behind breakwaters on Madeira's southwest coast",
+  "readingMinutes": 5,
+  "keywords": [
+    "should you take a boat trip from funchal or calheta",
+    "boat trip from calheta madeira",
+    "funchal or calheta boat trip",
+    "calheta marina madeira",
+    "calheta beach golden sand",
+    "where to take a boat trip in madeira",
+    "funchal to calheta drive time"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T06:50:00.000Z",
+  "images": [
+    {
+      "prompt": "Drone view from above and slightly offshore of Calheta on the southwest coast of Madeira in late morning: the small marina with white boats, the curved man-made golden sand beach beside it protected by rock breakwaters, calm turquoise water inside the breakwaters and deep blue sea outside, green hillsides with scattered houses and banana terraces rising behind. People tiny on the sand. Natural light, true colours, no text.",
+      "alt": "Drone view of Calheta marina and its golden sand beach behind breakwaters on Madeira's southwest coast"
+    },
+    {
+      "prompt": "From the sea at dusk off Funchal: the city's lights coming on across the hillside amphitheatre above a calm sea, the dark edge of a boat canopy at the top of the frame, deep blue sky, no people visible.",
+      "alt": "Funchal's lights coming on across the hills, seen from the sea at dusk"
+    },
+    {
+      "prompt": "Late afternoon view of the village of Jardim do Mar on its low point of land under tall green cliffs, seen from the road above, calm sea, warm side light, no boat, no text.",
+      "alt": "The village of Jardim do Mar under steep cliffs on the southwest coast"
+    }
+  ],
+  "set": "boat-60"
+}

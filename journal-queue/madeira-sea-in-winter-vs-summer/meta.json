@@ -1,0 +1,37 @@
+{
+  "slug": "madeira-sea-in-winter-vs-summer",
+  "title": "What Changes at Sea in Madeira Between Winter and Summer?",
+  "category": "Guide",
+  "date": "2026-12-03",
+  "description": "The sea is about 5 °C warmer in late summer, big swells come mostly October to March, and Funchal's sunset moves from 18:00 to 21:15. Animals and crowds too.",
+  "heroImage": "assets/journal/winter-swim-from-the-stern-off-ribeira-brava-madeira.jpg",
+  "heroAlt": "Guest in a long-sleeved wetsuit top lowering into the sea off Ribeira Brava in winter",
+  "readingMinutes": 5,
+  "keywords": [
+    "what changes at sea in Madeira between winter and summer",
+    "Madeira sea in winter",
+    "Madeira sea in summer",
+    "Madeira water temperature by season",
+    "Madeira swell season",
+    "sunset time Funchal by month",
+    "best season for a boat trip in Madeira",
+    "dolphins in Madeira by season"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T09:40:00.000Z",
+  "images": [
+    {
+      "prompt": "Bright January late morning off Ribeira Brava, low winter sun. From the stern of a white 9 metre motor boat with grey cushioned seats and a dark canopy, a guest in a long-sleeved wetsuit top, seen from behind, lowers into deep blue water. Light jackets folded on the seats, the town, its church tower and the steep green valley behind. True colours, no faces, no text.",
+      "alt": "Guest in a long-sleeved wetsuit top lowering into the sea off Ribeira Brava in winter"
+    },
+    {
+      "prompt": "A big winter swell breaking white against the dark north coast cliffs near São Vicente under a heavy grey sky, spray rising high, seen from a safe viewpoint on land.",
+      "alt": "Winter swell breaking on the north coast cliffs near São Vicente"
+    },
+    {
+      "prompt": "A simple floating sea thermometer bobbing in clear blue water beside the white hull of a boat, reading about 23 °C, bright summer light, small ripples.",
+      "alt": "A floating thermometer in the sea in late summer, about 23 °C"
+    }
+  ],
+  "set": "boat-60"
+}

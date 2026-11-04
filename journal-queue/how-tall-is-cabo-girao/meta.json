@@ -1,0 +1,36 @@
+{
+  "slug": "how-tall-is-cabo-girao",
+  "title": "How Tall Is Cabo Girão, and Is It One of Europe's Highest Sea Cliffs?",
+  "category": "Nature",
+  "date": "2026-11-17",
+  "description": "Cabo Girão is about 580 metres high. It ranks among Europe's tallest sea cliffs, but not first: cliffs in Norway, the Faroes, Ireland and Spain are higher.",
+  "heroImage": "assets/journal/cabo-girao-cliff-face-from-sea-level-low-angle-madeira.jpg",
+  "heroAlt": "The 580 metre Cabo Girão cliff seen from sea level, with two people at the bow looking up",
+  "readingMinutes": 6,
+  "keywords": [
+    "how tall is Cabo Girão",
+    "Cabo Girão height",
+    "is Cabo Girão the highest cliff in Europe",
+    "highest sea cliffs in Europe",
+    "Cabo Girão 580 metres",
+    "Cabo Girão skywalk height",
+    "Cabo Girão from the sea"
+  ],
+  "written": "2026-11-04",
+  "queued": "2026-10-01T04:30:00.000Z",
+  "images": [
+    {
+      "prompt": "Realistic photograph taken from the bow of a white 9 metre motor boat with grey cushioned seats and a dark canopy, low angle looking up at the Cabo Girão cliff in Madeira in clear morning light. Two small figures seen from behind at the bow, heads tilted up. The layered volcanic face in red, brown and dark grey fills most of the frame, with vertical darker dykes, green scrub on ledges and the tiny glass skywalk notch at the very top. Deep blue water at the bottom edge, natural colours, no faces, no text.",
+      "alt": "The 580 metre Cabo Girão cliff seen from sea level, with two people at the bow looking up"
+    },
+    {
+      "prompt": "Realistic photo of the Cabo Girão glass skywalk in Madeira seen from the side on a clear day, a few small visitors on the platform, the sea far below and the coast towards Câmara de Lobos, no faces visible.",
+      "alt": "The glass skywalk on top of Cabo Girão with the sea far below"
+    },
+    {
+      "prompt": "Realistic close photo from the water of the layered volcanic rock at the base of Cabo Girão, red and grey lava beds cut by a dark vertical dyke, boulder beach and white surf below, late morning light.",
+      "alt": "Layered lava beds and a dark dyke at the base of the Cabo Girão cliff"
+    }
+  ],
+  "set": "boat-60"
+}
