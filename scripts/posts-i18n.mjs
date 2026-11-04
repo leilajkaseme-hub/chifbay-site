@@ -128,8 +128,7 @@ function deepenPaths(html) {
     .replace(/url\((['"]?)(?:\.\.\/)+/g, "url($1../../");
 }
 
-function setDocMeta(html, lang, slug) {
-  const url = postUrl(ROOT, slug, lang);
+function setDocMeta(html, lang, slug, url = postUrl(ROOT, slug, lang)) {
   const enUrl = `${BASE}/posts/${slug}.html`;
   let out = html.replace(/<html lang="[^"]*"/, `<html lang="${lang}"`);
 
@@ -223,6 +222,9 @@ function translateOne(slug, lang) {
   const outDir = path.join(ROOT, lang, "posts");
   const out = path.join(outDir, `${slug}.html`);
   fs.mkdirSync(outDir, { recursive: true });
+  // The page's own address is known before the model writes it. Asked afterwards, postUrl() reads the
+  // model's draft, which still carries the English canonical, and refused every new translation (Nov 2026).
+  const url = postUrl(ROOT, slug, lang);
 
   const prompt = [
     SYSTEM(LANGS[lang]),
@@ -246,7 +248,7 @@ function translateOne(slug, lang) {
 
   // Mechanical fixes belong here, not in the prompt.
   html = deepenPaths(html);
-  html = setDocMeta(html, lang, slug);
+  html = setDocMeta(html, lang, slug, url);
   fs.writeFileSync(out, html);
 
   // Sanity: the English source is the only place the real asset list exists.
@@ -588,6 +590,8 @@ function main() {
     let done = 0;
     for (const { slug, lang, mode, queries } of jobs) {
       process.stdout.write(`  ${lang}  ${slug} (${mode}) … `);
+      const page = path.join(ROOT, lang, "posts", `${slug}.html`);
+      const existed = fs.existsSync(page);
       try {
         if (mode === "new") translateOne(slug, lang);   // creates the page with its menu and footer in the language
         const n = writeNative(slug, lang, queries);
@@ -596,6 +600,8 @@ function main() {
       } catch (err) {
         // One bad article must not cost the whole run: the rest still land.
         console.log(`FAILED: ${err.message}`);
+        // A half-made new page would be indexed and break the hreflang pass below: remove it, it is retried next run.
+        if (mode === "new" && !existed && fs.existsSync(page)) fs.unlinkSync(page);
         if (mode === "rewrite" && !/claude/i.test(String(err.message))) markDone(slug, lang, true);
         if (/usage limit|rate limit|quota/i.test(String(err.message))) break;
       }

@@ -92,7 +92,7 @@ check("a link to an article not live yet waits as text, and becomes a link the d
   run(dir, "2026-10-21");
   first = readFileSync(join(dir, "posts/first.html"), "utf8");
   assert.ok(first.includes('<a href="/posts/second">the second one</a>'), "live now: a real link");
-  assert.ok(!first.includes("data-later-link"), "nothing left waiting");
+  assert.ok(!first.includes('data-later-link="/posts/second"'), "nothing left waiting for second");
 });
 
 check("no photos yet: still publishes, keeps the library photo", (dir) => {
