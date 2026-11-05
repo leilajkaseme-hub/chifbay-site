@@ -269,6 +269,18 @@ def media_put(name, path, ctype):
     raise RuntimeError(f"could not store {name}")
 
 
+def media_drop(urls):
+    """Remove files of the store that nothing uses any more (the previous render of a video).
+    The free plan holds 1 GB in all: re-renders that were never removed filled it to 96% (5 Nov 2026).
+    A failure is only logged: a leftover file costs space, never a video."""
+    secret = os.environ["IG_SYNC_SECRET"]
+    for u in urls:
+        if not (isinstance(u, str) and u.startswith(f"{MEDIA}/m/")):
+            continue
+        st, _, body = http(u, None, {"Authorization": f"Bearer {secret}"}, method="DELETE", timeout=60)
+        log(f"  old file {u.rsplit('/', 1)[1]}: {'removed' if st == 200 else f'not removed ({st})'}")
+
+
 def notify(title, message, inbox=False):
     cfg = read_json(SITE / "ig-auto" / "config.json", {})
     url = (cfg.get("ntfy") or {}).get("inbox" if inbox else "alerts")

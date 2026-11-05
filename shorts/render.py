@@ -18,7 +18,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 import reframe
 from lib import (FONTS, HERE, PLAN, SITE, QuotaGone, drive_input, gemini, gemini_delete, gemini_key, gemini_keys, gemini_upload,
-                 key_spent, log, media_put, read_json, run, write_json)
+                 key_spent, log, media_drop, media_put, read_json, run, write_json)
 
 W, H, FPS = 1080, 1920, 30
 SERIF = FONTS / "DMSerifDisplay-Italic.ttf"
@@ -485,6 +485,7 @@ def main():
                     log(f"  second look: {v['qa']}")
                 ver = hashlib.sha1(r["master"].read_bytes()).hexdigest()[:8]
                 stem = f"{v['id']}-{ver}"
+                old = [u for k, u in (v.get("render") or {}).items() if k in ("video", "preview", "cover", "thumb")]
                 urls = {"video": media_put(f"{stem}.mp4", r["master"], "video/mp4"),
                         "preview": media_put(f"{stem}-p.mp4", r["preview"], "video/mp4"),
                         "cover": media_put(f"{stem}-cover.jpg", r["cover"], "image/jpeg"),
@@ -493,6 +494,7 @@ def main():
                                "checks": {"ok": not r["problems"], "problems": r["problems"]},
                                "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
                 v["status"] = "rendered" if not r["problems"] else "failed"
+                media_drop([u for u in old if u not in urls.values()])   # the new files are stored: the previous render goes
                 log(f"  {r['duration']} s, {v['render']['bytes'] / 1e6:.1f} MB, " + ("ok" if not r["problems"] else "FAILED: " + "; ".join(r["problems"])))
                 built += 1
         except Exception as e:
