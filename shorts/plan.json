@@ -4315,6 +4315,225 @@
     "at": "2026-10-30T10:08:19Z"
    },
    "retired_why": "text burned into the video, no SD card to rebuild without text (Theo, 3 Nov 2026)"
+  },
+  {
+   "id": "s030",
+   "format": "story",
+   "status": "rendered",
+   "created": "2026-11-05",
+   "shots": [
+    {
+     "file_id": "1uuxdKOd9WakXvan7ZsUKoBsiNGGUeyhR",
+     "name": "814827276.655097_16181793134483.mp4",
+     "start": 12.52,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 14.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "A tiny planet effect turns and reveals a couple relaxing on the bow as the boat moves along the coast.",
+     "tags": [
+      "speed",
+      "boat_hero",
+      "cliffs",
+      "couple",
+      "guests_happy"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1WmW87qt5jjig0eAHPQlizNG-AMUS4kjL",
+     "name": "DJI_20261030165837_0002_D.MP4",
+     "start": 45.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 47.0,
+     "x": 0.7,
+     "x2": 0.5,
+     "what": "Aerial view moves along the dark cliff face and approaches the boat anchored in the ocean.",
+     "tags": [
+      "aerial",
+      "boat_hero",
+      "cliffs",
+      "reveal",
+      "calm",
+      "guests_happy"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    },
+    {
+     "file_id": "15MzpBpXhR1CBIk1ik99nmVx1dExQf8rF",
+     "name": "DJI_20261030173040_0008_D.MP4",
+     "start": 28.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 30.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Aerial camera pans up from the sea to reveal a hidden cove with coastal houses and layered volcanic cliffs",
+     "tags": [
+      "aerial",
+      "reveal",
+      "cliffs",
+      "cove",
+      "golden_light"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "13_iggiEuNa5mIm6XLJB4Wfj1YcHd4KE3",
+     "name": "DJI_20261030173535_0014_D.MP4",
+     "start": 60.4,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 63.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Smooth forward drone flight approaching the boat at sea with towering coastal cliffs in the background",
+     "tags": [
+      "aerial",
+      "boat_hero",
+      "cliffs",
+      "calm",
+      "golden_light",
+      "open_sea"
+     ],
+     "score": 8,
+     "hook": 8,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Tap the link in our bio to book.",
+   "light": "day",
+   "recorded": "2026-10-28",
+   "texts": {
+    "hook": "turning 360 view from the bow",
+    "labels": [
+     "turning 360 view from the bow",
+     "approaching our boat under the cliffs",
+     "golden light over a quiet cove",
+     "drifting along the coast before sunset"
+    ],
+    "thumb": "Sunset along the coast",
+    "ig": "Late afternoon light along the cliffs on our sunset trip, Madeira.📍\n\nTap the link in our bio to book.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip"
+    ],
+    "fb": "Golden hour along the south coast cliffs on our sunset trip from Funchal, Madeira. We slow down near the cliffs to watch the light change.",
+    "threads": "Sunset cruise along the south coast cliffs of Madeira.",
+    "yt_title": "Sunset boat trip along the coast, Madeira #Shorts",
+    "yt_description": "Sunset cruise along the south coast cliffs of Madeira.\n\nWe sail from Funchal marina before dusk to watch the light change over the towering volcanic cliffs and quiet coves. Every trip includes drone footage when the weather allows and 360 video from our Insta360 camera.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat tour",
+     "madeira sunset trip",
+     "private boat trip funchal",
+     "things to do in madeira",
+     "funchal marina",
+     "karnic r8s",
+     "cabo girao boat",
+     "madeira drone video",
+     "madeira coast"
+    ],
+    "tiktok": "Late light along the volcanic cliffs on our sunset trip in Madeira. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "A drone and 360 camera capture a couple on the bow of a boat cruising along the steep volcanic cliffs of Madeira during golden hour.",
+    "model": "gemini-3.6-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s030-4c7b7665.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s030-4c7b7665-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s030-4c7b7665-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s030-4c7b7665-thumb.jpg",
+    "duration": 14.37,
+    "bytes": 15437238,
+    "shots": [
+     {
+      "name": "814827276.655097_16181793134483.mp4",
+      "in": 12.52,
+      "out": 16.12,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.819,
+       0.761,
+       0.581,
+       0.569
+      ],
+      "what": "A tiny planet effect turns and reveals a couple relaxing on the bow as the boat moves along the coast."
+     },
+     {
+      "name": "DJI_20261030165837_0002_D.MP4",
+      "in": 45.02,
+      "out": 48.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.55,
+       0.514,
+       0.589,
+       0.657
+      ],
+      "what": "Aerial view moves along the dark cliff face and approaches the boat anchored in the ocean."
+     },
+     {
+      "name": "DJI_20261030173040_0008_D.MP4",
+      "in": 28.02,
+      "out": 31.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": false,
+      "path": null,
+      "what": "Aerial camera pans up from the sea to reveal a hidden cove with coastal houses and layered volcanic cliffs"
+     },
+     {
+      "name": "DJI_20261030173535_0014_D.MP4",
+      "in": 60.4,
+      "out": 64.0,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.544,
+       0.551,
+       0.551,
+       0.51
+      ],
+      "what": "Smooth forward drone flight approaching the boat at sea with towering coastal cliffs in the background"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-05T20:54:47Z"
+   }
   }
  ]
 }
