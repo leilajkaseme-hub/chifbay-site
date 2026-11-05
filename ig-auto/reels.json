@@ -434,7 +434,10 @@
       "bytes": 3200294,
       "source": "DJI_20260811102444_0001_D.MP4",
       "driveId": "1jxxfXAnB_EV09qEMR0Rvx5Y2ZkrFbvZj",
-      "added": "2026-10-18T09:10:49.785Z"
+      "added": "2026-10-18T09:10:49.785Z",
+      "used": {
+        "story": 1793883181179
+      }
     },
     {
       "clip": "ig/reel-1tS_2QTZ-1.mp4",
