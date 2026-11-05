@@ -1324,8 +1324,32 @@
     "id": "20261014094920-5b37",
     "format": null,
     "source": "library"
+   },
+   "h24": {
+    "at": "2026-11-05T14:38:00.924Z",
+    "age_hours": 44,
+    "reach": 19,
+    "views": 51,
+    "likes": 1,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 2,
+    "follows": 0,
+    "profile_visits": 0,
+    "ig_reels_avg_watch_time": null
+   }
+  },
+  "18642056257024805": {
+   "posted_at": "2026-11-04T23:48:02+0000",
+   "permalink": "https://www.instagram.com/reel/DfVq-1djD4_/",
+   "type": "reel",
+   "ours": {
+    "id": "s011",
+    "format": null,
+    "source": "short"
    }
   }
  },
- "updated_at": "2026-11-04T14:30:20.441Z"
+ "updated_at": "2026-11-05T14:38:00.924Z"
 }
