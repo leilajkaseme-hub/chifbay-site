@@ -1619,6 +1619,29 @@
      "problems": []
     },
     "at": "2026-11-02T21:15:07Z"
+   },
+   "posted": {
+    "instagram": {
+     "at": "2026-11-05T22:08:28.205Z",
+     "id": "17916378585555515",
+     "url": "https://www.instagram.com/reel/DfYEXkmE2uE/",
+     "slot": "2026-11-05#0"
+    },
+    "facebook": {
+     "at": "2026-11-05T22:09:00.414Z",
+     "id": "122131029525436640",
+     "url": "https://www.facebook.com/122131029525436640"
+    },
+    "threads": {
+     "at": "2026-11-05T22:09:35.847Z",
+     "id": "18111903011248638",
+     "url": "https://www.threads.com/@chifbay/post/DfYEgf9RPUK"
+    },
+    "youtube": {
+     "at": "2026-11-05T22:10:11.047Z",
+     "id": "eD_lz72f4sw",
+     "url": "https://www.youtube.com/shorts/eD_lz72f4sw"
+    }
    }
   },
   {
@@ -4327,7 +4350,7 @@
      "name": "814827276.655097_16181793134483.mp4",
      "start": 12.52,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 14.5,
      "x": 0.5,
      "x2": 0.5,
@@ -4348,8 +4371,8 @@
      "name": "DJI_20261030165837_0002_D.MP4",
      "start": 45.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 47.0,
+     "speed": 1,
+     "peak": 47,
      "x": 0.7,
      "x2": 0.5,
      "what": "Aerial view moves along the dark cliff face and approaches the boat anchored in the ocean.",
@@ -4370,8 +4393,8 @@
      "name": "DJI_20261030173040_0008_D.MP4",
      "start": 28.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 30.0,
+     "speed": 1,
+     "peak": 30,
      "x": 0.5,
      "x2": 0.5,
      "what": "Aerial camera pans up from the sea to reveal a hidden cove with coastal houses and layered volcanic cliffs",
@@ -4391,8 +4414,8 @@
      "name": "DJI_20261030173535_0014_D.MP4",
      "start": 60.4,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 63.0,
+     "speed": 1,
+     "peak": 63,
      "x": 0.5,
      "x2": 0.5,
      "what": "Smooth forward drone flight approaching the boat at sea with towering coastal cliffs in the background",
@@ -4471,7 +4494,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.819,
@@ -4488,7 +4511,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.55,
@@ -4505,7 +4528,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": false,
       "path": null,
       "what": "Aerial camera pans up from the sea to reveal a hidden cove with coastal houses and layered volcanic cliffs"
@@ -4513,11 +4536,11 @@
      {
       "name": "DJI_20261030173535_0014_D.MP4",
       "in": 60.4,
-      "out": 64.0,
+      "out": 64,
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.544,
