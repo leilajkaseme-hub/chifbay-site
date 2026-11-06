@@ -4557,6 +4557,185 @@
     },
     "at": "2026-11-05T20:54:47Z"
    }
+  },
+  {
+   "id": "s031",
+   "format": "montage",
+   "status": "rendered",
+   "created": "2026-11-06",
+   "shots": [
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 60.3,
+     "len": 3.1,
+     "speed": 1.0,
+     "peak": 62.0,
+     "x": 0.46,
+     "x2": 0.48,
+     "what": "Boat speeds forward leaving a long white frothy wake behind as the drone follows from a high three-quarter angle",
+     "tags": [
+      "speed",
+      "wake",
+      "boat_hero",
+      "aerial",
+      "open_sea"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 202.29,
+     "len": 3.1,
+     "speed": 1.0,
+     "peak": 204.0,
+     "x": 0.52,
+     "x2": 0.58,
+     "what": "Boat speeds diagonally across deep blue ocean with sunlit white spray spraying from the hull",
+     "tags": [
+      "speed",
+      "wake",
+      "boat_hero",
+      "aerial",
+      "open_sea"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 307.3,
+     "len": 3.1,
+     "speed": 1.0,
+     "peak": 309.0,
+     "x": 0.48,
+     "x2": 0.49,
+     "what": "Boat speeds straight ahead from a dynamic top-down trailing view showing the prop wash",
+     "tags": [
+      "boat_hero",
+      "speed",
+      "wake",
+      "topdown",
+      "aerial"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Booking link in bio.",
+   "light": "day",
+   "recorded": "2026-10-14",
+   "texts": {
+    "hook": "Full speed off Funchal",
+    "labels": [],
+    "thumb": "Full speed cruising",
+    "ig": "Cruising at speed across open water off Funchal, Madeira. 📍\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#boattrip",
+     "#openwater",
+     "#dronevideo"
+    ],
+    "fb": "Cruising at full speed across open water off Funchal. Our drone captures aerial footage on our trips when the weather allows.",
+    "threads": "Cruising at full speed across open water off Funchal, Madeira.",
+    "yt_title": "Full speed on the open sea off Funchal, Madeira #Shorts",
+    "yt_description": "Full speed off Funchal.\n\nAerial views of our boat cruising at speed across open ocean along the south coast of Madeira. Every private trip includes drone footage when weather allows, photos, and snacks on board.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira",
+     "funchal",
+     "madeira boat trip",
+     "funchal boat trip",
+     "private boat trip madeira",
+     "karnic boat",
+     "madeira ocean",
+     "drone boat footage",
+     "things to do in funchal",
+     "things to do in madeira",
+     "boating madeira"
+    ],
+    "tiktok": "Cruising at full speed off the coast of Funchal, Madeira. #madeira #funchal #boattrip #ocean",
+    "alt": "Aerial drone view of a private motorboat speeding across deep blue ocean waters off Funchal, Madeira, leaving a frothy white wake.",
+    "model": "gemini-3.5-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s031-40b3fb45.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s031-40b3fb45-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s031-40b3fb45-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s031-40b3fb45-thumb.jpg",
+    "duration": 9.27,
+    "bytes": 10127559,
+    "shots": [
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 60.3,
+      "out": 63.4,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.1,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.478,
+       0.492,
+       0.504,
+       0.509
+      ],
+      "what": "Boat speeds forward leaving a long white frothy wake behind as the drone follows from a high three-quarter angle"
+     },
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 202.29,
+      "out": 205.39,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.1,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.511,
+       0.459,
+       0.478
+      ],
+      "what": "Boat speeds diagonally across deep blue ocean with sunlit white spray spraying from the hull"
+     },
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 307.3,
+      "out": 310.4,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.1,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.592,
+       0.589,
+       0.587
+      ],
+      "what": "Boat speeds straight ahead from a dynamic top-down trailing view showing the prop wash"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-06T20:04:29Z"
+   }
   }
  ]
 }
