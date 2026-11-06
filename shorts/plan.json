@@ -2432,6 +2432,29 @@
      "problems": []
     },
     "at": "2026-11-02T21:31:18Z"
+   },
+   "posted": {
+    "instagram": {
+     "at": "2026-11-06T23:18:47.544Z",
+     "id": "18080101754745100",
+     "url": "https://www.instagram.com/reel/DfaxLW1CqUz/",
+     "slot": "2026-11-06#0"
+    },
+    "facebook": {
+     "at": "2026-11-06T23:19:08.669Z",
+     "id": "122131275279436640",
+     "url": "https://www.facebook.com/122131275279436640"
+    },
+    "threads": {
+     "at": "2026-11-06T23:19:50.311Z",
+     "id": "18134548885744026",
+     "url": "https://www.threads.com/@chifbay/post/DfaxVb8isLO"
+    },
+    "youtube": {
+     "at": "2026-11-06T23:20:24.811Z",
+     "id": "cLI2RhBzitk",
+     "url": "https://www.youtube.com/shorts/cLI2RhBzitk"
+    }
    }
   },
   {
@@ -4569,8 +4592,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 60.3,
      "len": 3.1,
-     "speed": 1.0,
-     "peak": 62.0,
+     "speed": 1,
+     "peak": 62,
      "x": 0.46,
      "x2": 0.48,
      "what": "Boat speeds forward leaving a long white frothy wake behind as the drone follows from a high three-quarter angle",
@@ -4590,8 +4613,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 202.29,
      "len": 3.1,
-     "speed": 1.0,
-     "peak": 204.0,
+     "speed": 1,
+     "peak": 204,
      "x": 0.52,
      "x2": 0.58,
      "what": "Boat speeds diagonally across deep blue ocean with sunlit white spray spraying from the hull",
@@ -4611,8 +4634,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 307.3,
      "len": 3.1,
-     "speed": 1.0,
-     "peak": 309.0,
+     "speed": 1,
+     "peak": 309,
      "x": 0.48,
      "x2": 0.49,
      "what": "Boat speeds straight ahead from a dynamic top-down trailing view showing the prop wash",
@@ -4687,7 +4710,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.1,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.478,
@@ -4704,7 +4727,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.1,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.511,
@@ -4720,7 +4743,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.1,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.592,
