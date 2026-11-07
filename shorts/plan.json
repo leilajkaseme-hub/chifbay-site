@@ -4759,6 +4759,230 @@
     },
     "at": "2026-11-06T20:04:29Z"
    }
+  },
+  {
+   "id": "s032",
+   "format": "story",
+   "status": "rendered",
+   "created": "2026-11-07",
+   "shots": [
+    {
+     "file_id": "1uuxdKOd9WakXvan7ZsUKoBsiNGGUeyhR",
+     "name": "814827276.655097_16181793134483.mp4",
+     "start": 19.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 21.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "A couple lie together on the bow sunbed while the boat cruises through sunny open sea.",
+     "tags": [
+      "speed",
+      "boat_hero",
+      "open_sea",
+      "couple",
+      "guests_happy"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1XHT-gIkZ57Y6-F8pBhqT-FGj5CpZ1hxc",
+     "name": "DJI_20261030170206_0005_D.MP4",
+     "start": 17.52,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 19.5,
+     "x": 0.53,
+     "x2": 0.45,
+     "what": "Drone orbits around the boat towards the bright sunlight reflecting on the ocean surface.",
+     "tags": [
+      "aerial",
+      "orbit",
+      "boat_hero",
+      "open_sea",
+      "calm"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1yQ3P8ElSPTDRk35-knN_VXUqC7ZXyO9v",
+     "name": "DJI_20261030173226_0011_D.MP4",
+     "start": 60.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 62.0,
+     "x": 0.48,
+     "x2": 0.5,
+     "what": "Drone swoops down towards the white boat floating peacefully in open waters.",
+     "tags": [
+      "aerial",
+      "boat_hero",
+      "guests_happy",
+      "open_sea"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1zAa_vcjunrghKO5Bn-Z4yCYw8FaIPNjb",
+     "name": "DJI_20261030173408_0013_D.MP4",
+     "start": 22.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 24.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Drone orbits around the boat, revealing a glowing golden sun reflecting over the ocean.",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "orbit",
+      "sunset",
+      "golden_light",
+      "open_sea"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Dates and booking on chifbay.com.",
+   "light": "day",
+   "recorded": "2026-10-28",
+   "texts": {
+    "hook": "Cruising out before the sun dips",
+    "labels": [
+     "Cruising out before the sun dips",
+     "Sunlight reflecting off the calm sea",
+     "Quiet water off the south coast",
+     "Golden light right before sunset"
+    ],
+    "thumb": "Golden hour cruise",
+    "ig": "Golden light off the south coast of Madeira on our sunset trip.📍\n\nDates and booking on chifbay.com.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#sunsetcruise",
+     "#boattrip",
+     "#boatlife"
+    ],
+    "fb": "Golden light off the south coast on our sunset trip. We head out from Funchal about an hour before the sun goes down.",
+    "threads": "Golden light over the water on our sunset trip along the south coast of Madeira.",
+    "yt_title": "Sunset boat trip along the Madeira coast #Shorts",
+    "yt_description": "Golden light on the open water.\n\nDrone views from our private sunset trip off Funchal, Madeira. We cruise along the south coast before the sun dips, with snacks on board and up to five guests.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat trip",
+     "sunset boat tour madeira",
+     "madeira sunset",
+     "funchal sunset",
+     "private boat funchal",
+     "things to do in madeira",
+     "funchal marina",
+     "madeira south coast",
+     "karnic r8s",
+     "madeira ocean"
+    ],
+    "tiktok": "Golden light over the water on our sunset trip from Funchal. #madeira #funchal #boattrip #sunset",
+    "alt": "Drone footage of a couple relaxing on the bow of a private motorboat cruising through golden waters at sunset off Madeira.",
+    "model": "gemini-3.7-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 8,
+    "problems": [],
+    "model": "gemini-3.8-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s032-c9af794c.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s032-c9af794c-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s032-c9af794c-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s032-c9af794c-thumb.jpg",
+    "duration": 14.37,
+    "bytes": 15425236,
+    "shots": [
+     {
+      "name": "814827276.655097_16181793134483.mp4",
+      "in": 19.02,
+      "out": 22.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.181,
+       0.361,
+       0.352,
+       0.288
+      ],
+      "what": "A couple lie together on the bow sunbed while the boat cruises through sunny open sea."
+     },
+     {
+      "name": "DJI_20261030170206_0005_D.MP4",
+      "in": 17.52,
+      "out": 21.12,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.527,
+       0.494,
+       0.493,
+       0.501
+      ],
+      "what": "Drone orbits around the boat towards the bright sunlight reflecting on the ocean surface."
+     },
+     {
+      "name": "DJI_20261030173226_0011_D.MP4",
+      "in": 60.02,
+      "out": 63.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.508,
+       0.516,
+       0.532,
+       0.53
+      ],
+      "what": "Drone swoops down towards the white boat floating peacefully in open waters."
+     },
+     {
+      "name": "DJI_20261030173408_0013_D.MP4",
+      "in": 22.02,
+      "out": 25.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.509,
+       0.499,
+       0.488,
+       0.484
+      ],
+      "what": "Drone orbits around the boat, revealing a glowing golden sun reflecting over the ocean."
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-07T18:12:48Z"
+   }
   }
  ]
 }
