@@ -1372,8 +1372,42 @@
     "id": "s013",
     "format": null,
     "source": "short"
+   },
+   "h24": {
+    "at": "2026-11-07T12:58:13.416Z",
+    "age_hours": 39,
+    "reach": 21,
+    "views": 25,
+    "likes": 2,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 3,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 5605
+   }
+  },
+  "18080101754745100": {
+   "posted_at": "2026-11-06T23:18:40+0000",
+   "permalink": "https://www.instagram.com/reel/DfaxLW1CqUz/",
+   "type": "reel",
+   "ours": {
+    "id": "s016",
+    "format": null,
+    "source": "short"
+   }
+  },
+  "18120349549785683": {
+   "posted_at": "2026-11-06T17:42:52+0000",
+   "permalink": "https://www.instagram.com/p/DfaK0_BoK8V/",
+   "type": "carousel",
+   "ours": {
+    "id": "20261015093006-aff4",
+    "format": null,
+    "source": "library"
    }
   }
  },
- "updated_at": "2026-11-06T14:15:27.212Z"
+ "updated_at": "2026-11-07T12:58:13.416Z"
 }
