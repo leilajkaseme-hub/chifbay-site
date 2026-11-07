@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-06T19:10:47.685Z",
+ "generated_at": "2026-11-07T11:27:18.900Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -876,6 +876,52 @@
    "template": null,
    "priority": null,
    "created": "2026-11-06T12:38:54.227Z"
+  },
+  {
+   "id": "20261107112710-4f05",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Private boat tour from Funchal, Madeira: two glasses, one windy deck and a hairstyle nobody planned.\n\nTwo guests are standing at the back of the boat, and the wind has taken charge. The one on the left is laughing, sunglasses on, one hand holding her hair down and a glass of something pink in the other. The one facing her wears a grey hoodie, and her long dark hair is blowing sideways.\n\nBehind them there is a thin pole with a small camera on top. That is our Insta360, and it records the whole boat while everyone is busy with their hair.\n\nThe sky is bright blue with a few white clouds, and the sea behind is open and a little choppy. The hair lost this one.\n\nThe practical bit: our Day Trip and our Sunset Trip both leave from Funchal marina. The boat is private, with a skipper, five guests at most, and nobody else on board. The Insta360 video, photos with a real camera and food on board come with every trip.\n\nVento no cabelo, copo na mão.\n\nWould a windy day on the water suit your group?",
+   "hashtags": [
+    "#madeiraportugal",
+    "#visitmadeira",
+    "#madeiraboattour",
+    "#boattour",
+    "#happyguests",
+    "#familytrip"
+   ],
+   "cover": "https://chifbay.com/ig/20261107112710-4f05-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261107112710-4f05-1.jpg",
+    "https://chifbay.com/ig/20261107112710-4f05-2.jpg",
+    "https://chifbay.com/ig/20261107112710-4f05-3.jpg",
+    "https://chifbay.com/ig/20261107112710-4f05-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-07T11:27:18.894Z"
+  },
+  {
+   "id": "20261107112718-1337",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1VzTQnDl-1.jpg",
+   "video": "https://chifbay.com/ig/reel-1VzTQnDl-1.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-07T11:27:18.898Z"
   }
  ]
 }
