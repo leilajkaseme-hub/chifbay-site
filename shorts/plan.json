@@ -2703,6 +2703,29 @@
      "problems": []
     },
     "at": "2026-11-02T21:49:36Z"
+   },
+   "posted": {
+    "instagram": {
+     "at": "2026-11-08T19:50:07.053Z",
+     "id": "18651930673046594",
+     "url": "https://www.instagram.com/reel/Dffi6TWDbfH/",
+     "slot": "2026-11-08#0"
+    },
+    "facebook": {
+     "at": "2026-11-08T19:50:40.301Z",
+     "id": "122131681767436640",
+     "url": "https://www.facebook.com/122131681767436640"
+    },
+    "threads": {
+     "at": "2026-11-08T19:51:12.997Z",
+     "id": "18108419333571974",
+     "url": "https://www.threads.com/@chifbay/post/DffjEAvAf8r"
+    },
+    "youtube": {
+     "at": "2026-11-08T19:51:47.763Z",
+     "id": "F_jljNpFEMM",
+     "url": "https://www.youtube.com/shorts/F_jljNpFEMM"
+    }
    }
   },
   {
@@ -5018,8 +5041,8 @@
      "name": "DJI_20261030173155_0010_D.MP4",
      "start": 6.9,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 9.0,
+     "speed": 1,
+     "peak": 9,
      "x": 0.5,
      "x2": 0.35,
      "what": "Drone flies low over the boat stationary in calm open sea with a swimmer nearby in golden light",
@@ -5040,7 +5063,7 @@
      "name": "DJI_20261030170359_0007_D.MP4",
      "start": 6.9,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 9.5,
      "x": 0.52,
      "x2": 0.78,
@@ -5060,7 +5083,7 @@
      "name": "DJI_20261030165722_0001_D.MP4",
      "start": 45.52,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 47.5,
      "x": 0.54,
      "x2": 0.45,
@@ -5081,8 +5104,8 @@
      "name": "DJI_20261030170253_0006_D.MP4",
      "start": 5.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 7.0,
+     "speed": 1,
+     "peak": 7,
      "x": 0.35,
      "x2": 0.55,
      "what": "Drone orbits around the bow of the boat floating near the rocky coast.",
@@ -5164,7 +5187,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.479,
@@ -5181,7 +5204,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.54,
@@ -5198,7 +5221,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.434,
@@ -5215,7 +5238,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.378,
