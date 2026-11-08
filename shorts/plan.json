@@ -5006,6 +5006,232 @@
     },
     "at": "2026-11-07T18:12:48Z"
    }
+  },
+  {
+   "id": "s033",
+   "format": "story",
+   "status": "rendered",
+   "created": "2026-11-08",
+   "shots": [
+    {
+     "file_id": "1XWqgmKB1zDiIOz0Ae7NT2Xp_p-tbOSqO",
+     "name": "DJI_20261030173155_0010_D.MP4",
+     "start": 6.9,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 9.0,
+     "x": 0.5,
+     "x2": 0.35,
+     "what": "Drone flies low over the boat stationary in calm open sea with a swimmer nearby in golden light",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "open_sea",
+      "swim",
+      "calm",
+      "golden_light"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1c_BwIsdyrGYWShj0X1JgTK6gTp6wZBy-",
+     "name": "DJI_20261030170359_0007_D.MP4",
+     "start": 6.9,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 9.5,
+     "x": 0.52,
+     "x2": 0.78,
+     "what": "Drone flies low and passes right over the boat anchored in front of the cliffs.",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "cliffs",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1y0eIIJDdCB9WHXD6_vSRcjJHUyXxciN6",
+     "name": "DJI_20261030165722_0001_D.MP4",
+     "start": 45.52,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 47.5,
+     "x": 0.54,
+     "x2": 0.45,
+     "what": "Drone tilts up from the boat to reveal the dramatic coastal cliffs of Madeira",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "reveal",
+      "cliffs",
+      "cove"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "13IYBFIAeIu412HgkykXjEiAERrh0-OGx",
+     "name": "DJI_20261030170253_0006_D.MP4",
+     "start": 5.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 7.0,
+     "x": 0.35,
+     "x2": 0.55,
+     "what": "Drone orbits around the bow of the boat floating near the rocky coast.",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "orbit",
+      "cliffs",
+      "golden_light",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Message us to pick your day.",
+   "light": "sunset",
+   "recorded": "2026-10-31",
+   "texts": {
+    "hook": "Anchor down in calm open water",
+    "labels": [
+     "Anchor down in calm open water",
+     "Passing close under the coastal cliffs",
+     "The cliffs rising straight from the sea",
+     "Floating quiet near the rocky shore"
+    ],
+    "thumb": "Swim stop under cliffs",
+    "ig": "Swimming stop along the south coast of Madeira on our private Day Trip.📍\n\nMessage us to pick your day.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#fajadospadres"
+    ],
+    "fb": "A quiet swim stop under the cliffs on our private Day Trip from Funchal. We anchor near the shore for swimming and paddle boarding.",
+    "threads": "Floating under the south coast cliffs during our private Day Trip from Funchal.",
+    "yt_title": "Private boat swim stop under Madeira cliffs #Shorts",
+    "yt_description": "A quiet swim stop under the cliffs.\n\nOn our private Day Trip from Funchal, we slow down by the cliffs for a swim and paddle board stop in calm coastal waters. Every trip includes food on board and video footage when weather permits.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat trip",
+     "things to do in madeira",
+     "madeira private boat",
+     "funchal marina",
+     "cabo girao boat tour",
+     "faja dos padres",
+     "madeira swimming spot",
+     "karnic r8s",
+     "chifbay madeira",
+     "madeira coast",
+     "private boat funchal"
+    ],
+    "tiktok": "Quiet swim stop under the cliffs on our Day Trip from Funchal. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "Drone video of a private boat anchored near high cliffs along the coast of Madeira while a guest swims in calm water.",
+    "model": "gemini-3.5-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 8,
+    "problems": [],
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s033-ea33b85f.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s033-ea33b85f-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s033-ea33b85f-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s033-ea33b85f-thumb.jpg",
+    "duration": 14.4,
+    "bytes": 15375327,
+    "shots": [
+     {
+      "name": "DJI_20261030173155_0010_D.MP4",
+      "in": 6.9,
+      "out": 10.5,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.479,
+       0.48,
+       0.452,
+       0.384
+      ],
+      "what": "Drone flies low over the boat stationary in calm open sea with a swimmer nearby in golden light"
+     },
+     {
+      "name": "DJI_20261030170359_0007_D.MP4",
+      "in": 6.9,
+      "out": 10.5,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.54,
+       0.551,
+       0.584,
+       0.745
+      ],
+      "what": "Drone flies low and passes right over the boat anchored in front of the cliffs."
+     },
+     {
+      "name": "DJI_20261030165722_0001_D.MP4",
+      "in": 45.52,
+      "out": 49.12,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.434,
+       0.297,
+       0.13,
+       0.13
+      ],
+      "what": "Drone tilts up from the boat to reveal the dramatic coastal cliffs of Madeira"
+     },
+     {
+      "name": "DJI_20261030170253_0006_D.MP4",
+      "in": 5.02,
+      "out": 8.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.378,
+       0.402,
+       0.436,
+       0.48
+      ],
+      "what": "Drone orbits around the bow of the boat floating near the rocky coast."
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-08T18:29:44Z"
+   }
   }
  ]
 }
