@@ -57,6 +57,8 @@ const url = (f) => `https://www.googleapis.com/drive/v3/files/${f.id}?alt=media&
 const hdr = (tok) => ["-headers", `Authorization: Bearer ${tok}\r\n`];
 const run = (cmd, args) => spawnSync(cmd, args, { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
 const safe = (s) => s.replace(/[^A-Za-z0-9._-]+/g, "_");
+// a name with spaces cannot go through the workflow input (arguments are split on spaces): write "+" for each space
+const byName = (n) => all.find((x) => x.name === n) || all.find((x) => x.name === n.replace(/\+/g, " "));
 
 function probe(tok, f) {
   const r = run("ffprobe", ["-v", "error", ...hdr(tok), "-select_streams", "v:0", "-show_entries", "stream=width,height,r_frame_rate:format=duration", "-of", "json", url(f)]);
@@ -87,7 +89,7 @@ if (mode === "list") {
   fs.writeFileSync(`${OUT}/index.json`, JSON.stringify(index, null, 1));
 } else if (mode === "frames") {
   const [name, t0, t1, step = "0.5"] = rest;
-  const f = all.find((x) => x.name === name);
+  const f = byName(name);
   if (!f) throw new Error(`no video named ${name}`);
   const sheet = `${OUT}/${safe(name)}_${t0}-${t1}.jpg`;
   const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", t0, "-t", String(Number(t1) - Number(t0)), "-i", url(f), "-vf", `fps=1/${step},scale=240:-1,tile=10x6`, "-frames:v", "1", sheet]);
@@ -98,7 +100,7 @@ if (mode === "list") {
     const m = /^(.+):(\d+(?:\.\d+)?)-(\d+(?:\.\d+)?)(?:@(\d+(?:\.\d+)?))?$/.exec(w);
     if (!m) { console.log(`bad window ${w}`); continue; }
     const [, name, t0, t1, step = "0.5"] = m;
-    const f = all.find((x) => x.name === name);
+    const f = byName(name);
     if (!f) { console.log(`no video named ${name}`); continue; }
     const sheet = `${OUT}/${safe(name)}_${t0}-${t1}.jpg`;
     const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", t0, "-t", String(Number(t1) - Number(t0)), "-i", url(f), "-vf", `fps=1/${step},scale=240:-1,tile=10x6`, "-frames:v", "1", sheet]);
@@ -108,7 +110,7 @@ if (mode === "list") {
   // cutmany <name>:<start>:<len>:<out> ...   stream-copy several windows (cut points fall on the keyframe before start)
   for (const w of rest) {
     const [name, start, len, out] = w.split(":");
-    const f = all.find((x) => x.name === name);
+    const f = byName(name);
     if (!f) { console.log(`no video named ${name}`); continue; }
     const dest = `${OUT}/${safe(out)}.mp4`;
     const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-c", "copy", "-avoid_negative_ts", "make_zero", dest]);
@@ -118,7 +120,7 @@ if (mode === "list") {
   // cutenc <name>:<start>:<len>:<out> ...   like cutmany but re-encoded (1620p H.264 crf 24, no sound): small enough for this Mac disk
   for (const w of rest) {
     const [name, start, len, out] = w.split(":");
-    const f = all.find((x) => x.name === name);
+    const f = byName(name);
     if (!f) { console.log(`no video named ${name}`); continue; }
     const dest = `${OUT}/${safe(out)}.mp4`;
     const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-an", "-vf", "scale=-2:1620", "-c:v", "libx264", "-preset", "veryfast", "-crf", "24", "-pix_fmt", "yuv420p", dest]);
@@ -126,7 +128,7 @@ if (mode === "list") {
   }
 } else if (mode === "cut") {
   const [name, start, len, out] = rest;
-  const f = all.find((x) => x.name === name);
+  const f = byName(name);
   if (!f) throw new Error(`no video named ${name}`);
   const dest = `${OUT}/${safe(out)}.mp4`;
   const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-c", "copy", "-avoid_negative_ts", "make_zero", dest]);
