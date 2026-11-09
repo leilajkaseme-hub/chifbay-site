@@ -609,7 +609,11 @@ if __name__ == "__main__":
         for lk in looks:
             if lk not in LOOKS:
                 raise SystemExit(f"no look {lk}: {', '.join(LOOKS)}")
-        songs = args or proj.get("songs") or list(SONGS)
+        songs = args or proj.get("songs")
+        if not songs:                                  # all songs, the first one turning from trip to trip: a trip with
+            days = sorted(x.stem for x in PROJECTS.glob("*.json"))     # shots for 2 songs only still varies the songs
+            k = days.index(day) % len(SONGS)
+            songs = list(SONGS)[k:] + list(SONGS)[:k]
         for s in songs:
             if s not in SONGS:
                 raise SystemExit(f"no song {s}: {', '.join(SONGS)}")
