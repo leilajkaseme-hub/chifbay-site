@@ -10,7 +10,7 @@ song, colour palette, serif and script titles, the logo at the end.
     python3 oldmoney.py candidates <day>      every few seconds of the trip's `videos`, framed on the boat, on one sheet
                                               (OUT/<day>/candidates-*.jpg + .json): pick the good ones into `shots`
     python3 oldmoney.py mux <day>             add the song to each <song>-small.mp4: <song>-preview.mp4 (to judge the cut)
-    python3 oldmoney.py beats <song...>       beats, hits and loudness of music/<song>-preview.m4a (needs librosa)
+    python3 oldmoney.py beats <song...>       the exact beat grid and hits of music/<song>-preview.m4a (needs librosa)
     python3 oldmoney.py looks <out.jpg> <frame[@x]>...   every palette side by side on the same frames
 
 Where things are: this folder (in the site repo) holds the code, fonts, beats/ and projects/. The songs and the renders
@@ -86,21 +86,29 @@ def grade(name):
 
 
 # The songs. Only Apple's official 30 s previews are used (music/, never in git, never posted: the song is added in the
-# Instagram app). beats/<song>.json: the beats, and per beat its hit (`accent`) and loudness. step 2 = librosa counted
-# twice the real tempo (Skyfall), so every other beat is used. drop = where the first cut lands in the preview (the
-# title plays the `intro` beats before it), set by ear from the hits per beat. beats = how long the cut part lasts.
-# cut = the share of beats (percentile of the hits) that are too soft to cut on: Monaco cuts on most beats (Theo
-# liked it fast, 8 Nov), the ballads hold longer. hold = the most beats a shot stays on.
+# Instagram app). Each song is a fixed beat grid: bpm and the time of its first beat in the preview, in beats/<song>.json
+# from `beats <song>` (fitted on the drum hits near the bpm given here, to the millisecond: Theo, 9 Nov: "it's not right on the beat, it's very
+# messy", librosa's own beats wobbled by up to 50 ms and had Tourner at 117.5 bpm instead of 120). beats/<song>.json
+# keeps the hit per beat (`accent`). drop = the beat where the first cut lands (by ear: where the song opens up), the
+# title plays the `intro` beats before it. bars = how many bars of 4 beats are cut. pace = which cut pattern a bar
+# gets from its hits (see BAR_CUTS): fast for Monaco (Theo liked it fast, 8 Nov), calm for the ballads.
 SONGS = {
-    "monaco":  {"name": "MONACO, Bad Bunny", "step": 1, "drop": 20.76, "intro": 8, "beats": 15, "cut": 25, "hold": 2,
+    "monaco":  {"name": "MONACO, Bad Bunny", "bpm": 138.92, "drop": 20.73, "intro": 8, "bars": 4, "pace": "fast",
                 "title": {"script": "this is not", "serif": "Monaco", "caps": "PRIVATE BOAT · FUNCHAL"},
                 "cover": {"script": "not Monaco", "serif": "Madeira", "caps": "CHIFBAY · PRIVATE BOAT TRIPS"}},
-    "skyfall": {"name": "Skyfall, Adele", "step": 2, "drop": 14.44, "intro": 4, "beats": 14, "cut": 45, "hold": 3,
+    "skyfall": {"name": "Skyfall, Adele", "bpm": 74.96, "drop": 16.47, "intro": 4, "bars": 3, "pace": "calm",
                 "title": {"script": "shaken, not", "serif": "Stirred", "caps": "PRIVATE BOAT · FUNCHAL"}},
-    "sway":    {"name": "Sway, Michael Bublé", "step": 1, "drop": 6.36, "intro": 8, "beats": 28, "cut": 45, "hold": 4,
+    "sway":    {"name": "Sway, Michael Bublé", "bpm": 126.00, "drop": 6.34, "intro": 8, "bars": 7, "pace": "calm",
                 "title": {"script": "la dolce", "serif": "Vita", "caps": "PRIVATE BOAT · FUNCHAL"}},
-    "tourner": {"name": "Tourner dans le vide, Indila", "step": 1, "drop": 17.23, "intro": 8, "beats": 19, "cut": 40, "hold": 3,
+    "tourner": {"name": "Tourner dans le vide, Indila", "bpm": 120.03, "drop": 17.20, "intro": 8, "bars": 5, "pace": "medium",
                 "title": {"script": "ce n'est pas", "serif": "St-Tropez", "caps": "BATEAU PRIVÉ · FUNCHAL"}},
+}
+# How a bar of 4 beats is cut, from how hard it hits compared with the song's other bars (strong, mid, weak). Only 1, 2
+# and 4 beats: a shot never holds 3 beats, so every cut stays on the bar's grid.
+BAR_CUTS = {
+    "fast":   {"strong": [1, 1, 1, 1], "mid": [1, 1, 2], "weak": [2, 1, 1]},
+    "medium": {"strong": [1, 1, 2], "mid": [2, 2], "weak": [2, 1, 1]},
+    "calm":   {"strong": [2, 1, 1], "mid": [2, 2], "weak": [4]},
 }
 END_BEATS = 4
 ENDLINE = "MADEIRA"
@@ -367,66 +375,67 @@ def cover(frame, c, out, out45):
 # ---- the cut -----------------------------------------------------------------------------------------------------
 
 def beats_cmd(song):
-    """Beats of a song preview (librosa), and per beat its hit and its loudness: the cut follows them."""
+    """Fit the song's beat grid: the bpm (within 1.5 of SONGS' bpm, or 60 to 180 for a new song) and the first beat
+    whose grid sits best on the drum hits (librosa's percussive part, 3 ms steps), then the hit per beat. Prints the
+    result to copy into SONGS."""
     import librosa  # only this step needs it
+    sr, hop = 22050, 64
     wav = OUT / "tmp" / f"{song}.wav"         # librosa reads wav; the preview is m4a
     wav.parent.mkdir(parents=True, exist_ok=True)
-    run("ffmpeg", "-v", "error", "-y", "-i", str(MUSIC / f"{song}-preview.m4a"), "-ac", "1", "-ar", "22050", str(wav))
-    y, sr = librosa.load(str(wav), sr=22050)
-    tempo, b = librosa.beat.beat_track(y=y, sr=sr, units="time")
-    on = librosa.onset.onset_strength(y=y, sr=sr)
-    to = librosa.times_like(on, sr=sr)
-    rms = librosa.feature.rms(y=y)[0]
-    tr = librosa.times_like(rms, sr=sr)
-    accent, loud = [], []
-    for i, x in enumerate(b):
-        m = (to >= x - 0.05) & (to < x + 0.12)                    # the hit right on the beat
-        accent.append(round(float(on[m].max() / on.max()) if m.any() else 0.0, 3))
-        e = b[i + 1] if i + 1 < len(b) else x + 0.45
-        mm = (tr >= x) & (tr < e)
-        loud.append(round(float(rms[mm].mean() / rms.max()) if mm.any() else 0.0, 3))
-    data = {"song": f"music/{song}-preview.m4a", "tempo": float(np.atleast_1d(tempo)[0]),
-            "beats": [round(float(x), 3) for x in b], "accent": accent, "loud": loud}
-    (BEATS / f"{song}.json").write_text(json.dumps(data, indent=1))
+    run("ffmpeg", "-v", "error", "-y", "-i", str(MUSIC / f"{song}-preview.m4a"), "-ac", "1", "-ar", str(sr), str(wav))
+    y, _ = librosa.load(str(wav), sr=sr)
     wav.unlink()
-    print(f"{song}: tempo {data['tempo']:.1f}, {len(b)} beats (set its drop in SONGS by ear)")
+    _, drums = librosa.effects.hpss(y)
+    on = librosa.onset.onset_strength(y=drums, sr=sr, hop_length=hop)
+    to = librosa.times_like(on, sr=sr, hop_length=hop)
+    known = SONGS.get(song, {}).get("bpm")
+    bpms = np.arange(known - 1.5, known + 1.5, 0.01) if known else np.arange(60, 180, 0.05)
+    best = (0, 0, 0)
+    for bpm in bpms:
+        period = 60 / bpm
+        for first in np.arange(0, period, 0.003):
+            score = np.interp(np.arange(first, to[-1] - 0.05, period), to, on).mean()
+            if score > best[0]:
+                best = (score, bpm, first)
+    _, bpm, first = best
+    grid = np.arange(first, to[-1] - 0.05, 60 / bpm)
+    acc = np.interp(grid, to, on)
+    data = {"song": f"music/{song}-preview.m4a", "bpm": round(float(bpm), 2), "first": round(float(first), 3),
+            "accent": [round(float(a / acc.max()), 3) for a in acc]}
+    (BEATS / f"{song}.json").write_text(json.dumps(data, indent=1))
+    print(f"{song}: bpm {data['bpm']}, first beat {data['first']}s, {len(grid)} beats: put them in SONGS, then set its drop by ear")
 
 
 def song_grid(song):
-    """(beat times in the edit from 0, where the song starts in the preview, hit per beat after the drop). The drop is
-    snapped to the nearest beat; the intro beats before it are the real ones when librosa found them, else they are
-    counted back from the drop."""
+    """(beat times in the edit from 0, where the song starts in the preview, beat length, hit per beat after the drop).
+    The grid is exact (bpm and first beat), so a cut is never off by librosa's wobble."""
     s, bj = SONGS[song], json.loads((BEATS / f"{song}.json").read_text())
-    beats, step = bj["beats"], s["step"]
-    i0 = min(range(len(beats)), key=lambda i: abs(beats[i] - s["drop"]))
-    idx = list(range(i0 % step, len(beats), step))
-    real = [beats[i] for i in idx]
-    period = float(np.median(np.diff(real)))
-    after = [i for i in idx if beats[i] >= beats[i0] - 0.01]
-    before = [beats[i] for i in idx if beats[i] < beats[i0] - 0.01][-s["intro"]:]
-    while len(before) < s["intro"]:
-        before.insert(0, (before[0] if before else beats[i0]) - period)
-    if before[0] < 0:
+    period = 60 / bj["bpm"]
+    n = len(bj["accent"])
+    times = [bj["first"] + k * period for k in range(n)]
+    i0 = int(round((s["drop"] - bj["first"]) / period))
+    if i0 < s["intro"]:
         raise SystemExit(f"{song}: the drop is too early for {s['intro']} intro beats")
-    t0 = before[0]
-    accent = [bj.get("accent", [1.0] * len(beats))[i] for i in after]
-    return [x - t0 for x in before + [beats[i] for i in after]], t0, period, accent
+    need = i0 + 4 * s["bars"] + END_BEATS
+    if need > n:
+        raise SystemExit(f"{song}: {s['bars']} bars after the drop run past the end of the preview")
+    t0 = times[i0 - s["intro"]]
+    return [x - t0 for x in times[i0 - s["intro"]:need + 1]], t0, period, bj["accent"][i0:need]
 
 
 def rhythm(song, accent):
-    """Beats per shot after the drop, from the song: a cut on each strong hit, a shot held through soft beats (up to
-    the song's `hold`)."""
+    """Beats per shot after the drop: bar by bar, the bar's cut pattern (BAR_CUTS) from how hard it hits against the
+    song's other bars. A 3-part pattern puts its long shot on the bar's softer half."""
     s = SONGS[song]
-    n = s["beats"]
-    acc = accent[:n] + [0.0] * max(0, n - len(accent))
-    strong = float(np.percentile(acc, s["cut"]))
-    cuts, i = [], 0
-    while i < n:
-        j = i + 1
-        while j < n and j - i < s["hold"] and acc[j] < strong:
-            j += 1
-        cuts.append(j - i)
-        i = j
+    bars = [accent[4 * b:4 * b + 4] for b in range(s["bars"])]
+    power = [float(np.mean(b)) for b in bars]
+    lo, hi = np.percentile(power, [34, 67]) if len(power) > 2 else (min(power), max(power))
+    cuts = []
+    for b, p in zip(bars, power):
+        cut = list(BAR_CUTS[s["pace"]]["strong" if p >= hi else "weak" if p < lo else "mid"])
+        if len(cut) == 3 and (b[0] + b[1] < b[2] + b[3]) == (cut[0] == 2):
+            cut.reverse()                          # the two single beats go where the hits are
+        cuts += cut
     return cuts
 
 
@@ -544,9 +553,11 @@ def mux(out, name):
     meta = json.loads((out / f"{name}-edit.json").read_text())
     song = next(k for k, v in SONGS.items() if v["name"] == meta["song"])
     t0, total = meta["song_start_in_preview"], meta["length"]
-    run("ffmpeg", "-v", "error", "-y", "-i", str(out / f"{name}-small.mp4"), "-ss", f"{t0:.3f}", "-t", f"{total:.3f}",
-        "-i", str(MUSIC / f"{song}-preview.m4a"), "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-        "-af", f"afade=t=out:st={total - 0.6:.3f}:d=0.6", "-shortest", "-movflags", "+faststart", str(out / f"{name}-preview.mp4"))
+    # the song is cut after decoding (atrim, to the sample): seeking the m4a itself put it 40 to 50 ms late (9 Nov)
+    run("ffmpeg", "-v", "error", "-y", "-i", str(out / f"{name}-small.mp4"), "-i", str(MUSIC / f"{song}-preview.m4a"),
+        "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+        "-af", f"atrim=start={t0:.4f}:duration={total:.4f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 0.6:.3f}:d=0.6",
+        "-movflags", "+faststart", str(out / f"{name}-preview.mp4"))
     (out / f"{name}-small.mp4").unlink()
 
 
