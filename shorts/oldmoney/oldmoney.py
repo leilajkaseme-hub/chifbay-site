@@ -16,7 +16,8 @@ song, colour palette, serif and script titles, the logo at the end.
 Where things are: this folder (in the site repo) holds the code, fonts, beats/ and projects/. The songs and the renders
 are never in git: OLDMONEY_DATA (default stores/chifbay/oldmoney) holds music/ and out/. The videos are streamed from
 the Drive when OLDMONEY_DRIVE names the file written by `node ig-auto/bin/drive-scan.mjs urls <file>` (GitHub Actions:
-.github/workflows/oldmoney-render.yml, so no 4K ever lands on the MacBook), else read from OLDMONEY_DATA/media/.
+.github/workflows/oldmoney-render.yml, so no 4K ever lands on the MacBook), downloaded once per video into
+OLDMONEY_CACHE when it is set, else read from OLDMONEY_DATA/media/.
 
 Style (Theo, 8 and 9 Nov 2026, references: "Old Money" serif + script poster, "Vice Yacht Club" gold caps):
   one line at the start over a calm wide shot, plain hard cuts (no zoom or move added), the logo on the last bar.
@@ -146,11 +147,32 @@ def drive():
     path = os.environ.get("OLDMONEY_DRIVE")
     if not path:
         return None
-    if not _drive or time.time() - _drive["at"] > 40 * 60:
-        if _drive:
-            run("node", str(SITE / "ig-auto" / "bin" / "drive-scan.mjs"), "urls", path)
-        _drive.update(json.loads(pathlib.Path(path).read_text()), at=time.time())
+    if time.time() - pathlib.Path(path).stat().st_mtime > 40 * 60:     # the file's age, not this process's
+        subprocess.run(["node", "bin/drive-scan.mjs", "urls", path], cwd=SITE / "ig-auto", check=True, capture_output=True)
+        _drive.clear()
+    if not _drive:
+        _drive.update(json.loads(pathlib.Path(path).read_text()))
     return _drive
+
+
+def fetch(name, f):
+    """The whole video, once, into OLDMONEY_CACHE: one long read instead of one per shot (Google turned the many short
+    reads down with 403 for minutes at a time, 9 Nov). None when no cache folder is set."""
+    cache = os.environ.get("OLDMONEY_CACHE")
+    if not cache:
+        return None
+    dest = pathlib.Path(cache) / f["id"]
+    if dest.exists() and dest.stat().st_size == f["size"]:
+        return dest
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    url = f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&supportsAllDrives=true"
+    for attempt in range(6):
+        r = subprocess.run(["curl", "-sS", "-f", "-L", "-o", str(dest), "-H", f"Authorization: Bearer {drive()['token']}", url],
+                           capture_output=True, text=True)
+        if not r.returncode and dest.stat().st_size == f["size"]:
+            return dest
+        time.sleep(30 * (attempt + 1))
+    raise SystemExit(f"{name}: could not download it from the Drive ({r.stderr.strip()[-200:]})")
 
 
 def source(name):
@@ -160,6 +182,9 @@ def source(name):
         f = d["files"].get(name)
         if not f:
             raise SystemExit(f"{name} is not on the Drive")
+        local = fetch(name, f)
+        if local:
+            return [], str(local)
         return (["-headers", f"Authorization: Bearer {d['token']}\r\n"],
                 f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&supportsAllDrives=true")
     path = MEDIA / name

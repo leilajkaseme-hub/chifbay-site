@@ -65,6 +65,7 @@ jobs:
           DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
           OLDMONEY_DRIVE: ${{ runner.temp }}/drive.json
           OLDMONEY_DATA: ${{ runner.temp }}/om
+          OLDMONEY_CACHE: ${{ runner.temp }}/cache
         run: |
           (cd ig-auto && node bin/drive-scan.mjs urls "$OLDMONEY_DRIVE")
           args=()
@@ -73,6 +74,7 @@ jobs:
           for d in $DAY; do
             if [ "$MODE" = candidates ]; then python3 shorts/oldmoney/oldmoney.py candidates "$d" || failed="$failed $d"
             else python3 shorts/oldmoney/oldmoney.py build "$d" "${args[@]}" $SONGS || failed="$failed $d"; fi
+            rm -rf "${OLDMONEY_CACHE:?}"          # the trip's videos, downloaded once: room for the next trip
           done
           [ -z "$failed" ] || { echo "failed:$failed"; exit 1; }
       - uses: actions/upload-artifact@v4
