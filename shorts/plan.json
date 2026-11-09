@@ -5255,6 +5255,151 @@
     },
     "at": "2026-11-08T18:29:44Z"
    }
+  },
+  {
+   "id": "s034",
+   "format": "story",
+   "status": "failed",
+   "created": "2026-11-09",
+   "shots": [
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 48.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 50.0,
+     "x": 0.46,
+     "x2": 0.44,
+     "what": "Boat accelerates from stationary, producing a plume of white prop wash and a crisp trailing wake in deep blue sea",
+     "tags": [
+      "speed",
+      "wake",
+      "boat_hero",
+      "aerial",
+      "open_sea"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1uuxdKOd9WakXvan7ZsUKoBsiNGGUeyhR",
+     "name": "814827276.655097_16181793134483.mp4",
+     "start": 5.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 7.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "The camera reframes from the sea to reveal a family sitting together on the bow of the moving boat.",
+     "tags": [
+      "speed",
+      "boat_hero",
+      "open_sea",
+      "cliffs",
+      "guests_happy",
+      "family"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1WmW87qt5jjig0eAHPQlizNG-AMUS4kjL",
+     "name": "DJI_20261030165837_0002_D.MP4",
+     "start": 9.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 11.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Drone moves down over the white boat with guests onboard anchored near dramatic cliffs.",
+     "tags": [
+      "aerial",
+      "boat_hero",
+      "cliffs",
+      "guests_happy",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 85.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 87.0,
+     "x": 0.48,
+     "x2": 0.51,
+     "what": "High rear angle following directly behind the boat as it cuts through the ocean leaving a straight foaming trail",
+     "tags": [
+      "topdown",
+      "aerial",
+      "boat_hero",
+      "speed",
+      "wake"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Book your day on chifbay.com.",
+   "light": "day",
+   "recorded": "2026-10-14",
+   "texts": {
+    "hook": "Pulling away from the coast at speed",
+    "labels": [
+     "Pulling away from the coast at speed",
+     "A quiet morning out with the family",
+     "Anchored under the cliffs for a break",
+     "Cutting through open ocean on the way back"
+    ],
+    "thumb": "South coast from above",
+    "ig": "Cruising along the south coast cliffs on our private boat, Madeira. 📍\n\nBook your day on chifbay.com.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#funchalmadeira"
+    ],
+    "fb": "Heading out from Funchal marina along the south coast of Madeira. Private trips for up to five guests with our local crew.",
+    "threads": "Cruising past the south coast cliffs on our private boat trip from Funchal.",
+    "yt_title": "South coast cliffs by private boat, Madeira #Shorts",
+    "yt_description": "Leaving Funchal marina on our private boat.\nWe head along the south coast past Cabo Girão, stopping near the cliffs while our drone captures the trip from above. Private trips for up to five guests with our local crew.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira private boat",
+     "cabo girao",
+     "madeira drone",
+     "funchal marina",
+     "karnic r8s",
+     "madeira ocean tour",
+     "chifbay",
+     "funchal boat trip"
+    ],
+    "tiktok": "Cruising along the south coast of Madeira on our private boat trip. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "Aerial drone and boat footage of a family on a white boat cruising and anchoring along the rocky south coast cliffs of Madeira.",
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "checks": {
+     "ok": false,
+     "problems": [
+      "could not read DJI_20260517161057_0006_D.MP4 at 48.02 s from the Drive"
+     ]
+    },
+    "at": "2026-11-09T23:04:04Z"
+   }
   }
  ]
 }
