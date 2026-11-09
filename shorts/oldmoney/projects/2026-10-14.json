@@ -1,0 +1,25 @@
+{
+  "trip": "drone file 'video 1.MP4' (uploaded 14 Oct 2026): the boat at speed in the sun's glitter, a circle, then still on turquoise water with a paddle board",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "look": "sapphire-orange-day",
+  "title_top": 1180,
+  "title_high": 300,
+  "videos": {
+    "video 1.MP4": {"speed": 1, "every": 4, "to": 300}
+  },
+  "shots": {
+    "glitter-start": ["video 1.MP4", 0.5, 0.55, 1, "wide"],
+    "glitter-close": ["video 1.MP4", 6.0, 0.5, 1, ""],
+    "wake-diag": ["video 1.MP4", 14.0, 0.45, 1, "wide"],
+    "wake-long": ["video 1.MP4", 22.0, 0.33, 1, ""],
+    "circle-far": ["video 1.MP4", 63.059, 0.45, 1, "intro wide"],
+    "circle": ["video 1.MP4", 72.059, 0.45, 1, "wide"],
+    "circle-exit": ["video 1.MP4", 80.059, 0.6, 1, ""],
+    "head-on": ["video 1.MP4", 83.559, 0.42, 1, ""],
+    "top-paddle": ["video 1.MP4", 149.143, 0.65, 1, "people"],
+    "top-drift": ["video 1.MP4", 156.143, 0.52, 1, "end wide"],
+    "top-still": ["video 1.MP4", 194.185, 0.55, 1, "end"]
+  }
+}

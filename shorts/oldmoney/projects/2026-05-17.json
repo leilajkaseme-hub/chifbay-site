@@ -1,0 +1,26 @@
+{
+  "trip": "17 May 2026, the boat at speed off Funchal, filmed from above (driver only: a boat day more than a client trip)",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "look": "sapphire-orange-day",
+  "title_top": 1180,
+  "title_high": 300,
+  "videos": {
+    "DJI_20260517161057_0006_D.MP4": {"speed": 1, "every": 6}
+  },
+  "shots": {
+    "wake-top": ["DJI_20260517161057_0006_D.MP4", 63.562, 0.6, 1, "intro high wide"],
+    "coast-run": ["DJI_20260517161057_0006_D.MP4", 72.562, 0.6, 1, "intro high wide"],
+    "below": ["DJI_20260517161057_0006_D.MP4", 78.062, 0.5, 1, ""],
+    "carve": ["DJI_20260517161057_0006_D.MP4", 102.099, 0.5, 1, ""],
+    "arc": ["DJI_20260517161057_0006_D.MP4", 106.599, 0.55, 1, ""],
+    "side-run": ["DJI_20260517161057_0006_D.MP4", 111.099, 0.45, 1, "wide end"],
+    "turn": ["DJI_20260517161057_0006_D.MP4", 116.099, 0.5, 1, ""],
+    "curve-out": ["DJI_20260517161057_0006_D.MP4", 120.099, 0.6, 1, ""],
+    "side-close": ["DJI_20260517161057_0006_D.MP4", 200.699, 0.5, 1, "people"],
+    "turn-close": ["DJI_20260517161057_0006_D.MP4", 205.199, 0.5, 1, ""],
+    "side-right": ["DJI_20260517161057_0006_D.MP4", 209.699, 0.6, 1, "wide"],
+    "run-away": ["DJI_20260517161057_0006_D.MP4", 214.199, 0.45, 1, "end"]
+  }
+}

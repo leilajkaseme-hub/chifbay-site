@@ -1,0 +1,85 @@
+name: oldmoney-render
+
+# Renders the "old money" Reels of one client trip (shorts/oldmoney/projects/<day>.json), streaming the 4K videos
+# from the Drive: nothing big ever lands on the MacBook. Two artifacts: oldmoney-<day>-share (light silent copies,
+# covers, edit lists: to look at and send) and oldmoney-<day>-masters (the crf 16 files to post).
+# The songs are never here (copyright): add them on the Mac with `python3 shorts/oldmoney/oldmoney.py mux <day>`.
+
+on:
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "trip: shorts/oldmoney/projects/<day>.json"
+        required: true
+      mode:
+        description: "build (the Reels) | candidates (a sheet of possible shots, to pick from)"
+        required: false
+        default: build
+      songs:
+        description: "songs, space separated (empty = the trip's songs, else all)"
+        required: false
+        default: ""
+      look:
+        description: "palette (empty = the trip's)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      DAY: ${{ github.event.inputs.day }}
+      MODE: ${{ github.event.inputs.mode }}
+      SONGS: ${{ github.event.inputs.songs }}
+      LOOK: ${{ github.event.inputs.look }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ffmpeg, Pillow, numpy
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          pip install -q pillow numpy
+      - name: Check the inputs
+        run: '[[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] && [ -f "shorts/oldmoney/projects/$DAY.json" ] && [[ "$MODE" =~ ^(build|candidates)$ ]]'
+      - name: Render
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          DRIVE_PUBLISH_FOLDER_ID: ${{ secrets.DRIVE_PUBLISH_FOLDER_ID }}
+          OLDMONEY_DRIVE: ${{ runner.temp }}/drive.json
+          OLDMONEY_DATA: ${{ runner.temp }}/om
+        run: |
+          (cd ig-auto && node bin/drive-scan.mjs urls "$OLDMONEY_DRIVE")
+          args=()
+          [ -n "$LOOK" ] && args+=(--look "$LOOK")
+          if [ "$MODE" = candidates ]; then python3 shorts/oldmoney/oldmoney.py candidates "$DAY"
+          else python3 shorts/oldmoney/oldmoney.py build "$DAY" "${args[@]}" $SONGS; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oldmoney-${{ github.event.inputs.day }}-share
+          path: |
+            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*-small.mp4
+            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*.jpg
+            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*.json
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oldmoney-${{ github.event.inputs.day }}-masters
+          path: |
+            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*.mp4
+            !${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*-small.mp4
+          retention-days: 30

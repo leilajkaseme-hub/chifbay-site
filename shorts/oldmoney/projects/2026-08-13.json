@@ -1,0 +1,26 @@
+{
+  "trip": "13 Aug 2026, overcast afternoon, jumps and swims under the cliffs, then a golden sunset ride home with the whole group",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "title_top": 1180,
+  "title_high": 300,
+  "videos": {
+    "DJI_20260813191642_0030_D.MP4": {"speed": 0.5, "every": 2.5},
+    "Video 1080P 13082026.mp4": {"speed": 1, "every": 3, "from": 96, "to": 127, "edit": true}
+  },
+  "shots": {
+    "sunset-toast": ["Video 1080P 13082026.mp4", 109.067, 0.38, 1, "people intro high end"],
+    "cliff-far": ["DJI_20260813191642_0030_D.MP4", 72.57, 0.6, 0.5, "intro high wide"],
+    "boat-cliffs": ["DJI_20260813191642_0030_D.MP4", 1.0, 0.15, 0.5, "wide"],
+    "jump": ["DJI_20260813191642_0030_D.MP4", 13.712, 0.35, 0.5, "people"],
+    "turn-swim": ["DJI_20260813191642_0030_D.MP4", 17.012, 0.35, 0.5, ""],
+    "guests-close": ["DJI_20260813191642_0030_D.MP4", 25.02, 0.5, 0.5, "people"],
+    "guests-swim": ["DJI_20260813191642_0030_D.MP4", 29.52, 0.45, 0.5, "people"],
+    "float": ["DJI_20260813191642_0030_D.MP4", 36.035, 0.5, 0.5, "people"],
+    "boat-swimmers": ["DJI_20260813191642_0030_D.MP4", 45.041, 0.45, 0.5, ""],
+    "sunset-ride": ["Video 1080P 13082026.mp4", 115.067, 0.35, 1, "people"],
+    "sunset-ride2": ["Video 1080P 13082026.mp4", 101.567, 0.38, 1, "people end"],
+    "turq-water": ["Video 1080P 13082026.mp4", 96.767, 0.5, 1, "wide"]
+  }
+}

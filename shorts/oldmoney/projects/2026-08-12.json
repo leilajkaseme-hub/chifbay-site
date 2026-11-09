@@ -1,0 +1,25 @@
+{
+  "trip": "12 Aug 2026, bright midday, paddle board and swims in deep blue water (one drone file only: fewer shots, so the calmer songs)",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "look": "sapphire-orange-day",
+  "title_top": 1180,
+  "songs": [
+    "skyfall",
+    "tourner"
+  ],
+  "videos": {
+    "DJI_20260812144130_0009_D.MP4": {"speed": 0.5, "every": 2.5}
+  },
+  "shots": {
+    "boat-paddle": ["DJI_20260812144130_0009_D.MP4", 52.041, 0.42, 0.5, "intro wide"],
+    "two-board": ["DJI_20260812144130_0009_D.MP4", 5.505, 0.72, 0.5, "people"],
+    "paddle-top": ["DJI_20260812144130_0009_D.MP4", 9.505, 0.62, 0.5, "people"],
+    "swimmer-top": ["DJI_20260812144130_0009_D.MP4", 22.518, 0.62, 0.5, "wide"],
+    "paddle-shore": ["DJI_20260812144130_0009_D.MP4", 32.529, 0.63, 0.5, "wide"],
+    "swim-close": ["DJI_20260812144130_0009_D.MP4", 37.029, 0.55, 0.5, "people"],
+    "paddle-swim": ["DJI_20260812144130_0009_D.MP4", 43.041, 0.25, 0.5, "people"],
+    "paddle-far": ["DJI_20260812144130_0009_D.MP4", 54.541, 0.5, 0.5, "end wide"]
+  }
+}

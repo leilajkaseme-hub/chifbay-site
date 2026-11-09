@@ -1,0 +1,28 @@
+{
+  "trip": "1 Jun 2026, Cabo Girao and Faja dos Padres in the afternoon, then sunset at sea",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "look": "sapphire-orange-day",
+  "title_top": 1180,
+  "title_high": 300,
+  "videos": {
+    "DJI_20260601192422_0009_D.MP4": {"speed": 1, "every": 3},
+    "DJI_20260601205023_0010_D.MP4": {"speed": 1, "every": 3}
+  },
+  "shots": {
+    "cove-glare": ["DJI_20260601192422_0009_D.MP4", 2.0, 0.45, 1, "intro high wide"],
+    "boat-guests": ["DJI_20260601205023_0010_D.MP4", 0.5, 0.55, 1, "people"],
+    "boat-turn": ["DJI_20260601205023_0010_D.MP4", 8.0, 0.35, 1, "people"],
+    "boat-cliffs": ["DJI_20260601205023_0010_D.MP4", 12.5, 0.6, 1, "wide"],
+    "boat-sun": ["DJI_20260601205023_0010_D.MP4", 16.6, 0.55, 1, ""],
+    "boat-blue": ["DJI_20260601192422_0009_D.MP4", 24.02, 0.68, 1, ""],
+    "cliff-glitter": ["DJI_20260601192422_0009_D.MP4", 30.027, 0.6, 1, "intro wide"],
+    "faja": ["DJI_20260601192422_0009_D.MP4", 46.041, 0.5, 1, "wide"],
+    "cliff-face": ["DJI_20260601192422_0009_D.MP4", 89.579, 0.5, 1, ""],
+    "silhouette": ["DJI_20260601205023_0010_D.MP4", 84.08, 0.5, 1, "wide"],
+    "boat-close": ["DJI_20260601205023_0010_D.MP4", 89.58, 0.47, 1, "people"],
+    "boat-end": ["DJI_20260601205023_0010_D.MP4", 100.098, 0.85, 1, "people"],
+    "sun-path": ["DJI_20260601205023_0010_D.MP4", 22.019, 0.33, 1, "end"]
+  }
+}

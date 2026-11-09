@@ -1,0 +1,120 @@
+{
+  "trip": "30 Oct 2026, couple's 33rd anniversary, golden hour at Cabo Girao",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "title_top": 1180,
+  "videos": {
+    "DJI_20261030165722_0001_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030165837_0002_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030165952_0003_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030170106_0004_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030170206_0005_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030170253_0006_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030170359_0007_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030173040_0008_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030173135_0009_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030173155_0010_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030173226_0011_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030173351_0012_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030173408_0013_D.MP4": {"speed": 0.5, "every": 4},
+    "DJI_20261030173535_0014_D.MP4": {"speed": 0.5, "every": 4},
+    "1_Por_do_Sol_Madeira.mp4": {"speed": 1, "every": 4, "from": 6, "edit": true},
+    "2_Paisagens_e_Pessoas.mp4": {"speed": 1, "every": 4, "from": 6, "edit": true},
+    "3_Aniversario_33_Anos.mp4": {"speed": 1, "every": 4, "from": 6, "edit": true},
+    "4_Melhores_Momentos.mp4": {"speed": 1, "every": 4, "from": 6, "edit": true},
+    "6_Rumo_ao_Funchal.mp4": {"speed": 1, "every": 4, "from": 6, "edit": true},
+    "7_Madeira_Melhores_Momentos.mp4": {"speed": 1, "every": 4, "from": 6, "edit": true}
+  },
+  "shots": {
+    "cliffs-boat": ["DJI_20261030170106_0004_D.MP4", 1.0, 0.47, 0.5, "intro wide"],
+    "bow-gold": ["DJI_20261030170253_0006_D.MP4", 6.505, 0.41, 0.5, ""],
+    "bow-close": ["DJI_20261030170253_0006_D.MP4", 9.005, 0.5, 0.5, "people"],
+    "side-blue": ["DJI_20261030170253_0006_D.MP4", 11.505, 0.73, 0.5, ""],
+    "top-gold": ["DJI_20261030173351_0012_D.MP4", 1.0, 0.6, 0.5, ""],
+    "top-cliff": ["DJI_20261030173351_0012_D.MP4", 9.5, 0.79, 0.5, ""],
+    "silhouette": ["DJI_20261030170253_0006_D.MP4", 0.5, 0.45, 0.5, "wide"],
+    "glitter": ["DJI_20261030165722_0001_D.MP4", 20.018, 0.45, 0.5, "wide"],
+    "top-blue": ["DJI_20261030165722_0001_D.MP4", 29.526, 0.37, 0.5, "intro wide"],
+    "top-teal": ["DJI_20261030170253_0006_D.MP4", 18.514, 0.62, 0.5, ""],
+    "approach": ["DJI_20261030173155_0010_D.MP4", 8.002, 0.35, 0.5, "people"],
+    "under-cliffs": ["DJI_20261030170359_0007_D.MP4", 6.8, 0.5, 0.5, "intro wide"],
+    "cliff": ["DJI_20261030165722_0001_D.MP4", 47.044, 0.5, 0.5, "wide"],
+    "cliff-wide": ["DJI_20261030165952_0003_D.MP4", 20.012, 0.5, 0.5, "wide"],
+    "sun-path": ["DJI_20261030173155_0010_D.MP4", 14.714, 0.5, 0.5, "end"],
+    "toast": ["3_Aniversario_33_Anos.mp4", 20.667, 0.82, 1, "people"],
+    "hug": ["3_Aniversario_33_Anos.mp4", 43.167, 0.8, 1, "people"],
+    "loungers": ["4_Melhores_Momentos.mp4", 58.5, 0.53, 1, "people"],
+    "sunset-clouds": ["6_Rumo_ao_Funchal.mp4", 22.6, 0.28, 1, "end wide"],
+    "table-cliffs": ["1_Por_do_Sol_Madeira.mp4", 48.967, 0.59, 1, "people"],
+    "photographer": ["4_Melhores_Momentos.mp4", 52.0, 0.25, 1, "people"]
+  },
+  "edits": {
+    "monaco": {
+      "intro": [
+        [
+          "cliffs-boat",
+          8
+        ]
+      ],
+      "cuts": [
+        [
+          "bow-gold",
+          1
+        ],
+        [
+          "toast",
+          1
+        ],
+        [
+          "top-gold",
+          1
+        ],
+        [
+          "loungers",
+          1
+        ],
+        [
+          "silhouette",
+          2
+        ],
+        [
+          "table-cliffs",
+          1
+        ],
+        [
+          "approach",
+          1
+        ],
+        [
+          "hug",
+          1
+        ],
+        [
+          "under-cliffs",
+          1
+        ],
+        [
+          "photographer",
+          1
+        ],
+        [
+          "cliff-wide",
+          1
+        ],
+        [
+          "sunset-clouds",
+          1
+        ],
+        [
+          "side-blue",
+          2
+        ]
+      ],
+      "end": [
+        "sun-path",
+        4
+      ]
+    }
+  }
+}

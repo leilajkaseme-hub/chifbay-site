@@ -1,0 +1,14 @@
+{
+  "trip": "24 Sep 2026, overcast, the boat from straight above on calm water, the cliffs",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "look": "sapphire-orange-day",
+  "title_top": 1180,
+  "title_high": 300,
+  "videos": {
+    "DJI_20260924185527_0080_D.MP4": {"speed": 0.5, "every": 3},
+    "DJI_20260924185451_0079_D.MP4": {"speed": 1, "every": 1}
+  },
+  "shots": {}
+}

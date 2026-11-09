@@ -1,0 +1,25 @@
+{
+  "trip": "4 Jun 2026, evening off Funchal: a sailboat, the boat from above with the guests, a slow orbit",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "look": "sapphire-orange-day",
+  "title_top": 1180,
+  "title_high": 300,
+  "videos": {
+    "DJI_20260604202235_0011_D.MP4": {"speed": 0.5, "every": 2},
+    "DJI_20260604202414_0012_D.MP4": {"speed": 0.5, "every": 2}
+  },
+  "shots": {
+    "sail-boat": ["DJI_20260604202235_0011_D.MP4", 1.0, 0.42, 0.5, "intro high wide"],
+    "approach": ["DJI_20260604202235_0011_D.MP4", 9.5, 0.47, 0.5, ""],
+    "top-guests2": ["DJI_20260604202235_0011_D.MP4", 22.017, 0.6, 0.5, "people"],
+    "top-boat": ["DJI_20260604202235_0011_D.MP4", 24.517, 0.38, 0.5, "wide"],
+    "orbit": ["DJI_20260604202414_0012_D.MP4", 0.5, 0.5, 0.5, "intro high wide"],
+    "orbit-side": ["DJI_20260604202414_0012_D.MP4", 6.0, 0.67, 0.5, ""],
+    "orbit-bow": ["DJI_20260604202414_0012_D.MP4", 9.0, 0.45, 0.5, ""],
+    "orbit-close": ["DJI_20260604202414_0012_D.MP4", 12.5, 0.5, 0.5, "people"],
+    "orbit-close2": ["DJI_20260604202414_0012_D.MP4", 16.5, 0.27, 0.5, "people"],
+    "top-away": ["DJI_20260604202414_0012_D.MP4", 20.0, 0.5, 0.5, "end wide"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "trip": "6 Jun 2026, evening under Cabo Girao: the boat backlit by the low sun, the guests at the table on deep blue water",
+  "sources": {
+    "shots": "[video on the Drive, start s, centre of the 9:16 crop, speed, tags]: times are in the Drive originals"
+  },
+  "look": "sapphire-orange-day",
+  "title_top": 1180,
+  "title_high": 300,
+  "videos": {
+    "DJI_20260606200017_0014_D.MP4": {"speed": 0.5, "every": 2.5},
+    "DJI_20260606200425_0015_D.MP4": {"speed": 0.5, "every": 2.5}
+  },
+  "shots": {
+    "backlit-cliff": ["DJI_20260606200017_0014_D.MP4", 4.502, 0.6, 0.5, "intro wide"],
+    "backlit-turn": ["DJI_20260606200017_0014_D.MP4", 6.002, 0.42, 0.5, ""],
+    "boat-cliffs": ["DJI_20260606200017_0014_D.MP4", 7.702, 0.5, 0.5, "intro wide"],
+    "toward-coast": ["DJI_20260606200017_0014_D.MP4", 8.508, 0.55, 0.5, ""],
+    "boat-coast": ["DJI_20260606200017_0014_D.MP4", 12.511, 0.55, 0.5, "wide"],
+    "side-sea": ["DJI_20260606200017_0014_D.MP4", 14.511, 0.5, 0.5, ""],
+    "top-guests": ["DJI_20260606200017_0014_D.MP4", 20.511, 0.6, 0.5, "people"],
+    "top-guests2": ["DJI_20260606200017_0014_D.MP4", 24.011, 0.6, 0.5, "people"],
+    "cliffs-wide": ["DJI_20260606200425_0015_D.MP4", 2.0, 0.5, 0.5, "wide"],
+    "cliff-sun": ["DJI_20260606200425_0015_D.MP4", 8.2, 0.5, 0.5, "end"],
+    "deep-blue": ["DJI_20260606200425_0015_D.MP4", 35.532, 0.5, 0.5, "wide"],
+    "top-orbit": ["DJI_20260606200425_0015_D.MP4", 48.044, 0.62, 0.5, ""],
+    "top-turn": ["DJI_20260606200425_0015_D.MP4", 52.544, 0.45, 0.5, "people"],
+    "deep-side": ["DJI_20260606200425_0015_D.MP4", 60.557, 0.5, 0.5, "end"],
+    "guests-table": ["DJI_20260606200425_0015_D.MP4", 68.057, 0.45, 0.5, "people"],
+    "guests-close": ["DJI_20260606200425_0015_D.MP4", 71.057, 0.6, 0.5, "people"]
+  }
+}
