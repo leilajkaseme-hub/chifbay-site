@@ -156,8 +156,11 @@ def drive():
 
 
 def fetch(name, f):
-    """The whole video, once, into OLDMONEY_CACHE: one long read instead of one per shot (Google turned the many short
-    reads down with 403 for minutes at a time, 9 Nov). None when no cache folder is set."""
+    """The whole video, once, into OLDMONEY_CACHE, in 32 MB pieces: Google refuses whole and open-ended reads of a
+    file once its daily download quota is used up ("downloadQuotaExceeded", 9 Nov) but still serves bounded pieces.
+    One read per piece instead of one per shot. None when no cache folder is set."""
+    import urllib.error
+    import urllib.request
     cache = os.environ.get("OLDMONEY_CACHE")
     if not cache:
         return None
@@ -166,13 +169,24 @@ def fetch(name, f):
         return dest
     dest.parent.mkdir(parents=True, exist_ok=True)
     url = f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&supportsAllDrives=true"
-    for attempt in range(6):
-        r = subprocess.run(["curl", "-sS", "-f", "-L", "-o", str(dest), "-H", f"Authorization: Bearer {drive()['token']}", url],
-                           capture_output=True, text=True)
-        if not r.returncode and dest.stat().st_size == f["size"]:
-            return dest
-        time.sleep(30 * (attempt + 1))
-    raise SystemExit(f"{name}: could not download it from the Drive ({r.stderr.strip()[-200:]})")
+    piece = 32 << 20
+    with open(dest, "wb") as out:
+        for start in range(0, f["size"], piece):
+            end = min(f["size"], start + piece) - 1
+            for attempt in range(6):
+                req = urllib.request.Request(url, headers={"Authorization": f"Bearer {drive()['token']}", "Range": f"bytes={start}-{end}"})
+                try:
+                    with urllib.request.urlopen(req, timeout=120) as r:
+                        data = r.read()
+                    if len(data) == end - start + 1:
+                        break
+                except (urllib.error.URLError, TimeoutError) as e:
+                    err = e
+                time.sleep(20 * (attempt + 1))
+            else:
+                raise SystemExit(f"{name}: could not download bytes {start}-{end} from the Drive ({err})")
+            out.write(data)
+    return dest
 
 
 def source(name):
