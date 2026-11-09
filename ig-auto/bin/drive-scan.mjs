@@ -9,6 +9,7 @@
 //   node bin/drive-scan.mjs frames <name> <t0> <t1> [step]   a finer sheet of one window, 0.5 s by default
 //   node bin/drive-scan.mjs windows <name>:<t0>-<t1>[@step] ...   a finer sheet per window
 //   node bin/drive-scan.mjs cut <name> <start> <len> <out>   stream-copy one window into out/<out>.mp4 (a few MB to tens of MB)
+//   node bin/drive-scan.mjs urls <file>                      a read-only token + every video's Drive id, into <file> (see below)
 //
 // Output goes to ./scan-out/ (the workflow uploads it as an artifact). Nothing is ever written to Drive.
 import crypto from "node:crypto";
@@ -106,6 +107,24 @@ if (mode === "list") {
     const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", t0, "-t", String(Number(t1) - Number(t0)), "-i", url(f), "-vf", `fps=1/${step},scale=240:-1,tile=10x6`, "-frames:v", "1", sheet]);
     console.log(fs.existsSync(sheet) ? sheet : (r.stderr || "").slice(0, 200));
   }
+} else if (mode === "keyframes") {
+  // keyframes <name>:<t> ...   the time of the last keyframe at or before t: where a stream-copied window cut at t really starts
+  for (const w of rest) {
+    const i = w.lastIndexOf(":"), name = w.slice(0, i), at = Number(w.slice(i + 1));
+    const f = byName(name);
+    if (!f) { console.log(`no video named ${name}`); continue; }
+    const r = run("ffprobe", ["-v", "error", ...hdr(tok), "-select_streams", "v:0", "-read_intervals", `${Math.max(0, at - 4)}%${at + 0.05}`,
+      "-show_entries", "packet=pts_time,flags", "-of", "csv=p=0", url(f)]);
+    const keys = (r.stdout || "").split("\n").filter((l) => l.includes("K")).map((l) => Number(l.split(",")[0])).filter((x) => x <= at + 0.001);
+    console.log(`KEY ${name}:${at} ${keys.length ? keys.at(-1).toFixed(3) : "none"}`);
+  }
+} else if (mode === "urls") {
+  // urls <file>   write {token, files: {name: {id, size}}} to <file> (outside scan-out: never uploaded), for tools that
+  // stream the videos themselves (shorts/oldmoney). The token is a 1-hour read-only Drive token: never print it.
+  const files = {};
+  for (const f of all) if (!files[f.name]) files[f.name] = { id: f.id, size: Number(f.size) || 0, path: f.path };
+  fs.writeFileSync(rest[0], JSON.stringify({ token: tok, files }), { mode: 0o600 });
+  console.log(`${Object.keys(files).length} videos listed`);
 } else if (mode === "cutmany") {
   // cutmany <name>:<start>:<len>:<out> ...   stream-copy several windows (cut points fall on the keyframe before start)
   for (const w of rest) {
@@ -134,6 +153,6 @@ if (mode === "list") {
   const r = run("ffmpeg", ["-v", "error", "-y", ...hdr(tok), "-ss", start, "-t", len, "-i", url(f), "-c", "copy", "-avoid_negative_ts", "make_zero", dest]);
   console.log(fs.existsSync(dest) ? `${dest} ${(fs.statSync(dest).size / 1e6).toFixed(1)} MB` : (r.stderr || "").slice(0, 300));
 } else {
-  console.error("modes: list | sheets | frames | windows | cutmany | cutenc | cut");
+  console.error("modes: list | sheets | frames | windows | cutmany | cutenc | cut | urls");
   process.exit(2);
 }
