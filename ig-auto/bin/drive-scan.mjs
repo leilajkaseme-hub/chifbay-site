@@ -123,7 +123,7 @@ if (mode === "list") {
   for (const name of rest) {
     const f = byName(name);
     if (!f) { console.log(`no video named ${name}`); continue; }
-    for (const range of ["bytes=0-1023", "bytes=0-", ""]) {      // a small read, an open-ended one, a whole download
+    for (const range of ["bytes=0-1023", "bytes=0-", "", "bytes=0-33554431", "bytes=200000000-233554431"]) {   // small, open-ended, whole, 32 MB pieces
       const headers = { authorization: `Bearer ${tok}` };
       if (range) headers.range = range;
       const ctl = new AbortController();
