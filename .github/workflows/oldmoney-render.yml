@@ -1,15 +1,16 @@
 name: oldmoney-render
 
-# Renders the "old money" Reels of one client trip (shorts/oldmoney/projects/<day>.json), streaming the 4K videos
-# from the Drive: nothing big ever lands on the MacBook. Two artifacts: oldmoney-<day>-share (light silent copies,
-# covers, edit lists: to look at and send) and oldmoney-<day>-masters (the crf 16 files to post).
+# Renders the "old money" Reels of client trips (shorts/oldmoney/projects/<day>.json), streaming the 4K videos from
+# the Drive: nothing big ever lands on the MacBook. The trips go one after the other: several runs reading the Drive
+# at once get turned down (403) for a while. Two artifacts, a folder per trip in each: oldmoney-share (light silent
+# copies, covers, edit lists: to look at and send) and oldmoney-masters (the crf 16 files to post).
 # The songs are never here (copyright): add them on the Mac with `python3 shorts/oldmoney/oldmoney.py mux <day>`.
 
 on:
   workflow_dispatch:
     inputs:
       day:
-        description: "trip: shorts/oldmoney/projects/<day>.json"
+        description: "trips, space separated: shorts/oldmoney/projects/<day>.json"
         required: true
       mode:
         description: "build (the Reels) | candidates (a sheet of possible shots, to pick from)"
@@ -34,7 +35,7 @@ defaults:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 300
     env:
       DAY: ${{ github.event.inputs.day }}
       MODE: ${{ github.event.inputs.mode }}
@@ -55,7 +56,9 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           pip install -q pillow numpy
       - name: Check the inputs
-        run: '[[ "$DAY" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] && [ -f "shorts/oldmoney/projects/$DAY.json" ] && [[ "$MODE" =~ ^(build|candidates)$ ]]'
+        run: |
+          [[ "$MODE" =~ ^(build|candidates)$ ]]
+          for d in $DAY; do [[ "$d" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] && [ -f "shorts/oldmoney/projects/$d.json" ]; done
       - name: Render
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
@@ -66,20 +69,26 @@ jobs:
           (cd ig-auto && node bin/drive-scan.mjs urls "$OLDMONEY_DRIVE")
           args=()
           [ -n "$LOOK" ] && args+=(--look "$LOOK")
-          if [ "$MODE" = candidates ]; then python3 shorts/oldmoney/oldmoney.py candidates "$DAY"
-          else python3 shorts/oldmoney/oldmoney.py build "$DAY" "${args[@]}" $SONGS; fi
+          failed=""
+          for d in $DAY; do
+            if [ "$MODE" = candidates ]; then python3 shorts/oldmoney/oldmoney.py candidates "$d" || failed="$failed $d"
+            else python3 shorts/oldmoney/oldmoney.py build "$d" "${args[@]}" $SONGS || failed="$failed $d"; fi
+          done
+          [ -z "$failed" ] || { echo "failed:$failed"; exit 1; }
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: oldmoney-${{ github.event.inputs.day }}-share
+          name: oldmoney-share
           path: |
-            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*-small.mp4
-            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*.jpg
-            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*.json
+            ${{ runner.temp }}/om/out/*/*-small.mp4
+            ${{ runner.temp }}/om/out/*/*.jpg
+            ${{ runner.temp }}/om/out/*/*.json
           retention-days: 14
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: oldmoney-${{ github.event.inputs.day }}-masters
+          name: oldmoney-masters
           path: |
-            ${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*.mp4
-            !${{ runner.temp }}/om/out/${{ github.event.inputs.day }}/*-small.mp4
+            ${{ runner.temp }}/om/out/*/*.mp4
+            !${{ runner.temp }}/om/out/*/*-small.mp4
           retention-days: 30

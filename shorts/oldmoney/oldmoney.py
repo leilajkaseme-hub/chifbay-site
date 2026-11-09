@@ -108,15 +108,15 @@ ENDLINE = "MADEIRA"
 
 def run(*cmd):
     """Run a command; a Drive read that Google turns down for a moment (403/429/5xx when many reads run at once) is
-    tried again, 4 times, waiting longer each time."""
-    for attempt in range(5):
+    tried again, 6 times, waiting longer each time (about 10 minutes in all)."""
+    for attempt in range(7):
         r = subprocess.run(cmd, capture_output=True, text=True)
         if not r.returncode:
             return r.stdout
         busy = any("googleapis" in str(c) for c in cmd) and any(f" {c} " in r.stderr for c in ("403", "429", "500", "503"))
-        if not busy or attempt == 4:
+        if not busy or attempt == 6:
             raise RuntimeError(f"{cmd[0]} failed: {r.stderr.strip()[-600:]}")
-        time.sleep(20 * (attempt + 1))
+        time.sleep(30 * (attempt + 1))
 
 
 def font(name, size, weight=None):
