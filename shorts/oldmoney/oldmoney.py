@@ -107,10 +107,16 @@ ENDLINE = "MADEIRA"
 
 
 def run(*cmd):
-    r = subprocess.run(cmd, capture_output=True, text=True)
-    if r.returncode:
-        raise RuntimeError(f"{cmd[0]} failed: {r.stderr.strip()[-600:]}")
-    return r.stdout
+    """Run a command; a Drive read that Google turns down for a moment (403/429/5xx when many reads run at once) is
+    tried again, 4 times, waiting longer each time."""
+    for attempt in range(5):
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if not r.returncode:
+            return r.stdout
+        busy = any("googleapis" in str(c) for c in cmd) and any(f" {c} " in r.stderr for c in ("403", "429", "500", "503"))
+        if not busy or attempt == 4:
+            raise RuntimeError(f"{cmd[0]} failed: {r.stderr.strip()[-600:]}")
+        time.sleep(20 * (attempt + 1))
 
 
 def font(name, size, weight=None):
@@ -183,7 +189,10 @@ def library(proj):
     lib = {}
     for sid, (name, t, x, speed, *tags) in proj["shots"].items():
         dur, height = probe(name)
-        lib[sid] = {"id": sid, "name": name, "t": t, "avail": (dur - t) / speed, "x": x, "speed": speed,
+        avail = (dur - t) / speed
+        if proj.get("videos", {}).get(name, {}).get("edit"):
+            avail = min(avail, 1.4)                  # an edited video: the next cut or fade may come soon after
+        lib[sid] = {"id": sid, "name": name, "t": t, "avail": avail, "x": x, "speed": speed,
                     "sharpen": height < 2000, "tags": set((tags[0] if tags else "").split())}
     return lib
 
@@ -433,7 +442,7 @@ def auto_edit(lib, song, period, accent, taken, k):
     end = first("end", END_BEATS, intro) or first("wide", END_BEATS, intro)
     if not intro or not end:
         return None
-    pool = [s for s in free if s is not intro and s is not end]
+    pool = [s for s in free if not s["tags"] & {"intro", "end"}]      # those wait for the next songs' title and logo
     turn = lambda xs: xs[k % len(xs):] + xs[:k % len(xs)] if xs else xs
     people = turn([s for s in pool if "people" in s["tags"]])
     views = turn([s for s in pool if "people" not in s["tags"]])
