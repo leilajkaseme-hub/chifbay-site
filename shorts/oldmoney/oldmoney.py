@@ -209,8 +209,13 @@ def library(proj):
 def frame_at(name, t, w=480):
     """One frame (RGB array, w px wide) of a video at t s."""
     opts, src = source(name)
-    raw = subprocess.run(["ffmpeg", "-v", "error", *opts, "-ss", f"{t:.3f}", "-i", src, "-frames:v", "1",
-                          "-vf", f"scale={w}:-2", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
+    for attempt in range(5):                     # a Drive read turned down for a moment: wait and try again
+        r = subprocess.run(["ffmpeg", "-v", "error", *opts, "-ss", f"{t:.3f}", "-i", src, "-frames:v", "1",
+                            "-vf", f"scale={w}:-2", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True)
+        if r.stdout or b" 403 " not in r.stderr and b" 429 " not in r.stderr:
+            break
+        time.sleep(15 * (attempt + 1))
+    raw = r.stdout
     h = len(raw) // (w * 3)
     return np.frombuffer(raw[:w * h * 3], np.uint8).reshape(h, w, 3) if h else None
 
@@ -269,7 +274,7 @@ def candidates(day):
             return None
         return {"name": name, "t": t, "x": x, "speed": o.get("speed", 0.5), "img": img}
 
-    with ThreadPoolExecutor(6) as ex:
+    with ThreadPoolExecutor(3) as ex:
         found = [c for c in ex.map(look, jobs) if c]
     out = OUT / day
     out.mkdir(parents=True, exist_ok=True)
