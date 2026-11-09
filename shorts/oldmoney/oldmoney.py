@@ -193,7 +193,7 @@ def library(proj):
     1 right), speed, tags]. Speed 0.5 = smooth slow motion of a 59.94 fps drone file. A video smaller than 4K is blown
     up to fill the frame, so it gets a light sharpening. Tags: intro (a calm wide shot that carries the title and the
     cover), high (the title goes high, over the sky), end (under the logo), wide (good for a held shot), people (the
-    guests, close)."""
+    guests, close), scene:<name> (see scene())."""
     lib = {}
     for sid, (name, t, x, speed, *tags) in proj["shots"].items():
         dur, height = probe(name)
@@ -439,12 +439,18 @@ def rhythm(song, accent):
     return cuts
 
 
+def scene(s):
+    """What a shot shows: its `scene:<name>` tag (the same moment found in several edited videos of the day: the bow,
+    the cake table...), else the shot itself. A scene is used once per trip."""
+    return next((t for t in s["tags"] if t.startswith("scene:")), s["id"])
+
+
 def auto_edit(lib, song, period, accent, taken, k):
     """An edit made from the song's rhythm and from shots no other song of this trip uses (`taken`): an intro shot
     long enough for the title, an end shot for the logo, then a view and the guests in turn. A held shot (3 beats or
     more) goes to a wide shot when one fits; two shots of the same video never follow each other. None when the trip
     has too few unused shots for this song."""
-    free = [s for s in lib.values() if s["id"] not in taken]
+    free = [s for s in lib.values() if scene(s) not in taken]
     fits = lambda s, beats: s["avail"] >= beats * period + 0.15
     first = lambda tag, beats, avoid=None: next((s for s in free if tag in s["tags"] and fits(s, beats) and s is not avoid), None)
     intro = first("intro", SONGS[song]["intro"]) or first("wide", SONGS[song]["intro"])     # a wide shot can carry the title
@@ -456,15 +462,15 @@ def auto_edit(lib, song, period, accent, taken, k):
     people = turn([s for s in pool if "people" in s["tags"]])
     views = turn([s for s in pool if "people" not in s["tags"]])
     order = [s for pair in zip(views, people) for s in pair] + views[len(people):] + people[len(views):]
-    cuts, last, used = [], intro["name"], set()
+    cuts, last, used = [], intro["name"], {scene(intro), scene(end)}
     for n in rhythm(song, accent):
-        cands = [s for s in order if s["id"] not in used and fits(s, n)]
+        cands = [s for s in order if scene(s) not in used and fits(s, n)]
         if n >= 3:
             cands = [s for s in cands if "wide" in s["tags"]] + [s for s in cands if "wide" not in s["tags"]]
         pick = next((s for s in cands if s["name"] != last), None) or next(iter(cands), None)
         if pick is None:
             return None
-        used.add(pick["id"])
+        used.add(scene(pick))
         cuts.append([pick["id"], n])
         last = pick["name"]
     return {"intro": [[intro["id"], SONGS[song]["intro"]]], "cuts": cuts, "end": [end["id"], END_BEATS]}
@@ -480,7 +486,7 @@ def plan_trip(proj, lib, songs):
         if e is None:
             print(f"{s}: not enough fresh shots left in this trip, left out")
             continue
-        taken |= {sid for sid, _ in e["intro"] + e["cuts"]} | {e["end"][0]}
+        taken |= {scene(lib[sid]) for sid, _ in e["intro"] + e["cuts"]} | {scene(lib[e["end"][0]])}
         plans[s] = e
     return {s: plans[s] for s in songs if s in plans}
 
@@ -548,16 +554,42 @@ def build(day, proj, lib, song, e, look, base):
     print(f"{day}/{silent.name}: {total:.2f}s, {len(plan)} shots, the drop at {drop_t:.2f}s, the logo at {end_t:.2f}s")
 
 
+def pcm(*args, sr=22050):
+    """Mono float samples of an audio source (ffmpeg input arguments)."""
+    raw = subprocess.run(["ffmpeg", "-v", "error", *args, "-ac", "1", "-ar", str(sr), "-f", "f32le", "-"], capture_output=True).stdout
+    return np.frombuffer(raw, np.float32)
+
+
+def lateness(preview, song, t0, sr=22050):
+    """How late (s) the preview's sound is against the song at t0: the peak of their cross-correlation, first 6 s."""
+    a = pcm("-i", str(song), sr=sr)[int(t0 * sr):int(t0 * sr) + 6 * sr]
+    b = pcm("-i", str(preview), "-vn", sr=sr)[:6 * sr]
+    n = 1 << (len(a) + len(b)).bit_length()
+    cc = np.fft.irfft(np.fft.rfft(b, n) * np.conj(np.fft.rfft(a, n)), n)
+    lag = int(np.argmax(np.concatenate([cc[-sr // 5:], cc[:sr // 5]]))) - sr // 5   # within 0.2 s either way
+    return lag / sr
+
+
 def mux(out, name):
-    """<name>-small.mp4 + the song from music/ -> <name>-preview.mp4, then the small copy goes."""
+    """<name>-small.mp4 + the song from music/ -> <name>-preview.mp4, then the small copy goes. The sound is measured
+    against the song and set again until it is within 3 ms: Apple's previews start with 2112 samples of encoder lead-in
+    that came out as the song 45 to 48 ms late (Theo, 9 Nov: "not right on the beat")."""
     meta = json.loads((out / f"{name}-edit.json").read_text())
     song = next(k for k, v in SONGS.items() if v["name"] == meta["song"])
     t0, total = meta["song_start_in_preview"], meta["length"]
-    # the song is cut after decoding (atrim, to the sample): seeking the m4a itself put it 40 to 50 ms late (9 Nov)
-    run("ffmpeg", "-v", "error", "-y", "-i", str(out / f"{name}-small.mp4"), "-i", str(MUSIC / f"{song}-preview.m4a"),
-        "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-        "-af", f"atrim=start={t0:.4f}:duration={total:.4f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 0.6:.3f}:d=0.6",
-        "-movflags", "+faststart", str(out / f"{name}-preview.mp4"))
+    src, prev = MUSIC / f"{song}-preview.m4a", out / f"{name}-preview.mp4"
+    start = t0
+    for _ in range(3):
+        run("ffmpeg", "-v", "error", "-y", "-i", str(out / f"{name}-small.mp4"), "-i", str(src),
+            "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+            "-af", f"atrim=start={start:.5f}:duration={total:.4f},asetpts=PTS-STARTPTS,afade=t=out:st={total - 0.6:.3f}:d=0.6",
+            "-movflags", "+faststart", str(prev))
+        late = lateness(prev, src, t0)
+        if abs(late) <= 0.003:
+            break
+        start += late
+    else:
+        raise SystemExit(f"{name}: the song stays {late * 1000:+.0f} ms off in the preview")
     (out / f"{name}-small.mp4").unlink()
 
 
