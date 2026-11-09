@@ -118,6 +118,15 @@ if (mode === "list") {
     const keys = (r.stdout || "").split("\n").filter((l) => l.includes("K")).map((l) => Number(l.split(",")[0])).filter((x) => x <= at + 0.001);
     console.log(`KEY ${name}:${at} ${keys.length ? keys.at(-1).toFixed(3) : "none"}`);
   }
+} else if (mode === "status") {
+  // status <name> ...   Google's answer to a 1 KB read of each video: 206 = fine, else the reason (a quota, a rate limit)
+  for (const name of rest) {
+    const f = byName(name);
+    if (!f) { console.log(`no video named ${name}`); continue; }
+    const r = await fetch(url(f), { headers: { authorization: `Bearer ${tok}`, range: "bytes=0-1023" } });
+    const body = r.ok ? "" : (await r.text()).replace(/\s+/g, " ").slice(0, 300);
+    console.log(`STATUS ${name} ${r.status} ${body}`);
+  }
 } else if (mode === "urls") {
   // urls <file>   write {token, files: {name: {id, size}}} to <file> (outside scan-out: never uploaded), for tools that
   // stream the videos themselves (shorts/oldmoney). The token is a 1-hour read-only Drive token: never print it.
