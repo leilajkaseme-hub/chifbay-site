@@ -123,9 +123,15 @@ if (mode === "list") {
   for (const name of rest) {
     const f = byName(name);
     if (!f) { console.log(`no video named ${name}`); continue; }
-    const r = await fetch(url(f), { headers: { authorization: `Bearer ${tok}`, range: "bytes=0-1023" } });
-    const body = r.ok ? "" : (await r.text()).replace(/\s+/g, " ").slice(0, 300);
-    console.log(`STATUS ${name} ${r.status} ${body}`);
+    for (const range of ["bytes=0-1023", "bytes=0-", ""]) {      // a small read, an open-ended one, a whole download
+      const headers = { authorization: `Bearer ${tok}` };
+      if (range) headers.range = range;
+      const ctl = new AbortController();
+      const r = await fetch(url(f), { headers, signal: ctl.signal });
+      const body = r.ok ? "" : (await r.text()).replace(/\s+/g, " ").slice(0, 400);
+      if (r.ok) ctl.abort();
+      console.log(`STATUS ${name} [${range || "whole"}] ${r.status} ${body}`);
+    }
   }
 } else if (mode === "urls") {
   // urls <file>   write {token, files: {name: {id, size}}} to <file> (outside scan-out: never uploaded), for tools that
