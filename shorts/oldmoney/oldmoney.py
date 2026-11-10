@@ -488,22 +488,19 @@ def lockup(draw_on, words, top, shade=None, scale=1.0):
     centred(draw_on, top + L["caps_dy"], words["caps"], L["caps"], shade or GOLD, spacing=round(3 * scale))
 
 
-def title_top(proj, intro, words, span):
-    """Where the title goes over the intro shot (Theo, 10 Nov: the words sat on the boat). Never over a white hull or
-    a cloud; better not over the band around it (a third of its height: the guests, the bow, the bimini); on the
-    calmest, darkest rows (the sea, not the cliff: gold letters get lost in rock); then near the project's choice
-    (`title_top`, or `title_high` on a shot tagged high). Inside Instagram's safe zone and the cover's 4:5 crop; set
-    smaller (85 or 72 %) when that is what keeps it on clean sea. `span` = the seconds of the source video the title
-    covers. Returns (top, scale)."""
-    want = proj.get("title_high", 300) if "high" in intro["tags"] else proj.get("title_top", 1180)
+def busy_rows(shot, span):
+    """What a text would sit on, row by row of the 9:16 frame, over the `span` seconds of the source video from the
+    shot's start: (hull, near, clutter). hull = 1 on the rows of a white hull or a cloud; near = 1 on the band around
+    it (a third of its height: the guests, the bow, the bimini); clutter = how busy and bright the row is (rock and
+    foliage high, calm dark sea low)."""
     hull, near, clutter, n = np.zeros(H), np.zeros(H), np.zeros(H), 0
     for at in (0.1, 0.5, 0.9):
-        img = frame_at(intro["name"], intro["t"] + at * span)
+        img = frame_at(shot["name"], shot["t"] + at * span)
         if img is None:
             continue
         h, w = img.shape[:2]
         cw = round(w * W / (H * w / h))                                # the 9:16 crop, in this frame's pixels
-        x0 = round((w - cw) * intro["x"])
+        x0 = round((w - cw) * shot["x"])
         a = img[:, x0:x0 + cw].astype(int)
         y_of = np.minimum((np.arange(H) * h / H).astype(int), h - 1)  # frame row of each output row
         white = (a.min(axis=2) > 185) & (a.max(axis=2) - a.min(axis=2) < 45)
@@ -515,19 +512,37 @@ def title_top(proj, intro, words, span):
             hull[int(y0):int(y1)] = 1
             near[max(0, int(y0 - grow * 4 * H / h)):int(y1 + grow * 4 * H / h)] = 1
         lum = a.mean(axis=2) / 255
-        texture = np.abs(np.diff(lum, axis=1)).mean(axis=1)             # rock and foliage: high; the sea: low
+        texture = np.abs(np.diff(lum, axis=1)).mean(axis=1)
         clutter += (4 * texture + np.maximum(0, lum.mean(axis=1) - 0.5))[y_of]
         n += 1
-    clutter /= max(n, 1)
-    # a row of letters on the hull weighs as much as 0.1 more clutter (rock against sea is 0.25), a row near it 1/100;
-    # the smaller sizes cost a little, so the title stays big when it can
+    return hull, near, clutter / max(n, 1)
+
+
+def free_top(busy, ink_top, ink_bottom, want):
+    """(cost, top) of the best place for a block of text whose ink runs from top + ink_top to top + ink_bottom: never
+    on a hull, better not near it, on the calmest rows, then near `want`; inside Instagram's safe zone (its header on
+    top, the caption and buttons below) and the cover's 4:5 crop. A row of letters on the hull weighs as much as 0.1
+    more clutter (rock against sea is 0.25), a row near it 1/100 of that."""
+    hull, near, clutter = busy
+    best = (float("inf"), want)
+    for t in range(290 - ink_top, H - 330 - ink_bottom, 10):
+        ink, air = slice(t + ink_top, t + ink_bottom), slice(max(0, t + ink_top - 40), t + ink_bottom + 40)
+        best = min(best, (100 * hull[ink].sum() + near[air].sum() + 1000 * clutter[ink].mean() + abs(t - want) / 100, t))
+    return best
+
+
+def title_top(proj, intro, words, span):
+    """Where the title goes over the intro shot (Theo, 10 Nov: the words sat on the boat): free_top() near the
+    project's choice (`title_top`, or `title_high` on a shot tagged high), set smaller (85 or 72 %, at a small cost so
+    it stays big when it can) when that is what keeps it on clean sea. `span` = the seconds of the source video the
+    title covers. Returns (top, scale)."""
+    want = proj.get("title_high", 300) if "high" in intro["tags"] else proj.get("title_top", 1180)
+    busy = busy_rows(intro, span)
     best = (float("inf"), want, 1.0)
     for scale, penalty in ((1.0, 0), (0.85, 60), (0.72, 110)):
         L = lockup_layout(words, scale)
-        for t in range(290 - L["ink_top"], H - 330 - L["ink_bottom"], 10):
-            ink, air = slice(t + L["ink_top"], t + L["ink_bottom"]), slice(max(0, t + L["ink_top"] - 40), t + L["ink_bottom"] + 40)
-            cost = 100 * hull[ink].sum() + near[air].sum() + 1000 * clutter[ink].mean() + penalty + abs(t - want) / 100
-            best = min(best, (cost, t, scale))
+        cost, top = free_top(busy, L["ink_top"], L["ink_bottom"], want)
+        best = min(best, (cost + penalty, top, scale))
     return best[1], best[2]
 
 
