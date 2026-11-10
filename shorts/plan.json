@@ -3015,6 +3015,29 @@
      "problems": []
     },
     "at": "2026-11-02T21:40:45Z"
+   },
+   "posted": {
+    "instagram": {
+     "at": "2026-11-10T23:33:19.504Z",
+     "id": "18146774185578649",
+     "url": "https://www.instagram.com/reel/DflGEbGDa_o/",
+     "slot": "2026-11-10#0"
+    },
+    "facebook": {
+     "at": "2026-11-10T23:33:51.285Z",
+     "id": "122132126997436640",
+     "url": "https://www.facebook.com/122132126997436640"
+    },
+    "threads": {
+     "at": "2026-11-10T23:34:26.453Z",
+     "id": "17946341787368309",
+     "url": "https://www.threads.com/@chifbay/post/DflGMP5hFAP"
+    },
+    "youtube": {
+     "at": "2026-11-10T23:35:04.128Z",
+     "id": "gZCyjgPf0ws",
+     "url": "https://www.youtube.com/shorts/gZCyjgPf0ws"
+    }
    }
   },
   {
@@ -5267,8 +5290,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 48.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 50.0,
+     "speed": 1,
+     "peak": 50,
      "x": 0.46,
      "x2": 0.44,
      "what": "Boat accelerates from stationary, producing a plume of white prop wash and a crisp trailing wake in deep blue sea",
@@ -5288,8 +5311,8 @@
      "name": "814827276.655097_16181793134483.mp4",
      "start": 5.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 7.0,
+     "speed": 1,
+     "peak": 7,
      "x": 0.5,
      "x2": 0.5,
      "what": "The camera reframes from the sea to reveal a family sitting together on the bow of the moving boat.",
@@ -5310,8 +5333,8 @@
      "name": "DJI_20261030165837_0002_D.MP4",
      "start": 9.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 11.0,
+     "speed": 1,
+     "peak": 11,
      "x": 0.5,
      "x2": 0.5,
      "what": "Drone moves down over the white boat with guests onboard anchored near dramatic cliffs.",
@@ -5331,8 +5354,8 @@
      "name": "DJI_20260517161057_0006_D.MP4",
      "start": 85.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 87.0,
+     "speed": 1,
+     "peak": 87,
      "x": 0.48,
      "x2": 0.51,
      "what": "High rear angle following directly behind the boat as it cuts through the ocean leaving a straight foaming trail",
@@ -5412,8 +5435,8 @@
      "name": "DJI_20261030173408_0013_D.MP4",
      "start": 43.35,
      "len": 7.65,
-     "speed": 1.0,
-     "peak": 49.0,
+     "speed": 1,
+     "peak": 49,
      "x": 0.5,
      "x2": 0.5,
      "what": "Drone moves forward over water and tilts up to reveal towering volcanic cliffs.",
@@ -5480,11 +5503,11 @@
      {
       "name": "DJI_20261030173408_0013_D.MP4",
       "in": 43.35,
-      "out": 51.0,
+      "out": 51,
       "grade": "daylight",
       "matched": true,
       "seconds": 7.65,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": false,
       "path": null,
       "what": "Drone moves forward over water and tilts up to reveal towering volcanic cliffs."
