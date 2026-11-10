@@ -74,7 +74,7 @@ jobs:
           for d in $DAY; do
             if [ "$MODE" = candidates ]; then python3 shorts/oldmoney/oldmoney.py candidates "$d" || failed="$failed $d"
             else python3 shorts/oldmoney/oldmoney.py build "$d" "${args[@]}" $SONGS || failed="$failed $d"; fi
-            rm -rf "${OLDMONEY_CACHE:?}"          # the trip's videos, downloaded once: room for the next trip
+            rm -rf "${OLDMONEY_CACHE:?}"          # the trip's video pieces: room for the next trip
           done
           [ -z "$failed" ] || { echo "failed:$failed"; exit 1; }
       - uses: actions/upload-artifact@v4

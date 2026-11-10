@@ -16,8 +16,8 @@ song, colour palette, serif and script titles, the logo at the end.
 Where things are: this folder (in the site repo) holds the code, fonts, beats/ and projects/. The songs and the renders
 are never in git: OLDMONEY_DATA (default stores/chifbay/oldmoney) holds music/ and out/. The videos are streamed from
 the Drive when OLDMONEY_DRIVE names the file written by `node ig-auto/bin/drive-scan.mjs urls <file>` (GitHub Actions:
-.github/workflows/oldmoney-render.yml, so no 4K ever lands on the MacBook), downloaded once per video into
-OLDMONEY_CACHE when it is set, else read from OLDMONEY_DATA/media/.
+.github/workflows/oldmoney-render.yml, so no 4K ever lands on the MacBook): only the 8 MB pieces ffmpeg reads, kept in
+OLDMONEY_CACHE (else a temp folder). Without OLDMONEY_DRIVE they are read from OLDMONEY_DATA/media/.
 
 Style (Theo, 8 and 9 Nov 2026, references: "Old Money" serif + script poster, "Vice Yacht Club" gold caps):
   one line at the start over a calm wide shot, plain hard cuts (no zoom or move added), the logo on the last bar.
@@ -26,11 +26,15 @@ Style (Theo, 8 and 9 Nov 2026, references: "Old Money" serif + script poster, "V
   (no 360 reframes, no shaky phone clips); 59.94 fps drone shots play at half speed. Colour: Sapphire & Orange (Theo's
   pick), with natural skin. Fonts (all OFL, in fonts/): Playfair Display, Pinyon Script, Oswald.
 """
+import http.server
 import json
 import os
 import pathlib
+import re
 import subprocess
 import sys
+import tempfile
+import threading
 import time
 
 import numpy as np
@@ -116,16 +120,11 @@ ENDLINE = "MADEIRA"
 
 
 def run(*cmd):
-    """Run a command; a Drive read that Google turns down for a moment (403/429/5xx when many reads run at once) is
-    tried again, 6 times, waiting longer each time (about 10 minutes in all)."""
-    for attempt in range(7):
-        r = subprocess.run(cmd, capture_output=True, text=True)
-        if not r.returncode:
-            return r.stdout
-        busy = any("googleapis" in str(c) for c in cmd) and any(f" {c} " in r.stderr for c in ("403", "429", "500", "503"))
-        if not busy or attempt == 6:
-            raise RuntimeError(f"{cmd[0]} failed: {r.stderr.strip()[-600:]}")
-        time.sleep(30 * (attempt + 1))
+    out = subprocess.run(cmd, capture_output=True, text=True)
+    drive_failed()
+    if out.returncode:
+        raise RuntimeError(f"{cmd[0]} failed: {out.stderr.strip()[-600:]}")
+    return out.stdout
 
 
 def font(name, size, weight=None):
@@ -138,7 +137,9 @@ def font(name, size, weight=None):
 
 # ---- the videos: streamed from the Drive, or local copies -------------------------------------------------------
 
-_drive, _probe = {}, {}
+_drive, _probe, _pieces, _errors, _server, _cache = {}, {}, {}, [], [], []
+_lock = threading.Lock()
+PIECE = 8 << 20
 
 
 def drive():
@@ -147,72 +148,138 @@ def drive():
     path = os.environ.get("OLDMONEY_DRIVE")
     if not path:
         return None
-    if time.time() - pathlib.Path(path).stat().st_mtime > 40 * 60:     # the file's age, not this process's
-        subprocess.run(["node", "bin/drive-scan.mjs", "urls", path], cwd=SITE / "ig-auto", check=True, capture_output=True)
-        _drive.clear()
-    if not _drive:
-        _drive.update(json.loads(pathlib.Path(path).read_text()))
+    with _lock:
+        if time.time() - pathlib.Path(path).stat().st_mtime > 40 * 60:     # the file's age, not this process's
+            subprocess.run(["node", "bin/drive-scan.mjs", "urls", path], cwd=SITE / "ig-auto", check=True, capture_output=True)
+            _drive.clear()
+        if not _drive:
+            _drive.update(json.loads(pathlib.Path(path).read_text()))
+            _drive["by_id"] = {f["id"]: (n, f) for n, f in _drive["files"].items()}
     return _drive
 
 
-def fetch(name, f):
-    """The whole video, once, into OLDMONEY_CACHE, in 32 MB pieces: Google refuses whole and open-ended reads of a
-    file once its daily download quota is used up ("downloadQuotaExceeded", 9 Nov) but still serves bounded pieces.
-    One read per piece instead of one per shot. None when no cache folder is set."""
+def piece(name, f, k):
+    """Bytes k * PIECE to (k + 1) * PIECE of a Drive video, from OLDMONEY_CACHE or else from the Drive (then kept)."""
     import urllib.error
     import urllib.request
-    cache = os.environ.get("OLDMONEY_CACHE")
-    if not cache:
-        return None
-    dest = pathlib.Path(cache) / f["id"]
-    if dest.exists() and dest.stat().st_size == f["size"]:
-        return dest
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    url = f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&supportsAllDrives=true"
-    piece = 32 << 20
-    with open(dest, "wb") as out:
-        for start in range(0, f["size"], piece):
-            end = min(f["size"], start + piece) - 1
-            for attempt in range(6):
-                req = urllib.request.Request(url, headers={"Authorization": f"Bearer {drive()['token']}", "Range": f"bytes={start}-{end}"})
-                try:
-                    with urllib.request.urlopen(req, timeout=120) as r:
-                        data = r.read()
-                    if len(data) == end - start + 1:
-                        break
-                except (urllib.error.URLError, TimeoutError) as e:
-                    err = e
-                time.sleep(20 * (attempt + 1))
-            else:
-                raise SystemExit(f"{name}: could not download bytes {start}-{end} from the Drive ({err})")
-            out.write(data)
-    return dest
+    with _lock:
+        if not _cache:
+            _cache.append(pathlib.Path(os.environ.get("OLDMONEY_CACHE") or tempfile.mkdtemp(prefix="oldmoney-")))
+        lock = _pieces.setdefault((f["id"], k), threading.Lock())
+    path = _cache[0] / f["id"] / str(k)
+    with lock:                                   # two shots of the same seconds: one download
+        if path.exists():
+            return path.read_bytes()
+        start, end = k * PIECE, min(f["size"], (k + 1) * PIECE) - 1
+        url = f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&supportsAllDrives=true"
+        for attempt in range(6):
+            req = urllib.request.Request(url, headers={"Authorization": f"Bearer {drive()['token']}", "Range": f"bytes={start}-{end}"})
+            try:
+                with urllib.request.urlopen(req, timeout=120) as r:
+                    data = r.read()
+                if len(data) == end - start + 1:
+                    break
+                err = f"{len(data)} bytes came"
+            except urllib.error.HTTPError as e:
+                err = f"HTTP {e.code}"
+                if b"downloadQuotaExceeded" in e.read():
+                    raise RuntimeError(f"{name}: Google's download limit for this file is used up for today "
+                                       "(downloadQuotaExceeded): try again in about 24 hours")
+            except (urllib.error.URLError, TimeoutError) as e:
+                err = str(e)
+            time.sleep(20 * (attempt + 1))       # busy for a moment (403/429/5xx when many reads run at once)
+        else:
+            raise RuntimeError(f"{name}: could not download bytes {start}-{end} from the Drive ({err})")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.with_suffix(".part").write_bytes(data)
+        path.with_suffix(".part").rename(path)
+        return data
+
+
+class DrivePieces(http.server.BaseHTTPRequestHandler):
+    """ffmpeg reads the Drive videos through this server on 127.0.0.1. Google turns down whole and open-ended reads of
+    a file once its daily download quota is getting used up ("downloadQuotaExceeded", 9 Nov), and every byte read counts.
+    So the server asks the Drive for bounded 8 MB pieces, only the ones ffmpeg reads (the index and a shot's seconds,
+    not the whole 3 GB file), and keeps them for the next shot of the same seconds."""
+
+    def log_message(self, *args):
+        pass
+
+    def do_HEAD(self):
+        self.answer(body=False)
+
+    def do_GET(self):
+        self.answer(body=True)
+
+    def answer(self, body):
+        found = drive()["by_id"].get(self.path.strip("/"))
+        if not found:
+            return self.send_error(404)
+        name, f = found
+        size = f["size"]
+        m = re.fullmatch(r"bytes=(\d+)-(\d*)", self.headers.get("Range", ""))
+        start, end = (int(m[1]), min(size - 1, int(m[2] or size - 1))) if m else (0, size - 1)
+        if start >= size:
+            self.send_response(416)
+            self.send_header("Content-Range", f"bytes */{size}")
+            return self.end_headers()
+        try:
+            data = piece(name, f, start // PIECE) if body else b""
+        except RuntimeError as e:
+            _errors.append(str(e))
+            return self.send_error(503)
+        self.send_response(206 if m else 200)
+        self.send_header("Content-Type", "video/mp4")
+        self.send_header("Accept-Ranges", "bytes")
+        self.send_header("Content-Length", str(end - start + 1))
+        if m:
+            self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+        self.end_headers()
+        pos = start
+        try:
+            while body and pos <= end:
+                k = pos // PIECE
+                if k > start // PIECE:
+                    data = piece(name, f, k)
+                chunk = data[pos - k * PIECE:end - k * PIECE + 1]
+                self.wfile.write(chunk)
+                pos += len(chunk)
+        except (BrokenPipeError, ConnectionResetError):
+            pass                                 # ffmpeg has what it needs: it seeks elsewhere, or the shot is over
+        except RuntimeError as e:
+            _errors.append(str(e))
+
+
+def drive_failed():
+    """Stop when a Drive read failed, even if ffmpeg carried on with what it got (a shot cut short)."""
+    if _errors:
+        raise SystemExit(_errors[0])
 
 
 def source(name):
-    """(ffmpeg options before -i, input) for a video of the Drive."""
+    """Where ffmpeg reads a video: the Drive (through the local DrivePieces server), else MEDIA."""
     d = drive()
     if d:
         f = d["files"].get(name)
         if not f:
             raise SystemExit(f"{name} is not on the Drive")
-        local = fetch(name, f)
-        if local:
-            return [], str(local)
-        return (["-headers", f"Authorization: Bearer {d['token']}\r\n"],
-                f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&supportsAllDrives=true")
+        if not _server:
+            server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), DrivePieces)
+            server.daemon_threads = True
+            threading.Thread(target=server.serve_forever, daemon=True).start()
+            _server.append(server)
+        return f"http://127.0.0.1:{_server[0].server_port}/{f['id']}"
     path = MEDIA / name
     if not path.exists():
         raise SystemExit(f"{name}: set OLDMONEY_DRIVE (see the top of this file) or put a copy in {MEDIA}")
-    return [], str(path)
+    return str(path)
 
 
 def probe(name):
     """(duration s, height px) of a video, asked once."""
     if name not in _probe:
-        opts, src = source(name)
-        out = run("ffprobe", "-v", "error", *opts, "-select_streams", "v:0", "-show_entries", "stream=height:format=duration",
-                  "-of", "default=nw=1", src)
+        out = run("ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=height:format=duration",
+                  "-of", "default=nw=1", source(name))
         f = dict(line.split("=", 1) for line in out.split())
         _probe[name] = (float(f["duration"]), int(f["height"]))
     return _probe[name]
@@ -247,13 +314,9 @@ def library(proj):
 
 def frame_at(name, t, w=480):
     """One frame (RGB array, w px wide) of a video at t s."""
-    opts, src = source(name)
-    for attempt in range(5):                     # a Drive read turned down for a moment: wait and try again
-        r = subprocess.run(["ffmpeg", "-v", "error", *opts, "-ss", f"{t:.3f}", "-i", src, "-frames:v", "1",
-                            "-vf", f"scale={w}:-2", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True)
-        if r.stdout or b" 403 " not in r.stderr and b" 429 " not in r.stderr:
-            break
-        time.sleep(15 * (attempt + 1))
+    r = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", source(name), "-frames:v", "1",
+                        "-vf", f"scale={w}:-2", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True)
+    drive_failed()
     raw = r.stdout
     h = len(raw) // (w * 3)
     return np.frombuffer(raw[:w * h * 3], np.uint8).reshape(h, w, 3) if h else None
@@ -566,8 +629,7 @@ def build(day, proj, lib, song, e, look, base):
         s = lib[sid]
         dur = (fb - fa) / FPS
         used.append([sid, s["name"], s["t"], round(dur, 3)])
-        opts, src = source(s["name"])
-        inputs += [*opts, "-ss", f"{s['t']:.3f}", "-t", f"{dur * s['speed'] + 0.2:.3f}", "-i", src]
+        inputs += ["-ss", f"{s['t']:.3f}", "-t", f"{dur * s['speed'] + 0.2:.3f}", "-i", source(s["name"])]
         # plain hard cut: no zoom or move added after a change (Theo, 8 Nov); only the drone's own glide, slowed down
         graph.append(f"[{j}:v]setpts=(PTS-STARTPTS)/{s['speed']},fps={FPS},trim=duration={dur:.4f},setpts=PTS-STARTPTS,"
                      f"{vertical(s['x'], s['sharpen'])},format=yuv420p[v{j}]")
@@ -640,9 +702,8 @@ def mux(out, name):
 def build_cover(intro, top, song, look, out, out45):
     """The cover: the middle of the video's own intro shot, with the song's line (its `cover` words, else its title)."""
     frame = OUT / "tmp" / "cover-src.png"
-    opts, src = source(intro["name"])
     at = intro["t"] + min(intro["avail"], SONGS[song]["intro"] * 0.5) * intro["speed"] * 0.5
-    run("ffmpeg", "-v", "error", "-y", *opts, "-ss", f"{at:.3f}", "-i", src, "-frames:v", "1",
+    run("ffmpeg", "-v", "error", "-y", "-ss", f"{at:.3f}", "-i", source(intro["name"]), "-frames:v", "1",
         "-filter_complex", f"[0:v]{vertical(intro['x'], intro['sharpen'])},{grade(look)}", str(frame))
     cover(frame, dict(SONGS[song].get("cover") or SONGS[song]["title"], top=top), out, out45)
 
