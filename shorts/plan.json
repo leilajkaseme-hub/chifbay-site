@@ -5400,6 +5400,102 @@
     },
     "at": "2026-11-09T23:04:04Z"
    }
+  },
+  {
+   "id": "s035",
+   "format": "highlight",
+   "status": "rendered",
+   "created": "2026-11-10",
+   "shots": [
+    {
+     "file_id": "1zAa_vcjunrghKO5Bn-Z4yCYw8FaIPNjb",
+     "name": "DJI_20261030173408_0013_D.MP4",
+     "start": 43.35,
+     "len": 7.65,
+     "speed": 1.0,
+     "peak": 49.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Drone moves forward over water and tilts up to reveal towering volcanic cliffs.",
+     "tags": [
+      "aerial",
+      "reveal",
+      "cliffs"
+     ],
+     "score": 8,
+     "hook": 7,
+     "audio": "sea"
+    }
+   ],
+   "music": "cliffs",
+   "audio": "sea",
+   "cta": "Ask us for a date in the DMs.",
+   "light": "golden",
+   "recorded": "2026-10-31",
+   "texts": {
+    "hook": "Fajã dos Padres from the water",
+    "labels": [],
+    "thumb": "Cruising Fajã dos Padres",
+    "ig": "Our boat cruising past Fajã dos Padres, Madeira. 📍\n\nAsk us for a date in the DMs.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip"
+    ],
+    "fb": "Passing the steep cliffs of Fajã dos Padres on our private boat. A quiet moment along the south coast of Madeira.",
+    "threads": "Cruising past Fajã dos Padres along the south coast of Madeira.",
+    "yt_title": "Passing Fajã dos Padres cliffs on our boat, Madeira #Shorts",
+    "yt_description": "Fajã dos Padres from the water.\n\nDrone view of our boat cruising along the massive south coast cliffs of Madeira. Every trip is private for up to 5 guests with snacks on board and aerial footage when weather allows.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat trip",
+     "faja dos padres",
+     "madeira island",
+     "funchal marina",
+     "karnic r8s",
+     "private boat trip madeira",
+     "things to do in funchal",
+     "madeira coast",
+     "drone video madeira"
+    ],
+    "tiktok": "Cruising past Fajã dos Padres on our private boat trip in Madeira. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "An aerial drone view showing a small boat cruising on blue water past towering green cliffs in Madeira.",
+    "model": "gemini-3.5-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 8,
+    "problems": [],
+    "model": "gemini-3.5-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s035-e8f57a01.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s035-e8f57a01-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s035-e8f57a01-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s035-e8f57a01-thumb.jpg",
+    "duration": 7.67,
+    "bytes": 8526360,
+    "shots": [
+     {
+      "name": "DJI_20261030173408_0013_D.MP4",
+      "in": 43.35,
+      "out": 51.0,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 7.65,
+      "speed": 1.0,
+      "tracked": false,
+      "path": null,
+      "what": "Drone moves forward over water and tilts up to reveal towering volcanic cliffs."
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-10T20:35:08Z"
+   }
   }
  ]
 }
