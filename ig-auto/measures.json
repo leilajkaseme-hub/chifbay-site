@@ -1468,8 +1468,22 @@
     "id": "s017",
     "format": null,
     "source": "short"
+   },
+   "h24": {
+    "at": "2026-11-10T14:51:17.782Z",
+    "age_hours": 43,
+    "reach": 137,
+    "views": 167,
+    "likes": 4,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 4,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 4357
    }
   }
  },
- "updated_at": "2026-11-09T16:14:33.119Z"
+ "updated_at": "2026-11-10T14:51:17.782Z"
 }
