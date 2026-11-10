@@ -9,6 +9,9 @@
   "videos": {
     "video 1.MP4": {"speed": 1, "every": 4, "to": 300}
   },
+  "songs": ["gloria"],
+  "titles": {"gloria": {"script": "la dolce", "serif": "Vita", "caps": "PRIVATE BOAT · MADEIRA"}},
+  "endline": "YOUR BOAT · YOUR DAY",
   "shots": {
     "wake-run": ["video 1.MP4", 48.5, 0.63, 1, "intro wide"],
     "circle-start": ["video 1.MP4", 72.5, 0.48, 1, "intro wide"],

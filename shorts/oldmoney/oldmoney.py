@@ -22,7 +22,10 @@ OLDMONEY_CACHE (else a temp folder). Without OLDMONEY_DRIVE they are read from O
 Style (Theo, 8 and 9 Nov 2026, references: "Old Money" serif + script poster, "Vice Yacht Club" gold caps):
   one line at the start over a calm wide shot, plain hard cuts (no zoom or move added), the logo on the last bar.
   Cuts follow the song: a cut on each strong hit, a held shot through the softer beats (up to 4). Each song of a trip
-  uses its own shots (Theo, 9 Nov: "chaque video = contenu different"). Footage: clean drone and on-board shots only
+  uses its own shots (Theo, 9 Nov: "chaque video = contenu different"). The style never changes, everything else does
+  (Theo, 10 Nov: "stop using the same videos. Change the audio, change the text"): a trip names its own `songs`, its own
+  opening line per song (`titles`: {song: {script, serif, caps}}) and its own word under the logo (`endline`); no song
+  and no line is used for two trips. Footage: clean drone and on-board shots only
   (no 360 reframes, no shaky phone clips); 59.94 fps drone shots play at half speed. Colour: Sapphire & Orange (Theo's
   pick), with natural skin. Fonts (all OFL, in fonts/): Playfair Display, Pinyon Script, Oswald.
 """
@@ -108,6 +111,24 @@ SONGS = {
                 "title": {"script": "la dolce", "serif": "Vita", "caps": "PRIVATE BOAT · FUNCHAL"}},
     "tourner": {"name": "Tourner dans le vide, Indila", "bpm": 120.03, "drop": 17.20, "intro": 8, "bars": 3, "cut": 1,
                 "title": {"script": "ce n'est pas", "serif": "St-Tropez", "caps": "BATEAU PRIVÉ · FUNCHAL"}},
+    # Added 10 Nov (Theo: "change the audio, change the text": a new trip never gets a song or a line already used).
+    # Drops read from tools/songfit.py in the data folder (loudness per beat, where the bar starts), not by ear.
+    "smooth":  {"name": "Smooth Operator, Sade", "bpm": 119.32, "drop": 5.65, "intro": 8, "bars": 3, "cut": 1,
+                "title": {"script": "smooth", "serif": "Sailing", "caps": "PRIVATE BOAT · FUNCHAL"}},
+    "sara":    {"name": "Sarà perché ti amo, Ricchi e Poveri", "bpm": 120.70, "drop": 14.50, "intro": 8, "bars": 3, "cut": 1,
+                "title": {"script": "in love with", "serif": "Madeira", "caps": "PRIVATE BOAT · FUNCHAL"}},
+    "lady":    {"name": "Lady (Hear Me Tonight), Modjo", "bpm": 126.00, "drop": 5.91, "intro": 8, "bars": 3, "cut": 1,
+                "title": {"script": "out of", "serif": "Office", "caps": "PRIVATE BOAT · FUNCHAL"}},
+    "sunset":  {"name": "Sunset Lover, Petit Biscuit", "bpm": 90.85, "drop": 8.42, "intro": 8, "bars": 3, "cut": 1,
+                "title": {"script": "sunset", "serif": "Lover", "caps": "SUNSET CRUISE · MADEIRA"}},
+    "voyage":  {"name": "Voyage voyage, Desireless", "bpm": 123.47, "drop": 8.01, "intro": 8, "bars": 3, "cut": 1,
+                "title": {"script": "voyage,", "serif": "Voyage", "caps": "PRIVATE BOAT · MADEIRA"}},
+    "young":   {"name": "Young and Beautiful, Lana Del Rey", "bpm": 57.97, "drop": 10.06, "intro": 4, "bars": 3, "cut": 1,
+                "title": {"script": "golden", "serif": "Hour", "caps": "PRIVATE BOAT · FUNCHAL"}},
+    "gloria":  {"name": "Gloria, Umberto Tozzi", "bpm": 131.58, "drop": 18.44, "intro": 8, "bars": 3, "cut": 1,
+                "title": {"script": "viva", "serif": "Madeira", "caps": "PRIVATE BOAT · FUNCHAL"}},
+    "italodisco": {"name": "ITALODISCO, The Kolors", "bpm": 122.91, "drop": 20.01, "intro": 8, "bars": 3, "cut": 1,
+                   "title": {"script": "endless", "serif": "Summer", "caps": "PRIVATE BOAT · FUNCHAL"}},
 }
 # A cut lands one frame before the grid beat: the grid sits on the peak of the drum onsets, the attack of the kick and
 # snare comes 20 to 45 ms earlier (measured on the 4 songs, 10 Nov), and a cut a frame early reads as on the beat.
@@ -546,6 +567,11 @@ def title_top(proj, intro, words, span):
     return best[1], best[2]
 
 
+def words(proj, song):
+    """The opening line of a video: the trip's own for this song (`titles`), else the song's."""
+    return proj.get("titles", {}).get(song) or SONGS[song]["title"]
+
+
 def title_card(t, path, top=760, scale=1.0):
     """The opening line over the intro."""
     shadowed((W, H), lambda d, shade, dy: lockup(d, t, top + dy, shade, scale), blur=9, alpha=120).save(path)
@@ -708,9 +734,10 @@ def build(day, proj, lib, song, e, look, base):
     out.mkdir(parents=True, exist_ok=True)
     tmp.mkdir(parents=True, exist_ok=True)
     intro = lib[e["intro"][0][0]]
-    top, scale = title_top(proj, intro, SONGS[song]["title"], SONGS[song]["intro"] * period * intro["speed"])
-    title_card(SONGS[song]["title"], tmp / "title.png", top, scale)
-    end_card(ENDLINE, tmp / "end.png")
+    line = words(proj, song)
+    top, scale = title_top(proj, intro, line, SONGS[song]["intro"] * period * intro["speed"])
+    title_card(line, tmp / "title.png", top, scale)
+    end_card(proj.get("endline", ENDLINE), tmp / "end.png")
     inputs, graph, used = [], [], []
     for j, (sid, fa, fb) in enumerate(plan):
         s = lib[sid]
@@ -743,7 +770,8 @@ def build(day, proj, lib, song, e, look, base):
         "-maxrate", "10M", "-bufsize", "20M", "-movflags", "+faststart", str(small))
     if (MUSIC / f"{song}-preview.m4a").exists():
         mux(out, name)
-    build_cover(intro, top, scale, song, look, out / f"{name}-cover.jpg", out / f"{name}-cover-4x5.jpg")
+    on_cover = line if song in proj.get("titles", {}) else SONGS[song].get("cover") or line
+    build_cover(intro, top, scale, song, on_cover, look, out / f"{name}-cover.jpg", out / f"{name}-cover-4x5.jpg")
     print(f"{day}/{silent.name}: {total:.2f}s, {len(plan)} shots, the drop at {drop_t:.2f}s, the logo at {end_t:.2f}s")
 
 
@@ -786,13 +814,14 @@ def mux(out, name):
     (out / f"{name}-small.mp4").unlink()
 
 
-def build_cover(intro, top, scale, song, look, out, out45):
-    """The cover: the middle of the video's own intro shot, with the song's line (its `cover` words, else its title)."""
+def build_cover(intro, top, scale, song, line, look, out, out45):
+    """The cover: the middle of the video's own intro shot, with the video's line (the trip's own, else the song's
+    `cover` words, else its title)."""
     frame = OUT / "tmp" / "cover-src.png"
     at = intro["t"] + min(intro["avail"], SONGS[song]["intro"] * 0.5) * intro["speed"] * 0.5
     run("ffmpeg", "-v", "error", "-y", "-ss", f"{at:.3f}", "-i", source(intro["name"]), "-frames:v", "1",
         "-filter_complex", f"[0:v]{vertical(intro['x'], intro['sharpen'])},{grade(look)}", str(frame))
-    cover(frame, dict(SONGS[song].get("cover") or SONGS[song]["title"], top=top, scale=scale), out, out45)
+    cover(frame, dict(line, top=top, scale=scale), out, out45)
 
 
 def looks_sheet(frames, out):

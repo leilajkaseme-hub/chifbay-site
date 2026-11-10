@@ -9,6 +9,9 @@
   "videos": {
     "DJI_20260517161057_0006_D.MP4": {"speed": 1, "every": 6}
   },
+  "songs": ["italodisco"],
+  "titles": {"italodisco": {"script": "endless", "serif": "Summer", "caps": "FUNCHAL · MADEIRA"}},
+  "endline": "MADEIRA ISLAND",
   "shots": {
     "drift": ["DJI_20260517161057_0006_D.MP4", 0.5, 0.39, 1, "intro wide"],
     "wake-coast": ["DJI_20260517161057_0006_D.MP4", 312.5, 0.76, 1, "intro high wide"],
