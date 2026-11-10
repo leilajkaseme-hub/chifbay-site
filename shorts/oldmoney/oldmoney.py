@@ -99,8 +99,13 @@ def grade(name):
 # messy", librosa's own beats wobbled by up to 50 ms and had Tourner at 117.5 bpm instead of 120). beats/<song>.json
 # keeps the hit per beat (`accent`). drop = the beat where the first cut lands (by ear: where the song opens up), the
 # title plays the `intro` beats before it. bars = how many bars of 4 beats are cut. cut = beats per shot, the same all
-# through: no pause (Theo, 10 Nov: "Indila should be on each beat, but you make pause"). Every beat where the drums hit
-# every beat (Tourner, Monaco, Skyfall: measured, no quiet beat after the drop); Sway every 2 beats, on its kick beats.
+# through: no pause (Theo, 10 Nov: "Indila should be on each beat, but you make pause"). A cut needs a kick under it
+# (Theo, 10 Nov, on the new songs cut every beat: "sometimes the transitions are too agressive, for monaco and indila
+# it made sense, make it make sense"). Measured with tools/songfit.py in the data folder (`kick`): Monaco, Tourner,
+# Sarà, Lady, Gloria, Italodisco kick hard on every beat = a shot per beat. Sway, Smooth Operator, Voyage voyage kick
+# every 2 beats (a cut on the beat between fell on nothing) = a shot every 2 beats, the drop on a kick. Sunset Lover
+# kicks every beat but softly (a third of the others) = every 2 beats too. Skyfall and Young and Beautiful are slow
+# (a beat of 0.8 s and 1 s): a shot per beat is calm there.
 SONGS = {
     "monaco":  {"name": "MONACO, Bad Bunny", "bpm": 138.92, "drop": 20.73, "intro": 8, "bars": 3, "cut": 1,
                 "title": {"script": "this is not", "serif": "Monaco", "caps": "PRIVATE BOAT · FUNCHAL"},
@@ -113,15 +118,15 @@ SONGS = {
                 "title": {"script": "ce n'est pas", "serif": "St-Tropez", "caps": "BATEAU PRIVÉ · FUNCHAL"}},
     # Added 10 Nov (Theo: "change the audio, change the text": a new trip never gets a song or a line already used).
     # Drops read from tools/songfit.py in the data folder (loudness per beat, where the bar starts), not by ear.
-    "smooth":  {"name": "Smooth Operator, Sade", "bpm": 119.32, "drop": 5.65, "intro": 8, "bars": 3, "cut": 1,
+    "smooth":  {"name": "Smooth Operator, Sade", "bpm": 119.32, "drop": 5.65, "intro": 8, "bars": 6, "cut": 2,
                 "title": {"script": "smooth", "serif": "Sailing", "caps": "PRIVATE BOAT · FUNCHAL"}},
     "sara":    {"name": "Sarà perché ti amo, Ricchi e Poveri", "bpm": 120.70, "drop": 14.50, "intro": 8, "bars": 3, "cut": 1,
                 "title": {"script": "in love with", "serif": "Madeira", "caps": "PRIVATE BOAT · FUNCHAL"}},
     "lady":    {"name": "Lady (Hear Me Tonight), Modjo", "bpm": 126.00, "drop": 5.91, "intro": 8, "bars": 3, "cut": 1,
                 "title": {"script": "out of", "serif": "Office", "caps": "PRIVATE BOAT · FUNCHAL"}},
-    "sunset":  {"name": "Sunset Lover, Petit Biscuit", "bpm": 90.85, "drop": 8.42, "intro": 8, "bars": 3, "cut": 1,
+    "sunset":  {"name": "Sunset Lover, Petit Biscuit", "bpm": 90.85, "drop": 8.42, "intro": 8, "bars": 4, "cut": 2,
                 "title": {"script": "sunset", "serif": "Lover", "caps": "SUNSET CRUISE · MADEIRA"}},
-    "voyage":  {"name": "Voyage voyage, Desireless", "bpm": 123.47, "drop": 8.01, "intro": 8, "bars": 3, "cut": 1,
+    "voyage":  {"name": "Voyage voyage, Desireless", "bpm": 123.47, "drop": 8.01, "intro": 8, "bars": 6, "cut": 2,
                 "title": {"script": "voyage,", "serif": "Voyage", "caps": "PRIVATE BOAT · MADEIRA"}},
     "young":   {"name": "Young and Beautiful, Lana Del Rey", "bpm": 57.97, "drop": 10.06, "intro": 4, "bars": 3, "cut": 1,
                 "title": {"script": "golden", "serif": "Hour", "caps": "PRIVATE BOAT · FUNCHAL"}},
@@ -665,15 +670,24 @@ def scene(s):
 def auto_edit(lib, song, period, taken, k):
     """An edit made from the song's rhythm and from shots no other song of this trip uses (`taken`): an intro shot
     long enough for the title, an end shot for the logo, then a view and the guests in turn; two shots of the same
-    video never follow each other. A trip short of fresh shots gets fewer bars (down to 8 shots after the drop) rather
-    than no video; None when even that does not fit."""
+    video never follow each other, and no shot shows a moment of its video that another shot of the edit shows (two
+    shots marked close together in one video ran over each other once the first was held long: the same frames came
+    back). A trip short of fresh shots gets fewer bars (down to 8 shots after the drop) rather than no video; None
+    when even that does not fit."""
     free = [s for s in lib.values() if scene(s) not in taken]
     fits = lambda s, beats: s["avail"] >= beats * period + 0.15
-    first = lambda tag, beats, avoid=None: next((s for s in free if tag in s["tags"] and fits(s, beats) and s is not avoid), None)
+    span = lambda s, beats: (s["name"], s["t"] - 0.2, s["t"] + beats * period * s["speed"] + 0.2)
+    clear = lambda a, shown: not any(a[0] == b[0] and a[1] < b[2] and b[1] < a[2] for b in shown)
+    first = lambda tag, beats, shown=(): next((s for s in free if tag in s["tags"] and fits(s, beats)
+                                                and clear(span(s, beats), shown)), None)
     intro = first("intro", SONGS[song]["intro"]) or first("wide", SONGS[song]["intro"])     # a wide shot can carry the title
-    end = first("end", END_BEATS, intro) or first("wide", END_BEATS, intro)
-    if not intro or not end:
+    if not intro:
         return None
+    held = [span(intro, SONGS[song]["intro"])]
+    end = first("end", END_BEATS, held) or first("wide", END_BEATS, held)
+    if not end:
+        return None
+    held.append(span(end, END_BEATS))
     pool = [s for s in free if not s["tags"] & {"intro", "end"}]
     spare = [s for s in free if s["tags"] & {"intro", "end"}]         # last: the next songs need them for title and logo
     turn = lambda xs: xs[k % len(xs):] + xs[:k % len(xs)] if xs else xs
@@ -681,13 +695,14 @@ def auto_edit(lib, song, period, taken, k):
     views = turn([s for s in pool if "people" not in s["tags"]])
     order = [s for pair in zip(views, people) for s in pair] + views[len(people):] + people[len(views):] + spare
     for bars in range(SONGS[song]["bars"], 2 * SONGS[song]["cut"] - 1, -1):      # 8 shots after the drop at least
-        cuts, last, used = [], intro["name"], {scene(intro), scene(end)}
+        cuts, last, used, shown = [], intro["name"], {scene(intro), scene(end)}, list(held)
         for n in rhythm(song, bars):
-            cands = [s for s in order if scene(s) not in used and fits(s, n)]
+            cands = [s for s in order if scene(s) not in used and fits(s, n) and clear(span(s, n), shown)]
             pick = next((s for s in cands if s["name"] != last), None) or next(iter(cands), None)
             if pick is None:
                 break
             used.add(scene(pick))
+            shown.append(span(pick, n))
             cuts.append([pick["id"], n])
             last = pick["name"]
         else:
