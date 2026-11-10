@@ -95,26 +95,23 @@ def grade(name):
 # from `beats <song>` (fitted on the drum hits near the bpm given here, to the millisecond: Theo, 9 Nov: "it's not right on the beat, it's very
 # messy", librosa's own beats wobbled by up to 50 ms and had Tourner at 117.5 bpm instead of 120). beats/<song>.json
 # keeps the hit per beat (`accent`). drop = the beat where the first cut lands (by ear: where the song opens up), the
-# title plays the `intro` beats before it. bars = how many bars of 4 beats are cut. pace = which cut pattern a bar
-# gets from its hits (see BAR_CUTS): fast for Monaco (Theo liked it fast, 8 Nov), calm for the ballads.
+# title plays the `intro` beats before it. bars = how many bars of 4 beats are cut. cut = beats per shot, the same all
+# through: no pause (Theo, 10 Nov: "Indila should be on each beat, but you make pause"). Every beat where the drums hit
+# every beat (Tourner, Monaco, Skyfall: measured, no quiet beat after the drop); Sway every 2 beats, on its kick beats.
 SONGS = {
-    "monaco":  {"name": "MONACO, Bad Bunny", "bpm": 138.92, "drop": 20.73, "intro": 8, "bars": 4, "pace": "fast",
+    "monaco":  {"name": "MONACO, Bad Bunny", "bpm": 138.92, "drop": 20.73, "intro": 8, "bars": 3, "cut": 1,
                 "title": {"script": "this is not", "serif": "Monaco", "caps": "PRIVATE BOAT · FUNCHAL"},
                 "cover": {"script": "not Monaco", "serif": "Madeira", "caps": "CHIFBAY · PRIVATE BOAT TRIPS"}},
-    "skyfall": {"name": "Skyfall, Adele", "bpm": 74.96, "drop": 16.47, "intro": 4, "bars": 3, "pace": "calm",
+    "skyfall": {"name": "Skyfall, Adele", "bpm": 74.96, "drop": 16.47, "intro": 4, "bars": 3, "cut": 1,
                 "title": {"script": "shaken, not", "serif": "Stirred", "caps": "PRIVATE BOAT · FUNCHAL"}},
-    "sway":    {"name": "Sway, Michael Bublé", "bpm": 126.00, "drop": 6.34, "intro": 8, "bars": 7, "pace": "calm",
+    "sway":    {"name": "Sway, Michael Bublé", "bpm": 126.00, "drop": 6.34, "intro": 8, "bars": 6, "cut": 2,
                 "title": {"script": "la dolce", "serif": "Vita", "caps": "PRIVATE BOAT · FUNCHAL"}},
-    "tourner": {"name": "Tourner dans le vide, Indila", "bpm": 120.03, "drop": 17.20, "intro": 8, "bars": 5, "pace": "medium",
+    "tourner": {"name": "Tourner dans le vide, Indila", "bpm": 120.03, "drop": 17.20, "intro": 8, "bars": 3, "cut": 1,
                 "title": {"script": "ce n'est pas", "serif": "St-Tropez", "caps": "BATEAU PRIVÉ · FUNCHAL"}},
 }
-# How a bar of 4 beats is cut, from how hard it hits compared with the song's other bars (strong, mid, weak). Only 1, 2
-# and 4 beats: a shot never holds 3 beats, so every cut stays on the bar's grid.
-BAR_CUTS = {
-    "fast":   {"strong": [1, 1, 1, 1], "mid": [1, 1, 2], "weak": [2, 1, 1]},
-    "medium": {"strong": [1, 1, 2], "mid": [2, 2], "weak": [2, 1, 1]},
-    "calm":   {"strong": [2, 1, 1], "mid": [2, 2], "weak": [4]},
-}
+# A cut lands one frame before the grid beat: the grid sits on the peak of the drum onsets, the attack of the kick and
+# snare comes 20 to 45 ms earlier (measured on the 4 songs, 10 Nov), and a cut a frame early reads as on the beat.
+CUT_EARLY = 0.03
 END_BEATS = 4
 ENDLINE = "MADEIRA"
 
@@ -428,33 +425,115 @@ def centred(d, y, s, f, fill, dy=0, spacing=0, dx=0):
     d.text(((W - d.textlength(s, font=f)) / 2 + dx, y + dy), s, font=f, fill=fill)
 
 
-def lockup(draw_on, words, top, shade=None):
-    """The references' lockup, set tight: a big serif word (letters pulled together), a big script line laid over
-    its upper half and shifted right (as "Old" over "Money"), small gold capitals right under the serif."""
-    d = draw_on
-    caps = font("Oswald-VF.ttf", 46, 600)
-    ssize = 270
+_layouts = {}
+
+
+def lockup_layout(words, scale=1.0):
+    """The references' lockup, set tight but clean (Theo, 10 Nov: close together is good, overlapping is "too messy"): a
+    big serif word (letters pulled together); the script line above it, shifted right (as "Old" over "Money"), no wider
+    than 4/5 of the word and set as low as it goes without touching a serif letter (it may dip into the gaps, never
+    across a stroke); small gold capitals under the serif word's lowest point (the p of St-Tropez included). Everything
+    is measured from the serif line's top, so a title can be moved by changing `top` only. `scale` < 1 sets it all
+    smaller (a tall title over a shot with little free sea)."""
+    key = (words["script"], words["serif"], words["caps"], scale)
+    if key in _layouts:
+        return _layouts[key]
+    ref = 400                                      # the serif line on a scratch canvas
+    canvas = lambda: Image.new("L", (W, 1000), 0)
+    d = ImageDraw.Draw(canvas())
+    pull = round(9 * scale)                        # pixels taken out between the serif letters
+    ssize = round(270 * scale)
     while True:                                   # the serif word fits the frame (St-Tropez is longer than Monaco)
         serif = font("PlayfairDisplay-VF.ttf", ssize, 800)
-        if d.textlength(words["serif"], font=serif) - 9 * len(words["serif"]) <= W * 0.9 or ssize <= 150:
+        serif_w = d.textlength(words["serif"], font=serif) - pull * (len(words["serif"]) - 1)
+        if serif_w <= W * 0.9 * scale or ssize <= 150 * scale:
             break
         ssize -= 10
-    size, dx = 235, 70
-    while True:                                   # the script line fits the frame, shift included
+    size = round(200 * scale)
+    while True:
         script = font("PinyonScript-Regular.ttf", size)
-        if d.textlength(words["script"], font=script) + 2 * dx <= W * 0.92 or size <= 120:
+        script_w = d.textlength(words["script"], font=script)
+        if script_w <= min(W * 0.86, 0.8 * max(serif_w, W * 0.6 * scale)) or size <= 100 * scale:
             break
-        size, dx = size - 10, max(0, dx - 10)
-    _, cap_top, _, cap_bottom = d.textbbox((0, top), "M", font=serif)
-    baseline = cap_top + 0.17 * (cap_bottom - cap_top)   # the script dips into the top of the serif word, as "Old" into "Money"
-    centred(d, top, words["serif"], serif, shade or CREAM, spacing=-9)
-    centred(d, baseline - script.getmetrics()[0], words["script"], script, shade or GOLD, dx=dx)
-    centred(d, cap_bottom + 26, words["caps"], caps, shade or GOLD, spacing=3)
+        size -= 6
+    dx = max(0, min(60 * scale, (W * 0.94 - script_w) / 2))
+    smask = canvas()
+    centred(ImageDraw.Draw(smask), ref, words["serif"], serif, 255, spacing=-pull)
+    serif_ink = np.array(smask) > 0
+    rows = np.nonzero(serif_ink.any(axis=1))[0]
+    s_top, s_bottom = int(rows[0]), int(rows[-1])
+    _, cap_top, _, cap_bottom = d.textbbox((0, ref), "M", font=serif)
+    room = np.array(smask.filter(ImageFilter.MaxFilter(13))) > 0          # 6 px of air around each serif letter
+    cmask = canvas()
+    centred(ImageDraw.Draw(cmask), 0, words["script"], script, 255, dx=dx)
+    ink = np.array(cmask) > 0
+    crows = np.nonzero(ink.any(axis=1))[0]
+    ink = ink[crows[0]:crows[-1] + 1]
+    deepest = s_top + 0.35 * (cap_bottom - cap_top) - len(ink)              # never sinks past a third of the capitals
+    y = s_top - len(ink) - 4
+    while y + 3 <= deepest and not (room[y + 3:y + 3 + len(ink)] & ink).any():
+        y += 3
+    caps = font("Oswald-VF.ttf", round(46 * scale), 600)
+    caps_y = s_bottom + round(30 * scale)
+    caps_bottom = d.textbbox((0, caps_y), words["caps"], font=caps)[3]
+    _layouts[key] = {"serif": serif, "script": script, "caps": caps, "dx": dx, "pull": pull, "script_dy": y - int(crows[0]) - ref,
+                     "caps_dy": caps_y - ref, "ink_top": y - ref, "ink_bottom": caps_bottom - ref}
+    return _layouts[key]
 
 
-def title_card(t, path, top=760):
+def lockup(draw_on, words, top, shade=None, scale=1.0):
+    L = lockup_layout(words, scale)
+    centred(draw_on, top, words["serif"], L["serif"], shade or CREAM, spacing=-L["pull"])
+    centred(draw_on, top + L["script_dy"], words["script"], L["script"], shade or GOLD, dx=L["dx"])
+    centred(draw_on, top + L["caps_dy"], words["caps"], L["caps"], shade or GOLD, spacing=round(3 * scale))
+
+
+def title_top(proj, intro, words, span):
+    """Where the title goes over the intro shot (Theo, 10 Nov: the words sat on the boat). Never over a white hull or
+    a cloud; better not over the band around it (a third of its height: the guests, the bow, the bimini); on the
+    calmest, darkest rows (the sea, not the cliff: gold letters get lost in rock); then near the project's choice
+    (`title_top`, or `title_high` on a shot tagged high). Inside Instagram's safe zone and the cover's 4:5 crop; set
+    smaller (85 or 72 %) when that is what keeps it on clean sea. `span` = the seconds of the source video the title
+    covers. Returns (top, scale)."""
+    want = proj.get("title_high", 300) if "high" in intro["tags"] else proj.get("title_top", 1180)
+    hull, near, clutter, n = np.zeros(H), np.zeros(H), np.zeros(H), 0
+    for at in (0.1, 0.5, 0.9):
+        img = frame_at(intro["name"], intro["t"] + at * span)
+        if img is None:
+            continue
+        h, w = img.shape[:2]
+        cw = round(w * W / (H * w / h))                                # the 9:16 crop, in this frame's pixels
+        x0 = round((w - cw) * intro["x"])
+        a = img[:, x0:x0 + cw].astype(int)
+        y_of = np.minimum((np.arange(H) * h / H).astype(int), h - 1)  # frame row of each output row
+        white = (a.min(axis=2) > 185) & (a.max(axis=2) - a.min(axis=2) < 45)
+        bh, bw = h // 4, cw // 4                                      # 4 x 4 blocks: a hull fills them, glitter does not
+        rows = np.nonzero((white[:bh * 4, :bw * 4].reshape(bh, 4, bw, 4).mean(axis=(1, 3)) >= 0.5).any(axis=1))[0]
+        for run in np.split(rows, np.nonzero(np.diff(rows) > 2)[0] + 1) if len(rows) else []:
+            grow = 0.35 * (run[-1] - run[0] + 1) + 0.5
+            y0, y1 = run[0] * 4 * H / h, (run[-1] + 1) * 4 * H / h
+            hull[int(y0):int(y1)] = 1
+            near[max(0, int(y0 - grow * 4 * H / h)):int(y1 + grow * 4 * H / h)] = 1
+        lum = a.mean(axis=2) / 255
+        texture = np.abs(np.diff(lum, axis=1)).mean(axis=1)             # rock and foliage: high; the sea: low
+        clutter += (4 * texture + np.maximum(0, lum.mean(axis=1) - 0.5))[y_of]
+        n += 1
+    clutter /= max(n, 1)
+    # a row of letters on the hull weighs as much as 0.1 more clutter (rock against sea is 0.25), a row near it 1/100;
+    # the smaller sizes cost a little, so the title stays big when it can
+    best = (float("inf"), want, 1.0)
+    for scale, penalty in ((1.0, 0), (0.85, 60), (0.72, 110)):
+        L = lockup_layout(words, scale)
+        for t in range(290 - L["ink_top"], H - 330 - L["ink_bottom"], 10):
+            ink, air = slice(t + L["ink_top"], t + L["ink_bottom"]), slice(max(0, t + L["ink_top"] - 40), t + L["ink_bottom"] + 40)
+            cost = 100 * hull[ink].sum() + near[air].sum() + 1000 * clutter[ink].mean() + penalty + abs(t - want) / 100
+            best = min(best, (cost, t, scale))
+    return best[1], best[2]
+
+
+def title_card(t, path, top=760, scale=1.0):
     """The opening line over the intro."""
-    shadowed((W, H), lambda d, shade, dy: lockup(d, t, top + dy, shade), blur=9, alpha=120).save(path)
+    shadowed((W, H), lambda d, shade, dy: lockup(d, t, top + dy, shade, scale), blur=9, alpha=120).save(path)
 
 
 def end_card(endline, path):
@@ -472,7 +551,8 @@ def end_card(endline, path):
 def cover(frame, c, out, out45):
     """The thumbnail: the graded frame with the same lockup, kept inside the 4:5 grid crop."""
     img = Image.open(frame).convert("RGBA").resize((W, H))
-    img.alpha_composite(shadowed((W, H), lambda d, shade, dy: lockup(d, c, c.get("top", 700) + dy, shade), blur=10, alpha=140))
+    img.alpha_composite(shadowed((W, H), lambda d, shade, dy: lockup(d, c, c.get("top", 700) + dy, shade, c.get("scale", 1.0)),
+                                 blur=10, alpha=140))
     img.convert("RGB").save(out, quality=92)
     y0 = (H - 1350) // 2
     img.crop((0, y0, W, y0 + 1350)).convert("RGB").save(out45, quality=92)
@@ -514,7 +594,7 @@ def beats_cmd(song):
 
 
 def song_grid(song):
-    """(beat times in the edit from 0, where the song starts in the preview, beat length, hit per beat after the drop).
+    """(beat times in the edit from 0, where the song starts in the preview, beat length).
     The grid is exact (bpm and first beat), so a cut is never off by librosa's wobble."""
     s, bj = SONGS[song], json.loads((BEATS / f"{song}.json").read_text())
     period = 60 / bj["bpm"]
@@ -527,23 +607,12 @@ def song_grid(song):
     if need > n:
         raise SystemExit(f"{song}: {s['bars']} bars after the drop run past the end of the preview")
     t0 = times[i0 - s["intro"]]
-    return [x - t0 for x in times[i0 - s["intro"]:need + 1]], t0, period, bj["accent"][i0:need]
+    return [x - t0 for x in times[i0 - s["intro"]:need + 1]], t0, period
 
 
-def rhythm(song, accent):
-    """Beats per shot after the drop: bar by bar, the bar's cut pattern (BAR_CUTS) from how hard it hits against the
-    song's other bars. A 3-part pattern puts its long shot on the bar's softer half."""
-    s = SONGS[song]
-    bars = [accent[4 * b:4 * b + 4] for b in range(s["bars"])]
-    power = [float(np.mean(b)) for b in bars]
-    lo, hi = np.percentile(power, [34, 67]) if len(power) > 2 else (min(power), max(power))
-    cuts = []
-    for b, p in zip(bars, power):
-        cut = list(BAR_CUTS[s["pace"]]["strong" if p >= hi else "weak" if p < lo else "mid"])
-        if len(cut) == 3 and (b[0] + b[1] < b[2] + b[3]) == (cut[0] == 2):
-            cut.reverse()                          # the two single beats go where the hits are
-        cuts += cut
-    return cuts
+def rhythm(song, bars):
+    """Beats per shot after the drop: the song's `cut` (1 or 2), the same all through."""
+    return [SONGS[song]["cut"]] * (4 * bars // SONGS[song]["cut"])
 
 
 def scene(s):
@@ -552,11 +621,11 @@ def scene(s):
     return next((t for t in s["tags"] if t.startswith("scene:")), s["id"])
 
 
-def auto_edit(lib, song, period, accent, taken, k):
+def auto_edit(lib, song, period, taken, k):
     """An edit made from the song's rhythm and from shots no other song of this trip uses (`taken`): an intro shot
-    long enough for the title, an end shot for the logo, then a view and the guests in turn. A held shot (3 beats or
-    more) goes to a wide shot when one fits; two shots of the same video never follow each other. None when the trip
-    has too few unused shots for this song."""
+    long enough for the title, an end shot for the logo, then a view and the guests in turn; two shots of the same
+    video never follow each other. A trip short of fresh shots gets fewer bars (down to 8 shots after the drop) rather
+    than no video; None when even that does not fit."""
     free = [s for s in lib.values() if scene(s) not in taken]
     fits = lambda s, beats: s["avail"] >= beats * period + 0.15
     first = lambda tag, beats, avoid=None: next((s for s in free if tag in s["tags"] and fits(s, beats) and s is not avoid), None)
@@ -564,23 +633,25 @@ def auto_edit(lib, song, period, accent, taken, k):
     end = first("end", END_BEATS, intro) or first("wide", END_BEATS, intro)
     if not intro or not end:
         return None
-    pool = [s for s in free if not s["tags"] & {"intro", "end"}]      # those wait for the next songs' title and logo
+    pool = [s for s in free if not s["tags"] & {"intro", "end"}]
+    spare = [s for s in free if s["tags"] & {"intro", "end"}]         # last: the next songs need them for title and logo
     turn = lambda xs: xs[k % len(xs):] + xs[:k % len(xs)] if xs else xs
     people = turn([s for s in pool if "people" in s["tags"]])
     views = turn([s for s in pool if "people" not in s["tags"]])
-    order = [s for pair in zip(views, people) for s in pair] + views[len(people):] + people[len(views):]
-    cuts, last, used = [], intro["name"], {scene(intro), scene(end)}
-    for n in rhythm(song, accent):
-        cands = [s for s in order if scene(s) not in used and fits(s, n)]
-        if n >= 3:
-            cands = [s for s in cands if "wide" in s["tags"]] + [s for s in cands if "wide" not in s["tags"]]
-        pick = next((s for s in cands if s["name"] != last), None) or next(iter(cands), None)
-        if pick is None:
-            return None
-        used.add(scene(pick))
-        cuts.append([pick["id"], n])
-        last = pick["name"]
-    return {"intro": [[intro["id"], SONGS[song]["intro"]]], "cuts": cuts, "end": [end["id"], END_BEATS]}
+    order = [s for pair in zip(views, people) for s in pair] + views[len(people):] + people[len(views):] + spare
+    for bars in range(SONGS[song]["bars"], 2 * SONGS[song]["cut"] - 1, -1):      # 8 shots after the drop at least
+        cuts, last, used = [], intro["name"], {scene(intro), scene(end)}
+        for n in rhythm(song, bars):
+            cands = [s for s in order if scene(s) not in used and fits(s, n)]
+            pick = next((s for s in cands if s["name"] != last), None) or next(iter(cands), None)
+            if pick is None:
+                break
+            used.add(scene(pick))
+            cuts.append([pick["id"], n])
+            last = pick["name"]
+        else:
+            return {"intro": [[intro["id"], SONGS[song]["intro"]]], "cuts": cuts, "end": [end["id"], END_BEATS]}
+    return None
 
 
 def plan_trip(proj, lib, songs):
@@ -588,8 +659,8 @@ def plan_trip(proj, lib, songs):
     A song the trip has no fresh shots left for is left out (said once)."""
     taken, plans = set(), {}
     for s in sorted(songs, key=lambda s: s not in proj.get("edits", {})):
-        grid, t0, period, accent = song_grid(s)
-        e = proj.get("edits", {}).get(s) or auto_edit(lib, s, period, accent, taken, len(plans))
+        _, _, period = song_grid(s)
+        e = proj.get("edits", {}).get(s) or auto_edit(lib, s, period, taken, len(plans))
         if e is None:
             print(f"{s}: not enough fresh shots left in this trip, left out")
             continue
@@ -604,7 +675,8 @@ def vertical(x, sharpen=False):
 
 
 def build(day, proj, lib, song, e, look, base):
-    grid, t0, period, _ = song_grid(song)
+    grid, t0, period = song_grid(song)
+    frame = lambda t: max(0, round((t - CUT_EARLY) * FPS))   # whole frames from the song grid (no drift), a frame early
     plan, i = [], 0
     for sid, n in e["intro"] + e["cuts"] + [e["end"]]:
         if sid not in lib:
@@ -615,14 +687,14 @@ def build(day, proj, lib, song, e, look, base):
         a, b = grid[i], grid[end]
         if (b - a) > lib[sid]["avail"] + 0.02:             # never run past the end of its video
             raise SystemExit(f"{day} {song}: {sid} lasts {lib[sid]['avail']:.2f}s, its slot needs {b - a:.2f}s")
-        plan.append((sid, round(a * FPS), round(b * FPS)))  # whole frames, counted from the song grid: no drift
+        plan.append((sid, frame(a), frame(b)))
         i = end
     out, tmp = OUT / day, OUT / "tmp"
     out.mkdir(parents=True, exist_ok=True)
     tmp.mkdir(parents=True, exist_ok=True)
     intro = lib[e["intro"][0][0]]
-    top = proj.get("title_high", 300) if "high" in intro["tags"] else proj.get("title_top", 1180)
-    title_card(SONGS[song]["title"], tmp / "title.png", top)
+    top, scale = title_top(proj, intro, SONGS[song]["title"], SONGS[song]["intro"] * period * intro["speed"])
+    title_card(SONGS[song]["title"], tmp / "title.png", top, scale)
     end_card(ENDLINE, tmp / "end.png")
     inputs, graph, used = [], [], []
     for j, (sid, fa, fb) in enumerate(plan):
@@ -656,7 +728,7 @@ def build(day, proj, lib, song, e, look, base):
         "-maxrate", "10M", "-bufsize", "20M", "-movflags", "+faststart", str(small))
     if (MUSIC / f"{song}-preview.m4a").exists():
         mux(out, name)
-    build_cover(intro, top, song, look, out / f"{name}-cover.jpg", out / f"{name}-cover-4x5.jpg")
+    build_cover(intro, top, scale, song, look, out / f"{name}-cover.jpg", out / f"{name}-cover-4x5.jpg")
     print(f"{day}/{silent.name}: {total:.2f}s, {len(plan)} shots, the drop at {drop_t:.2f}s, the logo at {end_t:.2f}s")
 
 
@@ -699,13 +771,13 @@ def mux(out, name):
     (out / f"{name}-small.mp4").unlink()
 
 
-def build_cover(intro, top, song, look, out, out45):
+def build_cover(intro, top, scale, song, look, out, out45):
     """The cover: the middle of the video's own intro shot, with the song's line (its `cover` words, else its title)."""
     frame = OUT / "tmp" / "cover-src.png"
     at = intro["t"] + min(intro["avail"], SONGS[song]["intro"] * 0.5) * intro["speed"] * 0.5
     run("ffmpeg", "-v", "error", "-y", "-ss", f"{at:.3f}", "-i", source(intro["name"]), "-frames:v", "1",
         "-filter_complex", f"[0:v]{vertical(intro['x'], intro['sharpen'])},{grade(look)}", str(frame))
-    cover(frame, dict(SONGS[song].get("cover") or SONGS[song]["title"], top=top), out, out45)
+    cover(frame, dict(SONGS[song].get("cover") or SONGS[song]["title"], top=top, scale=scale), out, out45)
 
 
 def looks_sheet(frames, out):
