@@ -13,7 +13,7 @@ on:
         description: "trips, space separated: shorts/oldmoney/projects/<day>.json"
         required: true
       mode:
-        description: "build (the Reels) | candidates (a sheet of possible shots, to pick from)"
+        description: "build (the Reels) | candidates (a sheet of possible shots, to pick from) | shots (each shot whole, its crop drawn)"
         required: false
         default: build
       songs:
@@ -57,7 +57,7 @@ jobs:
           pip install -q pillow numpy
       - name: Check the inputs
         run: |
-          [[ "$MODE" =~ ^(build|candidates)$ ]]
+          [[ "$MODE" =~ ^(build|candidates|shots)$ ]]
           for d in $DAY; do [[ "$d" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] && [ -f "shorts/oldmoney/projects/$d.json" ]; done
       - name: Render
         env:
@@ -72,7 +72,7 @@ jobs:
           [ -n "$LOOK" ] && args+=(--look "$LOOK")
           failed=""
           for d in $DAY; do
-            if [ "$MODE" = candidates ]; then python3 shorts/oldmoney/oldmoney.py candidates "$d" || failed="$failed $d"
+            if [ "$MODE" = candidates ] || [ "$MODE" = shots ]; then python3 shorts/oldmoney/oldmoney.py "$MODE" "$d" || failed="$failed $d"
             else python3 shorts/oldmoney/oldmoney.py build "$d" "${args[@]}" $SONGS || failed="$failed $d"; fi
             rm -rf "${OLDMONEY_CACHE:?}"          # the trip's video pieces: room for the next trip
           done

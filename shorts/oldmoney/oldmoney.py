@@ -9,6 +9,8 @@ song, colour palette, serif and script titles, the logo at the end.
                                               else <song>-small.mp4 (silent 1080p, light, to send) for `mux`
     python3 oldmoney.py candidates <day>      every few seconds of the trip's `videos`, framed on the boat, on one sheet
                                               (OUT/<day>/candidates-*.jpg + .json): pick the good ones into `shots`
+    python3 oldmoney.py shots <day>           every shot of the project as its whole frame with the 9:16 crop drawn on it
+                                              (OUT/<day>/shots-*.jpg): check that each crop holds the boat
     python3 oldmoney.py mux <day>             add the song to each <song>-small.mp4: <song>-preview.mp4 (to judge the cut)
     python3 oldmoney.py beats <song...>       the exact beat grid and hits of music/<song>-preview.m4a (needs librosa)
     python3 oldmoney.py looks <out.jpg> <frame[@x]>...   every palette side by side on the same frames
@@ -423,6 +425,45 @@ def candidates(day):
         sheet.save(out / f"candidates-{page + 1}.jpg", quality=82)
     (out / "candidates.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1))
     print(f"{day}: {len(found)} candidates of {len(jobs)} looked at; videos: " + ", ".join(f"v{s} = {n}" for n, s in short.items()))
+
+
+def shots(day):
+    """Every shot of the project as its whole 16:9 frame at its start (a shot tagged intro or end also 2 s of Reel
+    later: it is held), the 9:16 crop drawn on it, its name and crop centre under it: OUT/<day>/shots-<page>.jpg, and
+    each frame alone in shots-<id>.jpg. To check by eye that every crop holds the boat: white foam behind a fast boat
+    and the sun's glitter are whiter than the hull, and boat_x() then frames them instead of the boat."""
+    from concurrent.futures import ThreadPoolExecutor
+    proj = project(day)
+    jobs = []
+    for sid, (name, t, x, speed, *tags) in proj["shots"].items():
+        jobs.append((sid, name, t, x))
+        if {"intro", "end"} & set((tags[0] if tags else "").split()):
+            jobs.append((f"{sid}+2s", name, t + 2 * speed, x))
+    with ThreadPoolExecutor(3) as ex:
+        imgs = list(ex.map(lambda j: frame_at(j[1], j[2]), jobs))
+    found = [(j, img) for j, img in zip(jobs, imgs) if img is not None]
+    if not found:
+        raise SystemExit(f"{day}: no frame could be read")
+    out = OUT / day
+    out.mkdir(parents=True, exist_ok=True)
+    share = W / H * 9 / 16
+    tw, th = found[0][1].shape[1], found[0][1].shape[0]
+    cols, per = 5, 20
+    lab = font("Oswald-VF.ttf", 17, 500)
+    for page in range((len(found) + per - 1) // per):
+        part = found[page * per:(page + 1) * per]
+        sheet = Image.new("RGB", (cols * tw, ((len(part) + cols - 1) // cols) * (th + 24)), (20, 20, 20))
+        d = ImageDraw.Draw(sheet)
+        for i, ((sid, name, t, x), img) in enumerate(part):
+            x0, y0 = (i % cols) * tw, (i // cols) * (th + 24)
+            whole = Image.fromarray(img).resize((tw, th))
+            whole.save(out / f"shots-{sid}.jpg", quality=85)
+            sheet.paste(whole, (x0, y0))
+            left = x0 + x * (1 - share) * tw
+            d.rectangle((left, y0, left + share * tw, y0 + th - 1), outline=GOLD, width=2)
+            d.text((x0 + 4, y0 + th + 2), f"{sid}  {t:g}s  x{x:g}", font=lab, fill=GOLD)
+        sheet.save(out / f"shots-{page + 1}.jpg", quality=85)
+    print(f"{day}: {len(found)} of {len(jobs)} shot frames")
 
 
 # ---- titles ----------------------------------------------------------------------------------------------------
@@ -873,6 +914,8 @@ if __name__ == "__main__":
             beats_cmd(s)
     elif len(a) == 2 and a[0] == "candidates":
         candidates(a[1])
+    elif len(a) == 2 and a[0] == "shots":
+        shots(a[1])
     elif len(a) == 2 and a[0] == "mux":
         out = OUT / a[1]
         for small in sorted(out.glob("*-small.mp4")):
