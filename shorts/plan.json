@@ -5731,6 +5731,94 @@
     },
     "at": "2026-11-11T20:23:19Z"
    }
+  },
+  {
+   "id": "om0813-sara",
+   "format": "montage",
+   "status": "rendered",
+   "created": "2026-11-11",
+   "shots": [
+    {
+     "name": "Video 1080P 13082026.mp4",
+     "start": 0,
+     "len": 0,
+     "speed": 1,
+     "what": "guests raise a glass at the stern, sunset behind; turquoise water; the ride home at sunset",
+     "tags": [],
+     "file_id": null
+    },
+    {
+     "name": "DJI_20260813191642_0030_D.MP4",
+     "start": 0,
+     "len": 0,
+     "speed": 1,
+     "what": "drone: the boat under the cliffs, a guest jumps off the stern, guests swim and float",
+     "tags": [],
+     "file_id": null
+    }
+   ],
+   "music": "",
+   "audio": "",
+   "cta": "Booking link in bio.",
+   "light": "sunset",
+   "recorded": "2026-08-13",
+   "texts": {
+    "hook": "in love with Madeira",
+    "labels": [],
+    "thumb": "in love with Madeira",
+    "ig": "A swim under the cliffs, then the ride back to Funchal with the sun going down. An afternoon on the water in Madeira. 📍\n\nBooking link in bio.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boattrip",
+     "#privateboat"
+    ],
+    "fb": "A swim under the cliffs, a jump off the back of the boat, and the ride back to Funchal as the sun goes down. An afternoon on our private boat in Madeira.",
+    "threads": "Swim under the cliffs, ride home at sunset. An afternoon on the boat in Madeira.",
+    "yt_title": "An afternoon on a private boat in Madeira, swim to sunset #Shorts",
+    "yt_description": "An afternoon on the water in Madeira.\n\nWe leave Funchal on our private boat and stop under the cliffs for a swim. Guests jump in from the back of the boat and float in clear water. Later we ride back along the coast with the sun going down and a toast on board.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat trip",
+     "things to do in madeira",
+     "madeira private boat",
+     "madeira sunset",
+     "private boat funchal",
+     "madeira coast",
+     "madeira swimming spot",
+     "karnic boat",
+     "chifbay madeira",
+     "madeira island",
+     "funchal marina"
+    ],
+    "tiktok": "Swim under the cliffs, ride home at sunset. An afternoon on our boat in Madeira. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "Guests on a private boat in Madeira raise a glass at sunset, jump into the sea under high cliffs, swim, and ride back as the sun goes down.",
+    "model": "hand"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/om0813-sara-dba10855.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/om0813-sara-dba10855-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/om0813-sara-dba10855-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/om0813-sara-dba10855-cover.jpg",
+    "duration": 11.9,
+    "bytes": 23722213,
+    "shots": [
+     {
+      "name": "Video 1080P 13082026.mp4"
+     },
+     {
+      "name": "DJI_20260813191642_0030_D.MP4"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-11T21:37:56Z",
+    "song": "Ricchi e Poveri - Sarà perché ti amo",
+    "edit": "old money"
+   }
   }
  ]
 }
