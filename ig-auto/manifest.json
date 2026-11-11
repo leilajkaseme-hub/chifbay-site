@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T21:15:36.155Z",
+ "generated_at": "2026-11-11T12:20:58.839Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -875,6 +875,52 @@
    "template": null,
    "priority": 0,
    "created": "2026-11-07T11:27:18.894Z"
+  },
+  {
+   "id": "20261111122047-7799",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Sunset boat tour from Funchal, Madeira: two people on the bow and the sun doing all the work.\n\nOur boat sits on the left of the picture, white hull, dark canopy. Right at the front, two people are sitting on the bow in white tops, looking out at the sun. Nobody is checking a phone. The sun is a small bright disc near the horizon, with a long gold stripe running down the water towards us.\n\nBehind them the coast curves away, green and brown hills with a few houses along the shore. Above, big clouds lit orange from underneath. The water in front is dark, with gold patches that move around like they cannot decide where to land.\n\nThe practical bit: our Sunset Trip is 2h or 2h30 and leaves Funchal marina 1h15 before the sun goes down, so the time changes through the year. It follows the same coast as the Day Trip and turns at Cabo Girão or Ribeira Brava. No swimming on this one. It is private, with a skipper, five guests at most, and food on board.\n\nO sol já vai descendo.\n\nWould you take the bow seat, or stay under the canopy?",
+   "hashtags": [
+    "#madeiraisland",
+    "#funchal",
+    "#boatrentalmadeira",
+    "#boatlife",
+    "#sunsetcruise",
+    "#goldenhour"
+   ],
+   "cover": "https://chifbay.com/ig/20261111122047-7799-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261111122047-7799-1.jpg",
+    "https://chifbay.com/ig/20261111122047-7799-2.jpg",
+    "https://chifbay.com/ig/20261111122047-7799-3.jpg",
+    "https://chifbay.com/ig/20261111122047-7799-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-11T12:20:58.828Z"
+  },
+  {
+   "id": "20261111122058-2baa",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1GQSQbvV-1.jpg",
+   "video": "https://chifbay.com/ig/reel-1GQSQbvV-1.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-11T12:20:58.836Z"
   }
  ]
 }
