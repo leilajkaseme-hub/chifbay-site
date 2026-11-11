@@ -53,7 +53,14 @@ jobs:
           python-version: "3.12"
       - name: Install ffmpeg, Pillow, numpy
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          # Ubuntu's mirrors are sometimes out of reach from the runner (11 Nov 2026: one run failed, the next hung for
+          # 28 minutes): three tries, none longer than 8 minutes.
+          for n in 1 2 3; do
+            sudo timeout -k 10 480 sh -c 'apt-get update -qq && apt-get install -y -qq ffmpeg' && break
+            [ "$n" = 3 ] && { echo "ffmpeg could not be installed"; exit 1; }
+            sudo dpkg --configure -a || true
+            sleep 30
+          done
           pip install -q pillow numpy
       - name: Check the inputs
         run: |
