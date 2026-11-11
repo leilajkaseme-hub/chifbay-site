@@ -80,3 +80,8 @@
 {"at":"2026-11-10T23:35:04.780Z","ok":false,"id":"s019","channel":"tiktok","error":"TikTok draft refused: could not read the video (404) \"\""}
 {"at":"2026-11-11T06:46:38.151Z","ok":false,"id":"s019","channel":"tiktok","error":"TikTok draft refused: could not read the video (404) \"\""}
 {"at":"2026-11-11T15:26:01.260Z","ok":false,"id":"s019","channel":"tiktok","error":"TikTok draft refused: could not read the video (404) \"\""}
+{"at":"2026-11-11T21:52:24.965Z","ok":true,"id":"18131989504894236","channel":"instagram","slot":"2026-11-11#0","url":"https://www.instagram.com/reel/DfnfTo6FsrT/"}
+{"at":"2026-11-11T21:52:56.161Z","ok":true,"id":"122132325267436640","channel":"facebook","url":"https://www.facebook.com/122132325267436640"}
+{"at":"2026-11-11T21:53:32.478Z","ok":true,"id":"18122125060748195","channel":"threads","url":"https://www.threads.com/@chifbay/post/DfnfcBJBjbf"}
+{"at":"2026-11-11T21:54:57.444Z","ok":true,"id":"0iAlWVGK0QM","channel":"youtube","url":"https://www.youtube.com/shorts/0iAlWVGK0QM"}
+{"at":"2026-11-11T21:54:57.668Z","ok":false,"id":"s015","channel":"tiktok","error":"TikTok draft refused: could not read the video (404) \"\""}

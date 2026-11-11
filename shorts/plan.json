@@ -2234,6 +2234,29 @@
      "problems": []
     },
     "at": "2026-11-02T21:25:19Z"
+   },
+   "posted": {
+    "instagram": {
+     "at": "2026-11-11T21:52:24.965Z",
+     "id": "18131989504894236",
+     "url": "https://www.instagram.com/reel/DfnfTo6FsrT/",
+     "slot": "2026-11-11#0"
+    },
+    "facebook": {
+     "at": "2026-11-11T21:52:56.161Z",
+     "id": "122132325267436640",
+     "url": "https://www.facebook.com/122132325267436640"
+    },
+    "threads": {
+     "at": "2026-11-11T21:53:32.478Z",
+     "id": "18122125060748195",
+     "url": "https://www.threads.com/@chifbay/post/DfnfcBJBjbf"
+    },
+    "youtube": {
+     "at": "2026-11-11T21:54:57.444Z",
+     "id": "0iAlWVGK0QM",
+     "url": "https://www.youtube.com/shorts/0iAlWVGK0QM"
+    }
    }
   },
   {
@@ -5533,7 +5556,7 @@
      "name": "DJI_20261030173226_0011_D.MP4",
      "start": 14.52,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 16.5,
      "x": 0.5,
      "x2": 0.5,
@@ -5554,8 +5577,8 @@
      "name": "DJI_20261030173535_0014_D.MP4",
      "start": 26.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 28.0,
+     "speed": 1,
+     "peak": 28,
      "x": 0.5,
      "x2": 0.5,
      "what": "Cinematic aerial pan showcasing the sheer volcanic cliffs and rugged Madeira coastline meeting the sea",
@@ -5574,8 +5597,8 @@
      "name": "DJI_20261030173226_0011_D.MP4",
      "start": 35.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 37.0,
+     "speed": 1,
+     "peak": 37,
      "x": 0.55,
      "x2": 0.55,
      "what": "Drone flies along the rugged coastline revealing small coastal houses nestled at the foot of massive cliffs.",
@@ -5594,8 +5617,8 @@
      "name": "DJI_20261030170106_0004_D.MP4",
      "start": 6.9,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 9.0,
+     "speed": 1,
+     "peak": 9,
      "x": 0.46,
      "x2": 0.58,
      "what": "Drone approaches and flies over the boat anchored in calm waters right beneath towering volcanic cliffs",
@@ -5673,7 +5696,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.516,
@@ -5690,7 +5713,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": false,
       "path": null,
       "what": "Cinematic aerial pan showcasing the sheer volcanic cliffs and rugged Madeira coastline meeting the sea"
@@ -5702,7 +5725,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": false,
       "path": null,
       "what": "Drone flies along the rugged coastline revealing small coastal houses nestled at the foot of massive cliffs."
@@ -5714,7 +5737,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.458,
