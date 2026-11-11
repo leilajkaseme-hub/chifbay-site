@@ -14,9 +14,9 @@
   "endline": "YOUR BOAT · YOUR DAY",
   "edits": {
     "gloria": {
-      "intro": [["wake-run", 8]],
-      "cuts": [["glitter-boat", 1], ["wake-glitter", 1], ["glitter-paddle", 1], ["wake-paddle", 1], ["wake-trail", 1], ["circle-start", 1],
-               ["circle", 1], ["head-on", 1], ["top-paddle", 1], ["top-turq", 1], ["guest-wave", 1], ["top-paddle2", 1]],
+      "intro": [["top-paddle", 8]],
+      "cuts": [["glitter-boat", 1], ["wake-white", 1], ["glitter-paddle", 1], ["wake-run", 1], ["wake-glitter", 1], ["wake-paddle", 1],
+               ["wake-trail", 1], ["circle-start", 1], ["circle", 1], ["head-on", 1], ["top-turq", 1], ["top-paddle2", 1]],
       "end": ["glitter-sea", 4]
     }
   },
