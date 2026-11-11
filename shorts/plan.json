@@ -5521,6 +5521,216 @@
     },
     "at": "2026-11-10T20:35:08Z"
    }
+  },
+  {
+   "id": "s036",
+   "format": "story",
+   "status": "rendered",
+   "created": "2026-11-11",
+   "shots": [
+    {
+     "file_id": "1yQ3P8ElSPTDRk35-knN_VXUqC7ZXyO9v",
+     "name": "DJI_20261030173226_0011_D.MP4",
+     "start": 14.52,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 16.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Drone lowers towards a white motorboat anchored near massive cliffs while a guest swims nearby.",
+     "tags": [
+      "aerial",
+      "boat_hero",
+      "cliffs",
+      "swim",
+      "cove"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "13_iggiEuNa5mIm6XLJB4Wfj1YcHd4KE3",
+     "name": "DJI_20261030173535_0014_D.MP4",
+     "start": 26.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 28.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Cinematic aerial pan showcasing the sheer volcanic cliffs and rugged Madeira coastline meeting the sea",
+     "tags": [
+      "aerial",
+      "reveal",
+      "cliffs",
+      "open_sea"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1yQ3P8ElSPTDRk35-knN_VXUqC7ZXyO9v",
+     "name": "DJI_20261030173226_0011_D.MP4",
+     "start": 35.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 37.0,
+     "x": 0.55,
+     "x2": 0.55,
+     "what": "Drone flies along the rugged coastline revealing small coastal houses nestled at the foot of massive cliffs.",
+     "tags": [
+      "aerial",
+      "cliffs",
+      "reveal",
+      "cove"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1NmIwv0TEbZ7nsY6aQxNKzZW93p5B4Vjw",
+     "name": "DJI_20261030170106_0004_D.MP4",
+     "start": 6.9,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 9.0,
+     "x": 0.46,
+     "x2": 0.58,
+     "what": "Drone approaches and flies over the boat anchored in calm waters right beneath towering volcanic cliffs",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "cliffs",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    }
+   ],
+   "music": "jump",
+   "audio": "sea",
+   "cta": "Tap the link in our bio to book.",
+   "light": "golden",
+   "recorded": "2026-10-31",
+   "texts": {
+    "hook": "Anchored near the cliffs for a swim",
+    "labels": [
+     "Anchored near the cliffs for a swim",
+     "Looking up at the Madeira coastline",
+     "Past the quiet houses below the rock",
+     "Calm water at our private stop"
+    ],
+    "thumb": "Swimming under the cliffs",
+    "ig": "Our Day Trip anchored under the south coast cliffs of Madeira. 📍\n\nTap the link in our bio to book.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boatlife"
+    ],
+    "fb": "A quiet swim stop under the cliffs on our Day Trip from Funchal. When the weather allows, we take out the drone for a few aerial shots.",
+    "threads": "Anchored near the volcanic cliffs along the south coast of Madeira on our private Day Trip.",
+    "yt_title": "Private boat trip swim stop in Madeira #Shorts",
+    "yt_description": "Anchored under the volcanic cliffs.\n\nA short look at our private Day Trip along the south coast of Madeira. We stop for a swim below the cliffs near Funchal, with snacks on board and drone footage when the weather is clear.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "funchal boat tour",
+     "madeira drone",
+     "private boat trip madeira",
+     "karnic r8s",
+     "cabo girao",
+     "faja dos padres",
+     "things to do in madeira",
+     "madeira swimming stop",
+     "madeira private charter"
+    ],
+    "tiktok": "Stopping for a swim under the cliffs on our Day Trip. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "Aerial drone view of a white motorboat anchored in clear blue water under high volcanic cliffs on the coast of Madeira while someone swims nearby.",
+    "model": "gemini-3.6-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 9,
+    "problems": [],
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s036-24a1d425.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s036-24a1d425-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s036-24a1d425-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s036-24a1d425-thumb.jpg",
+    "duration": 14.4,
+    "bytes": 15425264,
+    "shots": [
+     {
+      "name": "DJI_20261030173226_0011_D.MP4",
+      "in": 14.52,
+      "out": 18.12,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.516,
+       0.539,
+       0.556,
+       0.595
+      ],
+      "what": "Drone lowers towards a white motorboat anchored near massive cliffs while a guest swims nearby."
+     },
+     {
+      "name": "DJI_20261030173535_0014_D.MP4",
+      "in": 26.02,
+      "out": 29.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": false,
+      "path": null,
+      "what": "Cinematic aerial pan showcasing the sheer volcanic cliffs and rugged Madeira coastline meeting the sea"
+     },
+     {
+      "name": "DJI_20261030173226_0011_D.MP4",
+      "in": 35.02,
+      "out": 38.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": false,
+      "path": null,
+      "what": "Drone flies along the rugged coastline revealing small coastal houses nestled at the foot of massive cliffs."
+     },
+     {
+      "name": "DJI_20261030170106_0004_D.MP4",
+      "in": 6.9,
+      "out": 10.5,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.458,
+       0.474,
+       0.558,
+       0.69
+      ],
+      "what": "Drone approaches and flies over the boat anchored in calm waters right beneath towering volcanic cliffs"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-11T20:23:19Z"
+   }
   }
  ]
 }
