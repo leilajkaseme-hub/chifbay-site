@@ -10,19 +10,18 @@
     "DJI_20260924185527_0080_D.MP4": {"speed": 0.5, "every": 3},
     "DJI_20260924185451_0079_D.MP4": {"speed": 1, "every": 1}
   },
+  "songs": ["danse"],
+  "endlines": {"danse": "THE SOUTH COAST"},
   "shots": {
-    "boat-ship": ["DJI_20260924185527_0080_D.MP4", 36.5, 0.47, 0.5, "intro wide"],
+    "boat-ship": ["DJI_20260924185527_0080_D.MP4", 36.5, 0.47, 0.5, "intro high wide"],
     "cliff-sea": ["DJI_20260924185527_0080_D.MP4", 159.5, 0.0, 0.5, "intro wide scene:cliffs"],
-    "cliff-dark": ["DJI_20260924185527_0080_D.MP4", 162.5, 0.56, 0.5, "intro wide scene:cliffs"],
-    "boat-clouds": ["DJI_20260924185527_0080_D.MP4", 165.5, 0.5, 0.5, "intro wide"],
+    "cliff-dark": ["DJI_20260924185527_0080_D.MP4", 162.5, 0.56, 0.5, "wide scene:cliffs"],
     "horizon": ["DJI_20260924185527_0080_D.MP4", 120.5, 0.5, 0.5, "end scene:hz"],
     "horizon2": ["DJI_20260924185527_0080_D.MP4", 126.5, 0.5, 0.5, "end scene:hz"],
     "coast": ["DJI_20260924185527_0080_D.MP4", 174.5, 0.5, 0.5, "end"],
     "sea-top": ["DJI_20260924185527_0080_D.MP4", 129.5, 0.5, 0.5, "end"],
-    "top-boat": ["DJI_20260924185527_0080_D.MP4", 0.5, 0.3, 0.5, "people scene:tA"],
-    "top-diag": ["DJI_20260924185527_0080_D.MP4", 6.5, 0.48, 0.5, "scene:tA"],
+    "top-diag": ["DJI_20260924185527_0080_D.MP4", 6.5, 0.6, 0.5, "scene:tA"],
     "top-long": ["DJI_20260924185527_0080_D.MP4", 9.5, 0.65, 0.5, "people scene:tA"],
-    "top-side": ["DJI_20260924185527_0080_D.MP4", 12.5, 0.47, 0.5, "scene:tB"],
     "top-guests": ["DJI_20260924185527_0080_D.MP4", 15.5, 0.67, 0.5, "people scene:tB"],
     "top-turn": ["DJI_20260924185527_0080_D.MP4", 21.5, 0.41, 0.5, "scene:tB"],
     "top-turn2": ["DJI_20260924185527_0080_D.MP4", 24.5, 0.46, 0.5, "scene:tB"],
@@ -38,9 +37,8 @@
     "cliff-green": ["DJI_20260924185527_0080_D.MP4", 99.5, 0.5, 0.5, ""],
     "cliff-wide": ["DJI_20260924185527_0080_D.MP4", 102.5, 0.5, 0.5, "wide"],
     "horizon-blue": ["DJI_20260924185527_0080_D.MP4", 114.5, 0.5, 0.5, "wide"],
-    "boat-drift": ["DJI_20260924185527_0080_D.MP4", 150.5, 0.31, 0.5, ""],
+    "boat-drift": ["DJI_20260924185527_0080_D.MP4", 150.5, 0.44, 0.5, ""],
     "coast-glitter": ["DJI_20260924185527_0080_D.MP4", 156.5, 0.0, 0.5, "wide"],
-    "top-boat2": ["DJI_20260924185451_0079_D.MP4", 0.5, 0.14, 1, "scene:tD"],
     "top-guests2": ["DJI_20260924185451_0079_D.MP4", 2.5, 0.38, 1, "people scene:tD"]
   }
 }

@@ -9,6 +9,22 @@
     "DJI_20260813191642_0030_D.MP4": {"speed": 0.5, "every": 2.5},
     "Video 1080P 13082026.mp4": {"speed": 1, "every": 3, "from": 96, "to": 127, "edit": true}
   },
+  "songs": ["feeling"],
+  "titles": {"feeling": {"script": "feeling", "serif": "Good", "caps": "PRIVATE BOAT · MADEIRA"}},
+  "endlines": {"feeling": "PRIVATE BOAT TRIPS"},
+  "shown": [
+    ["DJI_20260813191642_0030_D.MP4", -0.2, 3.83, "monaco sara skyfall sway tourner"],
+    ["DJI_20260813191642_0030_D.MP4", 13.0, 15.67, "monaco sara sway tourner"],
+    ["DJI_20260813191642_0030_D.MP4", 16.3, 20.95, "monaco sara skyfall sway tourner"],
+    ["DJI_20260813191642_0030_D.MP4", 24.3, 27.18, "monaco sara skyfall sway tourner"],
+    ["DJI_20260813191642_0030_D.MP4", 28.8, 31.6, "monaco sara skyfall sway tourner"],
+    ["DJI_20260813191642_0030_D.MP4", 35.3, 42.95, "monaco sara skyfall sway tourner"],
+    ["DJI_20260813191642_0030_D.MP4", 44.3, 47.2, "monaco sara skyfall sway tourner"],
+    ["DJI_20260813191642_0030_D.MP4", 71.8, 76.2, "monaco skyfall sway tourner"],
+    ["Video 1080P 13082026.mp4", 96.0, 99.27, "monaco sara skyfall sway tourner"],
+    ["Video 1080P 13082026.mp4", 100.8, 106.4, "monaco sara skyfall sway tourner"],
+    ["Video 1080P 13082026.mp4", 108.3, 117.67, "monaco sara skyfall sway tourner"]
+  ],
   "shots": {
     "boat-cliff": ["DJI_20260813191642_0030_D.MP4", 0.5, 0.03, 0.5, "intro wide"],
     "boat-cliff2": ["DJI_20260813191642_0030_D.MP4", 15.5, 0.0, 0.5, "intro wide"],

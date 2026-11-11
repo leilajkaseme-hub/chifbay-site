@@ -8,6 +8,18 @@
   "videos": {
     "DJI_20260812144130_0009_D.MP4": {"speed": 0.5, "every": 2.5}
   },
+  "songs": ["carra"],
+  "titles": {"carra": {"script": "andiamo al", "serif": "Mare", "caps": "PRIVATE BOAT · MADEIRA"}},
+  "endlines": {"carra": "MADEIRA · PORTUGAL"},
+  "shown": [
+    ["DJI_20260812144130_0009_D.MP4", 4.8, 8.03, "lady skyfall tourner"],
+    ["DJI_20260812144130_0009_D.MP4", 8.8, 11.7, "lady skyfall tourner"],
+    ["DJI_20260812144130_0009_D.MP4", 12.3, 14.93, "lady"],
+    ["DJI_20260812144130_0009_D.MP4", 21.8, 28.45, "lady skyfall tourner"],
+    ["DJI_20260812144130_0009_D.MP4", 29.3, 39.2, "lady skyfall tourner"],
+    ["DJI_20260812144130_0009_D.MP4", 42.3, 48.93, "lady skyfall tourner"],
+    ["DJI_20260812144130_0009_D.MP4", 51.3, 57.8, "lady skyfall tourner"]
+  ],
   "shots": {
     "boat-swimmers": ["DJI_20260812144130_0009_D.MP4", 58.0, 0.5, 0.5, "intro wide"],
     "paddle-wide": ["DJI_20260812144130_0009_D.MP4", 48.0, 0.5, 0.5, "intro wide"],
@@ -28,6 +40,10 @@
     "float": ["DJI_20260812144130_0009_D.MP4", 43.0, 0.84, 0.5, "people"],
     "paddle-swim": ["DJI_20260812144130_0009_D.MP4", 50.5, 0.5, 0.5, ""],
     "boat-far": ["DJI_20260812144130_0009_D.MP4", 55.5, 0.5, 0.5, ""],
-    "boat-top": ["DJI_20260812144130_0009_D.MP4", 60.5, 0.11, 0.5, "people"]
+    "boat-top": ["DJI_20260812144130_0009_D.MP4", 60.5, 0.11, 0.5, "people"],
+    "swimmer-far": ["DJI_20260812144130_0009_D.MP4", 15.5, 0.58, 0.5, ""],
+    "buoy": ["DJI_20260812144130_0009_D.MP4", 88.0, 0.64, 0.5, "scene:buoy"],
+    "sea-buoy": ["DJI_20260812144130_0009_D.MP4", 65.5, 0.5, 0.5, "scene:buoy"],
+    "sea-glare": ["DJI_20260812144130_0009_D.MP4", 0.5, 1.0, 0.5, "end"]
   }
 }

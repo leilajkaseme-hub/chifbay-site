@@ -13,6 +13,20 @@
     "DJI_20260811102748_0004_D.MP4": {"speed": 0.5, "every": 3},
     "DJI_20260811111635_0005_D.MP4": {"speed": 0.5, "every": 3}
   },
+  "songs": ["wenospeak"],
+  "endlines": {"wenospeak": "SEE YOU ON BOARD"},
+  "shown": [
+    ["DJI_20260811102512_0002_D.MP4", 6.0, 10.83, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811102620_0003_D.MP4", 2.0, 7.63, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811102620_0003_D.MP4", 13.5, 22.43, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811102620_0003_D.MP4", 37.5, 43.5, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811102620_0003_D.MP4", 45.5, 50.0, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811102620_0003_D.MP4", 72.0, 79.98, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811102748_0004_D.MP4", 23.5, 33.32, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811102748_0004_D.MP4", 55.5, 59.98, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811111635_0005_D.MP4", 1.5, 6.45, "monaco skyfall sway tourner voyage"],
+    ["DJI_20260811111635_0005_D.MP4", 6.5, 10.98, "voyage"]
+  ],
   "shots": {
     "cliff-glare": ["DJI_20260811102620_0003_D.MP4", 54.5, 1.0, 0.5, "intro wide scene:cliffside"],
     "cliff-glitter": ["DJI_20260811102620_0003_D.MP4", 60.5, 0.81, 0.5, "intro wide scene:glitter"],

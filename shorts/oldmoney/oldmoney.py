@@ -26,10 +26,12 @@ Style (Theo, 8 and 9 Nov 2026, references: "Old Money" serif + script poster, "V
   Cuts follow the song: a cut on each strong hit, a held shot through the softer beats (up to 4). Each song of a trip
   uses its own shots (Theo, 9 Nov: "chaque video = contenu different"). The style never changes, everything else does
   (Theo, 10 Nov: "stop using the same videos. Change the audio, change the text"): a trip names its own `songs`, its own
-  opening line per song (`titles`: {song: {script, serif, caps}}) and its own word under the logo (`endline`); no song
-  and no line is used for two trips. Footage: clean drone and on-board shots only
-  (no 360 reframes, no shaky phone clips); 59.94 fps drone shots play at half speed. Colour: Sapphire & Orange (Theo's
-  pick), with natural skin. Fonts (all OFL, in fonts/): Playfair Display, Pinyon Script, Oswald.
+  opening line per song (`titles`: {song: {script, serif, caps}}) and its own word under the logo (`endline`, or
+  `endlines`: {song: word} when the trip has more than one Reel); no song and no line is used for two trips. A trip
+  that gets a second Reel lists what the first ones showed (`shown`: [video, start s, end s, song]) and the planner
+  keeps away from it. Footage: clean drone and on-board shots only (no 360 reframes, no shaky phone clips); 59.94 fps
+  drone shots play at half speed. Colour: Sapphire & Orange (Theo's pick), with natural skin. Fonts (all OFL, in
+  fonts/): Playfair Display, Pinyon Script, Oswald.
 """
 import http.server
 import json
@@ -136,6 +138,22 @@ SONGS = {
                 "title": {"script": "viva", "serif": "Madeira", "caps": "PRIVATE BOAT · FUNCHAL"}},
     "italodisco": {"name": "ITALODISCO, The Kolors", "bpm": 122.91, "drop": 20.01, "intro": 8, "bars": 3, "cut": 1,
                    "title": {"script": "endless", "serif": "Summer", "caps": "PRIVATE BOAT · FUNCHAL"}},
+    # Added 12 Nov, for the second week of Reels (same rule: a song and a line serve once). Drops from tools/songfit.py.
+    # cut 1 only where the kick is hard on every beat (wenospeak, dolcevita); the others change shot every 2 beats.
+    "wenospeak": {"name": "We No Speak Americano, Yolanda Be Cool & DCUP", "bpm": 125.0, "drop": 4.06, "intro": 8, "bars": 3,
+                  "cut": 1, "title": {"script": "we only speak", "serif": "Atlantic", "caps": "PRIVATE BOAT · MADEIRA"}},
+    "dolcevita": {"name": "Dolce Vita, Ryan Paris", "bpm": 121.99, "drop": 9.73, "intro": 8, "bars": 3, "cut": 1,
+                  "title": {"script": "dolce far", "serif": "Niente", "caps": "PRIVATE BOAT · FUNCHAL"}},
+    "backon74": {"name": "Back On 74, Jungle", "bpm": 146.02, "drop": 16.81, "intro": 8, "bars": 6, "cut": 2,
+                 "title": {"script": "back on", "serif": "Board", "caps": "PRIVATE BOAT · MADEIRA"}},
+    "felicita": {"name": "Felicità, Al Bano Carrisi & Romina Power", "bpm": 107.5, "drop": 14.28, "intro": 8, "bars": 4,
+                 "cut": 2, "title": {"script": "pura", "serif": "Felicità", "caps": "SUNSET CRUISE · MADEIRA"}},
+    "danse":   {"name": "Dernière danse, Indila", "bpm": 114.95, "drop": 19.02, "intro": 8, "bars": 4, "cut": 2,
+                "title": {"script": "quiet", "serif": "Luxury", "caps": "PRIVATE BOAT · MADEIRA"}},
+    "feeling": {"name": "Feeling Good, Michael Bublé", "bpm": 115.8, "drop": 14.20, "intro": 8, "bars": 5, "cut": 2,
+                "title": {"script": "feeling", "serif": "Good", "caps": "SUNSET CRUISE · MADEIRA"}},
+    "carra":   {"name": "A far l'amore comincia tu, Raffaella Carrà", "bpm": 124.04, "drop": 9.20, "intro": 8, "bars": 6,
+                "cut": 2, "title": {"script": "andiamo al", "serif": "Mare", "caps": "PRIVATE BOAT · FUNCHAL"}},
 }
 # A cut lands one frame before the grid beat: the grid sits on the peak of the drum onsets, the attack of the kick and
 # snare comes 20 to 45 ms earlier (measured on the 4 songs, 10 Nov), and a cut a frame early reads as on the beat.
@@ -708,23 +726,25 @@ def scene(s):
     return next((t for t in s["tags"] if t.startswith("scene:")), s["id"])
 
 
-def auto_edit(lib, song, period, taken, k):
+def auto_edit(lib, song, period, taken, k, seen=()):
     """An edit made from the song's rhythm and from shots no other song of this trip uses (`taken`): an intro shot
     long enough for the title, an end shot for the logo, then a view and the guests in turn; two shots of the same
     video never follow each other, and no shot shows a moment of its video that another shot of the edit shows (two
     shots marked close together in one video ran over each other once the first was held long: the same frames came
     back). A trip short of fresh shots gets fewer bars (down to 8 shots after the drop) rather than no video; None
-    when even that does not fit."""
+    when even that does not fit. `seen`: the moments of the trip that Reels already made show ([video, start s,
+    end s], the trip's `shown`): no shot that runs over one of them is picked, so a new Reel of an old trip is new."""
+    seen = [tuple(x[:3]) for x in seen]
     free = [s for s in lib.values() if scene(s) not in taken]
     fits = lambda s, beats: s["avail"] >= beats * period + 0.15
     span = lambda s, beats: (s["name"], s["t"] - 0.2, s["t"] + beats * period * s["speed"] + 0.2)
     clear = lambda a, shown: not any(a[0] == b[0] and a[1] < b[2] and b[1] < a[2] for b in shown)
     first = lambda tag, beats, shown=(): next((s for s in free if tag in s["tags"] and fits(s, beats)
                                                 and clear(span(s, beats), shown)), None)
-    intro = first("intro", SONGS[song]["intro"]) or first("wide", SONGS[song]["intro"])     # a wide shot can carry the title
+    intro = first("intro", SONGS[song]["intro"], seen) or first("wide", SONGS[song]["intro"], seen)   # wide: can carry the title
     if not intro:
         return None
-    held = [span(intro, SONGS[song]["intro"])]
+    held = seen + [span(intro, SONGS[song]["intro"])]
     end = first("end", END_BEATS, held) or first("wide", END_BEATS, held)
     if not end:
         return None
@@ -757,7 +777,7 @@ def plan_trip(proj, lib, songs):
     taken, plans = set(), {}
     for s in sorted(songs, key=lambda s: s not in proj.get("edits", {})):
         _, _, period = song_grid(s)
-        e = proj.get("edits", {}).get(s) or auto_edit(lib, s, period, taken, len(plans))
+        e = proj.get("edits", {}).get(s) or auto_edit(lib, s, period, taken, len(plans), proj.get("shown", ()))
         if e is None:
             print(f"{s}: not enough fresh shots left in this trip, left out")
             continue
@@ -793,7 +813,7 @@ def build(day, proj, lib, song, e, look, base):
     line = words(proj, song)
     top, scale = title_top(proj, intro, line, SONGS[song]["intro"] * period * intro["speed"])
     title_card(line, tmp / "title.png", top, scale)
-    end_card(proj.get("endline", ENDLINE), tmp / "end.png")
+    end_card(proj.get("endlines", {}).get(song) or proj.get("endline", ENDLINE), tmp / "end.png")
     inputs, graph, used = [], [], []
     for j, (sid, fa, fb) in enumerate(plan):
         s = lib[sid]

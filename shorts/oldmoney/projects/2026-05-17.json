@@ -9,9 +9,25 @@
   "videos": {
     "DJI_20260517161057_0006_D.MP4": {"speed": 1, "every": 6}
   },
-  "songs": ["italodisco"],
+  "songs": ["backon74"],
   "titles": {"italodisco": {"script": "endless", "serif": "Summer", "caps": "FUNCHAL · MADEIRA"}},
   "endline": "MADEIRA ISLAND",
+  "endlines": {"backon74": "FUNCHAL BAY"},
+  "shown": [
+    ["DJI_20260517161057_0006_D.MP4", 28.5, 33.0, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 58.5, 70.3, "italodisco monaco skyfall sway tourner"],
+    ["DJI_20260517161057_0006_D.MP4", 70.5, 81.53, "italodisco monaco skyfall sway tourner"],
+    ["DJI_20260517161057_0006_D.MP4", 94.5, 99.0, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 100.5, 124.0, "italodisco monaco skyfall sway tourner"],
+    ["DJI_20260517161057_0006_D.MP4", 130.5, 134.97, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 136.5, 141.0, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 160.5, 165.0, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 172.5, 176.97, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 178.5, 183.0, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 199.5, 220.2, "monaco skyfall sway tourner"],
+    ["DJI_20260517161057_0006_D.MP4", 322.5, 330.37, "italodisco"],
+    ["DJI_20260517161057_0006_D.MP4", 436.5, 442.47, "italodisco"]
+  ],
   "shots": {
     "wake-town": ["DJI_20260517161057_0006_D.MP4", 324.5, 0.66, 1, "intro high wide"],
     "wake-coast": ["DJI_20260517161057_0006_D.MP4", 312.5, 0.76, 1, "intro high wide"],

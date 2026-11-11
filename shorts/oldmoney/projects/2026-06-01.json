@@ -10,6 +10,20 @@
     "DJI_20260601192422_0009_D.MP4": {"speed": 1, "every": 3},
     "DJI_20260601205023_0010_D.MP4": {"speed": 1, "every": 3}
   },
+  "songs": ["dolcevita"],
+  "endlines": {"dolcevita": "ILHA DA MADEIRA"},
+  "shown": [
+    ["DJI_20260601192422_0009_D.MP4", 0.0, 9.27, "monaco skyfall sunset sway tourner"],
+    ["DJI_20260601192422_0009_D.MP4", 23.0, 28.33, "monaco skyfall sunset sway tourner"],
+    ["DJI_20260601192422_0009_D.MP4", 29.0, 37.0, "monaco skyfall sway tourner"],
+    ["DJI_20260601192422_0009_D.MP4", 45.0, 50.63, "monaco skyfall sunset sway tourner"],
+    ["DJI_20260601192422_0009_D.MP4", 88.5, 93.3, "monaco skyfall sway tourner"],
+    ["DJI_20260601205023_0010_D.MP4", -1.5, 3.8, "monaco skyfall sunset sway tourner"],
+    ["DJI_20260601205023_0010_D.MP4", 6.0, 19.93, "monaco skyfall sunset sway tourner"],
+    ["DJI_20260601205023_0010_D.MP4", 21.0, 28.2, "monaco skyfall sunset sway tourner"],
+    ["DJI_20260601205023_0010_D.MP4", 83.0, 93.83, "monaco skyfall sunset sway tourner"],
+    ["DJI_20260601205023_0010_D.MP4", 99.0, 104.67, "monaco skyfall sunset sway tourner"]
+  ],
   "shots": {
     "cliff-glitter": ["DJI_20260601192422_0009_D.MP4", 33.5, 0.55, 1, "intro wide"],
     "cliff-dark": ["DJI_20260601192422_0009_D.MP4", 75.5, 0.25, 1, "intro wide"],
