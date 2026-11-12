@@ -1,5 +1,49 @@
 [
   {
+    "slug": "madeira-marine-protected-areas",
+    "title": "Réserves marines de Madère : laquelle choisir pour nager, plonger ou naviguer ?",
+    "category": "Nature",
+    "date": "2026-11-12",
+    "description": "Garajau, Cabo Girão, Desertas, Selvagens : les réserves marines de Madère, ce qu'on peut y faire (baignade, snorkeling, bateau) et laquelle choisir.",
+    "heroImage": "assets/journal/groupers-inside-garajau-marine-reserve-madeira.jpg",
+    "heroAlt": "Large groupers swimming close to the rocky bottom inside the Garajau marine reserve",
+    "readingMinutes": 5,
+    "keywords": [
+      "which parts of the sea around Madeira are protected",
+      "Madeira marine protected areas",
+      "Garajau marine reserve rules",
+      "Cabo Girão marine park",
+      "Selvagens marine reserve",
+      "Desertas nature reserve sea",
+      "Rocha do Navio marine reserve",
+      "Natura 2000 cetaceans Madeira"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
+    "slug": "who-discovered-madeira-and-where-did-they-land",
+    "title": "Qui a découvert Madère ? Zarco, Machico et une date que personne ne peut garantir",
+    "category": "Guide",
+    "date": "2026-11-12",
+    "description": "Découverte de Madère : Zarco et Tristão Vaz Teixeira en 1419, le débarquement à Machico, les dates qui divergent et ce qu'il reste à voir aujourd'hui.",
+    "heroImage": "assets/journal/machico-bay-east-coast-from-the-sea-early-morning-madeira.jpg",
+    "heroAlt": "Machico bay on Madeira's east coast seen from the sea in early morning light",
+    "readingMinutes": 6,
+    "keywords": [
+      "who discovered Madeira",
+      "where did Zarco land in Madeira",
+      "discovery of Madeira 1419",
+      "João Gonçalves Zarco Madeira",
+      "Tristão Vaz Teixeira Machico",
+      "Porto Santo discovery 1418",
+      "Bartolomeu Perestrelo Porto Santo",
+      "Madeira history timeline"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
     "slug": "why-is-madeira-south-coast-calmer-for-boats",
     "title": "Sortie en bateau à Madère : pourquoi la mer est plus calme au sud qu'au nord",
     "category": "Nature",

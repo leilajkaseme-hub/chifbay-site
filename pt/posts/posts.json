@@ -1,5 +1,49 @@
 [
   {
+    "slug": "madeira-marine-protected-areas",
+    "title": "Reservas marinhas da Madeira: onde ficam, o que é proibido e o que pode fazer",
+    "category": "Nature",
+    "date": "2026-11-12",
+    "description": "Garajau, Cabo Girão, Rocha do Navio, Desertas, Selvagens e Porto Santo: onde pode nadar, mergulhar, pescar ou navegar nas áreas marinhas protegidas.",
+    "heroImage": "assets/journal/groupers-inside-garajau-marine-reserve-madeira.jpg",
+    "heroAlt": "Large groupers swimming close to the rocky bottom inside the Garajau marine reserve",
+    "readingMinutes": 5,
+    "keywords": [
+      "which parts of the sea around Madeira are protected",
+      "Madeira marine protected areas",
+      "Garajau marine reserve rules",
+      "Cabo Girão marine park",
+      "Selvagens marine reserve",
+      "Desertas nature reserve sea",
+      "Rocha do Navio marine reserve",
+      "Natura 2000 cetaceans Madeira"
+    ],
+    "set": "boat-60",
+    "lang": "pt"
+  },
+  {
+    "slug": "who-discovered-madeira-and-where-did-they-land",
+    "title": "Quem descobriu a Madeira? Zarco, Tristão Vaz e o desembarque em Machico",
+    "category": "Guide",
+    "date": "2026-11-12",
+    "description": "Quem descobriu a Madeira e onde desembarcou? Zarco e Tristão Vaz, 1418, 1419, Machico e o que as crónicas não dizem. Datas, dúvidas e o percurso.",
+    "heroImage": "assets/journal/machico-bay-east-coast-from-the-sea-early-morning-madeira.jpg",
+    "heroAlt": "Machico bay on Madeira's east coast seen from the sea in early morning light",
+    "readingMinutes": 6,
+    "keywords": [
+      "who discovered Madeira",
+      "where did Zarco land in Madeira",
+      "discovery of Madeira 1419",
+      "João Gonçalves Zarco Madeira",
+      "Tristão Vaz Teixeira Machico",
+      "Porto Santo discovery 1418",
+      "Bartolomeu Perestrelo Porto Santo",
+      "Madeira history timeline"
+    ],
+    "set": "boat-60",
+    "lang": "pt"
+  },
+  {
     "slug": "why-is-madeira-south-coast-calmer-for-boats",
     "title": "Mar calmo na Madeira: porque é que o Funchal está tantas vezes ao abrigo",
     "category": "Nature",
