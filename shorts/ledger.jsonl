@@ -86,3 +86,8 @@
 {"at":"2026-11-11T21:54:57.444Z","ok":true,"id":"0iAlWVGK0QM","channel":"youtube","url":"https://www.youtube.com/shorts/0iAlWVGK0QM"}
 {"at":"2026-11-11T21:54:57.668Z","ok":false,"id":"s015","channel":"tiktok","error":"TikTok draft refused: could not read the video (404) \"\""}
 {"at":"2026-11-11T22:50:08.494Z","ok":true,"id":"v_inbox_file~v2.7707049247681693718","channel":"tiktok","url":null,"mode":"draft"}
+{"at":"2026-11-12T18:52:05.490Z","ok":true,"id":"18091653953686764","channel":"instagram","slot":"2026-11-12#0","url":"https://www.instagram.com/reel/DfpvdJsDDa_/"}
+{"at":"2026-11-12T18:52:37.982Z","ok":true,"id":"122132507529436640","channel":"facebook","url":"https://www.facebook.com/122132507529436640"}
+{"at":"2026-11-12T18:53:12.716Z","ok":true,"id":"18184338772427055","channel":"threads","url":"https://www.threads.com/@chifbay/post/DfpvmlwAit_"}
+{"at":"2026-11-12T18:53:53.327Z","ok":true,"id":"15gpjgFmqes","channel":"youtube","url":"https://www.youtube.com/shorts/15gpjgFmqes"}
+{"at":"2026-11-12T18:53:58.952Z","ok":true,"id":"v_inbox_file~v2.7707359838212196354","channel":"tiktok","url":null,"mode":"draft"}
