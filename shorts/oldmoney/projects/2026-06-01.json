@@ -34,8 +34,7 @@
   "edits": {
     "dolcevita": {
       "intro": [["boat-far", 8]],
-      "cuts": [["top-turq", 1], ["cove-buoy", 1], ["faja", 1], ["top-blue", 1], ["coast2", 1], ["coast-town", 2],
-               ["funchal", 1], ["cliff-blue", 1], ["cliff-dark", 1], ["cliffs-evening", 1], ["cliff-dusk", 1]],
+      "cuts": [["top-turq", 2], ["cove-buoy", 2], ["faja", 2], ["coast-town", 2], ["cliff-blue", 2], ["cliff-dark", 2]],
       "end": ["sun-3", 4]
     }
   },
