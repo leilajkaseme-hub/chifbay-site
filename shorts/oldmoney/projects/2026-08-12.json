@@ -20,6 +20,13 @@
     ["DJI_20260812144130_0009_D.MP4", 42.3, 48.93, "lady skyfall tourner"],
     ["DJI_20260812144130_0009_D.MP4", 51.3, 57.8, "lady skyfall tourner"]
   ],
+  "edits": {
+    "carra": {
+      "intro": [["boat-swimmers", 8]],
+      "cuts": [["swimmer-turq", 2], ["swimmer-far", 2], ["swimmer", 2], ["paddle-sea", 4], ["paddle-swim", 2], ["boat-top", 4]],
+      "end": ["sky-sea", 4]
+    }
+  },
   "shots": {
     "boat-swimmers": ["DJI_20260812144130_0009_D.MP4", 58.0, 0.5, 0.5, "intro wide"],
     "paddle-wide": ["DJI_20260812144130_0009_D.MP4", 48.0, 0.5, 0.5, "intro wide"],

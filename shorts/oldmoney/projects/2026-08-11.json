@@ -27,10 +27,18 @@
     ["DJI_20260811111635_0005_D.MP4", 1.5, 6.45, "monaco skyfall sway tourner voyage"],
     ["DJI_20260811111635_0005_D.MP4", 6.5, 10.98, "voyage"]
   ],
+  "edits": {
+    "wenospeak": {
+      "intro": [["boat-far", 8]],
+      "cuts": [["cove-beach", 1], ["guest-stern", 1], ["sea-floor", 1], ["top-guests", 1], ["cliff-glitter2", 1], ["woman-cliff", 1],
+               ["guests-turq", 1], ["guests-blue", 1], ["cliff-side", 1], ["side-guests", 1], ["guests-cliff", 1], ["table-guests", 1]],
+      "end": ["deep-horizon", 4]
+    }
+  },
   "shots": {
     "cliff-glare": ["DJI_20260811102620_0003_D.MP4", 54.5, 1.0, 0.5, "intro wide scene:cliffside"],
     "cliff-glitter": ["DJI_20260811102620_0003_D.MP4", 60.5, 0.81, 0.5, "intro wide scene:glitter"],
-    "boat-far": ["DJI_20260811102620_0003_D.MP4", 12.5, 0.5, 0.5, "intro wide"],
+    "boat-far": ["DJI_20260811102620_0003_D.MP4", 11.0, 0.5, 0.5, "intro high wide"],
     "cliff-boat": ["DJI_20260811102620_0003_D.MP4", 39.5, 0.71, 0.5, "intro wide"],
     "deep-horizon": ["DJI_20260811102620_0003_D.MP4", 69.5, 0.5, 0.5, "end"],
     "sea-horizon": ["DJI_20260811102620_0003_D.MP4", 9.5, 0.5, 0.5, "end"],
@@ -45,8 +53,8 @@
     "boat-near": ["DJI_20260811102620_0003_D.MP4", 15.5, 0.43, 0.5, ""],
     "guests-cliff": ["DJI_20260811102620_0003_D.MP4", 36.5, 0.31, 0.5, "people"],
     "under-cliff": ["DJI_20260811102620_0003_D.MP4", 42.5, 0.59, 0.5, "people"],
-    "guests-turq": ["DJI_20260811102620_0003_D.MP4", 51.5, 0.5, 0.5, "people"],
-    "cliff-side": ["DJI_20260811102620_0003_D.MP4", 57.5, 1.0, 0.5, "wide scene:cliffside"],
+    "guests-turq": ["DJI_20260811102620_0003_D.MP4", 51.5, 0.3, 0.5, "people"],
+    "cliff-side": ["DJI_20260811102620_0003_D.MP4", 57.5, 0.6, 0.5, "wide scene:cliffside"],
     "cliff-glitter2": ["DJI_20260811102620_0003_D.MP4", 66.5, 0.5, 0.5, "wide scene:glitter"],
     "boat-beach": ["DJI_20260811102620_0003_D.MP4", 75.5, 0.56, 0.5, ""],
     "guest-stern": ["DJI_20260811102748_0004_D.MP4", 3.5, 0.3, 0.5, "people"],
@@ -55,9 +63,9 @@
     "guests-blue": ["DJI_20260811102748_0004_D.MP4", 18.5, 0.41, 0.5, "people"],
     "boat-blue": ["DJI_20260811102748_0004_D.MP4", 27.5, 0.37, 0.5, ""],
     "top-turq": ["DJI_20260811102748_0004_D.MP4", 30.5, 0.25, 0.5, ""],
-    "table-guests": ["DJI_20260811102748_0004_D.MP4", 36.5, 0.5, 0.5, "people"],
+    "table-guests": ["DJI_20260811102748_0004_D.MP4", 36.5, 0.3, 0.5, "people"],
     "stern-cliff": ["DJI_20260811102748_0004_D.MP4", 57.5, 0.45, 0.5, "people"],
-    "speed-wake": ["DJI_20260811111635_0005_D.MP4", 0.5, 0.45, 0.5, "wide scene:speed"],
+    "speed-wake": ["DJI_20260811111635_0005_D.MP4", 0.5, 0.06, 0.5, "wide scene:speed"],
     "speed-side": ["DJI_20260811111635_0005_D.MP4", 3.5, 0.05, 0.5, "scene:speed"]
   }
 }

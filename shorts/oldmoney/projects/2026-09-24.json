@@ -12,6 +12,14 @@
   },
   "songs": ["danse"],
   "endlines": {"danse": "THE SOUTH COAST"},
+  "edits": {
+    "danse": {
+      "intro": [["boat-ship", 8]],
+      "cuts": [["top-guests2", 2], ["cliff-sea", 2], ["top-long", 2], ["cliff-wide", 2], ["top-close", 2], ["cliff-green", 2],
+               ["top-table", 2], ["boat-calm", 2]],
+      "end": ["horizon", 4]
+    }
+  },
   "shots": {
     "boat-ship": ["DJI_20260924185527_0080_D.MP4", 36.5, 0.47, 0.5, "intro high wide"],
     "cliff-sea": ["DJI_20260924185527_0080_D.MP4", 159.5, 0.0, 0.5, "intro wide scene:cliffs"],

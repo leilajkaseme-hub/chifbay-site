@@ -24,6 +24,14 @@
     ["DJI_20260601205023_0010_D.MP4", 83.0, 93.83, "monaco skyfall sunset sway tourner"],
     ["DJI_20260601205023_0010_D.MP4", 99.0, 104.67, "monaco skyfall sunset sway tourner"]
   ],
+  "edits": {
+    "dolcevita": {
+      "intro": [["boat-far", 8]],
+      "cuts": [["top-turq", 1], ["cove-buoy", 1], ["faja", 1], ["top-blue", 1], ["coast2", 1], ["coast-town", 2],
+               ["funchal", 1], ["cliff-blue", 1], ["cliff-dark", 1], ["cliffs-evening", 1], ["cliff-dusk", 1]],
+      "end": ["sun-3", 4]
+    }
+  },
   "shots": {
     "cliff-glitter": ["DJI_20260601192422_0009_D.MP4", 33.5, 0.55, 1, "intro wide"],
     "cliff-dark": ["DJI_20260601192422_0009_D.MP4", 75.5, 0.25, 1, "intro wide"],
@@ -41,15 +49,15 @@
     "boat-close2": ["DJI_20260601205023_0010_D.MP4", 9.5, 0.41, 1, "people scene:b2"],
     "boat-evening": ["DJI_20260601205023_0010_D.MP4", 75.5, 0.5, 1, ""],
     "boat-sun": ["DJI_20260601205023_0010_D.MP4", 102.5, 0.71, 1, "people"],
-    "boat-far": ["DJI_20260601205023_0010_D.MP4", 72.5, 0.47, 1, "wide"],
+    "boat-far": ["DJI_20260601205023_0010_D.MP4", 72.5, 0.47, 1, "intro wide"],
     "cove-buoy": ["DJI_20260601192422_0009_D.MP4", 18.5, 0.5, 1, ""],
-    "faja": ["DJI_20260601192422_0009_D.MP4", 21.5, 1.0, 1, ""],
+    "faja": ["DJI_20260601192422_0009_D.MP4", 21.5, 0.45, 1, ""],
     "cliff-coast": ["DJI_20260601192422_0009_D.MP4", 45.5, 1.0, 1, "wide"],
     "coast": ["DJI_20260601192422_0009_D.MP4", 48.5, 1.0, 1, "wide scene:coast"],
     "coast2": ["DJI_20260601192422_0009_D.MP4", 51.5, 0.06, 1, "scene:coast"],
     "cliff-face": ["DJI_20260601192422_0009_D.MP4", 78.5, 0.9, 1, ""],
     "cliff-rock": ["DJI_20260601192422_0009_D.MP4", 90.5, 1.0, 1, ""],
-    "coast-town": ["DJI_20260601192422_0009_D.MP4", 93.5, 0.71, 1, ""],
+    "coast-town": ["DJI_20260601192422_0009_D.MP4", 93.5, 0.4, 1, ""],
     "funchal": ["DJI_20260601192422_0009_D.MP4", 108.5, 0.0, 1, "wide"],
     "coast-evening": ["DJI_20260601205023_0010_D.MP4", 12.5, 1.0, 1, ""],
     "cliff-blue": ["DJI_20260601205023_0010_D.MP4", 39.5, 0.5, 1, "wide"],

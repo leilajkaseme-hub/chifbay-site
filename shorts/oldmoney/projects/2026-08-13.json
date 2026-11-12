@@ -25,6 +25,14 @@
     ["Video 1080P 13082026.mp4", 100.8, 106.4, "monaco sara skyfall sway tourner"],
     ["Video 1080P 13082026.mp4", 108.3, 117.67, "monaco sara skyfall sway tourner"]
   ],
+  "edits": {
+    "feeling": {
+      "intro": [["cliff-dark", 8]],
+      "cuts": [["jump2", 2], ["cliff-texture", 2], ["boat-near", 2], ["cliff-high", 2], ["woman-close", 2], ["cliff-red", 2],
+               ["cliff-boat", 2], ["cliff-silhouette", 2]],
+      "end": ["sea-dark2", 4]
+    }
+  },
   "shots": {
     "boat-cliff": ["DJI_20260813191642_0030_D.MP4", 0.5, 0.03, 0.5, "intro wide"],
     "boat-cliff2": ["DJI_20260813191642_0030_D.MP4", 15.5, 0.0, 0.5, "intro wide"],
@@ -37,13 +45,13 @@
     "jump2": ["DJI_20260813191642_0030_D.MP4", 5.5, 0.07, 0.5, "people scene:jump"],
     "boat-guests": ["DJI_20260813191642_0030_D.MP4", 18.0, 0.35, 0.5, "people"],
     "boat-side": ["DJI_20260813191642_0030_D.MP4", 20.5, 0.32, 0.5, "people"],
-    "woman-close": ["DJI_20260813191642_0030_D.MP4", 33.0, 0.0, 0.5, "people"],
+    "woman-close": ["DJI_20260813191642_0030_D.MP4", 33.0, 0.4, 0.5, "people"],
     "swimmer": ["DJI_20260813191642_0030_D.MP4", 35.5, 0.24, 0.5, "people"],
     "stern-jump": ["DJI_20260813191642_0030_D.MP4", 40.5, 0.0, 0.5, "people"],
     "boat-swimmer": ["DJI_20260813191642_0030_D.MP4", 45.5, 0.22, 0.5, ""],
-    "boat-near": ["DJI_20260813191642_0030_D.MP4", 53.0, 1.0, 0.5, ""],
-    "cliff-boat": ["DJI_20260813191642_0030_D.MP4", 8.0, 0.0, 0.5, ""],
-    "cliff-silhouette": ["DJI_20260813191642_0030_D.MP4", 10.5, 0.03, 0.5, "wide"],
+    "boat-near": ["DJI_20260813191642_0030_D.MP4", 53.0, 0.56, 0.5, ""],
+    "cliff-boat": ["DJI_20260813191642_0030_D.MP4", 8.0, 0.37, 0.5, ""],
+    "cliff-silhouette": ["DJI_20260813191642_0030_D.MP4", 10.5, 0.34, 0.5, "wide"],
     "cliff-texture": ["DJI_20260813191642_0030_D.MP4", 65.5, 0.0, 0.5, "wide scene:cliffred"],
     "cliff-red": ["DJI_20260813191642_0030_D.MP4", 68.0, 0.5, 0.5, "scene:cliffred"],
     "cliff-high": ["DJI_20260813191642_0030_D.MP4", 70.5, 1.0, 0.5, "wide"],

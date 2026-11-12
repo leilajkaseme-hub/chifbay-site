@@ -481,6 +481,9 @@ def shots(day):
             d.rectangle((left, y0, left + share * tw, y0 + th - 1), outline=GOLD, width=2)
             d.text((x0 + 4, y0 + th + 2), f"{sid}  {t:g}s  x{x:g}", font=lab, fill=GOLD)
         sheet.save(out / f"shots-{page + 1}.jpg", quality=85)
+    # real length of each video: a hand edit is checked against it before a build is started
+    used = sorted({j[1] for j, _ in found})
+    (out / "lengths.json").write_text(json.dumps({name: round(probe(name)[0], 2) for name in used}, indent=1) + "\n")
     print(f"{day}: {len(found)} of {len(jobs)} shot frames")
 
 
