@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-13T20:25:31.926Z",
+ "generated_at": "2026-11-14T11:54:43.126Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -874,6 +874,53 @@
    "template": null,
    "priority": 0,
    "created": "2026-11-11T12:20:58.828Z"
+  },
+  {
+   "id": "20261114115432-9e56",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Boat tour from Funchal, Madeira: two white glasses, one ice bucket and a wake doing its best.\n\nThe back corner of our boat is in the bottom right. Two white wine glasses stand on the white edge, next to a bucket with a bottle in it. They are not wobbling. We would like to say that is skill, but the water is just kind in this picture.\n\nBehind them, the wake is a messy white scribble on deep blue water. Further on, the city climbs the green hills in layers of small buildings, with a long flat harbour wall along the shore. The sky above is clear blue and empty.\n\nThe practical bit: our Day Trip and our Sunset Trip both leave from Funchal marina and follow this coast. The boat is private, with a skipper, five guests at most, and nobody else on board. Food on board, photos with a real camera and Insta360 video come with every trip.\n\nO brinde já está pronto.\n\nWhich would you look at first, the glasses or the hills?",
+   "hashtags": [
+    "#madeira",
+    "#portugal",
+    "#seaday",
+    "#funchalboattrip",
+    "#dayonaboat",
+    "#islandlife",
+    "#madeiratravel"
+   ],
+   "cover": "https://chifbay.com/ig/20261114115432-9e56-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261114115432-9e56-1.jpg",
+    "https://chifbay.com/ig/20261114115432-9e56-2.jpg",
+    "https://chifbay.com/ig/20261114115432-9e56-3.jpg",
+    "https://chifbay.com/ig/20261114115432-9e56-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-14T11:54:43.120Z"
+  },
+  {
+   "id": "20261114115443-3e7b",
+   "kind": "story",
+   "media": "video",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/reel-1b-Q1XnS-1.jpg",
+   "video": "https://chifbay.com/ig/reel-1b-Q1XnS-1.mp4",
+   "slides": [],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-14T11:54:43.124Z"
   }
  ]
 }
