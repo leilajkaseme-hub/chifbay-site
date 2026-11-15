@@ -1528,6 +1528,20 @@
     "follows": null,
     "profile_visits": null,
     "ig_reels_avg_watch_time": 3349
+   },
+   "d7": {
+    "at": "2026-11-15T13:55:00.238Z",
+    "age_hours": 185,
+    "reach": 129,
+    "views": 148,
+    "likes": 3,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 4,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 3340
    }
   },
   "18651930673046594": {
@@ -1658,6 +1672,20 @@
     "id": "om0517-italodisco",
     "format": null,
     "source": "short"
+   },
+   "h24": {
+    "at": "2026-11-15T13:55:00.238Z",
+    "age_hours": 43,
+    "reach": 88,
+    "views": 118,
+    "likes": 1,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 2,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 3254
    }
   },
   "17957520441292519": {
@@ -1668,8 +1696,32 @@
     "id": "20261017085419-f3c8",
     "format": null,
     "source": "library"
+   },
+   "h24": {
+    "at": "2026-11-15T13:55:00.238Z",
+    "age_hours": 43,
+    "reach": 12,
+    "views": 44,
+    "likes": 2,
+    "comments": 0,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 2,
+    "follows": 0,
+    "profile_visits": 0,
+    "ig_reels_avg_watch_time": null
+   }
+  },
+  "18066675419540047": {
+   "posted_at": "2026-11-14T19:21:42+0000",
+   "permalink": "https://www.instagram.com/reel/Dfu8dF9j899/",
+   "type": "reel",
+   "ours": {
+    "id": "om0812-lady",
+    "format": null,
+    "source": "short"
    }
   }
  },
- "updated_at": "2026-11-14T13:29:27.210Z"
+ "updated_at": "2026-11-15T13:55:00.238Z"
 }
