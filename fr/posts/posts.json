@@ -1,5 +1,48 @@
 [
   {
+    "slug": "sea-urchins-when-swimming-in-madeira",
+    "title": "Oursins à Madère : où ils se cachent, comment se baigner tranquille et que faire en cas de piqûre",
+    "category": "Guide",
+    "date": "2026-11-15",
+    "description": "Oursins à Madère : où ils se cachent, comment se baigner sans risque, chaussons, et les bons gestes en cas de piqûre. Le guide pratique.",
+    "heroImage": "assets/journal/sea-urchins-at-a-rocky-sea-entry-madeira.jpg",
+    "heroAlt": "Black sea urchins in the cracks of dark volcanic rock under shallow clear water",
+    "readingMinutes": 5,
+    "keywords": [
+      "how to avoid sea urchins in Madeira",
+      "sea urchins Madeira",
+      "stepped on a sea urchin what to do",
+      "water shoes Madeira",
+      "long-spined sea urchin Diadema Madeira",
+      "swimming from rocks Madeira",
+      "sea urchin spine first aid"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
+    "slug": "what-is-a-faja-in-madeira",
+    "title": "Qu'est-ce qu'une fajã à Madère ? Ces terres cultivées au pied des falaises",
+    "category": "Nature",
+    "date": "2026-11-15",
+    "description": "Qu'est-ce qu'une fajã à Madère ? Comment elle se forme, pourquoi on la cultive, Fajã dos Padres et Cabo Girão, et comment y aller : en bateau ou en téléphérique.",
+    "heroImage": "assets/journal/rancho-cable-car-descending-to-faja-fields-cabo-girao-madeira.jpg",
+    "heroAlt": "View from the Rancho cable car down to the fajã fields and the sea under Cabo Girão",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is a fajã",
+      "fajã Madeira meaning",
+      "farms at the bottom of cliffs Madeira",
+      "Fajã dos Padres",
+      "fajãs Cabo Girão",
+      "Rancho cable car Cabo Girão",
+      "how are fajãs formed",
+      "Achadas da Cruz fajã"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
     "slug": "are-boat-trips-in-madeira-worth-it-in-winter",
     "title": "Faire une sortie en bateau à Madère en hiver : le vrai bilan, de décembre à février",
     "category": "Experience",

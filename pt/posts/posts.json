@@ -1,5 +1,48 @@
 [
   {
+    "slug": "sea-urchins-when-swimming-in-madeira",
+    "title": "Ouriços-do-mar na Madeira: onde estão, como evitá-los e como tratar uma picada",
+    "category": "Guide",
+    "date": "2026-11-15",
+    "description": "Pisou um ouriço-do-mar na Madeira? Veja onde vivem, como evitar picadas ao nadar, se precisa de sapatos de água e como tratar os espinhos.",
+    "heroImage": "assets/journal/sea-urchins-at-a-rocky-sea-entry-madeira.jpg",
+    "heroAlt": "Black sea urchins in the cracks of dark volcanic rock under shallow clear water",
+    "readingMinutes": 5,
+    "keywords": [
+      "how to avoid sea urchins in Madeira",
+      "sea urchins Madeira",
+      "stepped on a sea urchin what to do",
+      "water shoes Madeira",
+      "long-spined sea urchin Diadema Madeira",
+      "swimming from rocks Madeira",
+      "sea urchin spine first aid"
+    ],
+    "set": "boat-60",
+    "lang": "pt"
+  },
+  {
+    "slug": "what-is-a-faja-in-madeira",
+    "title": "Fajãs da Madeira: a terra que as falésias deixaram cair e onde ainda se planta",
+    "category": "Nature",
+    "date": "2026-11-15",
+    "description": "As fajãs da Madeira nascem de derrocadas e de lava. Veja como se formam, o que se cultiva, como chegar à Fajã dos Padres e o que se vê do mar.",
+    "heroImage": "assets/journal/rancho-cable-car-descending-to-faja-fields-cabo-girao-madeira.jpg",
+    "heroAlt": "View from the Rancho cable car down to the fajã fields and the sea under Cabo Girão",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is a fajã",
+      "fajã Madeira meaning",
+      "farms at the bottom of cliffs Madeira",
+      "Fajã dos Padres",
+      "fajãs Cabo Girão",
+      "Rancho cable car Cabo Girão",
+      "how are fajãs formed",
+      "Achadas da Cruz fajã"
+    ],
+    "set": "boat-60",
+    "lang": "pt"
+  },
+  {
     "slug": "are-boat-trips-in-madeira-worth-it-in-winter",
     "title": "Passeio de barco na Madeira no inverno: vale a pena? O que esperar de dezembro a fevereiro",
     "category": "Experience",

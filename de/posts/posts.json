@@ -1,5 +1,48 @@
 [
   {
+    "slug": "sea-urchins-when-swimming-in-madeira",
+    "title": "Seeigel auf Madeira: So baden Sie ohne Stacheln im Fuß",
+    "category": "Guide",
+    "date": "2026-11-15",
+    "description": "Seeigel auf Madeira: wo sie sitzen, wie Sie Stiche vermeiden, ob Badeschuhe nötig sind und was nach einem Seeigelstich zu tun ist. Praktisch erklärt.",
+    "heroImage": "assets/journal/sea-urchins-at-a-rocky-sea-entry-madeira.jpg",
+    "heroAlt": "Black sea urchins in the cracks of dark volcanic rock under shallow clear water",
+    "readingMinutes": 5,
+    "keywords": [
+      "how to avoid sea urchins in Madeira",
+      "sea urchins Madeira",
+      "stepped on a sea urchin what to do",
+      "water shoes Madeira",
+      "long-spined sea urchin Diadema Madeira",
+      "swimming from rocks Madeira",
+      "sea urchin spine first aid"
+    ],
+    "set": "boat-60",
+    "lang": "de"
+  },
+  {
+    "slug": "what-is-a-faja-in-madeira",
+    "title": "Fajã auf Madeira: Ackerland am Fuß der Steilklippen und wie man es besucht",
+    "category": "Nature",
+    "date": "2026-11-15",
+    "description": "Was ist eine Fajã auf Madeira? Wie sie entsteht, was dort wächst, wie Sie Fajã dos Padres erreichen und wie Sie die Fajãs vom Boot aus sehen.",
+    "heroImage": "assets/journal/rancho-cable-car-descending-to-faja-fields-cabo-girao-madeira.jpg",
+    "heroAlt": "View from the Rancho cable car down to the fajã fields and the sea under Cabo Girão",
+    "readingMinutes": 6,
+    "keywords": [
+      "what is a fajã",
+      "fajã Madeira meaning",
+      "farms at the bottom of cliffs Madeira",
+      "Fajã dos Padres",
+      "fajãs Cabo Girão",
+      "Rancho cable car Cabo Girão",
+      "how are fajãs formed",
+      "Achadas da Cruz fajã"
+    ],
+    "set": "boat-60",
+    "lang": "de"
+  },
+  {
     "slug": "are-boat-trips-in-madeira-worth-it-in-winter",
     "title": "Bootstour auf Madeira im Winter: Lohnt sich das wirklich?",
     "category": "Experience",
