@@ -1,5 +1,47 @@
 [
   {
+    "slug": "how-eco-friendly-is-a-boat-trip-in-madeira",
+    "title": "Excursion en bateau à Madère : est-elle vraiment respectueuse de l'environnement ?",
+    "category": "Experience",
+    "date": "2026-11-18",
+    "description": "Une sortie en bateau à moteur à Madère est-elle écologique ? Faune, crème solaire, déchets, petit groupe ou bateau collectif : ce qui compte vraiment.",
+    "heroImage": "assets/journal/turtle-at-the-surface-boat-holding-back-madeira.jpg",
+    "heroAlt": "A loggerhead turtle at the surface while a small boat waits well back",
+    "readingMinutes": 5,
+    "keywords": [
+      "how eco-friendly is a boat trip in Madeira",
+      "sustainable boat trip Madeira",
+      "eco-friendly boat tour Funchal",
+      "reef-safe sunscreen Madeira",
+      "small boat vs catamaran environmental impact",
+      "responsible tourism Madeira sea",
+      "boat trip carbon footprint"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
+    "slug": "how-tall-is-cabo-girao",
+    "title": "Quelle est la hauteur du Cabo Girão ? 580 mètres, et ce que les brochures oublient de dire",
+    "category": "Nature",
+    "date": "2026-11-18",
+    "description": "Hauteur du Cabo Girão à Madère : environ 580 m. Comparaison avec les falaises d'Europe, ce qu'il faut croire des titres, et comment la voir d'en bas.",
+    "heroImage": "assets/journal/cabo-girao-cliff-face-from-sea-level-low-angle-madeira.jpg",
+    "heroAlt": "The 580 metre Cabo Girão cliff seen from sea level, with two people at the bow looking up",
+    "readingMinutes": 6,
+    "keywords": [
+      "how tall is Cabo Girão",
+      "Cabo Girão height",
+      "is Cabo Girão the highest cliff in Europe",
+      "highest sea cliffs in Europe",
+      "Cabo Girão 580 metres",
+      "Cabo Girão skywalk height",
+      "Cabo Girão from the sea"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
     "slug": "how-cold-is-a-sunset-boat-trip-in-madeira",
     "title": "Coucher de soleil en bateau à Madère : a-t-on froid, et que faut-il emporter ?",
     "category": "Guide",
