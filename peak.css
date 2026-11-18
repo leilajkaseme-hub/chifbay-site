@@ -541,10 +541,12 @@ footer{border-top:1px solid var(--hair);padding:72px 0 40px;}
   background:linear-gradient(90deg,var(--gold),var(--gold-light));
   color:var(--on-accent);text-align:center;font-family:'Space Mono',monospace;
   font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
-  padding:9px 16px;line-height:1.35;font-weight:700}
-.annc span{display:inline-block;max-width:90ch}
+  padding:0 16px;line-height:1.35;font-weight:700;
+  /* exactly as tall as the menu bar offset below (36px): no strip of page between them */
+  height:36px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+.annc span{display:inline-block;max-width:90ch;overflow:hidden;text-overflow:ellipsis}
 body:has(.annc) #nav{top:36px}
-@media(max-width:560px){.annc{font-size:.58rem;letter-spacing:.1em;padding:8px 12px}}
+@media(max-width:560px){.annc{font-size:.58rem;letter-spacing:.1em;padding:0 12px}}
 
 /* struck reference price in tour stat block */
 .wasprice{color:var(--muted);text-decoration:line-through;

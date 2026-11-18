@@ -87,11 +87,11 @@ summary{font-weight:500}
 /* --------------------------------------------------------------- header */
 :root[data-theme="light"] #nav.sc,:root[data-theme="light"] .atlas #nav.sc,
 :root[data-theme="light"] body:not(:has(.hero)):not(:has(.bkhero)) #nav{
-  background:rgba(255,255,255,.97);backdrop-filter:none;-webkit-backdrop-filter:none;
+  background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;
   border-bottom:1px solid rgba(11,34,54,.09);
 }
 :root[data-theme="dark"] #nav.sc,:root[data-theme="dark"] .atlas #nav.sc{
-  background:rgba(var(--ink-rgb),.97);backdrop-filter:none;-webkit-backdrop-filter:none;
+  background:rgb(var(--ink-rgb));backdrop-filter:none;-webkit-backdrop-filter:none;
 }
 
 /* ---------------------------------------------------- cards and photos */
