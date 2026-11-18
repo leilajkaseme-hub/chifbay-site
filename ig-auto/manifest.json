@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T20:34:50.372Z",
+ "generated_at": "2026-11-18T13:37:17.974Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -855,6 +855,55 @@
    "template": null,
    "priority": null,
    "created": "2026-11-17T14:02:57.591Z"
+  },
+  {
+   "id": "20261118133707-b45e",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Boat tour from Funchal, Madeira: our boat, parked on calm blue water, with a very big hill behind it.\n\nThe boat sits low in the lower middle of the picture. White hull, dark canopy, the outboard at the back. Nobody is on deck that we can see. The water is deep blue and barely moving, with a few soft ripples under the hull.\n\nOn the left, a tall cliff of brown rock with green moss on top. Behind it, green mountains stacked in layers, and a line of small white houses sitting along the slope. A few little clouds hang over the ridge. The rest of the sky is plain blue.\n\nNext to all that rock, the boat looks about the size of a shoe. We like it that way.\n\nThe practical bit: our Day Trip leaves Funchal marina at 10:00 or 14:00 and follows this coast past Câmara de Lobos and Cabo Girão. The Sunset Trip follows it too, without the swim stop. Both are private, with a skipper, five guests at most, and food on board.\n\nO mar está calmo.\n\nWould you rather look at the water or the mountains from here? Book direct on chifbay.com",
+   "hashtags": [
+    "#funchalmadeira",
+    "#visitmadeira",
+    "#atlanticocean",
+    "#privateboatmadeira",
+    "#atlantic",
+    "#oceanview",
+    "#slowtravel"
+   ],
+   "cover": "https://chifbay.com/ig/20261118133707-b45e-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261118133707-b45e-1.jpg",
+    "https://chifbay.com/ig/20261118133707-b45e-2.jpg",
+    "https://chifbay.com/ig/20261118133707-b45e-3.jpg",
+    "https://chifbay.com/ig/20261118133707-b45e-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-18T13:37:17.322Z"
+  },
+  {
+   "id": "20261118133717-156c",
+   "kind": "story",
+   "media": "photo",
+   "caption": "",
+   "hashtags": [],
+   "cover": "https://chifbay.com/ig/20261118133717-156c.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261118133717-156c.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": null,
+   "created": "2026-11-18T13:37:17.966Z"
   }
  ]
 }
