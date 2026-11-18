@@ -122,3 +122,4 @@
 {"at":"2026-11-18T19:23:16.314Z","ok":true,"id":"18129705278488724","channel":"threads","url":"https://www.threads.com/@chifbay/post/Df5PzNLq2MX"}
 {"at":"2026-11-18T19:23:50.980Z","ok":true,"id":"qnAj7U_S1Ag","channel":"youtube","url":"https://www.youtube.com/shorts/qnAj7U_S1Ag"}
 {"at":"2026-11-18T19:23:52.457Z","ok":false,"id":"om1014-gloria","channel":"tiktok","error":"TikTok draft refused: KV put() limit exceeded for the day. \"\""}
+{"at":"2026-11-18T19:36:21.522Z","ok":false,"id":"om1014-gloria","channel":"tiktok","error":"TikTok draft refused: KV put() limit exceeded for the day. \"\""}
