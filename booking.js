@@ -25,7 +25,8 @@
     API: window.CHIFBAY_API || "https://chifbay-booking-api.chifandcopt.workers.dev",
     // Stripe publishable key. pk_test_... while testing, pk_live_... when live.
     PK: window.CHIFBAY_STRIPE_PK || "",
-    // Doit valoir BOOK_MAX_DAYS du Worker (booking-api/catalog.js, 180).
+    // Filet seulement: la vraie fenetre vient du Worker (/v1/catalogue,
+    // bookMaxDays, jusqu'au 31 dec 2030 depuis le 18 nov 2026).
     // A 60, tout jour au dela de J+60 etait dessine grise et non cliquable,
     // alors que l'API l'acceptait: le 28 septembre 2026, decembre et tout ce
     // qui suit etaient fermes sur le site sans qu'aucune date ne le soit
@@ -581,6 +582,8 @@
 
   /* ------------------------------------------------------- step 2 date/time */
 
+  var PIECE = 180;   // days per availability request (Worker MAX_SPAN_DAYS)
+
   function loadAvailability() {
     var today = new Date();
     var from = ymd(new Date(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())));
@@ -589,18 +592,43 @@
     // vieux catalogue en cache ne porte pas encore le champ.
     var ahead = (state.catalogue && state.catalogue.bookMaxDays) || CFG.DAYS_AHEAD;
     var to = addDays(from, ahead);
+    // The Worker answers 180 days per request at most (its CPU limit), so
+    // the window to 2030 is asked in pieces, all at once. The first piece
+    // must answer, as before. A later piece that fails only leaves its days
+    // closed: never a day shown free that nobody checked.
+    var pieces = [];
+    for (var f = from; f <= to; f = addDays(f, PIECE + 1)) {
+      var end = addDays(f, PIECE);
+      pieces.push([f, end < to ? end : to]);
+    }
     state.month = from.slice(0, 8) + "01";
     $("#bkcal").innerHTML = '<p class="bkload">' + esc(t("ui.checking")) + "</p>";
     var requestedTrip = state.trip, requestedVariant = state.variant;
     if (state.trip === "sunset" && !state.sun) {
-      api("/v1/sunset?from=" + from + "&to=" + to)
-        .then(function (res) { state.sun = res; if (state.date) renderTimes(); })
+      Promise.all(pieces.map(function (p) {
+        return api("/v1/sunset?from=" + p[0] + "&to=" + p[1]).catch(function () { return null; });
+      }))
+        .then(function (list) {
+          var sun = null;
+          list.forEach(function (res) {
+            if (!res) return;
+            if (!sun) sun = res; else for (var d in res.days) sun.days[d] = res.days[d];
+          });
+          if (sun) { state.sun = sun; if (state.date) renderTimes(); }
+        })
         .catch(function () {});   // not deployed yet, or down: SUN works it out
     }
-    api("/v1/availability?trip=" + encodeURIComponent(state.trip) +
+    Promise.all(pieces.map(function (p, i) {
+      var ask = api("/v1/availability?trip=" + encodeURIComponent(state.trip) +
         "&variant=" + encodeURIComponent(state.variant) +
-        "&from=" + from + "&to=" + to)
-      .then(function (res) {
+        "&from=" + p[0] + "&to=" + p[1]);
+      return i === 0 ? ask : ask.catch(function () { return null; });
+    }))
+      .then(function (list) {
+        var res = list[0];
+        for (var i = 1; i < list.length; i++) {
+          if (list[i]) for (var d in list[i].days) res.days[d] = list[i].days[d];
+        }
         // An older request must not replace a newly selected trip's dates.
         if (state.trip !== requestedTrip || state.variant !== requestedVariant) return;
         state.availability = applyClosures(res.days || {}, requestedTrip);
