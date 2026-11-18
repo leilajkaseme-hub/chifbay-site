@@ -117,3 +117,8 @@
 {"at":"2026-11-17T18:54:13.967Z","ok":true,"id":"18118653827077019","channel":"threads","url":"https://www.threads.com/@chifbay/post/Df2nrgkKPa7"}
 {"at":"2026-11-17T18:54:52.253Z","ok":true,"id":"f0S7-QWoReg","channel":"youtube","url":"https://www.youtube.com/shorts/f0S7-QWoReg"}
 {"at":"2026-11-17T18:54:56.249Z","ok":true,"id":"v_inbox_file~v2.7709215583857805334","channel":"tiktok","url":null,"mode":"draft"}
+{"at":"2026-11-18T19:22:02.580Z","ok":true,"id":"18124002320101866","channel":"instagram","slot":"2026-11-18#0","url":"https://www.instagram.com/reel/Df5Pprtgpne/"}
+{"at":"2026-11-18T19:22:34.840Z","ok":true,"id":"122133772725436640","channel":"facebook","url":"https://www.facebook.com/122133772725436640"}
+{"at":"2026-11-18T19:23:16.314Z","ok":true,"id":"18129705278488724","channel":"threads","url":"https://www.threads.com/@chifbay/post/Df5PzNLq2MX"}
+{"at":"2026-11-18T19:23:50.980Z","ok":true,"id":"qnAj7U_S1Ag","channel":"youtube","url":"https://www.youtube.com/shorts/qnAj7U_S1Ag"}
+{"at":"2026-11-18T19:23:52.457Z","ok":false,"id":"om1014-gloria","channel":"tiktok","error":"TikTok draft refused: KV put() limit exceeded for the day. \"\""}
