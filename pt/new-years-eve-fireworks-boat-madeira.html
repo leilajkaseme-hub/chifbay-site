@@ -219,9 +219,9 @@
         <label for="nye-e">E-mail</label><input id="nye-e" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         <label for="nye-p">Telefone, pode ser WhatsApp</label><input id="nye-p" name="phone" type="tel" autocomplete="tel" placeholder="+351 900 000 000" required>
         <label for="nye-g">Pessoas</label><select id="nye-g" name="guests"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
-        <button class="btn btn-p btn-lg" type="submit" disabled>Reservar a noite · 3000 €</button>
+        <button class="btn btn-p btn-lg" type="submit" disabled>Reservar a noite · sinal de 600 €</button>
         <div class="nye-err" id="nye-err" role="alert"></div>
-        <p class="nye-small">Paga com cartão na Stripe. A noite fica guardada para si assim que a página de pagamento abre.</p>
+        <p class="nye-small">Paga um sinal de 600 € (20%) com cartão na Stripe e os restantes 2400 € a bordo, na própria noite. A noite fica guardada para si assim que a página de pagamento abre.</p>
       </form>
     </div>
   </div>
@@ -229,8 +229,8 @@
 <script>
 (function () {
   "use strict";
-  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", AMOUNT = 300000, LANG = "pt";
-  var T = {"s":{"checking":"A verificar a noite…","open":"Ainda livre. O primeiro grupo a pagar fica com o barco.","held":"Alguém está a pagar esta noite neste momento. Se desistir, volta a abrir dentro de 30 minutos.","taken":"Esta noite já está reservada. Fale connosco para o fogo do próximo ano ou para outra noite.","past":"Esta noite já passou. Até à próxima passagem de ano.","closed":"A reserva desta noite está fechada. Fale connosco no WhatsApp.","error":"Não foi possível verificar a noite agora. Tente outra vez, ou fale connosco no WhatsApp.","cancelled":"O pagamento não foi concluído, nada foi cobrado. A noite continua livre enquanto estiver escrito acima."},"e":{"name":"Indique o seu nome.","email":"Indique um e-mail válido.","phone":"Indique um número de telefone (pode ser WhatsApp).","fail":"Não foi possível abrir a página de pagamento. Tente outra vez."},"pay":"Reservar a noite · 3000 €","busy":"A abrir o pagamento…"};
+  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", DEPOSIT = 60000, LANG = "pt";
+  var T = {"s":{"checking":"A verificar a noite…","open":"Ainda livre. O primeiro grupo a pagar fica com o barco.","held":"Alguém está a pagar esta noite neste momento. Se desistir, volta a abrir dentro de 30 minutos.","taken":"Esta noite já está reservada. Fale connosco para o fogo do próximo ano ou para outra noite.","past":"Esta noite já passou. Até à próxima passagem de ano.","closed":"A reserva desta noite está fechada. Fale connosco no WhatsApp.","error":"Não foi possível verificar a noite agora. Tente outra vez, ou fale connosco no WhatsApp.","cancelled":"O pagamento não foi concluído, nada foi cobrado. A noite continua livre enquanto estiver escrito acima."},"e":{"name":"Indique o seu nome.","email":"Indique um e-mail válido.","phone":"Indique um número de telefone (pode ser WhatsApp).","fail":"Não foi possível abrir a página de pagamento. Tente outra vez."},"pay":"Reservar a noite · sinal de 600 €","busy":"A abrir o pagamento…"};
   var form = document.getElementById("nye-form"), st = document.getElementById("nye-status"), err = document.getElementById("nye-err");
   var btn = form.querySelector("button");
   function show(k, extra) { st.dataset.s = k; st.textContent = (extra ? extra + " " : "") + T.s[k]; btn.disabled = k !== "open"; }
@@ -239,7 +239,7 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status === 404 ? "closed" : "error"); return r.json(); })
     .then(function (q) {
       // the page text and the store must agree on the price, or nobody pays
-      if (q.deposit !== AMOUNT || q.kind !== "full") return show("closed");
+      if (q.deposit !== DEPOSIT || q.kind !== "deposit") return show("closed");
       if (q.state !== "open") return show("closed");
       show(q.availability || "error", q.availability === "open" ? cancelled : "");
     })

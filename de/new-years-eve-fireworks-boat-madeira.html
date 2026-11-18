@@ -219,9 +219,9 @@
         <label for="nye-e">E-Mail</label><input id="nye-e" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         <label for="nye-p">Telefon, WhatsApp geht auch</label><input id="nye-p" name="phone" type="tel" autocomplete="tel" placeholder="+351 900 000 000" required>
         <label for="nye-g">Gäste</label><select id="nye-g" name="guests"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
-        <button class="btn btn-p btn-lg" type="submit" disabled>Die Nacht buchen · 3.000 €</button>
+        <button class="btn btn-p btn-lg" type="submit" disabled>Die Nacht buchen · 600 € Anzahlung</button>
         <div class="nye-err" id="nye-err" role="alert"></div>
-        <p class="nye-small">Sie zahlen mit Karte über Stripe. Die Nacht ist für Sie reserviert, sobald sich die Zahlungsseite öffnet.</p>
+        <p class="nye-small">Sie zahlen 600 € Anzahlung (20 %) mit Karte über Stripe, die restlichen 2.400 € an Bord am Abend selbst. Die Nacht ist für Sie reserviert, sobald sich die Zahlungsseite öffnet.</p>
       </form>
     </div>
   </div>
@@ -229,8 +229,8 @@
 <script>
 (function () {
   "use strict";
-  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", AMOUNT = 300000, LANG = "de";
-  var T = {"s":{"checking":"Die Nacht wird geprüft…","open":"Noch frei. Die erste Gruppe, die zahlt, bekommt das Boot.","held":"Gerade bezahlt jemand diese Nacht. Bricht er ab, ist sie innerhalb von 30 Minuten wieder frei.","taken":"Diese Nacht ist gebucht. Schreiben Sie uns für das Feuerwerk im nächsten Jahr oder für einen anderen Abend.","past":"Diese Nacht ist vorbei. Bis zum nächsten Silvester.","closed":"Die Buchung für diese Nacht ist geschlossen. Schreiben Sie uns auf WhatsApp.","error":"Die Nacht konnte gerade nicht geprüft werden. Versuchen Sie es noch einmal oder schreiben Sie uns auf WhatsApp.","cancelled":"Die Zahlung wurde nicht abgeschlossen, es wurde nichts abgebucht. Die Nacht ist noch frei, solange es oben so steht."},"e":{"name":"Bitte geben Sie Ihren Namen an.","email":"Bitte geben Sie eine gültige E-Mail an.","phone":"Bitte geben Sie eine Telefonnummer an (WhatsApp geht auch).","fail":"Die Zahlungsseite konnte nicht geöffnet werden. Bitte versuchen Sie es noch einmal."},"pay":"Die Nacht buchen · 3.000 €","busy":"Zahlungsseite wird geöffnet…"};
+  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", DEPOSIT = 60000, LANG = "de";
+  var T = {"s":{"checking":"Die Nacht wird geprüft…","open":"Noch frei. Die erste Gruppe, die zahlt, bekommt das Boot.","held":"Gerade bezahlt jemand diese Nacht. Bricht er ab, ist sie innerhalb von 30 Minuten wieder frei.","taken":"Diese Nacht ist gebucht. Schreiben Sie uns für das Feuerwerk im nächsten Jahr oder für einen anderen Abend.","past":"Diese Nacht ist vorbei. Bis zum nächsten Silvester.","closed":"Die Buchung für diese Nacht ist geschlossen. Schreiben Sie uns auf WhatsApp.","error":"Die Nacht konnte gerade nicht geprüft werden. Versuchen Sie es noch einmal oder schreiben Sie uns auf WhatsApp.","cancelled":"Die Zahlung wurde nicht abgeschlossen, es wurde nichts abgebucht. Die Nacht ist noch frei, solange es oben so steht."},"e":{"name":"Bitte geben Sie Ihren Namen an.","email":"Bitte geben Sie eine gültige E-Mail an.","phone":"Bitte geben Sie eine Telefonnummer an (WhatsApp geht auch).","fail":"Die Zahlungsseite konnte nicht geöffnet werden. Bitte versuchen Sie es noch einmal."},"pay":"Die Nacht buchen · 600 € Anzahlung","busy":"Zahlungsseite wird geöffnet…"};
   var form = document.getElementById("nye-form"), st = document.getElementById("nye-status"), err = document.getElementById("nye-err");
   var btn = form.querySelector("button");
   function show(k, extra) { st.dataset.s = k; st.textContent = (extra ? extra + " " : "") + T.s[k]; btn.disabled = k !== "open"; }
@@ -239,7 +239,7 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status === 404 ? "closed" : "error"); return r.json(); })
     .then(function (q) {
       // the page text and the store must agree on the price, or nobody pays
-      if (q.deposit !== AMOUNT || q.kind !== "full") return show("closed");
+      if (q.deposit !== DEPOSIT || q.kind !== "deposit") return show("closed");
       if (q.state !== "open") return show("closed");
       show(q.availability || "error", q.availability === "open" ? cancelled : "");
     })

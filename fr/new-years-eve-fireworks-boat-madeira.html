@@ -219,9 +219,9 @@
         <label for="nye-e">E-mail</label><input id="nye-e" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         <label for="nye-p">Téléphone, WhatsApp convient</label><input id="nye-p" name="phone" type="tel" autocomplete="tel" placeholder="+351 900 000 000" required>
         <label for="nye-g">Personnes</label><select id="nye-g" name="guests"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
-        <button class="btn btn-p btn-lg" type="submit" disabled>Réserver la soirée · 3 000 €</button>
+        <button class="btn btn-p btn-lg" type="submit" disabled>Réserver la soirée · acompte de 600 €</button>
         <div class="nye-err" id="nye-err" role="alert"></div>
-        <p class="nye-small">Vous payez par carte sur Stripe. La soirée vous est réservée dès que la page de paiement s'ouvre.</p>
+        <p class="nye-small">Vous payez un acompte de 600 € (20 %) par carte sur Stripe, puis les 2 400 € restants à bord le soir même. La soirée vous est réservée dès que la page de paiement s'ouvre.</p>
       </form>
     </div>
   </div>
@@ -229,8 +229,8 @@
 <script>
 (function () {
   "use strict";
-  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", AMOUNT = 300000, LANG = "fr";
-  var T = {"s":{"checking":"Vérification de la soirée…","open":"Encore libre. Le premier groupe qui paie a le bateau.","held":"Quelqu'un est en train de payer cette soirée. S'il abandonne, elle se rouvre dans les 30 minutes.","taken":"Cette soirée est réservée. Écrivez-nous pour le feu d'artifice de l'an prochain ou pour une autre soirée.","past":"Cette soirée est passée. À l'année prochaine pour le Nouvel An.","closed":"La réservation de cette soirée est fermée. Écrivez-nous sur WhatsApp.","error":"Impossible de vérifier la soirée pour l'instant. Réessayez, ou écrivez-nous sur WhatsApp.","cancelled":"Le paiement n'est pas allé au bout, rien n'a été débité. La soirée reste libre tant que c'est écrit ci-dessus."},"e":{"name":"Indiquez votre nom.","email":"Indiquez un e-mail valide.","phone":"Indiquez un numéro de téléphone (WhatsApp convient).","fail":"Impossible d'ouvrir la page de paiement. Réessayez."},"pay":"Réserver la soirée · 3 000 €","busy":"Ouverture du paiement…"};
+  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", DEPOSIT = 60000, LANG = "fr";
+  var T = {"s":{"checking":"Vérification de la soirée…","open":"Encore libre. Le premier groupe qui paie a le bateau.","held":"Quelqu'un est en train de payer cette soirée. S'il abandonne, elle se rouvre dans les 30 minutes.","taken":"Cette soirée est réservée. Écrivez-nous pour le feu d'artifice de l'an prochain ou pour une autre soirée.","past":"Cette soirée est passée. À l'année prochaine pour le Nouvel An.","closed":"La réservation de cette soirée est fermée. Écrivez-nous sur WhatsApp.","error":"Impossible de vérifier la soirée pour l'instant. Réessayez, ou écrivez-nous sur WhatsApp.","cancelled":"Le paiement n'est pas allé au bout, rien n'a été débité. La soirée reste libre tant que c'est écrit ci-dessus."},"e":{"name":"Indiquez votre nom.","email":"Indiquez un e-mail valide.","phone":"Indiquez un numéro de téléphone (WhatsApp convient).","fail":"Impossible d'ouvrir la page de paiement. Réessayez."},"pay":"Réserver la soirée · acompte de 600 €","busy":"Ouverture du paiement…"};
   var form = document.getElementById("nye-form"), st = document.getElementById("nye-status"), err = document.getElementById("nye-err");
   var btn = form.querySelector("button");
   function show(k, extra) { st.dataset.s = k; st.textContent = (extra ? extra + " " : "") + T.s[k]; btn.disabled = k !== "open"; }
@@ -239,7 +239,7 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status === 404 ? "closed" : "error"); return r.json(); })
     .then(function (q) {
       // the page text and the store must agree on the price, or nobody pays
-      if (q.deposit !== AMOUNT || q.kind !== "full") return show("closed");
+      if (q.deposit !== DEPOSIT || q.kind !== "deposit") return show("closed");
       if (q.state !== "open") return show("closed");
       show(q.availability || "error", q.availability === "open" ? cancelled : "");
     })

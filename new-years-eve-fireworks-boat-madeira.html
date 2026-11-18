@@ -219,9 +219,9 @@
         <label for="nye-e">Email</label><input id="nye-e" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         <label for="nye-p">Phone, WhatsApp works</label><input id="nye-p" name="phone" type="tel" autocomplete="tel" placeholder="+351 900 000 000" required>
         <label for="nye-g">Guests</label><select id="nye-g" name="guests"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
-        <button class="btn btn-p btn-lg" type="submit" disabled>Book the night · €3,000</button>
+        <button class="btn btn-p btn-lg" type="submit" disabled>Book the night · €600 deposit</button>
         <div class="nye-err" id="nye-err" role="alert"></div>
-        <p class="nye-small">You pay by card on Stripe. The night is held for you the moment you open the payment page.</p>
+        <p class="nye-small">You pay a €600 deposit (20%) by card on Stripe, then the other €2,400 on board on the night. The night is held for you the moment you open the payment page.</p>
       </form>
     </div>
   </div>
@@ -229,8 +229,8 @@
 <script>
 (function () {
   "use strict";
-  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", AMOUNT = 300000, LANG = "en";
-  var T = {"s":{"checking":"Checking the night…","open":"Still free. The first group to pay gets the boat.","held":"Someone is on the payment page for this night right now. If they stop, it opens again within 30 minutes.","taken":"This night is booked. Message us for next year's fireworks or for another evening.","past":"This night has passed. See you for the next New Year.","closed":"Booking for this night is closed. Message us on WhatsApp.","error":"We could not check the night just now. Try again, or message us on WhatsApp.","cancelled":"The payment was not finished, so nothing was charged. The night is still free while it says so above."},"e":{"name":"Please give your name.","email":"Please give a valid email.","phone":"Please give a phone number (WhatsApp works).","fail":"Could not open the payment page. Please try again."},"pay":"Book the night · €3,000","busy":"Opening the payment page…"};
+  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = "nye-2026", DEPOSIT = 60000, LANG = "en";
+  var T = {"s":{"checking":"Checking the night…","open":"Still free. The first group to pay gets the boat.","held":"Someone is on the payment page for this night right now. If they stop, it opens again within 30 minutes.","taken":"This night is booked. Message us for next year's fireworks or for another evening.","past":"This night has passed. See you for the next New Year.","closed":"Booking for this night is closed. Message us on WhatsApp.","error":"We could not check the night just now. Try again, or message us on WhatsApp.","cancelled":"The payment was not finished, so nothing was charged. The night is still free while it says so above."},"e":{"name":"Please give your name.","email":"Please give a valid email.","phone":"Please give a phone number (WhatsApp works).","fail":"Could not open the payment page. Please try again."},"pay":"Book the night · €600 deposit","busy":"Opening the payment page…"};
   var form = document.getElementById("nye-form"), st = document.getElementById("nye-status"), err = document.getElementById("nye-err");
   var btn = form.querySelector("button");
   function show(k, extra) { st.dataset.s = k; st.textContent = (extra ? extra + " " : "") + T.s[k]; btn.disabled = k !== "open"; }
@@ -239,7 +239,7 @@
     .then(function (r) { if (!r.ok) throw new Error(r.status === 404 ? "closed" : "error"); return r.json(); })
     .then(function (q) {
       // the page text and the store must agree on the price, or nobody pays
-      if (q.deposit !== AMOUNT || q.kind !== "full") return show("closed");
+      if (q.deposit !== DEPOSIT || q.kind !== "deposit") return show("closed");
       if (q.state !== "open") return show("closed");
       show(q.availability || "error", q.availability === "open" ? cancelled : "");
     })

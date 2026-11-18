@@ -4,8 +4,9 @@
 //
 // Read by build-seo-pages.mjs, which owns the page shell (menu, footer, head).
 // The PRICE is not decided here: it lives in the booking store as the quote
-// "nye-2026" (booking-api, `kind: "full"`), and the checkout charges what the
-// quote says. The figure below is only the text shown on the page; keep the
+// "nye-2026" (booking-api, `kind: "deposit"`, 600 EUR = 20%, the other 2,400
+// EUR paid on board, like every booking since 18 Nov 2026), and the checkout
+// charges what the quote says. The figure below is only the text shown on the page; keep the
 // two equal (the quote is checked against it by the page script on load).
 //
 // To change the night: edit the quote in KV and the text here, then run
@@ -19,7 +20,8 @@ export const NYE = {
   start: "22:00",
   end: "01:00",
   meet: "21:45",
-  amount: 300000,          // cents, must equal the quote
+  amount: 300000,          // cents, the whole price (page text, JSON-LD)
+  deposit: 60000,          // cents, 20% paid online: must equal the quote
   guests: 5,
   slug: "new-years-eve-fireworks-boat-madeira",
 };
@@ -113,8 +115,8 @@ T.en = {
     facts: [["Date", "Thursday 31 December 2026"], ["On the water", "22:00 to 01:00 (meet at 21:45)"], ["Meeting point", "Marina do Funchal, Pontoon C"], ["Guests", "1 to 5, the price does not change"]],
     note: "There is only one boat, so this night can be sold once. Free cancellation up to 24 hours before departure. If the sea or the port authority stops boats on the night, you get a full refund.",
     name: "Your name", email: "Email", phone: "Phone, WhatsApp works", guests: "Guests",
-    pay: "Book the night · €3,000", busy: "Opening the payment page…",
-    small: "You pay by card on Stripe. The night is held for you the moment you open the payment page.",
+    pay: "Book the night · €600 deposit", busy: "Opening the payment page…",
+    small: "You pay a €600 deposit (20%) by card on Stripe, then the other €2,400 on board on the night. The night is held for you the moment you open the payment page.",
     s: {
       checking: "Checking the night…",
       open: "Still free. The first group to pay gets the boat.",
@@ -212,7 +214,7 @@ ${b.facts.map(([k, v]) => `          <li><span>${k}</span><b>${v}</b></li>`).joi
 <script>
 (function () {
   "use strict";
-  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = ${JSON.stringify(NYE.quote)}, AMOUNT = ${NYE.amount}, LANG = ${JSON.stringify(lang)};
+  var API = "https://chifbay-booking-api.chifandcopt.workers.dev", ID = ${JSON.stringify(NYE.quote)}, DEPOSIT = ${NYE.deposit}, LANG = ${JSON.stringify(lang)};
   var T = ${JSON.stringify(strings)};
   var form = document.getElementById("nye-form"), st = document.getElementById("nye-status"), err = document.getElementById("nye-err");
   var btn = form.querySelector("button");
@@ -222,7 +224,7 @@ ${b.facts.map(([k, v]) => `          <li><span>${k}</span><b>${v}</b></li>`).joi
     .then(function (r) { if (!r.ok) throw new Error(r.status === 404 ? "closed" : "error"); return r.json(); })
     .then(function (q) {
       // the page text and the store must agree on the price, or nobody pays
-      if (q.deposit !== AMOUNT || q.kind !== "full") return show("closed");
+      if (q.deposit !== DEPOSIT || q.kind !== "deposit") return show("closed");
       if (q.state !== "open") return show("closed");
       show(q.availability || "error", q.availability === "open" ? cancelled : "");
     })
