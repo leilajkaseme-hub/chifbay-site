@@ -45,6 +45,11 @@ window.CHIFBAY_CONTENT = (function () {
       alt: "The Ponta do Sol coastline from the water, west Madeira",
       route: ["funchal", "camara", "girao", "faja", "brava", "sol"],
     },
+    "day-trip/four-hours": {
+      photo: "assets/g-cliffs.jpg",
+      alt: "The Chifbay boat under the west coast cliffs of Madeira on a four hour day trip",
+      route: ["funchal", "camara", "girao", "faja", "brava", "sol"],
+    },
     "sunset/cabo-girao": {
       photo: "assets/exp-sunset.jpg",
       alt: "Sunset over the Atlantic from a private Chifbay boat off Cabo Girão",
@@ -83,6 +88,8 @@ window.CHIFBAY_CONTENT = (function () {
       "C\u00e2mara de Lobos, the drone at Cabo Gir\u00e3o, swim and paddle at Faj\u00e3 dos Padres.",
     "blurb.day-trip/ponta-do-sol":
       "The long day trip: everything in To Ribeira Brava, then 30 minutes further west to Ponta do Sol.",
+    "blurb.day-trip/four-hours":
+      "Our longest day: everything in To Ponta do Sol, with a whole extra hour to swim, paddle and stop where you like.",
     "blurb.sunset/cabo-girao":
       "The west coast as the light turns, drinks and food on deck, the drone at Cabo Gir\u00e3o.",
     "blurb.sunset/ribeira-brava":
@@ -99,6 +106,11 @@ window.CHIFBAY_CONTENT = (function () {
       "Insta360 360° video, drone footage (weather allowing) and camera photos",
       "Ponta do Sol, the furthest west we run",
     ],
+    "hl.day-trip/four-hours": [
+      "The whole coast west to Ponta do Sol, with no rush",
+      "A whole extra hour for swimming, paddle and the coves you like best",
+      "Insta360 360° video, drone footage (weather allowing) and camera photos",
+    ],
     "hl.sunset/cabo-girao": [
       "Evening light under 580 metres of cliff",
       "Drinks and food served on deck, engine off",
@@ -114,13 +126,13 @@ window.CHIFBAY_CONTENT = (function () {
     // page headers
     "page.day-trip.kicker": "The Day Trip · Funchal, Madeira",
     "page.day-trip.title":  "The day trip",
-    "page.day-trip.sub":    "Câmara de Lobos, the drone at Cabo Girão, then swimming and paddle in water you can see the bottom of. Two lengths — you pick how far west we go.",
+    "page.day-trip.sub":    "Câmara de Lobos, the drone at Cabo Girão, then swimming and paddle in water you can see the bottom of. Three lengths: you pick how far west we go and how long you stay.",
     "page.sunset.kicker":   "The Sunset Trip · Funchal, Madeira",
     "page.sunset.title":    "The sunset trip",
     "page.sunset.sub":      "The same west coast taken as the light turns. Drinks and food on deck, the drone over Cabo Girão, and the coast to your group alone.",
     "page.all.kicker":      "Private charter · Funchal, Madeira",
     "page.all.title":       "Book your boat",
-    "page.all.sub":         "Four ways to spend it, one flat price for the whole boat. Pick yours, pick a day, pay by card — it takes about two minutes.",
+    "page.all.sub":         "Five ways to spend it, one flat price for the whole boat. Pick yours, pick a day, pay a 20% deposit by card: it takes about two minutes.",
 
     // the map
     "map.title":   "Where you actually go",
@@ -148,7 +160,7 @@ window.CHIFBAY_CONTENT = (function () {
     "ui.choose":      "Choose this trip",
     "ui.chosen":      "Chosen",
     "ui.pay":         "Pay and confirm",
-    "ui.payPart":      "Hotel guest terms: pay {now} now ({pct}%), then {later} on the day of your trip",
+    "ui.payPart":      "Pay {now} now to book ({pct}% deposit), then {later} on the boat on the day of your trip",
     "ui.holding":     "Holding your slot…",
     "ui.pickDay":     "Pick a day with a dot to see departure times.",
     "ui.funchalTime": "all times are Funchal time",
@@ -209,7 +221,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continuer",
       "ui.back":      "Retour",
       "ui.pay":       "Payer et confirmer",
-      "ui.payPart":   "Tarif client de l'hôtel : vous payez {now} maintenant ({pct} %), puis {later} le jour de la sortie",
+      "ui.payPart":   "Vous payez {now} maintenant pour réserver (acompte de {pct} %), puis {later} à bord le jour de la sortie",
       "ui.currency":  "Afficher les prix en",
       "ui.dayClosed": "Cette date n'est pas ouverte à la réservation. Le calendrier a été mis à jour.",
       "ui.sunsetAt": "Coucher du soleil ce jour-là : {t}.",
@@ -230,6 +242,7 @@ window.CHIFBAY_CONTENT = (function () {
       // what you do, per option (English source: EN "hl.*")
       "hl.day-trip/ribeira-brava": ["Baignade, saut et paddle à la Fajã dos Padres", "Vidéo 360° Insta360, images de drone (si la météo le permet) et photos à l'appareil", "Boissons et repas servis à bord"],
       "hl.day-trip/ponta-do-sol": ["Tout le parcours jusqu'à Ribeira Brava, puis 30 minutes plus à l'ouest", "Vidéo 360° Insta360, images de drone (si la météo le permet) et photos à l'appareil", "Ponta do Sol, le point le plus à l'ouest"],
+      "hl.day-trip/four-hours": ["Toute la côte jusqu'à Ponta do Sol, sans se presser", "Une heure de plus pour la baignade, le paddle et vos criques préférées", "Vidéo 360° Insta360, images de drone (si la météo le permet) et photos à l'appareil"],
       "hl.sunset/cabo-girao": ["La lumière du soir sous 580 mètres de falaise", "Boissons et repas servis sur le pont, moteur coupé", "Vidéo 360° Insta360, images de drone (si la météo le permet) et photos à l'appareil", "Retour plein gaz vers Funchal illuminée"],
       "hl.sunset/ribeira-brava": ["Tout le parcours jusqu'au Cabo Girão", "Plus loin, après la Fajã dos Padres, jusqu'à Ribeira Brava", "Trente minutes de plus dans la plus belle lumière du jour"],
     },
@@ -249,7 +262,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Weiter",
       "ui.back":      "Zurück",
       "ui.pay":       "Bezahlen und buchen",
-      "ui.payPart":   "Konditionen für Hotelgäste: Sie zahlen jetzt {now} ({pct} %), die restlichen {later} am Tag der Fahrt",
+      "ui.payPart":   "Sie zahlen jetzt {now} zur Buchung ({pct} % Anzahlung), die restlichen {later} an Bord am Tag der Fahrt",
       "ui.currency":  "Preise anzeigen in",
       "ui.dayClosed": "Dieser Tag ist nicht buchbar. Der Kalender wurde aktualisiert.",
       "ui.sunsetAt": "Sonnenuntergang an diesem Tag: {t}.",
@@ -270,6 +283,7 @@ window.CHIFBAY_CONTENT = (function () {
       // what you do, per option (English source: EN "hl.*")
       "hl.day-trip/ribeira-brava": ["Baden, Springen und Paddeln an der Fajã dos Padres", "Insta360-360°-Video, Drohnenaufnahmen (wenn das Wetter es erlaubt) und Kamerafotos", "Getränke und Essen an Bord"],
       "hl.day-trip/ponta-do-sol": ["Alles aus der Fahrt bis Ribeira Brava, dann 30 Minuten weiter nach Westen", "Insta360-360°-Video, Drohnenaufnahmen (wenn das Wetter es erlaubt) und Kamerafotos", "Ponta do Sol, unser westlichster Punkt"],
+      "hl.day-trip/four-hours": ["Die ganze Küste bis Ponta do Sol, ohne Eile", "Eine ganze Stunde mehr zum Schwimmen, Paddeln und für Ihre Lieblingsbuchten", "Insta360-360°-Video, Drohnenaufnahmen (wenn das Wetter es erlaubt) und Kamerafotos"],
       "hl.sunset/cabo-girao": ["Abendlicht unter 580 Meter hohen Klippen", "Getränke und Essen an Deck, Motor aus", "Insta360-360°-Video, Drohnenaufnahmen (wenn das Wetter es erlaubt) und Kamerafotos", "Mit Vollgas zurück ins beleuchtete Funchal"],
       "hl.sunset/ribeira-brava": ["Alles aus der Fahrt bis Cabo Girão", "Weiter an der Fajã dos Padres vorbei bis Ribeira Brava", "Dreißig Minuten mehr im schönsten Licht des Tages"],
     },
@@ -289,7 +303,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continuar",
       "ui.back":      "Voltar",
       "ui.pay":       "Pagar e confirmar",
-      "ui.payPart":   "Condições para hóspedes do hotel: paga {now} agora ({pct}%) e {later} no dia do passeio",
+      "ui.payPart":   "Paga {now} agora para reservar (sinal de {pct}%) e {later} a bordo no dia do passeio",
       "ui.currency":  "Mostrar preços em",
       "ui.dayClosed": "Esse dia não está disponível para reserva. O calendário foi atualizado.",
       "ui.sunsetAt": "Pôr do sol nesse dia: {t}.",
@@ -310,6 +324,7 @@ window.CHIFBAY_CONTENT = (function () {
       // what you do, per option (English source: EN "hl.*")
       "hl.day-trip/ribeira-brava": ["Banho, saltos e paddle na Fajã dos Padres", "Vídeo 360° Insta360, imagens de drone (se o tempo permitir) e fotos de câmara", "Bebidas e comida servidas a bordo"],
       "hl.day-trip/ponta-do-sol": ["Tudo do passeio até à Ribeira Brava, e mais 30 minutos para oeste", "Vídeo 360° Insta360, imagens de drone (se o tempo permitir) e fotos de câmara", "Ponta do Sol, o ponto mais a oeste"],
+      "hl.day-trip/four-hours": ["Toda a costa até à Ponta do Sol, sem pressa", "Mais uma hora inteira para nadar, fazer paddle e parar nas enseadas de que mais gostar", "Vídeo 360° Insta360, imagens de drone (se o tempo permitir) e fotos de câmara"],
       "hl.sunset/cabo-girao": ["A luz do fim do dia sob 580 metros de falésia", "Bebidas e comida servidas no convés, motor desligado", "Vídeo 360° Insta360, imagens de drone (se o tempo permitir) e fotos de câmara", "Regresso a toda a velocidade até um Funchal iluminado"],
       "hl.sunset/ribeira-brava": ["Tudo do passeio até ao Cabo Girão", "Mais além da Fajã dos Padres, até à Ribeira Brava", "Mais trinta minutos na melhor luz do dia"],
     },
@@ -329,7 +344,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continuar",
       "ui.back":      "Volver",
       "ui.pay":       "Pagar y confirmar",
-      "ui.payPart":   "Condiciones para huéspedes del hotel: pagas {now} ahora ({pct} %) y {later} el día de la salida",
+      "ui.payPart":   "Pagas {now} ahora para reservar (señal del {pct} %) y {later} a bordo el día de la salida",
       "ui.currency":  "Mostrar precios en",
       "ui.dayClosed": "Ese día no está disponible para reservar. El calendario se ha actualizado.",
       "ui.sunsetAt": "Puesta de sol ese día: {t}.",
@@ -350,6 +365,7 @@ window.CHIFBAY_CONTENT = (function () {
       // what you do, per option (English source: EN "hl.*")
       "hl.day-trip/ribeira-brava": ["Baño, saltos y paddle en Fajã dos Padres", "Vídeo 360° Insta360, imágenes de dron (si el tiempo lo permite) y fotos con cámara", "Bebidas y comida servidas a bordo"],
       "hl.day-trip/ponta-do-sol": ["Todo lo de la salida hasta Ribeira Brava, y 30 minutos más al oeste", "Vídeo 360° Insta360, imágenes de dron (si el tiempo lo permite) y fotos con cámara", "Ponta do Sol, el punto más al oeste"],
+      "hl.day-trip/four-hours": ["Toda la costa hasta Ponta do Sol, sin prisas", "Una hora entera más para nadar, hacer paddle y parar en las calas que más te gusten", "Vídeo 360° Insta360, imágenes de dron (si el tiempo lo permite) y fotos con cámara"],
       "hl.sunset/cabo-girao": ["La luz de la tarde bajo 580 metros de acantilado", "Bebidas y comida en cubierta, motor apagado", "Vídeo 360° Insta360, imágenes de dron (si el tiempo lo permite) y fotos con cámara", "Vuelta a todo gas hacia un Funchal iluminado"],
       "hl.sunset/ribeira-brava": ["Todo lo de la salida hasta Cabo Girão", "Más allá de Fajã dos Padres, hasta Ribeira Brava", "Treinta minutos más con la mejor luz del día"],
     },
@@ -369,7 +385,7 @@ window.CHIFBAY_CONTENT = (function () {
       "ui.continue":  "Continua",
       "ui.back":      "Indietro",
       "ui.pay":       "Paga e conferma",
-      "ui.payPart":   "Condizioni per gli ospiti dell'hotel: paghi {now} adesso ({pct}%) e {later} il giorno dell'uscita",
+      "ui.payPart":   "Paghi {now} ora per prenotare (acconto del {pct}%) e {later} a bordo il giorno della gita",
       "ui.currency":  "Mostra i prezzi in",
       "ui.dayClosed": "Quel giorno non è prenotabile. Il calendario è stato aggiornato.",
       "ui.sunsetAt": "Tramonto quel giorno: {t}.",
@@ -390,6 +406,7 @@ window.CHIFBAY_CONTENT = (function () {
       // what you do, per option (English source: EN "hl.*")
       "hl.day-trip/ribeira-brava": ["Bagno, tuffi e paddle alla Fajã dos Padres", "Video 360° Insta360, riprese con drone (meteo permettendo) e foto con fotocamera", "Bevande e cibo serviti a bordo"],
       "hl.day-trip/ponta-do-sol": ["Tutto il percorso fino a Ribeira Brava, poi 30 minuti più a ovest", "Video 360° Insta360, riprese con drone (meteo permettendo) e foto con fotocamera", "Ponta do Sol, il punto più a ovest"],
+      "hl.day-trip/four-hours": ["Tutta la costa fino a Ponta do Sol, senza fretta", "Un'ora intera in più per nuotare, fare paddle e fermarsi nelle calette preferite", "Video 360° Insta360, riprese con drone (meteo permettendo) e foto con fotocamera"],
       "hl.sunset/cabo-girao": ["La luce della sera sotto 580 metri di falesia", "Bevande e cibo in coperta, motore spento", "Video 360° Insta360, riprese con drone (meteo permettendo) e foto con fotocamera", "Rientro a tutto gas verso Funchal illuminata"],
       "hl.sunset/ribeira-brava": ["Tutto il percorso fino a Cabo Girão", "Oltre la Fajã dos Padres, fino a Ribeira Brava", "Trenta minuti in più nella luce più bella del giorno"],
     },
