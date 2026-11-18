@@ -571,7 +571,9 @@
     var v = trip.variants[state.variant];
     var c = C && C.variant(state.trip, state.variant);
     box.innerHTML =
-      (c && c.photo ? photo(c.photo, ' alt="" loading="lazy" decoding="async"') : "") +
+      // Not lazy: this box sits in a step that is hidden when the page loads, and
+      // Safari then never loaded the photo (an empty square in the card).
+      (c && c.photo ? photo(c.photo, ' alt="" decoding="async"') : "") +
       "<div><span class=\"bkck\">" + esc(trip.name) + "</span>" +
       "<strong>" + esc(v.name) + "</strong>" +
       "<span class=\"bkpm\">" + esc(dur(v.minutes)) + " · " + money(v.amount) + " · " +
