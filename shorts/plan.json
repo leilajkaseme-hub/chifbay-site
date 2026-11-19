@@ -6678,6 +6678,180 @@
     },
     "at": "2026-11-11T20:23:19Z"
    }
+  },
+  {
+   "id": "s045",
+   "format": "story",
+   "status": "failed",
+   "created": "2026-11-19",
+   "shots": [
+    {
+     "file_id": "13IYBFIAeIu412HgkykXjEiAERrh0-OGx",
+     "name": "DJI_20261030170253_0006_D.MP4",
+     "start": 35.52,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 37.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Smooth high aerial shot orbiting above the boat in clear blue ocean water.",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "topdown",
+      "orbit",
+      "calm",
+      "open_sea"
+     ],
+     "score": 7,
+     "hook": 7,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1c_BwIsdyrGYWShj0X1JgTK6gTp6wZBy-",
+     "name": "DJI_20261030170359_0007_D.MP4",
+     "start": 16.52,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 18.5,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Drone tilts up from the sea and shoreline to reveal the immense vertical cliffs meeting the blue sky.",
+     "tags": [
+      "aerial",
+      "reveal",
+      "cliffs"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    },
+    {
+     "file_id": "13IYBFIAeIu412HgkykXjEiAERrh0-OGx",
+     "name": "DJI_20261030170253_0006_D.MP4",
+     "start": 16.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 18.0,
+     "x": 0.5,
+     "x2": 0.5,
+     "what": "Aerial top-down view looking directly down at the boat motionless in blue water.",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "topdown",
+      "open_sea",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Message us to pick your day.",
+   "light": "golden",
+   "recorded": "2026-10-31",
+   "texts": {
+    "hook": "orbiting above the boat on open water",
+    "labels": [
+     "orbiting above the boat on open water",
+     "tilting up to the south coast cliffs",
+     "looking straight down at our boat"
+    ],
+    "thumb": "Cliffs from above",
+    "ig": "Drone views of our boat off the south coast of Madeira.📍\n\nMessage us to pick your day.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boatlife",
+     "#dronemadeira"
+    ],
+    "fb": "A look at our boat from above along the south coast cliffs of Madeira. We run private trips from Funchal marina every day.",
+    "threads": "Drone footage of our boat off the Madeira cliffs on a calm morning.",
+    "yt_title": "South coast cliffs of Madeira from above #Shorts",
+    "yt_description": "Drone views of our private boat along the south coast of Madeira.\n\nWe run private trips from Funchal marina with a skipper included, taking up to 5 guests out along the cliffs. Drone footage like this is included on our trips when the weather allows us to fly.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "madeira drone",
+     "things to do in madeira",
+     "funchal boat trip",
+     "madeira cliffs",
+     "cabo girao drone",
+     "private boat trip madeira",
+     "funchal marina",
+     "madeira island"
+    ],
+    "tiktok": "Drone view of our boat along the south coast cliffs. #madeira #funchal #boattrip #dronemadeira",
+    "alt": "Aerial drone video orbiting a small white boat in blue ocean water, tilting up to show tall green cliffs along the Madeira coastline.",
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s045-1ad4f842.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s045-1ad4f842-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s045-1ad4f842-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s045-1ad4f842-thumb.jpg",
+    "duration": 10.8,
+    "bytes": 11729092,
+    "shots": [
+     {
+      "name": "DJI_20261030170253_0006_D.MP4",
+      "in": 35.52,
+      "out": 39.12,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.498,
+       0.48,
+       0.499,
+       0.499
+      ],
+      "what": "Smooth high aerial shot orbiting above the boat in clear blue ocean water."
+     },
+     {
+      "name": "DJI_20261030170359_0007_D.MP4",
+      "in": 16.52,
+      "out": 20.12,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": false,
+      "path": null,
+      "what": "Drone tilts up from the sea and shoreline to reveal the immense vertical cliffs meeting the blue sky."
+     },
+     {
+      "name": "DJI_20261030170253_0006_D.MP4",
+      "in": 16.02,
+      "out": 19.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.543,
+       0.632,
+       0.622,
+       0.599
+      ],
+      "what": "Aerial top-down view looking directly down at the boat motionless in blue water."
+     }
+    ],
+    "checks": {
+     "ok": false,
+     "problems": [
+      "10.8 s is outside 11.0 to 19.5 s for story"
+     ]
+    },
+    "at": "2026-11-19T21:39:40Z"
+   }
   }
  ]
 }
