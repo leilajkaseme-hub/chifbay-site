@@ -6881,6 +6881,291 @@
     },
     "at": "2026-11-19T21:39:40Z"
    }
+  },
+  {
+   "id": "s046",
+   "format": "story",
+   "status": "failed",
+   "created": "2026-11-20",
+   "shots": [
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 110.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 112.0,
+     "x": 0.52,
+     "x2": 0.48,
+     "what": "Boat cruises steadily across the water viewed from an elevated side-rear perspective",
+     "tags": [
+      "boat_hero",
+      "speed",
+      "wake",
+      "aerial"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 141.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 143.0,
+     "x": 0.56,
+     "x2": 0.58,
+     "what": "Boat moves across frame toward the right against deep blue textured water",
+     "tags": [
+      "boat_hero",
+      "speed",
+      "wake",
+      "aerial"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    },
+    {
+     "file_id": "1AAdMANyuP7SVg3nlrfUDMYARE4LuINd2",
+     "name": "DJI_20260517161057_0006_D.MP4",
+     "start": 225.02,
+     "len": 3.6,
+     "speed": 1.0,
+     "peak": 227.0,
+     "x": 0.53,
+     "x2": 0.46,
+     "what": "Drone tracks alongside the boat cruising smoothly on open ocean water",
+     "tags": [
+      "boat_hero",
+      "speed",
+      "wake",
+      "aerial"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Book your day on chifbay.com.",
+   "light": "day",
+   "recorded": "2026-10-14",
+   "texts": {
+    "hook": "drone tracking our boat from behind",
+    "labels": [
+     "drone tracking our boat from behind",
+     "moving east along deep blue water",
+     "open sea cruising off Funchal coast"
+    ],
+    "thumb": "Cruising off Funchal",
+    "ig": "Drone view of our private boat cruising open ocean off Funchal, Madeira.📍\n\nBook your day on chifbay.com.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#boatlife",
+     "#boattrip"
+    ],
+    "fb": "Drone view of our boat cruising the open ocean along the south coast of Madeira. Drone footage is included on our private trips when weather allows.",
+    "threads": "Cruising the open ocean off Funchal on our private boat.",
+    "yt_title": "Cruising off Funchal coast Madeira #Shorts",
+    "yt_description": "Cruising off the coast of Funchal.\n\nDrone tracking our private boat Karnic R8S on open water along the south coast of Madeira. We take private groups of up to 5 guests from Funchal marina, with aerial footage included when weather permits.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal boat trip",
+     "madeira",
+     "funchal",
+     "private boat trip madeira",
+     "madeira drone",
+     "karnic r8s",
+     "things to do in madeira",
+     "funchal marina",
+     "madeira sea"
+    ],
+    "tiktok": "Drone views of our boat cruising off the south coast of Madeira. #madeira #funchal #boattrip #madeiraisland",
+    "alt": "Aerial drone video tracking a small white motorboat cruising steadily across deep blue ocean water along the coast of Madeira.",
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s046-d691915d.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s046-d691915d-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s046-d691915d-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s046-d691915d-thumb.jpg",
+    "duration": 10.73,
+    "bytes": 11697661,
+    "shots": [
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 110.02,
+      "out": 113.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.437,
+       0.471,
+       0.458,
+       0.447
+      ],
+      "what": "Boat cruises steadily across the water viewed from an elevated side-rear perspective"
+     },
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 141.02,
+      "out": 144.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.548,
+       0.549,
+       0.556,
+       0.559
+      ],
+      "what": "Boat moves across frame toward the right against deep blue textured water"
+     },
+     {
+      "name": "DJI_20260517161057_0006_D.MP4",
+      "in": 225.02,
+      "out": 228.62,
+      "grade": "daylight",
+      "matched": true,
+      "seconds": 3.6,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.49,
+       0.472,
+       0.537,
+       0.555
+      ],
+      "what": "Drone tracks alongside the boat cruising smoothly on open ocean water"
+     }
+    ],
+    "checks": {
+     "ok": false,
+     "problems": [
+      "10.7 s is outside 11.0 to 19.5 s for story"
+     ]
+    },
+    "at": "2026-11-20T21:11:34Z"
+   }
+  },
+  {
+   "id": "s047",
+   "format": "highlight",
+   "status": "rendered",
+   "created": "2026-11-20",
+   "shots": [
+    {
+     "file_id": "15MzpBpXhR1CBIk1ik99nmVx1dExQf8rF",
+     "name": "DJI_20261030173040_0008_D.MP4",
+     "start": 6.26,
+     "len": 6.8,
+     "speed": 1.0,
+     "peak": 10.0,
+     "x": 0.55,
+     "x2": 0.45,
+     "what": "Drone orbits around the motorboat resting on calm sea with golden sun reflection on the water",
+     "tags": [
+      "boat_hero",
+      "aerial",
+      "orbit",
+      "open_sea",
+      "golden_light",
+      "calm"
+     ],
+     "score": 7,
+     "hook": 6,
+     "audio": "sea"
+    }
+   ],
+   "music": "aerial",
+   "audio": "sea",
+   "cta": "Ask us for a date in the DMs.",
+   "light": "golden",
+   "recorded": "2026-10-31",
+   "texts": {
+    "hook": "Golden hour on open water",
+    "labels": [],
+    "thumb": "Sunset from above",
+    "ig": "Golden hour on our boat off the coast of Madeira.📍\n\nAsk us for a date in the DMs.",
+    "hashtags": [
+     "#madeira",
+     "#funchal",
+     "#madeiraisland",
+     "#sunsetboat",
+     "#boattrip"
+    ],
+    "fb": "Golden light over calm water on our sunset trip off Funchal, Madeira. Drone footage is included when the weather allows.",
+    "threads": "Golden light over calm water on our sunset boat trip in Madeira.",
+    "yt_title": "Sunset trip on calm water in Madeira #Shorts",
+    "yt_description": "Golden hour off Funchal.\n\nDrone footage of our private boat on open sea as the sun goes down along the south coast of Madeira. Drone video comes included with every trip when weather allows.\n\nBook: https://chifbay.com/?utm_source=youtube&utm_medium=shorts\n\n#madeira #funchal #boattrip",
+    "yt_tags": [
+     "madeira boat trip",
+     "funchal",
+     "things to do in madeira",
+     "madeira sunset",
+     "funchal boat trip",
+     "karnic r8s",
+     "private boat trip madeira",
+     "madeira island",
+     "sunset cruise funchal",
+     "drone video madeira"
+    ],
+    "tiktok": "Golden hour on our boat off the south coast of Madeira. #madeira #funchal #boattrip #sunset",
+    "alt": "Aerial drone footage orbiting a motorboat resting on calm sea with golden sun reflections off the coast of Madeira.",
+    "model": "gemini-3.6-flash"
+   },
+   "qa": {
+    "ok": true,
+    "score": 7,
+    "problems": [],
+    "model": "gemini-3.6-flash"
+   },
+   "render": {
+    "video": "https://chifbay-media.chifandcopt.workers.dev/m/s047-dbcd70f9.mp4",
+    "preview": "https://chifbay-media.chifandcopt.workers.dev/m/s047-dbcd70f9-p.mp4",
+    "cover": "https://chifbay-media.chifandcopt.workers.dev/m/s047-dbcd70f9-cover.jpg",
+    "thumb": "https://chifbay-media.chifandcopt.workers.dev/m/s047-dbcd70f9-thumb.jpg",
+    "duration": 6.8,
+    "bytes": 7685902,
+    "shots": [
+     {
+      "name": "DJI_20261030173040_0008_D.MP4",
+      "in": 6.26,
+      "out": 13.06,
+      "grade": "overcast",
+      "matched": true,
+      "seconds": 6.8,
+      "speed": 1.0,
+      "tracked": true,
+      "path": [
+       0.57,
+       0.536,
+       0.538,
+       0.54,
+       0.534,
+       0.543,
+       0.502
+      ],
+      "what": "Drone orbits around the motorboat resting on calm sea with golden sun reflection on the water"
+     }
+    ],
+    "checks": {
+     "ok": true,
+     "problems": []
+    },
+    "at": "2026-11-20T21:18:05Z"
+   }
   }
  ]
 }
