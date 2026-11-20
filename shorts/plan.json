@@ -5775,6 +5775,35 @@
     },
     "at": "2026-11-06T20:04:29Z",
     "song": "Tate McRae - Housewife"
+   },
+   "posted": {
+    "instagram": {
+     "at": "2026-11-20T19:21:47.221Z",
+     "id": "18469351543142430",
+     "url": "https://www.instagram.com/reel/Df-ZO9qJUL7/",
+     "slot": "2026-11-20#0"
+    },
+    "facebook": {
+     "at": "2026-11-20T19:22:19.912Z",
+     "id": "122134185015436640",
+     "url": "https://www.facebook.com/122134185015436640"
+    },
+    "threads": {
+     "at": "2026-11-20T19:22:57.091Z",
+     "id": "18059873438655058",
+     "url": "https://www.threads.com/@chifbay/post/Df-ZWwnsuKs"
+    },
+    "youtube": {
+     "at": "2026-11-20T19:23:33.085Z",
+     "id": "xORJ0Wk5Sfs",
+     "url": "https://www.youtube.com/shorts/xORJ0Wk5Sfs"
+    },
+    "tiktok": {
+     "at": "2026-11-20T19:23:37.084Z",
+     "id": "v_inbox_file~v2.7710336292843948054",
+     "url": null,
+     "mode": "draft"
+    }
    }
   },
   {
@@ -6690,7 +6719,7 @@
      "name": "DJI_20261030170253_0006_D.MP4",
      "start": 35.52,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 37.5,
      "x": 0.5,
      "x2": 0.5,
@@ -6712,7 +6741,7 @@
      "name": "DJI_20261030170359_0007_D.MP4",
      "start": 16.52,
      "len": 3.6,
-     "speed": 1.0,
+     "speed": 1,
      "peak": 18.5,
      "x": 0.5,
      "x2": 0.5,
@@ -6731,8 +6760,8 @@
      "name": "DJI_20261030170253_0006_D.MP4",
      "start": 16.02,
      "len": 3.6,
-     "speed": 1.0,
-     "peak": 18.0,
+     "speed": 1,
+     "peak": 18,
      "x": 0.5,
      "x2": 0.5,
      "what": "Aerial top-down view looking directly down at the boat motionless in blue water.",
@@ -6804,7 +6833,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.498,
@@ -6821,7 +6850,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": false,
       "path": null,
       "what": "Drone tilts up from the sea and shoreline to reveal the immense vertical cliffs meeting the blue sky."
@@ -6833,7 +6862,7 @@
       "grade": "daylight",
       "matched": true,
       "seconds": 3.6,
-      "speed": 1.0,
+      "speed": 1,
       "tracked": true,
       "path": [
        0.543,
