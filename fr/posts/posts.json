@@ -1,5 +1,48 @@
 [
   {
+    "slug": "jellyfish-in-madeira-is-it-safe-to-swim",
+    "title": "Méduses à Madère : faut-il craindre la baignade depuis un bateau ?",
+    "category": "Nature",
+    "date": "2026-11-20",
+    "description": "Méduses, physalies, vélelles : ce qu'on croise à Madère, à quelle saison, comment se baigner depuis un bateau et que faire en cas de piqûre.",
+    "heroImage": "assets/journal/portuguese-man-o-war-float-on-deep-blue-sea-madeira.jpg",
+    "heroAlt": "A Portuguese man o' war floating on the surface of the deep blue sea off Madeira",
+    "readingMinutes": 6,
+    "keywords": [
+      "are there jellyfish in Madeira",
+      "is it safe to swim in Madeira jellyfish",
+      "Portuguese man o' war Madeira",
+      "caravela-portuguesa Madeira",
+      "jellyfish sting what to do",
+      "mauve stinger Madeira",
+      "swimming from a boat in Madeira",
+      "GelAvista Madeira sightings"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
+    "slug": "private-boat-trip-madeira-small-team-outing",
+    "title": "Team building à Madère : une sortie en bateau privé pour votre équipe",
+    "category": "Guide",
+    "date": "2026-11-20",
+    "description": "Séminaire ou team building à Madère : privatisez un bateau à Funchal pour cinq collègues maximum. Tarifs, créneaux, facture au nom de la société.",
+    "heroImage": "assets/journal/small-team-on-deck-passing-ponta-do-sol-madeira.jpg",
+    "heroAlt": "Five colleagues in casual clothes on a white motor boat passing the village of Ponta do Sol",
+    "readingMinutes": 5,
+    "keywords": [
+      "can a company book a private boat trip in madeira",
+      "team outing madeira boat",
+      "corporate boat trip funchal",
+      "offsite activity madeira",
+      "remote team retreat madeira",
+      "team building boat madeira small group",
+      "company invoice boat trip portugal"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
     "slug": "boat-trip-or-levada-walk-madeira-one-day",
     "title": "Une journée à Madère : levada ou bateau, comment choisir sans regret ?",
     "category": "Guide",
