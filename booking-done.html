@@ -60,16 +60,20 @@
 
 <main class="dnwrap">
   <div id="dnbody">
-    <p class="dnsub">Checking your payment…</p>
+    <p class="dnsub">Checking your booking…</p>
   </div>
 </main>
 
 <script src="/booking-config.min.js"></script>
 <script>
 (function () {
-  var id = new URLSearchParams(location.search).get("session_id");
+  var qs = new URLSearchParams(location.search);
+  var id = qs.get("session_id");
+  // A booking made without paying (since 21 Nov 2026): ?booking=<id>&date=<day>.
+  var freeId = qs.get("booking"), freeDate = qs.get("date");
   var body = document.getElementById("dnbody");
-  if (!id) { location.replace("/book.html"); return; }
+  if (!id && !(freeId && freeDate)) { location.replace("/book.html"); return; }
+  if (!id) id = freeId;
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
@@ -77,9 +81,24 @@
     });
   }
 
-  fetch(window.CHIFBAY_API + "/v1/session?id=" + encodeURIComponent(id))
-    .then(function (r) { return r.json(); })
+  var ask = freeDate
+    ? fetch(window.CHIFBAY_API + "/v1/booked?id=" + encodeURIComponent(freeId) + "&date=" + encodeURIComponent(freeDate))
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          // Same shape as a paid session, so the page below draws both.
+          return { paid: !!res.booked, free: true, email: res.email, amount: res.total || 0,
+                   onBoard: res.total || 0, currency: res.currency, test: res.test, booking: res.booking, code: res.code };
+        })
+    : fetch(window.CHIFBAY_API + "/v1/session?id=" + encodeURIComponent(id)).then(function (r) { return r.json(); });
+  ask
     .then(function (res) {
+      if (!res.paid && res.free) {
+        body.innerHTML =
+          '<h1 class="dnh">We could not find this booking</h1>' +
+          '<p class="dnsub">If you just booked, check your email for the confirmation, or ' +
+          '<a href="https://wa.me/351937200320">message us on WhatsApp</a> and we will confirm straight away.</p>';
+        return;
+      }
       if (!res.paid) {
         body.innerHTML =
           '<h1 class="dnh">Payment not completed</h1>' +
@@ -162,7 +181,10 @@
           '<div class="dnrow"><span>Date</span><span>' + esc(d) + '</span></div>' +
           '<div class="dnrow"><span>Departure</span><span>' + esc(b.time || "") + ' — Funchal time</span></div>' +
           '<div class="dnrow"><span>Guests</span><span>' + esc(b.guests || "") + '</span></div>' +
-          '<div class="dnrow"><span>Paid</span><span>€' + ((res.amount || 0) / 100).toFixed(0) + '</span></div>' +
+          (res.free
+            ? (res.code ? '<div class="dnrow"><span>Booking code</span><span>' + esc(res.code) + '</span></div>' : '') +
+              '<div class="dnrow"><span>To pay on board</span><span>€' + ((res.onBoard || 0) / 100).toFixed(0) + ', on the day</span></div>'
+            : '<div class="dnrow"><span>Paid</span><span>€' + ((res.amount || 0) / 100).toFixed(0) + '</span></div>') +
         '</div>' +
         '<div class="dnwabox">' +
         '<p class="dnwahead">Say hello, and we will look after the rest</p>' +
@@ -187,7 +209,7 @@
     .catch(function () {
       body.innerHTML =
         '<h1 class="dnh">We could not load your booking</h1>' +
-        '<p class="dnsub">If your card was charged you are booked — ' +
+        '<p class="dnsub">If you received our confirmation email you are booked: ' +
         '<a href="https://wa.me/351937200320">message us on WhatsApp</a> ' +
         'and we will confirm straight away.</p>';
     });

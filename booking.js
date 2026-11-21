@@ -560,7 +560,7 @@
     renderPicked();
     loadAvailability();
     step(2);
-    loadStripe().catch(function () {});   // warm it up; startPayment retries
+    if (!freeBooking()) loadStripe().catch(function () {});   // warm it up; startPayment retries
   }
 
   /* The little reminder of what they picked, above the calendar. */
@@ -963,8 +963,18 @@
     }).catch(function () {});
   }
 
+  /* Since 21 Nov 2026 a guest books without paying anything online: the
+     Worker publishes freeBooking in /v1/catalogue, the whole price is paid on
+     the boat. Without it (an older Worker) the page falls back to the deposit. */
+  function freeBooking() {
+    return !!(state.catalogue && state.catalogue.freeBooking);
+  }
+
   function renderSummary() {
-    loadPayTerms();
+    var free = freeBooking();
+    if (!free) loadPayTerms();
+    var payBtn = $("#bkpay");
+    if (payBtn && !payBtn.disabled) payBtn.textContent = t(free ? "ui.book" : "ui.pay");
     var trip = state.catalogue.trips[state.trip];
     var v = trip.variants[state.variant];
     var eur = function (c) { return "€" + (c / 100).toFixed(c % 100 === 0 ? 0 : 2); };
@@ -978,7 +988,9 @@
         esc(durLong(v.minutes)) + " (" + esc(t("ui.funchalTime")) + ")</span>" +
       "<span>" + esc(t("ui.upTo", { n: state.catalogue.maxGuests })) + "</span>" +
       '<span class="bksumprice">' + money(v.amount) + "</span>" +
-      (share < 1
+      (free
+        ? '<span class="bkpart"><b>' + esc(t("ui.payOnBoard", { total: eur(v.amount) })) + "</b></span>"
+        : share < 1
         ? '<span class="bkpart"><b>' + esc(t("ui.payPart", {
             now: eur(now), later: eur(v.amount - now), pct: Math.round(share * 100),
           })) + "</b></span>"
@@ -1017,9 +1029,10 @@
     }
     var btn = $("#bkpay");
     btn.disabled = true;
-    btn.textContent = t("ui.holding");
+    var free = freeBooking();
+    btn.textContent = t(free ? "ui.booking" : "ui.holding");
 
-    api("/v1/checkout", {
+    api(free ? "/v1/book" : "/v1/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -1048,6 +1061,13 @@
       }),
     })
       .then(function (res) {
+        if (free) {
+          // Booked, nothing to pay: straight to the confirmation page, which
+          // reads the booking back and counts the conversion once.
+          location.href = "/booking-done.html?booking=" + encodeURIComponent(res.id) +
+            "&date=" + encodeURIComponent(res.booking.date);
+          return new Promise(function () {});
+        }
         if (!CFG.PK) throw new Error("Payments are not switched on yet.");
         // Same event the old Wix link used to fire, so the ads keep learning.
         if (window.cbTrack) {
@@ -1069,7 +1089,7 @@
       })
       .catch(function (err) {
         btn.disabled = false;
-        btn.textContent = t("ui.pay");
+        btn.textContent = t(free ? "ui.book" : "ui.pay");
         step(3);
         say(err.message, "err");
         // If the slot went while they were typing, refresh the calendar.
