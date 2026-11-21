@@ -60,6 +60,16 @@ const child = spawn(CHROME, [
 ], { detached: true, stdio: 'ignore' });
 child.unref();
 
+// browser.close() on a CDP connection only disconnects, it does not stop
+// Chrome. A hidden Chrome left running makes the real Chrome refuse to open,
+// so always stop it ourselves, also on errors and Ctrl+C.
+process.on('exit', () => {
+  try { process.kill(-child.pid, 'SIGKILL'); } catch {}
+  try { child.kill('SIGKILL'); } catch {}
+  fs.rmSync(dir, { recursive: true, force: true });
+});
+for (const sig of ['SIGINT', 'SIGTERM', 'SIGHUP']) process.on(sig, () => process.exit(130));
+
 for (let i = 0; i < 100; i++) {
   try { if ((await fetch(`http://127.0.0.1:${PORT}/json/version`)).ok) break; } catch {}
   await new Promise((r) => setTimeout(r, 300));
@@ -117,7 +127,6 @@ for (const url of urls) {
 }
 
 await browser.close();
-fs.rmSync(dir, { recursive: true, force: true });
 
 process.stdout.write(`\n${checked - failures.length}/${checked} pages OK\n`);
 if (failures.length) {

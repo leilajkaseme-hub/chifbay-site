@@ -210,8 +210,8 @@ for (const [lang, rel] of files) {
 const ROUTES = {
   en: [["/private-boat-tour-madeira", "Private boat tour"], ["/cabo-girao-boat-tour", "Cabo Girão boat tour"], ["/faja-dos-padres-boat-trip", "Fajã dos Padres trip"], ["/boat-rental-with-skipper-funchal", "Boat with skipper"], ["/best-boat-trips-madeira", "Boat trips in Madeira"]],
   fr: [["/fr/private-boat-tour-madeira", "Excursion en bateau privé"], ["/fr/best-boat-trips-madeira", "Excursions en bateau à Madère"]],
-  de: [["/de/private-boat-tour-madeira", "Private Bootstour"], ["/de/best-boat-trips-madeira", "Bootstouren auf Madeira"]],
-  pt: [["/pt/best-boat-trips-madeira", "Passeios de barco na Madeira"]],
+  de: [["/de/private-boat-tour-madeira", "Private Bootstour"], ["/de/bootstour-funchal", "Bootstour ab Funchal"], ["/de/best-boat-trips-madeira", "Bootstouren auf Madeira"]],
+  pt: [["/pt/passeio-de-barco-funchal", "Passeio de barco no Funchal"], ["/pt/best-boat-trips-madeira", "Passeios de barco na Madeira"]],
   es: [["/es/best-boat-trips-madeira", "Excursiones en barco en Madeira"]],
   it: [["/it/best-boat-trips-madeira", "Gite in barca a Madeira"]],
 };

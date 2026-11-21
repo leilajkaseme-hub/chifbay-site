@@ -13,7 +13,7 @@ test('mixed historical canonicals and new translations retain their own URLs',()
    fs.writeFileSync(path.join(dir,'day-trip.html'),`<link rel="canonical" href="${url}"/>`);
    assert.equal(postUrl(root,'day-trip',lang),url);
   }
-  assert.equal(postUrl(root,'day-trip','de'),'https://chifbay.com/de/posts/day-trip.html');
+  assert.equal(postUrl(root,'day-trip','de'),'https://chifbay.com/de/posts/day-trip');
   assert.throws(()=>postUrl(root,'../outside'));
   fs.writeFileSync(path.join(root,'posts/day-trip.html'),'<link rel="canonical" href="https://example.com/"/>');
   assert.throws(()=>postUrl(root,'day-trip'));

@@ -4,9 +4,12 @@
 <script>/*theme*/(function(){var d=document.documentElement;try{var t=localStorage.getItem('cb-theme2');if(t!=='light'&&t!=='dark')t='light';d.setAttribute('data-theme',t)}catch(e){d.setAttribute('data-theme','light')}try{var x=JSON.parse(sessionStorage.getItem('cb-tx')||'null'),n=function(p){return p.replace(/(index)?(\.html)?\/?$/,'')||'/'};if(x&&Date.now()-x.t<6000&&n(String(x.u).split('?')[0])===n(location.pathname)){d.classList.add('cbtx');d.style.setProperty('--txp','"'+(x.p|0)+'%"')}}catch(e){}})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="refresh" content="0; url=/sunset-cruise"/>
+<script>location.replace("/sunset-cruise"+location.search+location.hash)</script>
 <title>Sunset Cruise in Madeira: Best Time &amp; What to Expect | Chifbay</title>
 <meta name="description" content="What time does the sun set in Madeira, and is a sunset cruise worth it? A guide to timing, light, weather and what an evening boat trip from Funchal is like.">
-<link rel="canonical" href="https://chifbay.com/posts/sunset-cruise-madeira-guide"/>
+<link rel="canonical" href="https://chifbay.com/sunset-cruise"/>
+<meta property="og:url" content="https://chifbay.com/sunset-cruise"/>
 <meta name="robots" content="index,follow"/>
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Sunset Cruise in Madeira: Best Time, Best Light & What to Expect"/>
@@ -23,16 +26,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../peak.min.css"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Sunset Cruise in Madeira: Best Time, Best Light & What to Expect","description":"What time does the sun set in Madeira, and is a sunset cruise worth it? A practical guide to timing, light, weather and what an evening boat trip from Funchal is actually like.","image":{"@type":"ImageObject","url":"https://chifbay.com/assets/journal/sunset-cruise-boat-wake-canopy-madeira.jpg","width":1536,"height":1024,"name":"Sunset cruise in Madeira","caption":"A boat's wake and canopy in silhouette on a sunset cruise in Madeira","description":"A boat's wake and canopy in silhouette on a sunset cruise in Madeira"},"datePublished":"2026-07-16","dateModified":"2026-07-16","author":{"@type":"Organization","name":"Chifbay","url":"https://chifbay.com/","@id":"https://chifbay.com/#business"},"publisher":{"@type":"Organization","name":"Chifbay","logo":{"@type":"ImageObject","url":"https://chifbay.com/assets/logo-white.png"}},"mainEntityOfPage":"https://chifbay.com/posts/sunset-cruise-madeira-guide.html"}</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What time does the sun set in Madeira?","acceptedAnswer":{"@type":"Answer","text":"It depends on the season: sunset falls around 6:00 pm in early December and stretches to roughly 9:20 pm in late June, since Madeira's longest day (the June solstice) has about 14 hours 18 minutes of daylight and the shortest (the December solstice) has about 10 hours 2 minutes."}},{"@type":"Question","name":"Is Madeira a good place to watch the sunset?","acceptedAnswer":{"@type":"Answer","text":"Yes. Moist Atlantic air and the low cloud banks that regularly form off the south coast scatter and hold the light far longer than a clear, dry sky does, which is why Madeira sunsets often run through deep orange and pink rather than fading quickly."}},{"@type":"Question","name":"Do sunset boat trips run year-round in Madeira?","acceptedAnswer":{"@type":"Answer","text":"Yes, weather and sea state allowing. Winter evenings are shorter and cooler so the trip starts earlier and layers matter more, while summer gives the longest golden-hour window and the calmest evening seas."}},{"@type":"Question","name":"Is it better to watch the sunset from a viewpoint or from a boat?","acceptedAnswer":{"@type":"Answer","text":"From the water you get an unbroken sea horizon and colour reflected on the surface around you, plus a boat can reposition to keep the sun and the coastline both in view — something a fixed miradouro on land can't do."}},{"@type":"Question","name":"How long does a sunset cruise from Funchal last?","acceptedAnswer":{"@type":"Answer","text":"Chifbay's private Sunset Cruise runs about 2 hours, timed so golden hour happens mid-trip rather than right at the end, with chilled Moët and Madeira wine on board."}}]}
-</script>
   <script defer src="https://dashboard-pink-nine-58.vercel.app/t.js" data-store="chifbay"></script>
 <script defer src="/track.min.js"></script>
-<!--hreflang:posts-i18n-->
-<link rel="alternate" hreflang="en" href="https://chifbay.com/posts/sunset-cruise-madeira-guide"/>
-<link rel="alternate" hreflang="x-default" href="https://chifbay.com/posts/sunset-cruise-madeira-guide"/>
-<!--/hreflang:posts-i18n-->
 <meta name="apple-itunes-app" content="app-id=6811650007">
 <link rel="stylesheet" href="/tide.min.css"/>
 <link rel="stylesheet" href="/marina.min.css"/>
@@ -42,7 +37,7 @@
 <nav id="nav"><div class="wrap ni">
   <a class="logo" href="/"><img decoding="async" src="../assets/logo-white.png" alt="Chifbay — private boat tours in Madeira, Funchal"></a>
   <nav class="nl">
-    <a href="/experiences">Experiences</a>
+    <div class="nd"><a href="/experiences">Experiences</a><div class="ndm"><a href="/private-boat-tour-madeira">Private boat tour</a><a href="/hidden-coves-half-day">Day trip with swimming</a><a href="/sunset-cruise">Sunset cruise</a></div></div>
     <a href="/about">Boat &amp; Crew</a>
     <a href="/practical">Practical info</a>
     <a href="/reviews">Our reviews</a>
@@ -68,7 +63,8 @@
 <section class="pad">
   <div class="wrap">
     <article class="article rv">
-      <p class="lede">A <a href="/sunset-cruise" data-ml>sunset cruise</a> sounds like a cliché until you're actually on the water watching Madeira's cliffs turn copper and gold. The light out here behaves differently from almost anywhere else in Europe — here's when to go, why it looks the way it does, and what an evening on the Atlantic is really like.</p>
+      <p class="lede" data-moved><strong>This guide is now part of our sunset cruise page</strong>, with sunset times by season, what to bring and how far ahead to book: <a href="/sunset-cruise">Sunset cruise in Funchal, Madeira</a>.</p>
+      <p class="lede">A sunset cruise sounds like a cliché until you're actually on the water watching Madeira's cliffs turn copper and gold. The light out here behaves differently from almost anywhere else in Europe — here's when to go, why it looks the way it does, and what an evening on the Atlantic is really like.</p>
 
       <h2>What time does the sun set in Madeira?</h2>
       <p>Sunset in Funchal ranges from around <strong>6:00 pm in early December</strong> to roughly <strong>9:20 pm in late June</strong>, which is later than mainland Portugal despite Madeira's Atlantic location, thanks to the island's time zone. The June solstice gives the island its longest day, about 14 hours 18 minutes of daylight; the December solstice gives the shortest, around 10 hours 2 minutes. In practice this means a summer evening trip can depart well after dinner time and still catch full daylight, while a winter trip needs to leave the marina by mid-afternoon.</p>

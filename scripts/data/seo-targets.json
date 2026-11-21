@@ -131,8 +131,7 @@
     "private bootstour madeira",
     "bootstour madeira",
     "bootstouren madeira",
-    "bootsausflug funchal",
-    "bootstour funchal"
+    "bootsausflug funchal"
    ],
    "title": "Private Bootstour Madeira ab Funchal · Privatboot | Chifbay",
    "description": "Private Bootstouren ab Funchal, Madeira: das ganze Boot für bis zu 5 Gäste, tagsüber oder abends, ab 400 €. Insta360-360°-Video, Drohne und Fotos inklusive.",
@@ -148,6 +147,16 @@
    ],
    "title": "Private Bootstour Madeira: Privatboot ab Funchal | Chifbay",
    "h1": "Private Bootstour Madeira",
+   "new": true
+  },
+  "de/bootstour-funchal.html": {
+   "queries": [
+    "bootstour funchal",
+    "bootsfahrt funchal",
+    "bootstour ab funchal"
+   ],
+   "title": "Bootstour Funchal: privat ab der Marina, ab 400 € | Chifbay",
+   "h1": "Bootstour ab Funchal",
    "new": true
   },
   "fr/index.html": {
@@ -177,7 +186,6 @@
    "queries": [
     "bootstour sonnenuntergang madeira",
     "sonnenuntergang bootsfahrt funchal",
-    "bootstour funchal",
     "sunset tour madeira"
    ],
    "title": "Bootstour zum Sonnenuntergang ab Funchal, Madeira | Chifbay",
@@ -187,7 +195,6 @@
   "de/hidden-coves-half-day.html": {
    "queries": [
     "bootsausflug madeira",
-    "bootstour funchal",
     "bootstour mit baden madeira",
     "bootsausflug funchal"
    ],
@@ -239,7 +246,6 @@
   },
   "pt/index.html": {
    "queries": [
-    "passeio de barco funchal",
     "passeio de barco madeira",
     "passeios de barco madeira",
     "barco privado madeira"
@@ -247,6 +253,15 @@
    "title": "Passeios de Barco Privados na Madeira, Funchal | Chifbay",
    "description": "Passeios de barco privados a partir do Funchal: o barco inteiro para até 5 pessoas, dois skippers, banhos em Fajã dos Padres ou pôr do sol. Desde 400 €.",
    "h1Html": "Passeios de barco <em>privados</em><br>na Madeira"
+  },
+  "pt/passeio-de-barco-funchal.html": {
+   "queries": [
+    "passeio de barco funchal",
+    "passeio de barco no funchal"
+   ],
+   "title": "Passeio de Barco no Funchal: Barco Privado desde 400 € | Chifbay",
+   "h1": "Passeio de barco no Funchal",
+   "new": true
   },
   "pt/sunset-cruise.html": {
    "queries": [
@@ -260,7 +275,6 @@
   },
   "pt/hidden-coves-half-day.html": {
    "queries": [
-    "passeio de barco funchal",
     "passeio de barco fajã dos padres",
     "passeio de barco com banhos madeira"
    ],

@@ -908,3 +908,21 @@ body:has(.annc) #nav{top:36px}
    wide screens and kept upright on phones, where the slot is tall. */
 .hbg.hbg-day{background-image:url('/assets/exp-coves-wide.jpg');background-image:image-set(url('/assets/exp-coves-wide.webp') type('image/webp'),url('/assets/exp-coves-wide.jpg') type('image/jpeg'))}
 @media(max-width:820px){.hbg.hbg-day{background-image:url('/assets/exp-coves.jpg');background-image:image-set(url('/assets/exp-coves.webp') type('image/webp'),url('/assets/exp-coves.jpg') type('image/jpeg'))}}
+/* The trips under "Experiences": the day trip, the sunset cruise and the
+   private boat page one click from every page (21 Nov 2026). Markup written by
+   scripts/set-main-nav.mjs. On a computer it opens on hover or keyboard focus,
+   styled like the language menu; in the phone drawer it is a short indented list. */
+.nd{position:relative;display:flex;align-items:center}
+.ndm{position:absolute;top:100%;left:-12px;margin-top:10px;background:rgba(var(--ink-rgb),.98);border:1px solid var(--hair);border-radius:12px;padding:8px;display:flex;flex-direction:column;min-width:190px;z-index:130;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .2s,transform .2s,visibility .2s}
+.ndm::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.nd:hover .ndm,.nd:focus-within .ndm{opacity:1;visibility:visible;transform:none}
+#nav .nl .nd .ndm a{color:var(--paper-dim);text-shadow:none;font-size:.84rem;padding:9px 12px;border-radius:8px;white-space:nowrap;transition:background .2s,color .2s}
+#nav .nl .nd .ndm a:hover{background:rgba(var(--teal-rgb),.12);color:var(--teal)}
+#nav .nl .nd .ndm a::after{display:none}
+@media(max-width:860px){
+  .nd{flex-direction:column;align-items:flex-start;width:100%}
+  .ndm{position:static;margin:0;padding:0 0 0 14px;background:none;border:0;border-left:1px solid var(--hair);border-radius:0;min-width:0;opacity:1;visibility:visible;transform:none;margin-bottom:6px}
+  .ndm::before{display:none}
+  #nav .nl .nd .ndm a{font-size:1rem;padding:7px 0}
+  #nav .nl .nd .ndm a:hover{background:none}
+}

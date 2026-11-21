@@ -86,6 +86,8 @@ jobs:
           fi
           # the byline and the About box in the new page's own language
           node scripts/add-brand-mentions.mjs --write
+          # the menu in the new page's own language (the model copies the English one)
+          node scripts/set-main-nav.mjs --write --skip '^(?!(fr|de|pt|es|it)/posts/)'
           node scripts/sitemap-lastmod.mjs --write
 
       # A run that translated nothing new must not create an empty commit —

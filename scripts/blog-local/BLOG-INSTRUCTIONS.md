@@ -34,11 +34,14 @@ are in `/posts/` and are written in English.
    - **Experience** (sea caves, Cabo Girão, dolphins & whales, sunset at sea, snorkeling)
    - **Food & Drink** (poncha, espetada, Madeira wine, seafood, markets)
    - **Nature** (levadas, Pico do Arieiro, natural pools, north coast, Laurisilva)
+   Never write a general sunset cruise guide ("best time", "what to expect"): `sunset-cruise.html` is that
+   page, and a post on the same search competes with it in Google. A narrow sunset question is fine if it
+   links to `/sunset-cruise` in its first paragraph.
 5. If the topic is news/seasonal/"what's on", **use WebSearch** to ground claims in current facts.
 6. Write a PREMIUM, genuinely useful article (~800–1100 words) optimised for **SEO + AI search**:
    a keyword-led title; H2 headings phrased as the real questions people ask; a direct factual
    answer in the first sentence under each heading; naturally weave in Chifbay once or twice with
-   exactly ONE link to `../experiences.html`; no fluff. Also write 3–5 FAQ Q&A pairs.
+   exactly ONE link to `/experiences`; no fluff. Also write 3–5 FAQ Q&A pairs.
 
 ## Output files
 7. Create `posts/<slug>.html` by COPYING THE EXACT STRUCTURE of

@@ -5,10 +5,13 @@
 //
 //   node scripts/set-main-nav.mjs           dry run
 //   node scripts/set-main-nav.mjs --write   apply
+//   add --skip '<regex>' to leave some files as they are
+//
+// Under Experiences: the trip pages of that language (TRIPS below).
 //
 // Each page keeps its own link paths (relative, ../ or /fr/...), read from
 // its current Experiences / About / Journal links. Safe to run again.
-import { readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -25,6 +28,24 @@ const L = {
   es: ["Experiencias", "Barco y tripulación", "Información", "Opiniones", "Dejar una opinión", "Diario", "Reservar"],
   it: ["Esperienze", "Barca ed equipaggio", "Informazioni", "Recensioni", "Lascia una recensione", "Diario", "Prenota"],
 };
+// 21 Nov 2026: the trip pages under "Experiences" (a menu on a computer, an
+// indented list in the phone drawer; styles at the end of peak.css), so the
+// pages that sell are one click from every page. Only pages that exist in the
+// language; pt gets its "passeio de barco no Funchal" page instead of the
+// private boat page, which has no Portuguese copy.
+const TRIPS = {
+  en: [["private-boat-tour-madeira", "Private boat tour"], ["hidden-coves-half-day", "Day trip with swimming"], ["sunset-cruise", "Sunset cruise"]],
+  fr: [["private-boat-tour-madeira", "Bateau privé"], ["hidden-coves-half-day", "Sortie de jour avec baignade"], ["sunset-cruise", "Coucher de soleil"]],
+  de: [["private-boat-tour-madeira", "Private Bootstour"], ["hidden-coves-half-day", "Tagestour mit Baden"], ["sunset-cruise", "Sonnenuntergang"]],
+  pt: [["passeio-de-barco-funchal", "Passeio de barco no Funchal"], ["hidden-coves-half-day", "Passeio com banhos"], ["sunset-cruise", "Pôr do sol"]],
+  es: [["hidden-coves-half-day", "Excursión con baño"], ["sunset-cruise", "Atardecer en barco"]],
+  it: [["hidden-coves-half-day", "Gita con bagno"], ["sunset-cruise", "Tramonto in barca"]],
+};
+const tripLinks = (lang, root) => TRIPS[lang]
+  .filter(([slug]) => existsSync(join(SITE, lang === "en" ? "" : lang, `${slug}.html`)))
+  .map(([slug, label]) => `<a href="${root}${slug}">${label}</a>`).join("");
+// --skip <regex>: leave matching files alone (e.g. pages another change is editing)
+const SKIP_RE = process.argv.includes("--skip") ? new RegExp(process.argv[process.argv.indexOf("--skip") + 1]) : null;
 const SECTION = (file) =>
   /(^|\/)(experiences|hidden-coves-half-day|sunset-cruise|book|book-day|book-sunset)\.html$/.test(file) ? 0 :
   /(^|\/)about\.html$/.test(file) ? 1 : /(^|\/)practical\.html$/.test(file) ? 2 :
@@ -42,6 +63,7 @@ const files = [];
 
 let changed = 0, skipped = [];
 for (const rel of files) {
+  if (SKIP_RE && SKIP_RE.test(rel)) continue;
   const h = readFileSync(join(SITE, rel), "utf8");
   const m = h.match(/(\n?[ \t]*)<nav class="nl">[\s\S]*?<\/nav>/);
   if (!m) continue;
@@ -56,8 +78,10 @@ for (const rel of files) {
   const root = lang === "en" ? "/" : `/${lang}/`;
   const active = SECTION(rel);
   // reviews pages exist in English only (/reviews, /review)
-  const links = [`${root}experiences`, `${root}about`, `${root}practical`, "/reviews", "/review", `${root}blog`].map((u, i) =>
-    `    <a href="${u}"${i === active ? ' class="active" aria-current="page"' : ""}>${lab[i]}</a>`).join("\n");
+  const links = [`${root}experiences`, `${root}about`, `${root}practical`, "/reviews", "/review", `${root}blog`].map((u, i) => {
+    const a = `<a href="${u}"${i === active ? ' class="active" aria-current="page"' : ""}>${lab[i]}</a>`;
+    return i === 0 ? `    <div class="nd">${a}<div class="ndm">${tripLinks(lang, root)}</div></div>` : `    ${a}`;
+  }).join("\n");
   const indent = m[1] || "\n  ";
   const next = `${indent}<nav class="nl">\n${links}\n  </nav>`;
   let out = h.replace(block, next);

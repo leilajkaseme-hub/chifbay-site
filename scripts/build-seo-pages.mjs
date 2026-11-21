@@ -12,6 +12,8 @@
 //   best-boat-trips-madeira.html          best boat trips madeira (comparison)
 //   de/private-boat-tour-madeira.html     private bootstour madeira
 //   fr/private-boat-tour-madeira.html     excursion bateau privé madère
+//   de/bootstour-funchal.html             bootstour funchal        (scripts/data/funchal-local.mjs)
+//   pt/passeio-de-barco-funchal.html      passeio de barco funchal (scripts/data/funchal-local.mjs)
 //
 // The look is not copied by hand: the head scripts, the menu, the footer, the
 // "Included" media block, the route map and the sticky booking bar are read
@@ -24,6 +26,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { nyePages } from "./data/nye-2026.mjs";
 import { guidePages, GUIDE_ALTS } from "./data/guide-boat-trips.mjs";
+import { localPages } from "./data/funchal-local.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const WRITE = process.argv.includes("--write");
@@ -707,6 +710,9 @@ PAGES.push(...nyePages({ ed, timeline, faq, reserve, WA }));
 
 // 8. "Boat trips in Madeira" in the five other languages (scripts/data/guide-boat-trips.mjs), native, with the English guide
 PAGES.push(...guidePages({ prose, faq, reserve, P, CMP_CSS }));
+
+// 9. "Boat trip from Funchal" in German and Portuguese (scripts/data/funchal-local.mjs), group "local"
+PAGES.push(...localPages({ ed, opts, feat, faq, reserve, P }));
 
 // ---------------------------------------------------------------- write
 let changed = 0;
