@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T20:25:32.066Z",
+ "generated_at": "2026-11-21T13:11:38.898Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -836,6 +836,36 @@
    "template": null,
    "priority": null,
    "created": "2026-11-19T14:05:50.769Z"
+  },
+  {
+   "id": "20261121131129-1cd3",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Boat tour from Funchal, Madeira: a dolphin in mid-air, and the cliff is just the backdrop.\n\nThe dolphin fills most of the picture. It is grey and smooth, with a pale belly, a curved fin on its back and a small dark eye. The whole body is clear of the water, and drops are still flying off it.\n\nBehind it, a tall brown cliff, blurry and a little out of focus. A cliff that size is usually the main character out here. In this picture it has been moved to the background.\n\nBelow, deep blue water with a few small white crests. Above, clear blue sky.\n\nWe cannot promise a visit like this. Wildlife does what it wants, and we would not have it any other way. What we can promise is the coast: our Day Trip leaves Funchal marina at 10:00 or 14:00 and passes Câmara de Lobos and Cabo Girão, with a swim and paddle stop at Fajã dos Padres. The Sunset Trip follows the same coast, without swimming. Both are private, with a skipper, five guests at most, and food on board.\n\nO mar também tem pressa.\n\nWould you keep your eyes on the water, or on the cliffs? Book direct on chifbay.com",
+   "hashtags": [
+    "#madeiraportugal",
+    "#funchal",
+    "#boattrip",
+    "#privateboattour",
+    "#marinelife",
+    "#wildlifewatching",
+    "#traveleurope"
+   ],
+   "cover": "https://chifbay.com/ig/20261121131129-1cd3-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261121131129-1cd3-1.jpg",
+    "https://chifbay.com/ig/20261121131129-1cd3-2.jpg",
+    "https://chifbay.com/ig/20261121131129-1cd3-3.jpg",
+    "https://chifbay.com/ig/20261121131129-1cd3-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-21T13:11:38.888Z"
   }
  ]
 }
