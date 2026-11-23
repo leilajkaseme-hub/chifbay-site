@@ -1870,6 +1870,20 @@
     "follows": null,
     "profile_visits": null,
     "ig_reels_avg_watch_time": 2583
+   },
+   "d7": {
+    "at": "2026-11-23T18:03:09.628Z",
+    "age_hours": 191,
+    "reach": 106,
+    "views": 118,
+    "likes": 2,
+    "comments": 1,
+    "shares": 0,
+    "saved": 0,
+    "total_interactions": 3,
+    "follows": null,
+    "profile_visits": null,
+    "ig_reels_avg_watch_time": 2570
    }
   },
   "18016646261994483": {
@@ -2015,7 +2029,17 @@
     "profile_visits": 0,
     "ig_reels_avg_watch_time": null
    }
+  },
+  "18111020003246097": {
+   "posted_at": "2026-11-22T19:21:59+0000",
+   "permalink": "https://www.instagram.com/reel/DgDi1-AnAmD/",
+   "type": "reel",
+   "ours": {
+    "id": "s033",
+    "format": null,
+    "source": "short"
+   }
   }
  },
- "updated_at": "2026-11-22T14:32:05.073Z"
+ "updated_at": "2026-11-23T18:03:09.628Z"
 }
