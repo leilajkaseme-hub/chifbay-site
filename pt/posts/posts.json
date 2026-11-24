@@ -1,5 +1,26 @@
 [
   {
+    "slug": "what-you-see-of-funchal-from-the-sea",
+    "title": "Funchal vista do mar: o guia para reconhecer tudo o que se vê da baía",
+    "category": "Experience",
+    "date": "2026-11-24",
+    "description": "O Funchal visto do mar, da orla ao Monte: o que é cada forte, igreja e miradouro, e a que hora a baía se mostra melhor num passeio de barco.",
+    "heroImage": "assets/journal/funchal-amphitheatre-city-lights-from-the-boat-at-dusk-madeira.jpg",
+    "heroAlt": "Funchal's lights climbing the hills at dusk, seen from the stern of a boat returning",
+    "readingMinutes": 6,
+    "keywords": [
+      "what can you see of Funchal from the sea",
+      "Funchal from the water",
+      "Funchal amphitheatre view",
+      "Funchal bay boat view",
+      "Monte church from the sea",
+      "Funchal at night from a boat",
+      "Funchal landmarks seen from the sea"
+    ],
+    "set": "boat-60",
+    "lang": "pt"
+  },
+  {
     "slug": "morning-or-afternoon-boat-trip-madeira",
     "title": "Passeio de barco na Madeira: de manhã ou à tarde, a que horas ir?",
     "category": "Guide",
