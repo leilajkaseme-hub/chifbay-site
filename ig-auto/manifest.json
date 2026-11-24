@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T01:59:02.594Z",
+ "generated_at": "2026-11-24T15:28:39.899Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -798,6 +798,36 @@
    "template": null,
    "priority": 0,
    "created": "2026-11-21T13:11:38.888Z"
+  },
+  {
+   "id": "20261124152827-3a93",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Private boat tour from Funchal, Madeira: two sunbathers, one bow, and water so clear you can see the rocks.\n\nThe picture looks straight down on our boat. White hull, grey cushions on the front deck, and two people lying side by side with their feet pointing at the sea. Nobody is standing. Nobody is busy. It looks like the best seats on board are taken.\n\nBehind them, the helm seats and a small wooden table sit empty. The water is bright turquoise, and the dark patches under the surface are rocks on the bottom. The boat's shadow sits next to it like a second, darker boat.\n\nThe practical bit: our Day Trip leaves Funchal marina at 10:00 or 14:00 and has a swim and paddle stop at Fajã dos Padres. Swimming is on that trip only. The Sunset Trip follows the same coast, without swimming. Both are private, with a skipper, five guests at most, and food on board.\n\nAo sol, sem pressa.\n\nIf you want a quiet corner of the deck, you can ask us about it on chifbay.com.",
+   "hashtags": [
+    "#madeiraisland",
+    "#portugal",
+    "#madeiraboattrip",
+    "#boattour",
+    "#familytrip",
+    "#happyguests",
+    "#islandhopping"
+   ],
+   "cover": "https://chifbay.com/ig/20261124152827-3a93-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261124152827-3a93-1.jpg",
+    "https://chifbay.com/ig/20261124152827-3a93-2.jpg",
+    "https://chifbay.com/ig/20261124152827-3a93-3.jpg",
+    "https://chifbay.com/ig/20261124152827-3a93-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-24T15:28:39.890Z"
   }
  ]
 }
