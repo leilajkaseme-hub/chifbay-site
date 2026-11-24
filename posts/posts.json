@@ -1,5 +1,25 @@
 [
   {
+    "slug": "what-you-see-of-funchal-from-the-sea",
+    "title": "What Can You See of Funchal From the Sea?",
+    "category": "Experience",
+    "date": "2026-11-24",
+    "description": "From the sea, Funchal is an amphitheatre: forts and hotels on the shore, houses climbing to Monte at about 600 m, and the high peaks behind it on clear days.",
+    "heroImage": "assets/journal/funchal-amphitheatre-city-lights-from-the-boat-at-dusk-madeira.jpg",
+    "heroAlt": "Funchal's lights climbing the hills at dusk, seen from the stern of a boat returning",
+    "readingMinutes": 6,
+    "keywords": [
+      "what can you see of Funchal from the sea",
+      "Funchal from the water",
+      "Funchal amphitheatre view",
+      "Funchal bay boat view",
+      "Monte church from the sea",
+      "Funchal at night from a boat",
+      "Funchal landmarks seen from the sea"
+    ],
+    "set": "boat-60"
+  },
+  {
     "slug": "are-there-sharks-in-madeira",
     "title": "Are There Sharks in Madeira's Waters?",
     "category": "Nature",
