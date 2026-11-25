@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T07:16:38.219Z",
+  "updatedAt": "2026-11-25T12:16:37.879Z",
   "aggregate": {
     "rating": 5,
     "count": 65
@@ -351,27 +351,6 @@
       "reply": {
         "text": "Dear Hubert, Thank you so much for these lovely words. We are delighted that the whole family enjoyed the swimming stops and that our father and son skipper team made you feel so well looked after. It truly means a lot to hear you consider it one of the highlights of your holiday. We hope to welcome you all back on board again one day. Warm regards, The Chifbay Team",
         "date": "2026-08-30"
-      },
-      "translation": null
-    },
-    {
-      "id": "google-e1707c388194f625",
-      "source": "google",
-      "rating": 5,
-      "author": "Lane End Chandlery",
-      "country": "",
-      "countryFlag": "",
-      "date": "2026-08-27",
-      "text": "What a wonderful day! We opted for the three hour trip which was very reasonably priced. Luigi and family (including Dad who made the best Guacamole ever - secret ingredient honey!) were so friendly and welcoming and couldn’t do enough for us. We saw some sights, swam in the sea with the SUP board and snorkels, had a lovely lunch and as many drinks as we wanted. The boat itself was pristine - the best boat for this price I have been on. We ended the day at the front of the boat whilst the driver drove us very fast - the kids loved it! Thanks ever so much I would highly recommend but book directly if you can as if you book via a site, they take an exorbitant amount of money. Thanks again! Rebecca and family!",
-      "photos": [
-        "assets/reviews/google/google-e1707c388194f625-1.jpg",
-        "assets/reviews/google/google-e1707c388194f625-2.jpg"
-      ],
-      "tourId": null,
-      "tourName": null,
-      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
-      "reply": {
-        "text": "Tank you so much, Rebecca, for this wonderful review. The whole Chifbay team was delighted to welcome you and your family on board. Knowing that you had such a great day means a lot to us. We hope to see you again for another aventure Chifbay team⚓️ Chifbay.com"
       },
       "translation": null
     },
@@ -807,6 +786,27 @@
       "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
       "reply": {
         "text": "Sabrina, it means so much to us that you chose our boat for such a special moment. Congratulations on your engagement 🤗 We’re so happy to have been part of this beautiful memory, and hope to welcome you both back on board one day. The Chifbay team⚓️ Chifbay.com"
+      },
+      "translation": null
+    },
+    {
+      "id": "google-e1707c388194f625",
+      "source": "google",
+      "rating": 5,
+      "author": "Lane End Chandlery",
+      "country": "",
+      "countryFlag": "",
+      "date": "2026-07-28",
+      "text": "What a wonderful day! We opted for the three hour trip which was very reasonably priced. Luigi and family (including Dad who made the best Guacamole ever - secret ingredient honey!) were so friendly and welcoming and couldn’t do enough for us. We saw some sights, swam in the sea with the SUP board and snorkels, had a lovely lunch and as many drinks as we wanted. The boat itself was pristine - the best boat for this price I have been on. We ended the day at the front of the boat whilst the driver drove us very fast - the kids loved it! Thanks ever so much I would highly recommend but book directly if you can as if you book via a site, they take an exorbitant amount of money. Thanks again! Rebecca and family!",
+      "photos": [
+        "assets/reviews/google/google-e1707c388194f625-1.jpg",
+        "assets/reviews/google/google-e1707c388194f625-2.jpg"
+      ],
+      "tourId": null,
+      "tourName": null,
+      "tourUrl": "https://www.google.com/maps/place/?q=place_id:ChIJLUOnXLFhYAwRzK7dtdeu8Js",
+      "reply": {
+        "text": "Tank you so much, Rebecca, for this wonderful review. The whole Chifbay team was delighted to welcome you and your family on board. Knowing that you had such a great day means a lot to us. We hope to see you again for another aventure Chifbay team⚓️ Chifbay.com"
       },
       "translation": null
     },
