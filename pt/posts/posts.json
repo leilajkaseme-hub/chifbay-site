@@ -1,5 +1,48 @@
 [
   {
+    "slug": "boat-trip-from-funchal-or-calheta",
+    "title": "Passeio de barco na Madeira: sair do Funchal ou da Calheta?",
+    "category": "Guide",
+    "date": "2026-11-25",
+    "description": "Passeio de barco a partir do Funchal ou da Calheta? Veja o que cada marina mostra, quanto custa a distância e como escolher conforme o alojamento.",
+    "heroImage": "assets/journal/calheta-marina-and-sand-beach-from-above-madeira.jpg",
+    "heroAlt": "Drone view of Calheta marina and its golden sand beach behind breakwaters on Madeira's southwest coast",
+    "readingMinutes": 5,
+    "keywords": [
+      "should you take a boat trip from funchal or calheta",
+      "boat trip from calheta madeira",
+      "funchal or calheta boat trip",
+      "calheta marina madeira",
+      "calheta beach golden sand",
+      "where to take a boat trip in madeira",
+      "funchal to calheta drive time"
+    ],
+    "set": "boat-60",
+    "lang": "pt"
+  },
+  {
+    "slug": "are-there-coral-reefs-in-madeira",
+    "title": "Há corais na Madeira? A verdade sobre os recifes da ilha",
+    "category": "Nature",
+    "date": "2026-11-25",
+    "description": "Não há recifes de coral na Madeira: o mar é frio demais e a ilha cai a pique. Veja que corais existem, o que se vê no snorkeling e onde há mais peixe.",
+    "heroImage": "assets/journal/volcanic-rocky-reef-with-fish-madeira.jpg",
+    "heroAlt": "Underwater view of a volcanic rocky reef with seaweed, urchins and a shoal of fish",
+    "readingMinutes": 5,
+    "keywords": [
+      "are there coral reefs in Madeira",
+      "coral in Madeira",
+      "Madeira underwater life",
+      "snorkelling Madeira what will I see",
+      "Madeira rocky reef fish",
+      "why no coral reefs in Madeira",
+      "Madeira sea urchin barrens",
+      "maerl Cabo Girão"
+    ],
+    "set": "boat-60",
+    "lang": "pt"
+  },
+  {
     "slug": "what-you-see-of-funchal-from-the-sea",
     "title": "Funchal vista do mar: o guia para reconhecer tudo o que se vê da baía",
     "category": "Experience",

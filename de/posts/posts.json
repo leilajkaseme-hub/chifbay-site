@@ -1,5 +1,48 @@
 [
   {
+    "slug": "boat-trip-from-funchal-or-calheta",
+    "title": "Bootstour auf Madeira: Starten Sie in Funchal oder in Calheta?",
+    "category": "Guide",
+    "date": "2026-11-25",
+    "description": "Bootstour ab Funchal oder Calheta? 32 km liegen dazwischen. Welche Küste Sie sehen, was die Anfahrt kostet und wie Sie sich entscheiden.",
+    "heroImage": "assets/journal/calheta-marina-and-sand-beach-from-above-madeira.jpg",
+    "heroAlt": "Drone view of Calheta marina and its golden sand beach behind breakwaters on Madeira's southwest coast",
+    "readingMinutes": 5,
+    "keywords": [
+      "should you take a boat trip from funchal or calheta",
+      "boat trip from calheta madeira",
+      "funchal or calheta boat trip",
+      "calheta marina madeira",
+      "calheta beach golden sand",
+      "where to take a boat trip in madeira",
+      "funchal to calheta drive time"
+    ],
+    "set": "boat-60",
+    "lang": "de"
+  },
+  {
+    "slug": "are-there-coral-reefs-in-madeira",
+    "title": "Korallenriffe auf Madeira? Die ehrliche Antwort für Schnorchler",
+    "category": "Nature",
+    "date": "2026-11-25",
+    "description": "Gibt es Korallenriffe auf Madeira? Nein. Warum nicht, was beim Schnorcheln stattdessen zu sehen ist und wann sich Wasser und Neoprenanzug lohnen.",
+    "heroImage": "assets/journal/volcanic-rocky-reef-with-fish-madeira.jpg",
+    "heroAlt": "Underwater view of a volcanic rocky reef with seaweed, urchins and a shoal of fish",
+    "readingMinutes": 5,
+    "keywords": [
+      "are there coral reefs in Madeira",
+      "coral in Madeira",
+      "Madeira underwater life",
+      "snorkelling Madeira what will I see",
+      "Madeira rocky reef fish",
+      "why no coral reefs in Madeira",
+      "Madeira sea urchin barrens",
+      "maerl Cabo Girão"
+    ],
+    "set": "boat-60",
+    "lang": "de"
+  },
+  {
     "slug": "what-you-see-of-funchal-from-the-sea",
     "title": "Funchal vom Meer aus: So lesen Sie die Stadt vom Boot aus",
     "category": "Experience",

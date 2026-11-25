@@ -1,5 +1,48 @@
 [
   {
+    "slug": "boat-trip-from-funchal-or-calheta",
+    "title": "Excursion en bateau à Madère : embarquer à Funchal ou à Calheta ?",
+    "category": "Guide",
+    "date": "2026-11-25",
+    "description": "Excursion en bateau à Madère : Funchal ou Calheta ? Ce que chaque marina fait voir, le trajet entre les deux, et comment choisir selon votre hôtel.",
+    "heroImage": "assets/journal/calheta-marina-and-sand-beach-from-above-madeira.jpg",
+    "heroAlt": "Drone view of Calheta marina and its golden sand beach behind breakwaters on Madeira's southwest coast",
+    "readingMinutes": 5,
+    "keywords": [
+      "should you take a boat trip from funchal or calheta",
+      "boat trip from calheta madeira",
+      "funchal or calheta boat trip",
+      "calheta marina madeira",
+      "calheta beach golden sand",
+      "where to take a boat trip in madeira",
+      "funchal to calheta drive time"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
+    "slug": "are-there-coral-reefs-in-madeira",
+    "title": "Madère a-t-elle des récifs coralliens ? Ce que l'on voit vraiment sous l'eau",
+    "category": "Nature",
+    "date": "2026-11-25",
+    "description": "Pas de barrière de corail à Madère, mais un snorkeling de roche volcanique : poissons, pieuvres, mérous. Eau à 18 °C en hiver, 23 à 24 °C en été.",
+    "heroImage": "assets/journal/volcanic-rocky-reef-with-fish-madeira.jpg",
+    "heroAlt": "Underwater view of a volcanic rocky reef with seaweed, urchins and a shoal of fish",
+    "readingMinutes": 5,
+    "keywords": [
+      "are there coral reefs in Madeira",
+      "coral in Madeira",
+      "Madeira underwater life",
+      "snorkelling Madeira what will I see",
+      "Madeira rocky reef fish",
+      "why no coral reefs in Madeira",
+      "Madeira sea urchin barrens",
+      "maerl Cabo Girão"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
     "slug": "are-there-sharks-in-madeira",
     "title": "Requins à Madère : peut-on se baigner sans danger ?",
     "category": "Nature",
