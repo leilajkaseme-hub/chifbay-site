@@ -24,6 +24,9 @@ defaults:
   run:
     shell: bash   # so `a | tee b` cannot report a failed run as green
 
+env:
+  NOTIFY_OFF: ${{ vars.NOTIFY_OFF }}  # repo variable: 1 = no ntfy pushes to Theo (25 Nov 2026)
+
 jobs:
   sync:
     runs-on: ubuntu-latest

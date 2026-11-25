@@ -79,6 +79,7 @@ export function ledger() {
 export const record = (e) => appendFileSync(LEDGER, JSON.stringify({ at: new Date().toISOString(), ...e }) + "\n");
 
 export async function ntfy(title, message) {
+  if (process.env.NOTIFY_OFF) return; // repo variable NOTIFY_OFF=1: no pushes to Theo (25 Nov 2026)
   try {
     const cfg = JSON.parse(readFileSync(join(ROOT, "..", "ig-auto", "config.json"), "utf8"));
     await fetch(cfg.ntfy.inbox, { method: "POST", headers: { Title: title.replace(/[^\x20-\x7e]/g, "") }, body: message });

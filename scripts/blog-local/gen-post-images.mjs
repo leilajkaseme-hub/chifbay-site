@@ -161,6 +161,7 @@ function verifyImage(imagePath, expectation) {
 }
 
 function notifyQaFlag(title, count) {
+  if (process.env.NOTIFY_OFF) return; // repo variable NOTIFY_OFF=1: no pushes to Theo (25 Nov 2026)
   try {
     execFileSync("curl", [
       "-s", "--max-time", "20",

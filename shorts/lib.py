@@ -282,6 +282,8 @@ def media_drop(urls):
 
 
 def notify(title, message, inbox=False):
+    if os.environ.get("NOTIFY_OFF"):  # repo variable NOTIFY_OFF=1: no pushes to Theo (25 Nov 2026)
+        return
     cfg = read_json(SITE / "ig-auto" / "config.json", {})
     url = (cfg.get("ntfy") or {}).get("inbox" if inbox else "alerts")
     if url:

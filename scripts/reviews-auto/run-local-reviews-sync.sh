@@ -28,6 +28,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 NTFY_ALERTS="https://ntfy.sh/futurx-blog-alerts-544024878e"
 NTFY_INBOX="https://ntfy.sh/futurx-inbox-544024878e"
+# Theo's alerts are off while automation/notify-hub/OFF exists (25 Nov 2026). An empty URL makes each
+# ntfy curl below fail at once, and its `|| true` keeps the run going. Delete the file to turn them back on.
+if [ -e /Users/Shared/Claude/automation/notify-hub/OFF ]; then NTFY_ALERTS=""; NTFY_INBOX=""; export NOTIFY_OFF=1; fi
 
 # Every run reports to the booking server (/v1/ingest/reviews), success or
 # not. The external watchdog (apps/stores-watch) reads that report and sends

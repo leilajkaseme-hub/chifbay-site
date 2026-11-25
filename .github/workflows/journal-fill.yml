@@ -28,6 +28,9 @@ defaults:
   run:
     shell: bash
 
+env:
+  NOTIFY_OFF: ${{ vars.NOTIFY_OFF }}  # repo variable: 1 = no ntfy pushes to Theo (25 Nov 2026)
+
 jobs:
   fill:
     runs-on: ubuntu-latest
@@ -59,7 +62,7 @@ jobs:
           git commit -m "Journal queue: $(ls journal-queue | wc -l | tr -d ' ') post(s) written ahead"
           scripts/ci-push.sh
       - name: Notify failure (ntfy)
-        if: failure()
+        if: (failure()) && vars.NOTIFY_OFF == ''
         run: |
           curl -s --max-time 20 -H "Title: CHIFBAY Journal queue job failed" -H "Priority: default" -H "Tags: warning,boat" \
             -d "Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \

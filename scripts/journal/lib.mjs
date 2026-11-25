@@ -69,6 +69,7 @@ export function queueItems() {
 export const readPosts = () => JSON.parse(readFileSync(POSTS_JSON, "utf8"));
 
 export function ntfy(title, body, priority = "default") {
+  if (process.env.NOTIFY_OFF) return Promise.resolve(); // repo variable NOTIFY_OFF=1: no pushes to Theo (25 Nov 2026)
   return fetch("https://ntfy.sh/futurx-blog-alerts-544024878e", {
     method: "POST", body, headers: { Title: title, Priority: priority, Tags: "boat" },
     signal: AbortSignal.timeout(20_000),

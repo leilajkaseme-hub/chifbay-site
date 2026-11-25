@@ -14,6 +14,9 @@ permissions:
   contents: read
   pages: write
 
+env:
+  NOTIFY_OFF: ${{ vars.NOTIFY_OFF }}  # repo variable: 1 = no ntfy pushes to Theo (25 Nov 2026)
+
 jobs:
   heal:
     runs-on: ubuntu-latest
@@ -39,7 +42,7 @@ jobs:
 
       # Push notification to the ntfy app if the heal could not fix the site.
       - name: Notify failure (ntfy)
-        if: failure()
+        if: (failure()) && vars.NOTIFY_OFF == ''
         run: |
           curl -s --max-time 20 \
             -H "Title: CHIFBAY site is STALE (heal failed)" \

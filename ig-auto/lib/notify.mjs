@@ -7,7 +7,8 @@
 import { config } from "./queue.mjs";
 
 async function send(topic, title, message, { priority = "default", tags = "boat", extra = {} } = {}) {
-  if (!topic) return;
+  // Repo variable NOTIFY_OFF=1 (passed as env) turns off every push to Theo (25 Nov 2026).
+  if (!topic || process.env.NOTIFY_OFF) return;
   try {
     await fetch(topic, {
       method: "POST",

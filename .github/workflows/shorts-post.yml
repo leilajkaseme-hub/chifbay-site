@@ -23,6 +23,9 @@ defaults:
   run:
     shell: bash
 
+env:
+  NOTIFY_OFF: ${{ vars.NOTIFY_OFF }}  # repo variable: 1 = no ntfy pushes to Theo (25 Nov 2026)
+
 jobs:
   post:
     runs-on: ubuntu-latest

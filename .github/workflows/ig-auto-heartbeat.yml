@@ -26,6 +26,9 @@ defaults:
   run:
     shell: bash
 
+env:
+  NOTIFY_OFF: ${{ vars.NOTIFY_OFF }}  # repo variable: 1 = no ntfy pushes to Theo (25 Nov 2026)
+
 jobs:
   heartbeat:
     runs-on: ubuntu-latest
@@ -45,7 +48,7 @@ jobs:
       # heartbeat.mjs sends its own detailed alert describing what is wrong;
       # this only covers the case where the script itself could not run.
       - name: Notify failure (ntfy)
-        if: failure()
+        if: (failure()) && vars.NOTIFY_OFF == ''
         run: |
           curl -s --max-time 20 \
             -H "Title: CHIFBAY Instagram heartbeat" \

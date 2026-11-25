@@ -31,6 +31,9 @@ defaults:
   run:
     shell: bash
 
+env:
+  NOTIFY_OFF: ${{ vars.NOTIFY_OFF }}  # repo variable: 1 = no ntfy pushes to Theo (25 Nov 2026)
+
 jobs:
   post:
     runs-on: ubuntu-latest
@@ -79,7 +82,7 @@ jobs:
         run: node scripts/checks/verify-post-images.mjs
 
       - name: Warn about a missing article image (ntfy)
-        if: steps.imgcheck.outcome == 'failure'
+        if: (steps.imgcheck.outcome == 'failure') && vars.NOTIFY_OFF == ''
         run: |
           curl -s --max-time 20 \
             -H "Title: CHIFBAY journal: a post image is missing" \
@@ -175,7 +178,7 @@ jobs:
 
       # Push notification to the ntfy app if anything above failed.
       - name: Notify failure (ntfy)
-        if: failure()
+        if: (failure()) && vars.NOTIFY_OFF == ''
         run: |
           curl -s --max-time 20 \
             -H "Title: CHIFBAY blog post FAILED" \
