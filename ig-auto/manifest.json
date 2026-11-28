@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T19:58:11.694Z",
+ "generated_at": "2026-11-28T13:49:34.269Z",
  "items": [
   {
    "id": "r15-daytrip",
@@ -761,6 +761,36 @@
    "template": null,
    "priority": 0,
    "created": "2026-11-24T15:28:39.890Z"
+  },
+  {
+   "id": "20261128134923-fd52",
+   "kind": "feed",
+   "media": "photo",
+   "caption": "Boat tour from Funchal, Madeira: a cushion each, and a sea you can nearly read.\n\nThe bow of our boat points to the right. Two people lie on the pale cushions at the front, one on each side, resting with their eyes closed or hidden under a hat. There is a lot of room for everyone and nobody is fighting over it.\n\nFurther back, two grey seats sit by the wheel, with a small wooden table beside them. The deck looks very tidy from up here.\n\nThe water does the showing off. It is bright turquoise, and you can make out the shapes of the rocks on the bottom, with light wobbling over them.\n\nThe practical bit: the swim and paddle stop at Fajã dos Padres is part of our Day Trip, which leaves Funchal marina at 10:00 or 14:00. Swimming is on that trip only. Every trip is private, with a skipper, five guests at most, and food on board.\n\nPronto para o sol.\n\nIf you want to know which day suits your group, just send us a message.",
+   "hashtags": [
+    "#madeira",
+    "#visitmadeira",
+    "#madeiraboattour",
+    "#boatlife",
+    "#islandlife",
+    "#visitportugal",
+    "#travelportugal"
+   ],
+   "cover": "https://chifbay.com/ig/20261128134923-fd52-1.jpg",
+   "video": null,
+   "slides": [
+    "https://chifbay.com/ig/20261128134923-fd52-1.jpg",
+    "https://chifbay.com/ig/20261128134923-fd52-2.jpg",
+    "https://chifbay.com/ig/20261128134923-fd52-3.jpg",
+    "https://chifbay.com/ig/20261128134923-fd52-4.jpg"
+   ],
+   "plan_index": null,
+   "set": null,
+   "alt": null,
+   "title": null,
+   "template": null,
+   "priority": 0,
+   "created": "2026-11-28T13:49:34.262Z"
   }
  ]
 }
