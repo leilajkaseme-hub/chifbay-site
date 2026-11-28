@@ -1,5 +1,47 @@
 [
   {
+    "slug": "paddle-boarding-on-a-boat-trip-in-madeira",
+    "title": "Faire du stand up paddle au pied des falaises de Madère, depuis un bateau privé",
+    "category": "Experience",
+    "date": "2026-11-28",
+    "description": "Du stand up paddle pendant une sortie en bateau à Madère ? Oui, à Fajã dos Padres, avec la Day Trip. Débutants, météo, tenue, prix : tout ce qu'il faut savoir.",
+    "heroImage": "assets/journal/paddle-board-under-the-cliffs-faja-dos-padres-madeira.jpg",
+    "heroAlt": "A paddle boarder kneeling on a board in deep blue water under the cliffs of Fajã dos Padres",
+    "readingMinutes": 5,
+    "keywords": [
+      "can you paddleboard on a boat trip in madeira",
+      "paddle boarding madeira",
+      "stand up paddle madeira beginner",
+      "paddle board faja dos padres",
+      "sup on a boat trip funchal",
+      "is paddle boarding hard for beginners",
+      "madeira boat trip swim stop"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
+    "slug": "is-the-sea-in-madeira-clean-for-swimming",
+    "title": "Baignade à Madère : l'eau est-elle vraiment propre ? Ce que disent les analyses",
+    "category": "Guide",
+    "date": "2026-11-28",
+    "description": "Qualité de l'eau à Madère : 60 zones de baignade contrôlées, deux sites à éviter, et le réflexe à avoir après la pluie. Le point avant de plonger.",
+    "heroImage": "assets/journal/swimmer-in-clean-blue-water-faja-dos-padres-madeira.jpg",
+    "heroAlt": "Swimmer in deep clear blue water looking towards the pebble shore of Fajã dos Padres",
+    "readingMinutes": 5,
+    "keywords": [
+      "is the sea in Madeira clean enough to swim in",
+      "Madeira bathing water quality",
+      "Madeira beach water quality 2025",
+      "swimming after rain Madeira",
+      "Doca do Cavacas water quality",
+      "Blue Flag beaches Madeira 2026",
+      "is it safe to swim in Funchal"
+    ],
+    "set": "boat-60",
+    "lang": "fr"
+  },
+  {
     "slug": "best-photo-spots-on-a-boat-trip-in-madeira",
     "title": "Photos de Madère depuis la mer : 7 spots à ne pas manquer sur la côte sud",
     "category": "Experience",
